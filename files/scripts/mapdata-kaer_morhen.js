@@ -203,7 +203,19 @@ window.mapdata_kaer_morhen = {
 	}],
 
 	//------------------------------------------------Point of Interest------------------------------------------------
-	poi: [],
+	poi: [{
+		coords: [[46.625,58.875]],
+		label: $.t("k:poi.label.leoGrave"),
+		popup: $.t("k:poi.desc.leoGrave")
+	},{
+		coords: [[46.219,54.375]],
+		label: $.t("k:poi.label.deadDog") + '*',
+		popup: $.t("k:poi.desc.deadDog",{mquest: $.t("mainquests.label.place"),squest: $.t("sidequests.label.last")})
+	},{
+		coords: [[78.906,52.016]],
+		label: $.t("k:poi.label.graveyard"),
+		popup: $.t("k:poi.desc.graveyard")
+	}],
 
 	//------------------------------------------------Scavengers------------------------------------------------
 	scavenger: [{

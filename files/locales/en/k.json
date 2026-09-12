@@ -15,6 +15,18 @@
             "zoltan": "Zoltan Chivay"
         }
     },
+    "poi": {
+        "desc": {
+            "leoGrave": "Grave of the witcher Leo from the first Witcher game. ",
+            "deadDog": "Dead dog that shows up in Kaer Morhen only after sleeping with Yennefer during the '__mquest__' mission. To be able to sleep with her, you have to finish the '__squest__' mission and stay in a romantic relationship with her. ",
+            "graveyard": " "
+        },
+        "label": {
+            "leoGrave": "Leo's Grave",
+            "deadDog": "Dead Dog",
+            "graveyard": "Kaer Morhen Graveyard"
+        }
+    },
     "signpost": {
         "desc": {
             "bastion": "Once young witchers trained here. Now the bastion is a forgotten ruin. ",
