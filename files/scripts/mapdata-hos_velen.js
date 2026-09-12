@@ -4370,7 +4370,11 @@ window.mapdata_hos_velen = {
 	},{
 		coords: [[39.000,131.969]],
 		label: $.t("sidebar.treasure") + '*',
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.bald")}) + $.t("treasure.desc")
+		popup: $.t("misc.active",{quest: $.t("mainquests.label.bald")}) + $.t("treasure.desc")
+	},{
+		coords: [[34.531,129.891]],
+		label: $.t("sidebar.treasure") + '*',
+		popup: $.t("misc.active",{quest: $.t("mainquests.label.bald")}) + $.t("treasure.desc")
 	},{
 		coords: [[52.625,50.500]],
 		label: $.t("sidebar.treasure") + '*' + ' (' + $.t("misc.underground") + ')',
