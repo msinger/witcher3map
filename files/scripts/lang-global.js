@@ -64,6 +64,16 @@ window.changeLang=function(e){
         changeLang(e.selectedData.value)
       }
     })
-  }),jQuery.cachedScript=function(e,a){
-    return a=$.extend(a||{},{dataType:"script",cache:!0,url:e}),jQuery.ajax(a)
+  }),jQuery.cachedScript=function(url, options){
+    var deferred = $.Deferred();
+    var script = document.createElement("script");
+    script.src = url;
+    script.onload = function() {
+        deferred.resolve();
+    };
+    script.onerror = function() {
+        deferred.reject();
+    };
+    document.head.appendChild(script);
+    return deferred.promise();
   };
