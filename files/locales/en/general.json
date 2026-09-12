@@ -548,9 +548,9 @@
         "white_orchard": "White Orchard"
     },
     "misc": {
-        "active": "It will become active after the '__quest__' mission. ",
+        "active": "It will become accessible during or after the '__quest__' mission. ",
         "contribute": "For your suggestions or complaints __link1__ or __link2__. ",
-        "dactive": "It will only active during the '__quest__' mission. ",
+        "dactive": "It will only be accessible during the '__quest__' mission. ",
         "disappears": "Not accessible after '__quest__' mission. ",
         "discuss": "Feedback, suggestions? Discuss on __link__",
         "entrance1": "You can enter the underground __x1__ here __end__. ",
