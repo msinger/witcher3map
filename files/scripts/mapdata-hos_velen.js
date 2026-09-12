@@ -3264,10 +3264,6 @@ window.mapdata_hos_velen = {
 		label: $.t("sidebar.shopkeeper"),
 		popup: $.t("shopkeeper.desc.foodAndDrink")
 	},{
-		coords: [[99.672,166.813]],
-		label: $.t("sidebar.shopkeeper") + '*',
-		popup: $.t("misc.liberated") + $.t("v:shopkeeper.desc.weaponsAndCraftingSupplies")
-	},{
 		coords: [[185.500,206.969]],
 		label: $.t("sidebar.shopkeeper") + '*',
 		popup: $.t("misc.liberated") + $.t("v:shopkeeper.desc.weaponsAndCraftingSupplies")
