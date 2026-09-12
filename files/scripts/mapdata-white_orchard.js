@@ -665,7 +665,7 @@ window.mapdata_white_orchard = {
 	treasure: [
 	//Surface Treause
 	{
-		coords: [[-63.392,-122.256]],
+		coords: [[-63.451,-126.211]],
 		label: $.t("sidebar.treasure"),
 		popup: $.t("treasure.desc")
 	},{
