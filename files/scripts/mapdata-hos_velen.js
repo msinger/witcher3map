@@ -676,7 +676,7 @@ window.mapdata_hos_velen = {
 	},{
 		coords: [[197.969,201.469]],
 		label: $.t("sidebar.entrance") + '*',
-		popup: $.t("misc.active",{quest: $.t("sidequests.label.rose")}) + $.t("entrance.desc.exit")
+		popup: $.t("misc.active",{quest: $.t("sidequests.label.tr_shores")}) + $.t("entrance.desc.exit")
 	},{
 		coords: [[206.000,144.031]],
 		label: $.t("sidebar.entrance") + '*',
