@@ -1,3 +1,26 @@
+Information about this fork
+===========================
+
+I forked this repo from [https://github.com/root-BB](https://github.com/root-BB), because they ignore
+issues and pull requests and I wanted to have some things fixed.
+
+The donation links are not mine, I left them untouched. Don't know whose they are.
+
+If you want to use this map locally you have to start a local HTTP server. Like this for example:
+```
+cd <path-to-this-repo>
+python3 -m http.server 8000
+```
+Then you can open it in a browser from the URL [http://localhost:8000](http://localhost:8000).
+
+It doesn't run from a `file://` URL, because there are some unnecessary AJAX shenanigans involved. It would require
+too many changes, which would make it harder to sync it with upstream, so I leave it like this for now.
+
+I hosted it also on my github pages [here](https://msinger.github.io/witcher3map).
+
+Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):
+
+
 Desctiption
 --------------------------------------
 It is an enhanced version of the work published by [untamed0](https://github.com/untamed0).
