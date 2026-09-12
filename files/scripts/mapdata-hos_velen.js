@@ -2856,7 +2856,7 @@ window.mapdata_hos_velen = {
 	},{
 		coords: [[38.688,131.125]],
 		label: $.t("v:poi.label.acorn") + '*',
-		popup: $.t("v:poi.desc.acorn") + $.t("v:poi.desc.qobject",{quest: $.t("mainquests.label.bald")}) + $.t("misc.dactive",{quest: $.t("mainquests.label.bald")})
+		popup: $.t("v:poi.desc.acorn") + $.t("v:poi.desc.qobject",{quest: $.t("mainquests.label.bald")}) + $.t("misc.active",{quest: $.t("mainquests.label.bald")})
 	},{
 		coords: [[138.219,127.313]],
 		label: $.t("v:poi.label.reinald0") + '*' + ' (' + $.t("misc.underground") + ')',
