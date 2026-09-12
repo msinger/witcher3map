@@ -853,7 +853,6 @@ window.mapdata_white_orchard = {
 	{
 		coords: [[-57.232,-103.975]],
 		label: $.t("treasure.watertreasure"),
-		popupTitle: "test",
 		popup: $.t("treasure.desc")
 	},{
 		coords: [[-50.064,-108.193]],
