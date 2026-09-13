@@ -1646,8 +1646,8 @@ window.mapdata_skellige = {
 		popupTitle: $.t("s:poi.popupTitle.poem"),
 		popup: $.t("s:poi.desc.poem")
 	},{
-		coords: [[-32.101,-51.350]],
-		label: $.t("s:poi.label.birna"),
+		coords: [[-32.639,-49.966]],
+		label: $.t("s:poi.label.birna") + '*',
 		popupTitle: $.t("s:poi.popupTitle.birna"),
 		popup: $.t("s:poi.desc.birna",{quest: $.t("sidequests.label.gambit")})
 	},{
