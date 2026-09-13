@@ -5171,6 +5171,10 @@ window.mapdata_hos_velen = {
 		coords: [[223.297,90.469]],
 		label: $.t("sidebar.treasure") + '*' + ' (' + $.t("misc.underground") + ')',
 		popup: $.t("treasure.desc") + $.t("misc.entrance1",{x1: $.t("<a href='#6/229.718/89.125\'>"), end: $.t("</a>")})
+	},{
+		coords: [[226.031,99.156]],
+		label: $.t("sidebar.treasure"),
+		popup: $.t("treasure.desc")
 	},
 	//Underwater Treause
 	{
@@ -5437,6 +5441,10 @@ window.mapdata_hos_velen = {
 		coords: [[140.781,112.344]],
 		label: $.t("treasure.watertreasure") + ' (' + $.t("misc.underground") + ')',
 		popup: $.t("treasure.desc") + $.t("misc.entrance1",{x1: $.t("<a href='#6/148.141/107.047\'>"), end: $.t("</a>")})
+	},{
+		coords: [[145.922,169.266]],
+		label: $.t("treasure.watertreasure"),
+		popup: $.t("treasure.desc")
 	}],
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
