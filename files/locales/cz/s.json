@@ -3,10 +3,6 @@
         "gremist": "Gremist"
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Prodává jídlo a pití. ",
-            "foodDrinkAndGwent": "Prodává gwintové karty, jídlo a pití. "
-        },
         "inns": {
             "arinbjornInn": "Arinbjornská hospoda",
             "harvikenInn": "Harvikenská hospoda",

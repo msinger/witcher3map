@@ -3,10 +3,6 @@
         "gremist": "Gremist"
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Sells Food and drink. ",
-            "foodDrinkAndGwent": "Sells Gwent cards, food, and drink. "
-        },
         "inns": {
             "arinbjornInn": "Arinbjorn Inn",
             "harvikenInn": "Harviken Inn",

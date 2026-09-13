@@ -3,10 +3,6 @@
         "gremist": "Gremist"
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Sprzedaje żywność i napoje. ",
-            "foodDrinkAndGwent": "Sprzedaje karty do gwinta, żywność i napoje. "
-        },
         "inns": {
             "arinbjornInn": "Karczma w Arinbjorn",
             "harvikenInn": "Karczma w Harviken",

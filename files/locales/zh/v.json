@@ -44,11 +44,6 @@
         }
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "販賣食物和飲料。",
-            "foodDrinkAndGwent": "變色龍旅館 ",
-            "gwentAndDrink": "販賣昆特牌和飲料。"
-        },
         "inns": {
             "cunnyOfTheGoose": "鵝陰酒吧",
             "innAtTheCrossroads": "十字路口的旅館",

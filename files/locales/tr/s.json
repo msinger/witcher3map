@@ -3,10 +3,6 @@
         "gremist": "Gremist"
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Yiyecek ve içecek satar. ",
-            "foodDrinkAndGwent": "Gwent kartları, yiyecek ve içecek satar. "
-        },
         "inns": {
             "arinbjornInn": "Arinbjorn Hanı",
             "harvikenInn": "Harviken Hanı",

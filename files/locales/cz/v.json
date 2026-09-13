@@ -44,11 +44,6 @@
         }
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Prodává jídlo a pití. ",
-            "foodDrinkAndGwent": "Prodává gwintové karty, jídlo a pití. ",
-            "gwentAndDrink": "Prodává gwintové karty a pití. "
-        },
         "inns": {
             "cunnyOfTheGoose": "Husí pípa",
             "innAtTheCrossroads": "Hospoda Na Rozcestí",

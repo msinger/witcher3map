@@ -367,6 +367,13 @@
         "searchPlaceholder": "Введите поисковой запрос... ",
         "tagline": "Неофициальная интерактивная карта The Witcher 3"
     },
+    "innkeep": {
+        "desc": {
+            "foodAndDrink": "Продает еду и напитки. ",
+            "foodDrinkAndGwent": "Продает карты для Гвинт, еду и напитки. ",
+            "gwentAndDrink": "Продает карты для Гвинт и напитки. "
+        }
+    },
     "mainquests": {
         "desc": {
 			"baby": " ",

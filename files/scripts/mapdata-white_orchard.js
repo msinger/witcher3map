@@ -476,9 +476,9 @@ window.mapdata_white_orchard = {
 	//------------------------------------------------Innkeep------------------------------------------------
 	innkeep: [{
 		coords: [[-65.731,-80.068]],
-		label: $.t("sidebar.innkeep"),
-		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("w:innkeep.inns.whiteOrchardInn") + '*',
-		popup: $.t("misc.disappears",{quest: $.t("mainquests.label.incident")}) + $.t("innkeep.foodDrinkAndGwent")
+		label: $.t("sidebar.innkeep") + '*',
+		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("w:innkeep.inns.whiteOrchardInn"),
+		popup: $.t("misc.disappears",{quest: $.t("mainquests.label.incident")}) + $.t("innkeep.desc.foodDrinkAndGwent")
 	}],
 
 	//------------------------------------------------Knight in Distress------------------------------------------------

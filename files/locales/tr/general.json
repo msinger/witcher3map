@@ -368,6 +368,13 @@
         "searchPlaceholder": "Ara...",
         "tagline": "Resmi Olmayan The Witcher 3 İnteraktif Haritası"
     },
+    "innkeep": {
+        "desc": {
+            "foodAndDrink": "Yiyecek ve içecek satıyor. ",
+            "foodDrinkAndGwent": "Gwent karları, yiyecek ve içecek satar. ",
+            "gwentAndDrink": "Gwent kartları ve içecek satar. "
+        }
+    },
     "mainquests": {
         "desc": {
 			"baby": " ",

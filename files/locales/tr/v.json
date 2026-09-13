@@ -44,11 +44,6 @@
         }
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Yiyecek ve içecek satıyor. ",
-            "foodDrinkAndGwent": "Gwent karları, yiyecek ve içecek satar. ",
-            "gwentAndDrink": "Gwent kartları ve içecek satar. "
-        },
         "inns": {
             "cunnyOfTheGoose": "Kurnazkaz",
             "innAtTheCrossroads": "Dörtyol Hanı",

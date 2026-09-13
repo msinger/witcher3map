@@ -44,11 +44,6 @@
         }
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Продает еду и напитки. ",
-            "foodDrinkAndGwent": "Продает карты для Гвинт, еду и напитки. ",
-            "gwentAndDrink": "Продает карты для Гвинт и напитки. "
-        },
         "inns": {
             "cunnyOfTheGoose": "Корчма «Гусиная гузка»",
             "innAtTheCrossroads": "Корчма «На распутье»",

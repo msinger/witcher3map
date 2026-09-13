@@ -367,6 +367,13 @@
         "searchPlaceholder": "輸入搜索詞…",
         "tagline": "非官方的巫師3互動地圖"
     },
+    "innkeep": {
+        "desc": {
+            "foodAndDrink": "販賣食物和飲料。",
+            "foodDrinkAndGwent": "變色龍旅館 ",
+            "gwentAndDrink": "販賣昆特牌和飲料。"
+        }
+    },
     "mainquests": {
         "desc": {
 			"baby": " ",
