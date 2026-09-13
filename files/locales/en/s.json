@@ -21,7 +21,7 @@
     },
     "poi": {
         "desc": {
-            "birna": "It find out if you sided with Cerys an Craite during the secondary quest '__quest__'. ",
+            "birna": "Appears if you sided with Cerys an Craite during the secondary quest '__quest__'. ",
             "dowry": "'__quest__' quest item. ",
             "gship": "It usually appears just after 1 AM game time for a brief moment. ",
 			"horn": "A horn used to make sirens fall from the sky. ",
