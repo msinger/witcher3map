@@ -115,8 +115,8 @@ window.mapdata_white_orchard = {
 	//------------------------------------------------Grindstone------------------------------------------------
 	grindstone: [{
 		coords: [[-68.648,-88.206]],
-		label: $.t("sidebar.grindstone"),
-		popup: $.t("grindstone.desc")
+		label: $.t("sidebar.grindstone") + '*',
+		popup: $.t("w:grindstone.desc.forge",{quest: $.t("sidequests.label.twist")}) + $.t("grindstone.desc")
 	},{
 		coords: [[-64.624,-155.215]],
 		label: $.t("sidebar.grindstone"),

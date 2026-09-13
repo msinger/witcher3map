@@ -1,4 +1,9 @@
 {
+    "grindstone": {
+        "desc": {
+            "forge": "It will become accessible once the forge has been rebuilt. This happens after the '__quest__' mission and only after you have left White Orchard and returned. "
+        }
+    },
     "innkeep": {
         "inns": {
             "whiteOrchardInn": "White Orchard Inn"
