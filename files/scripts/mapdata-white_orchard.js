@@ -272,6 +272,10 @@ window.mapdata_white_orchard = {
 		coords: [[-51.234,20.347]],
 		label: $.t("sidebar.hollow"),
 		popup: $.t("hollow.desc")
+	},{
+		coords: [[-10.272,-94.878]],
+		label: $.t("sidebar.hollow"),
+		popup: $.t("hollow.desc")
 	}],
 	
 	//------------------------------------------------Honeycomb------------------------------------------------
