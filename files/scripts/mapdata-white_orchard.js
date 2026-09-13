@@ -152,8 +152,8 @@ window.mapdata_white_orchard = {
 
 	//------------------------------------------------Gwent Player------------------------------------------------
 	gwent: [{
-		coords: [[-65.946,-81.387]],
-		label: $.t("sidebar.gwent"),
+		coords: [[-65.349,-80.244]],
+		label: $.t("sidebar.gwent") + '*',
 		popup: $.t("misc.disappears",{quest: $.t("mainquests.label.incident")})
 	}],
 	
@@ -475,7 +475,7 @@ window.mapdata_white_orchard = {
 	
 	//------------------------------------------------Innkeep------------------------------------------------
 	innkeep: [{
-		coords: [[-65.731,-80.068]],
+		coords: [[-65.875,-81.255]],
 		label: $.t("sidebar.innkeep") + '*',
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("w:innkeep.inns.whiteOrchardInn"),
 		popup: $.t("misc.disappears",{quest: $.t("mainquests.label.incident")}) + $.t("innkeep.desc.foodDrinkAndGwent")
