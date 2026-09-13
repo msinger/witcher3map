@@ -1459,32 +1459,32 @@ window.mapdata_skellige = {
 		coords: [[-77.485,49.007]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("s:innkeep.inns.harvikenInn"),
-		popup: $.t("s:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[-29.075,100.723]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("s:innkeep.inns.houseOfWarriors"),
-		popup: $.t("s:innkeep.desc.foodAndDrink")
+		popup: $.t("innkeep.desc.foodAndDrink")
 	},{
 		coords: [[50.569,40.430]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("s:innkeep.inns.uriallaHarbourInn"),
-		popup: $.t("s:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[31.241,-113.049]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("s:innkeep.inns.svorlagInn"),
-		popup: $.t("s:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[-42.131,-62.073]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("s:innkeep.inns.arinbjornInn"),
-		popup: $.t("s:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[-3.294,-36.167]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("s:innkeep.inns.theNewPort"),
-		popup: $.t("s:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	}],
 
 	//------------------------------------------------Knight in Distress------------------------------------------------

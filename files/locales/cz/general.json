@@ -369,6 +369,13 @@
         "searchPlaceholder": "Hledaná slova... ",
         "tagline": "Zaklínač 3 – Neoficiální interaktivní mapa"
     },
+    "innkeep": {
+        "desc": {
+            "foodAndDrink": "Prodává jídlo a pití. ",
+            "foodDrinkAndGwent": "Prodává gwintové karty, jídlo a pití. ",
+            "gwentAndDrink": "Prodává gwintové karty a pití. "
+        }
+    },
     "mainquests": {
 		"desc": {
 			"baby": " ",

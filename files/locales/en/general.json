@@ -367,6 +367,13 @@
         "searchPlaceholder": "Enter search terms... ",
         "tagline": "Unofficial The Witcher 3 Interactive Maps"
     },
+    "innkeep": {
+        "desc": {
+            "foodAndDrink": "Sells food and drinks. ",
+            "foodDrinkAndGwent": "Sells Gwent cards, food and drinks. ",
+            "gwentAndDrink": "Sells Gwent cards and drinks. "
+        }
+    },
     "mainquests": {
 		"desc": {
 			"baby": " ",

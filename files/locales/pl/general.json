@@ -367,6 +367,13 @@
         "searchPlaceholder": "Wpisz szukaną frazę...",
         "tagline": "Nieoficjalne interaktywne mapy Wiedźca 3"
     },
+    "innkeep": {
+        "desc": {
+            "foodAndDrink": "Sprzedaje żywność i napoje. ",
+            "foodDrinkAndGwent": "Sprzedaje karty do gwinta, żywność i napoje. ",
+            "gwentAndDrink": "Sprzedaje karty do Gwinta i napoje. "
+        }
+    },
     "mainquests": {
 		"desc": {
 			"baby": " ",

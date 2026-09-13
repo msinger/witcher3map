@@ -44,11 +44,6 @@
         }
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Sprzedaje żywność i napoje. ",
-            "foodDrinkAndGwent": "Sprzedaje karty do gwinta, żywność i napoje. ",
-            "gwentAndDrink": "Sprzedaje karty do Gwinta i napoje. "
-        },
         "inns": {
             "cunnyOfTheGoose": "Karczma Gęsia Pipa",
             "innAtTheCrossroads": "Karczma na Rozstajach",

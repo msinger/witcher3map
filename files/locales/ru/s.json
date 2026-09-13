@@ -3,10 +3,6 @@
         "gremist": "Гремист"
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Продает еду и напитки. ",
-            "foodDrinkAndGwent": "Продает карты для Гвинта, еду и напитки. "
-        },
         "inns": {
             "arinbjornInn": "Корчмарь в деревне Аринбьорн",
             "harvikenInn": "Корчмарь в Харвикене",

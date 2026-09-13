@@ -2443,47 +2443,47 @@ window.mapdata_hos_velen = {
 		coords: [[206.000,96.547]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.theGoldenSturgen"),
-		popup: $.t("v:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[220.609,104.172]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.passiflora"),
-		popup: $.t("v:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[214.000,110.672]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.theNowhere"),
-		popup: $.t("v:innkeep.desc.foodAndDrink")
+		popup: $.t("innkeep.desc.foodAndDrink")
 	},{
 		coords: [[198.859,106.875]],
 		label: $.t("sidebar.innkeep") + '*',
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.rosemaryAndThyme") + '*',
-		popup: $.t("misc.active",{quest: $.t("sidequests.label.cabaret")}) + $.t("v:innkeep.desc.foodAndDrink")
+		popup: $.t("misc.active",{quest: $.t("sidequests.label.cabaret")}) + $.t("innkeep.desc.foodAndDrink")
 	},{
 		coords: [[198.875,126.656]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.sevenCatsInn"),
-		popup: $.t("v:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[209.328,104.719]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.theKingfisher"),
-		popup: $.t("v:misc.disappearingTrader") + $.t("v:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("v:misc.disappearingTrader") + $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[185.125,118.047]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.cunnyOfTheGoose"),
-		popup: $.t("v:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[156.063,165.172]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.theAlchemy"),
-		popup: $.t("v:innkeep.desc.foodDrinkAndGwent")
+		popup: $.t("innkeep.desc.foodDrinkAndGwent")
 	},{
 		coords: [[128.141,95.516]],
 		label: $.t("sidebar.innkeep"),
 		popupTitle: $.t("sidebar.innkeep") + ' - ' + $.t("v:innkeep.inns.innAtTheCrossroads"),
-		popup: $.t("v:innkeep.desc.gwentAndDrink")
+		popup: $.t("innkeep.desc.gwentAndDrink")
 	}],
 
 	//------------------------------------------------Knight in Distress------------------------------------------------

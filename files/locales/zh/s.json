@@ -3,10 +3,6 @@
         "gremist": "格瑞米斯特"
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "販賣食物和飲料。",
-            "foodDrinkAndGwent": "販賣昆特牌、食物和飲料。"
-        },
         "inns": {
             "arinbjornInn": "阿林比翁旅館",
             "harvikenInn": "哈爾維肯旅館",

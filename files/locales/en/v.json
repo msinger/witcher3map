@@ -44,11 +44,6 @@
         }
     },
     "innkeep": {
-        "desc": {
-            "foodAndDrink": "Sells Food and drink. ",
-            "foodDrinkAndGwent": "Sells Gwent cards, food, and drink. ",
-            "gwentAndDrink": "Sells Gwent cards, and drink. "
-        },
         "inns": {
             "cunnyOfTheGoose": "Cunny of the Goose",
             "innAtTheCrossroads": "Inn at the Crossroads",
