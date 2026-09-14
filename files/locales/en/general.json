@@ -570,8 +570,9 @@
         "portraitWarn": "Note: the map is best viewed in landscape mode, tap to dismiss",
         "treasure": "Treasure Hunt",
         "underground": "Underground",
-		"logo": "<img src='files/images/logo/logo_en.png' class='center'>",
-		"logo_min": "<img src='../files/images/logo/logo_en_min.png' class='center'>"
+        "imageLink": "[&nbsp;<a target='_blank' href='img/__name__.jpg'>VIEW&nbsp;IMAGE</a>&nbsp;] ",
+        "logo": "<img src='files/images/logo/logo_en.png' class='center'>",
+        "logo_min": "<img src='../files/images/logo/logo_en_min.png' class='center'>"
     },
     "monsterden": {
         "desc": "Monster-infested location. A constant worry for those living nearby. "
