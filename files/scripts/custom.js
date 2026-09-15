@@ -25,12 +25,12 @@ $(function() {
 			zoom: window.map_Zoom,
 			attributionControl: !1,
 			zoomControl: !1,
-			layers: allLayers
+			layers: allLayers,
+			crs: L.CRS.Simple
 		},
 		u = {
 			direction: "auto"
 		};
-	("velen" === map_path || "hos_velen" === map_path || "gaunter" === map_path || "toussaint" === map_path || "kaer_morhen" === map_path) && (d.crs = L.CRS.Simple);
 	var h = L.map("map", d);
 	window.go = function(t) {
 		h.setView(t), h.setZoom(window.map_minZoom), h.setZoom(window.map_mZoom), h.setZoom(window.map_Zoom), new L.marker(t, {
@@ -100,9 +100,12 @@ $(function() {
 	var v = {
 		tms: !0,
 		bounds: f,
-		noWrap: !0
+		noWrap: !0,
+		maxNativeZoom: window.map_natZoom,
+		continuousWorld: !0,
+		crs: L.CRS.Simple
 	};
-	("hos_velen" === map_path || "gaunter" === map_path || "isle_mists" === map_path || "skellige" === map_path || "white_orchard" === map_path || "toussaint" === map_path || "kaer_morhen" === map_path || "fables" === map_path) && (v.continuousWorld = !0, v.crs = L.CRS.Simple), L.tileLayer("../files/maps/" + window.map_path + "/{z}/{x}/{y}.png", v).addTo(h), L.tileLayer("../files/maps/" + window.map_path + "/{z}/{x}/{y}.jpg", v).addTo(h), h.dragging._draggable.on("predrag", function() {
+	L.tileLayer("../files/maps/" + window.map_path + "/{z}/{x}/{y}.png", v).addTo(h), L.tileLayer("../files/maps/" + window.map_path + "/{z}/{x}/{y}.jpg", v).addTo(h), h.dragging._draggable.on("predrag", function() {
 		var t = h._initialTopLeftPoint.subtract(this._newPos);
 		this._newPos = this._newPos.subtract(h._getBoundsOffset(new L.Bounds(t, t.add(h.getSize())), h.options.maxBounds))
 	}), h.on("contextmenu", function(t) {

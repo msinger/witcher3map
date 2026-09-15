@@ -1,0 +1,3 @@
+Those converter scripts are not needed anymore. They were used to transform the EPSG:3857 coordinates of
+the markers on the White Orchard, Skellige, Fables and Isle of Mist maps to simple linear X,Y coordinates.
+I kept them here in case they could be useful in another project.
