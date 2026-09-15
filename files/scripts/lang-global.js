@@ -1,79 +1,75 @@
-var isRoot=!location.pathname.match(/\/(\w{1})\/(?:index.html)?$/);
-
-if(null==localStorage.lang){
-  var e=window.navigator.userLanguage||window.navigator.language;
-  e=e.substring(0,2),localStorage.lang=e
+var isRoot = !location.pathname.match(/\/(\w{1})\/(?:index.html)?$/);
+if (null == localStorage.lang) {
+	var e = window.navigator.userLanguage || window.navigator.language;
+	e = e.substring(0, 2), localStorage.lang = e
 }
-
-window.i18noptions={
-  debug:!1,
-  getAsync:!0,
-  ns:"general",
-  lng:localStorage.lang,
-  fallbackLng:"en",
-  resGetPath:(isRoot?"":"../")+"files/locales/__lng__/__ns__.json",
-  useDataAttrOptions:!0,
-  lngWhitelist:["en","cz","pl","ru","tr","zh"]
+window.i18noptions = {
+	debug: !1,
+	getAsync: !0,
+	ns: "general",
+	lng: localStorage.lang,
+	fallbackLng: "en",
+	resGetPath: (isRoot ? "" : "../") + "files/locales/__lng__/__ns__.json",
+	useDataAttrOptions: !0,
+	lngWhitelist: ["en", "cz", "pl", "ru", "tr", "zh"]
 };
-
-var languageOptions=[{
-  text:"English",
-  value:"en",
-  selected:"en"==localStorage.lang,
-  description:" ",
-  imageSrc:(isRoot?"":"../")+"files/images/flags/en.png"
-},{
-  text:"Čeština",
-  value:"cz",
-  selected:"cz"==localStorage.lang,
-  description:" ",
-  imageSrc:(isRoot?"":"../")+"files/images/flags/cz.png"
-},{
-  text:"Polski",
-  value:"pl",
-  selected:"pl"==localStorage.lang,
-  description:" ",
-  imageSrc:(isRoot?"":"../")+"files/images/flags/pl.png"
-},{
-  text:"Русский",
-  value:"ru",
-  selected:"ru"==localStorage.lang,
-  description:" ",
-  imageSrc:(isRoot?"":"../")+"files/images/flags/ru.png"
-},{
-  text:"T\xfcrk\xe7e",
-  value:"tr",
-  selected:"tr"==localStorage.lang,
-  description:" ",
-  imageSrc:(isRoot?"":"../")+"files/images/flags/tr.png"
-},{
-  text:"中國傳統的",
-  value:"zh",
-  selected:"zh"==localStorage.lang,
-  description:" ",
-  imageSrc:(isRoot?"":"../")+"files/images/flags/zh.png"
-},];
-
-window.changeLang=function(e){
-  localStorage.lang!=e&&(localStorage.lang=e,window.location.reload())
-},$(function(){
-    $("#lang-switcher").ddslick({
-      data:languageOptions,
-      width:150,
-      onSelected:function(e){
-        changeLang(e.selectedData.value)
-      }
-    })
-  }),jQuery.cachedScript=function(url, options){
-    var deferred = $.Deferred();
-    var script = document.createElement("script");
-    script.src = url;
-    script.onload = function() {
-        deferred.resolve();
-    };
-    script.onerror = function() {
-        deferred.reject();
-    };
-    document.head.appendChild(script);
-    return deferred.promise();
-  };
+var languageOptions = [{
+	text: "English",
+	value: "en",
+	selected: "en" == localStorage.lang,
+	description: " ",
+	imageSrc: (isRoot ? "" : "../") + "files/images/flags/en.png"
+}, {
+	text: "Čeština",
+	value: "cz",
+	selected: "cz" == localStorage.lang,
+	description: " ",
+	imageSrc: (isRoot ? "" : "../") + "files/images/flags/cz.png"
+}, {
+	text: "Polski",
+	value: "pl",
+	selected: "pl" == localStorage.lang,
+	description: " ",
+	imageSrc: (isRoot ? "" : "../") + "files/images/flags/pl.png"
+}, {
+	text: "Русский",
+	value: "ru",
+	selected: "ru" == localStorage.lang,
+	description: " ",
+	imageSrc: (isRoot ? "" : "../") + "files/images/flags/ru.png"
+}, {
+	text: "T\xfcrk\xe7e",
+	value: "tr",
+	selected: "tr" == localStorage.lang,
+	description: " ",
+	imageSrc: (isRoot ? "" : "../") + "files/images/flags/tr.png"
+}, {
+	text: "中國傳統的",
+	value: "zh",
+	selected: "zh" == localStorage.lang,
+	description: " ",
+	imageSrc: (isRoot ? "" : "../") + "files/images/flags/zh.png"
+}, ];
+window.changeLang = function(e) {
+	localStorage.lang != e && (localStorage.lang = e, window.location.reload())
+}, $(function() {
+	$("#lang-switcher").ddslick({
+		data: languageOptions,
+		width: 150,
+		onSelected: function(e) {
+			changeLang(e.selectedData.value)
+		}
+	})
+}), jQuery.cachedScript = function(url, options) {
+	var deferred = $.Deferred();
+	var script = document.createElement("script");
+	script.src = url;
+	script.onload = function() {
+		deferred.resolve();
+	};
+	script.onerror = function() {
+		deferred.reject();
+	};
+	document.head.appendChild(script);
+	return deferred.promise();
+};
