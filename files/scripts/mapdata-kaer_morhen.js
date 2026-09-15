@@ -1,9 +1,10 @@
 window.map_path  = 'kaer_morhen';
 window.map_sWest = L.latLng(0,0);
 window.map_nEast = L.latLng(160,128);
-window.map_center = [85.000,70.000];
+window.map_center = [80,64];
 window.map_minZoom = 2;
-window.map_mZoom = 6;
+window.map_mZoom = 7;
+window.map_natZoom = 5;
 window.map_Zoom = 3;
 window.mapdata_kaer_morhen = {
 

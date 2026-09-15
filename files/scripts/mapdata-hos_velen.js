@@ -1,9 +1,10 @@
 window.map_path  = 'hos_velen';
-window.map_sWest = L.latLng(0,0);
-window.map_nEast = L.latLng(265,240);
-window.map_center = [126.000,115.000];
+window.map_sWest = L.latLng(-32,-32);
+window.map_nEast = L.latLng(288+32,256+32);
+window.map_center = [144,128];
 window.map_minZoom = 1;
-window.map_mZoom = 6;
+window.map_mZoom = 7;
+window.map_natZoom = 5;
 window.map_Zoom = 2;
 window.mapdata_hos_velen = {
 

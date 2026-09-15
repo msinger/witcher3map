@@ -1,9 +1,10 @@
 window.map_path  = 'gaunter';
-window.map_sWest = L.latLng(0,0);
-window.map_nEast = L.latLng(320,195);
-window.map_center = [0.000,0.000];
-window.map_minZoom = 2;
-window.map_mZoom = 3;
+window.map_sWest = L.latLng(-32,-32);
+window.map_nEast = L.latLng(512+32,256+32);
+window.map_center = [256,128];
+window.map_minZoom = 1;
+window.map_mZoom = 4;
+window.map_natZoom = 2;
 window.map_Zoom = 1;
 window.mapdata_gaunter = {
 	
@@ -96,27 +97,27 @@ window.mapdata_gaunter = {
 
 	//------------------------------------------------Point of Interest------------------------------------------------
 	poi: [{
-		coords: [[25.000,43.750]],
+		coords: [[133.750,68.250]],
 		label: $.t("g:poi.label.start"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:poi.desc.start")
 	},{
-		coords: [[122.250,67.000]],
+		coords: [[219.125,87.750]],
 		label: $.t("g:poi.label.well"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:poi.desc.well")
 	},{
-		coords: [[178.000,124.000]],
+		coords: [[269.375,136.750]],
 		label: $.t("g:poi.label.shani"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:poi.desc.shani")
 	},{
-		coords: [[235.000,86.375]],
+		coords: [[318.125,103.500]],
 		label: $.t("g:poi.label.swing"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:poi.desc.swing")
 	},{
-		coords: [[287.000,117.125]],
+		coords: [[363.625,131.000]],
 		label: $.t("g:poi.label.tomb"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:poi.desc.tomb")
 	},{
-		coords: [[282.500,164.875]],
+		coords: [[359.375,172.500]],
 		label: $.t("g:poi.label.answer"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:poi.desc.answer")
 	}],
@@ -144,11 +145,11 @@ window.mapdata_gaunter = {
 	
 	//------------------------------------------------Treasure------------------------------------------------
 	treasure: [{
-		coords: [[188.875,22.000]],
+		coords: [[277.750,48.125]],
 		label: $.t("sidebar.treasure"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:treasure.popup.viper")
 	},{
-		coords: [[213.500,140.125]],
+		coords: [[300.000,150.750]],
 		label: $.t("sidebar.treasure"),
 		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.whatsoever")}) + $.t("g:treasure.popup.cave")
 	}],
