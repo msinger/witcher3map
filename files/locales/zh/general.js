@@ -120,7 +120,6 @@ window.i18nData.zh.general = {
         "cancelNoteButton": "取消備註",
         "centerMarkerButton": "置中突出顯示的標記",
         "credits": "致謝名單",
-        "donation": "捐贈一杯咖啡…",
         "exitFullscreenButton": "退出全螢幕",
         "helpFeatures": "功能與說明",
         "hide": "隱藏全部",
@@ -145,7 +144,7 @@ window.i18nData.zh.general = {
     },
     "credits": {
         "botAssets": "巫師 3 , 標誌 , 圖示 , 地圖 & 文字 均為__cdpr__的財產商標。",
-        "botCreated": "由 __untamed0__ 創建並由 __BaHTsIzBEdEvi__ 增強，在 __license__ 下獲得許可。",
+        "botCreated": "由 __untamed0__ 創建 , 並由 __BaHTsIzBEdEvi__ 和 __msinger__ 增強，在 __license__ 下獲得許可。",
         "botHelp": "在 __mcarver__、__Gerignak__ 和其他 __contributors__ 的幫助下。感謝 __designGears__ 和 __hhrhhr__ 用於地圖和資產提取。",
         "popupAssets": "巫師 3 資產",
         "popupbotHelp1": "__mcarver__（主要貢獻者）- 標記計數、哈希永久連結改進、備份/恢復設定、大量修復等。",
@@ -155,7 +154,7 @@ window.i18nData.zh.general = {
         "popupbotHelp5": "__DesignGears__ & __hhrhhr__- 地圖和資產提取",
         "popupbotHelp6": "感謝以下人員為改進地圖數據所做的貢獻：",
         "popupbotHelp7": "__lordfiSh__ - Toussaint 地圖標記",
-        "popupCreated": "由 __untamed0__ 創建並由 __BaHTsIzBEdEvi__ 增強，貢獻來自：",
+        "popupCreated": "由 __untamed0__ 創建 , 並由 __BaHTsIzBEdEvi__ 和 __msinger__ 增強，貢獻來自：",
         "popupcrowdin": "特別感謝 __crowdin__ 讓我們使用他們出色的翻譯編輯器。",
         "popupJava": "使用Javascript程式庫",
         "popupRED": "巫師 3、標誌、圖示、地圖和文字是 __RED__ 的財產，未經許可使用。根據他們的 __Agreement__ 第 9.4 節，允許非商業用途。",
@@ -164,8 +163,7 @@ window.i18nData.zh.general = {
         "popuptranslations2": "土耳其文 - __BaHTsIzBEdEvi__",
         "popuptranslations3": "捷克文 - __MikeCZ__ 和 __Lord Mazour__",
         "popuptranslations4": "中國傳統的 - __YheonYeung__",
-        "popuptranslations5": "拋光 - __toffi3__, __Umber91310486__ 和 __Mochal__",
-        "version": "版本："
+        "popuptranslations5": "拋光 - __toffi3__, __Umber91310486__ 和 __Mochal__"
     },
     "entrance": {
         "desc": {
@@ -363,8 +361,7 @@ window.i18nData.zh.general = {
         "desc": "這裡的蜂窩可以通過燃燒收集，然後賣給富米拉來賺錢。 "
     },
     "home": {
-		"offline": "離線地圖",
-		"online" : "線上地圖",
+		"offline": "下載壓縮文件",
         "resultsFound": "找到的結果。",
         "searchPlaceholder": "輸入搜索詞…",
         "tagline": "非官方的巫師3互動地圖"
@@ -558,7 +555,7 @@ window.i18nData.zh.general = {
     },
     "misc": {
         "active": "它会在“__quest__”任务后激活。",
-        "contribute": "对于您的建议或投诉__link1__或__link2__。",
+        "contribute": "錯誤報告和其他貢獻：__link1__ ",
         "dactive": "它只会在“__quest__”任务期间激活。",
         "disappears": "“__quest__”任务后无法访问。",
         "discuss": "有反饋和建議? 請在此處探討__link__",

@@ -120,7 +120,6 @@ window.i18nData.tr.general = {
         "cancelNoteButton": "Notu Iptal Et",
         "centerMarkerButton": "Özel işareti merkezle",
         "credits": "Emeği Geçenler",
-		"donation": "Kahve Ismarla...",
         "exitFullscreenButton": "Tam Ekrandan Çık",
         "helpFeatures": "Özellikler & Yardım",
         "hide": "Hepsini Gizle",
@@ -145,7 +144,7 @@ window.i18nData.tr.general = {
     },
     "credits": {
         "botAssets": "Witcher 3, logo, simge ve haritalar __cdpr__ malıdır.",
-        "botCreated": "__untamed0__ tarafından oluşturulmuştur ve __BaHTsIzBEdEvi__ tarafından geliştirilmiştir, __license__ altında lisanslıdır.",
+        "botCreated": "__untamed0__ tarafından oluşturulmuş; __BaHTsIzBEdEvi__ ve __msinger__ tarafından geliştirilmiş; __license__ altında lisanslanmıştır.",
         "botHelp": "__mcarver__, __Gerignak__ ve diğer __contributors__ çalışmalara yardımcı olmuşlardır. __designGears__ ve __hhrhhr__ harita ve varlıkları oyun dosyalarından ayıklamışlardır.",
         "popupAssets": "Witcher 3 Varlıkları",
         "popupbotHelp1": "__mcarver__ (lider katılımcı) - İşaretleyici sayısı, karma kalıcı bağlantı iyileştirmeleri, yedekleme / geri yükleme ayarları, çok sayıda düzeltme vb.",
@@ -155,7 +154,7 @@ window.i18nData.tr.general = {
         "popupbotHelp5": "__DesignGears__ & __hhrhhr__- harita ve dosyaların oyun dosyalarından ayıklanması",
         "popupbotHelp6": "Harita verilerinin iyileştirilmesine katkılarından dolayı aşağıdaki kişilere teşekkür ederiz:",
         "popupbotHelp7": "__lordfiSh__ - Toussaint Harita İşaretçileri",
-        "popupCreated": "__untamed0__ tarafından oluşturulmuştur ve __BaHTsIzBEdEvi__ tarafından geliştirilmiştir, destek olanlar:",
+        "popupCreated": "__untamed0__ tarafından oluşturulmuştur; __BaHTsIzBEdEvi__ ve __msinger__ tarafından geliştirilmiş, destek olanlar:",
         "popupcrowdin": "Mükemmel çeviri düzenleyicilerini kullanmamıza izin verdiği için __crowdin__ sitesine teşekkür ederiz.",
         "popupJava": "Kullanılan Javascript Kitaplıkları",
         "popupRED": "The Witcher 3, logo, simge, harita ve metinler __RED__ malıdır ve izin alınmaksızın kullanılmıştır. Ticari olmayan kullanıma, __Agreement__ 9.4 bölümü uyarınca izin veririr.",
@@ -164,8 +163,7 @@ window.i18nData.tr.general = {
         "popuptranslations2": "Türkçe - __BaHTsIzBEdEvi__",
         "popuptranslations3": "Çekçe - __MikeCZ__ ve __Lord Mazour__",
         "popuptranslations4": "Geleneksel Çince - __YheonYeung__",
-        "popuptranslations5": "Lehçe - __toffi3__, __Umber91310486__ ve __Mochal__",
-		"version": "Sürüm: "
+        "popuptranslations5": "Lehçe - __toffi3__, __Umber91310486__ ve __Mochal__"
     },
     "entrance": {
         "desc": {
@@ -364,8 +362,7 @@ window.i18nData.tr.general = {
         "desc": "Buradaki bal peteği yakılarak toplanabilir ve sonrasında Tomira'ya satılarak para kazanılabilir. "
     },
     "home": {
-		"offline": "Çevirimdışı Harita",
-		"online" : "Çevirimiçi Harita",
+		"offline": "Zip dosyasını indir",
         "resultsFound": "sonuç bulundu.",
         "searchPlaceholder": "Ara...",
         "tagline": "Resmi Olmayan The Witcher 3 İnteraktif Haritası"
@@ -559,7 +556,7 @@ window.i18nData.tr.general = {
     },
     "misc": {
         "active": "'__quest__' görevinden sonra aktif hale gelecektir. ",
-        "contribute": "Öneri yada şikayetleriniz için __link1__ yada __link2__.",
+        "contribute": "Hata bildirimleri ve diğer katkılar: __link1__ ",
         "dactive": "Yalnızca '__quest__' görevi sırasında aktif hale gelecektir. ",
         "disappears": "'__quest__' görevinden sonra erişilemez. ",
         "discuss": "Geri bildirim, öneri? __link__ üzerinde tartış",
