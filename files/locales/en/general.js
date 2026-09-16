@@ -363,7 +363,7 @@ window.i18nData.en.general = {
         "desc": "Honeycombs here can be collected by burning and then sold to Tomira for money. "
     },
     "home": {
-		"offline": "Offline Map",
+		"offline": "Download Zip",
 		"online" : "Online Map",
         "resultsFound": "result(s) found. ",
         "searchPlaceholder": "Enter search terms... ",
