@@ -15,7 +15,7 @@ window.mapdata_kaer_morhen = {
 		coords: [[64.563,67.000]],
 		label: $.t("alchemy.label") + '*',
 		popupTitle: $.t("alchemy.label") + ' - ' + $.t("k:alchemy.popuptitle.keira") + '*',
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.battle")}) + $.t("k:alchemy.desc.keira")
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.battle")}) + $.t("k:alchemy.desc.keira",{quest: $.t("sidequests.label.advancement")})
 	}],
 
 	//------------------------------------------------Armourer------------------------------------------------

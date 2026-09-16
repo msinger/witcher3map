@@ -3,7 +3,7 @@ window.i18nData.en = window.i18nData.en || {};
 window.i18nData.en.k = {
     "alchemy": {
         "desc": {
-            "keira": "She appear if she not die before. "
+            "keira": "Keira will only appear if you told her to go to Kaer Morhen at the end of the '__quest__' quest. "
         },
         "popuptitle": {
             "keira": "Keira Metz"
@@ -11,7 +11,7 @@ window.i18nData.en.k = {
     },
     "armourer": {
         "desc": {
-            "zoltan": "It will only appear if Zoltan was spoken to during the '__quest__' quest. "
+            "zoltan": "Zoltan will only appear if he was spoken to during the '__quest__' quest. "
         },
         "popuptitle": {
             "zoltan": "Zoltan Chivay"
