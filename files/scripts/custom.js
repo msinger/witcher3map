@@ -1,5 +1,5 @@
 $(function() {
-	processData(window["mapdata_" + map_path.replace("-", "_")]), window.allLayers = [markers.abandoned, markers.alchemy, markers.armourer, markers.armourerstable, markers.banditcamp, markers.barber, markers.blacksmith, markers.boat, markers.brothel, markers.contracts, markers.entrance, markers.event, markers.grindstone, markers.guarded, markers.gwent, markers.gwentquest, markers.hansebase, markers.harbor, markers.herbalist, markers.hidden, markers.hollow, markers.honeycomb, markers.innkeep, markers.kid, markers.monsterden, markers.monsternest, markers.notice, markers.pid, markers.pop, markers.poi, markers.scavenger, markers.shopkeeper, markers.sidequests, markers.signalfire, markers.signpost, markers.smugglers, markers.spoils, markers.treasure, markers.vineyardinfestation, ], allLayers = (e = void 0, (t = allLayers).filter(function(t) {
+	processData(window["mapdata_" + map_path]), window.allLayers = [markers.abandoned, markers.alchemy, markers.armourer, markers.armourerstable, markers.banditcamp, markers.barber, markers.blacksmith, markers.boat, markers.brothel, markers.contracts, markers.entrance, markers.event, markers.grindstone, markers.guarded, markers.gwent, markers.gwentquest, markers.hansebase, markers.harbor, markers.herbalist, markers.hidden, markers.hollow, markers.honeycomb, markers.innkeep, markers.kid, markers.monsterden, markers.monsternest, markers.notice, markers.pid, markers.pop, markers.poi, markers.scavenger, markers.shopkeeper, markers.sidequests, markers.signalfire, markers.signpost, markers.smugglers, markers.spoils, markers.treasure, markers.vineyardinfestation, ], allLayers = (e = void 0, (t = allLayers).filter(function(t) {
 		return t !== e
 	}));
 	var t, e, o, n, a, i, s, r = 300 > $("#sidebar").width(),
@@ -341,7 +341,7 @@ $(function() {
 			}), E = !0, P = $(".leaflet-container").css("cursor"), $(".leaflet-container").css("cursor", "crosshair"), h.addEventListener("click", M)
 		},
 		H = function() {
-			localStorage["notes" + map_path] = JSON.stringify(notes[map_path])
+			localStorage["notes-" + map_path] = JSON.stringify(notes[map_path])
 		};
 	window.saveNote = function(t) {
 		var e = notes[map_path][getNoteIndex(t)];

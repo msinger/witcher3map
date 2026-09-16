@@ -1,17 +1,14 @@
 L.Icon.Default.imagePath = "../files/images/leaflet";
-var getMapdata = function(i) {
-	$.cachedScript("../files/scripts/mapdata-" + i + ".js").done((function(i, n) {
-		$.cachedScript("../files/scripts/custom.js").done((function(i, n) {
-			$(document).i18n()
-		}))
-	}))
-};
-$.i18n.init(i18noptions, (function() {
-	var i = location.pathname.match(/\/(\w{1})\/(?:index.html)?$/)[1];
-	$.i18n.loadNamespace(i, (function() {
-		"w" == i ? getMapdata("white_orchard") : "v" == i ? getMapdata("hos_velen") : "g" == i ? getMapdata("gaunter") : "s" == i ? getMapdata("skellige") : "t" == i ? getMapdata("toussaint") : "k" == i ? getMapdata("kaer_morhen") : "f" == i ? getMapdata("fables") : "i" == i && getMapdata("isle_mists")
-	}))
-})), $((function() {
+
+$.i18n.init(i18noptions, function() {
+	$.i18n.loadNamespace(map_ns, async function() {
+		$(document).i18n();
+		await loadScript("../files/scripts/mapdata-" + map_path + ".js");
+		loadScript("../files/scripts/custom.js");
+	});
+});
+
+$((function() {
 	$(".dd-selected").on("click", (function() {
 		setTimeout((function() {
 			$("#sidebar").getNiceScroll().resize()
@@ -49,7 +46,7 @@ var icons = window.icons,
 window.processData = function(data) {
 	var mapKey = "markers-" + map_path + "-hidden";
 	localStorage[mapKey] || (localStorage[mapKey] = JSON.stringify([])), invisibleMarkers[mapKey] = JSON.parse(localStorage[mapKey]);
-	var notesKey = "notes" + map_path;
+	var notesKey = "notes-" + map_path;
 	localStorage[notesKey] || (localStorage[notesKey] = JSON.stringify([])), notes[map_path] = JSON.parse(localStorage[notesKey]), Object.keys(data).forEach((function(dataKey) {
 		var items = data[dataKey],
 			groupItems = [];

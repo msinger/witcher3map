@@ -1,4 +1,3 @@
-window.map_path  = 'hos_velen';
 window.map_sWest = L.latLng(-32,-32);
 window.map_nEast = L.latLng(288+32,256+32);
 window.map_center = [144,128];

@@ -1,4 +1,3 @@
-window.map_path  = 'toussaint';
 window.map_sWest = L.latLng(0,0);
 window.map_nEast = L.latLng(144,144);
 window.map_center = [72,72];

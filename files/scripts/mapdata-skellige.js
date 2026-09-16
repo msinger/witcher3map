@@ -1,4 +1,3 @@
-window.map_path  = 'skellige';
 window.map_sWest = L.latLng(0,0);
 window.map_nEast = L.latLng(256,256);
 window.map_center = [128,128];

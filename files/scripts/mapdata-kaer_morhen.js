@@ -1,4 +1,3 @@
-window.map_path  = 'kaer_morhen';
 window.map_sWest = L.latLng(0,0);
 window.map_nEast = L.latLng(160,128);
 window.map_center = [80,64];

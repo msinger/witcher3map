@@ -1,4 +1,3 @@
-window.map_path  = 'white_orchard';
 window.map_sWest = L.latLng(-32,-32);
 window.map_nEast = L.latLng(128+32,160+32);
 window.map_center = [64.000,80.000];
