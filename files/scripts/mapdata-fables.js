@@ -1,4 +1,3 @@
-window.map_path  = 'fables';
 window.map_sWest = L.latLng(-32,-32);
 window.map_nEast = L.latLng(192+32,192+32);
 window.map_center = [96,96];

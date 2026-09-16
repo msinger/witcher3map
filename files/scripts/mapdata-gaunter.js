@@ -1,4 +1,3 @@
-window.map_path  = 'gaunter';
 window.map_sWest = L.latLng(-32,-32);
 window.map_nEast = L.latLng(512+32,256+32);
 window.map_center = [256,128];

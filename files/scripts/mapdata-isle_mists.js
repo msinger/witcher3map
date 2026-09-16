@@ -1,4 +1,3 @@
-window.map_path  = 'isle_mists';
 window.map_sWest = L.latLng(0,0);
 window.map_nEast = L.latLng(384,512);
 window.map_center = [192,256];
