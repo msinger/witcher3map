@@ -120,7 +120,6 @@ window.i18nData.cz.general = {
         "cancelNoteButton": "Neukládat",
         "centerMarkerButton": "Přesuň značku doprostřed",
         "credits": "Autoři",
-        "donation": "Darujte kávu...",
         "exitFullscreenButton": "Ukončit režim celé obrazovky",
         "helpFeatures": "Vlastnosti a nápověda",
         "hide": "Skrýt vše",
@@ -145,7 +144,7 @@ window.i18nData.cz.general = {
     },
     "credits": {
         "botAssets": "Zaklínač 3, logo, ikony, mapa a texty jsou vlastnictvím __cdpr__",
-        "botCreated": "Vytvořil uživatel __untamed0__ a vylepšil uživatel __BaHTsIzBEdEvi__, licencováno pomocí __license__. ",
+        "botCreated": "Vytvořil uživatel __untamed0__, vylepšil uživatel __BaHTsIzBEdEvi__ a __msinger__, licencováno pomocí __license__. ",
         "botHelp": "Za pomoci __mcarver__, __Gerignak__  a dalších __contributors__. Díky __designGears__ a __hhrhhr__ za mapu a získání podkladů. ",
         "popupAssets": "Assety Zaklínače 3",
         "popupbotHelp1": "__mcarver__ (hlavní přispěvatel) – Počet značek, vylepšení hash permalink, nastavení zálohování/obnovení, četné opravy atd. ",
@@ -155,7 +154,7 @@ window.i18nData.cz.general = {
         "popupbotHelp5": "__DesignGears__ a __hhrhhr__ - Získání mapy a assetů",
         "popupbotHelp6": "Děkujeme následujícím lidem za příspěvky ke zlepšení mapových dat:",
         "popupbotHelp7": "__lordfiSh__ - Značky na mapě Toussaintu",
-        "popupCreated": "Vytvořil uživatel __untamed0__ a vylepšil uživatel __BaHTsIzBEdEvi__,  s přispěním:",
+        "popupCreated": "Vytvořil uživatel __untamed0__, vylepšil uživatel __BaHTsIzBEdEvi__ a __msinger__, s přispěním:",
         "popupcrowdin": "Zvláštní poděkování patří __crowdin__ za to, že jsme mohli použít jejich vynikající editor překladů. ",
         "popupJava": "Použité javascript knihovny",
         "popupRED": "Zaklínač 3, logo, ikony, mapa a texty jsou vlastnictvím společnosti __RED__ a jsou použity bez svolení. Nekomerční použití je povoleno podle bodu 9.4 jejich __Agreement__. ",
@@ -164,8 +163,7 @@ window.i18nData.cz.general = {
         "popuptranslations2": "Turečtina - __BaHTsIzBEdEvi__",
         "popuptranslations3": "Čeština - __MikeCZ__ a __Lord Mazour__",
         "popuptranslations4": "Tradiční čínská - __YheonYeung__",
-        "popuptranslations5": "Polština - __toffi3__, __Umber91310486__ a __Mochal__",
-        "version": "Verze: "
+        "popuptranslations5": "Polština - __toffi3__, __Umber91310486__ a __Mochal__"
     },
     "entrance": {
         "desc": {
@@ -365,8 +363,7 @@ window.i18nData.cz.general = {
         "desc": "Medové plástve zde můžete sbírat pomocí Igni a poté je prodat Tomiře. "
     },
     "home": {
-		"offline": "Offline mapa",
-		"online" : "Online mapa",
+		"offline": "Stáhnout ZIP",
         "resultsFound": "výsledků nalezeno. ",
         "searchPlaceholder": "Hledaná slova... ",
         "tagline": "Zaklínač 3 – Neoficiální interaktivní mapa"
@@ -560,7 +557,7 @@ window.i18nData.cz.general = {
     },
     "misc": {
         "active": "Aktivuje se po misi „__quest__“. ",
-        "contribute": "Pro vaše podněty nebo stížnosti __link1__ nebo __link2__. ",
+        "contribute": "Hlášení chyb a další příspěvky: __link1__ ",
         "dactive": "Bude aktivní pouze během mise „__quest__“. ",
         "disappears": "Není přístupný po misi „__quest__“. ",
         "discuss": "Nápady, připomínky? Diskutujte na __link__",

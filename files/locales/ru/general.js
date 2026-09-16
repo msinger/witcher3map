@@ -120,7 +120,6 @@ window.i18nData.ru.general = {
         "cancelNoteButton": "Отменить заметку",
         "centerMarkerButton": "Центр выделенного маркера",
         "credits": "Авторы",
-		"donation": "Пожертвовать кофе...",
         "exitFullscreenButton": "Выход из полноэкранного просмотра",
         "helpFeatures": "Возможности и помощь",
         "hide": "Скрыть все",
@@ -145,7 +144,7 @@ window.i18nData.ru.general = {
     },
     "credits": {
         "botAssets": "Witcher 3, логотип, иконки, карта иamp; текст являются собственностью __cdpr__. ",
-        "botCreated": "Создано __untamed0__ и улучшен __BaHTsIzBEdEvi__, по лицензии __license__. ",
+        "botCreated": "Создано __untamed0__, улучшен __BaHTsIzBEdEvi__ и __msinger__, по лицензии __license__. ",
         "botHelp": "С помощью __mcarver__, __Gerignak__ и других __contributors__. Спасибо __designGears__ и __hhrhhr__ за извлечение карты и файлов. ",
         "popupAssets": "Witcher 3 Активы",
         "popupbotHelp1": "__mcarver__ (ведущий участник) - количество маркеров, улучшения постоянных хеш-ссылок, настройки резервного копирования / восстановления, многочисленные исправления и т. д. ",
@@ -155,7 +154,7 @@ window.i18nData.ru.general = {
         "popupbotHelp5": "__DesignGears__ & __hhrhhr__- Карта и извлечение активов",
         "popupbotHelp6": "Благодарим следующих людей за вклад в улучшение картографических данных.:",
         "popupbotHelp7": "__lordfiSh__ - Маркеры на карте Туссент",
-        "popupCreated": "Создано __untamed0__ и улучшен __BaHTsIzBEdEvi__, при участии:",
+        "popupCreated": "Создано __untamed0__, улучшен __BaHTsIzBEdEvi__ и __msinger__, при участии:",
         "popupcrowdin": "Особая благодарность __crowdin__ за то, что позволили нам использовать их отличный редактор переводов. ",
         "popupJava": "Используемые библиотеки Javascript",
         "popupRED": "The Witcher 3, логотип, значки, карта и текст являются собственностью __RED__ и используются без разрешения. Некоммерческое использование разрешено в соответствии с разделом 9.4 их __Agreement__. ",
@@ -164,8 +163,7 @@ window.i18nData.ru.general = {
         "popuptranslations2": "турецкий - __BaHTsIzBEdEvi__",
         "popuptranslations3": "чешский - __MikeCZ__ и __Lord Mazour__",
         "popuptranslations4": "Китайский традиционный - __YheonYeung__",
-        "popuptranslations5": "польский - __toffi3__, __Umber91310486__ и __Mochal__",
-		"version": "Версия: "
+        "popuptranslations5": "польский - __toffi3__, __Umber91310486__ и __Mochal__"
     },
     "entrance": {
         "desc": {
@@ -363,8 +361,7 @@ window.i18nData.ru.general = {
         "desc": "Соты здесь можно собрать, сжечь, а потом продать Томиру за деньги. "
     },
     "home": {
-		"offline": "Офлайн-карта",
-		"online" : "Онлайн-карта",
+		"offline": "Скачать ZIP-архив",
         "resultsFound": "результатов найдено. ",
         "searchPlaceholder": "Введите поисковой запрос... ",
         "tagline": "Неофициальная интерактивная карта The Witcher 3"
@@ -558,7 +555,7 @@ window.i18nData.ru.general = {
     },
     "misc": {
         "active": "Он станет активным после миссии «__quest__». ",
-        "contribute": "Для ваших предложений или жалоб __link1__ или __link2__. ",
+        "contribute": "Сообщения об ошибках и прочий вклад: __link1__ ",
         "dactive": "Он будет активен только во время миссии «__quest__». ",
         "disappears": "Недоступно после миссии «__quest__». ",
         "discuss": "Обратная связь, предложения? Обсудить на __link__",

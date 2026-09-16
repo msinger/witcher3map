@@ -120,7 +120,6 @@ window.i18nData.pl.general = {
         "cancelNoteButton": "Anuluj notatkę",
         "centerMarkerButton": "Centruj podświetlony znacznik",
         "credits": "Autorzy",
-        "donation": "Rzuć Napiwek",
         "exitFullscreenButton": "Wyjście z trybu pełnoekranowego",
         "helpFeatures": "Funkcje i pomoc",
         "hide": "Ukryj wszystko",
@@ -145,7 +144,7 @@ window.i18nData.pl.general = {
     },
     "credits": {
         "botAssets": "Logo Wiedźmina 3, ikony oraz mapa są własnością __cdpr__. ",
-        "botCreated": "Stworzone przez __untamed0__ i ulepszone przez __BaHTsIzBEdEvi__, licencjonowane przez __license__. ",
+        "botCreated": "Stworzone przez __untamed0__, udoskonalone przez __BaHTsIzBEdEvi__ i __msinger__, licencjonowane przez __license__. ",
         "botHelp": "Z pomocą od __mcarver__, __Gerignak__ i __Pomocników__. Podziękowania dla  __designGears__ i __hhrhhr__ za wydobycie mapy i aktywów. ",
         "popupAssets": "Zasoby czarownicy 3",
         "popupbotHelp1": "__mcarver__ (Główny Pomocnik) - Liczba znaczników, ulepszenia hash permalink, ustawienia kopii zapasowej/przywracania, liczne poprawki itp. ",
@@ -155,7 +154,7 @@ window.i18nData.pl.general = {
         "popupbotHelp5": "__DesignGears__ & __hhrhhr__- Wydobycie mapy i aktywów",
         "popupbotHelp6": "Dzięki następującym osobom za wkład w poprawę danych mapy:",
         "popupbotHelp7": "__lordfiSh__ - Markery na mapie Toussaint",
-        "popupCreated": "Stworzone przez __untamed0__ i wzmocnione przez __BaHTsIzBEdEvi__, licencjonowane przez:",
+        "popupCreated": "Stworzone przez __untamed0__ i ulepszone przez __BaHTsIzBEdEvi__ oraz __msinger__, przy udziale:",
         "popupcrowdin": "Specjalne podziękowania dla __crowdin__ za umożliwienie nam korzystania z ich wspaniałego edytora tłumaczeń. ",
         "popupJava": "Biblioteka JavaScript",
         "popupRED": "Logo Witcher 3, ikony, mapa i tekst są własnością __RED__  i używane bez uprawnień. Niekomercyjne użycie jest dozwolone na mocy sekcji 9.4 ich __Pozwolenia__. ",
@@ -164,8 +163,7 @@ window.i18nData.pl.general = {
         "popuptranslations2": "Turecki - __BaHTsIzBEdEvi__",
         "popuptranslations3": "Czeski - __MikeCZ__ i __Lord Mazour__",
         "popuptranslations4": "Chiński Tradycyjny - __YheonYeung__",
-        "popuptranslations5": "Polski - __toffi3__, __Umber91310486__ i __Mochal__",
-        "version": "Wersja: "
+        "popuptranslations5": "Polski - __toffi3__, __Umber91310486__ i __Mochal__"
     },
     "entrance": {
         "desc": {
@@ -363,8 +361,7 @@ window.i18nData.pl.general = {
         "desc": "Tutejsze plastry miodu można zebrać przez spalenie, a następnie sprzedać Tomirę za pieniądze. "
     },
     "home": {
-		"offline": "Mapa offline",
-		"online" : "Mapa internetowa",
+		"offline": "Pobierz plik ZIP",
         "resultsFound": "znaleziono wyniki. ",
         "searchPlaceholder": "Wpisz szukaną frazę...",
         "tagline": "Nieoficjalne interaktywne mapy Wiedźca 3"
@@ -558,7 +555,7 @@ window.i18nData.pl.general = {
     },
     "misc": {
         "active": "Stanie się aktywna po misji „__quest__”. ",
-        "contribute": "Dla Twoich sugestii lub skarg __link1__ lub __link2__. ",
+        "contribute": "Zgłoszenia błędów i inny wkład: __link1__ ",
         "dactive": "Stanie się aktywna tylko podczas misji „__quest__”. ",
         "disappears": "Niedostępne po misji „__quest__”. ",
         "discuss": "Masz jakieś opinie lub sugestie? Możesz się nimi podzielić pod __link__",
