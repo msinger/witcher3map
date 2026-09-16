@@ -10,9 +10,18 @@ window.i18noptions = {
 	ns: "general",
 	lng: localStorage.lang,
 	fallbackLng: "en",
-	resGetPath: window.files_path + "/locales/__lng__/__ns__.json",
 	useDataAttrOptions: !0,
-	lngWhitelist: ["en", "cz", "pl", "ru", "tr", "zh"]
+	lngWhitelist: ["en", "cz", "pl", "ru", "tr", "zh"],
+
+	customLoad: function(lng, ns, options, callback) {
+		loadScript(
+			window.files_path + "/locales/" + lng + "/" + ns + ".js"
+		).then(function() {
+			callback(null, window.i18nData[lng][ns]);
+		}).catch(function() {
+			callback("failed loading translation", {});
+		});
+	}
 };
 
 var languageOptions = [{

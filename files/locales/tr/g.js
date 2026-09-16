@@ -1,0 +1,28 @@
+window.i18nData = window.i18nData || {};
+window.i18nData.tr = window.i18nData.tr || {};
+window.i18nData.tr.g = {
+    "poi": {
+        "desc": {
+            "answer": "Bilmecenin doğru cevabı. ",
+            "shani": "Dikkat dağıtmak için seni çağıran sahte Shani. ",
+            "start": "Haritaya giriş yapılan nokta. ",
+            "swing": "Bilmecenin hatalı cevaplarından biri. ",
+            "tomb": "Bilmecenin hatalı cevaplarından biri. ",
+            "well": "Bilmecenin hatalı cevaplarından biri. "
+        },
+        "label": {
+            "answer": "Bitiş Noktası",
+            "shani": "Sahte Shani",
+            "start": "Başlangıç Noktası",
+            "swing": "Salıncak",
+            "tomb": "Mezar",
+            "well": "Kuyu"
+        }
+    },
+    "treasure": {
+        "popup": {
+            "cave": "Hazine dolu bir mağara",
+            "viper": "Engerek Zehirli Gümüş Kılıç"
+        }
+    }
+};
