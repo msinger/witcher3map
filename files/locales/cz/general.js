@@ -145,25 +145,7 @@ window.i18nData.cz.general = {
     "credits": {
         "botAssets": "Zaklínač 3, logo, ikony, mapa a texty jsou vlastnictvím __cdpr__",
         "botCreated": "Vytvořil uživatel __untamed0__, vylepšil uživatel __BaHTsIzBEdEvi__ a __msinger__, licencováno pomocí __license__. ",
-        "botHelp": "Za pomoci __mcarver__, __Gerignak__  a dalších __contributors__. Díky __designGears__ a __hhrhhr__ za mapu a získání podkladů. ",
-        "popupAssets": "Assety Zaklínače 3",
-        "popupbotHelp1": "__mcarver__ (hlavní přispěvatel) – Počet značek, vylepšení hash permalink, nastavení zálohování/obnovení, četné opravy atd. ",
-        "popupbotHelp2": "__ankri__ - Možnost skrýt značky na pravé nebo dvojité kliknutí",
-        "popupbotHelp3": "__ITroxxCH__ - Překlad/implementace i18n",
-        "popupbotHelp4": "__msmorgan__ - Vylepšení struktury dat Javascriptu a mapy",
-        "popupbotHelp5": "__DesignGears__ a __hhrhhr__ - Získání mapy a assetů",
-        "popupbotHelp6": "Děkujeme následujícím lidem za příspěvky ke zlepšení mapových dat:",
-        "popupbotHelp7": "__lordfiSh__ - Značky na mapě Toussaintu",
-        "popupCreated": "Vytvořil uživatel __untamed0__, vylepšil uživatel __BaHTsIzBEdEvi__ a __msinger__, s přispěním:",
-        "popupcrowdin": "Zvláštní poděkování patří __crowdin__ za to, že jsme mohli použít jejich vynikající editor překladů. ",
-        "popupJava": "Použité javascript knihovny",
-        "popupRED": "Zaklínač 3, logo, ikony, mapa a texty jsou vlastnictvím společnosti __RED__ a jsou použity bez svolení. Nekomerční použití je povoleno podle bodu 9.4 jejich __Agreement__. ",
-        "popuptranslations": "Překlady",
-        "popuptranslations1": "Ruština - __Arkwulf__ (S pomocí starých crowdin překladů)",
-        "popuptranslations2": "Turečtina - __BaHTsIzBEdEvi__",
-        "popuptranslations3": "Čeština - __MikeCZ__ a __Lord Mazour__",
-        "popuptranslations4": "Tradiční čínská - __YheonYeung__",
-        "popuptranslations5": "Polština - __toffi3__, __Umber91310486__ a __Mochal__"
+        "botHelp": "Za pomoci __mcarver__, __Gerignak__  a dalších __contributors__. Díky __designGears__ a __hhrhhr__ za mapu a získání podkladů. "
     },
     "entrance": {
         "desc": {

@@ -1,3 +1,4 @@
+//empty mocks to avoid errors on mapdata files
 var L = {};
 L.latLng = function() {};
 window.markers = {};
@@ -9,87 +10,119 @@ $.i18n.init(i18noptions, async function() {
 		});
 
 		await loadScript("files/scripts/mapdata-" + map.path + ".js");
-		processData(map);
+		processData(map, window["mapdata_" + map.path]);
 	}
 
-	var t = $("#search");
-	t.keyup(function() {
+	var searchInput = $("#search");
+	searchInput.keyup(function() {
 		doSearch()
 	});
 
-	if (t.val())
+	if (searchInput.val())
 		doSearch();
 
 	$("#clear").click(function() {
-		$("#search").val(""), $("#results").empty(), $("#clear").hide(), $("#nav").show()
+		$("#search").val("");
+		$("#results").empty();
+		$("#clear").hide();
+		$("#nav").show();
 	});
 
 	$(document).i18n()
 });
 
+//mocks shared.js processData function to generate search results
 var count = 0;
 var mapdata = [];
-
-function processData(m) {
-	$.each(window["mapdata_" + m.path], function(e, c) {
-		$.each(c, function(e, c) {
-			if (c && c.popup) {
-				var s;
-				var n = window.location.href.replace(window.location.hash, "").toString().slice(0, -10) +
-					    m.ns + "/index.html#3/" + c.coords[0][0] + "/" + c.coords[0][1] + "/m=" + c.coords[0][0] +
-					    "," + c.coords[0][1];
-				var o = c.popup.replace(/<\/?[^>]+(>|$)/g, "");
-				var r = c.popupTitle ? c.popupTitle : "";
-				s = "" === r ? c.label : r.indexOf(c.label) > -1 ? r : c.label + " (" + r + ")", mapdata.push({
-					id: count,
-					map: $.t("maps." + m.path),
-					label: s,
-					popup: o,
-					link: n
-				}), count++
+function processData(map, data) {
+	$.each(data, function(markerType,markers) {
+		$.each(markers, function(index,marker) {
+			if (!marker || !marker.popup)
+				return;
+			// TODO: Why toString and slice?
+			var link = window.location.href.replace(window.location.hash, '').toString().slice(0, -10) +
+			           map.ns + "/index.html#3/" + marker.coords[0][0] + "/" + marker.coords[0][1] +
+			           "/m=" + marker.coords[0][0] + "," + marker.coords[0][1];
+			var popupText = marker.popup.replace(/<\/?[^>]+(>|$)/g, "");
+			var popupTitle = marker.popupTitle ? marker.popupTitle : '';
+			var label;
+			if (popupTitle === '') {
+				label = marker.label;
+			} else if (popupTitle.indexOf(marker.label) > -1) {
+				label = popupTitle;
+			} else {
+				label = marker.label+' ('+popupTitle+')';
 			}
+
+			mapdata.push({
+				'id': count,
+				'map': $.t('maps.'+map.path),
+				'label':label,
+				'popup':popupText,
+				'link':link
+			});
+
+			count++;
 		})
 	})
 }
 
 function doSearch() {
-	var a = $("#search"),
-		e = $("#results"),
-		t = a.val();
-	if (0 === t.length) {
-		e.empty(), $("#clear").hide(), $("#nav").show();
-		return
+	var searchElement = $('#search');
+	var resultsElement = $('#results');
+	var searchText = searchElement.val();
+	if(searchText.length === 0) {
+		resultsElement.empty();
+		$('#clear').hide();
+		$('#nav').show();
+		return;
+	} else {
+		$('#clear').show();
+		$('#nav').hide();
 	}
-	$("#clear").show(), $("#nav").hide();
-	var c = new Fuse(mapdata, {
-		caseSensitive: !1,
-		includeScore: !1,
-		shouldSort: !0,
-		tokenize: !1,
-		threshold: .2,
+
+	var options = {
+		caseSensitive: false,
+		includeScore: false,
+		shouldSort: true,
+		tokenize: false,
+		threshold: 0.2,
 		location: 0,
-		distance: 1e4,
+		distance: 10000,
 		maxPatternLength: 32,
-		keys: ["map", "label", "popup"]
-	}).search(t);
-	e.empty();
-	var s = "<li>" + c.length + " " + $.t("home.resultsFound") + "</li>";
-	e.append($(s));
-	var n = c.length;
-	for (i = 0; i < n; i++) {
-		var o = '<li><div><a href="' + c[i].link + '">' + c[i].label + " - " + c[i].map + '</a></div><div class="searchDescription"><div class="truncated" onclick="toggleTruncate(event, this)">' + c[i].popup + "</div></div></li>";
-		e.append($(o))
+		keys: ["map","label","popup"]
+	};
+	var fuse = new Fuse(mapdata, options);
+	var result = fuse.search(searchText);
+
+	resultsElement.empty();
+	var count = '<li>'+result.length+' '+$.t('home.resultsFound')+'</li>';
+	resultsElement.append($(count));
+	var resultsLength = result.length;
+	for(i=0;i<resultsLength;i++) {
+		var item = '<li><div><a href="'+result[i].link+'">'+result[i].label+' - '+result[i].map+'</a></div><div class="searchDescription"><div class="truncated" onclick="toggleTruncate(event, this)">'+result[i].popup+'</div></div></li>';
+		resultsElement.append($(item));
 	}
 }
 
-function toggleTruncate(a, e) {
-	a.preventDefault(), a.stopPropagation(), $(e).toggleClass("truncated")
+function toggleTruncate(e, element) {
+	e.preventDefault();
+	e.stopPropagation();
+	$(element).toggleClass("truncated");
 }
 
 $(function() {
-	var a = $("#search-input-wrapper"),
-		e = a.position();
+	var s = $('#search-input-wrapper');
+	var pos = s.position();
+	//setup sticky searchbar
 	$(window).scroll(function() {
-		$(window).scrollTop() >= e.top ? $("#search").val() && a.addClass("sticky") : a.removeClass("sticky")
-	})
+		var windowpos = $(window).scrollTop();
+		if (windowpos >= pos.top) {
+			if($('#search').val()) {
+				s.addClass("sticky");
+			}
+		} else {
+			s.removeClass("sticky");
+		}
+	});
 });

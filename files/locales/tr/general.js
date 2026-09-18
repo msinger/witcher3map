@@ -145,25 +145,7 @@ window.i18nData.tr.general = {
     "credits": {
         "botAssets": "Witcher 3, logo, simge ve haritalar __cdpr__ malıdır.",
         "botCreated": "__untamed0__ tarafından oluşturulmuş; __BaHTsIzBEdEvi__ ve __msinger__ tarafından geliştirilmiş; __license__ altında lisanslanmıştır.",
-        "botHelp": "__mcarver__, __Gerignak__ ve diğer __contributors__ çalışmalara yardımcı olmuşlardır. __designGears__ ve __hhrhhr__ harita ve varlıkları oyun dosyalarından ayıklamışlardır.",
-        "popupAssets": "Witcher 3 Varlıkları",
-        "popupbotHelp1": "__mcarver__ (lider katılımcı) - İşaretleyici sayısı, karma kalıcı bağlantı iyileştirmeleri, yedekleme / geri yükleme ayarları, çok sayıda düzeltme vb.",
-        "popupbotHelp2": "__ankri__ - İşaretleyicileri sağ veya çift tıklatmayla gizleme yeteneği",
-        "popupbotHelp3": "__ITroxxCH__ - Çeviri/i18n uyarlaması",
-        "popupbotHelp4": "__msmorgan__ - Javascript ve harita veri yapısı iyileştirmeleri",
-        "popupbotHelp5": "__DesignGears__ & __hhrhhr__- harita ve dosyaların oyun dosyalarından ayıklanması",
-        "popupbotHelp6": "Harita verilerinin iyileştirilmesine katkılarından dolayı aşağıdaki kişilere teşekkür ederiz:",
-        "popupbotHelp7": "__lordfiSh__ - Toussaint Harita İşaretçileri",
-        "popupCreated": "__untamed0__ tarafından oluşturulmuştur; __BaHTsIzBEdEvi__ ve __msinger__ tarafından geliştirilmiş, destek olanlar:",
-        "popupcrowdin": "Mükemmel çeviri düzenleyicilerini kullanmamıza izin verdiği için __crowdin__ sitesine teşekkür ederiz.",
-        "popupJava": "Kullanılan Javascript Kitaplıkları",
-        "popupRED": "The Witcher 3, logo, simge, harita ve metinler __RED__ malıdır ve izin alınmaksızın kullanılmıştır. Ticari olmayan kullanıma, __Agreement__ 9.4 bölümü uyarınca izin veririr.",
-        "popuptranslations": "Çeviriler",
-        "popuptranslations1": "Rusça - __Arkwulf__ (Eski crowdin çevirilerinin yardımıyla)",
-        "popuptranslations2": "Türkçe - __BaHTsIzBEdEvi__",
-        "popuptranslations3": "Çekçe - __MikeCZ__ ve __Lord Mazour__",
-        "popuptranslations4": "Geleneksel Çince - __YheonYeung__",
-        "popuptranslations5": "Lehçe - __toffi3__, __Umber91310486__ ve __Mochal__"
+        "botHelp": "__mcarver__, __Gerignak__ ve diğer __contributors__ çalışmalara yardımcı olmuşlardır. __designGears__ ve __hhrhhr__ harita ve varlıkları oyun dosyalarından ayıklamışlardır."
     },
     "entrance": {
         "desc": {

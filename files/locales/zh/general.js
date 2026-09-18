@@ -145,25 +145,7 @@ window.i18nData.zh.general = {
     "credits": {
         "botAssets": "巫師 3 , 標誌 , 圖示 , 地圖 & 文字 均為__cdpr__的財產商標。",
         "botCreated": "由 __untamed0__ 創建 , 並由 __BaHTsIzBEdEvi__ 和 __msinger__ 增強，在 __license__ 下獲得許可。",
-        "botHelp": "在 __mcarver__、__Gerignak__ 和其他 __contributors__ 的幫助下。感謝 __designGears__ 和 __hhrhhr__ 用於地圖和資產提取。",
-        "popupAssets": "巫師 3 資產",
-        "popupbotHelp1": "__mcarver__（主要貢獻者）- 標記計數、哈希永久連結改進、備份/恢復設定、大量修復等。",
-        "popupbotHelp2": "__ankri__ - 能夠在右鍵或雙擊時隱藏標記",
-        "popupbotHelp3": "__ITroxxCH__ - 翻譯/i18n 實現",
-        "popupbotHelp4": "__msmorgan__ - Javascript 和地圖數據結構改進",
-        "popupbotHelp5": "__DesignGears__ & __hhrhhr__- 地圖和資產提取",
-        "popupbotHelp6": "感謝以下人員為改進地圖數據所做的貢獻：",
-        "popupbotHelp7": "__lordfiSh__ - Toussaint 地圖標記",
-        "popupCreated": "由 __untamed0__ 創建 , 並由 __BaHTsIzBEdEvi__ 和 __msinger__ 增強，貢獻來自：",
-        "popupcrowdin": "特別感謝 __crowdin__ 讓我們使用他們出色的翻譯編輯器。",
-        "popupJava": "使用Javascript程式庫",
-        "popupRED": "巫師 3、標誌、圖示、地圖和文字是 __RED__ 的財產，未經許可使用。根據他們的 __Agreement__ 第 9.4 節，允許非商業用途。",
-        "popuptranslations": "翻譯人員",
-        "popuptranslations1": "俄文 - __Arkwulf__（借助舊的crowdin翻譯）",
-        "popuptranslations2": "土耳其文 - __BaHTsIzBEdEvi__",
-        "popuptranslations3": "捷克文 - __MikeCZ__ 和 __Lord Mazour__",
-        "popuptranslations4": "中國傳統的 - __YheonYeung__",
-        "popuptranslations5": "拋光 - __toffi3__, __Umber91310486__ 和 __Mochal__"
+        "botHelp": "在 __mcarver__、__Gerignak__ 和其他 __contributors__ 的幫助下。感謝 __designGears__ 和 __hhrhhr__ 用於地圖和資產提取。"
     },
     "entrance": {
         "desc": {

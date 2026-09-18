@@ -145,25 +145,7 @@ window.i18nData.pl.general = {
     "credits": {
         "botAssets": "Logo Wiedźmina 3, ikony oraz mapa są własnością __cdpr__. ",
         "botCreated": "Stworzone przez __untamed0__, udoskonalone przez __BaHTsIzBEdEvi__ i __msinger__, licencjonowane przez __license__. ",
-        "botHelp": "Z pomocą od __mcarver__, __Gerignak__ i __Pomocników__. Podziękowania dla  __designGears__ i __hhrhhr__ za wydobycie mapy i aktywów. ",
-        "popupAssets": "Zasoby czarownicy 3",
-        "popupbotHelp1": "__mcarver__ (Główny Pomocnik) - Liczba znaczników, ulepszenia hash permalink, ustawienia kopii zapasowej/przywracania, liczne poprawki itp. ",
-        "popupbotHelp2": "__ankri__ - Możliwość ukrycia znaczników po kliknięciu prawym lub podwójnym kliknięciu",
-        "popupbotHelp3": "__ITroxxCH__ - tłumaczenie/implementacja i18n",
-        "popupbotHelp4": "__msmorgan__ - ulepszenia struktury danych Javascript i mapy",
-        "popupbotHelp5": "__DesignGears__ & __hhrhhr__- Wydobycie mapy i aktywów",
-        "popupbotHelp6": "Dzięki następującym osobom za wkład w poprawę danych mapy:",
-        "popupbotHelp7": "__lordfiSh__ - Markery na mapie Toussaint",
-        "popupCreated": "Stworzone przez __untamed0__ i ulepszone przez __BaHTsIzBEdEvi__ oraz __msinger__, przy udziale:",
-        "popupcrowdin": "Specjalne podziękowania dla __crowdin__ za umożliwienie nam korzystania z ich wspaniałego edytora tłumaczeń. ",
-        "popupJava": "Biblioteka JavaScript",
-        "popupRED": "Logo Witcher 3, ikony, mapa i tekst są własnością __RED__  i używane bez uprawnień. Niekomercyjne użycie jest dozwolone na mocy sekcji 9.4 ich __Pozwolenia__. ",
-        "popuptranslations": "Tłumaczenia",
-        "popuptranslations1": "Rosyjski - __Arkwulf__ (pomoc starego tłumienia tłumu)",
-        "popuptranslations2": "Turecki - __BaHTsIzBEdEvi__",
-        "popuptranslations3": "Czeski - __MikeCZ__ i __Lord Mazour__",
-        "popuptranslations4": "Chiński Tradycyjny - __YheonYeung__",
-        "popuptranslations5": "Polski - __toffi3__, __Umber91310486__ i __Mochal__"
+        "botHelp": "Z pomocą od __mcarver__, __Gerignak__ i __Pomocników__. Podziękowania dla  __designGears__ i __hhrhhr__ za wydobycie mapy i aktywów. "
     },
     "entrance": {
         "desc": {

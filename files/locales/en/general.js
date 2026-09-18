@@ -145,25 +145,7 @@ window.i18nData.en.general = {
     "credits": {
         "botAssets": "Witcher 3, logo, icons & map are the property of __cdpr__. ",
         "botCreated": "Created by __untamed0__ and enhanced by __BaHTsIzBEdEvi__ and __msinger__, licensed under __license__. ",
-        "botHelp": "With help from __mcarver__, __Gerignak__ and the other __contributors__. Thanks to __designGears__ and __hhrhhr__ for map and asset extraction. ",
-        "popupAssets": "Witcher 3 Assets",
-        "popupbotHelp1": "__mcarver__ (lead contributor) - Marker count, hash permalink improvements, backup/restore settings, numerous fixes etc. ",
-        "popupbotHelp2": "__ankri__ - Ability to hide markers on right or double click",
-        "popupbotHelp3": "__ITroxxCH__ - Translation/i18n implementation",
-        "popupbotHelp4": "__msmorgan__ - Javascript and map data structure improvements",
-        "popupbotHelp5": "__DesignGears__ & __hhrhhr__- Map and asset extraction",
-        "popupbotHelp6": "Thanks to the following people for contributions to improving the map data:",
-        "popupbotHelp7": "__lordfiSh__ - Toussaint Map Markers",
-        "popupCreated": "Created by __untamed0__ and enhanced by __BaHTsIzBEdEvi__ and __msinger__, with contributions from:",
-        "popupcrowdin": "Special thanks to __crowdin__ for letting us use their excellent translation editor. ",
-        "popupJava": "Used Javascript Libraries",
-        "popupRED": "The Witcher 3, logo, icons, map and text are the property of __RED__  and used without permission. Non commercial use is permitted under section 9.4 of their __Agreement__. ",
-        "popuptranslations": "Translations",
-        "popuptranslations1": "Russian - __Arkwulf__ (With the help of old crowdin translations)",
-        "popuptranslations2": "Turkish - __BaHTsIzBEdEvi__",
-        "popuptranslations3": "Czech - __MikeCZ__ and __Lord Mazour__",
-        "popuptranslations4": "Chinese Traditional - __YheonYeung__",
-        "popuptranslations5": "Polish - __toffi3__, __Umber91310486__ and __Mochal__"
+        "botHelp": "With help from __mcarver__, __Gerignak__ and the other __contributors__. Thanks to __designGears__ and __hhrhhr__ for map and asset extraction. "
     },
     "entrance": {
         "desc": {
