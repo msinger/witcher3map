@@ -20,6 +20,7 @@ Things I have added and fixed:
 * Various marker locations (see commit history).
 * Improved maintainability: New maps don't need to be added at dozens of places anymore.
 * Removed AJAX nonsense. Map works now locally from file:// URLs. Just download and double-click index.html.
+* Reversed the code obfuscation. (Thank you very much... NOT!)
 
 Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):
 

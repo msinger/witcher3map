@@ -8,56 +8,122 @@ $.i18n.init(i18noptions, function() {
 	});
 });
 
-$((function() {
-	$(".dd-selected").on("click", (function() {
-		setTimeout((function() {
-			$("#sidebar").getNiceScroll().resize()
-		}), 500)
-	}))
-})), window.createMarker = function(i, n, e, o, s) {
-	var c = "markers-" + map_path + "-hidden",
-		r = L.marker(i, setMarker(n)).bindLabel(e, {
-			direction: "auto"
-		}).bindPopup(o);
-	return r.on("contextmenu", (function(i) {
-		toggleOpacity(i, c), updatePills(i, s)
-	})), isMarkerInvisible(c, r.getLatLng().lat, r.getLatLng().lng) ? (r.setOpacity(invisibleMarkerOpacity), markerCount[s] || (markerCount[s] = 0)) : markerCount[s] = markerCount[s] + 1 || 1, r
-}, window.setMarker = function(i, n) {
-	return {
-		icon: i,
-		riseOnHover: !0
+$(function() {
+	//fix bug where sidebar scrollbar doesn't appear when the language drop-down opens
+	$('.dd-selected').on('click', function() {
+		setTimeout(function() {
+			$("#sidebar").getNiceScroll().resize();
+		}, 500);
+	});
+});
+
+function createMarker(coord, icon, label, popup, dataKey) {
+	var mapKey = 'markers-' + map_path + '-hidden';
+	var marker = L.marker(coord, setMarker(icon)).bindLabel(label, {direction: 'auto'}).bindPopup(popup);
+
+	marker.on('contextmenu', function (e) {
+		toggleOpacity(e, mapKey);
+		updatePills(e, dataKey);
+	});
+
+	if (isMarkerInvisible(mapKey, marker.getLatLng().lat, marker.getLatLng().lng)) {
+		marker.setOpacity(invisibleMarkerOpacity);
+		if(!markerCount[dataKey]) markerCount[dataKey] = 0;
+	} else {
+		markerCount[dataKey] = (markerCount[dataKey] + 1) || 1;
 	}
-}, window.getLatLngKey = function(i, n) {
-	return i + ";" + n
-}, window.isMarkerInvisible = function(i, n, e) {
-	return invisibleMarkers[i].indexOf(getLatLngKey(n, e)) > -1
-}, window.toggleOpacity = function(i, n) {
-	var e = getLatLngKey(i.latlng.lat, i.latlng.lng);
-	i.target && 1 === i.target.options.opacity ? (i.target.setOpacity(invisibleMarkerOpacity), invisibleMarkers[n].push(e)) : (i.target.setOpacity(1), invisibleMarkers[n].splice(invisibleMarkers[n].indexOf(e), 1)), localStorage[n] = JSON.stringify(invisibleMarkers[n])
-}, window.updatePills = function(i, n) {
-	i.target && (("number" != typeof markerCount[n] || isNaN(markerCount[n])) && (markerCount[n] = 0), 1 === i.target.options.opacity ? markerCount[n] = Math.max(0, markerCount[n] + 1) : markerCount[n] -= 1, $("ul.key:not(.controls) > li:not(.none) > i." + n + " ~ :last").text(markerCount[n]))
-}, window.resetInvisibleMarkers = function() {
-	var i = "markers-" + map_path + "-hidden";
-	invisibleMarkers[i] = [], localStorage[i] = JSON.stringify(invisibleMarkers[i]), location.reload()
-}, window.icons = {}, window.markers = {}, window.invisibleMarkers = {}, window.markerCount = {}, window.notes = {};
-var icons = window.icons,
-	markers = window.markers,
-	invisibleMarkerOpacity = .25;
-window.processData = function(data) {
-	var mapKey = "markers-" + map_path + "-hidden";
-	localStorage[mapKey] || (localStorage[mapKey] = JSON.stringify([])), invisibleMarkers[mapKey] = JSON.parse(localStorage[mapKey]);
-	var notesKey = "notes-" + map_path;
-	localStorage[notesKey] || (localStorage[notesKey] = JSON.stringify([])), notes[map_path] = JSON.parse(localStorage[notesKey]), Object.keys(data).forEach((function(dataKey) {
-		var items = data[dataKey],
-			groupItems = [];
-		items.forEach((function(item) {
-			null == item.popupTitle && (item.popupTitle = item.label), item.coords.forEach((function(coord) {
+
+	return marker;
+}
+
+function setMarker(icon, tooltip) {
+	return {icon : icon, riseOnHover : true};
+}
+
+function getLatLngKey(lat, lng) {
+	return lat + ';' + lng;
+}
+
+function isMarkerInvisible(mapPath, lat, lng) {
+	return invisibleMarkers[mapPath].indexOf(getLatLngKey(lat, lng)) > -1;
+}
+
+function toggleOpacity(event, mapPath) {
+	var key = getLatLngKey(event.latlng.lat, event.latlng.lng);
+
+	if (event.target && event.target.options.opacity === 1.0) {
+		event.target.setOpacity(invisibleMarkerOpacity);
+		invisibleMarkers[mapPath].push(key);
+	} else {
+		event.target.setOpacity(1.0);
+		invisibleMarkers[mapPath].splice(invisibleMarkers[mapPath].indexOf(key), 1);
+	}
+
+	localStorage[mapPath] = JSON.stringify(invisibleMarkers[mapPath]);
+}
+
+function updatePills(event, dataKey) {
+	if (!event.target)
+		return;
+	if (typeof markerCount[dataKey] != "number" || isNaN(markerCount[dataKey]))
+		markerCount[dataKey] = 0;
+	if (event.target.options.opacity === 1.0) {
+		markerCount[dataKey]++;
+	} else {
+		markerCount[dataKey]--;
+	}
+	$('ul.key:not(.controls) > li:not(.none) > i.'+dataKey+' ~ :last').text(markerCount[dataKey]);
+}
+
+function resetInvisibleMarkers() {
+	var mapKey = 'markers-' + map_path + '-hidden';
+	invisibleMarkers[mapKey] = [];
+	localStorage[mapKey] = JSON.stringify(invisibleMarkers[mapKey]);
+	location.reload();
+}
+
+window.icons = {};
+window.markers = {};
+window.invisibleMarkers = {};
+window.markerCount = {};
+window.notes = {};
+
+var icons = window.icons;
+var markers = window.markers;
+var invisibleMarkerOpacity = 0.25;
+
+function processData(data) {
+	var mapKey = 'markers-' + map_path + '-hidden';
+
+	if(!localStorage[mapKey]) {
+		localStorage[mapKey] = JSON.stringify([]);
+	}
+	invisibleMarkers[mapKey] = JSON.parse(localStorage[mapKey]);
+
+	var notesKey = 'notes'+map_path;
+	if(!localStorage[notesKey]) {
+		localStorage[notesKey] = JSON.stringify([]);
+	}
+	notes[map_path] = JSON.parse(localStorage[notesKey]);
+
+	Object.keys(data).forEach(function (dataKey) {
+		var items = data[dataKey];
+		var groupItems = [];
+		items.forEach(function (item) {
+			if (item.popupTitle == null) {
+				item.popupTitle = item.label;
+			}
+			item.coords.forEach(function (coord) {
 				var ug_icon = "icons." + dataKey + "_ug";
 				item.label.includes($.t("misc.underground")) ? item.label.includes($.t("treasure.watertreasure")) ? groupItems.push(createMarker(coord, icons.treasure_uw_ug, item.label, "<h1>" + item.popupTitle + "</h1>" + item.popup, dataKey)) : groupItems.push(createMarker(coord, eval(ug_icon), item.label, "<h1>" + item.popupTitle + "</h1>" + item.popup, dataKey)) : item.label.includes($.t("treasure.watertreasure")) ? groupItems.push(createMarker(coord, icons.treasure_uw, item.label, "<h1>" + item.popupTitle + "</h1>" + item.popup, dataKey)) : groupItems.push(createMarker(coord, icons[dataKey], item.label, "<h1>" + item.popupTitle + "</h1>" + item.popup, dataKey))
-			}))
-		})), markers[dataKey] = L.layerGroup(groupItems)
-	}))
-}, icons.abandoned = L.icon({
+			});
+		});
+
+		markers[dataKey] = L.layerGroup(groupItems);
+	});
+}
+
+icons.abandoned = L.icon({
 	iconUrl: "../files/images/icons/abandoned.png",
 	iconSize: [30, 30]
 }), icons.alchemy = L.icon({
