@@ -533,8 +533,8 @@ window.i18nData.cz.general = {
         "skellige": "Skelligské ostrovy",
         "toussaint": "Toussaint",
         "toussaint_main": "Toussaint <img src=files/images/logo/dlp1_cz.png />",
-        "hos_velen": "Velen a Novigrad",
-        "hos_velen_main": "Velen a Novigrad <img src=files/images/logo/dlp2_cz.png />",
+        "velen": "Velen a Novigrad",
+        "velen_main": "Velen a Novigrad <img src=files/images/logo/dlp2_cz.png />",
         "white_orchard": "Bělosad"
     },
     "misc": {

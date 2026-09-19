@@ -531,8 +531,8 @@ window.i18nData.zh.general = {
         "skellige": "史凱利傑群島",
         "toussaint": "陶森特",
         "toussaint_main": "陶森特 <img src=files/images/logo/dlp1_zh.png />",
-        "hos_velen": "威倫 & 諾維格瑞",
-        "hos_velen_main": "威倫 & 諾維格瑞 <img src=files/images/logo/dlp2_zh.png />",
+        "velen": "威倫 & 諾維格瑞",
+        "velen_main": "威倫 & 諾維格瑞 <img src=files/images/logo/dlp2_zh.png />",
         "white_orchard": "白果園"
     },
     "misc": {

@@ -532,8 +532,8 @@ window.i18nData.tr.general = {
         "skellige": "Skellige Adaları",
         "toussaint": "Toussaint",
         "toussaint_main": "Toussaint <img src=files/images/logo/dlp1_tr.png />",
-        "hos_velen": "Velen & Novigrad",
-        "hos_velen_main": "Velen & Novigrad <img src=files/images/logo/dlp2_tr.png />",
+        "velen": "Velen & Novigrad",
+        "velen_main": "Velen & Novigrad <img src=files/images/logo/dlp2_tr.png />",
         "white_orchard": "Ak Bostan"
     },
     "misc": {

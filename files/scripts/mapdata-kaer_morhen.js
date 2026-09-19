@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(0,0);
-window.map_nEast = L.latLng(160,128);
-window.map_center = [80,64];
-window.map_minZoom = 2;
-window.map_mZoom = 7;
-window.map_natZoom = 5;
-window.map_Zoom = 3;
-window.mapdata_kaer_morhen = {
+{ let getMapData = function() { return {
 
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [],
@@ -383,4 +376,16 @@ window.mapdata_kaer_morhen = {
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
 	vineyardinfestation: []
-};
+}; };
+
+registerMap({
+	name:        "kaer_morhen",
+	ns:          "k",
+	bounds:      [{ lat: 0, lng: 0 }, { lat: 160, lng: 128 }],
+	initialPos:  [80, 64],
+	minZoom:     2,
+	maxZoom:     7,
+	nativeZoom:  5,
+	initialZoom: 3,
+	getMapData:  getMapData
+}); }

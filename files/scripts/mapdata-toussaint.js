@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(0,0);
-window.map_nEast = L.latLng(144,144);
-window.map_center = [72,72];
-window.map_minZoom = 2;
-window.map_mZoom = 8;
-window.map_natZoom = 6;
-window.map_Zoom = 3;
-window.mapdata_toussaint = {
+{ let getMapData = function() { return {
 
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [{
@@ -1978,4 +1971,16 @@ window.mapdata_toussaint = {
 		label: $.t("sidebar.vineyardinfestation"),
 		popup: $.t("vineyardinfestation.desc")
 	}]
-};
+}; };
+
+registerMap({
+	name:        "toussaint",
+	ns:          "t",
+	bounds:      [{ lat: 0, lng: 0 }, { lat: 144, lng: 144 }],
+	initialPos:  [72, 72],
+	minZoom:     2,
+	maxZoom:     8,
+	nativeZoom:  6,
+	initialZoom: 3,
+	getMapData:  getMapData
+}); }

@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(0,0);
-window.map_nEast = L.latLng(256,256);
-window.map_center = [128,128];
-window.map_minZoom = 2;
-window.map_mZoom = 8;
-window.map_natZoom = 6;
-window.map_Zoom = 2;
-window.mapdata_skellige = {
+{ let getMapData = function() { return {
 
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [{
@@ -3460,4 +3453,16 @@ window.mapdata_skellige = {
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
 	vineyardinfestation: []
-};
+}; };
+
+registerMap({
+	name:        "skellige",
+	ns:          "s",
+	bounds:      [{ lat: 0, lng: 0 }, { lat: 256, lng: 256 }],
+	initialPos:  [128, 128],
+	minZoom:     2,
+	maxZoom:     8,
+	nativeZoom:  6,
+	initialZoom: 2,
+	getMapData:  getMapData
+}); }

@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(0,0);
-window.map_nEast = L.latLng(384,512);
-window.map_center = [192,256];
-window.map_minZoom = 2;
-window.map_mZoom = 5;
-window.map_natZoom = 3;
-window.map_Zoom = 3;
-window.mapdata_isle_mists = {
+{ let getMapData = function() { return {
 	
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [],
@@ -343,4 +336,16 @@ window.mapdata_isle_mists = {
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
 	vineyardinfestation: []
-};
+}; };
+
+registerMap({
+	name:        "isle_mists",
+	ns:          "i",
+	bounds:      [{ lat: 0, lng: 0 }, { lat: 384, lng: 512 }],
+	initialPos:  [192, 256],
+	minZoom:     2,
+	maxZoom:     5,
+	nativeZoom:  3,
+	initialZoom: 3,
+	getMapData:  getMapData
+}); }

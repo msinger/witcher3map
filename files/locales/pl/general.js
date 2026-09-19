@@ -531,8 +531,8 @@ window.i18nData.pl.general = {
         "skellige": "Wyspy Skellige",
         "toussaint": "Toussaint",
         "toussaint_main": "Toussaint <img src=files/images/logo/dlp1_pl.png />",
-        "hos_velen": "Velen i Novigrad",
-        "hos_velen_main": "Velen & Novigrad  <img src=files/images/logo/dlp2_pl.png />",
+        "velen": "Velen i Novigrad",
+        "velen_main": "Velen & Novigrad  <img src=files/images/logo/dlp2_pl.png />",
         "white_orchard": "Biały Sad"
     },
     "misc": {

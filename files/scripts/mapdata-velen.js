@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(-32,-32);
-window.map_nEast = L.latLng(288+32,256+32);
-window.map_center = [144,128];
-window.map_minZoom = 1;
-window.map_mZoom = 7;
-window.map_natZoom = 5;
-window.map_Zoom = 2;
-window.mapdata_hos_velen = {
+{ let getMapData = function() { return {
 
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [{
@@ -5449,4 +5442,16 @@ window.mapdata_hos_velen = {
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
 	vineyardinfestation: []
-};
+}; };
+
+registerMap({
+	name:        "velen",
+	ns:          "v",
+	bounds:      [{ lat: -32, lng: -32 }, { lat: 288+32, lng: 256+32 }],
+	initialPos:  [144, 128],
+	minZoom:     1,
+	maxZoom:     7,
+	nativeZoom:  5,
+	initialZoom: 2,
+	getMapData:  getMapData
+}); }
