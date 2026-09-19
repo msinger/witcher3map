@@ -44,11 +44,24 @@ var markerGroupNames = [
 
 function loadScript(url) {
 	return new Promise(function(resolve, reject) {
-		var script = document.createElement("script");
+		let script = document.createElement("script");
 		script.src = url;
 		script.onload = resolve;
 		script.onerror = reject;
 		document.head.appendChild(script);
+	});
+}
+
+function loadStyle(url) {
+	return new Promise(function(resolve, reject) {
+		let style = document.createElement("link");
+		style.rel = "stylesheet";
+		style.type = "text/css";
+		style.media = "screen";
+		style.href = url;
+		style.onload = resolve;
+		style.onerror = reject;
+		document.head.appendChild(style);
 	});
 }
 

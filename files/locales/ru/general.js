@@ -551,8 +551,8 @@ window.i18nData.ru.general = {
         "portraitWarn": "Примечание: карту лучше всего рассматривать в ландшафтном режиме, нажмите, чтобы отклонить",
         "treasure": "Охота за сокровищами",
         "underground": "подполье",
-		"logo": "<img src='files/images/logo/logo_ru.png' class='center'>",
-		"logo_min": "<img src='../files/images/logo/logo_ru_min.png' class='center'>"
+		"logo": "files/images/logo/logo_ru.png",
+		"logo_min": "files/images/logo/logo_ru_min.png"
     },
     "monsterden": {
         "desc": "Здесь водятся чудовища, которые беспрестанно терзают всю округу. "

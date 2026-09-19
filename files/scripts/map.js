@@ -6,7 +6,7 @@ var markerCount = {};
 var notes = [];
 var invisibleMarkerOpacity = 0.25;
 
-L.Icon.Default.imagePath = window.files_path + "/images/leaflet";
+L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
 var icon_sizes = {
 	//                     regular, underground
@@ -152,7 +152,7 @@ function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
 			'<div id="sidebar-wrap">' +
-				'<a href="../index.html" title="' + esc($.t("sidebar.returnToMapSelection"), true) + '"><center>' + $.t("misc.logo_min") + '</center></a>' +
+				'<a href="' + window.topdir + '/index.html" title="' + esc($.t("sidebar.returnToMapSelection"), true) + '"><center><img src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a>' +
 				'<ul class="key">';
 
 	let count = 0;
@@ -206,12 +206,12 @@ function runMap() {
 	for (var icon in icon_sizes) {
 		// regular
 		if (icon_sizes[icon][0])
-			icons[icon] = L.icon({ iconUrl:  window.files_path + "/images/icons/" + icon + ".png",
+			icons[icon] = L.icon({ iconUrl:  window.topdir + "/files/images/icons/" + icon + ".png",
 			                       iconSize: icon_sizes[icon][0] });
 
 		// underground
 		if (icon_sizes[icon][1])
-			icons[icon + "_ug"] = L.icon({ iconUrl:  window.files_path + "/images/icons/underground/" + icon + ".png",
+			icons[icon + "_ug"] = L.icon({ iconUrl:  window.topdir + "/files/images/icons/underground/" + icon + ".png",
 			                               iconSize: icon_sizes[icon][1] });
 	}
 
@@ -377,8 +377,8 @@ function runMap() {
 		crs:             L.CRS.Simple
 	};
 
-	L.tileLayer(window.files_path + "/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.png", layer_settings).addTo(map);
-	L.tileLayer(window.files_path + "/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.jpg", layer_settings).addTo(map);
+	L.tileLayer(window.topdir + "/files/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.png", layer_settings).addTo(map);
+	L.tileLayer(window.topdir + "/files/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.jpg", layer_settings).addTo(map);
 
 	// TODO: Make this a configuration option:
 	map.dragging._draggable.on('predrag', function() {
@@ -396,7 +396,7 @@ function runMap() {
 
 		wayPoint = new L.marker(e.latlng, {
 			icon: L.icon({
-				iconUrl:  window.files_path + "/images/icons/waypoint.png",
+				iconUrl:  window.topdir + "/files/images/icons/waypoint.png",
 				iconSize: [26, 32]
 			})
 		}).on("click", function() {
@@ -1029,7 +1029,7 @@ function runMap() {
 		var hashWayPoint = hashParams.w.split(",");
 		wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
 			icon: L.icon({
-				iconUrl:  window.files_path + "/images/icons/waypoint.png",
+				iconUrl:  window.topdir + "/files/images/icons/waypoint.png",
 				iconSize: [26, 32]
 			})
 		}).on("click", function() {

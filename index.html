@@ -13,14 +13,15 @@
 		<meta property="og:description" content="Witcher 3 interactive maps. All locations including shopkeepers, gwent players, merchants, places of power.">
 		<meta name="description" content="Witcher 3 interactive maps. All locations including shopkeepers, gwent players, merchants, places of power.">
 		<meta name="keywords" content="Witcher 3, Witcher 3 map, Witcher 3 interactive map, gwent player map, gwent map, shopkeeper map, merchant map">
-		<link type="text/css" rel="stylesheet" href="files/styles/home.css">
+		<link type="text/css" rel="stylesheet" href="files/styles/leaflet.css">
+		<link type="text/css" rel="stylesheet" href="files/styles/home.css" id="home-css">
 		<link type="text/css" rel="stylesheet" href="files/styles/font-awesome.css">
 		<script type="text/javascript" src="files/scripts/fuse.js"></script>
 		<script type="text/javascript" src="files/scripts/jquery-3.6.0.min.js"></script>
 		<script type="text/javascript" src="files/scripts/vendor.bundle.js"></script>
 		<script type="text/javascript" src="files/scripts/jquery.ddslick.min.js"></script>
 		<script>
-			var files_path = "files";
+			var topdir = ".";
 		</script>
 		<script type="text/javascript" src="files/scripts/shared.js"></script>
 		<script type="text/javascript" src="files/scripts/lang-global.js"></script>
@@ -41,7 +42,7 @@
 		<div id="wrap">
 			<div id="wrap2">
 				<div id="content">
-					<div id="logo" ><center data-i18n="[html]misc.logo"><img src='files/images/logo/logo_en.png' class='center'></center></div>
+					<div id="logo" ><center><img data-i18n="[src]misc.logo" src="files/images/logo/logo_en.png" class="center"></center></div>
 					<div id="text" data-i18n="[html]home.tagline">Unofficial The Witcher 3 Interactive Maps</div>
 					<div id="search-wrapper">
 						<div id="search-input-container"><div id="search-input-wrapper"><i class="fa fa-search"></i><input id="search" type="text" data-i18n="[placeholder]home.searchPlaceholder" placeholder="Enter search terms..." autocomplete="off" /><i id="clear" class="fa fa-times close-search"></i></div></div>

@@ -552,8 +552,8 @@ window.i18nData.tr.general = {
         "portraitWarn": "Not: harita en iyi manzara modunda görüntülenir, kapatmak için hafifçe vurun",
         "treasure": "Hazine Avı",
         "underground": "Yeraltı",
-		"logo": "<img src='files/images/logo/logo_tr.png' class='center'>",
-		"logo_min": "<img src='../files/images/logo/logo_tr_min.png' class='center'>"
+		"logo": "files/images/logo/logo_tr.png",
+		"logo_min": "files/images/logo/logo_tr_min.png"
     },
     "monsterden": {
         "desc": "Canavarlar tarafından işgal edilmiş bir yer. Yakınında yaşayanlar için büyük bir sorun. "

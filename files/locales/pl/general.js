@@ -551,8 +551,8 @@ window.i18nData.pl.general = {
         "portraitWarn": "Uwaga: mapę najlepiej jest oglądać w trybie poziomym, stuknij, aby zamknąć",
         "treasure": "Poszukiwanie skarbu",
         "underground": "Podziemie",
-        "logo": "<img src='files/images/logo/logo_pl.png' class='center'>",
-        "logo_min": "<img src='../files/images/logo/logo_pl_min.png' class='center'>"
+        "logo": "files/images/logo/logo_pl.png",
+        "logo_min": "files/images/logo/logo_pl_min.png"
     },
     "monsterden": {
         "desc": "Miejsce, w którym zalęgły się potwory. Okoliczni mieszkańcy omijają je z daleka. "
