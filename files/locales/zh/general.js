@@ -551,8 +551,8 @@ window.i18nData.zh.general = {
         "portraitWarn": "提示：推薦以橫屏模式查看地圖，點擊關閉此消息",
         "treasure": "尋寶",
         "underground": "地下",
-		"logo": "<img src='files/images/logo/logo_zh.png' class='center'>",
-		"logo_min": "<img src='../files/images/logo/logo_zh_min.png' class='center'>"
+		"logo": "files/images/logo/logo_zh.png",
+		"logo_min": "files/images/logo/logo_zh_min.png"
     },
     "monsterden": {
         "desc": "怪物出沒的地點。附近人家的心頭大患。"

@@ -552,8 +552,8 @@ window.i18nData.en.general = {
         "treasure": "Treasure Hunt",
         "underground": "Underground",
         "imageLink": "[&nbsp;<a target='_blank' href='img/__name__.jpg'>VIEW&nbsp;IMAGE</a>&nbsp;] ",
-        "logo": "<img src='files/images/logo/logo_en.png' class='center'>",
-        "logo_min": "<img src='../files/images/logo/logo_en_min.png' class='center'>"
+        "logo": "files/images/logo/logo_en.png",
+        "logo_min": "files/images/logo/logo_en_min.png"
     },
     "monsterden": {
         "desc": "Monster-infested location. A constant worry for those living nearby. "

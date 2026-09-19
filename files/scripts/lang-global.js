@@ -15,7 +15,7 @@ window.i18noptions = {
 
 	customLoad: function(lang, ns, options, callback) {
 		loadScript(
-			window.files_path + "/locales/" + lang + "/" + ns + ".js"
+			window.topdir + "/files/locales/" + lang + "/" + ns + ".js"
 		).then(function() {
 			callback(null, window.i18nData[lang][ns]);
 		}).catch(function() {
@@ -29,37 +29,37 @@ var languageOptions = [{
 	value: "en",
 	selected: localStorage.lang == "en",
 	description: " ",
-	imageSrc: window.files_path + "/images/flags/en.png"
+	imageSrc: window.topdir + "/files/images/flags/en.png"
 }, {
 	text: "Čeština",
 	value: "cz",
 	selected: localStorage.lang == "cz",
 	description: " ",
-	imageSrc: window.files_path + "/images/flags/cz.png"
+	imageSrc: window.topdir + "/files/images/flags/cz.png"
 }, {
 	text: "Polski",
 	value: "pl",
 	selected: localStorage.lang == "pl",
 	description: " ",
-	imageSrc: window.files_path + "/images/flags/pl.png"
+	imageSrc: window.topdir + "/files/images/flags/pl.png"
 }, {
 	text: "Русский",
 	value: "ru",
 	selected: localStorage.lang == "ru",
 	description: " ",
-	imageSrc: window.files_path + "/images/flags/ru.png"
+	imageSrc: window.topdir + "/files/images/flags/ru.png"
 }, {
 	text: "T\xfcrk\xe7e",
 	value: "tr",
 	selected: localStorage.lang == "tr",
 	description: " ",
-	imageSrc: window.files_path + "/images/flags/tr.png"
+	imageSrc: window.topdir + "/files/images/flags/tr.png"
 }, {
 	text: "中國傳統的",
 	value: "zh",
 	selected: localStorage.lang == "zh",
 	description: " ",
-	imageSrc: window.files_path + "/images/flags/zh.png"
+	imageSrc: window.topdir + "/files/images/flags/zh.png"
 }];
 
 function changeLang(lang) {

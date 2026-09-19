@@ -553,8 +553,8 @@ window.i18nData.cz.general = {
         "portraitWarn": "Pozn.: mapu je lepší prohlížet na šířku",
         "treasure": "Honba za pokladem",
         "underground": "podzemí",
-        "logo": "<img src='files/images/logo/logo_cz.png' class='center'>",
-        "logo_min": "<img src='../files/images/logo/logo_cz_min.png' class='center'>"
+        "logo": "files/images/logo/logo_cz.png",
+        "logo_min": "files/images/logo/logo_cz_min.png"
     },
     "monsterden": {
         "desc": "Místo zamořené příšerami. Neustálá starost pro ty, kteří žijí poblíž.. "

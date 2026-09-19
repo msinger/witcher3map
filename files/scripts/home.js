@@ -118,16 +118,39 @@ function runHome() {
 	});
 }
 
-$(function() {
-	$.i18n.init(i18noptions, async function() {
-		$(document).i18n();
+const urlParams = new URLSearchParams(window.location.search);
+const mapParam = urlParams.get("map");
 
-		for (var map of window.mapInfos) {
-			await new Promise(function(resolve) {
-				$.i18n.loadNamespace(map.ns, resolve);
-			});
+let loadMap = false;
+
+if (mapParam) {
+	for (let mapInfo of window.mapInfos) {
+		if (mapParam == mapInfo.ns) {
+			window.mapInfos = [mapInfo];
+			loadMap = true;
+			break;
 		}
+	}
+}
 
-		runHome();
+if (loadMap) {
+	(async function() {
+		document.getElementById("home-css").remove();
+		await loadStyle(window.topdir + "/files/styles/main.css");
+		loadScript(window.topdir + "/files/scripts/map.js");
+	})();
+} else {
+	$(function() {
+		$.i18n.init(i18noptions, async function() {
+			$(document).i18n();
+
+			for (let map of window.mapInfos) {
+				await new Promise(function(resolve) {
+					$.i18n.loadNamespace(map.ns, resolve);
+				});
+			}
+
+			runHome();
+		});
 	});
-});
+}
