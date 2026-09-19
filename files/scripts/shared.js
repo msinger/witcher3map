@@ -55,3 +55,13 @@ function loadScript(url) {
 function registerMap(mapInfo) {
 	mapInfos.push(mapInfo);
 }
+
+function esc(text, quotes) {
+	var r = String(text)
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;");
+	if (quotes)
+		r = r.replace(/"/g, "&quot;")
+	return r;
+}
