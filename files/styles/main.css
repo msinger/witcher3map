@@ -38,14 +38,12 @@ div#sidebar {
 	overflow: hidden
 }
 
-div#sfw a,
 ul.key>li,
 ul.key>li>a {
 	color: #b08948;
 	text-decoration: none
 }
 
-div#sfw a:hover,
 ul.key>li:hover,
 ul.key>li:hover>a {
 	color: #f0cb0b
@@ -70,8 +68,7 @@ ul.key>li>div.pill {
 }
 
 div#copyright a:hover,
-div#popup-wrap #popup-content a:hover,
-div#sfw a:hover {
+div#popup-wrap #popup-content a:hover {
 	text-decoration: underline
 }
 
@@ -94,7 +91,6 @@ div#copyright,
 div#lang,
 div#note,
 div#popup-wrap h1,
-div#sfw,
 div#title,
 ul.key>li>div.pill {
 	text-align: center
@@ -302,15 +298,6 @@ div#note a {
 div#note a:hover {
 	color: #000;
 	text-decoration: none
-}
-
-div#sfw {
-	font-size: 14px
-}
-
-div#sfw a.original {
-	font-size: 12px;
-	display: none
 }
 
 div#lang-switcher {
@@ -607,8 +594,7 @@ div#popup-wrap img#popup-close {
 		display: none
 	}
 
-	div#copyright,
-	div#sfw {
+	div#copyright {
 		width: auto;
 		position: relative;
 		bottom: auto;
