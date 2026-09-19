@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(-32,-32);
-window.map_nEast = L.latLng(192+32,192+32);
-window.map_center = [96,96];
-window.map_minZoom = 2;
-window.map_mZoom = 5;
-window.map_natZoom = 3;
-window.map_Zoom = 3;
-window.mapdata_fables = {
+{ let getMapData = function() { return {
 	
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [],
@@ -235,4 +228,16 @@ window.mapdata_fables = {
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
 	vineyardinfestation: []
-};
+}; };
+
+registerMap({
+	name:        "fables",
+	ns:          "f",
+	bounds:      [{ lat: -32, lng: -32 }, { lat: 192+32, lng: 192+32 }],
+	initialPos:  [96, 96],
+	minZoom:     2,
+	maxZoom:     5,
+	nativeZoom:  3,
+	initialZoom: 3,
+	getMapData:  getMapData
+}); }

@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(-32,-32);
-window.map_nEast = L.latLng(128+32,160+32);
-window.map_center = [64.000,80.000];
-window.map_minZoom = 2;
-window.map_mZoom = 7;
-window.map_natZoom = 5;
-window.map_Zoom = 3;
-window.mapdata_white_orchard = {
+{ let getMapData = function() { return {
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [{
 		coords: [[36.938,93.437]],
@@ -894,4 +887,16 @@ window.mapdata_white_orchard = {
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
 	vineyardinfestation: []
-};
+}; };
+
+registerMap({
+	name:        "white_orchard",
+	ns:          "w",
+	bounds:      [{ lat: -32, lng: -32 }, { lat: 128+32, lng: 160+32 }],
+	initialPos:  [64, 80],
+	minZoom:     2,
+	maxZoom:     7,
+	nativeZoom:  5,
+	initialZoom: 3,
+	getMapData:  getMapData
+}); }

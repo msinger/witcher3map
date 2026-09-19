@@ -531,8 +531,8 @@ window.i18nData.ru.general = {
         "skellige": "Острова Скеллиге",
         "toussaint": "Туссент",
         "toussaint_main": "Туссент <img src=files/images/logo/dlp1_ru.png />",
-        "hos_velen": "Велен и Новиград",
-        "hos_velen_main": "Велен и Новиград  <img src=files/images/logo/dlp2_ru.png />",
+        "velen": "Велен и Новиград",
+        "velen_main": "Велен и Новиград  <img src=files/images/logo/dlp2_ru.png />",
         "white_orchard": "Белый Сад"
     },
     "misc": {

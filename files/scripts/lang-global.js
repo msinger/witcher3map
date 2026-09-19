@@ -1,23 +1,23 @@
 if (localStorage.lang == null) {
 	var lang = window.navigator.userLanguage || window.navigator.language;
-	lang = lang.substring(0,2);
+	lang = lang.substring(0, 2);
 	localStorage.lang = lang;
 }
 
 window.i18noptions = {
-	debug: false,
-	getAsync: true,
-	ns: 'general',
-	lng: localStorage.lang,
-	fallbackLng: 'en',
+	debug:              false,
+	getAsync:           true,
+	ns:                 "general",
+	lng:                localStorage.lang,
+	fallbackLng:        "en",
 	useDataAttrOptions: true,
-	lngWhitelist: ["en", "cz", "pl", "ru", "tr", "zh"],
+	lngWhitelist:       ["en", "cz", "pl", "ru", "tr", "zh"],
 
-	customLoad: function(lng, ns, options, callback) {
+	customLoad: function(lang, ns, options, callback) {
 		loadScript(
-			window.files_path + "/locales/" + lng + "/" + ns + ".js"
+			window.files_path + "/locales/" + lang + "/" + ns + ".js"
 		).then(function() {
-			callback(null, window.i18nData[lng][ns]);
+			callback(null, window.i18nData[lang][ns]);
 		}).catch(function() {
 			callback("failed loading translation", {});
 		});
@@ -63,28 +63,18 @@ var languageOptions = [{
 }];
 
 function changeLang(lang) {
-	if(localStorage.lang != lang) {
+	if (localStorage.lang != lang) {
 		localStorage.lang = lang;
 		window.location.reload();
 	}
-};
+}
 
-$(function() {
+function createLangSwitcher() {
 	$("#lang-switcher").ddslick({
-		data: languageOptions,
+		data:  languageOptions,
 		width: 150,
 		onSelected: function(obj) {
-			changeLang(obj.selectedData.value)
+			changeLang(obj.selectedData.value);
 		}
 	});
-});
-
-function loadScript(url) {
-	return new Promise(function(resolve, reject) {
-		var script = document.createElement("script");
-		script.src = url;
-		script.onload = resolve;
-		script.onerror = reject;
-		document.head.appendChild(script);
-	});
-};
+}

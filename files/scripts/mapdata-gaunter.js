@@ -1,11 +1,4 @@
-window.map_sWest = L.latLng(-32,-32);
-window.map_nEast = L.latLng(512+32,256+32);
-window.map_center = [256,128];
-window.map_minZoom = 1;
-window.map_mZoom = 4;
-window.map_natZoom = 2;
-window.map_Zoom = 1;
-window.mapdata_gaunter = {
+{ let getMapData = function() { return {
 	
 	//------------------------------------------------Abandoned Site------------------------------------------------
 	abandoned: [],
@@ -155,4 +148,16 @@ window.mapdata_gaunter = {
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------
 	vineyardinfestation: []
-};
+}; };
+
+registerMap({
+	name:        "gaunter",
+	ns:          "g",
+	bounds:      [{ lat: -32, lng: -32 }, { lat: 512+32, lng: 256+32 }],
+	initialPos:  [256, 128],
+	minZoom:     1,
+	maxZoom:     4,
+	nativeZoom:  2,
+	initialZoom: 1,
+	getMapData:  getMapData
+}); }
