@@ -1,5 +1,6 @@
 var icons = {};
 var markers = {};
+var hasMarkers = {};
 var invisibleMarkers = {};
 var markerCount = {};
 var notes = [];
@@ -60,13 +61,12 @@ function createMarker(coord, icon, label, popup, dataKey) {
 		toggleMarker(e, mapKey, dataKey);
 	});
 
-	if (!markerCount[dataKey])
-		markerCount[dataKey] = 0;
-
 	if (isMarkerInvisible(mapKey, marker.getLatLng().lat, marker.getLatLng().lng))
 		marker.setOpacity(invisibleMarkerOpacity);
 	else
 		markerCount[dataKey]++;
+
+	hasMarkers[dataKey] = true;
 
 	return marker;
 }
@@ -80,9 +80,6 @@ function toggleMarker(e, mapKey, dataKey) {
 		return;
 
 	var key = e.latlng.lat + ";" + e.latlng.lng;
-
-	if (typeof markerCount[dataKey] != "number" || isNaN(markerCount[dataKey]))
-		markerCount[dataKey] = 0;
 
 	if (e.target.options.opacity === 1.0) {
 		e.target.setOpacity(invisibleMarkerOpacity);
@@ -118,11 +115,12 @@ function processData() {
 		localStorage[notesKey] = JSON.stringify([]);
 	notes = JSON.parse(localStorage[notesKey]);
 
-	for (var dataKey in data) {
-		if (markerGroupNames.indexOf(dataKey) < 0) {
-			console.log("Skip unknown marker group '" + dataKey + "' in mapdata file.");
+	for (var dataKey of markerGroupNames) {
+		hasMarkers[dataKey] = false;
+		markerCount[dataKey] = 0;
+
+		if (!(dataKey in data))
 			continue;
-		}
 
 		var items = data[dataKey];
 		var groupItems = [];
@@ -150,15 +148,61 @@ function processData() {
 	}
 }
 
-function runMap() {
-	// Fix bug where sidebar scrollbar doesn't appear when the language drop-down opens
-	createLangSwitcher();
-	$(".dd-selected").on("click", function() {
-		setTimeout(function() {
-			$("#sidebar").getNiceScroll().resize();
-		}, 500);
-	});
+function createSidebar() {
+	let sidebar =
+		'<div id="sidebar">' +
+			'<div id="sidebar-wrap">' +
+				'<a href="../index.html" title="' + esc($.t("sidebar.returnToMapSelection"), true) + '"><center>' + $.t("misc.logo_min") + '</center></a>' +
+				'<ul class="key">';
 
+	let count = 0;
+	for (key in markers) {
+		if (hasMarkers[key]) {
+			sidebar += '<li><i class="' + key + '"></i><div>' + esc($.t("sidebar." + key)) + '</div></li>';
+			count++;
+		}
+	}
+
+	// Number of elements must be even.
+	if (count & 1)
+		sidebar += '<li class="none"></li>';
+
+	sidebar +=
+				'</ul>' +
+				'<ul class="key controls">' +
+					'<li id="show-all"><i class="fa fa-eye"></i><div>' + esc($.t("controls.show")) + '</div></li>' +
+					'<li id="hide-all"><i class="fa fa-eye-slash"></i><div>' + esc($.t("controls.hide")) + '</div></li>' +
+					'<li id="show-counts"><i class="fa fa-check-square"></i><div>' + esc($.t("controls.showCounts")) + '</div></li>' +
+					'<li id="hide-counts"><i class="fa fa-square"></i><div>' + esc($.t("controls.hideCounts")) + '</div></li>' +
+					'<li id="reset-tracking"><i class="fa fa-eraser"></i><div>' + esc($.t("controls.resetInvisible")) + '</div></li>' +
+					//'<li id="hide-monsters"><i class="fa fa-user-secret"></i><div>' + esc($.t("controls.hideMonsters")) + '</div></li>' +
+					//'<li style="display:none;" id="show-monsters"><i class="fa fa-user-secret"></i><div>' + esc($.t("controls.showMonsters")) + '</div></li>' +
+					'<li><a href="https://github.com/witcher3map/witcher3map/wiki" target="_blank"><i class="fa fa-info-circle"></i><div>' + esc($.t("controls.helpFeatures")) + '</div></a></li>' +
+					'<li id="Credits" class="credits"><i class="fa fa-copyright"></i><span>' + esc($.t("controls.credits")) + '</span></li>' +
+					'<li class="none"></li>' +
+				'</ul>' +
+				'<div id="lang-switcher"></div>' +
+			'</div>' +
+			'<div id="copyright">' +
+				'<div id="note">' +
+					'<span id="note-msg">' +
+						$.t("misc.contribute", { link1: '<a style="color:#000000;text-decoration:underline" href="https://github.com/msinger/witcher3map">Github</a>' }) +
+					'</span>' +
+				'</div>' +
+				$.t("credits.botCreated", { untamed0:      '<a href="https://github.com/untamed0">untamed0</a>',
+				                            BaHTsIzBEdEvi: '<a href="https://github.com/root-BB">BaHTsIzBEdEvi</a>',
+				                            msinger:       '<a href="https://github.com/msinger">Michael Singer</a>',
+				                            license:       '<a href="http://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA</a>' }) +
+				$.t("credits.botAssets", { cdpr: '<a href="https://en.cdprojektred.com">CD PROJEKT RED</a>' }) +
+			'</div>' +
+		'</div>' +
+		'<div id="sidebar-border"></div>' +
+		'<div id="hide-sidebar"></div>';
+
+	$("body").append(sidebar);
+}
+
+function runMap() {
 	for (var icon in icon_sizes) {
 		// regular
 		if (icon_sizes[icon][0])
@@ -177,6 +221,22 @@ function runMap() {
 	for (var groupName of markerGroupNames)
 		if (groupName in markers)
 			allLayers.push(markers[groupName]);
+
+	$("body").empty();
+	createSidebar();
+	createLangSwitcher();
+	$("body").append(
+		'<div id="warn">' + esc($.t("misc.portraitWarn")) + '</div>' +
+		'<div id="info-wrap"><div id="info-fade-intro"></div><div id="info"></div><div id="info-fade-outro"></div></div>' +
+		'<div id="map"></div>'
+	);
+
+	// Fix bug where sidebar scrollbar doesn't appear when the language drop-down opens
+	$(".dd-selected").on("click", function() {
+		setTimeout(function() {
+			$("#sidebar").getNiceScroll().resize();
+		}, 500);
+	});
 
 	var mobile   = ($("#sidebar").width() < 300);
 	var wayPoint = false;
@@ -408,9 +468,9 @@ function runMap() {
 
 	if (localStorage["markers-" + mapInfos[0].name]) {
 		$.each($.parseJSON(localStorage["markers-" + mapInfos[0].name]), function(key, val) {
-			if (val === false) {
+			if (val === false && key in markers) {
 				$("i." + key).parent().addClass("layer-disabled");
-				map.removeLayer(window.markers[key]);
+				map.removeLayer(markers[key]);
 			}
 		});
 	}
@@ -514,11 +574,11 @@ function runMap() {
 			remember = $.parseJSON(localStorage["markers-" + mapInfos[0].name]);
 
 		if ($(this).hasClass("layer-disabled")) {
-			map.addLayer(window.markers[marker]);
+			map.addLayer(markers[marker]);
 			$(this).removeClass("layer-disabled");
 			remember[marker] = true;
 		} else {
-			map.removeLayer(window.markers[marker]);
+			map.removeLayer(markers[marker]);
 			$(this).addClass("layer-disabled");
 			remember[marker] = false;
 		}
@@ -703,21 +763,22 @@ function runMap() {
 		].join('\n'));
 	});
 
+	// Create tooltips for sidebar texts that get ellipsis.
 	setTimeout(function() {
-		for (var val of $("ul.key:not(.controls) li:not(.none) i")) {
-			var key = $(val).attr("class");
-			key = $.t("sidebar." + key);
-			var tooltip = $('<span class="tooltip">' + key + "</span>");
+		let wrap = $("#sidebar-wrap");
+		for (let val of $("ul.key:not(.controls) li:not(.none) i")) {
+			let key = $(val).attr("class");
+			let text = esc($.t("sidebar." + key));
+			let tooltip = $('<span class="tooltip">' + text + "</span>");
 
-			var ellipsis = $(val).next();
+			let ellipsis = $(val).next();
 			if (ellipsis.outerWidth() < ellipsis[0].scrollWidth) {
 				$(val).parent().mousemove(function(e) {
-					var x = e.clientX;
-					var y = e.clientY;
+					let x = e.clientX;
+					let y = e.clientY;
 
-					// calculate y-position to counteract scroll offset
-					var offset = $("#logo").offset();
-					y -= offset.top;
+					// Calculate y-position to counteract scroll offset.
+					y = y - wrap.offset().top + wrap.scrollTop();
 
 					tooltip.css("top", (y + 15) + "px");
 					tooltip.css("left", (x + 15) + "px");
@@ -727,21 +788,20 @@ function runMap() {
 				});
 			}
 
-			$("#sidebar-wrap").append(tooltip);
+			wrap.append(tooltip);
 		}
-		for (var val of $("ul.controls li:not(.none) i")) {
-			var key = $(val).next().text();
-			var tooltip = $('<span class="tooltip">' + key + "</span>");
+		for (let val of $("ul.controls li:not(.none) i")) {
+			let text = $(val).next().text();
+			let tooltip = $('<span class="tooltip">' + text + "</span>");
 
-			var ellipsis = $(val).next();
+			let ellipsis = $(val).next();
 			if (ellipsis.outerWidth() < ellipsis[0].scrollWidth) {
 				$(val).parent().mousemove(function(e) {
-					var x = e.clientX;
-					var y = e.clientY;
+					let x = e.clientX;
+					let y = e.clientY;
 
-					// calculate y-position to counteract scroll offset
-					var offset = $("#logo").offset();
-					y -= offset.top;
+					// Calculate y-position to counteract scroll offset.
+					y = y - wrap.offset().top + wrap.scrollTop();
 
 					tooltip.css("top", (y + 15) + "px");
 					tooltip.css("left", (x + 15) + "px");
@@ -751,9 +811,12 @@ function runMap() {
 				});
 			}
 
-			$("#sidebar-wrap").append(tooltip);
+			wrap.append(tooltip);
 		}
-	}, 100);
+
+		// Needs resize after adding lang switcher above.
+		$("#sidebar").getNiceScroll().resize();
+	}, 500);
 
 	function backupData() {
 		var date = new Date().toLocaleDateString("sv-SE", { year: "numeric", month: "2-digit", day: "2-digit" });
@@ -777,7 +840,7 @@ function runMap() {
 		var restoreDiv = '<div id="restoreDiv" style="top:' + restoreButtonPos.top + "px;right:" +
 		                 (14 + restoreButtonPos.right - restoreButtonPos.left) + 'px;"><div style="float:right;">' +
 		                 '<button class="fa fa-times-circle" onclick="$(\'#restoreDiv\').remove();" ' +
-		                 'style="cursor:pointer"></div><strong>' + $.t("controls.backupLoad") +
+		                 'style="cursor:pointer"></div><strong>' + esc($.t("controls.backupLoad")) +
 		                 '</strong><br><input type="file" id="files" name="file[]"></div>';
 		$("body").append($(restoreDiv));
 		var filesInput = document.getElementById("files");
