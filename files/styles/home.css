@@ -83,7 +83,7 @@ html {
 }
 
 body {
-	background: url(../images/homebg.jpg) bottom right/cover no-repeat fixed #040404
+	background: url(../images/homebg.jpg) center / cover no-repeat fixed #040404
 }
 
 div#wrap {
@@ -385,16 +385,4 @@ div#footer>a:hover {
 
 i.close-search {
 	display: none
-}
-
-@media all and (max-width:800px) {
-	body {
-		background-position: right center
-	}
-}
-
-@media all and (max-width:1075px) {
-	div#content {
-		max-width: 800px
-	}
 }
