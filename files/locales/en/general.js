@@ -529,7 +529,7 @@ window.i18nData.en.general = {
         "velen": "Velen & Novigrad",
         "velen_main": "Velen & Novigrad  <img src=files/images/logo/dlp2_en.png />",
         "white_orchard": "White Orchard",
-        "vizima": "Vizima",
+        "vizima": "Vizima Palace",
         "spiral": "The Spiral"
     },
     "misc": {
@@ -984,6 +984,7 @@ window.i18nData.en.general = {
             "brave": "Brave Fools Die Young",
             "brnovigrad": "Brothers in Arms: Novigrad",
             "brvelen": "Brothers in Arms: Velen",
+            "brnilfgaard": "Brothers in Arms: Nilfgaard",
             "cabaret": "Cabaret",
             "cat": "Where the Cat and Wolf Play...",
             "ciri": "Ciri's Room",
