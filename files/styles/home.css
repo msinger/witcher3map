@@ -1,4 +1,4 @@
-div#online li,
+ul#download li,
 ul#nav li {
 	display: inline-block;
 	margin: 20px 10px 0;
@@ -13,7 +13,7 @@ div#search-wrapper {
 	font-family: PFDinTextCondPro, Arial, sans-serif
 }
 
-div#online li,
+ul#download li,
 ul#nav li,
 ul#results>li>div>a {
 	text-transform: uppercase
@@ -126,7 +126,7 @@ ul#nav li {
 }
 
 #nav li a,
-div#online li a {
+#download li a {
 	color: #635540;
 	text-decoration: none;
 	display: block;
@@ -134,7 +134,7 @@ div#online li a {
 }
 
 #nav li a img,
-div#online li a img {
+#download li a img {
 	position: absolute;
 	bottom: -10px;
 	right: 0;
@@ -146,34 +146,34 @@ div#online li a img {
 }
 
 #nav li a:hover,
-div#online li a:hover {
+#download li a:hover {
 	color: #020202
 }
 
 #nav li a:hover img,
-div#online li a:hover img {
+#download li a:hover img {
 	opacity: .8;
 	bottom: -7px
 }
 
 #nav li.enabled:hover,
-div#online li.enabled:hover {
+#download li.enabled:hover {
 	background-position: top
 }
 
 #nav li.disabled,
-div#online li.disabled {
+#download li.disabled {
 	opacity: .5;
 	cursor: not-allowed
 }
 
 div#lang-switcher .dd-option-text,
 div#lang-switcher .dd-selected-text,
-div#online li {
+#download li {
 	cursor: pointer
 }
 
-div#online li {
+#download li {
 	position: fixed;
 	top: 10px;
 	right: 10px;
@@ -273,12 +273,9 @@ ul#results>li {
 
 #No,
 #Title,
-div#footer>a,
-div#footer>a:active,
-div#footer>a:visited,
-div#footer>span>a,
-div#footer>span>a:active,
-div#footer>span>a:visited {
+div#footer a,
+div#footer a:active,
+div#footer a:visited {
 	color: #bbb;
 	text-decoration: none
 }
@@ -303,7 +300,6 @@ div.truncated {
 }
 
 div#footer,
-div#footer2,
 div#push {
 	height: 10px
 }
@@ -321,16 +317,6 @@ div#footer {
 
 #No {
 	font-size: 15px
-}
-
-div#footer2>span:first-child:before {
-	content: "";
-	display: block;
-	opacity: .75;
-	width: 13px;
-	height: 20px;
-	float: left;
-	position: static
 }
 
 div#lang-switcher .dd-select {
@@ -378,7 +364,7 @@ div#lang-switcher .dd-option:hover {
 	color: #907854
 }
 
-div#footer>a:hover {
+div#footer a:hover {
 	color: #ddd;
 	text-decoration: underline
 }

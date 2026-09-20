@@ -142,11 +142,6 @@ window.i18nData.ru.general = {
         "Journeyman": "подмастерье",
         "Master": "мастер"
     },
-    "credits": {
-        "botAssets": "Witcher 3, логотип, иконки, карта иamp; текст являются собственностью __cdpr__. ",
-        "botCreated": "Создано __untamed0__, улучшен __BaHTsIzBEdEvi__ и __msinger__, по лицензии __license__. ",
-        "botHelp": "С помощью __mcarver__, __Gerignak__ и других __contributors__. Спасибо __designGears__ и __hhrhhr__ за извлечение карты и файлов. "
-    },
     "entrance": {
         "desc": {
             "entry": "Вход в пещеру или руины. ",
@@ -343,7 +338,7 @@ window.i18nData.ru.general = {
         "desc": "Соты здесь можно собрать, сжечь, а потом продать Томиру за деньги. "
     },
     "home": {
-		"offline": "Скачать ZIP-архив",
+		"download": "Скачать ZIP-архив",
         "resultsFound": "результатов найдено. ",
         "searchPlaceholder": "Введите поисковой запрос... ",
         "tagline": "Неофициальная интерактивная карта The Witcher 3"

@@ -142,11 +142,6 @@ window.i18nData.en.general = {
         "Journeyman": "Journeyman",
         "Master": "Master"
     },
-    "credits": {
-        "botAssets": "Witcher 3, logo, icons & map are the property of __cdpr__. ",
-        "botCreated": "Created by __untamed0__ and enhanced by __BaHTsIzBEdEvi__ and __msinger__, licensed under __license__. ",
-        "botHelp": "With help from __mcarver__, __Gerignak__ and the other __contributors__. Thanks to __designGears__ and __hhrhhr__ for map and asset extraction. "
-    },
     "entrance": {
         "desc": {
             "entry": "Entrance to cave or ruins. ",
@@ -343,7 +338,7 @@ window.i18nData.en.general = {
         "desc": "Honeycombs here can be collected by burning and then sold to Tomira for money. "
     },
     "home": {
-		"offline": "Download ZIP",
+		"download": "Download ZIP",
         "resultsFound": "result(s) found. ",
         "searchPlaceholder": "Enter search terms... ",
         "tagline": "Unofficial The Witcher 3 Interactive Maps"

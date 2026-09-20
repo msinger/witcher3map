@@ -142,11 +142,6 @@ window.i18nData.pl.general = {
         "Journeyman": "Czeladnik",
         "Master": "Mistrz"
     },
-    "credits": {
-        "botAssets": "Logo Wiedźmina 3, ikony oraz mapa są własnością __cdpr__. ",
-        "botCreated": "Stworzone przez __untamed0__, udoskonalone przez __BaHTsIzBEdEvi__ i __msinger__, licencjonowane przez __license__. ",
-        "botHelp": "Z pomocą od __mcarver__, __Gerignak__ i __Pomocników__. Podziękowania dla  __designGears__ i __hhrhhr__ za wydobycie mapy i aktywów. "
-    },
     "entrance": {
         "desc": {
             "entry": "Wejście do jaskini lub ruin. ",
@@ -343,7 +338,7 @@ window.i18nData.pl.general = {
         "desc": "Tutejsze plastry miodu można zebrać przez spalenie, a następnie sprzedać Tomirę za pieniądze. "
     },
     "home": {
-		"offline": "Pobierz plik ZIP",
+		"download": "Pobierz plik ZIP",
         "resultsFound": "znaleziono wyniki. ",
         "searchPlaceholder": "Wpisz szukaną frazę...",
         "tagline": "Nieoficjalne interaktywne mapy Wiedźca 3"

@@ -189,11 +189,12 @@ function createSidebar() {
 						$.t("misc.contribute", { link1: '<a style="color:#000000;text-decoration:underline" href="https://github.com/msinger/witcher3map">Github</a>' }) +
 					'</span>' +
 				'</div>' +
-				$.t("credits.botCreated", { untamed0:      '<a href="https://github.com/untamed0">untamed0</a>',
-				                            BaHTsIzBEdEvi: '<a href="https://github.com/root-BB">BaHTsIzBEdEvi</a>',
-				                            msinger:       '<a href="https://github.com/msinger">Michael Singer</a>',
-				                            license:       '<a href="http://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA</a>' }) +
-				$.t("credits.botAssets", { cdpr: '<a href="https://en.cdprojektred.com">CD PROJEKT RED</a>' }) +
+				'Created by <a href="https://github.com/untamed0">untamed0</a> and enhanced by ' +
+				'<a href="https://github.com/root-BB">BaHTsIzBEdEvi</a> and ' +
+				'<a href="https://github.com/msinger">Michael Singer</a>, licensed under ' +
+				'<a href="http://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA</a>. ' +
+				'The Witcher 3, logo, icons and map are the property of ' +
+				'<a href="https://en.cdprojektred.com">CD PROJEKT RED</a>.' +
 			'</div>' +
 		'</div>' +
 		'<div id="sidebar-border"></div>' +
@@ -656,7 +657,7 @@ function runMap() {
 
 	function popup(title, content) {
 		$("body").prepend('<div id="popup-wrap"><div id="popup-border">' +
-		                  '<img id="popup-close" src="../files/images/exit.png" alt="Close" onclick="popupClose();">' +
+		                  '<img id="popup-close" src="' + window.topdir + '/files/images/exit.png" alt="Close" onclick="popupClose();">' +
 		                  '<div id="popup-content"><h1>' + title + "</h1><hr>" + content + "</div></div></div>");
 		$("div#popup-content").niceScroll({
 			rtlmode:      "auto",
