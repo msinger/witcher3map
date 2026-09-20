@@ -492,7 +492,8 @@ div#hide-sidebar {
 
 div#hide-sidebar.show-sidebar {
 	left: 0;
-	background-position: -22px 3px
+	background-position: -22px 3px;
+	z-index: 8 /* In case sidebar is stuck in a weird position over the button, having a higher z-index for the button is helpful. */
 }
 
 div#popup-wrap {

@@ -152,7 +152,7 @@ function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
 			'<div id="sidebar-wrap">' +
-				'<a href="' + window.topdir + '/index.html" title="' + esc($.t("sidebar.returnToMapSelection"), true) + '"><center><img src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a>' +
+				'<a href="' + window.topdir + '/index.html" title="' + esc($.t("sidebar.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a>' +
 				'<ul class="key">';
 
 	let count = 0;
@@ -238,7 +238,6 @@ function runMap() {
 		}, 500);
 	});
 
-	var mobile   = ($("#sidebar").width() < 300);
 	var wayPoint = false;
 	var circle   = null;
 
@@ -263,7 +262,6 @@ function runMap() {
 			$("div#copyright").removeClass("absolute");
 	}
 
-	hackySticky();
 	$(window).on("resize", function() {
 		hackySticky();
 	});
@@ -309,64 +307,62 @@ function runMap() {
 	var bounds = new L.LatLngBounds(L.latLng(mapInfos[0].bounds[0]), L.latLng(mapInfos[0].bounds[1]));
 	map.setMaxBounds(bounds);
 
-	if (!mobile) {
-		var searchData = [];
+	var searchData = [];
 
-		for (var layer of allLayers) {
-			for (var marker of Object.values(layer._layers)) {
-				searchData.push({
-					loc:   [marker._latlng.lat, marker._latlng.lng],
-					title: marker._popup._content.replace(/<h1>/, "").replace(/<\/h1>/, " - ").replace(/\\'/g, "")
-				});
-			}
+	for (var layer of allLayers) {
+		for (var marker of Object.values(layer._layers)) {
+			searchData.push({
+				loc:   [marker._latlng.lat, marker._latlng.lng],
+				title: marker._popup._content.replace(/<h1>/, "").replace(/<\/h1>/, " - ").replace(/\\'/g, "")
+			});
 		}
-
-		map.addControl(new L.Control.Search({
-			autoResize:   false,
-			autoType:     false,
-			minLength:    2,
-			position:     "topright",
-			autoCollapse: false,
-			zoom:         5,
-			text:         $.t("controls.searchButton"),
-			filterJSON: function(json) {
-				return json;
-			},
-			callData: function(text, callResponse) {
-				var options = {
-					caseSensitive:    false,
-					includeScore:     false,
-					shouldSort:       true,
-					tokenize:         false,
-					threshold:        0.2,
-					location:         0,
-					distance:         10000,
-					maxPatternLength: 32,
-					keys:             ["title"]
-				};
-				var fuse = new Fuse(searchData, options);
-				var result= fuse.search(text);
-
-				callResponse(result);
-
-				setTimeout(function() {
-					$(".search-tooltip").getNiceScroll().resize();
-				}, 200);
-
-				return {
-					abort: function() {
-						console.log("aborted request: " + text);
-					}
-				};
-			}
-		}));
-
-		$(".search-tooltip").niceScroll({
-			cursorcolor:      "#5E4F32",
-			cursorborder:     "none",
-			horizrailenabled: false
-		});
 	}
+
+	map.addControl(new L.Control.Search({
+		autoResize:   false,
+		autoType:     false,
+		minLength:    2,
+		position:     "topright",
+		autoCollapse: false,
+		zoom:         5,
+		text:         $.t("controls.searchButton"),
+		filterJSON: function(json) {
+			return json;
+		},
+		callData: function(text, callResponse) {
+			var options = {
+				caseSensitive:    false,
+				includeScore:     false,
+				shouldSort:       true,
+				tokenize:         false,
+				threshold:        0.2,
+				location:         0,
+				distance:         10000,
+				maxPatternLength: 32,
+				keys:             ["title"]
+			};
+			var fuse = new Fuse(searchData, options);
+			var result= fuse.search(text);
+
+			callResponse(result);
+
+			setTimeout(function() {
+				$(".search-tooltip").getNiceScroll().resize();
+			}, 200);
+
+			return {
+				abort: function() {
+					console.log("aborted request: " + text);
+				}
+			};
+		}
+	}));
+
+	$(".search-tooltip").niceScroll({
+		cursorcolor:      "#5E4F32",
+		cursorborder:     "none",
+		horizrailenabled: false
+	});
 
 	var layer_settings = {
 		tms:             true,
@@ -585,84 +581,55 @@ function runMap() {
 		localStorage["markers-" + mapInfos[0].name] = JSON.stringify(remember);
 	});
 
-	var origSidebar;
-	var origBorder;
-	var origHide;
-	var origInfoWrap;
-	var origInfo;
-
-	function hideSidebar() {
-		origSidebar = $("#sidebar").css("left");
-		origBorder = $("#sidebar-border").css("left");
-		origHide = $("#hide-sidebar").css("left");
-		origInfoWrap = $("#info-wrap").css(["left", "width"]);
-		origInfo = $("#info").css(["width", "margin-right"]);
-
+	function hideSidebar(anim) {
 		$("#info-wrap").css({ left: "0px", width: "100%" });
 		$("#info").css({ width: "auto", "margin-right": "80px" });
-		$("#map").css("left", "0px");
-		map.invalidateSize();
 
-		// TODO: What happens when user manages to trigger click event while animation is running?
-		var base = $("#sidebar").outerWidth();
-		$("#sidebar").animate({ left: "-" + base + "px"}, 200);
-		$("#sidebar-border").animate({ left: "-" + (base + 15) + "px"}, 200);
-		$("#hide-sidebar").animate({ left: "0px"}, 200, function() {
+		let base = $("#sidebar").outerWidth();
+		if (anim) {
+			$("#sidebar").animate({ left: "-" + base + "px" }, 200);
+			$("#sidebar-border").animate({ left: "-" + (base + 15) + "px"}, 200);
+			$("#hide-sidebar").animate({ left: "0px" }, 200, function() {
+				$("#hide-sidebar").addClass("show-sidebar");
+
+				// In case the sidebar gets hidden while being narrow due to a small browser window,
+				// place it at the position it would have when it were wider. Otherwise, on Chrome
+				// it would be half visible when the browser window gets enlarged while the bar is
+				// hidden.
+				$("#sidebar").finish();
+				$("#sidebar").css({ left: "-390px" });
+			});
+		} else {
+			$("#sidebar").css({ left: "-" + base + "px" });
+			$("#sidebar-border").css({ left: "-" + (base + 15) + "px" });
+			$("#hide-sidebar").css({ left: "0px" });
 			$("#hide-sidebar").addClass("show-sidebar");
-		});
+		}
 	}
 
-	function showSidebar(elem) {
-		$("#sidebar").animate({ left: origSidebar }, 200);
-		$(elem).animate({ left: origHide }, 200);
-		$("#sidebar-border").animate({ left: origBorder }, 200, function() {
-			$(".show-sidebar").removeClass("show-sidebar");
-			// TODO: Figure out why this part was removed
-			/*
-			$("#sidebar").attr("style", "");
-			$("#sidebar-border").attr("style", "");
-			$("#info-wrap").css(origInfoWrap);
-			$("#info").css(origInfo);
-			$("#map").attr("style", "");
-			*/
+	function showSidebar() {
+		$("#info-wrap").css({ left: "", width: "" });
+		$("#info").css({ width: "", "margin-right": "" });
+
+		$("#hide-sidebar").removeClass("show-sidebar");
+		$("#sidebar").animate({ left: "" }, 200, function() {
+			$("#hide-sidebar").css({ left: "" });
+			$("#sidebar-border").css({ left: "" });
 		});
 	}
 
 	$(document).on("click", "div#hide-sidebar:not(.show-sidebar)", function(e) {
-		hideSidebar();
+		hideSidebar(true);
 		localStorage["hide-sidebar"] = true;
 	});
 
 	$(document).on("click", "div#hide-sidebar.show-sidebar", function(e) {
-		showSidebar($(this));
+		showSidebar();
 		localStorage.removeItem("hide-sidebar");
 	});
 
-	if (localStorage["hide-sidebar"]) {
-		setTimeout(function() {
-			// TODO: Maybe save sidebar origs here once; and on resize, but only if it is shown.
-			hideSidebar();
-		}, 500);
-	}
-
-	$(window).on("resize", function() {
-		// TODO: Why do this? This breaks sidebar when it is currently hidden. It will never come out again.
-		if ($(".show-sidebar").length && $(this).width() > 768) {
-			// TODO: Figure out why this part was removed
-			/*
-			$("#map").css("left", origMap);
-			map.invalidateSize();
-			*/
-			$(".show-sidebar").removeClass("show-sidebar");
-			/*
-			$("#hide-sidebar").attr("style", "");
-			$("#sidebar").attr("style", "");
-			$("#sidebar-border").attr("style", "");
-			$("#info-wrap").attr("style", "");
-			$("#map").attr("style", "");
-			*/
-		}
-	});
+	if (localStorage["hide-sidebar"])
+		hideSidebar(false);
 
 	$(document).on("click", "div#warn", function(e) {
 		localStorage.hideWarn = true;
@@ -763,6 +730,9 @@ function runMap() {
 		].join('\n'));
 	});
 
+	hackySticky();
+	$("#sidebar").getNiceScroll().resize();
+
 	// Create tooltips for sidebar texts that get ellipsis.
 	setTimeout(function() {
 		let wrap = $("#sidebar-wrap");
@@ -814,8 +784,12 @@ function runMap() {
 			wrap.append(tooltip);
 		}
 
-		// Needs resize after adding lang switcher above.
+		hackySticky();
 		$("#sidebar").getNiceScroll().resize();
+
+		// Chrome needs another reminder for some reason to hide the sidebar.
+		if (localStorage["hide-sidebar"])
+			hideSidebar(false);
 	}, 500);
 
 	function backupData() {
