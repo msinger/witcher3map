@@ -99,3 +99,13 @@ else
 	./gen_tiles.sh "$TEMP_FILE" ../files/maps/fables \
 	               $TILE_SZ 2 3 $JPG_QUALITY
 fi
+
+echo Vizima:
+if [ -d ../files/maps/vizima ]; then
+	echo exists already
+else
+	./gen_montage.sh "$REDKIT_PATH/r4data/gameplay/gui_new/maps/wyzima_castle/level4/tile%dx%d.jpg" \
+	                 "$TEMP_FILE" 7 7 8 8
+	./gen_tiles.sh "$TEMP_FILE" ../files/maps/vizima \
+	               $TILE_SZ 2 3 $JPG_QUALITY
+fi

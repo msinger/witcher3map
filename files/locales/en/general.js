@@ -533,7 +533,8 @@ window.i18nData.en.general = {
         "toussaint_main": "Toussaint <img src=files/images/logo/dlp1_en.png />",
         "velen": "Velen & Novigrad",
         "velen_main": "Velen & Novigrad  <img src=files/images/logo/dlp2_en.png />",
-        "white_orchard": "White Orchard"
+        "white_orchard": "White Orchard",
+        "vizima": "Vizima"
     },
     "misc": {
         "active": "It will become accessible during or after the '__quest__' mission. ",
