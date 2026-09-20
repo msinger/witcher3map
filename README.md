@@ -24,6 +24,7 @@ Things I have added and fixed:
 * Reversed the code obfuscation. (Thank you very much... NOT!)
 * Fixed sidebar and info bar placement when unhiding sidebar after browser window resize.
 * Added map for Vizima.
+* Added map for The Spiral (Through Time and Space quest). Now total tile size is 117.7 MiB.
 
 Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):
 

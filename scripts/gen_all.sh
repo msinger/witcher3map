@@ -12,9 +12,13 @@ if ! [ -d ../files/maps ]; then
 fi
 
 TEMP_FILE=
+TEMP_DIR=
 function cleanup () {
 	if [ -n "$TEMP_FILE" ]; then
 		rm -f "$TEMP_FILE"
+	fi
+	if [ -n "$TEMP_DIR" ]; then
+		rm -rf "$TEMP_DIR"
 	fi
 }
 trap cleanup EXIT
@@ -108,4 +112,29 @@ else
 	                 "$TEMP_FILE" 7 7 8 8
 	./gen_tiles.sh "$TEMP_FILE" ../files/maps/vizima \
 	               $TILE_SZ 2 3 $JPG_QUALITY
+fi
+
+echo The Spiral:
+if [ -d ../files/maps/spiral ]; then
+	echo exists already
+else
+	# The Spiral is more complicated because there are tiles missing, so we have to fill them first.
+	TEMP_DIR=$(mktemp -d)
+	./gen_montage.sh "$REDKIT_PATH/r4data/gameplay/gui_new/maps/spiral/level2/tile%dx%d.jpg" \
+	                 "$TEMP_FILE" 1 -1 3 1
+	magick "$TEMP_FILE" -filter  triangle \
+	                    -resize  12288x12288 \
+	                    -crop    1024x1024 \
+	                    -quality 100 \
+	                    -strip \
+	       "$TEMP_DIR/tmp-%d.jpg"
+	for (( j = 0; j < 12*12; j++ )); do
+		dest="$TEMP_DIR/tile$(( (j % 12) + 6 ))x$(( 12 - j / 12 - 1 )).jpg"
+		mv "$TEMP_DIR/tmp-$j.jpg" "$dest"
+	done
+	cp "$REDKIT_PATH/r4data/gameplay/gui_new/minimaps/spiral/"tile*x*.jpg "$TEMP_DIR/"
+	./gen_montage.sh "$TEMP_DIR/tile%dx%d.jpg" \
+	                 "$TEMP_FILE" 6 0 17 11
+	./gen_tiles.sh "$TEMP_FILE" ../files/maps/spiral \
+	               $TILE_SZ 1 5 $JPG_QUALITY
 fi
