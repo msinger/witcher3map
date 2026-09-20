@@ -18,9 +18,11 @@ Things I have added and fixed:
 * Total tile size reduced from 138.6 MiB to 91.2 MiB, while using better JPG quality than before.
 * Allowed more zoom levels.
 * Various marker locations (see commit history).
-* Improved maintainability: New maps don't need to be added at dozens of places anymore.
+* Improved maintainability: New maps don't need to be added at dozens of places anymore. Furthermore, Filter
+  list in sidebar gets generated automatically based on map data.
 * Removed AJAX nonsense. Map works now locally from file:// URLs. Just download and double-click index.html.
 * Reversed the code obfuscation. (Thank you very much... NOT!)
+* Fixed sidebar and info bar placement when unhiding sidebar after browser window resize.
 
 Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):
 
