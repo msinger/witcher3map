@@ -80,43 +80,43 @@
 	hollow: [{
 		coords: [[226.245,314.043]], // _tree_cont_with_gold_1
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_11"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_11"})
 	},{
 		coords: [[221.018,281.330]], // _tree_cont_with_gold_2
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_4"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_4"})
 	},{
 		coords: [[219.972,278.043]], // _tree_cont_with_gold_2
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_5"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_5"})
 	},{
 		coords: [[220.420,268.932]], // _tree_cont_with_gold_1
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_6"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_6"})
 	},{
 		coords: [[185.915,262.957]], // _tree_cont_with_gold_2
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_8"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_8"})
 	},{
 		coords: [[170.977,246.675]], // _tree_cont_with_gold_2
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_9"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_9"})
 	},{
 		coords: [[189.611,275.243]], // _tree_cont_with_gold_2
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_3"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_3"})
 	},{
 		coords: [[201.151,282.749]], // _tree_cont_with_gold_1
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_2"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_2"})
 	},{
 		coords: [[214.744,265.870]], // _tree_cont_with_gold_2
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_7"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_7"})
 	},{
 		coords: [[234.312,313.520]], // _tree_cont_with_gold_2
 		label: $.t("sidebar.hollow"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "gameplay-loot-_tree_cont_with_gold_10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("hollow.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-_tree_cont_with_gold_10"})
 	}],
 	
 	//------------------------------------------------Honeycomb------------------------------------------------
@@ -189,149 +189,149 @@
 	{
 		coords: [[242.378,245.630]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-ironbound_chest_container_chest_with_uniq_runes_oils8"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-ironbound_chest_container_chest_with_uniq_runes_oils8"})
 	},{
 		coords: [[211.158,257.579]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_container__treasure__q3__skelige7"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_container__treasure__q3__skelige7"})
 	},{
 		coords: [[207.274,255.637]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad3"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad3"})
 	},{
 		coords: [[200.254,252.500]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad7"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad7"})
 	},{
 		coords: [[168.139,245.779]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_muddy_container__unique_nml_weapon_epic9"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_muddy_container__unique_nml_weapon_epic9"})
 	},{
 		coords: [[184.272,281.479]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_muddy_container__treasure__q5__skelige8"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_muddy_container__treasure__q5__skelige8"})
 	},{
 		coords: [[191.889,284.616]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils9"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils9"})
 	},{
 		coords: [[189.350,288.798]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad9"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad9"})
 	},{
 		coords: [[206.677,287.902]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad11"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad11"})
 	},{
 		coords: [[191.591,324.947]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad10"})
 	},{
 		coords: [[191.105,325.396]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils11"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils11"})
 	},{
 		coords: [[217.261,317.777]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils10"})
 	},{
 		coords: [[217.730,313.296]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_muddy_container__treasure__q5__skelige10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_muddy_container__treasure__q5__skelige10"})
 	},{
 		coords: [[219.225,305.903]],
 		label: $.t("sidebar.treasure") + ' (' + $.t("misc.underground") + ')',
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.entrance2",{x1: $.t("<a href='#6/32.842/60.292\'>"), x2: $.t("<a href='#6/26.588/68.203\'>"), end: $.t("</a>")}) + $.t("misc.imageLink",{name: "gameplay-loot-_prolog_dead_soldier10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.entrance2",{x1: $.t("<a href='#6/32.842/60.292\'>"), x2: $.t("<a href='#6/26.588/68.203\'>"), end: $.t("</a>")}) + $.t("misc.imageLink",{name: "i/gameplay-loot-_prolog_dead_soldier10"})
 	},{
 		coords: [[218.478,305.977]],
 		label: $.t("sidebar.treasure") + ' (' + $.t("misc.underground") + ')',
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.entrance2",{x1: $.t("<a href='#6/32.842/60.292\'>"), x2: $.t("<a href='#6/26.588/68.203\'>"), end: $.t("</a>")}) + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_muddy_container__tailor_area__skelige10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.entrance2",{x1: $.t("<a href='#6/32.842/60.292\'>"), x2: $.t("<a href='#6/26.588/68.203\'>"), end: $.t("</a>")}) + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_muddy_container__tailor_area__skelige10"})
 	},{
 		coords: [[223.855,300.450]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-crate__unique_oils8"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-crate__unique_oils8"})
 	},{
 		coords: [[236.104,289.097]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_container__weaponsmith_area__skelige6"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_container__weaponsmith_area__skelige6"})
 	},{
 		coords: [[210.710,231.140]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "island_of_mist-loot-old_chest_container__unique_nml_weapon1"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/island_of_mist-loot-old_chest_container__unique_nml_weapon1"})
 	},{
 		coords: [[230.941,299.507]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_muddy_container__treasure__q5__skelige6"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_muddy_container__treasure__q5__skelige6"})
 	},{
 		coords: [[237.000,300.301]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_muddy_container__tailor_area__skelige6"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_muddy_container__tailor_area__skelige6"})
 	},{
 		coords: [[235.321,288.837]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad6"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad6"})
 	},{
 		coords: [[230.727,301.197]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-crate__unique_oils7"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-crate__unique_oils7"})
 	},{
 		coords: [[232.146,317.404]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad16"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad16"})
 	},{
 		coords: [[225.200,304.483]],
 		label: $.t("sidebar.treasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_muddy_container__unique_nml_weapon11"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_muddy_container__unique_nml_weapon11"})
 	},
 	//Underwater Treause
 	{
 		coords: [[211.008,253.247]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad7"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad7"})
 	},{
 		coords: [[214.444,247.423]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad4"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad4"})
 	},{
 		coords: [[211.308,241.746]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad5"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__weaponsmith_area__novigrad5"})
 	},{
 		coords: [[198.611,216.054]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "island_of_mist-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils5"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/island_of_mist-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils5"})
 	},{
 		coords: [[203.390,229.796]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "island_of_mist-loot-old_chest_unerwater_container__treasure__q4__novigrad1"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/island_of_mist-loot-old_chest_unerwater_container__treasure__q4__novigrad1"})
 	},{
 		coords: [[240.585,292.981]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils6"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils6"})
 	},{
 		coords: [[243.722,288.201]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils7"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils7"})
 	},{
 		coords: [[212.503,322.408]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__treasure__q1__novigrad10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__treasure__q1__novigrad10"})
 	},{
 		coords: [[207.723,319.570]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad10"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad10"})
 	},{
 		coords: [[166.869,248.243]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad9"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container__treasure__q4__novigrad9"})
 	},{
 		coords: [[166.496,249.887]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils12"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils12"})
 	},{
 		coords: [[164.255,260.566]],
 		label: $.t("treasure.watertreasure"),
-		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils5"})
+		popup: $.t("misc.dactive",{quest: $.t("mainquests.label.mists")}) + $.t("treasure.desc") + $.t("misc.imageLink",{name: "i/gameplay-loot-old_chest_unerwater_container_chest_with_uniq_runes_oils5"})
 	}],
 	
 	//------------------------------------------------Vineyard Infestation------------------------------------------------

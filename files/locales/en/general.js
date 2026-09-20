@@ -548,7 +548,7 @@ window.i18nData.en.general = {
         "portraitWarn": "Note: the map is best viewed in landscape mode, tap to dismiss",
         "treasure": "Treasure Hunt",
         "underground": "Underground",
-        "imageLink": "[&nbsp;<a target='_blank' href='img/__name__.jpg'>VIEW&nbsp;IMAGE</a>&nbsp;] ",
+        "imageLink": '[&nbsp;<a target="_blank" href="' + window.topdir + '/files/images/__name__.jpg">VIEW&nbsp;IMAGE</a>&nbsp;] ',
         "logo": "files/images/logo/logo_en.png",
         "logo_min": "files/images/logo/logo_en_min.png"
     },
