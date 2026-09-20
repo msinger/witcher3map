@@ -31,12 +31,12 @@ else
 fi
 
 echo Velen Novigrad:
-if [ -d ../files/maps/hos_velen ]; then
+if [ -d ../files/maps/velen ]; then
 	echo exists already
 else
 	./gen_montage.sh "$REDKIT_PATH/r4data/gameplay/gui_new/maps/novigrad/level4/tile%dx%d.jpg" \
 	                 "$TEMP_FILE" 6 5 13 13
-	./gen_tiles.sh "$TEMP_FILE" ../files/maps/hos_velen \
+	./gen_tiles.sh "$TEMP_FILE" ../files/maps/velen \
 	               $TILE_SZ 1 5 $JPG_QUALITY
 fi
 
@@ -47,7 +47,7 @@ else
 	./gen_montage.sh "$REDKIT_PATH/r4data/gameplay/gui_new/minimaps/novigrad/tile%dx%d.jpg" \
 	                 "$TEMP_FILE" 41 19 42 22
 	./gen_tiles.sh "$TEMP_FILE" ../files/maps/gaunter \
-	               $TILE_SZ 1 2 $JPG_QUALITY
+	               $TILE_SZ 0 2 $JPG_QUALITY
 fi
 
 echo Skellige:
