@@ -142,11 +142,6 @@ window.i18nData.zh.general = {
         "Journeyman": "老手",
         "Master": "大師"
     },
-    "credits": {
-        "botAssets": "巫師 3 , 標誌 , 圖示 , 地圖 & 文字 均為__cdpr__的財產商標。",
-        "botCreated": "由 __untamed0__ 創建 , 並由 __BaHTsIzBEdEvi__ 和 __msinger__ 增強，在 __license__ 下獲得許可。",
-        "botHelp": "在 __mcarver__、__Gerignak__ 和其他 __contributors__ 的幫助下。感謝 __designGears__ 和 __hhrhhr__ 用於地圖和資產提取。"
-    },
     "entrance": {
         "desc": {
             "entry": "進入洞穴或廢墟。",
@@ -343,7 +338,7 @@ window.i18nData.zh.general = {
         "desc": "這裡的蜂窩可以通過燃燒收集，然後賣給富米拉來賺錢。 "
     },
     "home": {
-		"offline": "下載壓縮文件",
+		"download": "下載壓縮文件",
         "resultsFound": "找到的結果。",
         "searchPlaceholder": "輸入搜索詞…",
         "tagline": "非官方的巫師3互動地圖"

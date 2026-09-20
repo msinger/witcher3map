@@ -142,11 +142,6 @@ window.i18nData.cz.general = {
         "Journeyman": "Tovaryšský",
         "Master": "Master"
     },
-    "credits": {
-        "botAssets": "Zaklínač 3, logo, ikony, mapa a texty jsou vlastnictvím __cdpr__",
-        "botCreated": "Vytvořil uživatel __untamed0__, vylepšil uživatel __BaHTsIzBEdEvi__ a __msinger__, licencováno pomocí __license__. ",
-        "botHelp": "Za pomoci __mcarver__, __Gerignak__  a dalších __contributors__. Díky __designGears__ a __hhrhhr__ za mapu a získání podkladů. "
-    },
     "entrance": {
         "desc": {
             "entry": "Vchod do jeskyně či rozvalin. ",
@@ -345,7 +340,7 @@ window.i18nData.cz.general = {
         "desc": "Medové plástve zde můžete sbírat pomocí Igni a poté je prodat Tomiře. "
     },
     "home": {
-		"offline": "Stáhnout ZIP",
+		"download": "Stáhnout ZIP",
         "resultsFound": "výsledků nalezeno. ",
         "searchPlaceholder": "Hledaná slova... ",
         "tagline": "Zaklínač 3 – Neoficiální interaktivní mapa"

@@ -142,11 +142,6 @@ window.i18nData.tr.general = {
         "Journeyman": "Kalfa",
         "Master": "Usta"
     },
-    "credits": {
-        "botAssets": "Witcher 3, logo, simge ve haritalar __cdpr__ malıdır.",
-        "botCreated": "__untamed0__ tarafından oluşturulmuş; __BaHTsIzBEdEvi__ ve __msinger__ tarafından geliştirilmiş; __license__ altında lisanslanmıştır.",
-        "botHelp": "__mcarver__, __Gerignak__ ve diğer __contributors__ çalışmalara yardımcı olmuşlardır. __designGears__ ve __hhrhhr__ harita ve varlıkları oyun dosyalarından ayıklamışlardır."
-    },
     "entrance": {
         "desc": {
             "entry": "Mağaraya veya harabelere giriş. ",
@@ -344,7 +339,7 @@ window.i18nData.tr.general = {
         "desc": "Buradaki bal peteği yakılarak toplanabilir ve sonrasında Tomira'ya satılarak para kazanılabilir. "
     },
     "home": {
-		"offline": "Zip dosyasını indir",
+		"download": "Zip dosyasını indir",
         "resultsFound": "sonuç bulundu.",
         "searchPlaceholder": "Ara...",
         "tagline": "Resmi Olmayan The Witcher 3 İnteraktif Haritası"
