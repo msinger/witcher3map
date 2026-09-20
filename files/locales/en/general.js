@@ -534,7 +534,8 @@ window.i18nData.en.general = {
         "velen": "Velen & Novigrad",
         "velen_main": "Velen & Novigrad  <img src=files/images/logo/dlp2_en.png />",
         "white_orchard": "White Orchard",
-        "vizima": "Vizima"
+        "vizima": "Vizima",
+        "spiral": "The Spiral"
     },
     "misc": {
         "active": "It will become accessible during or after the '__quest__' mission. ",
