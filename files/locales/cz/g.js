@@ -1,28 +1,34 @@
 window.i18nData = window.i18nData || {};
 window.i18nData.cz = window.i18nData.cz || {};
 window.i18nData.cz.g = {
-    "poi": {
-        "desc": {
-            "answer": "Správná odpověď na hádanku. ",
-            "shani": "Falešný Shani tě volá, aby tě rozptýlil. ",
-            "start": "Vstupní bod na mapě. ",
-            "swing": "Jedna ze špatných odpovědí na hádanku. ",
-            "tomb": "Jedna ze špatných odpovědí na hádanku. ",
-            "well": "Jedna ze špatných odpovědí na hádanku. "
-        },
-        "label": {
-            "answer": "Koncový bod",
-            "shani": "Falešná Shani",
-            "start": "Výchozí bod",
-            "swing": "Houpačka",
-            "tomb": "Hrobka",
-            "well": "Studna"
-        }
-    },
-    "treasure": {
-        "popup": {
-            "cave": "Jeskyně plná pokladů",
-            "viper": "Otrávený stříbrný meč Hadí školy"
-        }
-    }
+	poi: {
+		answer: {
+			label: "Koncový bod",
+			desc:  "Správná odpověď na hádanku."
+		},
+		shani: {
+			label: "Falešná Shani",
+			desc:  "Falešný Shani tě volá, aby tě rozptýlil."
+		},
+		start: {
+			label: "Výchozí bod",
+			desc:  "Vstupní bod na mapě."
+		},
+		swing: {
+			label: "Houpačka",
+			desc:  "Jedna ze špatných odpovědí na hádanku."
+		},
+		tomb: {
+			label: "Hrobka",
+			desc:  "Jedna ze špatných odpovědí na hádanku."
+		},
+		well: {
+			label: "Studna",
+			desc:  "Jedna ze špatných odpovědí na hádanku."
+		}
+	},
+	treasure: {
+		cave:  { desc:  "Jeskyně plná pokladů" },
+		viper: { label: "Otrávený stříbrný meč Hadí školy" }
+	}
 };

@@ -687,12 +687,12 @@ i.alchemy {
 	background-image: url(../images/icons/alchemy.png)
 }
 
-i.armourer {
-	background-image: url(../images/icons/armourer.png)
+i.armorer {
+	background-image: url(../images/icons/armorer.png)
 }
 
-i.armourerstable {
-	background-image: url(../images/icons/armourerstable.png)
+i.armorerstable {
+	background-image: url(../images/icons/armorerstable.png)
 }
 
 i.banditcamp {
@@ -715,8 +715,8 @@ i.brothel {
 	background-image: url(../images/icons/brothel.png)
 }
 
-i.contracts {
-	background-image: url(../images/icons/contracts.png)
+i.contract {
+	background-image: url(../images/icons/contract.png)
 }
 
 i.entrance {
@@ -753,10 +753,6 @@ i.harbor {
 
 i.herbalist {
 	background-image: url(../images/icons/herbalist.png)
-}
-
-i.hidden {
-	background-image: url(../images/icons/hidden.png)
 }
 
 i.hollow {
@@ -799,16 +795,16 @@ i.pop {
 	background-image: url(../images/icons/pop.png)
 }
 
-i.scavenger {
-	background-image: url(../images/icons/scavenger.png)
+i.scavengerhunt {
+	background-image: url(../images/icons/scavengerhunt.png)
 }
 
 i.shopkeeper {
 	background-image: url(../images/icons/shopkeeper.png)
 }
 
-i.sidequests {
-	background-image: url(../images/icons/sidequests.png)
+i.sidequest {
+	background-image: url(../images/icons/sidequest.png)
 }
 
 i.signalfire {
@@ -833,6 +829,10 @@ i.treasure {
 
 i.treasure_uw {
 	background-image: url(../images/icons/treasure_uw.png)
+}
+
+i.treasurehunt {
+	background-image: url(../images/icons/treasurehunt.png)
 }
 
 i.vineyardinfestation {
