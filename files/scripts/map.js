@@ -12,14 +12,14 @@ var icon_sizes = {
 	//                     regular, underground
 	abandoned:           [[30, 30], [30, 40]],
 	alchemy:             [[20, 28], [21, 37]],
-	armourer:            [[24, 34], [24, 43]],
-	armourerstable:      [[30, 27], [30, 36]],
+	armorer:             [[24, 34], [24, 43]],
+	armorerstable:       [[30, 27], [30, 36]],
 	banditcamp:          [[29, 30], [29, 39]],
 	barber:              [[30, 30], [30, 39]],
 	blacksmith:          [[27, 30], [27, 39]],
 	boat:                [[30, 28], [30, 37]],
 	brothel:             [[28, 26], [28, 33]],
-	contracts:           [[20, 31], [23, 43]],
+	contract:            [[20, 31], [23, 43]],
 	entrance:            [[28, 27], false   ],
 	event:               [[23, 34], [23, 37]],
 	grindstone:          [[30, 26], [30, 35]],
@@ -29,7 +29,6 @@ var icon_sizes = {
 	hansebase:           [[29, 30], [29, 39]],
 	harbor:              [[27, 30], [27, 39]],
 	herbalist:           [[25, 28], [25, 37]],
-	hidden:              [[23, 34], [23, 43]],
 	hollow:              [[28, 27], [28, 36]],
 	honeycomb:           [[29, 29], [29, 37]],
 	innkeep:             [[26, 30], [26, 39]],
@@ -41,21 +40,25 @@ var icon_sizes = {
 	pid:                 [[24, 34], [24, 43]],
 	poi:                 [[28, 28], [28, 37]],
 	pop:                 [[27, 30], [27, 39]],
-	scavenger:           [[30, 30], [30, 39]],
+	scavengerhunt:       [[30, 30], [30, 39]],
 	shopkeeper:          [[21, 30], [21, 39]],
-	sidequests:          [[10, 30], [10, 39]],
+	sidequest:           [[10, 30], [10, 39]],
 	signalfire:          [[17, 34], [17, 34]],
 	signpost:            [[27, 34], [27, 43]],
 	smugglers:           [[28, 30], [28, 39]],
 	spoils:              [[25, 28], [25, 37]],
 	treasure:            [[23, 34], [32, 38]],
 	treasure_uw:         [[23, 34], [32, 38]],
+	treasurehunt:        [[23, 34], [23, 43]],
 	vineyardinfestation: [[28, 32], [28, 41]]
 };
 
 function createMarker(coord, icon, label, popup, dataKey) {
-	var mapKey = "markers-" + mapInfos[0].name + "-hidden";
-	var marker = L.marker(coord, { icon: icon, riseOnHover: true }).bindLabel(label, { direction: "auto" }).bindPopup(popup);
+	let mapKey = "markers-" + mapInfos[0].name + "-hidden";
+	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
+
+	marker.bindLabel(label, { direction: "auto" });
+	marker.bindPopup(popup);
 
 	marker.on("contextmenu", function(e) {
 		toggleMarker(e, mapKey, dataKey);
@@ -103,46 +106,35 @@ function resetMarkers() {
 }
 
 function processData() {
-	var data = mapInfos[0].getMapData();
+	let data = mapInfos[0].getMapData();
 
-	var mapKey = "markers-" + mapInfos[0].name + "-hidden";
+	let mapKey = "markers-" + mapInfos[0].name + "-hidden";
 	if (!localStorage[mapKey])
 		localStorage[mapKey] = JSON.stringify([]);
 	invisibleMarkers[mapKey] = JSON.parse(localStorage[mapKey]);
 
-	var notesKey = "notes-" + mapInfos[0].name;
+	let notesKey = "notes-" + mapInfos[0].name;
 	if (!localStorage[notesKey])
 		localStorage[notesKey] = JSON.stringify([]);
 	notes = JSON.parse(localStorage[notesKey]);
 
-	for (var dataKey of markerGroupNames) {
+	for (let dataKey of markerGroupNamesForProc) {
+		let groupItems = [];
+
 		hasMarkers[dataKey] = false;
 		markerCount[dataKey] = 0;
 
-		if (!(dataKey in data))
-			continue;
-
-		var items = data[dataKey];
-		var groupItems = [];
-
-		for (var item of items) {
-			if (item.popupTitle == null)
-				item.popupTitle = item.label;
-
-			for (var coord of item.coords) {
-				var n = dataKey;
-
-				if (item.label.includes($.t("treasure.watertreasure")))
-					n += "_uw";
-
-				if (item.label.includes($.t("misc.underground")))
-					n += "_ug";
-
-				groupItems.push(createMarker(coord, icons[n], item.label,
-				                             "<h1>" + item.popupTitle + "</h1>" + item.popup,
-				                             dataKey));
+		substMapData(mapInfos[0], data, dataKey, function(coord, label, desc, icon) {
+			if (!icons[icon]) {
+				console.error("Invalid icon:", icon);
+				return;
 			}
-		}
+
+			let tooltip = label.replace(/<\/?[^>]+(>|$)/g, "");
+			groupItems.push(createMarker(coord, icons[icon], tooltip,
+			                             "<h1>" + label + "</h1>" + desc,
+			                             dataKey));
+		});
 
 		markers[dataKey] = L.layerGroup(groupItems);
 	}
@@ -868,7 +860,8 @@ function runMap() {
 		hashParams = hash.getHashParams();
 		if (hashParams && hashParams.m) {
 			var hashMarker = hashParams.m.split(",");
-			map.setView([hashMarker[0], hashMarker[1]]);
+			if (hashMarker.length == 2 && typeof +hashMarker[0] == "number" && typeof +hashMarker[1] == "number")
+				map.setView([hashMarker[0], hashMarker[1]]);
 		} else {
 			map.setView(mapInfos[0].initialPos);
 		}
@@ -1002,18 +995,20 @@ function runMap() {
 
 	if (hashParams.w) {
 		var hashWayPoint = hashParams.w.split(",");
-		wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
-			icon: L.icon({
-				iconUrl:  window.topdir + "/files/images/icons/waypoint.png",
-				iconSize: [26, 32]
-			})
-		}).on("click", function() {
-			map.removeLayer(wayPoint);
-			hash.removeParam("w");
-		}).on("contextmenu", function() {
-			map.removeLayer(wayPoint);
-			hash.removeParam("w");
-		}).addTo(map);
+		if (hashWayPoint.length == 2 && typeof +hashWayPoint[0] == "number" && typeof +hashWayPoint[1] == "number") {
+			wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
+				icon: L.icon({
+					iconUrl:  window.topdir + "/files/images/icons/waypoint.png",
+					iconSize: [26, 32]
+				})
+			}).on("click", function() {
+				map.removeLayer(wayPoint);
+				hash.removeParam("w");
+			}).on("contextmenu", function() {
+				map.removeLayer(wayPoint);
+				hash.removeParam("w");
+			}).addTo(map);
+		}
 	}
 
 	if (hashParams.m) {
@@ -1032,8 +1027,13 @@ function runMap() {
 $(function() {
 	$.i18n.init(i18noptions, function() {
 		$.i18n.loadNamespace(mapInfos[0].ns, function() {
-			$(document).i18n();
-			runMap();
+			try {
+				$(document).i18n();
+				runMap();
+			} catch(e) {
+				console.error("Uncaught in i18n callback:", e);
+				throw e;
+			}
 		});
 	});
 });

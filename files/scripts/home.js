@@ -1,36 +1,26 @@
 function processMapDataForGlobalSearch(map) {
-	var data = map.getMapData();
+	let data = map.getMapData();
 
-	for (var markers of Object.values(data)) {
-		for (var marker of Object.values(markers)) {
-			if (!marker || !marker.popup)
-				continue;
-
-			var label = marker.label;
-			if (marker.popupTitle) {
-				if (marker.popupTitle.indexOf(marker.label) >= 0)
-					label = marker.popupTitle;
-				else
-					label += " (" + marker.popupTitle + ")";
-			}
-
-			var popupText = marker.popup.replace(/<\/?[^>]+(>|$)/g, "");
+	for (let dataKey of markerGroupNamesForProc) {
+		substMapData(map, data, dataKey, function(coord, label, desc, icon) {
+			label = label.replace(/<\/?[^>]+(>|$)/g, "");
+			desc  = desc.replace(/<\/?[^>]+(>|$)/g, "");
 
 			// TODO: Why toString and slice?
-			var link = window.location.href.replace(window.location.hash, "").toString().slice(0, -10) +
-			           map.ns + "/index.html#3/" + marker.coords[0][0] + "/" + marker.coords[0][1] +
-			           "/m=" + marker.coords[0][0] + "," + marker.coords[0][1];
+			let link = window.location.href.replace(window.location.hash, "").toString().slice(0, -10) +
+			           map.ns + "/index.html#" + map.maxZoom + "/" + coord[0] + "/" + coord[1] +
+			           "/m=" + coord[0] + "," + coord[1];
 
 			searchData.push({
 				id:    searchCount,
 				map:   $.t("maps." + map.name),
 				label: label,
-				popup: popupText,
+				desc:  desc,
 				link:  link
 			});
 
 			searchCount++;
-		}
+		});
 	}
 }
 
@@ -58,7 +48,7 @@ function doSearch() {
 		location:         0,
 		distance:         10000,
 		maxPatternLength: 32,
-		keys:             ["map", "label", "popup"]
+		keys:             ["map", "label", "desc"]
 	};
 	var fuse = new Fuse(searchData, options);
 	var result = fuse.search(searchText);
@@ -69,7 +59,7 @@ function doSearch() {
 	for (var i = 0; i < result.length; i++) {
 		var item = '<li><div><a href="' + result[i].link + '">' + result[i].label + " - " + result[i].map + "</a></div>" +
 		           '<div class="searchDescription"><div class="truncated" onclick="toggleTruncate(event, this)">' +
-		           result[i].popup + "</div></div></li>";
+		           result[i].desc + "</div></div></li>";
 		resultsElement.append($(item));
 	}
 }

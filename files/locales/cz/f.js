@@ -1,68 +1,40 @@
 window.i18nData = window.i18nData || {};
 window.i18nData.cz = window.i18nData.cz || {};
 window.i18nData.cz.f = {
-    "gwent": {
-        "popup": {
-            "girl": "Děvčátko s křesadly - hrající gwint"
-        }
-    },
-    "poi": {
-        "desc": {
-            "balbina": " ",
-            "blaviken": " ",
-            "camp": " ",
-            "den": " ",
-            "dragon": " ",
-            "emperor": " ",
-            "grigg": " ",
-            "hood": " ",
-            "joss": " ",
-			"pepper": " ",
-            "pigs": " ",
-			"slippers": " ",
-            "start": " ",
-            "thumb": " ",
-            "tower": " ",
-            "wisp": " ",
-            "witch": " "
-        },
-        "label": {
-            "balbina": "Balbínin dům",
-            "blaviken": "Hudebníci z Blavikenu",
-            "camp": "Rudovousův tábor",
-            "den": "Doupě tří medvědů",
-            "dragon": "Mrtvý wyzimský drak",
-            "emperor": "Nilfgaardský císař",
-            "grigg": "Vesnice frfníků",
-            "hood": "Dům babičky Červené Karkulky",
-            "joss": "Jožka",
-			"pepper": "Red Hot Chilli Peppers - Pod Mostem",
-            "pigs": "Domeček tří malých prasátek",
-			"slippers": "Rubínově červené pantofle",
-            "start": "Počáteční bod",
-            "thumb": "Malenčino městečko",
-            "tower": "Dlouhovlásčina věž",
-            "wisp": "Bludička",
-            "witch": "Chatrč Zlé čarodějnice"
-        }
-    },
-    "shopkeeper": {
-        "desc": {
-            "girl": "Většina této veteše existuje pouze v Kraji tisíce bájí, a proto zmizí, když Geralt iluzi opustí, takže je nejlepší je před odchodem z oblasti prodat děvčátku s křesadly. Také si můžeš vzít stuhu, která je důležitá pro hlavní úkol. "
-        },
-        "popup": {
-            "girl": "Děvčátko s křesadly"
-        }
-    },
-    "sidequests": {
-        "desc": {
-            "duck": " "
-        }
-    },
-    "treasure": {
-        "popup": {
-            "knight": "Mrtvý rytíř",
-            "pot": "Hrnec zlata"
-        }
-    }
+	gwent: {
+		girl: {
+			label: "Děvčátko s křesadly"
+		}
+	},
+	poi: {
+		balbina:  { label: "Balbínin dům" },
+		blaviken: { label: "Hudebníci z Blavikenu" },
+		camp:     { label: "Rudovousův tábor" },
+		den:      { label: "Doupě tří medvědů" },
+		dragon:   { label: "Mrtvý wyzimský drak" },
+		emperor:  { label: "Nilfgaardský císař" },
+		grigg:    { label: "Vesnice frfníků" },
+		hood:     { label: "Dům babičky Červené Karkulky" },
+		joss:     { label: "Jožka" },
+		pepper:   { label: "Red Hot Chilli Peppers - Pod Mostem" },
+		pigs:     { label: "Domeček tří malých prasátek" },
+		slippers: { label: "Rubínově červené pantofle" },
+		start:    { label: "Počáteční bod" },
+		thumb:    { label: "Malenčino městečko" },
+		tower:    { label: "Dlouhovlásčina věž" },
+		wisp:     { label: "Bludička" },
+		witch:    { label: "Chatrč Zlé čarodějnice" }
+	},
+	shopkeeper: {
+		girl: {
+			label: "Děvčátko s křesadly",
+			desc:  "Většina této veteše existuje pouze v Kraji tisíce bájí, a proto zmizí, když Geralt iluzi " +
+			       "opustí, takže je nejlepší je před odchodem z oblasti prodat děvčátku s křesadly. Také si " +
+			       "můžeš vzít stuhu, která je důležitá pro hlavní úkol."
+		}
+	},
+	treasure: {
+		knight: { label: "Mrtvý rytíř" },
+		pot:    { label: "Hrnec zlata" }
+	}
 };

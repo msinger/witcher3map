@@ -1,36 +1,38 @@
 window.i18nData = window.i18nData || {};
 window.i18nData.pl = window.i18nData.pl || {};
 window.i18nData.pl.k = {
-    "alchemy": {
-        "desc": {
-            "keira": "Pojawia się jeśli wcześniej nie umarła"
-        },
-        "popuptitle": {
-            "keira": "Keira Metz"
-        }
-    },
-    "armourer": {
-        "desc": {
-            "zoltan": "Pojawia się tylko jeśli porozmawiało się z Zoltanem podczas __quest__ misji"
-        },
-        "popuptitle": {
-            "zoltan": "Zoltan Chivay"
-        }
-    },
-    "signpost": {
-        "desc": {
-            "bastion": "Kiedyś młodzi wiedźmini tutaj trenowali. Teraz Bastion jest zapomnianą ruiną",
-            "ironMine": "Z tego miejsca kiedyś były wydobywane rudy żelaza dla kuźni Szkoły Wilka. ",
-            "kaerMorhen": "Warownia Starego Morza, siedziba wiedźmińskiej szkoły cechu Wilka. ",
-            "lakesideHut": "Kilkanaście lat temu mieszkał tu pustelnik, który warzył doskonały miód pitny. Wiedźmini odwiedzali go od czasu do czasu i rozmawiali o dalekich krainach. ",
-            "ruinedWatchtower": "Strażnica nad jeziorem była kiedyś chlubą wiedźminów cechu wilka, dziś w jej ruinach hula tylko wiatr. "
-        },
-        "label": {
-            "bastion": "Bastion",
-            "ironMine": "Kopalnia Żelaza",
-            "kaerMorhen": "Kaer Morhen",
-            "lakesideHut": "Chata nad jeziorem",
-            "ruinedWatchtower": "Ruiny wieży strażniczej"
-        }
-    }
+	alchemy: {
+		keira: {
+			label: "Keira Metz",
+			desc:  "Pojawia się jeśli wcześniej nie umarła."
+		}
+	},
+	armorer: {
+		zoltan: {
+			label: "Zoltan Chivay",
+			desc:  "Pojawia się tylko jeśli porozmawiało się z Zoltanem podczas __sidequest.brvelen__ misji."
+		}
+	},
+	signpost: {
+		bastion: {
+			label: "Bastion",
+			desc:  "Kiedyś młodzi wiedźmini tutaj trenowali. Teraz Bastion jest zapomnianą ruiną"
+		},
+		ironMine: {
+			label: "Kopalnia Żelaza",
+			desc:  "Z tego miejsca kiedyś były wydobywane rudy żelaza dla kuźni Szkoły Wilka."
+		},
+		kaerMorhen: {
+			label: "Kaer Morhen",
+			desc:  "Warownia Starego Morza, siedziba wiedźmińskiej szkoły cechu Wilka."
+		},
+		lakesideHut: {
+			label: "Chata nad jeziorem",
+			desc:  "Kilkanaście lat temu mieszkał tu pustelnik, który warzył doskonały miód pitny. Wiedźmini odwiedzali go od czasu do czasu i rozmawiali o dalekich krainach."
+		},
+		ruinedWatchtower: {
+			label: "Ruiny wieży strażniczej",
+			desc:  "Strażnica nad jeziorem była kiedyś chlubą wiedźminów cechu wilka, dziś w jej ruinach hula tylko wiatr."
+		}
+	}
 };

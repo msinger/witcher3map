@@ -1,28 +1,34 @@
 window.i18nData = window.i18nData || {};
 window.i18nData.zh = window.i18nData.zh || {};
 window.i18nData.zh.g = {
-    "poi": {
-        "desc": {
-            "answer": "謎語的正確答案。",
-            "shani": "假夏妮讓你分心。",
-            "start": "地圖上的入口點。",
-            "swing": "謎語的錯誤答案之一。",
-            "tomb": "謎語的錯誤答案之一。",
-            "well": "謎語的錯誤答案之一。"
-        },
-        "label": {
-            "answer": "終點",
-            "shani": "假夏妮",
-            "start": "起點",
-            "swing": "搖擺",
-            "tomb": "墳墓",
-            "well": "好"
-        }
-    },
-    "treasure": {
-        "popup": {
-            "cave": "一個充滿寶藏的洞穴",
-            "viper": "蝰蛇毒銀劍"
-        }
-    }
+	poi: {
+		answer: {
+			label: "終點",
+			desc:  "謎語的正確答案。"
+		},
+		shani: {
+			label: "假夏妮",
+			desc:  "假夏妮讓你分心。"
+		},
+		start: {
+			label: "起點",
+			desc:  "地圖上的入口點。"
+		},
+		swing: {
+			label: "搖擺",
+			desc:  "謎語的錯誤答案之一。"
+		},
+		tomb: {
+			label: "墳墓",
+			desc:  "謎語的錯誤答案之一。"
+		},
+		well: {
+			label: "好",
+			desc:  "謎語的錯誤答案之一。"
+		}
+	},
+	treasure: {
+		cave:  { desc:  "一個充滿寶藏的洞穴" },
+		viper: { label: "蝰蛇毒銀劍" }
+	}
 };

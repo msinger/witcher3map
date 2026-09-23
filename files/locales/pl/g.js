@@ -1,28 +1,34 @@
 window.i18nData = window.i18nData || {};
 window.i18nData.pl = window.i18nData.pl || {};
 window.i18nData.pl.g = {
-    "poi": {
-        "desc": {
-            "answer": "Prawidłowa Odpowiedź na zagadkę",
-            "shani": "Nieprawdziwa Shani użyta aby rozproszyć gracza",
-            "start": "Punkt Startowy na mapie",
-            "swing": "Jedna z nieprawidłowych odpowiedzi na zagadkę",
-            "tomb": "Jedna z nieprawidłowych odpowiedzi na zagadkę",
-            "well": "Jedna z nieprawidłowych odpowiedzi na zagadkę"
-        },
-        "label": {
-            "answer": "Punkt końcowy",
-            "shani": "Nieprawdziwa Shani",
-            "start": "Punkt startowy",
-            "swing": "Huśtawka",
-            "tomb": "Grobowiec",
-            "well": "Studnia"
-        }
-    },
-    "treasure": {
-        "popup": {
-            "cave": "Jaskinia pełna skarbów",
-            "viper": "Jadowity Srebrny Miecz Cechu Żmiji"
-        }
-    }
+	poi: {
+		answer: {
+			label: "Punkt końcowy",
+			desc:  "Prawidłowa Odpowiedź na zagadkę"
+		},
+		shani: {
+			label: "Nieprawdziwa Shani",
+			desc:  "Nieprawdziwa Shani użyta aby rozproszyć gracza"
+		},
+		start: {
+			label: "Punkt startowy",
+			desc:  "Punkt Startowy na mapie"
+		},
+		swing: {
+			label: "Huśtawka",
+			desc:  "Jedna z nieprawidłowych odpowiedzi na zagadkę"
+		},
+		tomb: {
+			label: "Grobowiec",
+			desc:  "Jedna z nieprawidłowych odpowiedzi na zagadkę"
+		},
+		well: {
+			label: "Studnia",
+			desc:  "Jedna z nieprawidłowych odpowiedzi na zagadkę"
+		}
+	},
+	treasure: {
+		cave:  { desc:  "Jaskinia pełna skarbów" },
+		viper: { label: "Jadowity Srebrny Miecz Cechu Żmiji" }
+	}
 };
