@@ -6,7 +6,7 @@ window.i18nData.cz.t = {
 		ussar: { desc: "Spawnuje se pouze v případě, že vejce nebyla zničena během mise „__contract.bonvineblues__“." }
 	},
 	blacksmith: {
-		lafargue: { label "Lafargue" }
+		lafargue: { label: "Lafargue" }
 	},
 	brothel: {
 		belle: { label: "Beauclairské Zvonečky" }

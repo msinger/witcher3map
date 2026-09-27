@@ -651,7 +651,7 @@ window.i18nData.cz.general = {
 		gw_fear:         { label: "Gwintu: Pozdrav ze Skellige" },
 		gw_inn:          { label: "Gwintu: Krčmáři v karbanu" },
 		gw_pals:         { label: "Gwintu: Staří kamarádi" },
-		gw_sk:           { label: "Gwintu: Ve skelligském stylu" },
+		gw_skellige:     { label: "Gwintu: Ve skelligském stylu" },
 		gw_thaler:       { label: "Gwintu: Hraní Thalera" },
 		gw_tournment:    { label: "Gwintu: Okresní přebor" },
 		gw_velen:        { label: "Gwintu: Velenští hráči" },

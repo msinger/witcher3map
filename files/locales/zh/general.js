@@ -644,7 +644,7 @@ window.i18nData.zh.general = {
 		gw_fear:         { label: "昆特牌：史凱利傑群島" },
 		gw_inn:          { label: "昆特牌：酒館老闆大挑戰" },
 		gw_pals:         { label: "昆特牌：老朋友" },
-		gw_sk:           { label: "昆特牌：史凱利傑風" },
+		gw_skellige:     { label: "昆特牌：史凱利傑風" },
 		gw_thaler:       { label: "昆特牌：挑戰塔勒" },
 		gw_tournment:    { label: "昆特牌：鮑克蘭大賽" },
 		gw_velen:        { label: "昆特牌：威倫大玩家" },
