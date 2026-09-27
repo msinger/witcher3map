@@ -645,7 +645,7 @@ window.i18nData.tr.general = {
 		gw_fear:         { label: "Gwent: Korkma, Skellige Burada" },
 		gw_inn:          { label: "Gwent: Hancılarla Oynamak" },
 		gw_pals:         { label: "Gwent: Eski Dostlar" },
-		gw_sk:           { label: "Gwent: Skellige Usulü" },
+		gw_skellige:     { label: "Gwent: Skellige Usulü" },
 		gw_thaler:       { label: "Gwent: Thaler ile Oynamak" },
 		gw_tournment:    { label: "Gwent: Her Şeye - Tur, Tur, Turnuva!" },
 		gw_velen:        { label: "Gwent: Velen Oyuncuları" },

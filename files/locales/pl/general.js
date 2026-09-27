@@ -652,7 +652,7 @@ window.i18nData.pl.general = {
 		gw_fear:         { label: "Gwint: Talia Skellige" },
 		gw_inn:          { label: "Gwint: Partyjki z karczmarzami" },
 		gw_pals:         { label: "Gwint: Starzy znajomi" },
-		gw_sk:           { label: "Gwint: Rozgrywki na Skellige" },
+		gw_skellige:     { label: "Gwint: Rozgrywki na Skellige" },
 		gw_thaler:       { label: "Gwint: Partyjka z Talarem" },
 		gw_tournment:    { label: "Gwint: Wielki Turniej w Beauclair!" },
 		gw_velen:        { label: "Gwint: Rozgrywki w Velen" },

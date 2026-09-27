@@ -13,14 +13,6 @@ window.i18nData.tr.s = {
 		uriallaHarbourInn: { label: "Urialla Harbour Hanı" }
 	},
 	poi: {
-	"birna": "İkincil görev olan '__quest__' sırasında Cerys an Craite'in tarafında durursanız gözükür. ",
-	"dowry": "'__quest__' görev eşyası. ",
-	"gship": "Genellikle 01.00 oyun saatinden hemen sonra kısa bir an için görünür. ",
-	"horn": "Sirenleri gökten düşürmeye yarayan bir boynuz borusu.",
-	"nail": "'__quest__' görevi sırasında '__octo__' kişisine teslim edilirse fazladan tecrübe puanı kazanılabilir. ",
-	"octo": "Fazladan tecrübe puanı ve bilgi için '__quest__' görevi sırasında konuşulabilir. Ayrıca '__quest__' görevinden sonra tekrar konuşulabilir. ",
-	"poem": "Bir bilmece içeren şiire sahip bir ceset. ",
-	"twine": "'__quest__' görevi sırasında '__octo__' kişisine teslim edilirse fazladan tecrübe puanı kazanılabilir. "
 		birna: {
 			label: "Birna Bran",
 			desc:  "İkincil görev olan '__sidequest.gambit__' sırasında Cerys an Craite'in tarafında durursanız gözükür."
