@@ -27,6 +27,7 @@ Things I have added and fixed:
 * Added map for The Spiral (Through Time and Space quest). Now total tile size is 117.7 MiB.
 * Reworked map data to be much less of a copy&paste dumpster. Marker entries don't duplicate the same texts
   over and over again anymore.
+* Added more icons (stash, HoW&BaW quest markers, underwater caves, ...)
 
 Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):
 

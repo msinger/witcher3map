@@ -1092,6 +1092,10 @@
 		underground: true,
 		entrances:   "foxhollow_hanse"
 	}],
+	// ----------------- Stashes ------------------------
+	stash: [{
+		coords:      [70.359,67.219]
+	}],
 	// ----------------- Treasure -----------------------
 	treasure: [{
 		coords:      [[78.547,44.234],
