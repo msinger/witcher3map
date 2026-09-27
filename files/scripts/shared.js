@@ -439,6 +439,10 @@ function substMapData(mapInfo, data, dataKey, f) {
 			}
 		}
 
+		if (item.hos && dataKey == "sidequest")
+			icon += "_hos";
+		else if (item.baw && dataKey == "sidequest")
+			icon += "_baw";
 		if (underwater && dataKey == "treasure")
 			icon += "_uw";
 		if (underground)

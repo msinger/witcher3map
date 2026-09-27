@@ -43,6 +43,8 @@ var icon_sizes = {
 	scavengerhunt:       [[30, 30], [30, 39]],
 	shopkeeper:          [[21, 30], [21, 39]],
 	sidequest:           [[10, 30], [10, 39]],
+	sidequest_hos:       [[10, 30], [10, 39]],
+	sidequest_baw:       [[16, 36], [16, 42]],
 	signalfire:          [[17, 34], [17, 34]],
 	signpost:            [[27, 34], [27, 43]],
 	smugglers:           [[28, 30], [28, 39]],
