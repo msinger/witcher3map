@@ -234,7 +234,7 @@ function substMapData(mapInfo, data, dataKey, f) {
 		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) &&
 		                  item.goesTo instanceof Object && isCoord(item.goesTo.coords);
 		let special     = false;
-		let underground = dataKey != "entrance" && dataKey != "monsterden" && item.underground;
+		let underground = item.underground;
 		let entrances   = data.entrance && item.entrances;
 		let images      = item.images;
 
@@ -443,7 +443,7 @@ function substMapData(mapInfo, data, dataKey, f) {
 			icon += "_hos";
 		else if (item.baw && dataKey == "sidequest")
 			icon += "_baw";
-		if (underwater && dataKey == "treasure")
+		if (underwater)
 			icon += "_uw";
 		if (underground)
 			icon += "_ug";
