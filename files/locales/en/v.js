@@ -149,7 +149,7 @@ window.i18nData.en.v = {
 		},
 		arns: {
 			label: "Arnskrone Castle Ruins",
-			desc:  ""
+			desc:  "In its glory days, this castle buzzed with life as the hub of the Romilly family's activities. Today it is merely a dangerous ruin in the heart of a cursed wood."
 		},
 		banditsCamp: {
 			label: "Bandits' Camp",
@@ -173,11 +173,11 @@ window.i18nData.en.v = {
 		},
 		bowdon: {
 			label: "Bowdon",
-			desc:  ""
+			desc:  "Bowdon was founded by writ of King Heribert the Quarrelsome. Unfortunately, the king was roaring drunk when they asked him to indicate on the map where to build the new settlement and slammed his finger down in the middle of a swamp. Those forced to settle there soon abandoned the unpleasant bog. Their empty dwellings became shelter for vagabonds and bandits."
 		},
 		brun: {
 			label: "Brunwich",
-			desc:  ""
+			desc:  "This picturesque little village's beauty makes it a frequent subject of works by bards and poets. The best-known piece whose action is set in Brunwich is 'The Betrothing,' a farce penned by Stanislas Islas. The reputation thus gained has made it a popular destination for bohemians from Oxenfurt, who escape here during the hottest months to pass the time with contests for the most beautiful feathered cap and hunts for a golden horn held at night in the nearby woods."
 		},
 		burnedRuins: {
 			label: "Burned Ruins",
@@ -193,7 +193,7 @@ window.i18nData.en.v = {
 		},
 		castle: {
 			label: "Castle Village",
-			desc:  ""
+			desc:  "After Vserad, its previous owner, panicked at the news that armies were approaching and fled to Fyke Isle, this castle became home to Phillip Strenger, alias the Bloody Baron, along with his family and entourage."
 		},
 		cavern: {
 			label: "Cavern",
@@ -217,7 +217,7 @@ window.i18nData.en.v = {
 		},
 		crane: {
 			label: "Crane Cape",
-			desc:  ""
+			desc:  "The lighthouse on Crane Cape has for centuries lit the way for vessels seeking safe passage from Kovir and Poviss to the Novigrad Port."
 		},
 		crossroads: {
 			label: "Crossroads",
@@ -261,7 +261,7 @@ window.i18nData.en.v = {
 		},
 		draken: {
 			label: "Draken Hollow Outpost",
-			desc:  ""
+			desc:  "Defensive structure built during the reign of Vizimir the Just, in the 13th century, a time of intense Redanian-Temerian border conflicts. In the relative calm that followed, it fell into disuse, then disrepair."
 		},
 		drudge: {
 			label: "Drudge",
@@ -277,7 +277,7 @@ window.i18nData.en.v = {
 		},
 		erde: {
 			label: "Erde",
-			desc:  ""
+			desc:  "This woodland settlement is almost entirely depopulated, and its proximity to Deadwight Wood scares off any potential new settlers."
 		},
 		estTayiar: {
 			label: "Est Tayiar",
@@ -305,7 +305,7 @@ window.i18nData.en.v = {
 		},
 		garin: {
 			label: "Garin Estate",
-			desc:  ""
+			desc:  "Some two hundred and forty years ago, a certain Josen Garin arrived in these lands. A Haaki traveler, writer, brawler and souse, Garin looked around and saw the local meadows in bloom, cool shadows beneath charming glades, and glorious sun-bathed fields. All this inspired him to settle down here for good. His new neighbors treated the arrival with suspicion, yet they changed their minds and warmed to him once he turned a gracious host who would fill their cups once and again with the exquisite wines he had brought with him from his homeland."
 		},
 		gateOfTheHierarch: {
 			label: "Gate of the Hierarch",
@@ -341,7 +341,7 @@ window.i18nData.en.v = {
 		},
 		heddel: {
 			label: "Heddel",
-			desc:  ""
+			desc:  "The village of Heddel was once known first and foremost for the fine lace undergarments produced there. Heddel lingerie aroused such controversy, however, that the Novigrad hierarch personally forbade its production."
 		},
 		herbalistsHut: {
 			label: "Herbalist's Hut",
@@ -365,7 +365,7 @@ window.i18nData.en.v = {
 		},
 		hunter: {
 			label: "Hunter's Cottage",
-			desc:  ""
+			desc:  "The Buckholt Hills have long been famed for the wealth of wild animals dwelling there, which is why the owner of the nearby Sarrasin Grange once had a hunter's cottage built there, to ensure the daily provision of fresh game."
 		},
 		innAtTheCrossroads: {
 			label: "Inn at the Crossroads",
@@ -381,7 +381,7 @@ window.i18nData.en.v = {
 		},
 		kilker: {
 			label: "Kilkerinn Ruins",
-			desc:  ""
+			desc:  "It is difficult to believe this abandoned pile of debris in the middle of a forest is the famed Kilkerinn Palace, which, according to legend, once housed the renowned artist Giann'Lorenzo's workshop. His sculptures now command exorbitant prices at auction, making Kilkerinn a frequent target for plunderers seeking treasure."
 		},
 		kimboltWay: {
 			label: "Kimbolt Way",
@@ -425,7 +425,7 @@ window.i18nData.en.v = {
 		},
 		mill: {
 			label: "Upper Mill",
-			desc:  ""
+			desc:  "The local community held a raising bee to construct the new brick Upper Mill to replace the old wooden Lower Mill. Once finished, however, they decided closing a fully-functional mill just because there is a newer one would be a sinful waste, thus both mills remain in operation."
 		},
 		moldavieResidence: {
 			label: "Moldavie Residence",
@@ -533,11 +533,11 @@ window.i18nData.en.v = {
 		},
 		vikk: {
 			label: "Vikk Watchtower",
-			desc:  ""
+			desc:  "Legends claim ages ago the famed mage Alzur had his laboratory in the Vikk Watchtower."
 		},
 		voneverec: {
 			label: "Von Everec Estate",
-			desc:  ""
+			desc:  "The history of the von Everec estate is as tangled as that of the family itself. The once wealthy Redanian family's manor and lands were auctioned off after they fell deeply in debt, but were returned to von Everec hands by Olgierd, the infamous leader of an informal band of armed men calling themselves the Redanian Free Company. Despite the effort he went through to regain it, Olgierd abandoned the residence some time later, and dark legends concerning it now circulate among its neighbors."
 		},
 		wastrelManor: {
 			label: "Wastrel Manor",
@@ -573,7 +573,7 @@ window.i18nData.en.v = {
 		},
 		zuetzer: {
 			label: "Zuetzer Castle",
-			desc:  ""
+			desc:  "It is hard to say anything about Zuetzer Castle without mentioning the tragic death of Anastasia von Bourmann. Once one of the most powerful magnates in Redania, Count von Bourmann retreated from public life after the loss of his only child and never left his family manor to the very end of his days. Currently Zuetzer Castle is but a decaying ruin haunted by a sad past."
 		}
 	}
 };

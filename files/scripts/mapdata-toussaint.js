@@ -515,13 +515,15 @@
 		             [32.188,79.984],
 		             [33.250,84.797],
 		             [93.188,110.281],
-		             [68.766,115.000],
-		             [75.484,40.313],
-		             [75.328,40.578]]
+		             [68.766,115.000]]
 	}, {
 		coords:      [76.328,86.969],
 		underground: true,
 		entrances:   "dun_tynne_den"
+	}, {
+		coords:      [[75.484,40.313],
+		             [75.328,40.578]],
+		during:      "contract.biggamehunter"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -847,6 +849,10 @@
 		             [58.875,65.500],
 		             [51.922,67.813]],
 		name:        "ff_toussaint"
+	}, {
+		coords:      [59.063,75.141],
+		name:        "ff_raging",
+		after:       "sidequest.ff_toussaint"
 	}, {
 		coords:      [93.750,65.906],
 		name:        "ww_coronata",
