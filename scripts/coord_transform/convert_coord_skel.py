@@ -21,7 +21,7 @@ def convert(lat, lng):
     new_lng = new_lng + 24
     new_lat = new_lat - 280
 
-    return -new_lat, new_lng
+    return -new_lat - 0.25, new_lng - 0.25
 
 
 pattern = re.compile(
