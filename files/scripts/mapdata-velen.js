@@ -641,6 +641,10 @@
 		coords:      [104.719,76.563],
 		name:        "stable",
 		after:       "mainquest.family"
+	}, {
+		coords:      [225.425,151.080],
+		name:        "doors2",
+		after:       "contract.doors"
 	}],
 	// ----------------- Grindstones --------------------
 	grindstone: [{

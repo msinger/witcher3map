@@ -15,17 +15,18 @@ window.i18nData.en.k = {
 		}
 	},
 	poi: {
-		leoGrave: {
-			label: "Leo's Grave",
-			desc:  "Grave of the witcher Leo from the first Witcher game."
-		},
 		deadDog: {
 			label: "Dead Dog",
 			desc:  "Dead dog that shows up in Kaer Morhen only after sleeping with Yennefer during the " +
 			       "'__mainquest.place__' mission. To be able to sleep with her, you have to finish the " +
 			       "'__sidequest.last__' mission and stay in a romantic relationship with her."
 		},
-		graveyard: { label: "Kaer Morhen Graveyard" }
+		earring:   { label: "Triss' Earring" },
+		graveyard: { label: "Kaer Morhen Graveyard" },
+		leoGrave: {
+			label: "Leo's Grave",
+			desc:  "Grave of the witcher Leo from the first Witcher game."
+		}
 	},
 	signpost: {
 		bastion: {

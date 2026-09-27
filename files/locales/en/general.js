@@ -155,6 +155,11 @@ window.i18nData.en.general = {
 			desc:  "If Delwyn of Creigiau is protected from the Katakan, one of the virtues in the quest " +
 			       "'__sidequest.onlyone__' is granted."
 		},
+		doors2: {
+			label: "Doors Slamming Shut (Part 2)",
+			desc:  "If the pillars are destroyed when fighting the elemental during this quest, a small cutscene " +
+			       "triggers informing Geralt what happened to the new owner."
+		},
 		drunk:        { desc: "", label: "Drunk Guillaume" },
 		drunken:      { desc: "", label: "Drunken Rabble" },
 		dwarves:      { desc: "", label: "Meet the Isle of Mist Dwarves" },
@@ -641,6 +646,7 @@ window.i18nData.en.general = {
 		fencing:         { desc: "", label: "Fencing Lessons" },
 		ff_champion:     { desc: "", label: "Fists of Fury: Champion of Champions" },
 		ff_novigrad:     { desc: "", label: "Fists of Fury: Novigrad" },
+		ff_raging:       { desc: "", label: "Raging Wolf" },
 		ff_skellige:     { desc: "", label: "Fists of Fury: Skellige" },
 		ff_toussaint:    { desc: "", label: "Fists of Fury: Toussaint" },
 		ff_velen:        { desc: "", label: "Fists of Fury: Velen" },

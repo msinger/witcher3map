@@ -80,17 +80,20 @@
 	}],
 	// ----------------- Points of Interest -------------
 	poi: [{
-		coords:      [46.625,58.875],
-		label:       "k:poi.leoGrave.label",
-		extraDesc:   "k:poi.leoGrave.desc"
-	}, {
 		coords:      [46.219,54.375],
 		label:       "k:poi.deadDog.label",
 		extraDesc:   "k:poi.deadDog.desc",
 		special:     true
 	}, {
+		coords:      [66.906,66.734],
+		label:       "k:poi.earring.label"
+	}, {
 		coords:      [78.906,52.016],
 		label:       "k:poi.graveyard.label"
+	}, {
+		coords:      [46.625,58.875],
+		label:       "k:poi.leoGrave.label",
+		extraDesc:   "k:poi.leoGrave.desc"
 	}],
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{

@@ -1017,7 +1017,7 @@
 		coords:      [104.016,140.953],
 		name:        "worthy3"
 	}, {
-		coords:      [127.469,132.485],
+		coords:      [125.438,132.438],
 		name:        "ps_fayrlund"
 	}, {
 		coords:      [130.626,220.843],
