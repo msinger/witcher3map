@@ -51,6 +51,7 @@ var icon_sizes = {
 	signpost:            [[27, 34], [27, 43]],
 	smugglers:           [[28, 30], [28, 39]],
 	spoils:              [[25, 28], [25, 37]],
+	stash:               [[27, 32], false   ],
 	treasure:            [[23, 34], [32, 38]],
 	treasure_uw:         [[23, 34], [32, 38]],
 	treasurehunt:        [[23, 34], [23, 43]],

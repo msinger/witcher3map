@@ -37,6 +37,7 @@ var markerGroupNames = [
 	"signpost",
 	"smugglers",
 	"spoils",
+	"stash",
 	"treasure",
 	"treasurehunt",
 	"vineyardinfestation"
@@ -234,7 +235,7 @@ function substMapData(mapInfo, data, dataKey, f) {
 		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) &&
 		                  item.goesTo instanceof Object && isCoord(item.goesTo.coords);
 		let special     = false;
-		let underground = item.underground;
+		let underground = dataKey != "stash" && item.underground;
 		let entrances   = data.entrance && item.entrances;
 		let images      = item.images;
 
