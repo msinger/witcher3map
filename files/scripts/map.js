@@ -19,7 +19,8 @@ var icon_sizes = {
 	blacksmith:          [[27, 30], [27, 39]],
 	boat:                [[30, 28], [30, 37]],
 	brothel:             [[28, 26], [28, 33]],
-	contract:            [[20, 31], [23, 43]],
+	contract:            [[23, 34], [23, 43]],
+	contract_hos:        [[23, 34], [23, 43]],
 	entrance:            [[28, 27], [28, 35]],
 	entrance_uw:         [[28, 27], [28, 35]],
 	event:               [[23, 34], [23, 37]],
@@ -53,6 +54,7 @@ var icon_sizes = {
 	treasure:            [[23, 34], [32, 38]],
 	treasure_uw:         [[23, 34], [32, 38]],
 	treasurehunt:        [[23, 34], [23, 43]],
+	treasurehunt_hos:    [[23, 34], [23, 43]],
 	vineyardinfestation: [[28, 32], [28, 41]]
 };
 
