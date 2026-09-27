@@ -145,20 +145,25 @@
 	// ----------------- Contracts ----------------------
 	contract: [{
 		coords:      [74.600,75.000],
-		name:        "biggamehunter"
+		name:        "biggamehunter",
+		baw:         true
 	}, {
 		coords:      [48.109,62.750],
 		name:        "coldasice",
+		baw:         true,
 		before:      "mainquest.capture"
 	}, {
 		coords:      [71.719,102.719],
-		name:        "bonvineblues"
+		name:        "bonvineblues",
+		baw:         true
 	}, {
 		coords:      [64.328,89.797],
-		name:        "tufo"
+		name:        "tufo",
+		baw:         true
 	}, {
 		coords:      [94.437,93.546],
-		name:        "phantoms"
+		name:        "phantoms",
+		baw:         true
 	}],
 	// ----------------- Entrances ----------------------
 	entrance: [{
@@ -773,133 +778,170 @@
 	// ----------------- Sidequests ---------------------
 	sidequest: [{
 		coords:      [52.844,65.000],
-		name:        "onlyone"
+		name:        "onlyone",
+		baw:         true
 	}, {
 		coords:      [74.600,77.000],
-		name:        "wildkingdom"
+		name:        "wildkingdom",
+		baw:         true
 	}, {
 		coords:      [74.600,76.500],
-		name:        "kingforhire"
+		name:        "kingforhire",
+		baw:         true
 	}, {
 		coords:      [54.234,63.688],
-		name:        "facethestrage"
+		name:        "facethestrage",
+		baw:         true
 	}, {
 		coords:      [83.891,55.156],
-		name:        "knightstale"
+		name:        "knightstale",
+		baw:         true
 	}, {
 		coords:      [84.281,49.844],
-		name:        "knightstale"
+		name:        "knightstale",
+		baw:         true
 	}, {
 		coords:      [48.094,64.375],
-		name:        "tilldeath"
+		name:        "tilldeath",
+		baw:         true
 	}, {
 		coords:      [50.719,65.875],
-		name:        "master"
+		name:        "master",
+		baw:         true
 	}, {
 		coords:      [52.281,65.234],
-		name:        "granite"
+		name:        "granite",
+		baw:         true
 	}, {
 		coords:      [52.844,64.000],
 		name:        "smittenkight",
+		baw:         true,
 		after:       "mainquest.toussaint"
 	}, {
 		coords:      [52.844,64.500],
-		name:        "placelikehome"
+		name:        "placelikehome",
+		baw:         true
 	}, {
 		coords:      [50.453,63.734],
-		name:        "paperchase"
+		name:        "paperchase",
+		baw:         true
 	}, {
 		coords:      [51.438,63.797],
 		name:        "portait",
+		baw:         true,
 		after:       "sidequest.smittenkight"
 	}, {
 		coords:      [42.625,89.625],
-		name:        "cosplay"
+		name:        "cosplay",
+		baw:         true
 	}, {
 		coords:      [66.500,75.203],
 		name:        "grist",
+		baw:         true,
 		after:       "mainquest.cage",
 		before:      "mainquest.toys"
 	}, {
 		coords:      [64.703,43.500],
-		name:        "father"
+		name:        "father",
+		baw:         true
 	}, {
 		coords:      [47.156,63.750],
 		name:        "sheers",
+		baw:         true,
 		after:       "sidequest.smittenkight"
 	}, {
 		coords:      [70.468,67.253],
 		name:        "placelikehome",
+		baw:         true,
 		after:       "mainquest.toussaint"
 	}, {
 		coords:      [70.468,67.453],
 		name:        "hunger",
+		baw:         true,
 		after:       "mainquest.cage"
 	}, {
 		coords:      [57.796,87.000],
 		name:        "jailbird",
+		baw:         true,
 		during:      "mainquest.burlap"
 	}, {
 		coords:      [98.656,58.188],
 		name:        "prophet",
+		baw:         true,
 		underground: true,
 		entrances:   "lebioda_temple"
 	}, {
 		coords:      [[47.312,63.203],
 		             [58.875,65.500],
 		             [51.922,67.813]],
-		name:        "ff_toussaint"
+		name:        "ff_toussaint",
+		baw:         true
 	}, {
 		coords:      [59.063,75.141],
 		name:        "ff_raging",
+		baw:         true,
 		after:       "sidequest.ff_toussaint"
 	}, {
 		coords:      [93.750,65.906],
 		name:        "ww_coronata",
+		baw:         true,
 		after:       "sidequest.ww_belgaard"
 	}, {
 		coords:      [74.600,76.000],
-		name:        "ww_belgaard"
+		name:        "ww_belgaard",
+		baw:         true
 	}, {
 		coords:      [93.734,65.562],
 		name:        "ww_consorting",
+		baw:         true,
 		after:       "sidequest.ww_deus",
 		before:      ["sidequest.ww_coronata",
 		              "sidequest.ww_vermentino"]
 	}, {
 		coords:      [93.750,66.234],
 		name:        "ww_vermentino",
+		baw:         true,
 		after:       "sidequest.ww_belgaard"
 	}, {
 		coords:      [91.094,86.703],
-		name:        "vc_dun"
+		name:        "vc_dun",
+		baw:         true
 	}, {
 		coords:      [49.047,92.781],
-		name:        "vc_cleaning"
+		name:        "vc_cleaning",
+		baw:         true
 	}, {
 		coords:      [85.563,72.172],
-		name:        "vc_rivecalme"
+		name:        "vc_rivecalme",
+		baw:         true
 	}, {
 		coords:      [79.640,53.656],
-		name:        "vc_chuchote"
+		name:        "vc_chuchote",
+		baw:         true
 	}, {
 		coords:      [56.265,44.343],
-		name:        "vc_duchaton"
+		name:        "vc_duchaton",
+		baw:         true
 	}, {
 		coords:      [94.609,50.297],
-		name:        "bf1"
+		name:        "bf1",
+		baw:         true
 	}, {
 		coords:      [92.063,63.344],
-		name:        "bf2"
+		name:        "bf2",
+		baw:         true
 	}, {
 		coords:      [89.781,56.984],
-		name:        "bf3"
+		name:        "bf3",
+		baw:         true
 	}, {
 		coords:      [107.750,72.266],
-		name:        "bf4"
+		name:        "bf4",
+		baw:         true
 	}, {
 		coords:      [101.484,61.531],
-		name:        "bf5"
+		name:        "bf5",
+		baw:         true
 	}],
 	// ----------------- Sign Posts ---------------------
 	signpost: [{
@@ -1184,49 +1226,64 @@
 	// ----------------- Treasure Hunts -----------------
 	treasurehunt: [{
 		coords:      [69.203,42.016],
-		name:        "experiment"
+		name:        "experiment",
+		baw:         true
 	}, {
 		coords:      [92.125,54.938],
-		name:        "stranger"
+		name:        "stranger",
+		baw:         true
 	}, {
 		coords:      [89.141,53.375],
-		name:        "carnarvon"
+		name:        "carnarvon",
+		baw:         true
 	}, {
 		coords:      [57.859,85.031],
-		name:        "escapology"
+		name:        "escapology",
+		baw:         true
 	}, {
 		coords:      [77.141,42.047],
-		name:        "suffering"
+		name:        "suffering",
+		baw:         true
 	}, {
 		coords:      [102.297,64.109],
-		name:        "again"
+		name:        "again",
+		baw:         true
 	}, {
 		coords:      [42.547,54.688],
-		name:        "enjoytheplay"
+		name:        "enjoytheplay",
+		baw:         true
 	}, {
 		coords:      [24.234,72.422],
-		name:        "gardener"
+		name:        "gardener",
+		baw:         true
 	}, {
 		coords:      [96.047,80.453],
-		name:        "eightdays"
+		name:        "eightdays",
+		baw:         true
 	}, {
 		coords:      [44.219,64.484],
-		name:        "selina"
+		name:        "selina",
+		baw:         true
 	}, {
 		coords:      [63.653,81.234],
-		name:        "widow"
+		name:        "widow",
+		baw:         true
 	}, {
 		coords:      [61.188,102.641],
-		name:        "filibert"
+		name:        "filibert",
+		baw:         true
 	}, {
 		coords:      [54.250,106.828],
-		name:        "doh"
+		name:        "doh",
+		baw:         true
 	}, {
 		coords:      [95.984,88.625],
-		name:        "stink"
+		name:        "stink",
+		baw:         true
 	}, {
 		coords:      [37.594,97.641],
 		name:        "spoon",
+		baw:         true,
 		after:       "mainquest.cage"
 	}],
 	// ----------------- Vineyard Infestations ----------

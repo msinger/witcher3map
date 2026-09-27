@@ -1859,7 +1859,8 @@
 	}, {
 		coords:      [160.421,166.437],
 		name:        "avid",
-		during:      "mainquest.sesame"
+		during:      "mainquest.sesame",
+		hos:         true
 	}, {
 		coords:      [148.156,114.093],
 		name:        "bitter"
@@ -1995,7 +1996,8 @@
 	}, {
 		coords:      [246.547,198.938],
 		name:        "midnight",
-		during:      "mainquest.deadman"
+		during:      "mainquest.deadman",
+		hos:         true
 	}, {
 		coords:      [107.078,73.765],
 		name:        "crookback",
@@ -2004,7 +2006,8 @@
 	}, {
 		coords:      [247.500,174.343],
 		name:        "rose",
-		after:       "mainquest.evil"
+		after:       "mainquest.evil",
+		hos:         true
 	}, {
 		coords:      [154.000,163.500],
 		name:        "neighborhood",
@@ -2025,7 +2028,8 @@
 		before:      "mainquest.mists"
 	}, {
 		coords:      [159.375,167.218],
-		name:        "taxman"
+		name:        "taxman",
+		hos:         true
 	}, {
 		coords:      [84.406,175.437],
 		name:        "stars"
@@ -2051,7 +2055,8 @@
 		after:       "contract.merry"
 	}, {
 		coords:      [242.906,198.562],
-		name:        "trace1"
+		name:        "trace1",
+		hos:         true
 	}, {
 		coords:      [[207.875,103.062],
 		             [217.531,133.469]],
@@ -2062,7 +2067,8 @@
 		name:        "rc_perch"
 	}, {
 		coords:      [239.468,213.281],
-		name:        "rc_western"
+		name:        "rc_western",
+		hos:         true
 	}, {
 		coords:      [[209.062,103.859],
 		             [194.438,97.547],
@@ -2076,15 +2082,18 @@
 		name:        "ff_velen"
 	}, {
 		coords:      [239.453,214.969],
-		name:        "en_s"
+		name:        "en_s",
+		hos:         true
 	}, {
 		coords:      [239.453,215.169],
 		name:        "en_q",
+		hos:         true,
 		after:       "sidequest.en_s"
 	}, {
 		coords:      [239.453,215.369],
 		name:        "en_m",
 		extraDesc:   "sidequest.en_m.descMods",
+		hos:         true,
 		after:       "sidequest.en_q"
 	}, {
 		coords:      [216.287,104.625],
@@ -2926,27 +2935,34 @@
 		name:        "fire"
 	}, {
 		coords:      [190.937,195.125],
-		name:        "force"
+		name:        "force",
+		hos:         true
 	}, {
 		coords:      [186.312,211.250],
-		name:        "surprise"
+		name:        "surprise",
+		hos:         true
 	}, {
 		coords:      [197.593,226.125],
-		name:        "romilly"
+		name:        "romilly",
+		hos:         true
 	}, {
 		coords:      [245.562,212.562],
-		name:        "cursed"
+		name:        "cursed",
+		hos:         true
 	}, {
 		coords:      [252.625,133.625],
 		name:        "redemption",
+		hos:         true,
 		underground: true,
 		entrances:   "spider_cave"
 	}, {
 		coords:      [238.156,155.891],
-		name:        "tinker"
+		name:        "tinker",
+		hos:         true
 	}, {
 		coords:      [241.750,94.062],
-		name:        "perfidy"
+		name:        "perfidy",
+		hos:         true
 	}, {
 		coords:      [154.313,96.734],
 		name:        "forcoin"
@@ -2989,10 +3005,12 @@
 	}, {
 		coords:      [160.437,166.187],
 		name:        "legacy",
+		hos:         true,
 		during:      "mainquest.sesame"
 	}, {
 		coords:      [239.468,213.515],
-		name:        "shores"
+		name:        "shores",
+		hos:         true
 	}, {
 		coords:      [107.391,55.188],
 		name:        "scav_cat1"
