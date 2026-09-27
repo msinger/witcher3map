@@ -566,6 +566,7 @@ window.i18nData.en.general = {
         "signpost": "Sign Post",
         "smugglers": "Smugglers' Cache",
         "spoils": "Spoils of War",
+        "stash": "Stash",
         "treasure": "Treasure",
         "treasurehunt": "Treasure Hunt",
         "vineyardinfestation": "Vineyard Infestation"
@@ -797,6 +798,10 @@ window.i18nData.en.general = {
 	spoils: {
 		label: "Spoils of War",
 		desc:  "Search here for loot left behind after a battle or skirmish."
+	},
+	stash: {
+		label: "Stash",
+		desc:  "Your personal stash."
 	},
 	treasure: {
 		label: "Treasure",
