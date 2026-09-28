@@ -415,7 +415,7 @@ window.i18nData.cz.general = {
 		before:       "Není přístupný po misi „__this.before[“, „]__“.",
 		weakBefore:   "Nemusí být přístupné po misi „__this.weakBefore[“, „]__“.",
 		during:       "Bude aktivní pouze během mise „__this.during[“, „]__“.",
-		liberated:    "Objeví se po osvobození oblasti.",
+		liberate:     "Objeví se po osvobození oblasti.",
 		underground:  "podzemí",
 		notInGame:    "Nezobrazuje se na herní mapě.",
 		contribute:   "Hlášení chyb a další příspěvky: __link__",

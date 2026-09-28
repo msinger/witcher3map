@@ -476,8 +476,7 @@
 		             [147.406,127.141]]
 	}, {
 		coords:      [99.094,149.110],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [121.500,146.797],
 		rescueFrom:  "herbalist_pid"
@@ -889,8 +888,7 @@
 	}, {
 		coords:      [135.062,137.157],
 		sells:       ["armor", "crafting"],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [128.812,149.844],
 		sells:       ["maps", "crafting", "food", "drinks"]

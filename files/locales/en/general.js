@@ -426,7 +426,7 @@ window.i18nData.en.general = {
 		before:       "Not accessible after '__this.before[', ']__' mission.",
 		weakBefore:   "May not be accessible after '__this.weakBefore[', ']__' mission.",
 		during:       "Only accessible during the '__this.during[', ']__' mission.",
-		liberated:    "Appears after liberating the area.",
+		liberate:     "Appears after liberating the area.",
 		underground:  "Underground",
 		notInGame:    "Does not appear on the in-game map.",
 		imageLink:    "VIEW IMAGE",

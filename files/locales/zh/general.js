@@ -409,7 +409,7 @@ window.i18nData.zh.general = {
 		before:       "“__this.before[”、“]__”任务后无法访问。",
 		weakBefore:   "完成“__this.weakBefore[”、“]__”任務后可能無法訪問。",
 		during:       "它只会在“__this.during[”、“]__”任务期间激活。",
-		liberated:    "解放該地區后出現。",
+		liberate:     "解放該地區后出現。",
 		underground:  "地下",
 		notInGame:    "它不會出現在遊戲地圖上。",
 		contribute:   "錯誤報告和其他貢獻：__link__",

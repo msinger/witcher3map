@@ -83,8 +83,7 @@
 		coords:      [64.437,33.687]
 	}, {
 		coords:      [37.750,93.125],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}],
 	// ----------------- Hollow Trees -------------------
 	hollow: [{
@@ -236,8 +235,7 @@
 	}, {
 		coords:      [64.312,17.313],
 		sells:       ["runestones", "alchemy", "food"],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}],
 	// ----------------- Sidequests ---------------------
 	sidequest: [{

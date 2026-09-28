@@ -34,15 +34,13 @@
 		coords:      [[79.703,108.828],
 		             [58.202,94.210]],
 		extraLabel:  "craftlevel.journeyman",
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [98.031,43.953],
 		extraLabel:  "craftlevel.journeyman",
 		underground: true,
 		entrances:   "foxhollow_hanse",
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}],
 	// ----------------- Armorer's Tables ---------------
 	armorerstable: [{
@@ -93,8 +91,7 @@
 		coords:      [64.531,63.641]
 	}, {
 		coords:      [88.969,102.594],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}],
 	// ----------------- Blacksmiths --------------------
 	blacksmith: [{
@@ -105,8 +102,7 @@
 	}, {
 		coords:      [116.516,71.250],
 		extraLabel:  "craftlevel.journeyman",
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [44.672,72.125],
 		extraLabel:  "craftlevel.master",
@@ -441,8 +437,7 @@
 		             [51.047,66.250]]
 	}, {
 		coords:      [32.406,68.047],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [94.469,70.844],
 		rescueFrom:  "herbalist_pid"
@@ -472,8 +467,7 @@
 		coords:      [90.703,47.578],
 		extraLabel:  "t:innkeep.auberge.label",
 		desc:        "t:innkeep.desc",
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [63.453,90.625],
 		extraLabel:  "t:innkeep.barrelandbung.label",
@@ -482,8 +476,7 @@
 		coords:      [113.891,66.391],
 		extraLabel:  "t:innkeep.salamander.label",
 		desc:        "t:innkeep.desc",
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [52.128,65.000],
 		extraLabel:  "t:innkeep.winery.label",

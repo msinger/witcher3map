@@ -418,7 +418,7 @@ window.i18nData.pl.general = {
 		before:       "Niedostępne po misji „__this.before[“, „]__”.",
 		weakBefore:   "Niedostępne po misji „__this.weakBefore[“, „]__”.",
 		during:       "Stanie się aktywna tylko podczas misji „__this.during[“, „]__”.",
-		liberated:    "Pojawia się po wyzwoleniu obszaru.",
+		liberate:     "Pojawia się po wyzwoleniu obszaru.",
 		underground:  "Podziemie",
 		notInGame:    "Nie Pojawia się na Mapie w grze",
 		contribute:   "Zgłoszenia błędów i inny wkład: __link__",
