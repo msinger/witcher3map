@@ -265,6 +265,14 @@ window.i18nData.ru.general = {
 		label: "Травник",
 		desc:  "Здесь можно купить алхимические ингредиенты."
 	},
+	hidden: {
+		label: "Спрятанное сокровище",
+		desc:  "Тайник с ценными вещами.",
+		guarded: {
+			label: "Спрятанное сокровище",
+			desc:  "Тайник с ценными вещами (Охраняется: чудовищем)."
+		}
+	},
 	hollow: {
 		label: "Сокровище дупла",
 		desc:  "Внутри дупла можно найти немного золота.",
@@ -535,6 +543,7 @@ window.i18nData.ru.general = {
         "hansebase": "Логово ганзы",
         "harbor": "Порт",
         "herbalist": "Травник",
+		"hidden": "Спрятанное сокровище",
         "hollow": "Сокровище дупла",
         "honeycomb": "Соты",
         "innkeep": "Корчмарь",
@@ -785,14 +794,6 @@ window.i18nData.ru.general = {
 	treasurehunt: {
 		label: "__this.name@treasurehunt__",
 		desc:  "__this.name@treasurehunt/desc__",
-		hidden: {
-			label: "Спрятанное сокровище",
-			desc:  "Тайник с ценными вещами."
-		},
-		guarded: {
-			label: "Спрятанное сокровище",
-			desc:  "Тайник с ценными вещами (Охраняется: чудовищем)."
-		},
 		again:          { label: "Обреченный на забвение" },
 		battlefield:    { label: "Трофеи с поля боя" },
 		bloodgold:      { label: "Кровавое золото" },

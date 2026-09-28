@@ -262,6 +262,14 @@ window.i18nData.zh.general = {
 		label: "草藥師",
 		desc:  "這裡你可買到煉金配方。"
 	},
+	hidden: {
+		label: "隱藏的寶藏",
+		desc:  "被藏起來的寶藏。",
+		guarded: {
+			label: "隱藏的寶藏",
+			desc:  "被藏起來的寶藏。"
+		}
+	},
 	hollow: {
 		label: "空心寶藏",
 		desc:  "在空洞內可以找到一些黃金。",
@@ -531,6 +539,7 @@ window.i18nData.zh.general = {
         "hansebase": "漢斯基地",
         "harbor": "港口",
         "herbalist": "草藥師",
+		"hidden": "隱藏的寶藏",
         "hollow": "空心寶藏",
         "honeycomb": "蜂窩",
         "innkeep": "旅店老闆",
@@ -781,14 +790,6 @@ window.i18nData.zh.general = {
 	treasurehunt: {
 		label: "__this.name@treasurehunt__",
 		desc:  "__this.name@treasurehunt/desc__",
-		hidden: {
-			label: "隱藏的寶藏",
-			desc:  "被藏起來的寶藏。"
-		},
-		guarded: {
-			label: "隱藏的寶藏",
-			desc:  "被藏起來的寶藏。"
-		},
 		again:          { label: "怎麽回事?" },
 		battlefield:    { label: "戰場禿鷹" },
 		bloodgold:      { label: "血黃金" },

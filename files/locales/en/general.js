@@ -275,6 +275,14 @@ window.i18nData.en.general = {
 		label: "Herbalist",
 		desc:  "Here you can buy alchemy ingredients."
 	},
+	hidden: {
+		label: "Hidden Treasure",
+		desc:  "A hidden cache of valuable goods.",
+		guarded: {
+			label: "Hidden Treasure (Guarded)",
+			desc:  "A hidden cache of valuable goods. (Guarded by monster)"
+		}
+	},
 	hollow: {
 		label: "Hollow Tree",
 		desc:  "Some gold can be found inside the hollow tree.",
@@ -548,6 +556,7 @@ window.i18nData.en.general = {
         "hansebase": "Hanse Base",
         "harbor": "Harbor",
         "herbalist": "Herbalist",
+		"hidden": "Hidden Treasure",
         "hollow": "Hollow Tree",
         "honeycomb": "Honeycomb",
         "innkeep": "Innkeep",
@@ -814,14 +823,6 @@ window.i18nData.en.general = {
 	treasurehunt: {
 		label: "__this.name@treasurehunt__",
 		desc:  "__this.name@treasurehunt/desc__",
-		hidden: {
-			label: "Hidden Treasure",
-			desc:  "A hidden cache of valuable goods."
-		},
-		guarded: {
-			label: "Hidden Treasure",
-			desc:  "A hidden cache of valuable goods. (Guarded by monster)"
-		},
 		again:          { desc: "", label: "What Was This About Again?" },
 		battlefield:    { desc: "", label: "Battlefield Loot" },
 		bloodgold:      { desc: "", label: "Blood Gold" },

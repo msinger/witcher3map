@@ -926,6 +926,20 @@
 		extraDesc:   "misc.liberated",
 		rescueFrom:  "herbalist_pid"
 	}],
+	// ----------------- Hidden Treasure ----------------
+	hidden: [{
+		coords:      [153.063,45.953]
+	}, {
+		coords:      [54.469,51.313],
+		underground: true,
+		entrances:   "wandering_cave",
+		after:       "mainquest.wandering"
+	}, {
+		coords:      [[86.016,17.078],
+		             [50.922,182.641],
+		             [99.469,197.203]],
+		guarded:     true
+	}],
 	// ----------------- Hollow Trees -------------------
 	hollow: [{
 		coords:      [[136.438,122.984],
@@ -2913,20 +2927,6 @@
 	}],
 	// ----------------- Treasure Hunts -----------------
 	treasurehunt: [{
-		coords:      [153.063,45.953],
-		name:        "hidden"
-	}, {
-		coords:      [54.469,51.313],
-		name:        "hidden",
-		underground: true,
-		entrances:   "wandering_cave",
-		after:       "mainquest.wandering"
-	}, {
-		coords:      [[86.016,17.078],
-		             [50.922,182.641],
-		             [99.469,197.203]],
-		name:        "guarded"
-	}, {
 		coords:      [107.531,36.859],
 		name:        "sunkent"
 	}, {

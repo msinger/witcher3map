@@ -262,6 +262,14 @@ window.i18nData.tr.general = {
 		label: "Otacı",
 		desc:  "Buradan simya malzemeler satın alabilirsiniz."
 	},
+	hidden: {
+		label: "Gizli Hazine",
+		desc:  "Değerli malların bir zulası.",
+		guarded: {
+			label: "Gizli Hazine",
+			desc:  "Değerli malların bir zulası."
+		}
+	},
 	hollow: {
 		label: "Ağaç Kovuğu Hazinesi",
 		desc:  "Oyuğun içerisinde bir miktar altın bulunabilir.",
@@ -532,6 +540,7 @@ window.i18nData.tr.general = {
         "hansebase": "Haydut Çetesi Üssü",
         "harbor": "Liman",
         "herbalist": "Otacı",
+		"hidden": "Gizli Hazine",
         "hollow": "Ağaç Kovuğu Hazinesi",
         "honeycomb": "Bal Peteği",
         "innkeep": "Han",
@@ -782,14 +791,6 @@ window.i18nData.tr.general = {
 	treasurehunt: {
 		label: "__this.name@treasurehunt__",
 		desc:  "__this.name@treasurehunt/desc__",
-		hidden: {
-			label: "Gizli Hazine",
-			desc:  "Değerli malların bir zulası."
-		},
-		guarded: {
-			label: "Gizli Hazine",
-			desc:  "Değerli malların bir zulası."
-		},
 		again:          { label: "Konu Neydi Tekrar Söylesene?" },
 		battlefield:    { label: "Savaş Meydanı Ganimeti" },
 		bloodgold:      { label: "Kanlı Altın" },

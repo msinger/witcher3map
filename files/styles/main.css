@@ -755,6 +755,10 @@ i.herbalist {
 	background-image: url(../images/icons/herbalist.png)
 }
 
+i.hidden {
+	background-image: url(../images/icons/hidden.png)
+}
+
 i.hollow {
 	background-image: url(../images/icons/hollow.png)
 }

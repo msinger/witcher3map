@@ -269,6 +269,14 @@ window.i18nData.pl.general = {
 		label: "Zielarz",
 		desc:  "Tu możesz kupić składniki alchemiczne."
 	},
+	hidden: {
+		label: "Ukryty skarb",
+		desc:  "Ukryty skarb z wartościowymi przedmiotami.",
+		guarded: {
+			label: "Ukryty skarb",
+			desc:  "Ukryty skarb z wartościowymi przedmiotami."
+		}
+	},
 	hollow: {
 		label: "Pusty skarb",
 		desc:  "W zagłębieniu można znaleźć trochę złota.",
@@ -539,6 +547,7 @@ window.i18nData.pl.general = {
         "hansebase": "Baza Hanse",
         "harbor": "Port",
         "herbalist": "Zielarz",
+		"hidden": "Ukryty skarb",
         "hollow": "Pusty skarb",
         "honeycomb": "Plaster miodu",
         "innkeep": "Karczma",
@@ -790,14 +799,6 @@ window.i18nData.pl.general = {
 	treasurehunt: {
 		label: "__this.name@treasurehunt__",
 		desc:  "__this.name@treasurehunt/desc__",
-		hidden: {
-			label: "Ukryty skarb",
-			desc:  "Ukryty skarb z wartościowymi przedmiotami."
-		},
-		guarded: {
-			label: "Ukryty skarb",
-			desc:  "Ukryty skarb z wartościowymi przedmiotami."
-		},
 		again:          { label: "Skazany na zapomnienie?" },
 		battlefield:    { label: "Łupy z pobojowiska" },
 		bloodgold:      { label: "Krwawe złoto" },
