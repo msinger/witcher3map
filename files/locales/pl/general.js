@@ -184,11 +184,14 @@ window.i18nData.pl.general = {
 		},
 		neighborhood: { label: "Rough Neighborhood" },
 		passage1:     { label: "Cena Przejścia (Część 1)" },
-		passage2: {
+		passage2a: {
 			label: "Cena Przejścia (Część 2)",
-			desc1: "Żołnierze pojawią się w tym miejscu, jeśli w pierwszej części misji zostanie zapłacony hołd " +
-			       "żołnierzom.",
-			desc2: "Żołnierze pojawią się w tym miejscu, jeśli w pierwszej części misji żołnierzom nie zostanie " +
+			desc:  "Żołnierze pojawią się w tym miejscu, jeśli w pierwszej części misji zostanie zapłacony hołd " +
+			       "żołnierzom."
+		},
+		passage2b: {
+			label: "Cena Przejścia (Część 2)",
+			desc:  "Żołnierze pojawią się w tym miejscu, jeśli w pierwszej części misji żołnierzom nie zostanie " +
 			       "zapłacona danina."
 		},
 		pyre:         { label: "Ratowanie Moritza Diefenthala przed stosem" },

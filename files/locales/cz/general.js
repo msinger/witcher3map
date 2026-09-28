@@ -184,10 +184,13 @@ window.i18nData.cz.general = {
 		},
 		neighborhood: { label: "Drsné sousedství" },
 		passage1:     { label: "Cena průchodu (1. část)" },
-		passage2: {
+		passage2a: {
 			label: "Cena průchodu (2. část)",
-			desc1: "Pokud v první části mise zaplatíte vojákům hold, objeví se na tomto místě vojáci.",
-			desc2: "Pokud v první části mise nezaplatíte vojákům hold, objeví se na tomto místě vojáci."
+			desc:  "Pokud v první části mise zaplatíte vojákům hold, objeví se na tomto místě vojáci."
+		},
+		passage2b: {
+			label: "Cena průchodu (2. část)",
+			desc:  "Pokud v první části mise nezaplatíte vojákům hold, objeví se na tomto místě vojáci."
 		},
 		pyre:         { label: "Zachránění Moritze Diefenthela z hranice" },
 		racist1:      { label: "Rasisté z Novigradu I - Elfka" },
