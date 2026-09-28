@@ -56,8 +56,8 @@ var icon_sizes = {
 	smugglers:           [[28, 30], [28, 39]],
 	spoils:              [[25, 28], [25, 37]],
 	stash:               [[27, 32], false   ],
-	treasure:            [[23, 34], [32, 38]],
-	treasure_uw:         [[23, 34], [32, 38]],
+	treasure:            [[20, 23], [20, 32]],
+	treasure_uw:         [[20, 23], [20, 32]],
 	treasurehunt:        [[22, 34], [22, 43]],
 	treasurehunt_hos:    [[23, 34], [23, 43]],
 	vineyardinfestation: [[28, 32], [28, 41]]
