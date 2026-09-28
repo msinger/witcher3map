@@ -388,6 +388,14 @@ function substMapData(mapInfo, data, dataKey, f) {
 			}
 		}
 
+		if (item.liberate) {
+			lib = subst(esc($.t("misc.liberate")), item);
+			if (desc)
+				desc += concat;
+			desc += lib;
+			special = true;
+		}
+
 		if (notInGame) {
 			if (desc)
 				desc += concat;

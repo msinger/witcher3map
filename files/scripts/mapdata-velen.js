@@ -511,8 +511,7 @@
 	}, {
 		coords:      [111.562,110.968],
 		name:        "crossing2",
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [78.531,128.468],
 		name:        "crossing3"
@@ -923,11 +922,10 @@
 		             [34.578,98.656],
 		             [99.828,129.547],
 		             [68.109,23.281]],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [199.563,187.438],
-		extraDesc:   "misc.liberated",
+		liberate:    true,
 		rescueFrom:  "herbalist_pid"
 	}],
 	// ----------------- Hidden Treasure ----------------
@@ -1672,8 +1670,7 @@
 		coords:      [[239.766,70.563],
 		             [83.531,87.641]],
 		sells:       ["runestones", "alchemy"],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [210.578,113.344],
 		desc:        "v:shopkeeper.uselessMerchant.desc"
@@ -1714,14 +1711,12 @@
 		             [99.984,130.453],
 		             [185.500,206.969]],
 		sells:       ["weapons", "crafting"],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [[137.406,160.781],
 		             [30.359,46.734]],
 		sells:       ["runestones", "alchemy", "food"],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [107.469,54.906],
 		desc:        "v:shopkeeper.uselessMerchant.desc"
@@ -1757,14 +1752,12 @@
 		             [76.797,26.313],
 		             [239.063,156.281]],
 		sells:       ["armor", "crafting"],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [[100.578,130.578],
 		             [129.578,125.719]],
 		sells:       ["alchemy", "food"],
-		extraDesc:   "misc.liberated",
-		special:     true
+		liberate:    true
 	}, {
 		coords:      [99.844,110.594],
 		sells:       ["gwent", "crafting"]

@@ -411,7 +411,7 @@ window.i18nData.tr.general = {
 		before:       "'__this.before[', ']__' görevinden sonra erişilemez.",
 		weakBefore:   "'__this.weakBefore[', ']__' görevinden sonra erişilemeyebilir.",
 		during:       "Yalnızca '__this.during[', ']__' görevi sırasında aktif hale gelecektir.",
-		liberated:    "Bu tüccar bölge temizlendikten sonra ortaya çıkacaktır.",
+		liberate:     "Bu tüccar bölge temizlendikten sonra ortaya çıkacaktır.",
 		underground:  "Yeraltı",
 		notInGame:    "Oyun haritasında gözükmemektedir.",
 		contribute:   "Hata bildirimleri ve diğer katkılar: __link__",
