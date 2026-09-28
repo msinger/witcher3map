@@ -59,6 +59,7 @@ var icon_sizes = {
 	treasure:            [[20, 23], [20, 32]],
 	treasure_uw:         [[20, 23], [20, 32]],
 	treasurehunt:        [[22, 34], [22, 43]],
+	treasurehunt_scav:   [[22, 34], [22, 43]],
 	treasurehunt_hos:    [[23, 34], [23, 43]],
 	vineyardinfestation: [[28, 32], [28, 41]]
 };
