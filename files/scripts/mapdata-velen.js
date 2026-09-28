@@ -589,11 +589,15 @@
 		name:        "basilisk"
 	}, {
 		coords:      [157.593,163.812],
-		name:        "passage1"
+		name:        "passage1",
+		after:       "contract.drunk"
 	}, {
-		coords:      [[157.531,169.500],
-		             [159.563,178.578]],
-		name:        "passage2",
+		coords:      [157.531,169.500],
+		name:        "passage2a",
+		after:       "event.passage1"
+	}, {
+		coords:      [159.563,178.578],
+		name:        "passage2b",
 		after:       "event.passage1"
 	}, {
 		coords:      [189.500,98.640],

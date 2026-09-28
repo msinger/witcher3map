@@ -190,10 +190,13 @@ window.i18nData.en.general = {
 		},
 		neighborhood: { desc: "", label: "Rough Neighborhood" },
 		passage1:     { desc: "", label: "The Price of Passage (Part 1)" },
-		passage2: {
+		passage2a: {
 			label: "The Price of Passage (Part 2)",
-			desc1: "Soldiers will spawn at this location if tribute is paid to soldiers in the first part of the mission.",
-			desc2: "Soldiers will spawn at this location if tribute is not paid to soldiers in the first part of the " +
+			desc:  "Soldiers will spawn at this location if tribute is paid to soldiers in the first part of the mission."
+		},
+		passage2b: {
+			label: "The Price of Passage (Part 2)",
+			desc:  "Soldiers will spawn at this location if tribute is not paid to soldiers in the first part of the " +
 			       "mission."
 		},
 		pyre:         { desc: "", label: "Saving Moritz Diefenthal From the Pyre" },

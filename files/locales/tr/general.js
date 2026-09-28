@@ -181,10 +181,13 @@ window.i18nData.tr.general = {
 		naughty:      { label: "Yaramaz Tüyler" },
 		neighborhood: { label: "Kötü Muhit" },
 		passage1:     { label: "Geçiş Fiyatı (Bölüm 1)" },
-		passage2: {
+		passage2a: {
 			label: "Geçiş Fiyatı (Bölüm 2)",
-			desc1: "Eğer görevin ilk bölümünde askerlere haraç verilirse askerler bu lokasyonda ortaya çıkacaktır.",
-			desc2: "Eğer görevin ilk bölümünde askerlere haraç verilirmezse askerler bu lokasyonda ortaya çıkacaktır."
+			desc:  "Eğer görevin ilk bölümünde askerlere haraç verilirse askerler bu lokasyonda ortaya çıkacaktır."
+		},
+		passage2b: {
+			label: "Geçiş Fiyatı (Bölüm 2)",
+			desc:  "Eğer görevin ilk bölümünde askerlere haraç verilirmezse askerler bu lokasyonda ortaya çıkacaktır."
 		},
 		pyre:         { label: "Moritz Diefenthal'i Ateşten Kurtarmak" },
 		racist1:      { label: "Novigradlı Irkçılar I - Dişi Elf" },
