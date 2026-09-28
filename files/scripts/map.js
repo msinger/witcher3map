@@ -159,7 +159,7 @@ function createSidebar() {
 				'<ul class="key">';
 
 	let count = 0;
-	for (key in markers) {
+	for (key of markerGroupNames) {
 		if (hasMarkers[key]) {
 			sidebar += '<li><i class="' + key + '"></i><div>' + esc($.t("sidebar." + key)) + '</div></li>';
 			count++;
