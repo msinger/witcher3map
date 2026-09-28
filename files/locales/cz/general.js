@@ -268,6 +268,14 @@ window.i18nData.cz.general = {
 		label: "Bylinkář",
 		desc:  "Zde si můžeš koupit alchymistické přísady."
 	},
+	hidden: {
+		label: "Ukrytý poklad",
+		desc:  "Tajná skrýš plná cenného zboží.",
+		guarded: {
+			label: "Ukrytý poklad",
+			desc:  "Tajná skrýš plná cenného zboží."
+		}
+	},
 	hollow: {
 		label: "Poklad v dutině",
 		desc:  "Uvnitř dutiny lze nalézt trochu zlata.",
@@ -538,6 +546,7 @@ window.i18nData.cz.general = {
         "hansebase": "Základna tlupy",
         "harbor": "Přístav",
         "herbalist": "Bylinkář",
+		"hidden": "Ukrytý poklad",
         "hollow": "Poklad v dutině",
         "honeycomb": "Medová plástev",
         "innkeep": "Hospodský",
@@ -788,14 +797,6 @@ window.i18nData.cz.general = {
 	treasurehunt: {
 		label: "__this.name@treasurehunt__",
 		desc:  "__this.name@treasurehunt/desc__",
-		hidden: {
-			label: "Ukrytý poklad",
-			desc:  "Tajná skrýš plná cenného zboží."
-		},
-		guarded: {
-			label: "Ukrytý poklad",
-			desc:  "Tajná skrýš plná cenného zboží."
-		},
 		again:          { label: "O co že to vlastně šlo?" },
 		battlefield:    { label: "Kořist na bojišti" },
 		bloodgold:      { label: "Krvavé peníze" },

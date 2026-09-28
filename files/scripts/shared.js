@@ -20,6 +20,7 @@ var markerGroupNames = [
 	"hansebase",
 	"harbor",
 	"herbalist",
+	"hidden",
 	"hollow",
 	"honeycomb",
 	"innkeep",
@@ -247,6 +248,8 @@ function substMapData(mapInfo, data, dataKey, f) {
 				label = "#" + (esc($.t(dataKey + ".stump.label")) || esc($.t(label)));
 			else if (dataKey == "hollow" && item.log)
 				label = "#" + (esc($.t(dataKey + ".log.label")) || esc($.t(label)));
+			else if (dataKey == "hidden" && item.guarded)
+				label = dataKey + ".guarded.label";
 		}
 
 		if (typeof desc != "string" || (desc !== "" && !desc)) {
@@ -257,6 +260,8 @@ function substMapData(mapInfo, data, dataKey, f) {
 				desc = "#" + (esc($.t(dataKey + ".stump.desc")) || esc($.t(desc)));
 			else if (dataKey == "hollow" && item.log)
 				desc = "#" + (esc($.t(dataKey + ".log.desc")) || esc($.t(desc)));
+			else if (dataKey == "hidden" && item.guarded)
+				desc = dataKey + ".guarded.desc";
 		}
 
 		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item);
@@ -446,6 +451,8 @@ function substMapData(mapInfo, data, dataKey, f) {
 			icon += "_baw";
 		if (item.hos && (dataKey == "contract" || dataKey == "treasurehunt"))
 			icon += "_hos";
+		if (item.guarded && dataKey == "hidden")
+			icon += "_guarded";
 		if (underwater)
 			icon += "_uw";
 		if (underground)

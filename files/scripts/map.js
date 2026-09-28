@@ -31,6 +31,8 @@ var icon_sizes = {
 	hansebase:           [[29, 30], [29, 39]],
 	harbor:              [[27, 30], [27, 39]],
 	herbalist:           [[25, 28], [25, 37]],
+	hidden:              [[22, 34], [22, 43]],
+	hidden_guarded:      [[25, 39], [25, 48]],
 	hollow:              [[28, 27], [28, 36]],
 	honeycomb:           [[29, 29], [29, 37]],
 	innkeep:             [[26, 30], [26, 39]],
@@ -54,7 +56,7 @@ var icon_sizes = {
 	stash:               [[27, 32], false   ],
 	treasure:            [[23, 34], [32, 38]],
 	treasure_uw:         [[23, 34], [32, 38]],
-	treasurehunt:        [[23, 34], [23, 43]],
+	treasurehunt:        [[22, 34], [22, 43]],
 	treasurehunt_hos:    [[23, 34], [23, 43]],
 	vineyardinfestation: [[28, 32], [28, 41]]
 };
