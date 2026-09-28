@@ -453,6 +453,10 @@ function substMapData(mapInfo, data, dataKey, f) {
 			icon += "_hos";
 		if (item.guarded && dataKey == "hidden")
 			icon += "_guarded";
+		if (item.lantern && dataKey == "poi")
+			icon = "lantern";
+		if (item.lamp && dataKey == "poi")
+			icon = "lamp";
 		if (underwater)
 			icon += "_uw";
 		if (underground)

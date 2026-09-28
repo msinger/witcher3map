@@ -37,6 +37,8 @@ var icon_sizes = {
 	honeycomb:           [[29, 29], [29, 37]],
 	innkeep:             [[26, 30], [26, 39]],
 	kid:                 [[28, 30], [28, 39]],
+	lamp:                [[19, 28], [19, 37]],
+	lantern:             [[19, 28], [19, 37]],
 	monsterden:          [[30, 27], [30, 35]],
 	monsternest:         [[23, 30], [23, 39]],
 	note_marker:         [[23, 23], false   ],
