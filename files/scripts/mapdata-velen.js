@@ -1249,19 +1249,12 @@
 	}],
 	// ----------------- Points of Interest -------------
 	poi: [{
-		coords:      [47.125,78.172],
+		coords:      [[47.125,78.172],
+		             [49.391,78.813],
+		             [53.469,80.234]],
 		label:       "v:poi.spirits.label",
 		extraDesc:   "v:poi.spirits.desc",
-		during:      "sidequest.towerful"
-	}, {
-		coords:      [49.391,78.813],
-		label:       "v:poi.spirits.label",
-		extraDesc:   "v:poi.spirits.desc",
-		during:      "sidequest.towerful"
-	}, {
-		coords:      [53.469,80.234],
-		label:       "v:poi.spirits.label",
-		extraDesc:   "v:poi.spirits.desc",
+		lamp:        true,
 		during:      "sidequest.towerful"
 	}, {
 		coords:      [122.656,148.281],
@@ -1270,7 +1263,8 @@
 	}, {
 		coords:      [142.781,118.375],
 		label:       "v:poi.lantern.label",
-		extraDesc:   "v:poi.lantern.desc"
+		extraDesc:   "v:poi.lantern.desc",
+		lantern:     true
 	}, {
 		coords:      [45.203,195.156],
 		label:       "v:poi.nilfgaardian.label"
