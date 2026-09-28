@@ -53,7 +53,7 @@ function doSearch() {
 	var fuse = new Fuse(searchData, options);
 	var result = fuse.search(searchText);
 
-	var count = "<li>" + result.length + " " + $.t("home.resultsFound") + "</li>";
+	var count = "<li>" + esc($.t("home.resultsFound", { count: result.length.toString() })) + "</li>";
 	resultsElement.append($(count));
 
 	for (var i = 0; i < result.length; i++) {
