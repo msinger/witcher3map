@@ -155,7 +155,7 @@ function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
 			'<div id="sidebar-wrap">' +
-				'<a href="' + window.topdir + '/index.html" title="' + esc($.t("sidebar.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a>' +
+				'<a href="' + window.topdir + '/index.html" title="' + esc($.t("controls.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a>' +
 				'<ul class="key">';
 
 	let count = 0;
@@ -189,7 +189,7 @@ function createSidebar() {
 			'<div id="copyright">' +
 				'<div id="note">' +
 					'<span id="note-msg">' +
-						$.t("misc.contribute", { link1: '<a style="color:#000000;text-decoration:underline" href="https://github.com/msinger/witcher3map">Github</a>' }) +
+						$.t("misc.contribute", { link: '<a style="color:#000000;text-decoration:underline" href="https://github.com/msinger/witcher3map">Github</a>' }) +
 					'</span>' +
 				'</div>' +
 				'Created by <a href="https://github.com/untamed0">untamed0</a> and enhanced by ' +
@@ -933,9 +933,9 @@ function runMap() {
 		       'class="label top">' + $.t("notes.note") + '</label><textarea id="note-text" placeholder=\"' +
 		       $.t("notes.enterText") + '">' + note.text + '</textarea></div>' +
 		       '<div><button id="note-save" onclick="saveNote(\'' + note.key + '\')" disabled>' +
-		       '<i class="fa fa-floppy-o"></i>&nbsp;' + $.t("notes.saveNote") + "</button>" +
+		       '<i class="fa fa-floppy-o"></i>&nbsp;' + $.t("notes.save") + "</button>" +
 		       '<button onclick="deleteNote(\'' + note.key + '\')"><i class="fa fa-trash-o"></i>&nbsp;' +
-		       $.t("notes.deleteNote") + "</button></div></div>";
+		       $.t("notes.delete") + "</button></div></div>";
 	}
 
 	function createNote(note) {
