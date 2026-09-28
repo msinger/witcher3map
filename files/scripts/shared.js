@@ -449,7 +449,9 @@ function substMapData(mapInfo, data, dataKey, f) {
 			icon += "_hos";
 		else if (item.baw && dataKey == "sidequest")
 			icon += "_baw";
-		if (item.hos && (dataKey == "contract" || dataKey == "treasurehunt"))
+		if (dataKey == "treasurehunt" && typeof item.name == "string" && item.name.startsWith("scav_"))
+			icon += "_scav";
+		else if (item.hos && (dataKey == "contract" || dataKey == "treasurehunt"))
 			icon += "_hos";
 		if (item.guarded && dataKey == "hidden")
 			icon += "_guarded";
