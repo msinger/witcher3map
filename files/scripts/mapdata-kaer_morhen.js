@@ -212,13 +212,14 @@
 }; };
 
 registerMap({
-	name:        "kaer_morhen",
-	ns:          "k",
-	bounds:      [{ lat: 0, lng: 0 }, { lat: 160, lng: 128 }],
-	initialPos:  [80, 64],
-	minZoom:     2,
-	maxZoom:     7,
-	nativeZoom:  5,
-	initialZoom: 3,
-	getMapData:  getMapData
+	name:          "kaer_morhen",
+	ns:            "k",
+	bounds:        [{ lat: 0, lng: 0 }, { lat: 160, lng: 128 }],
+	initialPos:    [80, 64],
+	minZoom:       2,
+	maxZoom:       7,
+	minNativeZoom: 2,
+	maxNativeZoom: 5,
+	initialZoom:   3,
+	getMapData:    getMapData
 }); }

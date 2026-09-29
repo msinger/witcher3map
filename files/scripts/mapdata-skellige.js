@@ -1672,13 +1672,14 @@
 }; };
 
 registerMap({
-	name:        "skellige",
-	ns:          "s",
-	bounds:      [{ lat: 0, lng: 0 }, { lat: 256, lng: 256 }],
-	initialPos:  [128, 128],
-	minZoom:     2,
-	maxZoom:     8,
-	nativeZoom:  6,
-	initialZoom: 2,
-	getMapData:  getMapData
+	name:          "skellige",
+	ns:            "s",
+	bounds:        [{ lat: 0, lng: 0 }, { lat: 256, lng: 256 }],
+	initialPos:    [128, 128],
+	minZoom:       2,
+	maxZoom:       8,
+	minNativeZoom: 2,
+	maxNativeZoom: 6,
+	initialZoom:   2,
+	getMapData:    getMapData
 }); }

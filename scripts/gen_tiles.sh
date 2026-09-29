@@ -69,7 +69,7 @@ for (( i = MIN_ZOOM; i <= MAX_ZOOM; i++ )); do
 	       "$i/tmp-%d.png"
 
 	for (( j = 0; j < LVL_TLC[i]; j++ )); do
-		dest="$i/$(( j % LVL_TLW[i] ))/$(( LVL_TLH[i] - j / LVL_TLW[i] - 1 ))"
+		dest="$i/$(( j % LVL_TLW[i] ))/$(( j / LVL_TLW[i] - LVL_TLH[i] ))"
 		if magick "$i/tmp-$j.png" -format '%[opaque]' info: | grep -qi false; then
 			mv "$i/tmp-$j.png" "$dest.png"
 		else
