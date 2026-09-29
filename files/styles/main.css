@@ -304,10 +304,23 @@ div#lang-switcher {
 	margin: 25px auto 0
 }
 
-div#lang-switcher .dd-select {
+div#lang-switcher .dd-select,
+div#lang-switcher .dd-open {
 	background: rgba(0, 0, 0, 0) !important;
 	border: 1px solid #635540;
 	color: #635540
+}
+
+div#lang-switcher .dd-selected {
+	background: transparent;
+	color: #635540;
+	border: none !important;
+	outline: none;
+	cursor: pointer;
+}
+
+div#lang-switcher .dd-selected:focus {
+	outline: solid !important;
 }
 
 div#lang-switcher .dd-pointer-down {
@@ -339,7 +352,8 @@ div#lang-switcher .dd-option {
 	border: none
 }
 
-div#lang-switcher .dd-option:hover {
+div#lang-switcher .dd-option:hover,
+div#lang-switcher .dd-option-selected {
 	background: rgba(33, 29, 24, .95) !important;
 	color: #907854
 }
