@@ -105,6 +105,9 @@ window.i18nData.en.v = {
 			desc:  "Spirits from the '__sidequest.towerful__' quest."
 		}
 	},
+	race: {
+		perch: { label: "Race Track" },
+	},
 	shopkeeper: {
 		anselm:        { label: "Anselm" },
 		elihal:        { label: "Elihal" },

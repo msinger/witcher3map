@@ -5,6 +5,8 @@ var invisibleMarkers = {};
 var markerCount = {};
 var notes = [];
 var invisibleMarkerOpacity = 0.25;
+var routes = [];
+var map = null;
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
@@ -64,7 +66,16 @@ var icon_sizes = {
 	vineyardinfestation: [[28, 32], [28, 41]]
 };
 
-function createMarker(coord, icon, label, popup, dataKey) {
+var route_colors = {
+	alchemy:       "#8ac33b",
+	herbalist:     "#8ac33b",
+	shopkeeper:    "#ffed86",
+	sidequest:     "#ffcc00",
+	sidequest_hos: "#4da4dd",
+	sidequest_baw: "#ed7459"
+};
+
+function createMarker(coord, icon, label, popup, dataKey, routes) {
 	let mapKey = "markers-" + mapInfos[0].name + "-hidden";
 	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
 
@@ -72,15 +83,47 @@ function createMarker(coord, icon, label, popup, dataKey) {
 	marker.bindPopup(popup);
 
 	marker.on("contextmenu", function(e) {
-		toggleMarker(e, mapKey, dataKey);
+		if (!e.target)
+			return;
+		toggleMarker(e.target, mapKey, dataKey);
 	});
 
-	if (isMarkerInvisible(mapKey, marker.getLatLng().lat, marker.getLatLng().lng))
+	let visible = true;
+	if (isMarkerInvisible(mapKey, marker.getLatLng().lat, marker.getLatLng().lng)) {
 		marker.setOpacity(invisibleMarkerOpacity);
-	else
+		visible = false;
+	} else {
 		markerCount[dataKey]++;
+	}
 
 	hasMarkers[dataKey] = true;
+
+	marker.routes = [];
+	for (let route of routes) {
+		marker.routes.push(route);
+		route.marker = marker;
+
+		if (!route.fuse)
+			continue;
+
+		if (visible)
+			route.layer.setStyle({ opacity: 0.7 });
+		else
+			route.layer.setStyle({ opacity: invisibleMarkerOpacity });
+
+		route.layer.on("click", function(e) {
+			if (!e.target || !e.target.route || !e.target.route.marker)
+				return;
+			e.target.route.marker.openPopup();
+		});
+
+		route.layer.on("contextmenu", function(e) {
+			if (!e.target || !e.target.route || !e.target.route.marker)
+				return;
+			L.DomEvent.stopPropagation(e);
+			toggleMarker(e.target.route.marker, mapKey, dataKey);
+		});
+	}
 
 	return marker;
 }
@@ -89,18 +132,27 @@ function isMarkerInvisible(mapKey, lat, lng) {
 	return invisibleMarkers[mapKey].indexOf(lat + ";" + lng) >= 0;
 }
 
-function toggleMarker(e, mapKey, dataKey) {
-	if (!e.target)
-		return;
+function toggleMarker(m, mapKey, dataKey) {
+	let pos = m.getLatLng();
 
-	var key = e.latlng.lat + ";" + e.latlng.lng;
+	let key = pos.lat + ";" + pos.lng;
 
-	if (e.target.options.opacity === 1.0) {
-		e.target.setOpacity(invisibleMarkerOpacity);
+	if (m.options.opacity === 1.0) {
+		m.setOpacity(invisibleMarkerOpacity);
+		for (let route of m.routes) {
+			if (!route.fuse)
+				continue;
+			route.layer.setStyle({ opacity: invisibleMarkerOpacity });
+		}
 		invisibleMarkers[mapKey].push(key);
 		markerCount[dataKey]--;
 	} else {
-		e.target.setOpacity(1.0);
+		m.setOpacity(1.0);
+		for (let route of m.routes) {
+			if (!route.fuse)
+				continue;
+			route.layer.setStyle({ opacity: 0.7 });
+		}
 		invisibleMarkers[mapKey].splice(invisibleMarkers[mapKey].indexOf(key), 1);
 		markerCount[dataKey]++;
 	}
@@ -135,20 +187,70 @@ function processData() {
 		hasMarkers[dataKey] = false;
 		markerCount[dataKey] = 0;
 
-		substMapData(mapInfos[0], data, dataKey, function(coord, label, desc, icon) {
+		substMapData(mapInfos[0], data, dataKey, function(coord, label, desc, icon, routes) {
 			if (!icons[icon]) {
 				console.error("Invalid icon:", icon);
 				return;
 			}
 
 			let tooltip = label.replace(/<\/?[^>]+(>|$)/g, "");
-			groupItems.push(createMarker(coord, icons[icon], tooltip,
-			                             "<h1>" + label + "</h1>" + desc,
-			                             dataKey));
+			let m = createMarker(coord, icons[icon], tooltip,
+			                     "<h1>" + label + "</h1>" + desc,
+			                     dataKey, routes);
+			groupItems.push(m);
+
+			for (let route of routes) {
+				if (!route.fuse)
+					continue;
+				groupItems.push(route.layer);
+			}
+		}, function(r) {
+			let arr = [];
+			if (!isCoord(r.coords[0]) && r.coords[0] instanceof Array) {
+				for (let sub of r.coords) {
+					if (!(sub instanceof Array))
+						continue;
+					let innerArr = [];
+					for (let coord of sub) {
+						if (!isCoord(coord))
+							continue;
+						innerArr.push(L.latLng(coord[0], coord[1]));
+					}
+					if (innerArr.length != 0)
+						arr.push(innerArr);
+				}
+			} else {
+				for (let coord of r.coords) {
+					if (!isCoord(coord))
+						continue;
+					arr.push(L.latLng(coord[0], coord[1]));
+				}
+			}
+			let id = routes.length;
+			r.layer = L.polyline(arr, { color: route_colors[dataKey] || "red" });
+			r.layer.route = r;
+			routes.push(r);
+			return id;
 		});
 
 		markers[dataKey] = L.layerGroup(groupItems);
 	}
+}
+
+function unselectRoutes() {
+	for (r of routes) {
+		if (r.fuse)
+			continue;
+		map.removeLayer(r.layer);
+	}
+}
+
+function selectRoute(id) {
+	unselectRoutes();
+	let r = routes[id];
+	if (!r.fuse)
+		r.layer.addTo(map);
+	map.fitBounds(r.layer.getBounds());
 }
 
 function createSidebar() {
@@ -295,7 +397,7 @@ function runMap() {
 		maxBoundsViscosity:  1.0  // TODO: Make this a configuration option
 	};
 
-	var map = L.map("map", map_settings);
+	window.map = L.map("map", map_settings);
 
 	new L.Control.Zoom({
 		position:     "topright",
@@ -316,9 +418,12 @@ function runMap() {
 	var searchData = [];
 
 	for (var layer of allLayers) {
-		for (var marker of Object.values(layer._layers)) {
+		for (var marker of Object.values(layer.getLayers())) {
+			if (!marker.getLatLng)
+				continue;
+			let pos = marker.getLatLng();
 			searchData.push({
-				loc:   [marker._latlng.lat, marker._latlng.lng],
+				loc:   [pos.lat, pos.lng],
 				title: marker._popup._content.replace(/<h1>/, "").replace(/<\/h1>/, " - ").replace(/\\'/g, "")
 			});
 		}
@@ -412,8 +517,6 @@ function runMap() {
 		$("#info-wrap").fadeIn("fast");
 		if ($("#info").html().indexOf('class="note-row"') >= 0)
 			notePopupStart();
-		console.log("Popup at:");
-		console.log("[" + e.popup._latlng.lat.toFixed(3) + ", " + e.popup._latlng.lng.toFixed(3) + "]");
 	});
 
 	function createCircle(lat, lng) {
@@ -435,6 +538,7 @@ function runMap() {
 
 	function deleteCircle() {
 		if(circle !== null) {
+			unselectRoutes();
 			map.removeLayer(circle);
 			hash.removeParam("m");
 			$("#centerButton").hide();
@@ -868,7 +972,7 @@ function runMap() {
 	}, $.t("controls.centerMarkerButton"), "centerButton").addTo(map);
 
 	window.getNoteIndex = function(noteKey) {
-		for (var i = 0; i < notes.length; i++)
+		for (let i = 0; i < notes.length; i++)
 			if (notes[i].key == noteKey)
 				return i;
 		return -1;
@@ -982,11 +1086,11 @@ function runMap() {
 	}
 
 	// create saved notes on load
-	for (var i = 0; i < notes.length; i++) {
+	for (let i = 0; i < notes.length; i++) {
 		createNote(notes[i]);
 	}
 
-	var hashParams = hash.getHashParams();
+	let hashParams = hash.getHashParams();
 
 	if (!hashParams) {
 		$("#centerButton").hide();
@@ -1015,7 +1119,10 @@ function runMap() {
 		var hashMarker = hashParams.m.split(",");
 		for (var val of allLayers) {
 			for (var marker of val.getLayers()) {
-				if(hashMarker[0] == marker._latlng.lat && hashMarker[1] == marker._latlng.lng)
+				if (!marker.getLatLng)
+					continue;
+				let pos = marker.getLatLng();
+				if(hashMarker[0] == pos.lat && hashMarker[1] == pos.lng)
 					marker.openPopup();
 			}
 		}

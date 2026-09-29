@@ -29,6 +29,8 @@ Things I have added and fixed:
   over and over again anymore.
 * Added more icons (stash, HoW&BaW quest markers, underwater caves, ...)
 * Upgraded Leaflet from version 0.7.7 to 1.9.3.
+* Mapdata can now define "routes" for markers. They will translate to Leaflet's polylines. We can use them
+  to highlight travelling merchants paths and race tracks associated with sidequests.
 
 Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):
 
