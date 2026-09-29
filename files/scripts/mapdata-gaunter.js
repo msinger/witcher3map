@@ -51,13 +51,14 @@
 }; };
 
 registerMap({
-	name:        "gaunter",
-	ns:          "g",
-	bounds:      [{ lat: -32, lng: -32 }, { lat: 512+32, lng: 256+32 }],
-	initialPos:  [256, 128],
-	minZoom:     0,
-	maxZoom:     4,
-	nativeZoom:  2,
-	initialZoom: 1,
-	getMapData:  getMapData
+	name:          "gaunter",
+	ns:            "g",
+	bounds:        [{ lat: -32, lng: -32 }, { lat: 512+32, lng: 256+32 }],
+	initialPos:    [256, 128],
+	minZoom:       0,
+	maxZoom:       4,
+	minNativeZoom: 0,
+	maxNativeZoom: 2,
+	initialZoom:   1,
+	getMapData:    getMapData
 }); }

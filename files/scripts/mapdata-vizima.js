@@ -35,13 +35,14 @@
 }; };
 
 registerMap({
-	name:        "vizima",
-	ns:          "z",
-	bounds:      [{ lat: 0, lng: 0 }, { lat: 256, lng: 256 }],
-	initialPos:  [128, 128],
-	minZoom:     2,
-	maxZoom:     5,
-	nativeZoom:  3,
-	initialZoom: 3,
-	getMapData:  getMapData
+	name:          "vizima",
+	ns:            "z",
+	bounds:        [{ lat: 0, lng: 0 }, { lat: 256, lng: 256 }],
+	initialPos:    [128, 128],
+	minZoom:       2,
+	maxZoom:       5,
+	minNativeZoom: 2,
+	maxNativeZoom: 3,
+	initialZoom:   3,
+	getMapData:    getMapData
 }); }

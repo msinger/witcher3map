@@ -3050,13 +3050,14 @@
 }; };
 
 registerMap({
-	name:        "velen",
-	ns:          "v",
-	bounds:      [{ lat: -32, lng: -32 }, { lat: 288+32, lng: 256+32 }],
-	initialPos:  [144, 128],
-	minZoom:     1,
-	maxZoom:     7,
-	nativeZoom:  5,
-	initialZoom: 2,
-	getMapData:  getMapData
+	name:          "velen",
+	ns:            "v",
+	bounds:        [{ lat: -32, lng: -32 }, { lat: 288+32, lng: 256+32 }],
+	initialPos:    [144, 128],
+	minZoom:       1,
+	maxZoom:       7,
+	minNativeZoom: 1,
+	maxNativeZoom: 5,
+	initialZoom:   2,
+	getMapData:    getMapData
 }); }

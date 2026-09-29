@@ -68,7 +68,7 @@ function createMarker(coord, icon, label, popup, dataKey) {
 	let mapKey = "markers-" + mapInfos[0].name + "-hidden";
 	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
 
-	marker.bindLabel(label, { direction: "auto" });
+	marker.bindTooltip(label);
 	marker.bindPopup(popup);
 
 	marker.on("contextmenu", function(e) {
@@ -280,15 +280,19 @@ function runMap() {
 		cursorborder: "none"
 	});
 
+	var bounds = new L.LatLngBounds(L.latLng(mapInfos[0].bounds[0]), L.latLng(mapInfos[0].bounds[1]));
+
 	var map_settings = {
-		minZoom:            mapInfos[0].minZoom,
-		maxZoom:            mapInfos[0].maxZoom,
-		center:             mapInfos[0].initialPos,
-		zoom:               mapInfos[0].initialZoom,
-		attributionControl: false,
-		zoomControl:        false,
-		layers:             allLayers,
-		crs:                L.CRS.Simple
+		minZoom:             mapInfos[0].minZoom,
+		maxZoom:             mapInfos[0].maxZoom,
+		center:              mapInfos[0].initialPos,
+		zoom:                mapInfos[0].initialZoom,
+		attributionControl:  false,
+		zoomControl:         false,
+		layers:              allLayers,
+		crs:                 L.CRS.Simple,
+		maxBounds:           bounds,
+		maxBoundsViscosity:  1.0  // TODO: Make this a configuration option
 	};
 
 	var map = L.map("map", map_settings);
@@ -308,8 +312,6 @@ function runMap() {
 	}).addTo(map);
 
 	var hash   = new L.Hash(map);
-	var bounds = new L.LatLngBounds(L.latLng(mapInfos[0].bounds[0]), L.latLng(mapInfos[0].bounds[1]));
-	map.setMaxBounds(bounds);
 
 	var searchData = [];
 
@@ -328,7 +330,7 @@ function runMap() {
 		minLength:    2,
 		position:     "topright",
 		autoCollapse: false,
-		zoom:         5,
+		zoom:         mapInfos[0].maxZoom,
 		text:         $.t("controls.searchButton"),
 		filterJSON: function(json) {
 			return json;
@@ -369,23 +371,14 @@ function runMap() {
 	});
 
 	var layer_settings = {
-		tms:             true,
-		bounds:          bounds,
-		noWrap:          true,
-		maxNativeZoom:   mapInfos[0].nativeZoom,
-		continuousWorld: true,
-		crs:             L.CRS.Simple
+		bounds:        bounds,
+		noWrap:        true,
+		minNativeZoom: mapInfos[0].minNativeZoom,
+		maxNativeZoom: mapInfos[0].maxNativeZoom
 	};
 
 	L.tileLayer(window.topdir + "/files/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.png", layer_settings).addTo(map);
 	L.tileLayer(window.topdir + "/files/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.jpg", layer_settings).addTo(map);
-
-	// TODO: Make this a configuration option:
-	map.dragging._draggable.on('predrag', function() {
-		var pos = map._initialTopLeftPoint.subtract(this._newPos);
-		this._newPos = this._newPos.subtract(map._getBoundsOffset(new L.Bounds(pos, pos.add(map.getSize())),
-		                                                          map.options.maxBounds));
-	});
 
 	map.on("contextmenu", function(e) {
 		if (!bounds.contains(e.latlng))
@@ -408,10 +401,6 @@ function runMap() {
 		}).addTo(map);
 
 		hash.addParam("w", e.latlng.lat.toFixed(3) + "," + e.latlng.lng.toFixed(3));
-	});
-
-	$(".leaflet-marker-icon").on("contextmenu", function(e) {
-		return false;
 	});
 
 	map.on("popupopen", function(e) {
@@ -724,7 +713,7 @@ function runMap() {
 			'<li><a href="http://git.io/vkLly" target="_blank">jQuery.NiceScroll</a> (MIT)</li>',
 			'<li><a href="https://github.com/prashantchaudhary/ddslick" target="_blank">jQuery.ddslick</a></li>',
 			'<li><a href="http://leafletjs.com" target="_blank">Leaflet</a> (BSD2)</li>',
-			'<li><a href="http://git.io/vkfA2" target="_blank">Leaflet.label</a> (MIT)</li>',
+			'<li><a href="https://github.com/cliffcloud/leaflet.easybutton" target="_blank">Leaflet.EasyButton</a> (MIT)</li>',
 			'<li><a href="http://git.io/mwK1oA" target="_blank">Leaflet-hash</a> (MIT)</li>',
 			'<li><a href="http://git.io/vJw5v" target="_blank">Leaflet.fullscreen</a> (BSD2)</li>',
 			'<li><a href="http://git.io/vkCPC" target="_blank">Leaflet Control Search</a> (MIT)</li>',
@@ -908,7 +897,7 @@ function runMap() {
 		note.title = $("#note-title").val();
 		note.text = $("#note-text").val();
 		var marker = noteMarkers[note.key];
-		marker.bindLabel(note.label, { direction: "auto" });
+		marker.bindTooltip(note.label);
 		marker.bindPopup(getNotePopup(note));
 		noteMarkers[note.key] = marker;
 		backupNotes();
@@ -943,7 +932,7 @@ function runMap() {
 
 		if (note.label && note.label !== "")
 			noteMarker = L.marker(L.latLng(note.lat, note.lng), { icon: icons.note_marker, riseOnHover: true }).
-			             bindLabel(note.label, { direction: "auto" }).bindPopup(getNotePopup(note)).openPopup();
+			             bindTooltip(note.label).bindPopup(getNotePopup(note)).openPopup();
 		else
 			noteMarker = L.marker(L.latLng(note.lat, note.lng), { icon: icons.note_marker, riseOnHover: true }).
 			             bindPopup(getNotePopup(note)).openPopup();

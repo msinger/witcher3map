@@ -28,6 +28,7 @@ Things I have added and fixed:
 * Reworked map data to be much less of a copy&paste dumpster. Marker entries don't duplicate the same texts
   over and over again anymore.
 * Added more icons (stash, HoW&BaW quest markers, underwater caves, ...)
+* Upgraded Leaflet from version 0.7.7 to 1.9.3.
 
 Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):
 

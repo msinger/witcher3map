@@ -140,13 +140,14 @@
 }; };
 
 registerMap({
-	name:        "fables",
-	ns:          "f",
-	bounds:      [{ lat: -32, lng: -32 }, { lat: 192+32, lng: 192+32 }],
-	initialPos:  [96, 96],
-	minZoom:     2,
-	maxZoom:     5,
-	nativeZoom:  3,
-	initialZoom: 3,
-	getMapData:  getMapData
+	name:          "fables",
+	ns:            "f",
+	bounds:        [{ lat: -32, lng: -32 }, { lat: 192+32, lng: 192+32 }],
+	initialPos:    [96, 96],
+	minZoom:       2,
+	maxZoom:       5,
+	minNativeZoom: 2,
+	maxNativeZoom: 3,
+	initialZoom:   3,
+	getMapData:    getMapData
 }); }

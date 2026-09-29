@@ -1294,13 +1294,14 @@
 }; };
 
 registerMap({
-	name:        "toussaint",
-	ns:          "t",
-	bounds:      [{ lat: 0, lng: 0 }, { lat: 144, lng: 144 }],
-	initialPos:  [72, 72],
-	minZoom:     2,
-	maxZoom:     8,
-	nativeZoom:  6,
-	initialZoom: 3,
-	getMapData:  getMapData
+	name:          "toussaint",
+	ns:            "t",
+	bounds:        [{ lat: 0, lng: 0 }, { lat: 144, lng: 144 }],
+	initialPos:    [72, 72],
+	minZoom:       2,
+	maxZoom:       8,
+	minNativeZoom: 2,
+	maxNativeZoom: 6,
+	initialZoom:   3,
+	getMapData:    getMapData
 }); }

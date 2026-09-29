@@ -295,13 +295,14 @@
 }; };
 
 registerMap({
-	name:        "isle_mists",
-	ns:          "i",
-	bounds:      [{ lat: 0, lng: 0 }, { lat: 384, lng: 512 }],
-	initialPos:  [192, 256],
-	minZoom:     2,
-	maxZoom:     5,
-	nativeZoom:  3,
-	initialZoom: 3,
-	getMapData:  getMapData
+	name:          "isle_mists",
+	ns:            "i",
+	bounds:        [{ lat: 0, lng: 0 }, { lat: 384, lng: 512 }],
+	initialPos:    [192, 256],
+	minZoom:       2,
+	maxZoom:       5,
+	minNativeZoom: 2,
+	maxNativeZoom: 3,
+	initialZoom:   3,
+	getMapData:    getMapData
 }); }
