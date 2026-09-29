@@ -430,6 +430,7 @@ window.i18nData.en.general = {
 		underground:  "Underground",
 		notInGame:    "Does not appear on the in-game map.",
 		imageLink:    "VIEW IMAGE",
+		route:        "The following routes are associated with this marker: __routes[, ]__",
 		contribute:   "Bug reports and other contributions: __link__",
 		portraitWarn: "Note: the map is best viewed in landscape mode, tap to dismiss",
 		logo:         "files/images/logo/logo_en.png",

@@ -191,7 +191,7 @@ function isPerson(dataKey) {
 	       dataKey == "shopkeeper";
 }
 
-function substMapData(mapInfo, data, dataKey, f) {
+function substMapData(mapInfo, data, dataKey, f, r) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
@@ -453,6 +453,46 @@ function substMapData(mapInfo, data, dataKey, f) {
 			}
 		}
 
+		let routeObjs = [];
+		if (item.routes instanceof Array) {
+			let links = [];
+
+			for (let route of item.routes) {
+				if (!(route instanceof Object))
+					continue;
+				if (typeof route.name != "string")
+					continue;
+				if (!(route.coords instanceof Array) || route.coords.length == 0)
+					continue;
+				let obj = {
+					name:   esc($.t(route.name)),
+					coords: route.coords,
+					fuse:   dataKey == "alchemy" || dataKey == "herbalist" || dataKey == "shopkeeper"
+				};
+				obj.id = r ? r(obj) : -1;
+				routeObjs.push(obj);
+				let link = '<a href="javascript:selectRoute(' + obj.id + ');">' + obj.name + '</a>';
+				links.push(link);
+			}
+
+			if (links.length != 0) {
+				let routeDesc = esc($.t("misc.route"));
+				routeDesc = routeDesc.replace(/__routes\[([^_]+_?)*[^_]*\]__/, function(match) {
+					let routesConcat = match.slice(9, -3);
+					let res = "";
+					for (let i = 0; i < links.length; i++) {
+						if (i != 0)
+							res += routesConcat;
+						res += links[i];
+					}
+					return res;
+				});
+				if (desc)
+					desc += concat;
+				desc += routeDesc;
+			}
+		}
+
 		if (item.hos && dataKey == "sidequest")
 			icon += "_hos";
 		else if (item.baw && dataKey == "sidequest")
@@ -499,7 +539,7 @@ function substMapData(mapInfo, data, dataKey, f) {
 				continue;
 			}
 
-			if (f(coord, label, desc, icon) === false)
+			if (f(coord, label, desc, icon, routeObjs) === false)
 				return;
 		}
 	}
