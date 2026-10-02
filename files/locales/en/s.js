@@ -47,6 +47,12 @@ window.i18nData.en.s = {
 			desc:  "Extra experience points can be gained if delivered to Octo during the '__sidequest.undvik__' mission."
 		}
 	},
+	race: {
+		fayrlund: { label: "Fayrlund Course" },
+		fyresdal: { label: "Fyresdal Course" },
+		trolde:   { label: "Kaer Trolde Course" },
+		larvik:   { label: "Larvik Course" }
+	},
 	shopkeeper: {
 		barber: { desc: "Is also a barber." },
 		mastercraftedSaddle: { label: "Mastercrafted Cavalry Saddle (+75)" },
