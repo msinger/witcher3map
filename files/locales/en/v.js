@@ -110,7 +110,11 @@ window.i18nData.en.v = {
 		}
 	},
 	race: {
-		perch: { label: "Race Track" },
+		perch:  { label: "Crow's Perch Course" },
+		derby1: { label: "Vegelbud Course 1" },
+		derby2: { label: "Vegelbud Course 2" },
+		derby3: { label: "Vegelbud Course 3" },
+		palio:  { label: "Palio Curse" }
 	},
 	shopkeeper: {
 		anselm:        { label: "Anselm" },
