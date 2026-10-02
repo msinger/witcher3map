@@ -227,6 +227,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		let extraLabel  = item.extraLabel;
 		let extraDesc   = item.extraDesc;
 		let notInGame   = item.notInGame;
+		let unreachable = item.unreachable;
 		let underwater  = (dataKey == "treasure" || dataKey == "entrance") && item.underwater;
 		let after       = item.after;
 		let before      = item.before;
@@ -237,7 +238,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		                  item.goesTo instanceof Object && isCoord(item.goesTo.coords);
 		let special     = false;
 		let underground = dataKey != "stash" && item.underground;
-		let entrances   = data.entrance && item.entrances;
+		let entrances   = (data.entrance || data.monsterden) && item.entrances;
 		let images      = item.images;
 
 		if (typeof label != "string" || !label) {
@@ -303,6 +304,9 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 
 		if (underground)
 			label += concat + openBracket + esc($.t("misc.underground")) + closeBracket;
+
+		if (unreachable)
+			label += concat + openBracket + esc($.t("misc.unreachable")) + closeBracket;
 
 		if (after) {
 			after = subst(esc($.t("misc.after")), item);
@@ -453,6 +457,16 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 			}
 		}
 
+		if ((dataKey == "entrance" || dataKey == "monsterden") && item.goesToInterior) {
+			let interior = item.goesToInterior;
+			let floorId  = item.goesToFloorId;
+			let link = '[&nbsp;<a href="javascript:selectFloor(' + interior.id + ", " + floorId + ', true);">' +
+			           esc($.t("misc.floorLink")).replace(/ /g, "&nbsp;") + "</a>&nbsp;]";
+			if (desc)
+				desc += concat;
+			desc += link;
+		}
+
 		let routeObjs = [];
 		if (item.routes instanceof Array) {
 			let links = [];
@@ -541,6 +555,158 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 
 			if (f(coord, label, desc, icon, routeObjs) === false)
 				return;
+		}
+	}
+}
+
+function substInteriors(mapInfo, data, dataKey, f) {
+	const concat       = esc($.t("misc.concat"));
+	const concatDash   = esc($.t("misc.concatDash"));
+	const openBracket  = esc($.t("misc.openBracket"));
+	const closeBracket = esc($.t("misc.closeBracket"));
+
+	let items = [];
+
+	if (dataKey in data)
+		items = data[dataKey];
+
+	if (!(items instanceof Array)) {
+		items = [];
+		console.error(mapInfo.name + "->" + dataKey + " is not an array: ", items);
+	}
+
+	for (let item of items) {
+		if (!(item instanceof Object)) {
+			console.error("An element of " + mapInfo.name + "->" + dataKey + " is not an object: ", item);
+			continue;
+		}
+
+		let superBounds = false;
+		function expandSuperBounds(bounds) {
+			let normalBounds = [[Math.min(bounds[0][0], bounds[1][0]), Math.min(bounds[0][1], bounds[1][1])],
+			                    [Math.max(bounds[0][0], bounds[1][0]), Math.max(bounds[0][1], bounds[1][1])]];
+			if (!superBounds) {
+				superBounds = normalBounds;
+				return;
+			}
+			superBounds = [[Math.min(normalBounds[0][0], superBounds[0][0]), Math.min(normalBounds[0][1], superBounds[0][1])],
+			               [Math.max(normalBounds[1][0], superBounds[1][0]), Math.max(normalBounds[1][1], superBounds[1][1])]];
+		}
+
+		let label      = item.label || "";
+		let extraLabel = item.extraLabel;
+
+		if (typeof label != "string" || !label)
+			label = dataKey + ".label";
+		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item);
+
+		if (extraLabel) {
+			if (typeof extraLabel == "string")
+				extraLabel = [extraLabel];
+			if (extraLabel instanceof Array) {
+				for (let extra of extraLabel) {
+					if (typeof extra != "string" || !extra)
+						continue;
+					extra = extra[0] == "#" ? extra.substring(1) : $.t(extra);
+					if (extra[0] == "<")
+						extra = extra.substring(1);
+					else if (label)
+						label += concatDash;
+					label += subst(esc(extra), item);
+				}
+			}
+		}
+
+		let ifloors = item.floors;
+		if (!ifloors || !(ifloors instanceof Array) || ifloors.length == 0)
+			ifloors = [item];
+		else if (item.entrances || item.images)
+			console.error("An element of " + mapInfo.name + "->" + dataKey + " has both, floor and image definitions: ", item);
+
+		let foundEntrance = false;
+		let floors = [];
+		let interior = { label: label, id: -1, floors: floors };
+		for (floor of ifloors) {
+			let iimages = floor.images;
+			if (!(iimages instanceof Array))
+				iimages = [iimages];
+			let images = [];
+			for (image of iimages) {
+				if (!(image instanceof Object))
+					continue;
+				if (!(image.bounds instanceof Array) || image.bounds.length != 2)
+					continue;
+				if (!isCoord(image.bounds[0]) || !isCoord(image.bounds[1]))
+					continue;
+				if (!image.file || typeof image.file != "string")
+					continue;
+				images.push({ bounds: image.bounds, file: image.file });
+				expandSuperBounds(image.bounds);
+			}
+
+			if (images.length == 0) {
+				console.error("An element of " + mapInfo.name + "->" + dataKey + " has a floor without images: ", item);
+				continue;
+			}
+
+			let entrances = floor.entrances;
+			if (typeof entrances == "string")
+				entrances = [entrances];
+			if (entrances instanceof Array) {
+				for (let entrancesId of entrances) {
+					function checkEntrance(entrance) {
+						if (!entrance.groupId || entrance.groupId != entrancesId)
+							return;
+						foundEntrance = true;
+						entrance.goesToInterior = interior;
+						entrance.goesToFloorId = floors.length;
+					}
+					if (data.entrance instanceof Array)
+						for (let entrance of data.entrance)
+							checkEntrance(entrance);
+					if (data.monsterden instanceof Array)
+						for (let entrance of data.monsterden)
+							checkEntrance(entrance);
+				}
+			}
+
+			let floorLabel = "";
+			if (item !== floor) {
+				floorLabel          = floor.label || "";
+				let extraFloorLabel = floor.extraLabel;
+
+				if (typeof floorLabel != "string" || !floorLabel)
+					floorLabel = "";
+				floorLabel = floorLabel && subst(esc(floorLabel[0] == "#" ? floorLabel.substring(1) : $.t(floorLabel)), floor);
+
+				if (extraFloorLabel) {
+					if (typeof extraFloorLabel == "string")
+						extraFloorLabel = [extraFloorLabel];
+					if (extraFloorLabel instanceof Array) {
+						for (let extra of extraFloorLabel) {
+							if (typeof extra != "string" || !extra)
+								continue;
+							extra = extra[0] == "#" ? extra.substring(1) : $.t(extra);
+							if (extra[0] == "<")
+								extra = extra.substring(1);
+							else if (label)
+								floorLabel += concatDash;
+							floorLabel += subst(esc(extra), item);
+						}
+					}
+				}
+			}
+
+			floors.push({ label: floorLabel, images: images });
+		}
+
+		interior.bounds = superBounds;
+		interior.coord = [superBounds[0][0], (superBounds[0][1] + superBounds[1][1]) / 2];
+
+		interior.id = f(interior);
+		if (interior.id === false) {
+			interior.id = -1;
+			return;
 		}
 	}
 }

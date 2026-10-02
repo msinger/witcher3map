@@ -1,4 +1,77 @@
-{ let getMapData = function() { return {
+{ let getMapData = function() {
+	// calculate some values for interiors
+	let scale = 186.3;
+	let salt04pxSize = { w: 992, h: 992 };
+	let salt04pxExit = { x: 329, y: 945 };
+	let salt04mpExit = { lat: 44.594, lng: 39.688 };
+	let salt04p1 = [salt04mpExit.lat - (salt04pxSize.h - salt04pxExit.y) / scale,
+	                salt04mpExit.lng - salt04pxExit.x / scale];
+	let salt04p2 = [salt04p1[0] + salt04pxSize.h / scale,
+	                salt04p1[1] + salt04pxSize.w / scale];
+	let salt06pxSize = { w: 1670, h: 1670 };
+	let salt06pxExit = { x: 1082, y: 1315 };
+	let salt06mpExit = { lat: 49.109, lng: 53.047 };
+	let salt06p1 = [salt06mpExit.lat - (salt06pxSize.h - salt06pxExit.y) / scale,
+	                salt06mpExit.lng - salt06pxExit.x / scale];
+	let salt06p2 = [salt06p1[0] + salt06pxSize.h / scale,
+	                salt06p1[1] + salt06pxSize.w / scale];
+	let salt12pxSize  = { w: 603, h: 557 };
+	let salt12pxOff06 = { x: -194, y: 176 };
+	let salt12p1 = [salt06p1[0] + salt12pxOff06.y / scale,
+	                salt06p1[1] + salt12pxOff06.x / scale];
+	let salt12p2 = [salt12p1[0] + salt12pxSize.h / scale,
+	                salt12p1[1] + salt12pxSize.w / scale];
+	let salt05pxSize  = { w: 1922, h: 1922 };
+	let salt05pxOff06 = { x: -1292, y: 43 };
+	let salt05p1 = [salt06p1[0] + salt05pxOff06.y / scale,
+	                salt06p1[1] + salt05pxOff06.x / scale];
+	let salt05p2 = [salt05p1[0] + salt05pxSize.h / scale,
+	                salt05p1[1] + salt05pxSize.w / scale];
+	let salt09pxSize  = { w: 2172, h: 2172 };
+	let salt09pxOff04 = { x: -460, y: -191 };
+	let salt09p1 = [salt04p1[0] + salt09pxOff04.y / scale,
+	                salt04p1[1] + salt09pxOff04.x / scale];
+	let salt09p2 = [salt09p1[0] + salt09pxSize.h / scale,
+	                salt09p1[1] + salt09pxSize.w / scale];
+	let salt10pxSize  = { w: 1102, h: 1102 };
+	let salt10pxChest = { x: 535, y: 467 };
+	let salt10mpChest = { lat: 57.516, lng: 40.891 };
+	let salt10p1 = [salt10mpChest.lat - (salt10pxSize.h - salt10pxChest.y) / scale,
+	                salt10mpChest.lng - salt10pxChest.x / scale];
+	let salt10p2 = [salt10p1[0] + salt10pxSize.h / scale,
+	                salt10p1[1] + salt10pxSize.w / scale];
+	let salt03pxSize  = { w: 1048, h: 1048 };
+	let salt03pxOff09 = { x: 885, y: -798 };
+	let salt03p1 = [salt09p1[0] + salt03pxOff09.y / scale,
+	                salt09p1[1] + salt03pxOff09.x / scale];
+	let salt03p2 = [salt03p1[0] + salt03pxSize.h / scale,
+	                salt03p1[1] + salt03pxSize.w / scale];
+	let salt01pxSize  = { w: 1932, h: 1932 };
+	let salt01pxOff09 = { x: -78, y: -1568 };
+	let salt01p1 = [salt09p1[0] + salt01pxOff09.y / scale,
+	                salt09p1[1] + salt01pxOff09.x / scale];
+	let salt01p2 = [salt01p1[0] + salt01pxSize.h / scale,
+	                salt01p1[1] + salt01pxSize.w / scale];
+	let salt11pxSize  = { w: 546, h: 546 };
+	let salt11pxOff01 = { x: 1620, y: 755 };
+	let salt11p1 = [salt01p1[0] + salt11pxOff01.y / scale,
+	                salt01p1[1] + salt11pxOff01.x / scale];
+	let salt11p2 = [salt11p1[0] + salt11pxSize.h / scale,
+	                salt11p1[1] + salt11pxSize.w / scale];
+	let salt07pxSize  = { w: 889, h: 889 };
+	let salt07pxOff01 = { x: 141, y: 1539 };
+	let salt07p1 = [salt01p1[0] + salt07pxOff01.y / scale,
+	                salt01p1[1] + salt07pxOff01.x / scale];
+	let salt07p2 = [salt07p1[0] + salt07pxSize.h / scale,
+	                salt07p1[1] + salt07pxSize.w / scale];
+	let salt08pxSize  = { w: 414, h: 414 };
+	let salt08pxOff07 = { x: 193, y: 276 };
+	let salt08p1 = [salt07p1[0] + salt08pxOff07.y / scale,
+	                salt07p1[1] + salt08pxOff07.x / scale];
+	let salt08p2 = [salt08p1[0] + salt08pxSize.h / scale,
+	                salt08p1[1] + salt08pxSize.w / scale];
+
+	return {
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
 		coords:      [[82.797,87.984],
@@ -320,8 +393,9 @@
 		coords:      [152.172,48.781],
 		groupId:     "lornruk"
 	}, {
-		coords:      [44.531,39.563],
-		groupId:     "wandering_cave"
+		coords:      [44.461,39.664],
+		label:       "v:entrance.wandering_cave.label",
+		groupId:     "wandering_cave_entry"
 	}, {
 		coords:      [41.688,46.266],
 		after:       "contract.mystery"
@@ -384,10 +458,11 @@
 		notInGame:   true,
 		groupId:     "allgod_basement"
 	}, {
-		coords:      [49.000,53.094],
+		coords:      [49.109,53.047],
+		label:       "v:entrance.wandering_cave.label",
 		notInGame:   true,
 		after:       "mainquest.wandering",
-		groupId:     "wandering_cave"
+		groupId:     "wandering_cave_exit"
 	}, {
 		coords:      [107.906,71.219],
 		notInGame:   true,
@@ -934,7 +1009,7 @@
 	}, {
 		coords:      [54.469,51.313],
 		underground: true,
-		entrances:   "wandering_cave",
+		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
 		after:       "mainquest.wandering"
 	}, {
 		coords:      [[86.016,17.078],
@@ -1131,6 +1206,55 @@
 		extraLabel:  "v:innkeep.innAtTheCrossroads.label",
 		sells:       ["gwent", "drinks"]
 	}],
+	// ----------------- Interiors ----------------------
+	interior: [{
+		label:       "v:interior.wandering_cave.label",
+		floors: [{
+			label:     "interior.levelB3.label",
+			images: [{
+				bounds: [salt01p1, salt01p2],
+				file:   "v/interiors/novigrad_salt_mine_01_mod.png"
+			}, {
+				bounds: [salt09p1, salt09p2],
+				file:   "v/interiors/novigrad_salt_mine_09_mod.png"
+			}, {
+				bounds: [salt10p1, salt10p2],
+				file:   "v/interiors/novigrad_salt_mine_10.png"
+			}, {
+				bounds: [salt11p1, salt11p2],
+				file:   "v/interiors/novigrad_salt_mine_11.png"
+			}, {
+				bounds: [salt08p1, salt08p2],
+				file:   "v/interiors/novigrad_salt_mine_08.png"
+			}]
+		}, {
+			label:     "interior.levelB2.label",
+			entrances: "wandering_cave_exit",
+			images: [{
+				bounds: [salt06p1, salt06p2],
+				file:   "v/interiors/novigrad_salt_mine_06.png"
+			}, {
+				bounds: [salt12p1, salt12p2],
+				file:   "v/interiors/novigrad_salt_mine_12_crop.png"
+			}, {
+				bounds: [salt05p1, salt05p2],
+				file:   "v/interiors/novigrad_salt_mine_05_mod.png"
+			}, {
+				bounds: [salt03p1, salt03p2],
+				file:   "v/interiors/novigrad_salt_mine_03.png"
+			}, {
+				bounds: [salt07p1, salt07p2],
+				file:   "v/interiors/novigrad_salt_mine_07.png"
+			}]
+		}, {
+			label:     "interior.levelB1.label",
+			entrances: "wandering_cave_entry",
+			images: [{
+				bounds: [salt04p1, salt04p2],
+				file:   "v/interiors/novigrad_salt_mine_04.png"
+			}]
+		}]
+	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
 		coords:      [142.984,118.125],
@@ -1174,11 +1298,11 @@
 		             [96.875,185.094],
 		             [95.656,185.125]]
 	}, {
-		coords:      [[44.984,40.906],
-		             [45.359,41.141]],
+		coords:      [[45.766,41.367],
+		             [45.266,41.125]],
 		underground: true,
 		after:       "mainquest.wandering",
-		entrances:   "wandering_cave"
+		entrances:   ["wandering_cave_entry", "wandering_cave_exit"]
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -1236,11 +1360,11 @@
 		coords:      [15.063,76.140],
 		extraLabel:  "pop.aard.label"
 	}, {
-		coords:      [53.313,52.578],
+		coords:      [53.234,52.414],
 		extraLabel:  "pop.yrden.label",
 		underground: true,
 		after:       "mainquest.wandering",
-		entrances:   "wandering_cave"
+		entrances:   ["wandering_cave_entry", "wandering_cave_exit"]
 	}, {
 		coords:      [35.688,133.594],
 		extraLabel:  "pop.quen.label",
@@ -2681,36 +2805,42 @@
 		             [34.531,129.891]],
 		after:       "mainquest.bald"
 	}, {
-		coords:      [[52.625,50.500],
-		             [36.469,40.500],
+		coords:      [[52.617,50.609],
+		             [37.828,40.742],
 		             [41.234,45.984],
-		             [48.563,47.063],
-		             [42.922,42.984],
+		             [48.391,47.484],
+		             [42.813,42.664],
 		             [43.984,43.297],
-		             [43.797,42.250],
+		             [43.672,41.797],
 		             [39.641,43.594],
-		             [52.906,42.453],
+		             [52.508,42.633],
 		             [39.766,42.656],
-		             [52.563,46.656],
-		             [52.797,47.641],
-		             [51.750,49.781],
-		             [53.313,50.688],
-		             [53.188,54.125],
-		             [47.281,45.500],
-		             [48.219,41.031],
-		             [46.500,40.438],
+		             [52.195,46.797],
+		             [52.438,47.750],
+		             [51.359,49.531],
+		             [52.438,51.258],
+		             [53.539,54.297],
+		             [46.867,45.219],
+		             [47.375,40.852],
+		             [46.367,40.648],
 		             [49.188,40.969],
 		             [49.125,42.625],
-		             [49.891,43.938],
-		             [48.453,41.328],
+		             [49.953,43.594],
+		             [48.258,41.414],
 		             [48.141,44.297],
 		             [41.047,39.578],
-		             [43.641,39.438],
+		             [43.406,39.680],
 		             [38.922,39.703],
-		             [57.344,41.563],
-		             [51.734,39.828]],
+		             [57.516,40.891],
+		             [51.727,39.453]],
 		underground: true,
-		entrances:   "wandering_cave",
+		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
+		after:       "mainquest.wandering"
+	}, {
+		coords:      [51.227,43.102],
+		unreachable: true,
+		underground: true,
+		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
 		after:       "mainquest.wandering"
 	}, {
 		coords:      [[214.531,193.344],
@@ -2911,13 +3041,13 @@
 		underground: true,
 		entrances:   "hillock_lair"
 	}, {
-		coords:      [[50.500,46.781],
-		             [40.313,42.844],
-		             [45.672,38.953],
-		             [55.250,41.188]],
+		coords:      [[50.531,46.539],
+		             [40.211,42.695],
+		             [45.820,38.750],
+		             [54.891,40.984]],
 		underwater:  true,
 		underground: true,
-		entrances:   "wandering_cave",
+		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
 		after:       "mainquest.wandering"
 	}, {
 		coords:      [[91.563,149.500],

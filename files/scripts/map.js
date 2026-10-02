@@ -6,6 +6,7 @@ var markerCount = {};
 var notes = [];
 var invisibleMarkerOpacity = 0.25;
 var routes = [];
+var interiors = [];
 var map = null;
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
@@ -181,6 +182,44 @@ function processData() {
 		localStorage[notesKey] = JSON.stringify([]);
 	notes = JSON.parse(localStorage[notesKey]);
 
+	substInteriors(mapInfos[0], data, "interior", function(interior) {
+		let id = interiors.length;
+		let z = 0;
+		for (let i = 0; i < interior.floors.length; i++) {
+			let layers = [];
+			for (let j = 0; j < interior.floors[i].images.length; j++) {
+				layers.push(L.imageOverlay(window.topdir + "/files/images/" + interior.floors[i].images[j].file,
+				                           interior.floors[i].images[j].bounds,
+				                           { zIndex: z++, pane: "interiorPane" }));
+			}
+			if (layers.length == 1)
+				layers = layers[0];
+			else
+				layers = L.featureGroup(layers, { pane: "interiorPane" });
+			layers.floor = interior.floors[i];
+			interior.floors[i].layer = layers;
+		}
+
+		let rectangle = L.rectangle(interior.bounds, { color:       "#222",
+		                                               opacity:     0.4,
+		                                               fill:        true,
+		                                               fillOpacity: 0.4,
+		                                               interactive: false,
+		                                               pane:        "bgPane" });
+		interior.rectangle = rectangle;
+		rectangle.interior = interior;
+
+		let tooltip = L.tooltip(interior.coord, { content:     interior.label,
+		                                          direction:   "bottom",
+		                                          permanent:   true,
+		                                          interactive: true });
+		interior.tooltip = tooltip;
+		tooltip.interior = interior;
+
+		interiors.push(interior);
+		return id;
+	});
+
 	for (let dataKey of markerGroupNamesForProc) {
 		let groupItems = [];
 
@@ -251,6 +290,60 @@ function selectRoute(id) {
 	if (!r.fuse)
 		r.layer.addTo(map);
 	map.fitBounds(r.layer.getBounds());
+}
+
+function unselectFloors(id) {
+	for (floor of interiors[id].floors)
+		map.removeLayer(floor.layer);
+}
+
+function closeInterior(id) {
+	unselectFloors(id);
+	map.removeLayer(interiors[id].tooltip);
+	map.removeLayer(interiors[id].rectangle);
+}
+
+function updateInteriorLabel(interiorId, floorId) {
+	const concat = esc($.t("misc.concat"));
+	const concatDash = esc($.t("misc.concatDash"));
+	let intr = interiors[interiorId];
+	let floor = intr.floors[floorId];
+	let label = intr.label
+	if (floor.label)
+		label += concatDash + floor.label;
+	if (intr.floors.length != 1) {
+		const next = esc($.t("misc.nextLink")).replace(/ /g, "&nbsp;");
+		const prev = esc($.t("misc.prevLink")).replace(/ /g, "&nbsp;");
+		let nextLink = '[&nbsp;<a href="javascript:selectFloor(' + interiorId + ", " +
+		               ((floorId + 1) % intr.floors.length) + ');">' + next + "</a>&nbsp;]";
+		let prevId = floorId != 0 ? floorId - 1 : intr.floors.length - 1;
+		let prevLink = '[&nbsp;<a href="javascript:selectFloor(' + interiorId + ", " +
+		               prevId + ');">' + prev + "</a>&nbsp;]";
+		label += "<br>" + prevLink + concat + nextLink;
+	}
+	const close = esc($.t("misc.closeLink")).replace(/ /g, "&nbsp;");
+	let closeLink = '[&nbsp;<a href="javascript:closeInterior(' + interiorId + ');">' + close + "</a>&nbsp;]";
+	label += concat + closeLink;
+	intr.tooltip.setContent("<center>" + label + "</center>");
+}
+
+function selectFloor(interiorId, floorId, fit) {
+	updateInteriorLabel(interiorId, floorId);
+	unselectFloors(interiorId);
+	let interior = interiors[interiorId];
+	interior.rectangle.addTo(map);
+	for (let i = 0; i < interior.floors.length; i++) {
+		let floor = interior.floors[i];
+		if (i == floorId)
+			floor.layer.setStyle({ opacity: 1.0 });
+		else
+			floor.layer.setStyle({ opacity: 0.4 });
+		floor.layer.addTo(map);
+	}
+	floor.layer.addTo(map);
+	interior.tooltip.addTo(map);
+	if (fit)
+		map.fitBounds(interior.bounds);
 }
 
 function createSidebar() {
@@ -399,6 +492,10 @@ function runMap() {
 
 	window.map = L.map("map", map_settings);
 
+	map.createPane("bgPane");
+	map.createPane("interiorPane");
+	map.createPane("selectionPane");
+
 	new L.Control.Zoom({
 		position:     "topright",
 		zoomInTitle:  $.t("controls.zoomInButton"),
@@ -532,7 +629,8 @@ function runMap() {
 			color:       "red",
 			fillColor:   "#f03",
 			fillOpacity: 0.5,
-			radius:      20
+			radius:      20,
+			pane:        "selectionPane"
 		}).addTo(map);
 	}
 
