@@ -32,7 +32,8 @@ window.i18nData.en.v = {
 			label: "Secret Passage",
 			desc:  "Secret passage used to enter Putrid Grove. The key to the door inside the tunnel can only be " +
 			       "accessed during '__mainquest.pyres__' mission."
-		}
+		},
+		wandering_cave: { label: "Elven Catacombs" }
 	},
 	gwent: {
 		olgierd: { label: "Olgierd von Everec" },
@@ -48,6 +49,9 @@ window.i18nData.en.v = {
 		theGoldenSturgen:   { label: "The Golden Sturgeon" },
 		theKingfisher:      { label: "The Kingfisher" },
 		theNowhere:         { label: "The Nowhere" }
+	},
+	interior: {
+		wandering_cave: { label: "__v:entrance.wandering_cave__" }
 	},
 	poi: {
 		eternal:   "If collected during the '__sidequest.eternal__' quest, it will spawn additional dialog options " +

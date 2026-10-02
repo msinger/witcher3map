@@ -1088,6 +1088,18 @@ div.leaflet-bar a.leaflet-disabled:hover {
 	opacity: .4
 }
 
+.leaflet-bg-pane {
+	z-index: 250;
+}
+
+.leaflet-interior-pane {
+	z-index: 350;
+}
+
+.leaflet-selection-pane {
+	z-index: 550;
+}
+
 .easy-button-button .button-state {
 	display: block;
 	width: 100%;
