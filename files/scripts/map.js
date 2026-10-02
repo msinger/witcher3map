@@ -606,6 +606,9 @@ function runMap() {
 		}).addTo(map);
 
 		hash.addParam("w", e.latlng.lat.toFixed(3) + "," + e.latlng.lng.toFixed(3));
+
+		if (paramDraw && window.event.ctrlKey)
+			lineEdit.value = e.latlng.lat.toFixed(3) + "," + e.latlng.lng.toFixed(3);
 	});
 
 	map.on("popupopen", function(e) {
@@ -626,6 +629,9 @@ function runMap() {
 		if (!notes[getNoteIndex(noteKey)]) {
 			hash.addParam("m", lat + "," + lng);
 			$("#centerButton").show();
+
+			if (paramDraw && window.event.ctrlKey)
+				lineEdit.value = lat.toFixed(3) + "," + lng.toFixed(3);
 		}
 
 		circle = L.circleMarker(L.latLng(lat, lng), {
@@ -1204,7 +1210,7 @@ function runMap() {
 				if (coords) {
 					try {
 						var p = JSON.parse("[" + coords + "]");
-						if (p.length >= 2) {
+						if (p.length >= 1) {
 							for (var i = 0; i < p.length; i++)
 								dline[i] = [p[i][0] || 0, p[i][1] || 0];
 						}
@@ -1232,8 +1238,8 @@ function runMap() {
 
 		map.on("click", function (e) {
 			if (window.event.ctrlKey) {
-				var lat = e.latlng.lat.toFixed(3);
-				var lng = e.latlng.lng.toFixed(3);
+				var lat = e.latlng.lat;
+				var lng = e.latlng.lng;
 				if (window.event.shiftKey && dline.length >= 1) {
 					var dlat = Math.abs(lat - dline[dline.length - 1][0]);
 					var dlng = Math.abs(lng - dline[dline.length - 1][1]);
@@ -1247,7 +1253,7 @@ function runMap() {
 				for (var i = 0; i < dline.length; i++) {
 					if (i > 0)
 						t += ", ";
-					t += "[" + dline[i][0] + ", " + dline[i][1] + "]";
+					t += "[" + dline[i][0].toFixed(3) + "," + dline[i][1].toFixed(3) + "]";
 				}
 				lineEdit.value = t;
 				if (dlinePoly)
@@ -1307,6 +1313,8 @@ function runMap() {
 	map.on("mousemove", function (e) {
 		coordDiv.innerHTML = "<p>" + e.latlng.lat.toFixed(3) + ", " + e.latlng.lng.toFixed(3) + "</p>";
 	});
+
+	document.getElementById("map").style.cursor = "crosshair";
 
 	let hashParams = hash.getHashParams();
 
