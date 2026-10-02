@@ -414,6 +414,9 @@ function runMap() {
 			                               iconSize: icon_sizes[icon][1] });
 	}
 
+	const params = new URLSearchParams(window.location.search);
+	const paramDraw = params.get("draw") != null;
+
 	processData();
 
 	window.allLayers = [];
@@ -1187,6 +1190,123 @@ function runMap() {
 	for (let i = 0; i < notes.length; i++) {
 		createNote(notes[i]);
 	}
+
+	if (paramDraw) {
+		var dline = [];
+		var dlinePoly = null;
+		var lineEditBox = L.control({ position: "bottomleft" });
+		var lineEdit = document.createElement("input");
+		lineEdit.type = "text";
+		lineEdit.onkeydown = function (e) {
+			if (e.key == "Enter") {
+				var coords = this.value;
+				dline = [];
+				if (coords) {
+					try {
+						var p = JSON.parse("[" + coords + "]");
+						if (p.length >= 2) {
+							for (var i = 0; i < p.length; i++)
+								dline[i] = [p[i][0] || 0, p[i][1] || 0];
+						}
+					} catch (e) { }
+				}
+				if (dlinePoly)
+					dlinePoly.removeFrom(map);
+				dlinePoly = null;
+				if (dline.length > 1)
+					dlinePoly = L.polyline(dline, { color: "green" }).addTo(map);
+			}
+		};
+
+		lineEditBox.onAdd = function (map) {
+			var div = L.DomUtil.create("div");
+			L.DomEvent.disableClickPropagation(div);
+			L.DomEvent.disableScrollPropagation(div);
+			var p = document.createElement("p");
+			p.appendChild(lineEdit);
+			div.appendChild(p);
+			return div;
+		};
+
+		lineEditBox.addTo(map);
+
+		map.on("click", function (e) {
+			if (window.event.ctrlKey) {
+				var lat = e.latlng.lat.toFixed(3);
+				var lng = e.latlng.lng.toFixed(3);
+				if (window.event.shiftKey && dline.length >= 1) {
+					var dlat = Math.abs(lat - dline[dline.length - 1][0]);
+					var dlng = Math.abs(lng - dline[dline.length - 1][1]);
+					if (dlat < dlng)
+						lat = dline[dline.length - 1][0];
+					else
+						lng = dline[dline.length - 1][1];
+				}
+				dline[dline.length] = [lat, lng];
+				var t = "";
+				for (var i = 0; i < dline.length; i++) {
+					if (i > 0)
+						t += ", ";
+					t += "[" + dline[i][0] + ", " + dline[i][1] + "]";
+				}
+				lineEdit.value = t;
+				if (dlinePoly)
+					dlinePoly.removeFrom(map);
+				dlinePoly = null;
+				if (dline.length > 1)
+					dlinePoly = L.polyline(dline, { color: "green" }).addTo(map);
+			}
+
+			lineEdit.setSelectionRange(0, lineEdit.value.length);
+			lineEdit.focus();
+		});
+
+		if (!L.Browser.mobile) {
+			map.on("dblclick load", function (e) {
+				lineEdit.setSelectionRange(0, lineEdit.value.length);
+				lineEdit.focus();
+			});
+
+			var mouse_state = 0;
+
+			map.on("moveend", function (e) {
+				if (mouse_state & 1)
+					return;
+				lineEdit.setSelectionRange(0, lineEdit.value.length);
+				lineEdit.focus();
+			});
+
+			window.onload = function (e) {
+				lineEdit.setSelectionRange(0, lineEdit.value.length);
+				lineEdit.focus();
+			};
+
+			function track_mouse_state(e) {
+				mouse_state = e.buttons !== undefined ? e.buttons : e.which;
+			}
+
+			document.addEventListener("mousedown", track_mouse_state);
+			document.addEventListener("mousemove", track_mouse_state);
+			document.addEventListener("mouseup", track_mouse_state);
+		}
+
+		map.boxZoom.disable();
+		map.doubleClickZoom.disable();
+	}
+
+	var coord = L.control({ position: "bottomleft" });
+	var coordDiv = L.DomUtil.create("div");
+	coordDiv.innerHTML = "<p>&nbsp;</p>";
+	coord.onAdd = function (map) {
+		L.DomEvent.disableClickPropagation(coordDiv);
+		L.DomEvent.disableScrollPropagation(coordDiv);
+		return coordDiv;
+	};
+	coord.addTo(map);
+
+	map.on("mousemove", function (e) {
+		coordDiv.innerHTML = "<p>" + e.latlng.lat.toFixed(3) + ", " + e.latlng.lng.toFixed(3) + "</p>";
+	});
 
 	let hashParams = hash.getHashParams();
 
