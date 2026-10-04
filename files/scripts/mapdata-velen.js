@@ -70,6 +70,73 @@
 	                salt07p1[1] + salt08pxOff07.x / scale];
 	let salt08p2 = [salt08p1[0] + salt08pxSize.h / scale,
 	                salt08p1[1] + salt08pxSize.w / scale];
+	let bald01pxSize = { w: 360, h: 360 };
+	let bald01pxExit = { x: 24, y: 265 };
+	let bald01mpExit = { lat: 33.391, lng: 129.047 };
+	let bald01p1 = [bald01mpExit.lat - (bald01pxSize.h - bald01pxExit.y) / scale,
+	                bald01mpExit.lng - bald01pxExit.x / scale];
+	let bald01p2 = [bald01p1[0] + bald01pxSize.h / scale,
+	                bald01p1[1] + bald01pxSize.w / scale];
+	let bald02pxSize = { w: 544, h: 544 };
+	let bald02pxRef  = { x: 159, y: 208 };
+	let bald02mpRef  = { lat: 35.671, lng: 129.249 };
+	let bald02p1 = [bald02mpRef.lat - (bald02pxSize.h - bald02pxRef.y) / scale,
+	                bald02mpRef.lng - bald02pxRef.x / scale];
+	let bald02p2 = [bald02p1[0] + bald02pxSize.h / scale,
+	                bald02p1[1] + bald02pxSize.w / scale];
+	let bald11pxSize = { w: 1300, h: 938 };
+	let bald11pxExit = { x: 704, y: 802 };
+	let bald11mpExit = { lat: 33.250, lng: 132.172 };
+	let bald11p1 = [bald11mpExit.lat - (bald11pxSize.h - bald11pxExit.y) / scale,
+	                bald11mpExit.lng - bald11pxExit.x / scale];
+	let bald11p2 = [bald11p1[0] + bald11pxSize.h / scale,
+	                bald11p1[1] + bald11pxSize.w / scale];
+	let bald03pxSize = { w: 382, h: 382 };
+	let bald03pxRef  = { x: 269, y: 225 };
+	let bald03mpRef  = { lat: 36.462, lng: 131.513 };
+	let bald03p1 = [bald03mpRef.lat - (bald03pxSize.h - bald03pxRef.y) / scale,
+	                bald03mpRef.lng - bald03pxRef.x / scale];
+	let bald03p2 = [bald03p1[0] + bald03pxSize.h / scale,
+	                bald03p1[1] + bald03pxSize.w / scale];
+	let bald04pxSize  = { w: 696, h: 696 };
+	let bald04pxOff03 = { x: -297, y: 45 };
+	let bald04p1 = [bald03p1[0] + bald04pxOff03.y / scale,
+	                bald03p1[1] + bald04pxOff03.x / scale];
+	let bald04p2 = [bald04p1[0] + bald04pxSize.h / scale,
+	                bald04p1[1] + bald04pxSize.w / scale];
+	let bald06pxSize = { w: 1474, h: 1200 };
+	let bald06pxRef  = { x: 556, y: 771 };
+	let bald06mpRef  = { lat: 35.528, lng: 128.611 };
+	let bald06p1 = [bald06mpRef.lat - (bald06pxSize.h - bald06pxRef.y) / scale,
+	                bald06mpRef.lng - bald06pxRef.x / scale];
+	let bald06p2 = [bald06p1[0] + bald06pxSize.h / scale,
+	                bald06p1[1] + bald06pxSize.w / scale];
+	let bald10pxSize  = { w: 392, h: 392 };
+	let bald10pxOff06 = { x: 214, y: -204 };
+	let bald10p1 = [bald06p1[0] + bald10pxOff06.y / scale,
+	                bald06p1[1] + bald10pxOff06.x / scale];
+	let bald10p2 = [bald10p1[0] + bald10pxSize.h / scale,
+	                bald10p1[1] + bald10pxSize.w / scale];
+	let bald09pxSize  = { w: 906, h: 750 };
+	let bald09pxOff10 = { x: -537, y: -5 };
+	let bald09p1 = [bald10p1[0] + bald09pxOff10.y / scale,
+	                bald10p1[1] + bald09pxOff10.x / scale];
+	let bald09p2 = [bald09p1[0] + bald09pxSize.h / scale,
+	                bald09p1[1] + bald09pxSize.w / scale];
+	let bald08pxSize = { w: 620, h: 1000 };
+	let bald08pxRef  = { x: 74, y: 227 };
+	let bald08mpRef  = { lat: 37.938, lng: 123.297 };
+	let bald08p1 = [bald08mpRef.lat - (bald08pxSize.h - bald08pxRef.y) / scale,
+	                bald08mpRef.lng - bald08pxRef.x / scale];
+	let bald08p2 = [bald08p1[0] + bald08pxSize.h / scale,
+	                bald08p1[1] + bald08pxSize.w / scale];
+	let bald07pxSize = { w: 830, h: 830 };
+	let bald07pxRef  = { x: 87, y: 615 };
+	let bald07mpRef  = { lat: 35.359, lng: 123.156 };
+	let bald07p1 = [bald07mpRef.lat - (bald07pxSize.h - bald07pxRef.y) / scale,
+	                bald07mpRef.lng - bald07pxRef.x / scale];
+	let bald07p2 = [bald07p1[0] + bald07pxSize.h / scale,
+	                bald07p1[1] + bald07pxSize.w / scale];
 
 	return {
 	// ----------------- Abandoned Sites ----------------
@@ -421,7 +488,9 @@
 		groupId:     "phantom_cave"
 	}, {
 		coords:      [33.453,128.790],
-		after:       "mainquest.bald"
+		label:       "v:entrance.sabbath_cave.label",
+		after:       "mainquest.bald",
+		groupId:     "sabbath_cave"
 	}, {
 		coords:      [83.766,149.953],
 		groupId:     "reardon_cellar"
@@ -486,13 +555,22 @@
 		groupId:     "phantom_cave"
 	}, {
 		coords:      [37.547,123.734],
+		groupId:     "sabbath_aux_cave",
+		notInGame:   true
+	}, {
+		coords:      [[35.406,123.063],
+		             [34.547,124.094]],
+		groupId:     "sabbath_aux_cave",
+		notInGame:   true
+	}, {
+		coords:      [37.906,123.781],
 		notInGame:   true,
 		groupId:     "coin_fetch_cave"
 	}, {
-		coords:      [[35.406,123.063],
-		             [34.547,124.094],
-		             [37.906,123.781]],
-		notInGame:   true
+		coords:      [33.250,132.172],
+		label:       "v:entrance.sabbath_cave.label",
+		notInGame:   true,
+		groupId:     "sabbath_cave"
 	}, {
 		coords:      [219.063,101.688],
 		label:       "v:entrance.sewers4.label",
@@ -1252,6 +1330,47 @@
 			images: [{
 				bounds: [salt04p1, salt04p2],
 				file:   "v/interiors/novigrad_salt_mine_04.png"
+			}]
+		}]
+	}, {
+		label:       "v:interior.sabbath_cave.label",
+		floors: [{
+			label:     "interior.levelB2.label",
+			entrances: "coin_fetch_cave",
+			images: [{
+				bounds: [bald06p1, bald06p2],
+				file:   "v/interiors/novigrad_q111_cave_06_crop.png"
+			}, {
+				bounds: [bald09p1, bald09p2],
+				file:   "v/interiors/novigrad_q111_cave_09_crop.png"
+			}, {
+				bounds: [bald10p1, bald10p2],
+				file:   "v/interiors/novigrad_q111_cave_10.png"
+			}, {
+				bounds: [bald08p1, bald08p2],
+				file:   "v/interiors/novigrad_q111_cave_08_crop.png"
+			}]
+		}, {
+			label:     "interior.levelB1.label",
+			entrances: ["sabbath_cave", "sabbath_aux_cave"],
+			images: [{
+				bounds: [bald02p1, bald02p2],
+				file:   "v/interiors/novigrad_q111_cave_02.png"
+			}, {
+				bounds: [bald01p1, bald01p2],
+				file:   "v/interiors/novigrad_q111_cave_01.png"
+			}, {
+				bounds: [bald11p1, bald11p2],
+				file:   "v/interiors/novigrad_q111_cave_11_crop.png"
+			}, {
+				bounds: [bald04p1, bald04p2],
+				file:   "v/interiors/novigrad_q111_cave_04.png"
+			}, {
+				bounds: [bald03p1, bald03p2],
+				file:   "v/interiors/novigrad_q111_cave_03.png"
+			}, {
+				bounds: [bald07p1, bald07p2],
+				file:   "v/interiors/novigrad_q111_cave_07.png"
 			}]
 		}]
 	}],
@@ -3167,7 +3286,7 @@
 		             [145.922,169.266]],
 		underwater:  true
 	}, {
-		coords:      [38.063,124.500],
+		coords:      [37.766,124.672],
 		underwater:  true,
 		underground: true,
 		entrances:   "coin_fetch_cave"
