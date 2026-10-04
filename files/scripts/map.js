@@ -276,20 +276,25 @@ function processData() {
 	}
 }
 
-function unselectRoutes() {
+function unselectRoutes(skipHashUpdate) {
 	for (r of routes) {
 		if (r.fuse)
 			continue;
 		map.removeLayer(r.layer);
 	}
+	if (!skipHashUpdate)
+		updateRouteHash(-1);
 }
 
-function selectRoute(id) {
-	unselectRoutes();
+function selectRoute(id, skipFit) {
+	unselectRoutes(true);
 	let r = routes[id];
 	if (!r.fuse)
 		r.layer.addTo(map);
-	map.fitBounds(r.layer.getBounds());
+	if (!skipFit)
+		map.fitBounds(r.layer.getBounds());
+	if (!r.fuse)
+		updateRouteHash(id);
 }
 
 function unselectFloors(id) {
@@ -301,6 +306,8 @@ function closeInterior(id) {
 	unselectFloors(id);
 	map.removeLayer(interiors[id].tooltip);
 	map.removeLayer(interiors[id].rectangle);
+	interiors[id].shown = false;
+	updateInteriorHash();
 }
 
 function updateInteriorLabel(interiorId, floorId) {
@@ -344,6 +351,9 @@ function selectFloor(interiorId, floorId, fit) {
 	interior.tooltip.addTo(map);
 	if (fit)
 		map.fitBounds(interior.bounds);
+	interior.shown = true;
+	interior.shownFloorId = floorId;
+	updateInteriorHash();
 }
 
 function createSidebar() {
@@ -513,7 +523,7 @@ function runMap() {
 		}
 	}).addTo(map);
 
-	var hash   = new L.Hash(map);
+	var hash = new L.Hash(map);
 
 	var searchData = [];
 
@@ -665,6 +675,30 @@ function runMap() {
 		if (notePopupOpen)
 			notePopupEnd();
 	});
+
+	window.updateRouteHash = function(r) {
+		if (r >= 0)
+			hash.addParam("r", r);
+		else
+			hash.removeParam("r");
+	}
+
+	window.updateInteriorHash = function() {
+		let h = "";
+		for (let i = 0; i < interiors.length; i++) {
+			if (interiors[i].shown) {
+				if (h)
+					h += ",";
+				h += i;
+				if (interiors[i].floors.length > 1)
+					h += "." + interiors[i].shownFloorId;
+			}
+		}
+		if (h)
+			hash.addParam("i", h);
+		else
+			hash.removeParam("i");
+	}
 
 	if (localStorage["markers-" + mapInfos[0].name]) {
 		$.each($.parseJSON(localStorage["markers-" + mapInfos[0].name]), function(key, val) {
@@ -1354,6 +1388,25 @@ function runMap() {
 		}
 	} else {
 		$("#centerButton").hide();
+	}
+
+	if (hashParams.r) {
+		let rid = +hashParams.r;
+		if (rid >= 0 && rid < routes.length)
+			selectRoute(rid, true);
+	}
+
+	if (hashParams.i) {
+		let intrs = hashParams.i.split(",");
+		for (intr of intrs) {
+			let tup = intr.split(".");
+			if (tup.length == 1)
+				tup[1] = 0;
+			let id = +tup[0];
+			let fl = +tup[1];
+			if (id >= 0 && id < interiors.length && fl >= 0 && fl < interiors[id].floors.length)
+				selectFloor(id, fl);
+		}
 	}
 }
 
