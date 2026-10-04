@@ -24,6 +24,7 @@ window.i18nData.en.v = {
 		passiflora:   { label: "Passiflora" }
 	},
 	entrance: {
+		sabbath_cave: { label: "Sabbath Cave" },
 		sewers1: { label: "Sewers Entrance", desc: "Access to Sewer No. 1." },
 		sewers2: { label: "Sewers Entrance", desc: "Access to Sewer No. 2." },
 		sewers3: { label: "Sewers Entrance", desc: "Access to Sewer No. 3." },
@@ -51,6 +52,7 @@ window.i18nData.en.v = {
 		theNowhere:         { label: "The Nowhere" }
 	},
 	interior: {
+		sabbath_cave:   { label: "__v:entrance.sabbath_cave__" },
 		wandering_cave: { label: "__v:entrance.wandering_cave__" }
 	},
 	poi: {
