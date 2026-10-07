@@ -321,6 +321,10 @@
 		name:        "yustianna",
 		underground: true,
 		entrances:   "yustianna_grotto"
+	}, {
+		coords:      [147.704,137.938],
+		name:        "punishment2",
+		after:       "sidequest.punishment1"
 	}],
 	// ----------------- Grindstones --------------------
 	grindstone: [{
@@ -936,9 +940,6 @@
 	}, {
 		coords:      [160.968,140.782],
 		name:        "punishment1"
-	}, {
-		coords:      [147.704,137.938],
-		name:        "punishment2"
 	}, {
 		coords:      [160.703,160.750],
 		name:        "keepers"

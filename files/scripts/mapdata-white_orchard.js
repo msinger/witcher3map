@@ -380,6 +380,16 @@
 	}, {
 		coords:      [106.750,98.000],
 		name:        "deserter"
+	}, {
+		coords:      [51.984,115.969],
+		id:          "treasurehunt.scav_viper",
+		name:        "scav_viper"
+	}, {
+		coords:      [103.195,60.086],
+		id:          "treasurehunt.scav_viper",
+		name:        "scav_viper",
+		underground: true,
+		entrances:   "crypt"
 	}]
 }; };
 

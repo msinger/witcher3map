@@ -84,7 +84,7 @@
 		extraDesc:   ["t:banditcamp.hanse.desc",
 		              "t:banditcamp.ussar.desc"],
 		hanse:       "t:signpost.montcranecastle",
-		after:       "contract.bonvineblues"
+		after:       "contract.bovineblues"
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -150,7 +150,7 @@
 		before:      "mainquest.capture"
 	}, {
 		coords:      [71.719,102.719],
-		name:        "bonvineblues",
+		name:        "bovineblues",
 		baw:         true
 	}, {
 		coords:      [64.328,89.797],
@@ -915,6 +915,11 @@
 		coords:      [56.265,44.343],
 		name:        "vc_duchaton",
 		baw:         true
+	}, {
+		coords:      [69.074,101.234],
+		name:        "bf",
+		baw:         true,
+		after:       "contract.bovineblues"
 	}, {
 		coords:      [94.609,50.297],
 		name:        "bf1",

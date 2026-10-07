@@ -670,7 +670,7 @@
 		name:        "crossing3"
 	}, {
 		coords:      [83.140,94.953],
-		name:        "crossing4"
+		name:        "cache"
 	}, {
 		coords:      [205.875,95.843],
 		name:        "drunken"
@@ -931,7 +931,7 @@
 	}, {
 		coords:      [78.219,147.219],
 		before:      "mainquest.family",
-		weakBefore:  "sidequest.hillock"
+		weakBefore:  "mainquest.hillock"
 	}, {
 		coords:      [134.016,131.469],
 		after:       "sidequest.eternal"
@@ -981,7 +981,7 @@
 		coords:      [199.391,106.578],
 		name:        "zoltan",
 		quest:       "sidequest.gw_pals",
-		after:       "mainquest.novigrad"
+		after:       "mainquest.dreaming"
 	}, {
 		coords:      [180.141,176.484],
 		name:        "roche",
@@ -2015,7 +2015,7 @@
 		coords:      [78.078,147.141],
 		sells:       "drinks",
 		before:      "mainquest.family",
-		weakBefore:  "sidequest.hillock"
+		weakBefore:  "mainquest.hillock"
 	}, {
 		coords:      [42.156,204.500],
 		sells:       ["runestones", "alchemy"]
@@ -2273,7 +2273,7 @@
 	}, {
 		coords:      [209.078,104.125],
 		name:        "haunted",
-		after:       "mainquest.novigrad"
+		after:       "mainquest.dreaming"
 	}, {
 		coords:      [104.562,129.296],
 		name:        "hazardous1"
@@ -2316,12 +2316,12 @@
 		name:        "hospitality"
 	}, {
 		coords:      [210.562,95.609],
-		name:        "city1",
+		name:        "city2",
 		after:       ["sidequest.matter",
 		              "mainquest.reuven"]
 	}, {
 		coords:      [221.812,98.968],
-		name:        "city2",
+		name:        "city1",
 		after:       ["sidequest.matter",
 		              "mainquest.reuven"]
 	}, {
@@ -2383,6 +2383,7 @@
 		name:        "volunteer"
 	}, {
 		coords:      [76.687,148.281],
+		id:          "mainquest.hillock",
 		name:        "hillock"
 	}, {
 		coords:      [154.968,110.718],
@@ -3353,7 +3354,7 @@
 		name:        "fire"
 	}, {
 		coords:      [190.937,195.125],
-		name:        "force",
+		name:        "airforce",
 		hos:         true
 	}, {
 		coords:      [186.312,211.250],
