@@ -30,7 +30,7 @@
 		             [145.188,153.250],
 		             [159.813,151.188],
 		             [160.125,153.063]],
-		after:       "sidequest.brnilfgaard"
+		after:       "mainquest.brnilfgaard"
 	}]
 }; };
 
