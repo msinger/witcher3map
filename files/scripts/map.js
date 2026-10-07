@@ -1,10 +1,12 @@
 var icons = {};
 var markers = {};
+var checkedMarkers = [];
+var disabledMarkers = [];
+var markerLayers = {};
 var hasMarkers = {};
-var invisibleMarkers = {};
-var markerCount = {};
+var uncheckedMarkerCount = {};
 var notes = [];
-var invisibleMarkerOpacity = 0.25;
+var checkedMarkerOpacity = 0.25;
 var routes = [];
 var interiors = [];
 var map = null;
@@ -76,26 +78,52 @@ var route_colors = {
 	sidequest_baw: "#ed7459"
 };
 
-function createMarker(coord, icon, label, popup, dataKey, routes) {
-	let mapKey = "markers-" + mapInfos[0].name + "-hidden";
+function toCoordId(coord) {
+	return coord[0].toFixed(3) + ";" + coord[1].toFixed(3);
+}
+
+function createMarker(coord, icon, label, popup, dataKey, id, checked, routes) {
 	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
 
 	marker.bindTooltip(label);
 	marker.bindPopup(popup);
 
-	marker.on("contextmenu", function(e) {
-		if (!e.target)
-			return;
-		toggleMarker(e.target, mapKey, dataKey);
-	});
+	let coordId = toCoordId(coord);
 
-	let visible = true;
-	if (isMarkerInvisible(mapKey, marker.getLatLng().lat, marker.getLatLng().lng)) {
-		marker.setOpacity(invisibleMarkerOpacity);
-		visible = false;
+	let obj = { id: coordId, icons: [], layers: [], checked: checked };
+	if (id) {
+		if (id in markers)
+			obj = markers[id];
+		obj.id = id;
+		markers[id] = obj;
 	} else {
-		markerCount[dataKey]++;
+		id = coordId;
 	}
+
+	if (obj.icons.length > 0) {
+		if (checked && !obj.checked)
+			toggleMarker(obj, true);
+		checked = obj.checked;
+	} else if (checked) {
+		checkedMarkers.push(id);
+	}
+
+	marker.setOpacity(checked ? checkedMarkerOpacity : 1.0);
+
+	markers[coordId] = obj;
+	obj.icons.push(marker);
+	marker.obj = obj;
+	if (obj.layers.indexOf(dataKey) < 0) {
+		obj.layers.push(dataKey);
+		if (!checked)
+			uncheckedMarkerCount[dataKey]++;
+	}
+
+	marker.on("contextmenu", function(e) {
+		if (!e.target || !e.target.obj)
+			return;
+		toggleMarker(e.target.obj);
+	});
 
 	hasMarkers[dataKey] = true;
 
@@ -107,10 +135,7 @@ function createMarker(coord, icon, label, popup, dataKey, routes) {
 		if (!route.fuse)
 			continue;
 
-		if (visible)
-			route.layer.setStyle({ opacity: 0.7 });
-		else
-			route.layer.setStyle({ opacity: invisibleMarkerOpacity });
+		route.layer.setStyle({ opacity: checked ? checkedMarkerOpacity : 0.7 });
 
 		route.layer.on("click", function(e) {
 			if (!e.target || !e.target.route || !e.target.route.marker)
@@ -119,68 +144,67 @@ function createMarker(coord, icon, label, popup, dataKey, routes) {
 		});
 
 		route.layer.on("contextmenu", function(e) {
-			if (!e.target || !e.target.route || !e.target.route.marker)
+			if (!e.target || !e.target.route || !e.target.route.marker || !e.target.route.marker.obj)
 				return;
 			L.DomEvent.stopPropagation(e);
-			toggleMarker(e.target.route.marker, mapKey, dataKey);
+			toggleMarker(e.target.route.marker.obj);
 		});
 	}
 
 	return marker;
 }
 
-function isMarkerInvisible(mapKey, lat, lng) {
-	return invisibleMarkers[mapKey].indexOf(lat + ";" + lng) >= 0;
+function saveCheckedMarkers() {
+	let checkedKey = "markers-" + mapInfos[0].name + "-checked";
+	localStorage[checkedKey] = JSON.stringify(checkedMarkers);
 }
 
-function toggleMarker(m, mapKey, dataKey) {
-	let pos = m.getLatLng();
+function saveDisabledMarkers() {
+	let disabledKey = "markers-" + mapInfos[0].name + "-disabled";
+	localStorage[disabledKey] = JSON.stringify(disabledMarkers);
+}
 
-	let key = pos.lat + ";" + pos.lng;
+function updateCount(dataKey) {
+	$("ul.key:not(.controls) > li:not(.none) > i." + dataKey + " ~ :last").text(uncheckedMarkerCount[dataKey]);
+}
 
-	if (m.options.opacity === 1.0) {
-		m.setOpacity(invisibleMarkerOpacity);
+function toggleMarker(mobj, noUpdate) {
+	mobj.checked = !mobj.checked;
+
+	for (m of mobj.icons) {
+		m.setOpacity(mobj.checked ? checkedMarkerOpacity : 1.0);
 		for (let route of m.routes) {
 			if (!route.fuse)
 				continue;
-			route.layer.setStyle({ opacity: invisibleMarkerOpacity });
+			route.layer.setStyle({ opacity: mobj.checked ? checkedMarkerOpacity : 0.7 });
 		}
-		invisibleMarkers[mapKey].push(key);
-		markerCount[dataKey]--;
-	} else {
-		m.setOpacity(1.0);
-		for (let route of m.routes) {
-			if (!route.fuse)
-				continue;
-			route.layer.setStyle({ opacity: 0.7 });
-		}
-		invisibleMarkers[mapKey].splice(invisibleMarkers[mapKey].indexOf(key), 1);
-		markerCount[dataKey]++;
 	}
 
-	localStorage[mapKey] = JSON.stringify(invisibleMarkers[mapKey]);
-	$("ul.key:not(.controls) > li:not(.none) > i." + dataKey + " ~ :last").text(markerCount[dataKey]);
+	if (mobj.checked) {
+		checkedMarkers.push(mobj.id);
+		for (let dataKey of mobj.layers)
+			uncheckedMarkerCount[dataKey]--;
+	} else {
+		checkedMarkers = checkedMarkers.filter(function (item) { return item !== mobj.id; });
+		for (let dataKey of mobj.layers)
+			uncheckedMarkerCount[dataKey]++;
+	}
+
+	if(!noUpdate) {
+		saveCheckedMarkers();
+		for (let dataKey of mobj.layers)
+			updateCount(dataKey);
+	}
 }
 
 function resetMarkers() {
-	var mapKey = "markers-" + mapInfos[0].name + "-hidden";
-	invisibleMarkers[mapKey] = [];
-	localStorage[mapKey] = JSON.stringify(invisibleMarkers[mapKey]);
+	let checkedKey = "markers-" + mapInfos[0].name + "-checked";
+	localStorage.removeItem(checkedKey);
 	location.reload();
 }
 
-function processData() {
+function processData(checkedMarkers) {
 	let data = mapInfos[0].getMapData();
-
-	let mapKey = "markers-" + mapInfos[0].name + "-hidden";
-	if (!localStorage[mapKey])
-		localStorage[mapKey] = JSON.stringify([]);
-	invisibleMarkers[mapKey] = JSON.parse(localStorage[mapKey]);
-
-	let notesKey = "notes-" + mapInfos[0].name;
-	if (!localStorage[notesKey])
-		localStorage[notesKey] = JSON.stringify([]);
-	notes = JSON.parse(localStorage[notesKey]);
 
 	substInteriors(mapInfos[0], data, "interior", function(interior) {
 		let id = interiors.length;
@@ -223,19 +247,21 @@ function processData() {
 	for (let dataKey of markerGroupNamesForProc) {
 		let groupItems = [];
 
-		hasMarkers[dataKey] = false;
-		markerCount[dataKey] = 0;
-
-		substMapData(mapInfos[0], data, dataKey, function(coord, label, desc, icon, routes) {
+		substMapData(mapInfos[0], data, dataKey, function(coord, id, label, desc, icon, routes) {
 			if (!icons[icon]) {
 				console.error("Invalid icon:", icon);
 				return;
 			}
 
+			let checked = false;
+			let coordId = toCoordId(coord);
+			if (checkedMarkers.indexOf(coordId) >= 0 || (id && checkedMarkers.indexOf(id) >= 0))
+				checked = true;
+
 			let tooltip = label.replace(/<\/?[^>]+(>|$)/g, "");
 			let m = createMarker(coord, icons[icon], tooltip,
 			                     "<h1>" + label + "</h1>" + desc,
-			                     dataKey, routes);
+			                     dataKey, id, checked, routes);
 			groupItems.push(m);
 
 			for (let route of routes) {
@@ -272,7 +298,9 @@ function processData() {
 			return id;
 		});
 
-		markers[dataKey] = L.layerGroup(groupItems);
+		markerLayers[dataKey] = L.layerGroup(groupItems);
+		if (disabledMarkers.indexOf(dataKey) >= 0)
+			markerLayers[dataKey].disabled = true;
 	}
 }
 
@@ -366,7 +394,10 @@ function createSidebar() {
 	let count = 0;
 	for (key of markerGroupNames) {
 		if (hasMarkers[key]) {
-			sidebar += '<li><i class="' + key + '"></i><div>' + esc($.t("sidebar." + key)) + '</div></li>';
+			let disabledClass = "";
+			if (markerLayers[key].disabled)
+				disabledClass = ' class="layer-disabled"';
+			sidebar += "<li" + disabledClass + '><i class="' + key + '"></i><div>' + esc($.t("sidebar." + key)) + '</div></li>';
 			count++;
 		}
 	}
@@ -427,12 +458,45 @@ function runMap() {
 	const params = new URLSearchParams(window.location.search);
 	const paramDraw = params.get("draw") != null;
 
-	processData();
+	let disabledKey = "markers-" + mapInfos[0].name + "-disabled";
+	if (localStorage[disabledKey])
+		disabledMarkers = JSON.parse(localStorage[disabledKey]);
+	if (!(disabledMarkers instanceof Array))
+		disabledMarkers = [];
+
+	let initialHideAll = false;
+	if (localStorage["hide-all-" + mapInfos[0].name])
+		initialHideAll = true;
+
+	let checkedKey = "markers-" + mapInfos[0].name + "-checked";
+	let checkedMarkersLd = [];
+	if (localStorage[checkedKey])
+		checkedMarkersLd = JSON.parse(localStorage[checkedKey]);
+	if (!(checkedMarkersLd instanceof Array))
+		checkedMarkersLd = [];
+
+	let notesKey = "notes-" + mapInfos[0].name;
+	if (localStorage[notesKey])
+		notes = JSON.parse(localStorage[notesKey]);
+	if (!(notes instanceof Array))
+		notes = [];
+
+	for (let dataKey of markerGroupNames) {
+		hasMarkers[dataKey] = false;
+		uncheckedMarkerCount[dataKey] = 0;
+	}
+
+	processData(checkedMarkersLd);
 
 	window.allLayers = [];
-	for (var groupName of markerGroupNames)
-		if (groupName in markers)
-			allLayers.push(markers[groupName]);
+	let initialLayers = [];
+	for (var groupName of markerGroupNames) {
+		if (groupName in markerLayers) {
+			allLayers.push(markerLayers[groupName]);
+			if (!markerLayers[groupName].disabled)
+				initialLayers.push(markerLayers[groupName]);
+		}
+	}
 
 	$("body").empty();
 	createSidebar();
@@ -456,7 +520,7 @@ function runMap() {
 	if (localStorage.hideWarn)
 		$("#warn").remove();
 
-	if (localStorage["hide-all-" + mapInfos[0].name]) {
+	if (initialHideAll) {
 		$("#hide-all").hide();
 		$("#show-all").show();
 	}
@@ -497,7 +561,7 @@ function runMap() {
 		zoom:                mapInfos[0].initialZoom,
 		attributionControl:  false,
 		zoomControl:         false,
-		layers:              allLayers,
+		layers:              initialLayers,
 		crs:                 L.CRS.Simple,
 		maxBounds:           bounds,
 		maxBoundsViscosity:  1.0  // TODO: Make this a configuration option
@@ -700,18 +764,9 @@ function runMap() {
 			hash.removeParam("i");
 	}
 
-	if (localStorage["markers-" + mapInfos[0].name]) {
-		$.each($.parseJSON(localStorage["markers-" + mapInfos[0].name]), function(key, val) {
-			if (val === false && key in markers) {
-				$("i." + key).parent().addClass("layer-disabled");
-				map.removeLayer(markers[key]);
-			}
-		});
-	}
-
 	for (var val of $("ul.key:not(.controls) li:not(.none) i")) {
 		var marker = $(val).attr("class");
-		var pill = $('<div class="pill">' + window.markerCount[marker] + "</div>");
+		var pill = $('<div class="pill">' + uncheckedMarkerCount[marker] + "</div>");
 		$(val).next().after(pill);
 		if (localStorage["hide-counts"])
 			pill.hide();
@@ -723,42 +778,40 @@ function runMap() {
 	}
 
 	$("#hide-all").on("click", function(e) {
-		var remember = {};
-		if (localStorage["markers-" + mapInfos[0].name])
-			remember = $.parseJSON(localStorage["markers-" + mapInfos[0].name]);
+		disabledMarkers = [];
+		for (let val of markerGroupNames)
+			disabledMarkers.push(val);
 
-		for (var val of allLayers)
+		for (let val of allLayers) {
+			val.disabled = true;
 			map.removeLayer(val);
+		}
 
-		for (var val of $("ul.key:not(.controls) li:not(.none) i"))
-			remember[$(val).attr("class")] = false;
-
-		for (var li of $("ul.key:first li"))
+		for (let li of $("ul.key:first li"))
 			$(li).addClass("layer-disabled");
 
 		$("#hide-all").hide();
 		$("#show-all").show();
-		localStorage["markers-" + mapInfos[0].name] = JSON.stringify(remember);
+
+		saveDisabledMarkers();
 		localStorage["hide-all-" + mapInfos[0].name] = true;
 	});
 
 	$("#show-all").on("click", function(e) {
-		var remember = {};
-		if (localStorage["markers-" + mapInfos[0].name])
-			remember = $.parseJSON(localStorage["markers-" + mapInfos[0].name]);
-
-		for (var val of allLayers)
+		for (let val of allLayers) {
+			val.disabled = false;
 			map.addLayer(val);
+		}
 
-		for (var val of $("ul.key:not(.controls) li:not(.none) i"))
-			remember[$(val).attr("class")] = true;
+		disabledMarkers = [];
 
-		for (var li of $("ul.key:first li"))
+		for (let li of $("ul.key:first li"))
 			$(li).removeClass("layer-disabled");
 
 		$("#show-all").hide();
 		$("#hide-all").show();
-		localStorage["markers-" + mapInfos[0].name] = JSON.stringify(remember);
+
+		localStorage.removeItem("markers-" + mapInfos[0].name + "-disabled");
 		localStorage.removeItem("hide-all-" + mapInfos[0].name);
 	});
 
@@ -801,22 +854,23 @@ function runMap() {
 	});
 
 	$("ul.key:not(.controls)").on("click", "li:not(.none)", function(e) {
-		var marker   = $(this).find("i").attr("class");
+		var dataKey = $(this).find("i").attr("class");
 
-		var remember = {};
-		if (localStorage["markers-" + mapInfos[0].name])
-			remember = $.parseJSON(localStorage["markers-" + mapInfos[0].name]);
+		let disabled = markerLayers[dataKey].disabled;
+		disabled = !disabled;
+		markerLayers[dataKey].disabled = disabled;
 
-		if ($(this).hasClass("layer-disabled")) {
-			map.addLayer(markers[marker]);
-			$(this).removeClass("layer-disabled");
-			remember[marker] = true;
-		} else {
-			map.removeLayer(markers[marker]);
+		if (disabled) {
+			disabledMarkers.push(dataKey);
 			$(this).addClass("layer-disabled");
-			remember[marker] = false;
+			map.removeLayer(markerLayers[dataKey]);
+		} else {
+			disabledMarkers = disabledMarkers.filter(function (item) { return item !== dataKey; });
+			map.addLayer(markerLayers[dataKey]);
+			$(this).removeClass("layer-disabled");
 		}
-		localStorage["markers-" + mapInfos[0].name] = JSON.stringify(remember);
+
+		saveDisabledMarkers();
 	});
 
 	function hideSidebar(anim) {

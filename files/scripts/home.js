@@ -2,7 +2,7 @@ function processMapDataForGlobalSearch(map) {
 	let data = map.getMapData();
 
 	for (let dataKey of markerGroupNamesForProc) {
-		substMapData(map, data, dataKey, function(coord, label, desc, icon) {
+		substMapData(map, data, dataKey, function(coord, id, label, desc, icon) {
 			label = label.replace(/<\/?[^>]+(>|$)/g, "");
 			desc  = desc.replace(/<\/?[^>]+(>|$)/g, "");
 

@@ -221,6 +221,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		if (!(coords[0] instanceof Array))
 			coords = [coords];
 
+		let id          = null;
 		let icon        = dataKey;
 		let label       = item.label || "";
 		let desc        = item.desc;
@@ -240,6 +241,9 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		let underground = dataKey != "stash" && item.underground;
 		let entrances   = (data.entrance || data.monsterden) && item.entrances;
 		let images      = item.images;
+
+		if (item.id && typeof item.id == "string")
+			id = item.id;
 
 		if (typeof label != "string" || !label) {
 			label = dataKey + ".label";
@@ -553,7 +557,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 				continue;
 			}
 
-			if (f(coord, label, desc, icon, routeObjs) === false)
+			if (f(coord, id, label, desc, icon, routeObjs) === false)
 				return;
 		}
 	}
