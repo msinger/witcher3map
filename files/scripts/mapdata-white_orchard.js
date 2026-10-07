@@ -29,7 +29,9 @@
 	}],
 	// ----------------- Contracts ----------------------
 	contract: [{
-		coords:      [62.406,64.437],
+		coords:      [[62.406,64.437],
+		             [62.344,56.344]],
+		id:          "contract.devil",
 		name:        "devil",
 		before:      "mainquest.ice"
 	}],
@@ -141,7 +143,7 @@
 		             [61.813,90.187],
 		             [62.000,98.375],
 		             [64.563,119.094],
-		             [78.906,35.844],
+		             [79.781,35.813],
 		             [80.688,36.937],
 		             [89.875,65.625],
 		             [101.625,65.000],
@@ -158,7 +160,8 @@
 		             [76.656,37.281],
 		             [68.500,21.437],
 		             [69.313,48.125],
-		             [75.875,31.875]]
+		             [75.875,31.875],
+		             [76.297,25.469]]
 	}],
 	// ----------------- Innkeeps -----------------------
 	innkeep: [{
@@ -231,10 +234,10 @@
 	// ----------------- Shopkeepers --------------------
 	shopkeeper: [{
 		coords:      [64.344,74.187],
-		sells:       ["gwent", "crafting", "w:temerianSet"]
+		sells:       ["gwent", "drinks", "crafting", "recipes", "w:temerianSet"]
 	}, {
 		coords:      [64.312,17.313],
-		sells:       ["runestones", "alchemy", "food"],
+		sells:       ["runestones", "alchemy", "food"], // TODO: Check inventory in Redkit. In my game he didn't have runestones. And as food he only sold one single water.
 		liberate:    true
 	}],
 	// ----------------- Sidequests ---------------------
@@ -249,7 +252,9 @@
 		name:        "faith",
 		during:      "mainquest.something"
 	}, {
-		coords:      [48.469,124.407],
+		coords:      [[48.469,124.407],
+		             [61.438,64.422]],
+		id:          "sidequest.missing",
 		name:        "missing"
 	}, {
 		coords:      [64.814,33.156],
@@ -348,7 +353,8 @@
 		             [56.751,128.437],
 		             [28.562,66.094],
 		             [100.719,14.281],
-		             [77.906,30.875]]
+		             [77.906,30.875],
+		             [63.156,56.375]]
 	}, {
 		coords:      [[78.124,54.062],
 		             [86.750,51.063],
