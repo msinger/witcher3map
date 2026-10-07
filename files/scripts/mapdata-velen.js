@@ -374,11 +374,13 @@
 	}, {
 		coords:      [[77.250,148.218],
 		             [62.297,131.980]],
+		id:          "contract.swamp",
 		name:        "swamp",
 		after:       "mainquest.wandering"
 	}, {
 		coords:      [[237.156,130.546],
 		             [216.359,137.453]],
+		id:          "contract.apirian",
 		name:        "apirian"
 	}, {
 		coords:      [104.531,80.312],
@@ -2037,6 +2039,15 @@
 	}, {
 		coords:      [187.797,152.172],
 		sells:       "gwent"
+	}, {
+		coords:      [[107.250,52.844],
+		             [185.516,155.875],
+		             [190.883,112.688]],
+		id:          "shopkeeper.travellingMerchant",
+		label:       "v:shopkeeper.travellingMerchant.label",
+		sells:       "food",
+		extraDesc:   ["v:shopkeeper.travellingMerchant.desc",
+		              "#TODO: Check what he is actually selling."]
 	}, {
 		coords:      [78.125,68.922],
 		sells:       "food",
