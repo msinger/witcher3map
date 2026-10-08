@@ -14,7 +14,7 @@ var map = null;
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
 var icon_sizes = {
-	//                     regular, underground
+	//                     regular, underground, optional anchors
 	abandoned:           [[30, 30], [30, 40]],
 	alchemy:             [[20, 28], [21, 37]],
 	armorer:             [[24, 34], [24, 43]],
@@ -48,7 +48,7 @@ var icon_sizes = {
 	master:              [[30, 34], [30, 43]],
 	monsterden:          [[30, 27], [30, 35]],
 	monsternest:         [[23, 30], [23, 39]],
-	note_marker:         [[23, 23], false   ],
+	note_marker:         [[23, 23], false,   [0, 22]],
 	notice:              [[23, 28], [23, 30]],
 	pid:                 [[24, 34], [24, 43]],
 	poi:                 [[28, 28], [28, 37]],
@@ -451,13 +451,15 @@ function runMap() {
 	for (var icon in icon_sizes) {
 		// regular
 		if (icon_sizes[icon][0])
-			icons[icon] = L.icon({ iconUrl:  window.topdir + "/files/images/icons/" + icon + ".png",
-			                       iconSize: icon_sizes[icon][0] });
+			icons[icon] = L.icon({ iconUrl:    window.topdir + "/files/images/icons/" + icon + ".png",
+			                       iconSize:   icon_sizes[icon][0],
+			                       iconAnchor: icon_sizes[icon][2] });
 
 		// underground
 		if (icon_sizes[icon][1])
-			icons[icon + "_ug"] = L.icon({ iconUrl:  window.topdir + "/files/images/icons/underground/" + icon + ".png",
-			                               iconSize: icon_sizes[icon][1] });
+			icons[icon + "_ug"] = L.icon({ iconUrl:    window.topdir + "/files/images/icons/underground/" + icon + ".png",
+			                               iconSize:   icon_sizes[icon][1],
+			                               iconAnchor: icon_sizes[icon][3] });
 	}
 
 	const params = new URLSearchParams(window.location.search);
@@ -673,8 +675,9 @@ function runMap() {
 
 		wayPoint = new L.marker(e.latlng, {
 			icon: L.icon({
-				iconUrl:  window.topdir + "/files/images/icons/waypoint.png",
-				iconSize: [26, 32]
+				iconUrl:    window.topdir + "/files/images/icons/waypoint.png",
+				iconSize:   [26, 32],
+				iconAnchor: [12, 29]
 			})
 		}).on("click", function() {
 			map.removeLayer(wayPoint);
@@ -1421,8 +1424,9 @@ function runMap() {
 		if (hashWayPoint.length == 2 && typeof +hashWayPoint[0] == "number" && typeof +hashWayPoint[1] == "number") {
 			wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
 				icon: L.icon({
-					iconUrl:  window.topdir + "/files/images/icons/waypoint.png",
-					iconSize: [26, 32]
+					iconUrl:    window.topdir + "/files/images/icons/waypoint.png",
+					iconSize:   [26, 32],
+					iconAnchor: [12, 29]
 				})
 			}).on("click", function() {
 				map.removeLayer(wayPoint);
