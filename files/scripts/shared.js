@@ -486,7 +486,11 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 				let obj = {
 					name:   esc($.t(route.name)),
 					coords: route.coords,
-					fuse:   dataKey == "alchemy" || dataKey == "herbalist" || dataKey == "shopkeeper"
+					fuse:   dataKey == "alchemy" ||
+					        dataKey == "herbalist" ||
+					        dataKey == "shopkeeper" ||
+					        (dataKey == "entrance" && portal),
+					dashed: dataKey == "entrance" && portal
 				};
 				obj.id = r ? r(obj) : -1;
 				routeObjs.push(obj);

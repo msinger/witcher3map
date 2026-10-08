@@ -76,6 +76,7 @@ var icon_sizes = {
 
 var route_colors = {
 	alchemy:       "#8ac33b",
+	entrance:      "#cb67fe",
 	herbalist:     "#8ac33b",
 	shopkeeper:    "#ffed86",
 	sidequest:     "#ffcc00",
@@ -297,7 +298,7 @@ function processData(checkedMarkers) {
 				}
 			}
 			let id = routes.length;
-			r.layer = L.polyline(arr, { color: route_colors[dataKey] || "red" });
+			r.layer = L.polyline(arr, { color: route_colors[dataKey] || "red", dashArray: r.dashed ? "4 8" : null });
 			r.layer.route = r;
 			routes.push(r);
 			return id;
