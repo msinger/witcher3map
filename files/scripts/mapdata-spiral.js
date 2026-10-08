@@ -5,14 +5,22 @@
 		portal:      true,
 		notInGame:   true, // TODO: Check if in game
 		during:      "mainquest.through",
-		special:     false
+		special:     false,
+		routes: [{
+			name:   "entrance.portal.dest.label",
+			coords: [[137.586,31.750], [176.219,127.125]]
+		}]
 	}, {
 		coords:      [161.766,127.063],
 		portal:      true,
 		notInGame:   true, // TODO: Check if in game
 		groupId:     "poisonToUnderwater",
 		during:      "mainquest.through",
-		special:     false
+		special:     false,
+		routes: [{
+			name:   "entrance.portal.dest.label",
+			coords: [[161.766,127.063], [35.063,290.313]]
+		}]
 	}, {
 		coords:      [32.750,291.313],
 		portal:      true,
@@ -21,14 +29,22 @@
 		entrances:   "poisonToUnderwater",
 		notInGame:   true, // TODO: Check if in game
 		during:      "mainquest.through",
-		special:     false
+		special:     false,
+		routes: [{
+			name:   "entrance.portal.dest.label",
+			coords: [[32.750,291.313], [36.641,296.578]]
+		}]
 	}, {
 		coords:      [76.531,301.625],
 		portal:      true,
 		underground: true,
 		notInGame:   true, // TODO: Check if in game
 		during:      "mainquest.through",
-		special:     false
+		special:     false,
+		routes: [{
+			name:   "entrance.portal.dest.label",
+			coords: [[76.531,301.625], [273.828,331.000]]
+		}]
 	}]
 }; };
 

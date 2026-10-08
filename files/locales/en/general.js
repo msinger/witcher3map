@@ -121,6 +121,7 @@ window.i18nData.en.general = {
 		portal: {
 			label: "Portal",
 			desc:  "A magical portal.",
+			dest: { label: "Portal destination" },
 			underwater: {
 				label: "Underwater portal",
 				desc:  "A magical underwater portal."
