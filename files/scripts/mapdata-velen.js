@@ -273,6 +273,7 @@
 		coords:      [239.500,214.687],
 		label:       "v:blacksmith.rune.label",
 		desc:        "v:blacksmith.rune.desc",
+		runewright:  true,
 		after:       "sidequest.en_s"
 	}],
 	// ----------------- Boats --------------------------
@@ -448,7 +449,8 @@
 	}, {
 		coords:      [156.031,209.125],
 		after:       "sidequest.darkness",
-		groupId:     "cheese_dungeon"
+		groupId:     "cheese_dungeon",
+		portal:      true
 	}, {
 		coords:      [173.750,77.156],
 		groupId:     "widows_grotto"
@@ -2416,8 +2418,10 @@
 		hos:         true
 	}, {
 		coords:      [[207.875,103.062],
-		             [217.531,133.469]],
+		             [194.445,163.172]],
+		id:          "sidequest.rc_derby",
 		name:        "rc_derby",
+		race:        true,
 		after:       "mainquest.junior",
 		routes: [{
 			name: "v:race.derby1.label",
@@ -2488,6 +2492,7 @@
 	}, {
 		coords:      [104.562,79.312],
 		name:        "rc_perch",
+		race:        true,
 		routes: [{
 			name: "v:race.perch.label",
 			coords: [[103.375,65.305], [102.930,63.773], [102.883,62.789], [103.422,61.328], [104.086,60.227],
@@ -2501,7 +2506,8 @@
 	}, {
 		coords:      [239.468,213.281],
 		name:        "rc_western",
-		hos:         true
+		hos:         true,
+		race:        true
 	}, {
 		coords:      [[209.062,103.859],
 		             [194.438,97.547],

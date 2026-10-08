@@ -229,6 +229,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		let extraDesc   = item.extraDesc;
 		let notInGame   = item.notInGame;
 		let unreachable = item.unreachable;
+		let portal      = dataKey == "entrance" && item.portal;
 		let underwater  = (dataKey == "treasure" || dataKey == "entrance") && item.underwater;
 		let after       = item.after;
 		let before      = item.before;
@@ -245,28 +246,28 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		if (item.id && typeof item.id == "string")
 			id = item.id;
 
+		let subKey = "";
+		if (portal)
+			subKey = ".portal";
+		if (dataKey == "hidden" && item.guarded)
+			subKey = ".guarded";
+		if (underwater)
+			subKey += ".underwater";
+
 		if (typeof label != "string" || !label) {
-			label = dataKey + ".label";
-			if (item.underwater)
-				label = dataKey + ".underwater.label";
-			else if (dataKey == "hollow" && item.stump)
+			label = dataKey + subKey + ".label";
+			if (dataKey == "hollow" && item.stump)
 				label = "#" + (esc($.t(dataKey + ".stump.label")) || esc($.t(label)));
 			else if (dataKey == "hollow" && item.log)
 				label = "#" + (esc($.t(dataKey + ".log.label")) || esc($.t(label)));
-			else if (dataKey == "hidden" && item.guarded)
-				label = dataKey + ".guarded.label";
 		}
 
 		if (typeof desc != "string" || (desc !== "" && !desc)) {
-			desc = dataKey + ".desc";
-			if (item.underwater)
-				desc = dataKey + ".underwater.desc";
-			else if (dataKey == "hollow" && item.stump)
+			desc = dataKey + subKey + ".desc";
+			if (dataKey == "hollow" && item.stump)
 				desc = "#" + (esc($.t(dataKey + ".stump.desc")) || esc($.t(desc)));
 			else if (dataKey == "hollow" && item.log)
 				desc = "#" + (esc($.t(dataKey + ".log.desc")) || esc($.t(desc)));
-			else if (dataKey == "hidden" && item.guarded)
-				desc = dataKey + ".guarded.desc";
 		}
 
 		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item);
@@ -515,6 +516,8 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 			icon += "_hos";
 		else if (item.baw && dataKey == "sidequest")
 			icon += "_baw";
+		if (item.race && dataKey == "sidequest")
+			icon = "race";
 		if (dataKey == "treasurehunt" && typeof item.name == "string" && item.name.startsWith("scav_"))
 			icon += "_scav";
 		else if (item.hos && (dataKey == "contract" || dataKey == "treasurehunt"))
@@ -525,8 +528,16 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 			icon = "lantern";
 		if (item.lamp && dataKey == "poi")
 			icon = "lamp";
+		if (item.runewright && (dataKey == "armorer" || dataKey == "blacksmith"))
+			icon = "runewright";
+		if (item.master && (dataKey == "armorer" || dataKey == "blacksmith"))
+			icon = "master";
+		if (item.dyeshop && dataKey == "shopkeeper")
+			icon = "dyeshop";
 		if (underwater)
 			icon += "_uw";
+		if (portal)
+			icon = "portal";
 		if (underground)
 			icon += "_ug";
 
