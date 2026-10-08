@@ -1045,6 +1045,7 @@
 	}, {
 		coords:      [125.438,132.438],
 		name:        "ps_fayrlund",
+		race:        true,
 		routes: [{
 			name: "s:race.fayrlund.label",
 			coords: [[125.242,132.742], [125.258,132.367], [125.109,131.914], [125.047,131.633], [125.133,131.359],
@@ -1059,6 +1060,7 @@
 	}, {
 		coords:      [130.376,220.593],
 		name:        "ps_goddess",
+		race:        true,
 		after:       ["sidequest.ps_fayrlund",
 		              "sidequest.ps_fyresdal",
 		              "sidequest.ps_trolde"],
@@ -1076,6 +1078,7 @@
 	}, {
 		coords:      [119.782,148.813],
 		name:        "ps_fyresdal",
+		race:        true,
 		routes: [{
 			name: "s:race.fyresdal.label",
 			coords: [[121.141,147.734], [120.406,147.891], [120.047,148.141], [119.750,148.719], [119.250,149.250],
@@ -1091,6 +1094,7 @@
 	}, {
 		coords:      [131.250,133.438],
 		name:        "ps_trolde",
+		race:        true,
 		routes: [{
 			name: "s:race.trolde.label",
 			coords: [[131.344,133.656], [131.578,133.766], [131.922,133.859], [132.406,134.109], [132.750,134.500],

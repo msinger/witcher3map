@@ -114,7 +114,8 @@
 		              "craftlevel.grandmaster",
 		              "t:blacksmith.lafargue.label"],
 		desc:        "armorer.desc",
-		extraDesc:   "blacksmith.desc"
+		extraDesc:   "blacksmith.desc",
+		master:      true
 	}],
 	// ----------------- Boats --------------------------
 	boat: [{
@@ -170,9 +171,11 @@
 		             [60.344,113.328],
 		             [94.844,94.359],
 		             [84.031,84.203],
-		             [50.109,84.234],
 		             [56.484,44.031],
 		             [91.766,41.672]]
+	}, {
+		coords:      [50.109,84.234],
+		underwater:  true
 	}, {
 		coords:      [86.047,72.938],
 		groupId:     "rivecalme_storehouse"
@@ -263,7 +266,9 @@
 	}, {
 		coords:      [51.641,84.734],
 		notInGame:   true,
-		groupId:     "mutagen_dungeon"
+		groupId:     "mutagen_dungeon",
+		portal:      true,
+		underwater:  true
 	}, {
 		coords:      [46.734,100.469],
 		notInGame:   true,
@@ -738,7 +743,8 @@
 	}, {
 		coords:      [53.578,73.188],
 		extraLabel:  "t:shopkeeper.dye.label",
-		sells:       ["dye", "dyeRemover"]
+		sells:       ["dye", "dyeRemover"],
+		dyeshop:     true
 	}, {
 		coords:      [53.469,61.500],
 		extraLabel:  "shopkeeper.bookMerchant.label",

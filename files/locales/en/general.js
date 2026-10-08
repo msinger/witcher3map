@@ -118,6 +118,14 @@ window.i18nData.en.general = {
 	entrance: {
 		label:     "Entrance",
 		desc:      "Entrance to cave or ruins.",
+		portal: {
+			label: "Portal",
+			desc:  "A magical portal.",
+			underwater: {
+				label: "Underwater portal",
+				desc:  "A magical underwater portal."
+			}
+		},
 		underwater: {
 			label: "Underwater Cave",
 			desc:  "Underwater entrance to cave."
