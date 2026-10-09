@@ -555,6 +555,7 @@ window.i18nData.tr.general = {
 		honeycomb:           "Bal Peteği",
 		innkeep:             "Han",
 		kid:                 "Zordaki Gezgin Şövalye",
+		monster:             "Canavar",
 		monsterden:          "Canavar İni",
 		monsternest:         "Canavar Yuvası",
 		notice:              "İlan Tahtası",

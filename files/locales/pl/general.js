@@ -562,6 +562,7 @@ window.i18nData.pl.general = {
 		honeycomb:           "Plaster miodu",
 		innkeep:             "Karczma",
 		kid:                 "Rycerz w niebezpieczeństwie",
+		monster:             "Potworów",
 		monsterden:          "Gniazdo potworów",
 		monsternest:         "Gniazdo potworów",
 		notice:              "Tablica ogłoszeń",

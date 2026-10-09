@@ -558,6 +558,7 @@ window.i18nData.ru.general = {
 		honeycomb:           "Соты",
 		innkeep:             "Корчмарь",
 		kid:                 "Рыцарь в беде",
+		monster:             "Чудовищ",
 		monsterden:          "Рассадник чудовищ",
 		monsternest:         "Гнездо чудовищ",
 		notice:              "Доска объявлений",

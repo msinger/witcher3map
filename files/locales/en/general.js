@@ -2,7 +2,7 @@ window.i18nData = window.i18nData || {};
 window.i18nData.en = window.i18nData.en || {};
 window.i18nData.en.general = {
 	abandoned: {
-		label: "Abandoned Site",
+		label: "Abandoned Site__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "A place abandoned due to monster or bandit attacks. Once the danger is eliminated, it will fill with " +
 		       "life once more."
 	},
@@ -20,7 +20,7 @@ window.i18nData.en.general = {
 		desc:  "Armorer's tables grant your gear increased armor for a limited duration."
 	},
 	banditcamp: {
-		label: "Bandit Camp",
+		label: "Bandit Camp__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "A group of dangerous bandits have made camp here."
 	},
 	barber: {
@@ -246,7 +246,7 @@ window.i18nData.en.general = {
 		desc:  "A blade sharpened here will deal more damage."
 	},
 	guarded: {
-		label: "Guarded Treasure",
+		label: "Guarded Treasure__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "A particularly powerful monster guards a valuable cache here."
 	},
 	gwent: {
@@ -484,12 +484,34 @@ window.i18nData.en.general = {
 		logo:         "files/images/logo/logo_en.png",
 		logo_min:     "files/images/logo/logo_en_min.png"
 	},
+	monster: {
+		label: "__this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
+		desc:  "Monsters spawn here.",
+		underwater: {
+			label: "Underwater __this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
+			desc:  "Monsters spawn here underwater.",
+		},
+		bear:     { label: "Bear",      link: "https://witcher.fandom.com/wiki/Bear" },
+		drowner:  { label: "Drowner",   link: "https://witcher.fandom.com/wiki/Drowner" },
+		ghoul:    { label: "Ghoul",     link: "https://witcher.fandom.com/wiki/Ghoul" },
+		griffin:  { label: "Griffin",   link: "https://witcher.fandom.com/wiki/Griffin_(creature)" },
+		nekker:   { label: "Nekker",    link: "https://witcher.fandom.com/wiki/Nekker" },
+		warg:     { label: "Warg",      link: "https://witcher.fandom.com/wiki/Warg" },
+		waterhag: { label: "Water Hag", link: "https://witcher.fandom.com/wiki/Water_hag" },
+		wilddog:  { label: "Wild Dog",  link: "https://witcher.fandom.com/wiki/Dog" },
+		wolf:     { label: "Wolf",      link: "https://witcher.fandom.com/wiki/Wolf_(creature)" },
+		wraith:   { label: "Wraith",    link: "https://witcher.fandom.com/wiki/Wraith" }
+	},
 	monsterden: {
-		label: "Monster Den",
+		label: "__?!this.name:Monster Den__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Den__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Monster-infested location. A constant worry for those living nearby."
 	},
 	monsternest: {
-		label: "Monster Nest",
+		label: "__?!this.name:Monster Nest__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Destroy monster nests with Grapeshot or Dancing Star bombs."
 	},
 	notes: {
@@ -613,6 +635,7 @@ window.i18nData.en.general = {
 		honeycomb:           "Honeycombs",
 		innkeep:             "Innkeeps",
 		kid:                 "Knights in Distress",
+		monster:             "Monsters",
 		monsterden:          "Monster Dens",
 		monsternest:         "Monster Nests",
 		notice:              "Notice Boards",
