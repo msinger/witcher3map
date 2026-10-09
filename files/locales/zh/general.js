@@ -552,6 +552,7 @@ window.i18nData.zh.general = {
 		honeycomb:           "蜂窩",
 		innkeep:             "旅店老闆",
 		kid:                 "遇險的騎士",
+		monster:             "怪物",
 		monsterden:          "怪物窩",
 		monsternest:         "怪物巢穴",
 		notice:              "告示板",

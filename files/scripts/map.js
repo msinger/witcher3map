@@ -46,6 +46,8 @@ var icon_sizes = {
 	lamp:                [[19, 28], [19, 37]],
 	lantern:             [[19, 28], [19, 37]],
 	master:              [[30, 34], [30, 43]],
+	monster:             [[17, 23], [17, 32]],
+	monster_uw:          [[17, 23], [17, 32]],
 	monsterden:          [[30, 27], [30, 35]],
 	monsternest:         [[23, 30], [23, 39]],
 	note_marker:         [[23, 23], false,   [0, 22]],
@@ -420,8 +422,6 @@ function createSidebar() {
 					'<li id="show-counts"><i class="fa fa-check-square"></i><div>' + esc($.t("controls.showCounts")) + '</div></li>' +
 					'<li id="hide-counts"><i class="fa fa-square"></i><div>' + esc($.t("controls.hideCounts")) + '</div></li>' +
 					'<li id="reset-tracking"><i class="fa fa-eraser"></i><div>' + esc($.t("controls.resetInvisible")) + '</div></li>' +
-					//'<li id="hide-monsters"><i class="fa fa-user-secret"></i><div>' + esc($.t("controls.hideMonsters")) + '</div></li>' +
-					//'<li style="display:none;" id="show-monsters"><i class="fa fa-user-secret"></i><div>' + esc($.t("controls.showMonsters")) + '</div></li>' +
 					'<li><a href="https://github.com/witcher3map/witcher3map/wiki" target="_blank"><i class="fa fa-info-circle"></i><div>' + esc($.t("controls.helpFeatures")) + '</div></a></li>' +
 					'<li id="Credits" class="credits"><i class="fa fa-copyright"></i><span>' + esc($.t("controls.credits")) + '</span></li>' +
 					'<li class="none"></li>' +
@@ -531,12 +531,6 @@ function runMap() {
 	if (initialHideAll) {
 		$("#hide-all").hide();
 		$("#show-all").show();
-	}
-
-	if (localStorage["hide-monsters"]) {
-		$("#info").addClass("hideMonsters");
-		$("#hide-monsters").hide();
-		$("#show-monsters").show();
 	}
 
 	function hackySticky() {
@@ -846,20 +840,6 @@ function runMap() {
 		e.preventDefault();
 		if (confirm($.t("controls.resetInvisConfirm")))
 			resetMarkers();
-	});
-
-	$(document).on("click", "li#hide-monsters", function(e) {
-		localStorage["hide-monsters"] = true;
-		$("#info").addClass("hideMonsters");
-		$("#hide-monsters").hide();
-		$("#show-monsters").show();
-	});
-
-	$(document).on("click", "li#show-monsters", function(e) {
-		localStorage.removeItem("hide-monsters");
-		$("#info").removeClass("hideMonsters");
-		$("#hide-monsters").show();
-		$("#show-monsters").hide();
 	});
 
 	$("ul.key:not(.controls)").on("click", "li:not(.none)", function(e) {

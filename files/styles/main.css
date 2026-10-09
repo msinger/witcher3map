@@ -476,8 +476,7 @@ div#note-popup label.top {
 div#info.hideMonsters span,
 div#warn,
 li#show-all,
-li#show-counts,
-li#show-monsters {
+li#show-counts {
 	display: none
 }
 
@@ -787,6 +786,10 @@ i.innkeep {
 
 i.kid {
 	background-image: url(../images/icons/kid.png)
+}
+
+i.monster {
+	background-image: url(../images/icons/monster.png)
 }
 
 i.monsterden {

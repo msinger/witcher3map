@@ -1,8 +1,10 @@
 { let getMapData = function() { return {
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
-		coords:      [[36.938,93.437],
-		             [66.126,19.312]]
+		coords:      [[36.938,93.437],  // 4x Ghoul (L2)
+		             [66.126,19.312]],  // 4x Ghoul (L2)
+		name:        "ghoul",
+		level:       "#2"
 	}],
 	// ----------------- Armorers -----------------------
 	armorer: [{
@@ -15,12 +17,20 @@
 	}],
 	// ----------------- Bandit Camps -------------------
 	banditcamp: [{
-		coords:      [[21.624,41.125],
-		             [48.563,97.125],
-		             [82.585,15.844],
-		             [102.000,109.840],
-		             [51.844,116.125],
-		             [64.907,114.000]]
+		coords:      [[21.624,41.125],  // 1x Axe2H (L2), 2x Sword (L2), 1x Ranged (L1)
+		             [82.585,15.844]],  // 1x Axe2H (L2), 2x Sword (L2), 1x Ranged (L1)
+		level:       "#1 & 2"
+	}, {
+		coords:      [64.907,114.000],  // 1x Axe2H-Weak (L2), 1x Sword (L2), 1x Ranged (L1)
+		id:          "bridgeBandits",
+		level:       "#1 & 2"
+	}, {
+		coords:      [102.000,109.840], // 1x Leader-Sword-Shield (L4), 2x Axe2H (L2), 1x Sword (L2), 2x Ranged (L1)
+		level:       "#1, 2 & 4"        // 4x Wolf (L5) to the north-west also belong to this camp, but they overlap with another independent wolf spawn area, so it doesn't matter.
+	}, {
+		coords:      [[48.563,97.125],  // 1x Leader-Axe2H (L5), 2x Sword (L2), 2x Ranged (L1)
+		             [51.844,116.125]], // 1x Leader-Axe2H (L5), 2x Sword (L2), 1x Ranged (L1)
+		level:       "#1, 2 & 5"
 	}],
 	// ----------------- Blacksmiths --------------------
 	blacksmith: [{
@@ -66,14 +76,24 @@
 	}],
 	// ----------------- Guarded Treasure ---------------
 	guarded: [{
-		coords:      [[45.624,85.500],
-		             [88.437,8.750],
-		             [107.781,32.656],
-		             [46.000,128.250]]
+		coords:      [107.781,32.656],  // 1x Warg (L5), 3x Wolf (L5)
+		name:        "wolf",
+		level:       "#5"
 	}, {
-		coords:      [105.910,59.063],
+		coords:      [88.437,8.750],    // 1x Water Hag (L6)
+		name:        "waterhag",
+		level:       "#6"
+	}, {
+		coords:      [105.910,59.063],  // 1x Wraith (L7)
+		name:        "wraith",
+		level:       "#7",
 		underground: true,
 		entrances:   "crypt"
+	}, {
+		coords:      [[45.624,85.500],  // 1x Drowner (L4), 3x Drowner (L3)
+		             [46.000,128.250]], // 1x Drowner (L4), 3x Drowner (L3)
+		name:        "drowner",
+		level:       "#3 & 4"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -170,11 +190,72 @@
 		sells:       ["gwent", "food", "drinks"],
 		before:      "mainquest.incident"
 	}],
+	// ----------------- Monsters -----------------------
+	monster: [{
+		coords:      [54.063,16.500],   // 6x-8x Nekker (L6) (in pr_poe_monsters area)
+		name:        "nekker",
+		level:       "#6"
+	}, {
+		coords:      [85.938,34.969],   // 1x Wraith (L6)
+		name:        "wraith",
+		level:       "#6"
+	}, {
+		coords:      [59.563,115.156],  // 2x Wolf (L5)
+		name:        "wolf",
+		level:       "#5",
+		uncleared:   "bridgeBandits"
+	}, {
+		coords:      [[72.750,40.688],  // 1x Warg (L5), 6x Wolf (L5) (in pr_poe_monsters area)
+		             [107.906,103.656], // 2x Warg (L5), {4h-21h: 12x, 21h-4h: 14x} Wolf (L5) (in pr_poe_003 area)
+		             [95.500,92.875],   // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 5x} Wolf (L5) (in pr_poe_005 area)
+		             [124.250,55.375],  // 1x Warg (L5), {4h-21h: 3x, 21h-4h: 4x} Wolf (L5) (in pr_poe_007 area)
+		             [87.969,34.938],   // 1x Warg (L5), {4h-21h: 5x, 21h-4h: 7x} Wolf (L5) (in pr_poe_012 area)
+		             [78.875,13.688],   // 1x Warg (L5), {4h-21h: 5x, 21h-4h: 8x} Wolf (L5) (in pr_poe_013 area)
+		             [57.250,19.125],   // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 6x} Wolf (L5) (in pr_poe_014 area)
+		             [35.250,39.000]],  // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 6x} Wolf (L5) (in pr_poe_015 area)
+		name:        "wolf",
+		level:       "#5"
+	}, {
+		coords:      [[45.000,120.313], // 2x Drowner (L4)
+		             [89.500,50.688],   // 2x Drowner (L4)
+		             [97.375,15.313],   // {4h-21h: 3x, 21h-4h: 5x} Drowner (L4) (in pr_poe_010 area)
+		             [102.250,25.500]], // {4h-21h: 3x, 21h-4h: 5x} Drowner (L4) (in pr_poe_011 area)
+		name:        "drowner",
+		level:       "#4"
+	}, {
+		coords:      [[119.656,36.125], // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_008 area)
+		             [38.750,125.750],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_018 area)
+		             [96.875,49.750]],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_023 area)
+		name:        "drowner", // only if player has crossbow
+		level:       "#10",
+		underwater:  true
+	}, {
+		coords:      [[37.125,59.250],  // 1x Bear (L6) (in pr_poe_monsters area)
+		             [119.188,74.063]], // 1x Bear (L6) (in pr_poe_006 area)
+		name:        "bear",
+		level:       "#6"
+	}, {
+		coords:      [91.875,86.125],   // 5x-7x Wild Dog (L1) (in pr_poe_monsters area)
+		name:        "wilddog",
+		level:       "#1"
+	}, {
+		coords:      [94.156,137.531],  // {4h-21h: 11x, 21h-4h: 16x} Wild Dog (L1) (in pr_poe_002 area)
+		name:        "wilddog",
+		level:       "#1",
+		cleared:     "battlefieldNest",
+		after:       "mainquest.lilac"
+	}],
 	// ----------------- Monster Nests ------------------
 	monsternest: [{
-		coords:      [[117.750,60.000],
-		             [92.062,127.781],
-		             [67.938,134.906]]
+		coords:      [[117.750,60.000], // {5h-21h: 3x, 21h-5h: 5x} Ghoul (L2)
+		             [67.938,134.906]], // 5x Ghoul (L2)
+		name:        "ghoul",
+		level:       "#2"
+	}, {
+		coords:      [92.062,127.781],  // 5x Ghoul (L2)
+		name:        "ghoul",
+		level:       "#2",
+		id:          "battlefieldNest"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{

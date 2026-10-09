@@ -25,6 +25,7 @@ var markerGroupNames = [
 	"honeycomb",
 	"innkeep",
 	"kid",
+	"monster",
 	"monsterden",
 	"monsternest",
 	"notice",
@@ -125,7 +126,7 @@ function subst(text, item, depth = 3) {
 		console.error("subst() recursion too deep.");
 		return;
 	}
-	return text.replace(/__([^_]+_?[^_]+)*__/g, function(match) {
+	return text.replace(/__([^_]+(_?[^_]+)*)*__/g, function(match) {
 		let prop = "";
 		match = match.slice(2, -2);
 		if (match.slice(0, 5) == "this.") {
@@ -169,6 +170,16 @@ function subst(text, item, depth = 3) {
 					}
 				}
 			}
+		} else if (match.slice(0, 6) == "?this.") {
+			let colon = match.indexOf(":");
+			if (!item[match.slice(6, colon)])
+				return "";
+			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1);
+		} else if (match.slice(0, 7) == "?!this.") {
+			let colon = match.indexOf(":");
+			if (item[match.slice(7, colon)])
+				return "";
+			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1);
 		}
 		if (match[0] == "#")
 			return subst(esc(match.slice(1)), item, depth - 1);
@@ -230,7 +241,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		let notInGame   = item.notInGame;
 		let unreachable = item.unreachable;
 		let portal      = dataKey == "entrance" && item.portal;
-		let underwater  = (dataKey == "treasure" || dataKey == "entrance") && item.underwater;
+		let underwater  = (dataKey == "treasure" || dataKey == "entrance" || dataKey == "monster") && item.underwater;
 		let after       = item.after;
 		let before      = item.before;
 		let weakBefore  = item.weakBefore;

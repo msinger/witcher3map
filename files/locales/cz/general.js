@@ -559,6 +559,7 @@ window.i18nData.cz.general = {
 		honeycomb:           "Medová plástev",
 		innkeep:             "Hospodský",
 		kid:                 "Bludný rytíř v nesnázích",
+		monster:             "Příšer",
 		monsterden:          "Doupě příšer",
 		monsternest:         "Hnízdo příšer",
 		notice:              "Vývěska",
