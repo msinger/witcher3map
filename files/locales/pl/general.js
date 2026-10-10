@@ -122,8 +122,7 @@ window.i18nData.pl.general = {
 			desc:  "Podwodne wejście do jaskini."
 		},
 		link: {
-			single:     "Do podziemi można wejść __list__.",
-			multiple:   "", // Leave empty if same as for single.
+			desc:       "Do podziemi można wejść __list__.",
 			here:       "tutaj",
 			concat:     ", ",
 			concatLast: " albo " // Leave empty if same as for concat.

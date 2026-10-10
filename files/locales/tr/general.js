@@ -123,8 +123,7 @@ window.i18nData.tr.general = {
 			desc:  "Mağaraya sualtı girişi."
 		},
 		last: {
-			single:     "Yeraltına __list__ giriş yapabilirsiniz.",
-			multiple:   "", // Leave empty if same as for single.
+			desc:       "Yeraltına __list__ giriş yapabilirsiniz.",
 			here:       "buradan",
 			concat:     ", ",
 			concatLast: " yada " // Leave empty if same as for concat.

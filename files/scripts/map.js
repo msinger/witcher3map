@@ -214,6 +214,8 @@ function resetMarkers() {
 function processData(checkedMarkers) {
 	let data = mapInfos[0].getMapData();
 
+	prescreenMapData(mapInfos[0], data);
+
 	substInteriors(mapInfos[0], data, "interior", function(interior) {
 		let id = interiors.length;
 		let z = 0;
@@ -252,7 +254,7 @@ function processData(checkedMarkers) {
 		return id;
 	});
 
-	for (let dataKey of markerGroupNamesForProc) {
+	for (let dataKey of markerGroupNames) {
 		let groupItems = [];
 
 		substMapData(mapInfos[0], data, dataKey, function(coord, id, label, desc, icon, routes) {

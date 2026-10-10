@@ -120,8 +120,7 @@ window.i18nData.cz.general = {
 			desc:  "Podvodní vchod do jeskyně."
 		},
 		link: {
-			single:     "Do podzemí můžete vstoupit __list__.",
-			multiple:   "", // Leave empty if same as for single.
+			desc:       "Do podzemí můžete vstoupit __list__.",
 			here:       "zde",
 			concat:     ", ",
 			concatLast: " nebo " // Leave empty if same as for concat.

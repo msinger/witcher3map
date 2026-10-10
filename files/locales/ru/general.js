@@ -121,8 +121,7 @@ window.i18nData.ru.general = {
 			desc:  "Подводный вход в пещеру."
 		},
 		link: {
-			single:     "Вы можете войти в подземелье __list__.",
-			multiple:   "", // Leave empty if same as for single.
+			desc:       "Вы можете войти в подземелье __list__.",
 			here:       "здесь",
 			concat:     ", ",
 			concatLast: " или " // Leave empty if same as for concat.
