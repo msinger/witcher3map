@@ -45,16 +45,6 @@ var markerGroupNames = [
 	"vineyardinfestation"
 ];
 
-let markerGroupNamesForProc = [];
-for (let n of markerGroupNames) {
-	if (n == "event" || n == "pid")
-		continue;
-	markerGroupNamesForProc.push(n);
-}
-// Move event and pid to the end, they can be source of person rescue.
-markerGroupNamesForProc.push("event");
-markerGroupNamesForProc.push("pid");
-
 function loadScript(url) {
 	return new Promise(function(resolve, reject) {
 		let script = document.createElement("script");
@@ -202,37 +192,136 @@ function isPerson(dataKey) {
 	       dataKey == "shopkeeper";
 }
 
+function prescreenMapData(mapInfo, data) {
+	let ids  = {};
+	let gids = {};
+	let rids = {};
+	data.ids  = ids;
+	data.gids = gids;
+	data.rids = rids;
+
+	for (let dataKey of markerGroupNames) {
+		let items = [];
+
+		if (dataKey in data)
+			items = data[dataKey];
+
+		if (!(items instanceof Array)) {
+			console.error(mapInfo.name + "->" + dataKey + " is not an array: ", items);
+			items = [];
+		}
+
+		data[dataKey] = items;
+
+		for (let item of items) {
+			if (!(item instanceof Object)) {
+				console.error("An element of " + mapInfo.name + "->" + dataKey + " is not an object: ", item);
+				continue;
+			}
+
+			let coords = item.coords;
+			if (!(coords instanceof Array) || coords.length == 0) {
+				console.error("An element of " + mapInfo.name + "->" + dataKey + " does not have valid coordinates: ", item);
+				item.coords = false;
+				continue;
+			}
+			if (!(coords[0] instanceof Array))
+				coords = [coords];
+			let newCoords = [];
+			for (let coord of coords) {
+				if (!isCoord(coord)) {
+					console.error("An element of " + mapInfo.name + "->" + dataKey + " does have an invalid coordinate: ", item, coord);
+					continue;
+				}
+				newCoords.push(coord);
+			}
+			coords = newCoords;
+			if (coords.length == 0) {
+				item.coords = false;
+				continue;
+			}
+			item.coords = coords;
+
+			item.dataKey = dataKey;
+
+			if (item.id && typeof item.id == "string") {
+				if (!ids[item.id])
+					ids[item.id] = [];
+				ids[item.id].push(item);
+			}
+
+			if (item.groupId && typeof item.groupId == "string") {
+				if (!gids[item.groupId])
+					gids[item.groupId] = [];
+				gids[item.groupId].push(item);
+			}
+
+			if (isPerson(dataKey) && item.rescueFrom && typeof item.rescueFrom == "string") {
+				if (!rids[item.rescueFrom])
+					rids[item.rescueFrom] = [];
+				rids[item.rescueFrom].push(item);
+			}
+		}
+	}
+}
+
 function substMapData(mapInfo, data, dataKey, f, r) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
 	const closeBracket = esc($.t("misc.closeBracket"));
 
-	let items = [];
-
-	if (dataKey in data)
-		items = data[dataKey];
-
-	if (!(items instanceof Array)) {
-		items = [];
-		console.error(mapInfo.name + "->" + dataKey + " is not an array: ", items);
+	function coordListFromIds(id, ids, filter) {
+		if (!(id instanceof Array))
+			id = [id];
+		let coords = [];
+		for (let i = 0; i < id.length; i++) {
+			if (!ids[id[i]])
+				continue;
+			for (let item of ids[id[i]]) {
+				if (filter && !filter(item, id))
+					continue;
+				for (let coord of item.coords)
+					coords.push(coord);
+			}
+		}
+		return coords;
 	}
 
-	for (let item of items) {
-		if (!(item instanceof Object)) {
-			console.error("An element of " + mapInfo.name + "->" + dataKey + " is not an object: ", item);
-			continue;
+	function coordLinkToId(id, text, ids, filter, concat, concatLast) {
+		let coords = coordListFromIds(id, ids, filter || function(item, id) {
+			return item.dataKey != "gwent" || concat !== undefined || ids[id].length == 1;
+		});
+		if (coords.length < 1)
+			return false;
+		if (coords.length > 1 && concat === undefined) {
+			console.error("ID matches mutliple coords, but only one is expected:", id, coords);
+			coords = [coords[0]];
 		}
+		let links = ""
+		for (let i = 0; i < coords.length; i++) {
+			if (i != 0) {
+				if (concatLast === undefined || i < coords.length - 1)
+					links += concat;
+				else
+					links += concatLast;
+			}
+			links += '<a href="#' + mapInfo.maxZoom + "/" +
+			         coords[i][0] + "/" + coords[i][1] +
+			         '">' + text + "</a>";
+		}
+		return links;
+	}
+
+	for (let item of data[dataKey]) {
+		if (!(item instanceof Object))
+			continue;
 
 		let coords = item.coords;
-		if (!(coords instanceof Array) || coords.length == 0) {
-			console.error("An element of " + mapInfo.name + "->" + dataKey + " does not have valid coordinates: ", item);
+		if (!coords)
 			continue;
-		}
-		if (!(coords[0] instanceof Array))
-			coords = [coords];
 
-		let id          = null;
+		let id          = (item.id && typeof item.id == "string") ? item.id : null;
 		let icon        = dataKey;
 		let label       = item.label || "";
 		let desc        = item.desc;
@@ -247,15 +336,11 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		let weakBefore  = item.weakBefore;
 		let during      = item.during;
 		let rescueFrom  = isPerson(dataKey) && item.rescueFrom;
-		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) &&
-		                  item.goesTo instanceof Object && isCoord(item.goesTo.coords);
+		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) && id;
 		let special     = false;
 		let underground = dataKey != "stash" && item.underground;
-		let entrances   = (data.entrance || data.monsterden) && item.entrances;
+		let entrances   = (data.entrance.length || data.monsterden.length) && item.entrances;
 		let images      = item.images;
-
-		if (item.id && typeof item.id == "string")
-			id = item.id;
 
 		let subKey = "";
 		if (portal)
@@ -362,48 +447,25 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 			let textHere    = "__?__";
 			if (matchResult && matchResult.length == 1)
 				textHere = matchResult[0].slice(2, -2);
-			let textLink = '<a href="#' + mapInfo.maxZoom + "/" +
-			               item.goesTo.coords[0] + "/" + item.goesTo.coords[1] +
-			               '">' + textHere + "</a>";
-			if (desc)
-				desc = concat + desc;
-			desc = text.replace(/__[^_]*__/, textLink) + desc;
-		}
-
-		if (rescueFrom && typeof rescueFrom == "string") {
-			let foundPid = null
-			if (data.pid instanceof Array) {
-				for (let pid of data.pid) {
-					if (!pid.id || pid.id != rescueFrom)
-						continue;
-					if (!isCoord(pid.coords))
-						break;
-					foundPid = pid;
-				}
-			}
-			if (!foundPid && data.event instanceof Array) {
-				for (let e of data.event) {
-					if (!e.rescuable || !e.id || e.id != rescueFrom)
-						continue;
-					if (!isCoord(e.coords))
-						break;
-					foundPid = e;
-				}
-			}
-			if (foundPid) {
-				let text        = esc($.t("pid.rescue"));
-				let matchResult = text.match(/__[^_]*__/);
-				let textHere    = "__?__";
-				if (matchResult && matchResult.length == 1)
-					textHere = matchResult[0].slice(2, -2);
-				let textLink = '<a href="#' + mapInfo.maxZoom + "/" +
-				               foundPid.coords[0] + "/" + foundPid.coords[1] +
-				               '">' + textHere + "</a>";
+			let textLink = coordLinkToId(id, textHere, data.rids);
+			if (textLink) {
 				if (desc)
 					desc = concat + desc;
 				desc = text.replace(/__[^_]*__/, textLink) + desc;
-				if (!foundPid.goesTo || dataKey != "gwent")
-					foundPid.goesTo = item;
+			}
+		}
+
+		if (rescueFrom && typeof rescueFrom == "string") {
+			let text        = esc($.t("pid.rescue"));
+			let matchResult = text.match(/__[^_]*__/);
+			let textHere    = "__?__";
+			if (matchResult && matchResult.length == 1)
+				textHere = matchResult[0].slice(2, -2);
+			let textLink = coordLinkToId(rescueFrom, textHere, data.ids);
+			if (textLink) {
+				if (desc)
+					desc = concat + desc;
+				desc = text.replace(/__[^_]*__/, textLink) + desc;
 				special = true;
 			}
 		}
@@ -426,46 +488,14 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 			if (typeof entrances == "string")
 				entrances = [entrances];
 			if (entrances instanceof Array) {
-				let entranceCoords = [];
-				for (let entrancesId of entrances) {
-					function checkEntrance(entrance) {
-						if (!entrance.groupId || entrance.groupId != entrancesId)
-							return;
-						let eCoords = entrance.coords;
-						if (!eCoords || eCoords.length == 0)
-							return;
-						if (!(eCoords[0] instanceof Array))
-							eCoords = [eCoords];
-						for (let eCoord of eCoords) {
-							if (!isCoord(eCoord))
-								continue;
-							entranceCoords.push(eCoord);
-						}
-					}
-					if (data.entrance instanceof Array)
-						for (let entrance of data.entrance)
-							checkEntrance(entrance);
-					if (data.monsterden instanceof Array)
-						for (let entrance of data.monsterden)
-							checkEntrance(entrance);
-				}
 				let textHere       = esc($.t("entrance.link.here"));
 				let textConcat     = esc($.t("entrance.link.concat"));
 				let textConcatLast = esc($.t("entrance.link.concatLast")) || textConcat;
-				let textLinks = "";
-				for (let i = 0; i < entranceCoords.length; i++) {
-					if (i != 0 && i == entranceCoords.length - 1)
-						textLinks += textConcatLast;
-					else if (i != 0)
-						textLinks += textConcat;
-					textLinks += '<a href="#' + mapInfo.maxZoom + "/" +
-					             entranceCoords[i][0] + "/" + entranceCoords[i][1] +
-					             '">' + textHere + "</a>";
-				}
+				let textLinks = coordLinkToId(entrances, textHere, data.gids, function(item) {
+					return item.dataKey == "entrance" || item.dataKey == "monsterden";
+				}, textConcat, textConcatLast);
 				if (textLinks) {
-					let text = esc($.t("entrance.link.single"));
-					if (entranceCoords.length != 1)
-						text = esc($.t("entrance.link.multiple")) || text;
+					let text = esc($.t("entrance.link.desc"));
 					if (desc)
 						desc += concat;
 					desc += text.replace(/__list__/, textLinks);
@@ -578,11 +608,6 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 			label += "*";
 
 		for (let coord of coords) {
-			if (!isCoord(coord)) {
-				console.error("An element of " + mapInfo.name + "->" + dataKey + " does have an invalid coordinate: ", item, coord);
-				continue;
-			}
-
 			if (f(coord, id, label, desc, icon, routeObjs) === false)
 				return;
 		}

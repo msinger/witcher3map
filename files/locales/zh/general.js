@@ -118,8 +118,7 @@ window.i18nData.zh.general = {
 			desc:  "水下洞穴的入口。"
 		},
 		link: {
-			single:     "你可以在__list__進入地下。",
-			multiple:   "", // Leave empty if same as for single.
+			desc:       "你可以在__list__進入地下。",
 			here:       "這裡",
 			concat:     "、",
 			concatLast: "或" // Leave empty if same as for concat.

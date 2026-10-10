@@ -132,8 +132,7 @@ window.i18nData.en.general = {
 			desc:  "Underwater entrance to cave."
 		},
 		link: {
-			single:     "You can enter the underground __list__.",
-			multiple:   "", // Leave empty if same as for single.
+			desc:       "You can enter the underground __list__.",
 			here:       "here",
 			concat:     ", ",
 			concatLast: " or " // Leave empty if same as for concat.
