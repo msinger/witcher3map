@@ -90,10 +90,10 @@ function isCoord(coord) {
 	       typeof coord[1] == "number";
 }
 
-function tLink(key) {
+function tLink(key, noLink) {
 	let res  = esc($.t(key + ".label")) || key;
 	let link = esc($.t(key + ".link"), true);
-	if (link == key + ".link")
+	if (noLink || link == key + ".link")
 		link = "";
 	if (link)
 		res = '<a target="_blank" href="' + link + '">' + res + "</a>";
@@ -111,7 +111,7 @@ function applyPrefix(key, prefix) {
 }
 
 // Replaces placeholders like __mainquest.pyres__ with a label and optional link provided by locale.
-function subst(text, item, depth = 3) {
+function subst(text, item, depth = 3, noLinks, coordLinkToId, ids) {
 	if (!depth || depth <= 0) {
 		console.error("subst() recursion too deep.");
 		return;
@@ -150,11 +150,11 @@ function subst(text, item, depth = 3) {
 							if (i != 0)
 								res += concat;
 							if (arrMatch[i][0] == "#")
-								res += subst(esc(arrMatch[i].slice(1)), item, depth - 1);
+								res += subst(esc(arrMatch[i].slice(1)), item, depth - 1, noLinks);
 							else if (prop)
-								res += subst(esc($.t(applyPrefix(arrMatch[i] + prop, prefix))), item, depth - 1);
+								res += subst(esc($.t(applyPrefix(arrMatch[i] + prop, prefix))), item, depth - 1, noLinks);
 							else
-								res += tLink(applyPrefix(arrMatch[i], prefix));
+								res += tLink(applyPrefix(arrMatch[i], prefix), noLinks);
 						}
 						return res;
 					}
@@ -164,18 +164,33 @@ function subst(text, item, depth = 3) {
 			let colon = match.indexOf(":");
 			if (!item[match.slice(6, colon)])
 				return "";
-			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1);
+			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1, noLinks);
 		} else if (match.slice(0, 7) == "?!this.") {
 			let colon = match.indexOf(":");
 			if (item[match.slice(7, colon)])
 				return "";
-			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1);
+			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1, noLinks);
+		} else if (match.slice(0, 6) == "*this." && coordLinkToId && ids) {
+			let concat = undefined;
+			let arrMatch = match.match(/^(.*)\[(.*)\]$/);
+			if (arrMatch) {
+				concat = esc(arrMatch[2]);
+				arrMatch = item[arrMatch[1].slice(6)];
+				if (typeof arrMatch == "string")
+					arrMatch = [arrMatch];
+			} else if (item[match.slice(6)]) {
+				arrMatch = [item[match.slice(6)]];
+			}
+			if (arrMatch instanceof Array) {
+				let res = coordLinkToId(arrMatch, null, ids, noLinks, false, concat);
+				return res || match;
+			}
 		}
 		if (match[0] == "#")
-			return subst(esc(match.slice(1)), item, depth - 1);
+			return subst(esc(match.slice(1)), item, depth - 1, noLinks);
 		if (prop)
-			return subst(esc($.t(match + prop)), item, depth - 1);
-		return tLink(match);
+			return subst(esc($.t(match + prop)), item, depth - 1, noLinks);
+		return tLink(match, noLinks);
 	});
 }
 
@@ -265,7 +280,7 @@ function prescreenMapData(mapInfo, data) {
 	}
 }
 
-function substMapData(mapInfo, data, dataKey, f, r) {
+function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
@@ -274,7 +289,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 	function coordListFromIds(id, ids, filter) {
 		if (!(id instanceof Array))
 			id = [id];
-		let coords = [];
+		let res = [];
 		for (let i = 0; i < id.length; i++) {
 			if (!ids[id[i]])
 				continue;
@@ -282,33 +297,94 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 				if (filter && !filter(item, id))
 					continue;
 				for (let coord of item.coords)
-					coords.push(coord);
+					res.push({ coord: coord, item: item });
 			}
 		}
-		return coords;
+		return res;
 	}
 
-	function coordLinkToId(id, text, ids, filter, concat, concatLast) {
-		let coords = coordListFromIds(id, ids, filter || function(item, id) {
+	function isPortal(item, dataKey) {
+		return dataKey == "entrance" && item.portal;
+	}
+
+	function isUnderwater(item, dataKey) {
+		return (dataKey == "treasure" || dataKey == "entrance" || dataKey == "monster") && item.underwater;
+	}
+
+	function genSubKey(item, dataKey) {
+		let subKey = "";
+		if (isPortal(item, dataKey))
+			subKey = ".portal";
+		if (dataKey == "hidden" && item.guarded)
+			subKey = ".guarded";
+		if (isUnderwater(item, dataKey))
+			subKey += ".underwater";
+		return subKey;
+	}
+
+	function genLabel(item, dataKey, subKey, noLinks) {
+		let label = item.label || "";
+
+		if (typeof label != "string" || !label) {
+			label = dataKey + subKey + ".label";
+			if (dataKey == "hollow" && item.stump)
+				label = "#" + (esc($.t(dataKey + ".stump.label")) || esc($.t(label)));
+			else if (dataKey == "hollow" && item.log)
+				label = "#" + (esc($.t(dataKey + ".log.label")) || esc($.t(label)));
+		}
+
+		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, undefined, noLinks);
+
+		if (item.extraLabel) {
+			let extraLabel = item.extraLabel;
+			if (typeof extraLabel == "string")
+				extraLabel = [extraLabel];
+			if (extraLabel instanceof Array) {
+				for (let extra of extraLabel) {
+					if (typeof extra != "string" || !extra)
+						continue;
+					extra = extra[0] == "#" ? extra.substring(1) : $.t(extra);
+					if (extra[0] == "<")
+						extra = extra.substring(1);
+					else if (label)
+						label += concatDash;
+					label += subst(esc(extra), item, undefined, noLinks);
+				}
+			}
+		}
+
+		return label;
+	}
+
+	function coordLinkToId(id, text, ids, noLinks, filter, concat, concatLast) {
+		let items = coordListFromIds(id, ids, filter || function(item, id) {
 			return item.dataKey != "gwent" || concat !== undefined || ids[id].length == 1;
 		});
-		if (coords.length < 1)
+		if (items.length < 1)
 			return false;
-		if (coords.length > 1 && concat === undefined) {
-			console.error("ID matches mutliple coords, but only one is expected:", id, coords);
-			coords = [coords[0]];
+		if (items.length > 1 && concat === undefined) {
+			console.error("ID matches mutliple coords, but only one is expected:", id, items);
+			items = [items[0]];
 		}
 		let links = ""
-		for (let i = 0; i < coords.length; i++) {
+		for (let i = 0; i < items.length; i++) {
 			if (i != 0) {
-				if (concatLast === undefined || i < coords.length - 1)
+				if (concatLast === undefined || i < items.length - 1)
 					links += concat;
 				else
 					links += concatLast;
 			}
-			links += '<a href="#' + mapInfo.maxZoom + "/" +
-			         coords[i][0] + "/" + coords[i][1] +
-			         '">' + text + "</a>";
+			let ltext = text;
+			if (ltext === null) {
+				let subKey = genSubKey(items[i].item, items[i].item.dataKey);
+				ltext = genLabel(items[i].item, items[i].item.dataKey, subKey, true);
+			}
+			if (noLinks)
+				links += ltext;
+			else
+				links += '<a href="#' + mapInfo.maxZoom + "/" +
+				         items[i].coord[0] + "/" + items[i].coord[1] +
+				         '">' + ltext + "</a>";
 		}
 		return links;
 	}
@@ -323,18 +399,18 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 
 		let id          = (item.id && typeof item.id == "string") ? item.id : null;
 		let icon        = dataKey;
-		let label       = item.label || "";
 		let desc        = item.desc;
-		let extraLabel  = item.extraLabel;
 		let extraDesc   = item.extraDesc;
 		let notInGame   = item.notInGame;
 		let unreachable = item.unreachable;
-		let portal      = dataKey == "entrance" && item.portal;
-		let underwater  = (dataKey == "treasure" || dataKey == "entrance" || dataKey == "monster") && item.underwater;
+		let portal      = isPortal(item, dataKey);
+		let underwater  = isUnderwater(item, dataKey);
 		let after       = item.after;
 		let before      = item.before;
 		let weakBefore  = item.weakBefore;
 		let during      = item.during;
+		let cleared     = item.cleared;
+		let uncleared   = item.uncleared;
 		let rescueFrom  = isPerson(dataKey) && item.rescueFrom;
 		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) && id;
 		let special     = false;
@@ -342,21 +418,8 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		let entrances   = (data.entrance.length || data.monsterden.length) && item.entrances;
 		let images      = item.images;
 
-		let subKey = "";
-		if (portal)
-			subKey = ".portal";
-		if (dataKey == "hidden" && item.guarded)
-			subKey = ".guarded";
-		if (underwater)
-			subKey += ".underwater";
-
-		if (typeof label != "string" || !label) {
-			label = dataKey + subKey + ".label";
-			if (dataKey == "hollow" && item.stump)
-				label = "#" + (esc($.t(dataKey + ".stump.label")) || esc($.t(label)));
-			else if (dataKey == "hollow" && item.log)
-				label = "#" + (esc($.t(dataKey + ".log.label")) || esc($.t(label)));
-		}
+		let subKey = genSubKey(item, dataKey);
+		let label = genLabel(item, dataKey, subKey);
 
 		if (typeof desc != "string" || (desc !== "" && !desc)) {
 			desc = dataKey + subKey + ".desc";
@@ -366,25 +429,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 				desc = "#" + (esc($.t(dataKey + ".log.desc")) || esc($.t(desc)));
 		}
 
-		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item);
 		desc = desc && subst(esc(desc[0] == "#" ? desc.substring(1) : $.t(desc)), item);
-
-		if (extraLabel) {
-			if (typeof extraLabel == "string")
-				extraLabel = [extraLabel];
-			if (extraLabel instanceof Array) {
-				for (let extra of extraLabel) {
-					if (typeof extra != "string" || !extra)
-						continue;
-					extra = extra[0] == "#" ? extra.substring(1) : $.t(extra);
-					if (extra[0] == "<")
-						extra = extra.substring(1);
-					else if (label)
-						label += concatDash;
-					label += subst(esc(extra), item);
-				}
-			}
-		}
 
 		if (extraDesc) {
 			if (typeof extraDesc == "string")
@@ -408,6 +453,22 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 
 		if (unreachable)
 			label += concat + openBracket + esc($.t("misc.unreachable")) + closeBracket;
+
+		if (cleared) {
+			cleared = subst(esc($.t("misc.cleared")), item, undefined, noLinks, coordLinkToId, data.ids);
+			if (desc)
+				desc = concat + desc;
+			desc = cleared + desc;
+			special = true;
+		}
+
+		if (uncleared) {
+			uncleared = subst(esc($.t("misc.uncleared")), item, undefined, noLinks, coordLinkToId, data.ids);
+			if (desc)
+				desc = concat + desc;
+			desc = uncleared + desc;
+			special = true;
+		}
 
 		if (after) {
 			after = subst(esc($.t("misc.after")), item);
@@ -471,8 +532,12 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 		}
 
 		if (item.liberate) {
-			lib = subst(esc($.t("misc.liberate")), item);
-			if (desc)
+			let lib = "";
+			if (item.liberate === true)
+				lib = subst(esc($.t("misc.liberate")), item);
+			else
+				lib = subst(esc($.t("misc.liberateThis")), item, undefined, noLinks, coordLinkToId, data.ids);
+			if (desc && lib)
 				desc += concat;
 			desc += lib;
 			special = true;
@@ -491,7 +556,7 @@ function substMapData(mapInfo, data, dataKey, f, r) {
 				let textHere       = esc($.t("entrance.link.here"));
 				let textConcat     = esc($.t("entrance.link.concat"));
 				let textConcatLast = esc($.t("entrance.link.concatLast")) || textConcat;
-				let textLinks = coordLinkToId(entrances, textHere, data.gids, function(item) {
+				let textLinks = coordLinkToId(entrances, textHere, data.gids, false, function(item) {
 					return item.dataKey == "entrance" || item.dataKey == "monsterden";
 				}, textConcat, textConcatLast);
 				if (textLinks) {
