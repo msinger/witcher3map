@@ -86,14 +86,67 @@ var icon_sizes = {
 	vineyardinfestation: [[28, 32], [28, 41]]
 };
 
+for (micon of monster_icons)
+	icon_sizes["monster/" + micon] = [[32, 32], [32, 41]];
+
 var draw_colors = {
-	alchemy:       "#8ac33b",
-	entrance:      "#cb67fe",
-	herbalist:     "#8ac33b",
-	shopkeeper:    "#ffed86",
-	sidequest:     "#ffcc00",
-	sidequest_hos: "#4da4dd",
-	sidequest_baw: "#ed7459"
+	alchemy:                  "#8ac33b",
+	entrance:                 "#cb67fe",
+	herbalist:                "#8ac33b",
+	shopkeeper:               "#ffed86",
+	sidequest:                "#ffcc00",
+	sidequest_hos:            "#4da4dd",
+	sidequest_baw:            "#ed7459",
+	"monster/alghoul":        "#95507c",
+	"monster/alp":            "#55291f",
+	"monster/arachas":        "#812b25",
+	"monster/arachnomorph":   "#1b1b1b",
+	"monster/archespore":     "#782418",
+	"monster/banshee":        "#322f2b",
+	"monster/barghest":       "#6e9547",
+	"monster/basilisk":       "#3e352c",
+	"monster/bear":           "#3a2012",
+	"monster/bruxa":          "#331f1c",
+	"monster/cyclops":        "#3f2f2d",
+	"monster/drowner":        "#738290",
+	"monster/earthelemental": "#8d352b",
+	"monster/endrega":        "#3b2e8d",
+	"monster/fiend":          "#803a37",
+	"monster/fireelemental":  "#e47a11",
+	"monster/fleder":         "#7d74a0",
+	"monster/foglet":         "#aea3a1",
+	"monster/forktail":       "#91934c",
+	"monster/gargoyle":       "#203712",
+	"monster/garkain":        "#be7976",
+	"monster/ghoul":          "#a8536b",
+	"monster/giantcentipede": "#1a1213",
+	"monster/golem":          "#383430",
+	"monster/gravehag":       "#b0627d",
+	"monster/griffin":        "#281a1b",
+	"monster/harpy":          "#3b3027",
+	"monster/icetroll":       "#55a3a4",
+	"monster/kikimore":       "#362021",
+	"monster/leshen":         "#ac8276",
+	"monster/nekker":         "#9fb28e",
+	"monster/nightwraith":    "#64984e",
+	"monster/noonwraith":     "#71a68a",
+	"monster/palewidow":      "#cec0c7",
+	"monster/panther":        "#2a211d",
+	"monster/rocktroll":      "#7c9c96",
+	"monster/scurver":        "#b85d50",
+	"monster/shaelmaar":      "#403635",
+	"monster/siren":          "#95726b",
+	"monster/slyzard":        "#a18b84",
+	"monster/spriggan":       "#352c28",
+	"monster/waterhag":       "#666493",
+	"monster/werewolf":       "#493f39",
+	"monster/wight":          "#352a1e",
+	"monster/wildboar":       "#2f2019",
+	"monster/wilddog":        "#352e30",
+	"monster/wildhunthound":  "#474b56",
+	"monster/wolf":           "#8d9490",
+	"monster/wraith":         "#77bf8d",
+	"monster/wyvern":         "#3d2a2b"
 };
 
 function toCoordId(coord) {
@@ -328,7 +381,7 @@ function processData(checkedMarkers) {
 					continue;
 				groupItems.push(area.layer);
 			}
-		}, function(r) {
+		}, function(r, icon) {
 			let arr = [];
 			if (!isCoord(r.coords[0]) && r.coords[0] instanceof Array) {
 				for (let sub of r.coords) {
@@ -351,11 +404,11 @@ function processData(checkedMarkers) {
 				}
 			}
 			let id = routes.length;
-			r.layer = L.polyline(arr, { color: draw_colors[dataKey] || "red", dashArray: r.dashed ? "4 8" : null });
+			r.layer = L.polyline(arr, { color: draw_colors[icon] || "red", dashArray: r.dashed ? "4 8" : null });
 			r.layer.route = r;
 			routes.push(r);
 			return id;
-		}, function(a) {
+		}, function(a, icon) {
 			let arr = [];
 			if (!isCoord(a.coords[0]) && a.coords[0] instanceof Array) {
 				for (let sub of a.coords) {
@@ -378,7 +431,7 @@ function processData(checkedMarkers) {
 				}
 			}
 			let id = areas.length;
-			a.layer = L.polygon(arr, { color: draw_colors[dataKey] || "red" });
+			a.layer = L.polygon(arr, { color: draw_colors[icon] || "red" });
 			a.layer.area = a;
 			areas.push(a);
 			return id;
