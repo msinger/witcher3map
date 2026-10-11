@@ -2,17 +2,13 @@ window.i18nData = window.i18nData || {};
 window.i18nData.pl = window.i18nData.pl || {};
 window.i18nData.pl.t = {
 	banditcamp: {
-		hanse: { desc: "Powstanie tylko wtedy, gdy „__this.hanse__” Kryjówka Hanzy nie został wyczyszczony." },
-		ussar: { desc: "Powstanie tylko wtedy, gdy jajka nie zostaną zniszczone podczas misji „__contract.bonvineblues__”." }
+		ussar: { desc: "Powstanie tylko wtedy, gdy jajka nie zostaną zniszczone podczas misji „__contract.bovineblues__”." }
 	},
 	blacksmith: {
 		lafargue: { label: "Lafargue" }
 	},
 	brothel: {
 		belle: { label: "Dzwony Beauclair" }
-	},
-	guarded: {
-		hanse: { desc: "Powstanie tylko wtedy, gdy „__this.hanse__” Kryjówka Hanzy został wyczyszczony." }
 	},
 	innkeep: {
 		desc: "Tutaj możesz kupić lub sprzedać różne produkty.",

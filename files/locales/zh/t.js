@@ -5,14 +5,10 @@ window.i18nData.zh.t = {
 		lafargue: { label: "拉法格" }
 	},
 	banditcamp: {
-		hanse: { desc: "它只會在「__this.hanse__」漢斯基地沒有被清除的情況下產生。" },
-		ussar: { desc: "只有在「__contract.bonvineblues__」任務期間雞蛋沒有被摧毀，它才會生成。" }
+		ussar: { desc: "只有在「__contract.bovineblues__」任務期間雞蛋沒有被摧毀，它才會生成。" }
 	},
 	brothel: {
 		belle: { label: "博克萊爾的美女" }
-	},
-	guarded: {
-		hanse: { desc: "它只會在「__this.hanse__」漢斯基地有被清除的情況下產生。" }
 	},
 	innkeep: {
 		desc: "在這裡您可以購買或出售各種物品。",

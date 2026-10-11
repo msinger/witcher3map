@@ -64,26 +64,19 @@
 		             [108.438,65.031]]
 	}, {
 		coords:      [94.984,42.109],
-		extraDesc:   "t:banditcamp.hanse.desc",
-		hanse:       "t:signpost.fox",
-		special:     true
+		uncleared:   "foxhollow_hanse"
 	}, {
 		coords:      [[111.828,72.338],
 		             [114.313,75.469]],
-		extraDesc:   "t:banditcamp.hanse.desc",
-		hanse:       "t:signpost.arthachpalaceruins",
-		special:     true
+		uncleared:   "arthach_hanse"
 	}, {
 		coords:      [[73.156,109.594],
 		             [73.750,114.063]],
-		extraDesc:   "t:banditcamp.hanse.desc",
-		hanse:       "t:signpost.montcranecastle",
-		special:     true
+		uncleared:   "montcrane_hanse"
 	}, {
 		coords:      [68.828,115.984],
-		extraDesc:   ["t:banditcamp.hanse.desc",
-		              "t:banditcamp.ussar.desc"],
-		hanse:       "t:signpost.montcranecastle",
+		extraDesc:   "t:banditcamp.ussar.desc",
+		uncleared:   "montcrane_hanse",
 		after:       "contract.bovineblues"
 	}],
 	// ----------------- Barbers ------------------------
@@ -363,19 +356,14 @@
 	}, {
 		coords:      [[111.828,72.859],
 		             [114.172,75.891]],
-		extraDesc:   "t:guarded.hanse.desc",
-		hanse:       "t:signpost.arthachpalaceruins",
-		special:     true
+		cleared:     "arthach_hanse"
 	}, {
 		coords:      [[73.344,109.203],
 		             [73.875,113.547]],
-		extraDesc:   "t:guarded.hanse.desc",
-		hanse:       "t:signpost.montcranecastle",
-		special:     true
+		cleared:     "montcrane_hanse"
 	}, {
 		coords:      [94.906,41.859],
-		extraDesc:   "t:guarded.hanse.desc",
-		hanse:       "t:signpost.fox",
+		cleared:     "foxhollow_hanse",
 		special:     true
 	}],
 	// ----------------- Gwent Players ------------------
@@ -425,9 +413,14 @@
 	},],
 	// ----------------- Hanse Bases --------------------
 	hansebase: [{
-		coords:      [[116.047,71.625],
-		             [96.438,44.750],
-		             [80.813,108.313]]
+		coords:      [116.047,71.625],
+		id:          "arthach_hanse"
+	}, {
+		coords:      [96.438,44.750],
+		id:          "foxhollow_hanse"
+	}, {
+		coords:      [80.813,108.313],
+		id:          "montcrane_hanse"
 	}],
 	// ----------------- Harbors ------------------------
 	harbor: [{

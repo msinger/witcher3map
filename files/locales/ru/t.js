@@ -2,18 +2,14 @@ window.i18nData = window.i18nData || {};
 window.i18nData.ru = window.i18nData.ru || {};
 window.i18nData.ru.t = {
 	banditcamp: {
-		hanse: { desc: "Он появится только в том случае, если «__this.hanse__» Логово ганзы не был очищен." },
 		ussar: { desc: "Он появится только в том случае, если яйца не были уничтожены во время миссии " +
-		               "«__contract.bonvineblues__»." }
+		               "«__contract.bovineblues__»." }
 	},
 	blacksmith: {
 		lafargue: { label: "Лазарь Лафарг" }
 	},
 	brothel: {
 		belle: { label: "Дом Наслаждений Боклера" }
-	},
-	guarded: {
-		hanse: { desc: "Он появится только в том случае, если «__this.hanse__» Логово ганзы был очищен."}
 	},
 	innkeep: {
 		desc: "Здесь вы можете покупать или продавать различные предметы.",
