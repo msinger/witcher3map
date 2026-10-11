@@ -192,58 +192,208 @@
 	}],
 	// ----------------- Monsters -----------------------
 	monster: [{
-		coords:      [54.063,16.500],   // 6x-8x Nekker (L6) (in pr_poe_monsters area)
-		name:        "nekker",
-		level:       "#6"
-	}, {
 		coords:      [85.938,34.969],   // 1x Wraith (L6)
 		name:        "wraith",
-		level:       "#6"
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[86.141,34.578], [86.141,35.609], [85.000,35.609], [85.000,34.578]]
+		}]
 	}, {
 		coords:      [59.563,115.156],  // 2x Wolf (L5)
 		name:        "wolf",
 		level:       "#5",
-		uncleared:   "bridgeBandits"
+		uncleared:   "bridgeBandits",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[56.125,119.219], [54.688,113.750], [56.781,113.437], [58.469,112.344], [60.625,112.312],
+			        [60.469,119.250], [58.031,120.625]]
+		}]
 	}, {
-		coords:      [[72.750,40.688],  // 1x Warg (L5), 6x Wolf (L5) (in pr_poe_monsters area)
-		             [107.906,103.656], // 2x Warg (L5), {4h-21h: 12x, 21h-4h: 14x} Wolf (L5) (in pr_poe_003 area)
-		             [95.500,92.875],   // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 5x} Wolf (L5) (in pr_poe_005 area)
-		             [124.250,55.375],  // 1x Warg (L5), {4h-21h: 3x, 21h-4h: 4x} Wolf (L5) (in pr_poe_007 area)
-		             [87.969,34.938],   // 1x Warg (L5), {4h-21h: 5x, 21h-4h: 7x} Wolf (L5) (in pr_poe_012 area)
-		             [78.875,13.688],   // 1x Warg (L5), {4h-21h: 5x, 21h-4h: 8x} Wolf (L5) (in pr_poe_013 area)
-		             [57.250,19.125],   // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 6x} Wolf (L5) (in pr_poe_014 area)
-		             [35.250,39.000]],  // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 6x} Wolf (L5) (in pr_poe_015 area)
+		coords:      [72.750,40.688],   // 1x Warg (L5), 6x Wolf (L5) (in pr_poe_monsters area)
 		name:        "wolf",
-		level:       "#5"
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[67.188,38.000], [71.125,36.250], [76.125,35.063], [82.563,34.813], [83.375,38.813],
+			        [82.375,41.500], [78.563,42.000], [75.438,43.625], [72.375,45.813], [70.188,46.000]]
+		}]
 	}, {
-		coords:      [[45.000,120.313], // 2x Drowner (L4)
-		             [89.500,50.688],   // 2x Drowner (L4)
-		             [97.375,15.313],   // {4h-21h: 3x, 21h-4h: 5x} Drowner (L4) (in pr_poe_010 area)
-		             [102.250,25.500]], // {4h-21h: 3x, 21h-4h: 5x} Drowner (L4) (in pr_poe_011 area)
+		coords:      [107.906,103.656], // 2x Warg (L5), {4h-21h: 12x, 21h-4h: 14x} Wolf (L5) (in pr_poe_003 area)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[123.625,85.000], [122.000,101.125], [108.188,121.563], [104.500,120.188], [107.813,84.313]]
+		}]
+	}, {
+		coords:      [95.500,92.875],   // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 5x} Wolf (L5) (in pr_poe_005 area)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[99.188,89.500], [100.875,86.313], [107.500,89.438], [105.313,98.250], [101.000,98.125],
+			        [97.375,102.375], [88.063,101.188], [86.063,91.188], [88.625,83.625], [93.250,83.313],
+			        [95.188,88.625]]
+		}]
+	}, {
+		coords:      [120.188,50.469],  // 1x Warg (L5), {4h-21h: 3x, 21h-4h: 4x} Wolf (L5) (in pr_poe_007 area)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[122.469,42.344], [123.844,53.906], [116.500,54.500], [117.563,46.156], [118.344,44.813]]
+		}]
+	}, {
+		coords:      [93.688,33.625],   // 1x Warg (L5), {4h-21h: 5x, 21h-4h: 7x} Wolf (L5) (in pr_poe_012 area)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.688,41.313], [82.063,28.625], [86.281,27.656], [90.750,25.813], [98.250,30.000],
+			        [104.250,37.094]]
+		}]
+	}, {
+		coords:      [78.875,13.688],   // 1x Warg (L5), {4h-21h: 5x, 21h-4h: 8x} Wolf (L5) (in pr_poe_013 area)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[83.125,4.219], [85.969,15.250], [85.188,22.250], [78.906,25.000], [75.406,28.625],
+			        [72.281,24.906], [72.531,10.781], [66.375,0.000], [78.781,0.000]]
+		}]
+	}, {
+		coords:      [57.250,19.125],   // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 6x} Wolf (L5) (in pr_poe_014 area)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[64.594,21.000], [64.531,25.469], [52.719,26.875], [48.938,21.313], [45.188,20.531],
+			        [47.344,10.969], [58.750,2.844], [65.750,0.000], [65.000,12.281], [61.281,15.344]]
+		}]
+	}, {
+		coords:      [35.250,39.000],   // 1x Warg (L5), {4h-21h: 4x, 21h-4h: 6x} Wolf (L5) (in pr_poe_015 area)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[46.000,33.375], [46.875,40.375], [41.875,47.625], [37.375,47.750], [32.250,44.125],
+			        [31.500,42.250], [27.000,37.125], [21.250,34.125], [26.000,26.250], [35.000,20.000],
+			        [39.875,24.250], [40.250,31.125]]
+		}]
+	}, {
+		coords:      [45.000,120.313],  // 2x Drowner (L4)
 		name:        "drowner",
-		level:       "#4"
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[44.313,117.156], [45.469,120.781], [43.313,121.375], [42.281,117.688]]
+		}]
 	}, {
-		coords:      [[119.656,36.125], // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_008 area)
-		             [38.750,125.750],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_018 area)
-		             [96.875,49.750]],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_023 area)
+		coords:      [89.500,50.688],   // 2x Drowner (L4)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[89.906,47.938], [91.281,52.281], [88.938,52.906], [87.656,48.563]]
+		}]
+	}, {
+		coords:      [98.938,12.531],   // {4h-21h: 3x, 21h-4h: 5x} Drowner (L4) (in pr_poe_010 area)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[101.844,18.219], [98.656,18.500], [97.188,14.750], [94.281,14.031], [93.094,17.188],
+			        [89.563,15.625], [89.063,13.719], [85.969,12.156], [85.969,6.750], [88.625,12.281],
+			        [92.344,12.688], [96.125,8.125], [100.188,7.781], [104.719,14.031]]
+		}]
+	}, {
+		coords:      [102.250,25.500],  // {4h-21h: 3x, 21h-4h: 5x} Drowner (L4) (in pr_poe_011 area)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[105.219,22.563], [106.938,25.188], [107.281,27.031], [106.938,28.813], [105.406,30.813],
+			        [101.844,32.844], [97.656,28.594], [93.313,29.031], [90.969,25.719], [95.625,25.281],
+			        [97.875,20.438], [102.031,24.688]]
+		}]
+	}, {
+		coords:      [119.656,36.125],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_008 area)
 		name:        "drowner", // only if player has crossbow
 		level:       "#10",
-		underwater:  true
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[124.438,37.000], [119.688,41.500], [114.938,40.688], [112.125,36.500], [116.375,30.313],
+			        [121.750,31.750]]
+		}]
 	}, {
-		coords:      [[37.125,59.250],  // 1x Bear (L6) (in pr_poe_monsters area)
-		             [119.188,74.063]], // 1x Bear (L6) (in pr_poe_006 area)
+		coords:      [38.750,125.750],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_018 area)
+		name:        "drowner", // only if player has crossbow
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[40.188,109.812], [41.375,120.875], [44.125,126.062], [38.813,132.500], [31.500,129.875],
+			        [36.875,117.375], [34.063,113.000], [36.875,107.750]]
+		}]
+	}, {
+		coords:      [96.875,49.750],   // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_023 area)
+		name:        "drowner", // only if player has crossbow
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[101.313,47.438], [103.063,49.063], [99.188,50.563], [97.875,51.813], [92.188,50.375],
+			        [90.938,49.625], [91.625,48.313], [93.813,47.875], [94.938,48.438], [97.563,48.438],
+			        [98.063,47.813], [99.813,47.938]]
+		}]
+	}, {
+		coords:      [37.125,59.250],   // 1x Bear (L6) (in pr_poe_monsters area)
 		name:        "bear",
-		level:       "#6"
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[42.125,61.438], [39.563,62.688], [33.000,62.250], [27.813,63.875], [24.375,61.000],
+			        [25.438,58.563], [30.438,57.625], [34.125,54.500], [37.750,54.000], [41.250,55.750]]
+		}]
 	}, {
-		coords:      [91.875,86.125],   // 5x-7x Wild Dog (L1) (in pr_poe_monsters area)
+		coords:      [119.188,74.063],  // 1x Bear (L6) (in pr_poe_006 area)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[108.375,73.563], [110.938,69.500], [125.000,67.250], [128.000,82.188], [116.125,83.375],
+			        [109.063,80.625]]
+		}]
+	}, {
+		coords:      [83.938,90.438],   // 5x-7x Wild Dog (L1) (in pr_poe_monsters area)
 		name:        "wilddog",
-		level:       "#1"
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[81.125,85.813], [84.875,84.750], [87.875,82.313], [92.250,84.313], [92.813,88.375],
+			        [89.063,98.875], [84.813,100.500], [81.188,97.438], [78.500,92.688]]
+		}]
 	}, {
 		coords:      [94.156,137.531],  // {4h-21h: 11x, 21h-4h: 16x} Wild Dog (L1) (in pr_poe_002 area)
 		name:        "wilddog",
 		level:       "#1",
 		cleared:     "battlefieldNest",
-		after:       "mainquest.lilac"
+		after:       "mainquest.lilac",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[99.188,132.500], [99.938,139.438], [96.563,143.625], [91.063,144.000], [88.250,142.438],
+			        [90.938,139.000], [92.063,133.563], [94.188,132.625]]
+		}]
+	}, {
+		coords:      [54.063,16.500],   // 6x-8x Nekker (L6) (in pr_poe_monsters area)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[56.938,7.188], [60.125,20.125], [57.250,24.688], [51.750,22.813], [45.625,11.688]]
+		}]
 	}],
 	// ----------------- Monster Nests ------------------
 	monsternest: [{

@@ -481,6 +481,7 @@ window.i18nData.en.general = {
 		prevLink:     "PREV",
 		closeLink:    "CLOSE",
 		route:        "The following routes are associated with this marker: __routes[, ]__",
+		area:         "The following areas are associated with this marker: __areas[, ]__",
 		contribute:   "Bug reports and other contributions: __link__",
 		portraitWarn: "Note: the map is best viewed in landscape mode, tap to dismiss",
 		logo:         "files/images/logo/logo_en.png",
@@ -489,6 +490,7 @@ window.i18nData.en.general = {
 	monster: {
 		label: "__this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Monsters spawn here.",
+		spawn: "Spawn Area",
 		underwater: {
 			label: "Underwater __this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
 			desc:  "Monsters spawn here underwater.",

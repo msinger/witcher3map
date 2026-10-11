@@ -288,7 +288,7 @@ function prescreenMapData(mapInfo, data) {
 	}
 }
 
-function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
+function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
@@ -627,6 +627,48 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 			}
 		}
 
+		let areaObjs = [];
+		if (item.areas instanceof Array) {
+			let links = [];
+
+			for (let area of item.areas) {
+				if (!(area instanceof Object))
+					continue;
+				if (typeof area.name != "string")
+					continue;
+				if (!(area.coords instanceof Array) || area.coords.length == 0)
+					continue;
+				let obj = {
+					name:   esc($.t(area.name)),
+					coords: area.coords,
+					fuse:   dataKey == "monster"
+				};
+				obj.id = a ? a(obj) : -1;
+				areaObjs.push(obj);
+				let link = '<a href="javascript:selectArea(' + obj.id + ');">' + obj.name + '</a>';
+				if (noLinks)
+					link = obj.name;
+				links.push(link);
+			}
+
+			if (links.length != 0) {
+				let areaDesc = esc($.t("misc.area"));
+				areaDesc = areaDesc.replace(/__areas\[([^_]+_?)*[^_]*\]__/, function(match) {
+					let areasConcat = match.slice(9, -3);
+					let res = "";
+					for (let i = 0; i < links.length; i++) {
+						if (i != 0)
+							res += areasConcat;
+						res += links[i];
+					}
+					return res;
+				});
+				if (desc)
+					desc += concat;
+				desc += areaDesc;
+			}
+		}
+
 		if (item.hos && dataKey == "sidequest")
 			icon += "_hos";
 		else if (item.baw && dataKey == "sidequest")
@@ -681,7 +723,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 			label += "*";
 
 		for (let coord of coords) {
-			if (f(coord, id, label, desc, icon, routeObjs) === false)
+			if (f(coord, id, label, desc, icon, routeObjs, areaObjs) === false)
 				return;
 		}
 	}
