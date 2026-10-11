@@ -31,6 +31,8 @@ Things I have added and fixed:
 * Upgraded Leaflet from version 0.7.7 to 1.9.3.
 * Mapdata can now define "routes" for markers. They will translate to Leaflet's polylines. We can use them
   to highlight travelling merchants paths and race tracks associated with sidequests.
+* Mapdata can now define "areas" for markers. They will translate to Leaflet's polygons. We can use them
+  to draw spawn areas for monsters.
 * Interior maps with multiple floors can now be drawn as an extra layer ontop of the world map. Entrance markers
   will provide a link to open the interior map in their info box.
 * Markers for quests with alternative starting points can now be linked and will be toggled in sync.

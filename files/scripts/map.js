@@ -6,8 +6,16 @@ var markerLayers = {};
 var hasMarkers = {};
 var uncheckedMarkerCount = {};
 var notes = [];
+var uncheckedMarkerOpacity = 0.9;
 var checkedMarkerOpacity = 0.25;
+var uncheckedRouteOpacity = 0.7;
+var checkedRouteOpacity = 0.25;
+var uncheckedAreaStrokeOpacity = 0.7;
+var checkedAreaStrokeOpacity = 0.25;
+var uncheckedAreaFillOpacity = 0.2;
+var checkedAreaFillOpacity = 0.075;
 var routes = [];
+var areas = [];
 var interiors = [];
 var map = null;
 var searchData = [];
@@ -77,7 +85,7 @@ var icon_sizes = {
 	vineyardinfestation: [[28, 32], [28, 41]]
 };
 
-var route_colors = {
+var draw_colors = {
 	alchemy:       "#8ac33b",
 	entrance:      "#cb67fe",
 	herbalist:     "#8ac33b",
@@ -91,7 +99,7 @@ function toCoordId(coord) {
 	return coord[0].toFixed(3) + ";" + coord[1].toFixed(3);
 }
 
-function createMarker(coord, icon, label, popup, dataKey, id, checked, routes) {
+function createMarker(coord, icon, label, popup, dataKey, id, checked, routes, areas) {
 	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
 
 	marker.bindTooltip(label);
@@ -117,7 +125,7 @@ function createMarker(coord, icon, label, popup, dataKey, id, checked, routes) {
 		checkedMarkers.push(id);
 	}
 
-	marker.setOpacity(checked ? checkedMarkerOpacity : 1.0);
+	marker.setOpacity(checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
 
 	markers[coordId] = obj;
 	obj.icons.push(marker);
@@ -144,7 +152,7 @@ function createMarker(coord, icon, label, popup, dataKey, id, checked, routes) {
 		if (!route.fuse)
 			continue;
 
-		route.layer.setStyle({ opacity: checked ? checkedMarkerOpacity : 0.7 });
+		route.layer.setStyle({ opacity: checked ? checkedRouteOpacity : uncheckedRouteOpacity });
 
 		route.layer.on("click", function(e) {
 			if (!e.target || !e.target.route || !e.target.route.marker)
@@ -157,6 +165,26 @@ function createMarker(coord, icon, label, popup, dataKey, id, checked, routes) {
 				return;
 			L.DomEvent.stopPropagation(e);
 			toggleMarker(e.target.route.marker.obj);
+		});
+	}
+
+	marker.areas = [];
+	for (let area of areas) {
+		marker.areas.push(area);
+		area.marker = marker;
+
+		if (!area.fuse)
+			continue;
+
+		area.layer.setStyle({
+			opacity:     checked ? checkedAreaStrokeOpacity : uncheckedAreaStrokeOpacity,
+			fillOpacity: checked ? checkedAreaFillOpacity   : uncheckedAreaFillOpacity
+		});
+
+		area.layer.on("click", function(e) {
+			if (!e.target || !e.target.area || !e.target.area.marker)
+				return;
+			e.target.area.marker.openPopup();
 		});
 	}
 
@@ -181,11 +209,19 @@ function toggleMarker(mobj, noUpdate) {
 	mobj.checked = !mobj.checked;
 
 	for (m of mobj.icons) {
-		m.setOpacity(mobj.checked ? checkedMarkerOpacity : 1.0);
+		m.setOpacity(mobj.checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
 		for (let route of m.routes) {
 			if (!route.fuse)
 				continue;
-			route.layer.setStyle({ opacity: mobj.checked ? checkedMarkerOpacity : 0.7 });
+			route.layer.setStyle({ opacity: mobj.checked ? checkedRouteOpacity : uncheckedRouteOpacity });
+		}
+		for (let area of m.areas) {
+			if (!area.fuse)
+				continue;
+			area.layer.setStyle({
+				opacity:     mobj.checked ? checkedAreaStrokeOpacity : uncheckedAreaStrokeOpacity,
+				fillOpacity: mobj.checked ? checkedAreaFillOpacity   : uncheckedAreaFillOpacity
+			});
 		}
 	}
 
@@ -258,7 +294,7 @@ function processData(checkedMarkers) {
 	for (let dataKey of markerGroupNames) {
 		let groupItems = [];
 
-		substMapData(mapInfos[0], data, dataKey, function(coord, id, label, desc, icon, routes) {
+		substMapData(mapInfos[0], data, dataKey, function(coord, id, label, desc, icon, routes, areas) {
 			if (!icons[icon]) {
 				console.error("Invalid icon:", icon);
 				return;
@@ -272,7 +308,7 @@ function processData(checkedMarkers) {
 			let tooltip = label.replace(/<\/?[^>]+(>|$)/g, "");
 			let m = createMarker(coord, icons[icon], tooltip,
 			                     "<h1>" + label + "</h1>" + desc,
-			                     dataKey, id, checked, routes);
+			                     dataKey, id, checked, routes, areas);
 			groupItems.push(m);
 
 			searchData.push({
@@ -284,6 +320,12 @@ function processData(checkedMarkers) {
 				if (!route.fuse)
 					continue;
 				groupItems.push(route.layer);
+			}
+
+			for (let area of areas) {
+				if (!area.fuse)
+					continue;
+				groupItems.push(area.layer);
 			}
 		}, function(r) {
 			let arr = [];
@@ -308,9 +350,36 @@ function processData(checkedMarkers) {
 				}
 			}
 			let id = routes.length;
-			r.layer = L.polyline(arr, { color: route_colors[dataKey] || "red", dashArray: r.dashed ? "4 8" : null });
+			r.layer = L.polyline(arr, { color: draw_colors[dataKey] || "red", dashArray: r.dashed ? "4 8" : null });
 			r.layer.route = r;
 			routes.push(r);
+			return id;
+		}, function(a) {
+			let arr = [];
+			if (!isCoord(a.coords[0]) && a.coords[0] instanceof Array) {
+				for (let sub of a.coords) {
+					if (!(sub instanceof Array))
+						continue;
+					let innerArr = [];
+					for (let coord of sub) {
+						if (!isCoord(coord))
+							continue;
+						innerArr.push(L.latLng(coord[0], coord[1]));
+					}
+					if (innerArr.length != 0)
+						arr.push(innerArr);
+				}
+			} else {
+				for (let coord of a.coords) {
+					if (!isCoord(coord))
+						continue;
+					arr.push(L.latLng(coord[0], coord[1]));
+				}
+			}
+			let id = areas.length;
+			a.layer = L.polygon(arr, { color: draw_colors[dataKey] || "red" });
+			a.layer.area = a;
+			areas.push(a);
 			return id;
 		});
 
@@ -339,6 +408,27 @@ function selectRoute(id, skipFit) {
 		map.fitBounds(r.layer.getBounds());
 	if (!r.fuse)
 		updateRouteHash(id);
+}
+
+function unselectAreas(skipHashUpdate) {
+	for (a of areas) {
+		if (a.fuse)
+			continue;
+		map.removeLayer(a.layer);
+	}
+	if (!skipHashUpdate)
+		updateAreaHash(-1);
+}
+
+function selectArea(id, skipFit) {
+	unselectAreas(true);
+	let a = areas[id];
+	if (!a.fuse)
+		a.layer.addTo(map);
+	if (!skipFit)
+		map.fitBounds(a.layer.getBounds());
+	if (!a.fuse)
+		updateAreaHash(id);
 }
 
 function unselectFloors(id) {
@@ -742,6 +832,13 @@ function runMap() {
 			hash.addParam("r", r);
 		else
 			hash.removeParam("r");
+	}
+
+	window.updateAreaHash = function(a) {
+		if (a >= 0)
+			hash.addParam("a", a);
+		else
+			hash.removeParam("a");
 	}
 
 	window.updateInteriorHash = function() {
@@ -1432,6 +1529,12 @@ function runMap() {
 		let rid = +hashParams.r;
 		if (rid >= 0 && rid < routes.length)
 			selectRoute(rid, true);
+	}
+
+	if (hashParams.a) {
+		let aid = +hashParams.a;
+		if (aid >= 0 && aid < areas.length)
+			selectArea(aid, true);
 	}
 
 	if (hashParams.i) {

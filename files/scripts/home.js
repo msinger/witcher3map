@@ -17,7 +17,7 @@ function processMapDataForGlobalSearch(map) {
 			});
 
 			searchCount++;
-		}, undefined, true);
+		}, undefined, undefined, true);
 	}
 }
 
