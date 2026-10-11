@@ -5,11 +5,7 @@ function processMapDataForGlobalSearch(map) {
 
 	for (let dataKey of markerGroupNames) {
 		substMapData(map, data, dataKey, function(coord, id, label, desc, icon) {
-			label = label.replace(/<\/?[^>]+(>|$)/g, "");
-			desc  = desc.replace(/<\/?[^>]+(>|$)/g, "");
-
-			// TODO: Why toString and slice?
-			let link = window.location.href.replace(window.location.hash, "").toString().slice(0, -10) +
+			let link = window.location.pathname.slice(0, -10) +
 			           map.ns + "/index.html#" + map.maxZoom + "/" + coord[0] + "/" + coord[1] +
 			           "/m=" + coord[0] + "," + coord[1];
 
@@ -22,7 +18,7 @@ function processMapDataForGlobalSearch(map) {
 			});
 
 			searchCount++;
-		});
+		}, undefined, true);
 	}
 }
 
