@@ -26,7 +26,8 @@
 		level:       "#1 & 2"
 	}, {
 		coords:      [102.000,109.840], // 1x Leader-Sword-Shield (L4), 2x Axe2H (L2), 1x Sword (L2), 2x Ranged (L1)
-		level:       "#1, 2 & 4"        // 4x Wolf (L5) to the north-west also belong to this camp, but they overlap with another independent wolf spawn area, so it doesn't matter.
+		id:          "tentBandits",
+		level:       "#1, 2 & 4"
 	}, {
 		coords:      [[48.563,97.125],  // 1x Leader-Axe2H (L5), 2x Sword (L2), 2x Ranged (L1)
 		             [51.844,116.125]], // 1x Leader-Axe2H (L5), 2x Sword (L2), 1x Ranged (L1)
@@ -219,7 +220,7 @@
 			        [82.375,41.500], [78.563,42.000], [75.438,43.625], [72.375,45.813], [70.188,46.000]]
 		}]
 	}, {
-		coords:      [107.906,103.656], // 2x Warg (L5), {4h-21h: 12x, 21h-4h: 14x} Wolf (L5) (in pr_poe_003 area)
+		coords:      [108.563,108.500], // 2x Warg (L5), {4h-21h: 12x, 21h-4h: 14x} Wolf (L5) (in pr_poe_003 area)
 		name:        "wolf",
 		level:       "#5",
 		areas: [{
@@ -367,6 +368,14 @@
 			        [109.063,80.625]]
 		}]
 	}, {
+		coords:      [29.594,91.313],   // 1x Bear (L6) (in place_of_power_major area)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[31.750,90.938], [29.500,92.656], [27.750,90.375], [30.438,88.625]]
+		}]
+	}, {
 		coords:      [83.938,90.438],   // 5x-7x Wild Dog (L1) (in pr_poe_monsters area)
 		name:        "wilddog",
 		level:       "#1",
@@ -394,6 +403,15 @@
 			name: "monster.spawn",
 			coords: [[56.938,7.188], [60.125,20.125], [57.250,24.688], [51.750,22.813], [45.625,11.688]]
 		}]
+	}, {
+		coords:      [111.250,100.563],  // 4x Wolf (L5)
+		name:        "wolf",
+		level:       "#5",
+		uncleared:   "tentBandits",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[117.125,99.063], [112.563,107.188], [104.875,102.500], [110.438,94.750]]
+		}]
 	}],
 	// ----------------- Monster Nests ------------------
 	monsternest: [{
@@ -420,7 +438,7 @@
 		coords:      [29.937,90.438],
 		extraLabel:  "pop.yrden.label"
 	}, {
-		coords:      [85.094,35.281],
+		coords:      [85.539,35.086],
 		extraLabel:  "pop.axii.label"
 	}, {
 		coords:      [102.062,61.125],
