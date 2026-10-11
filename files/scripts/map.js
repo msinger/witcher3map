@@ -10,8 +10,9 @@ var uncheckedMarkerOpacity = 0.9;
 var checkedMarkerOpacity = 0.25;
 var uncheckedRouteOpacity = 0.7;
 var checkedRouteOpacity = 0.25;
-var uncheckedAreaStrokeOpacity = 0.7;
+var uncheckedAreaStrokeOpacity = 0.5;
 var checkedAreaStrokeOpacity = 0.25;
+var selectedAreaStrokeOpacity = 0.95;
 var uncheckedAreaFillOpacity = 0.2;
 var checkedAreaFillOpacity = 0.075;
 var routes = [];
@@ -775,6 +776,10 @@ function runMap() {
 	map.on("popupopen", function(e) {
 		deleteCircle();
 		createCircle(e.popup._latlng.lat, e.popup._latlng.lng);
+		for (let area of e.popup._source.areas) {
+			if (area.fuse)
+				area.layer.setStyle({ opacity: selectedAreaStrokeOpacity });
+		}
 		$("#info-wrap").stop();
 		$("#info").html(e.popup._source._popup._content);
 		$("#info").getNiceScroll(0).doScrollTop(0, 0);
@@ -822,6 +827,11 @@ function runMap() {
 	}
 
 	map.on("popupclose", function(e) {
+		for (let area of e.popup._source.areas) {
+			if (area.fuse)
+				area.layer.setStyle({ opacity: e.popup._source.obj.checked ? checkedAreaStrokeOpacity :
+				                                                             uncheckedAreaStrokeOpacity });
+		}
 		infoClose();
 		if (notePopupOpen)
 			notePopupEnd();
