@@ -45,6 +45,59 @@ var markerGroupNames = [
 	"vineyardinfestation"
 ];
 
+var monster_icons = [
+	"alghoul",
+	"alp",
+	"arachas",
+	"arachnomorph",
+	"archespore",
+	"banshee",
+	"barghest",
+	"basilisk",
+	"bear",
+	"bruxa",
+	"cyclops",
+	"drowner",
+	"earthelemental",
+	"endrega",
+	"fiend",
+	"fireelemental",
+	"fleder",
+	"foglet",
+	"forktail",
+	"gargoyle",
+	"garkain",
+	"ghoul",
+	"giantcentipede",
+	"golem",
+	"gravehag",
+	"griffin",
+	"harpy",
+	"icetroll",
+	"kikimore",
+	"leshen",
+	"nekker",
+	"nightwraith",
+	"noonwraith",
+	"palewidow",
+	"panther",
+	"rocktroll",
+	"scurver",
+	"shaelmaar",
+	"siren",
+	"slyzard",
+	"spriggan",
+	"waterhag",
+	"werewolf",
+	"wight",
+	"wildboar",
+	"wilddog",
+	"wildhunthound",
+	"wolf",
+	"wraith",
+	"wyvern"
+];
+
 function loadScript(url) {
 	return new Promise(function(resolve, reject) {
 		let script = document.createElement("script");
@@ -581,6 +634,39 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			desc += link;
 		}
 
+		let hasMonster = false;
+		if (dataKey == "monster" && monster_icons.indexOf(item.name) >= 0)
+			hasMonster = true;
+
+		if (item.hos && dataKey == "sidequest")
+			icon += "_hos";
+		else if (item.baw && dataKey == "sidequest")
+			icon += "_baw";
+		if (item.race && dataKey == "sidequest")
+			icon = "race";
+		if (dataKey == "treasurehunt" && typeof item.name == "string" && item.name.startsWith("scav_"))
+			icon += "_scav";
+		else if (item.hos && (dataKey == "contract" || dataKey == "treasurehunt"))
+			icon += "_hos";
+		if (item.guarded && dataKey == "hidden")
+			icon += "_guarded";
+		if (item.lantern && dataKey == "poi")
+			icon = "lantern";
+		if (item.lamp && dataKey == "poi")
+			icon = "lamp";
+		if (item.runewright && (dataKey == "armorer" || dataKey == "blacksmith"))
+			icon = "runewright";
+		if (item.master && (dataKey == "armorer" || dataKey == "blacksmith"))
+			icon = "master";
+		if (item.dyeshop && dataKey == "shopkeeper")
+			icon = "dyeshop";
+		if (underwater && !hasMonster)
+			icon += "_uw";
+		if (portal)
+			icon = "portal";
+		if (hasMonster)
+			icon = "monster/" + item.name;
+
 		let routeObjs = [];
 		if (item.routes instanceof Array) {
 			let links = [];
@@ -601,7 +687,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 					        (dataKey == "entrance" && portal),
 					dashed: dataKey == "entrance" && portal
 				};
-				obj.id = r ? r(obj) : -1;
+				obj.id = r ? r(obj, icon) : -1;
 				routeObjs.push(obj);
 				let link = '<a href="javascript:selectRoute(' + obj.id + ');">' + obj.name + '</a>';
 				if (noLinks)
@@ -643,7 +729,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 					coords: area.coords,
 					fuse:   dataKey == "monster"
 				};
-				obj.id = a ? a(obj) : -1;
+				obj.id = a ? a(obj, icon) : -1;
 				areaObjs.push(obj);
 				let link = '<a href="javascript:selectArea(' + obj.id + ');">' + obj.name + '</a>';
 				if (noLinks)
@@ -669,32 +755,6 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			}
 		}
 
-		if (item.hos && dataKey == "sidequest")
-			icon += "_hos";
-		else if (item.baw && dataKey == "sidequest")
-			icon += "_baw";
-		if (item.race && dataKey == "sidequest")
-			icon = "race";
-		if (dataKey == "treasurehunt" && typeof item.name == "string" && item.name.startsWith("scav_"))
-			icon += "_scav";
-		else if (item.hos && (dataKey == "contract" || dataKey == "treasurehunt"))
-			icon += "_hos";
-		if (item.guarded && dataKey == "hidden")
-			icon += "_guarded";
-		if (item.lantern && dataKey == "poi")
-			icon = "lantern";
-		if (item.lamp && dataKey == "poi")
-			icon = "lamp";
-		if (item.runewright && (dataKey == "armorer" || dataKey == "blacksmith"))
-			icon = "runewright";
-		if (item.master && (dataKey == "armorer" || dataKey == "blacksmith"))
-			icon = "master";
-		if (item.dyeshop && dataKey == "shopkeeper")
-			icon = "dyeshop";
-		if (underwater)
-			icon += "_uw";
-		if (portal)
-			icon = "portal";
 		if (underground)
 			icon += "_ug";
 
