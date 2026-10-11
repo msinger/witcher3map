@@ -10,6 +10,7 @@ var checkedMarkerOpacity = 0.25;
 var routes = [];
 var interiors = [];
 var map = null;
+var searchData = [];
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
@@ -273,6 +274,11 @@ function processData(checkedMarkers) {
 			                     "<h1>" + label + "</h1>" + desc,
 			                     dataKey, id, checked, routes);
 			groupItems.push(m);
+
+			searchData.push({
+				loc:   coord,
+				title: label.replace(/<\/?a[^>]*(>|$)/g, "") + " - " + desc.replace(/<\/?a[^>]*(>|$)/g, "")
+			});
 
 			for (let route of routes) {
 				if (!route.fuse)
@@ -593,20 +599,6 @@ function runMap() {
 
 	var hash = new L.Hash(map);
 
-	var searchData = [];
-
-	for (var layer of allLayers) {
-		for (var marker of Object.values(layer.getLayers())) {
-			if (!marker.getLatLng)
-				continue;
-			let pos = marker.getLatLng();
-			searchData.push({
-				loc:   [pos.lat, pos.lng],
-				title: marker._popup._content.replace(/<h1>/, "").replace(/<\/h1>/, " - ").replace(/\\'/g, "")
-			});
-		}
-	}
-
 	map.addControl(new L.Control.Search({
 		autoResize:   false,
 		autoType:     false,
@@ -631,7 +623,7 @@ function runMap() {
 				keys:             ["title"]
 			};
 			var fuse = new Fuse(searchData, options);
-			var result= fuse.search(text);
+			var result = fuse.search(text);
 
 			callResponse(result);
 

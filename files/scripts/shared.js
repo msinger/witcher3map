@@ -111,7 +111,7 @@ function applyPrefix(key, prefix) {
 }
 
 // Replaces placeholders like __mainquest.pyres__ with a label and optional link provided by locale.
-function subst(text, item, depth = 3, noLinks, coordLinkToId, ids) {
+function subst(text, item, noLinks, depth = 3, coordLinkToId, ids) {
 	if (!depth || depth <= 0) {
 		console.error("subst() recursion too deep.");
 		return;
@@ -150,9 +150,9 @@ function subst(text, item, depth = 3, noLinks, coordLinkToId, ids) {
 							if (i != 0)
 								res += concat;
 							if (arrMatch[i][0] == "#")
-								res += subst(esc(arrMatch[i].slice(1)), item, depth - 1, noLinks);
+								res += subst(esc(arrMatch[i].slice(1)), item, noLinks, depth - 1);
 							else if (prop)
-								res += subst(esc($.t(applyPrefix(arrMatch[i] + prop, prefix))), item, depth - 1, noLinks);
+								res += subst(esc($.t(applyPrefix(arrMatch[i] + prop, prefix))), item, noLinks, depth - 1);
 							else
 								res += tLink(applyPrefix(arrMatch[i], prefix), noLinks);
 						}
@@ -164,12 +164,12 @@ function subst(text, item, depth = 3, noLinks, coordLinkToId, ids) {
 			let colon = match.indexOf(":");
 			if (!item[match.slice(6, colon)])
 				return "";
-			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1, noLinks);
+			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, noLinks, depth - 1);
 		} else if (match.slice(0, 7) == "?!this.") {
 			let colon = match.indexOf(":");
 			if (item[match.slice(7, colon)])
 				return "";
-			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, depth - 1, noLinks);
+			return subst(match.slice(colon + 1).replace(/\\_/g, "_"), item, noLinks, depth - 1);
 		} else if (match.slice(0, 6) == "*this." && coordLinkToId && ids) {
 			let concat = undefined;
 			let arrMatch = match.match(/^(.*)\[(.*)\]$/);
@@ -187,9 +187,9 @@ function subst(text, item, depth = 3, noLinks, coordLinkToId, ids) {
 			}
 		}
 		if (match[0] == "#")
-			return subst(esc(match.slice(1)), item, depth - 1, noLinks);
+			return subst(esc(match.slice(1)), item, noLinks, depth - 1);
 		if (prop)
-			return subst(esc($.t(match + prop)), item, depth - 1, noLinks);
+			return subst(esc($.t(match + prop)), item, noLinks, depth - 1);
 		return tLink(match, noLinks);
 	});
 }
@@ -205,6 +205,14 @@ function isPerson(dataKey) {
 	       dataKey == "herbalist" ||
 	       dataKey == "innkeep" ||
 	       dataKey == "shopkeeper";
+}
+
+function isPortal(item, dataKey) {
+	return dataKey == "entrance" && item.portal;
+}
+
+function isUnderwater(item, dataKey) {
+	return (dataKey == "treasure" || dataKey == "entrance" || dataKey == "monster") && item.underwater;
 }
 
 function prescreenMapData(mapInfo, data) {
@@ -303,14 +311,6 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		return res;
 	}
 
-	function isPortal(item, dataKey) {
-		return dataKey == "entrance" && item.portal;
-	}
-
-	function isUnderwater(item, dataKey) {
-		return (dataKey == "treasure" || dataKey == "entrance" || dataKey == "monster") && item.underwater;
-	}
-
 	function genSubKey(item, dataKey) {
 		let subKey = "";
 		if (isPortal(item, dataKey))
@@ -333,7 +333,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 				label = "#" + (esc($.t(dataKey + ".log.label")) || esc($.t(label)));
 		}
 
-		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, undefined, noLinks);
+		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, noLinks);
 
 		if (item.extraLabel) {
 			let extraLabel = item.extraLabel;
@@ -348,7 +348,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 						extra = extra.substring(1);
 					else if (label)
 						label += concatDash;
-					label += subst(esc(extra), item, undefined, noLinks);
+					label += subst(esc(extra), item, noLinks);
 				}
 			}
 		}
@@ -419,7 +419,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		let images      = item.images;
 
 		let subKey = genSubKey(item, dataKey);
-		let label = genLabel(item, dataKey, subKey);
+		let label = genLabel(item, dataKey, subKey, noLinks);
 
 		if (typeof desc != "string" || (desc !== "" && !desc)) {
 			desc = dataKey + subKey + ".desc";
@@ -429,7 +429,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 				desc = "#" + (esc($.t(dataKey + ".log.desc")) || esc($.t(desc)));
 		}
 
-		desc = desc && subst(esc(desc[0] == "#" ? desc.substring(1) : $.t(desc)), item);
+		desc = desc && subst(esc(desc[0] == "#" ? desc.substring(1) : $.t(desc)), item, noLinks);
 
 		if (extraDesc) {
 			if (typeof extraDesc == "string")
@@ -443,7 +443,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 						extra = extra.substring(1);
 					else if (desc)
 						desc += concat;
-					desc += subst(esc(extra), item);
+					desc += subst(esc(extra), item, noLinks);
 				}
 			}
 		}
@@ -455,7 +455,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 			label += concat + openBracket + esc($.t("misc.unreachable")) + closeBracket;
 
 		if (cleared) {
-			cleared = subst(esc($.t("misc.cleared")), item, undefined, noLinks, coordLinkToId, data.ids);
+			cleared = subst(esc($.t("misc.cleared")), item, noLinks, undefined, coordLinkToId, data.ids);
 			if (desc)
 				desc = concat + desc;
 			desc = cleared + desc;
@@ -463,7 +463,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		}
 
 		if (uncleared) {
-			uncleared = subst(esc($.t("misc.uncleared")), item, undefined, noLinks, coordLinkToId, data.ids);
+			uncleared = subst(esc($.t("misc.uncleared")), item, noLinks, undefined, coordLinkToId, data.ids);
 			if (desc)
 				desc = concat + desc;
 			desc = uncleared + desc;
@@ -471,7 +471,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		}
 
 		if (after) {
-			after = subst(esc($.t("misc.after")), item);
+			after = subst(esc($.t("misc.after")), item, noLinks);
 			if (desc)
 				desc = concat + desc;
 			desc = after + desc;
@@ -479,7 +479,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		}
 
 		if (weakBefore) {
-			weakBefore = subst(esc($.t("misc.weakBefore")), item);
+			weakBefore = subst(esc($.t("misc.weakBefore")), item, noLinks);
 			if (desc)
 				desc = concat + desc;
 			desc = weakBefore + desc;
@@ -487,7 +487,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		}
 
 		if (before) {
-			before = subst(esc($.t("misc.before")), item);
+			before = subst(esc($.t("misc.before")), item, noLinks);
 			if (desc)
 				desc = concat + desc;
 			desc = before + desc;
@@ -495,7 +495,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		}
 
 		if (during) {
-			during = subst(esc($.t("misc.during")), item);
+			during = subst(esc($.t("misc.during")), item, noLinks);
 			if (desc)
 				desc = concat + desc;
 			desc = during + desc;
@@ -508,7 +508,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 			let textHere    = "__?__";
 			if (matchResult && matchResult.length == 1)
 				textHere = matchResult[0].slice(2, -2);
-			let textLink = coordLinkToId(id, textHere, data.rids);
+			let textLink = coordLinkToId(id, textHere, data.rids, noLinks);
 			if (textLink) {
 				if (desc)
 					desc = concat + desc;
@@ -522,7 +522,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 			let textHere    = "__?__";
 			if (matchResult && matchResult.length == 1)
 				textHere = matchResult[0].slice(2, -2);
-			let textLink = coordLinkToId(rescueFrom, textHere, data.ids);
+			let textLink = coordLinkToId(rescueFrom, textHere, data.ids, noLinks);
 			if (textLink) {
 				if (desc)
 					desc = concat + desc;
@@ -534,9 +534,9 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		if (item.liberate) {
 			let lib = "";
 			if (item.liberate === true)
-				lib = subst(esc($.t("misc.liberate")), item);
+				lib = subst(esc($.t("misc.liberate")), item, noLinks);
 			else
-				lib = subst(esc($.t("misc.liberateThis")), item, undefined, noLinks, coordLinkToId, data.ids);
+				lib = subst(esc($.t("misc.liberateThis")), item, noLinks, undefined, coordLinkToId, data.ids);
 			if (desc && lib)
 				desc += concat;
 			desc += lib;
@@ -556,7 +556,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 				let textHere       = esc($.t("entrance.link.here"));
 				let textConcat     = esc($.t("entrance.link.concat"));
 				let textConcatLast = esc($.t("entrance.link.concatLast")) || textConcat;
-				let textLinks = coordLinkToId(entrances, textHere, data.gids, false, function(item) {
+				let textLinks = coordLinkToId(entrances, textHere, data.gids, noLinks, function(item) {
 					return item.dataKey == "entrance" || item.dataKey == "monsterden";
 				}, textConcat, textConcatLast);
 				if (textLinks) {
@@ -571,8 +571,11 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 		if ((dataKey == "entrance" || dataKey == "monsterden") && item.goesToInterior) {
 			let interior = item.goesToInterior;
 			let floorId  = item.goesToFloorId;
+			let linkText = esc($.t("misc.floorLink")).replace(/ /g, "&nbsp;");
 			let link = '[&nbsp;<a href="javascript:selectFloor(' + interior.id + ", " + floorId + ', true);">' +
-			           esc($.t("misc.floorLink")).replace(/ /g, "&nbsp;") + "</a>&nbsp;]";
+			           linkText + "</a>&nbsp;]";
+			if (noLinks)
+				link = linkText;
 			if (desc)
 				desc += concat;
 			desc += link;
@@ -601,6 +604,8 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 				obj.id = r ? r(obj) : -1;
 				routeObjs.push(obj);
 				let link = '<a href="javascript:selectRoute(' + obj.id + ');">' + obj.name + '</a>';
+				if (noLinks)
+					link = obj.name;
 				links.push(link);
 			}
 
@@ -655,11 +660,14 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 			if (typeof images == "string")
 				images = [images];
 			if (images instanceof Array) {
+				let linkText = esc($.t("misc.imageLink")).replace(/ /g, "&nbsp;");
 				for (let image of images) {
 					if (typeof image != "string" || !image)
 						continue;
 					let link = '[&nbsp;<a target="_blank" href="' + window.topdir + "/files/images/" + image + '.jpg">' +
-					           esc($.t("misc.imageLink")).replace(/ /g, "&nbsp;") + "</a>&nbsp;]";
+					           linkText + "</a>&nbsp;]";
+					if (noLinks)
+						link = linkText;
 					if (desc)
 						desc += concat;
 					desc += link;
@@ -679,7 +687,7 @@ function substMapData(mapInfo, data, dataKey, f, r, noLinks) {
 	}
 }
 
-function substInteriors(mapInfo, data, dataKey, f) {
+function substInteriors(mapInfo, data, dataKey, f, noLinks) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
@@ -718,7 +726,7 @@ function substInteriors(mapInfo, data, dataKey, f) {
 
 		if (typeof label != "string" || !label)
 			label = dataKey + ".label";
-		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item);
+		label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, noLinks);
 
 		if (extraLabel) {
 			if (typeof extraLabel == "string")
@@ -732,7 +740,7 @@ function substInteriors(mapInfo, data, dataKey, f) {
 						extra = extra.substring(1);
 					else if (label)
 						label += concatDash;
-					label += subst(esc(extra), item);
+					label += subst(esc(extra), item, noLinks);
 				}
 			}
 		}
@@ -797,7 +805,7 @@ function substInteriors(mapInfo, data, dataKey, f) {
 
 				if (typeof floorLabel != "string" || !floorLabel)
 					floorLabel = "";
-				floorLabel = floorLabel && subst(esc(floorLabel[0] == "#" ? floorLabel.substring(1) : $.t(floorLabel)), floor);
+				floorLabel = floorLabel && subst(esc(floorLabel[0] == "#" ? floorLabel.substring(1) : $.t(floorLabel)), floor, noLinks);
 
 				if (extraFloorLabel) {
 					if (typeof extraFloorLabel == "string")
@@ -811,7 +819,7 @@ function substInteriors(mapInfo, data, dataKey, f) {
 								extra = extra.substring(1);
 							else if (label)
 								floorLabel += concatDash;
-							floorLabel += subst(esc(extra), item);
+							floorLabel += subst(esc(extra), item, noLinks);
 						}
 					}
 				}
