@@ -2,17 +2,13 @@ window.i18nData = window.i18nData || {};
 window.i18nData.tr = window.i18nData.tr || {};
 window.i18nData.tr.t = {
 	banditcamp: {
-		hanse: { desc: "Yalnızca '__this.hanse__' Tüccar Loncası Karargahı temizlenmediyse ortaya çıkar." },
-		ussar: { desc: "Yalnızca '__contract.bonvineblues__' görevi sırasında yumurtalar imha edilmediyse ortaya çıkar." }
+		ussar: { desc: "Yalnızca '__contract.bovineblues__' görevi sırasında yumurtalar imha edilmediyse ortaya çıkar." }
 	},
 	blacksmith: {
 		lafargue: { desc: "Lafargue" }
 	},
 	brothel: {
 		belle: { label: "Beauclair Dilberi" }
-	},
-	guarded: {
-		hanse: { desc: "Yalnızca '__this.hanse__' Tüccar Loncası Karargahı temizlendiyse ortaya çıkar." }
 	},
 	innkeep: {
 		desc: "Burada çeşitli eşyaları satın alabilir veya satabilirsiniz.",

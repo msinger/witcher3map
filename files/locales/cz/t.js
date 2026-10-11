@@ -2,17 +2,13 @@ window.i18nData = window.i18nData || {};
 window.i18nData.cz = window.i18nData.cz || {};
 window.i18nData.cz.t = {
 	banditcamp: {
-		hanse: { desc: "Zobrazí se pouze v případě, že „__this.hanse__“ Základna tlupy nebylo vymazáno." },
-		ussar: { desc: "Spawnuje se pouze v případě, že vejce nebyla zničena během mise „__contract.bonvineblues__“." }
+		ussar: { desc: "Spawnuje se pouze v případě, že vejce nebyla zničena během mise „__contract.bovineblues__“." }
 	},
 	blacksmith: {
 		lafargue: { label: "Lafargue" }
 	},
 	brothel: {
 		belle: { label: "Beauclairské Zvonečky" }
-	},
-	guarded: {
-		hanse: { desc: "Zobrazí se pouze v případě, že „__this.hanse__“ Základna tlupy bylo vymazáno." }
 	},
 	innkeep: {
 		desc: "Zde můžete nakupovat nebo prodávat různé předměty.",

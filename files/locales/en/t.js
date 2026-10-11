@@ -2,17 +2,13 @@ window.i18nData = window.i18nData || {};
 window.i18nData.en = window.i18nData.en || {};
 window.i18nData.en.t = {
 	banditcamp: {
-		hanse: { desc: "It will only spawn if the '__this.hanse__' Hanse base has not been cleared." },
-		ussar: { desc: "It will only spawn if the eggs were not destroyed during the '__contract.bonvineblues__' mission." }
+		ussar: { desc: "It will only spawn if the eggs were not destroyed during the '__contract.bovineblues__' mission." }
 	},
 	blacksmith: {
 		lafargue: { label: "Lafargue" }
 	},
 	brothel: {
 		belle: { label: "The Belles of Beauclair" }
-	},
-	guarded: {
-		hanse: { desc: "It will only spawn if '__this.hanse__' Hanse base has been cleared." }
 	},
 	innkeep: {
 		desc: "Here you can buy or sell various items.",
