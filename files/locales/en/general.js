@@ -21,7 +21,12 @@ window.i18nData.en.general = {
 	},
 	banditcamp: {
 		label: "Bandit Camp__?this.level: (Level _\\_this.level_\\_)__",
-		desc:  "A group of dangerous bandits have made camp here."
+		desc:  "A group of dangerous bandits have made camp here.",
+		mounted: {
+			label: "Mounted Bandits__?this.level: (Level _\\_this.level_\\_)__",
+			desc:  "A group of dangerous bandits on horses are roaming this area.",
+			route: "Travelling Route"
+		}
 	},
 	barber: {
 		label: "Barber",
