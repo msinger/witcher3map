@@ -231,14 +231,35 @@
 		             [47.000,123.172]],
 		extraLabel:  "#< (lvl 9)"
 	}, {
-		coords:      [[38.828,153.984]],
+		coords:      [38.828,153.984],
 		extraLabel:  "#< (lvl 10)"
 	}, {
-		coords:      [[209.156,162.734]],
+		coords:      [209.156,162.734],
 		extraLabel:  "#< (lvl 7)"
 	}, {
-		coords:      [[97.828,124.594]],
+		coords:      [97.828,124.594],
 		extraLabel:  "#< (lvl 7-9)"
+	}, {
+		coords:      [[39.813,172.813],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [57.250,216.813],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [61.156,203.656],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [55.250,182.750]],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		notInGame:   true
+	}, {
+		disabled:    true, // Can't get them to spawn.
+		coords:      [58.578,190.109],  // 2x Axe (L7), 1x Mace (L7), 1x Club (L7) (in _bald_mountain/bm_poe_01/mounted_bandits_group_01)
+		level:       "#7",
+		mounted:     true,
+		notInGame:   true,
+		routes: [{
+			name: "banditcamp.mounted.route",
+			coords: [[59.609,186.922], [59.109,187.813], [58.859,189.000], [58.578,190.109], [58.844,191.422],
+			        [58.828,192.531], [59.266,194.047], [59.656,194.813], [60.313,195.313], [60.578,196.359],
+			        [58.047,199.672], [56.891,199.250], [54.766,199.719], [52.688,199.094], [52.156,197.656],
+			        [52.156,194.750], [53.359,193.609], [54.953,193.609], [56.438,193.906], [57.734,193.516],
+			        [58.141,192.891], [57.938,190.078], [58.422,187.719], [59.594,186.891]]
+		}]
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -854,11 +875,14 @@
 		             [23.172,78.391],
 		             [18.750,78.531],
 		             [34.438,93.125],
-		             [56.953,200.891],
 		             [43.328,149.781],
 		             [28.078,148.406],
 		             [24.063,150.188],
 		             [69.406,162.688]]
+	}, {
+		coords:      [56.953,200.891],
+		name:        "earthelemental",
+		level:       "#24"
 	}, {
 		coords:      [132.000,69.516],
 		after:       "contract.griffin"
@@ -1187,7 +1211,8 @@
 		             [63.031,24.625],
 		             [140.344,120.625],
 		             [107.281,123.234],
-		             [107.500,119.313]]
+		             [107.500,119.313],
+		             [59.219,188.797]]
 	}, {
 		coords:      [53.219,69.875],
 		during:      "sidequest.forefathers"
@@ -1376,6 +1401,81 @@
 				bounds: [bald07p1, bald07p2],
 				file:   "v/interiors/novigrad_q111_cave_07.png"
 			}]
+		}]
+	}],
+	// ----------------- Monsters -----------------------
+	monster: [{
+		disabled:    true, // Can't get them to spawn.
+		coords:      [55.875,197.250],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_01/drowners_group_01)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[57.375,196.031], [57.375,198.594], [54.406,198.594], [54.406,196.031]]
+		}]
+	}, {
+		coords:      [53.813,189.938],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_01/drowners_group_02)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[55.813,188.781], [55.813,191.469], [51.813,191.469], [51.813,188.781]]
+		}]
+	}, {
+		coords:      [55.813,175.938],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_01/drowners_group_03)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[58.500,173.844], [58.500,179.125], [53.219,179.125], [53.219,173.844]]
+		}]
+	}, {
+		coords:      [57.188,210.313],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_01/foglings_group_01)
+		name:        "foglet",
+		level:       "#10",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[59.625,208.156], [59.625,212.688], [54.844,212.688], [54.844,208.156]]
+		}]
+	}, {
+		coords:      [54.844,204.063],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_01/foglings_group_02)
+		name:        "foglet",
+		level:       "#10",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[57.531,202.313], [57.531,206.438], [52.125,206.438], [52.125,202.313]]
+		}]
+	}, {
+		coords:      [34.375,190.406],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_01/foglings_group_03)
+		name:        "foglet",
+		level:       "#10",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[37.563,189.219], [37.563,192.500], [31.344,192.500], [31.344,189.219]]
+		}]
+	}, {
+		coords:      [45.156,183.563],  // 3x-4x Nekker (L8) (in _bald_mountain/bm_poe_01/nekker_group_01)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[47.031,181.594], [47.031,185.531], [43.438,185.531], [43.438,181.594]]
+		}]
+	}, {
+		coords:      [49.313,212.000],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_01/wolf_group_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[51.750,207.375], [51.750,217.188], [46.750,217.188], [46.750,207.375]]
+		}]
+	}, {
+		coords:      [37.000,177.875],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_01/wolf_group_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[40.813,175.188], [40.813,180.625], [33.188,180.625], [33.188,175.188]]
 		}]
 	}],
 	// ----------------- Monster Dens -------------------

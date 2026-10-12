@@ -264,6 +264,10 @@ function isPortal(item, dataKey) {
 	return dataKey == "entrance" && item.portal;
 }
 
+function isMounted(item, dataKey) {
+	return dataKey == "banditcamp" && item.mounted;
+}
+
 function isUnderwater(item, dataKey) {
 	return (dataKey == "treasure" || dataKey == "entrance" || dataKey == "monster") && item.underwater;
 }
@@ -320,6 +324,11 @@ function prescreenMapData(mapInfo, data) {
 
 			item.dataKey = dataKey;
 
+			if (item.disabled) {
+				item.coords = false;
+				continue;
+			}
+
 			if (item.id && typeof item.id == "string") {
 				if (!ids[item.id])
 					ids[item.id] = [];
@@ -368,6 +377,8 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		let subKey = "";
 		if (isPortal(item, dataKey))
 			subKey = ".portal";
+		if (isMounted(item, dataKey))
+			subKey = ".mounted";
 		if (dataKey == "hidden" && item.guarded)
 			subKey = ".guarded";
 		if (isUnderwater(item, dataKey))
@@ -457,6 +468,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		let notInGame   = item.notInGame;
 		let unreachable = item.unreachable;
 		let portal      = isPortal(item, dataKey);
+		let mounted     = isMounted(item, dataKey);
 		let underwater  = isUnderwater(item, dataKey);
 		let after       = item.after;
 		let before      = item.before;
@@ -660,6 +672,8 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			icon = "master";
 		if (item.dyeshop && dataKey == "shopkeeper")
 			icon = "dyeshop";
+		if (mounted)
+			icon = "mounted";
 		if (underwater && !hasMonster)
 			icon += "_uw";
 		if (portal)
@@ -684,8 +698,9 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 					fuse:   dataKey == "alchemy" ||
 					        dataKey == "herbalist" ||
 					        dataKey == "shopkeeper" ||
-					        (dataKey == "entrance" && portal),
-					dashed: dataKey == "entrance" && portal
+					        portal ||
+					        mounted,
+					dashed: portal
 				};
 				obj.id = r ? r(obj, icon) : -1;
 				routeObjs.push(obj);
