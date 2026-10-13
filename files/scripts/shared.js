@@ -98,6 +98,12 @@ var monster_icons = [
 	"wyvern"
 ];
 
+var monster_map = {
+	bilgehag:       "waterhag",
+	mucknixer:      "drowner",
+	rabidrocktroll: "rocktroll"
+};
+
 function loadScript(url) {
 	return new Promise(function(resolve, reject) {
 		let script = document.createElement("script");
@@ -472,8 +478,11 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		let underwater  = isUnderwater(item, dataKey);
 		let after       = item.after;
 		let before      = item.before;
+		let notBefore   = item.notBefore;
 		let weakBefore  = item.weakBefore;
 		let during      = item.during;
+		let notDuring   = item.notDuring;
+		let time        = item.fromTime && item.toTime;
 		let cleared     = item.cleared;
 		let uncleared   = item.uncleared;
 		let rescueFrom  = isPerson(dataKey) && item.rescueFrom;
@@ -535,11 +544,27 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			special = true;
 		}
 
+		if (time) {
+			time = subst(esc($.t("misc.time")), item, noLinks);
+			if (desc)
+				desc = concat + desc;
+			desc = time + desc;
+			special = true;
+		}
+
 		if (after) {
 			after = subst(esc($.t("misc.after")), item, noLinks);
 			if (desc)
 				desc = concat + desc;
 			desc = after + desc;
+			special = true;
+		}
+
+		if (notBefore) {
+			notBefore = subst(esc($.t("misc.notBefore")), item, noLinks);
+			if (desc)
+				desc = concat + desc;
+			desc = notBefore + desc;
 			special = true;
 		}
 
@@ -564,6 +589,14 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			if (desc)
 				desc = concat + desc;
 			desc = during + desc;
+			special = true;
+		}
+
+		if (notDuring) {
+			notDuring = subst(esc($.t("misc.notDuring")), item, noLinks);
+			if (desc)
+				desc = concat + desc;
+			desc = notDuring + desc;
 			special = true;
 		}
 
@@ -646,8 +679,11 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			desc += link;
 		}
 
+		let monsterIcon = item.name;
+		if (monster_map[monsterIcon])
+			monsterIcon = monster_map[monsterIcon];
 		let hasMonster = false;
-		if (dataKey == "monster" && monster_icons.indexOf(item.name) >= 0)
+		if (dataKey == "monster" && monster_icons.indexOf(monsterIcon) >= 0)
 			hasMonster = true;
 
 		if (item.hos && dataKey == "sidequest")
@@ -679,7 +715,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		if (portal)
 			icon = "portal";
 		if (hasMonster)
-			icon = "monster/" + item.name;
+			icon = "monster/" + monsterIcon;
 
 		let routeObjs = [];
 		if (item.routes instanceof Array) {

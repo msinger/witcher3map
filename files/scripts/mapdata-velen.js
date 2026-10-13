@@ -183,7 +183,7 @@
 	}, {
 		coords:      [104.906,77.063],
 		extraLabel:  ["craftlevel.master", "v:armorer.yoana.label"],
-		after:       "sidequest.masterarmor"
+		notBefore:   "sidequest.masterarmor"
 	}],
 	// ----------------- Armorer's Tables ---------------
 	armorerstable: [{
@@ -227,12 +227,16 @@
 		             [134.406,129.094],
 		             [80.125,166.000],
 		             [108.234,145.344],
-		             [137.688,187.797],
-		             [47.000,123.172]],
+		             [137.688,187.797]],
 		extraLabel:  "#< (lvl 9)"
 	}, {
-		coords:      [38.828,153.984],
-		extraLabel:  "#< (lvl 10)"
+		coords:      [47.000,123.172],  // 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 1x Ranged (L9)
+		id:          "paintingCamp",
+		level:       "#9"
+	}, {
+		coords:      [38.828,153.984],  // 2x Sword (L9), 1x Ranged (L9)
+		id:          "oldBridgeCamp",
+		level:       "#9"
 	}, {
 		coords:      [209.156,162.734],
 		extraLabel:  "#< (lvl 7)"
@@ -247,11 +251,11 @@
 		level:       "#7",
 		notInGame:   true
 	}, {
-		disabled:    true, // Can't get them to spawn.
 		coords:      [58.578,190.109],  // 2x Axe (L7), 1x Mace (L7), 1x Club (L7) (in _bald_mountain/bm_poe_01/mounted_bandits_group_01)
 		level:       "#7",
 		mounted:     true,
 		notInGame:   true,
+		cleared:     "guardedMeetingPoint",
 		routes: [{
 			name: "banditcamp.mounted.route",
 			coords: [[59.609,186.922], [59.109,187.813], [58.859,189.000], [58.578,190.109], [58.844,191.422],
@@ -275,7 +279,7 @@
 	blacksmith: [{
 		coords:      [197.094,98.766],
 		extraLabel:  ["craftlevel.master", "v:blacksmith.hattori.label"],
-		after:       "sidequest.dumplings"
+		notBefore:   "sidequest.dumplings"
 	}, {
 		coords:      [[205.875,100.891],
 		             [152.125,170.453]],
@@ -289,13 +293,13 @@
 	}, {
 		coords:      [30.437,123.562],
 		extraLabel:  "craftlevel.amateur",
-		after:       "mainquest.bald"
+		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [239.500,214.687],
 		label:       "v:blacksmith.rune.label",
 		desc:        "v:blacksmith.rune.desc",
 		runewright:  true,
-		after:       "sidequest.en_s"
+		notBefore:   "sidequest.en_s"
 	}],
 	// ----------------- Boats --------------------------
 	boat: [{
@@ -349,13 +353,13 @@
 		             [65.563,69.594]]
 	}, {
 		coords:      [83.171,49.453],
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}],
 	// ----------------- Brothels -----------------------
 	brothel: [{
 		coords:      [201.547,98.188],
 		name:        "v:crippledKate",
-		after:       "sidequest.arse"
+		notBefore:   "sidequest.arse"
 	}, {
 		coords:      [221.109,104.109],
 		name:        "v:passiflora"
@@ -386,7 +390,7 @@
 	}, {
 		coords:      [33.656,206.687],
 		name:        "patrol",
-		after:       "sidequest.blood"
+		notBefore:   "sidequest.blood"
 	}, {
 		coords:      [86.281,177.343],
 		name:        "phantom"
@@ -398,7 +402,7 @@
 		             [62.297,131.980]],
 		id:          "contract.swamp",
 		name:        "swamp",
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [[237.156,130.546],
 		             [216.359,137.453]],
@@ -413,7 +417,7 @@
 	}, {
 		coords:      [104.468,80.750],
 		name:        "griffin",
-		after:       "sidequest.masterarmor"
+		notBefore:   "sidequest.masterarmor"
 	}, {
 		coords:      [100.625,110.312],
 		name:        "merry"
@@ -447,10 +451,10 @@
 	}, {
 		coords:      [197.969,201.469],
 		notInGame:   true,
-		after:       "treasurehunt.shores"
+		notBefore:   "treasurehunt.shores"
 	}, {
 		coords:      [206.000,144.031],
-		after:       "contract.apirian"
+		notBefore:   "contract.apirian"
 	}, {
 		coords:      [159.250,165.641],
 		notInGame:   true,
@@ -459,7 +463,7 @@
 	}, {
 		coords:      [214.656,192.859],
 		notInGame:   true,
-		after:       "mainquest.deadman",
+		notBefore:   "mainquest.deadman",
 		groupId:     "everec_crypt"
 	}, {
 		coords:      [179.438,175.406],
@@ -469,7 +473,7 @@
 		groupId:     "est_tayiar"
 	}, {
 		coords:      [156.031,209.125],
-		after:       "sidequest.darkness",
+		notBefore:   "sidequest.darkness",
 		groupId:     "cheese_dungeon",
 		portal:      true
 	}, {
@@ -490,7 +494,7 @@
 		groupId:     "wandering_cave_entry"
 	}, {
 		coords:      [41.688,46.266],
-		after:       "contract.mystery"
+		notBefore:   "contract.mystery"
 	}, {
 		coords:      [53.891,126.719]
 		// TODO: Does this cave connect to swamp_cave below?
@@ -514,7 +518,7 @@
 	}, {
 		coords:      [33.453,128.790],
 		label:       "v:entrance.sabbath_cave.label",
-		after:       "mainquest.bald",
+		notBefore:   "mainquest.bald",
 		groupId:     "sabbath_cave"
 	}, {
 		coords:      [83.766,149.953],
@@ -527,14 +531,14 @@
 		groupId:     "pellar_cave"
 	}, {
 		coords:      [151.156,164.593],
-		after:       "mainquest.escape",
+		notBefore:   "mainquest.escape",
 		groupId:     "escape_well"
 	}, {
 		coords:      [251.812,134.875],
 		groupId:     "spider_cave"
 	}, {
 		coords:      [226.875,151.562],
-		after:       "contract.doors"
+		notBefore:   "contract.doors"
 	}, {
 		coords:      [[99.750,120.625],
 		             [96.438,119.781]],
@@ -555,7 +559,7 @@
 		coords:      [49.109,53.047],
 		label:       "v:entrance.wandering_cave.label",
 		notInGame:   true,
-		after:       "mainquest.wandering",
+		notBefore:   "mainquest.wandering",
 		groupId:     "wandering_cave_exit"
 	}, {
 		coords:      [107.906,71.219],
@@ -605,7 +609,7 @@
 		coords:      [213.422,102.359],
 		desc:        "v:entrance.sewers4.desc",
 		notInGame:   true,
-		after:       "mainquest.flowers",
+		notBefore:   "mainquest.flowers",
 		groupId:     "bathhouse"
 	}, {
 		coords:      [135.344,127.547],
@@ -614,7 +618,7 @@
 	}, {
 		coords:      [257.500,189.876],
 		notInGame:   true,
-		after:       "sidequest.rose"
+		notBefore:   "sidequest.rose"
 	}, {
 		coords:      [[211.656,110.422],
 		             [205.125,112.234]],
@@ -645,21 +649,21 @@
 		coords:      [210.281,104.297],
 		label:       "v:entrance.sewers3.label",
 		desc:        "v:entrance.sewers3.desc",
-		after:       "sidequest.never",
+		notBefore:   "sidequest.never",
 		groupId:     "sewers3"
 	}, {
 		coords:      [201.891,102.406],
 		notInGame:   true,
-		after:       "mainquest.pyres",
+		notBefore:   "mainquest.pyres",
 		groupId:     "pyres_hatch"
 	}, {
 		coords:      [202.531,102.953],
-		after:       "mainquest.pyres",
+		notBefore:   "mainquest.pyres",
 		groupId:     "pyres_hatch"
 	}, {
 		coords:      [213.844,106.094],
 		notInGame:   true,
-		after:       "sidequest.sins"
+		notBefore:   "sidequest.sins"
 	}],
 	// ----------------- Events -------------------------
 	event: [{
@@ -682,7 +686,7 @@
 	}, {
 		coords:      [101.343,80.187],
 		name:        "crow",
-		after:       "mainquest.nilfgaardian"
+		notBefore:   "mainquest.nilfgaardian"
 	}, {
 		coords:      [89.859,62.218],
 		name:        "crossing1"
@@ -705,11 +709,11 @@
 	}, {
 		coords:      [199.125,117.375],
 		name:        "dare2",
-		after:       "event.dare1"
+		notBefore:   "event.dare1"
 	}, {
 		coords:      [209.656,93.875],
 		name:        "dare3",
-		after:       "event.dare2"
+		notBefore:   "event.dare2"
 	}, {
 		coords:      [144.062,71.921],
 		name:        "troll"
@@ -740,11 +744,11 @@
 	}, {
 		coords:      [194.734,102.656],
 		name:        "pyre",
-		after:       "sidequest.never"
+		notBefore:   "sidequest.never"
 	}, {
 		coords:      [237.938,149.906],
 		name:        "gift",
-		after:       "mainquest.poet"
+		notBefore:   "mainquest.poet"
 	}, {
 		coords:      [185.750,145.312],
 		name:        "strangers"
@@ -754,7 +758,7 @@
 	}, {
 		coords:      [200.781,108.046],
 		name:        "suspicious",
-		after:       "mainquest.pyres"
+		notBefore:   "mainquest.pyres"
 	}, {
 		coords:      [206.406,106.468],
 		name:        "flame1"
@@ -767,65 +771,65 @@
 	}, {
 		coords:      [157.593,163.812],
 		name:        "passage1",
-		after:       "contract.drunk"
+		notBefore:   "contract.drunk"
 	}, {
 		coords:      [157.531,169.500],
 		name:        "passage2a",
-		after:       "event.passage1"
+		notBefore:   "event.passage1"
 	}, {
 		coords:      [159.563,178.578],
 		name:        "passage2b",
-		after:       "event.passage1"
+		notBefore:   "event.passage1"
 	}, {
 		coords:      [189.500,98.640],
 		name:        "raids",
-		after:       "mainquest.pyres",
+		notBefore:   "mainquest.pyres",
 		before:      "sidequest.never"
 	}, {
 		coords:      [149.312,166.500],
 		name:        "neighborhood",
-		after:       "sidequest.neighborhood"
+		notBefore:   "sidequest.neighborhood"
 	}, {
 		coords:      [87.203,164.265],
 		name:        "hazardous2",
-		after:       "sidequest.hazardous1"
+		notBefore:   "sidequest.hazardous1"
 	}, {
 		coords:      [42.234,203.172],
 		name:        "death2",
-		after:       "sidequest.death1"
+		notBefore:   "sidequest.death1"
 	}, {
 		coords:      [204.594,210.031],
 		name:        "trace2",
-		after:       "sidequest.trace1"
+		notBefore:   "sidequest.trace1"
 	}, {
 		coords:      [215.328,105.031],
 		name:        "raids2",
-		after:       "mainquest.pyres",
+		notBefore:   "mainquest.pyres",
 		before:      "sidequest.never"
 	}, {
 		coords:      [68.844,75.234],
 		name:        "millie",
-		after:       "sidequest.cat"
+		notBefore:   "sidequest.cat"
 	}, {
 		coords:      [209.656,88.375],
 		name:        "vivienne",
-		after:       "mainquest.humble"
+		notBefore:   "mainquest.humble"
 	}, {
 		coords:      [101.625,74.625],
 		name:        "daughter1",
-		after:       "sidequest.crookback"
+		notBefore:   "sidequest.crookback"
 	}, {
 		coords:      [102.094,78.188],
 		name:        "daughter2",
-		after:       "sidequest.crookback"
+		notBefore:   "sidequest.crookback"
 	}, {
 		coords:      [104.719,76.563],
 		name:        "stable",
-		after:       "mainquest.family"
+		notBefore:   "mainquest.family"
 	}, {
 		coords:      [225.425,151.080],
 		name:        "doors2",
-		after:       "contract.doors"
+		notBefore:   "contract.doors"
 	}],
 	// ----------------- Grindstones --------------------
 	grindstone: [{
@@ -852,7 +856,6 @@
 		coords:      [[107.281,42.953],
 		             [98.313,40.141],
 		             [98.578,21.844],
-		             [49.641,150.531],
 		             [84.875,123.281],
 		             [181.156,220.687],
 		             [246.250,182.812],
@@ -875,17 +878,33 @@
 		             [23.172,78.391],
 		             [18.750,78.531],
 		             [34.438,93.125],
-		             [43.328,149.781],
-		             [28.078,148.406],
-		             [24.063,150.188],
 		             [69.406,162.688]]
 	}, {
+		coords:      [49.641,150.531],
+		id:          "guardedAncientStoneCircle",
+		name:        "earthelemental",
+		level:       "#20"
+	}, {
 		coords:      [56.953,200.891],
+		id:          "guardedMeetingPoint",
 		name:        "earthelemental",
 		level:       "#24"
 	}, {
+		coords:      [28.078,148.406],  // 1x Wyvern (L14) (in _bald_mountain/bm_poe_02/wyvern_group2)
+		name:        "wyvern",
+		level:       "#14",
+	}, {
+		coords:      [24.063,150.188],  // 1x Cyclop (L19) (in bald_mountain/bm1_abandoned_castle)
+		name:        "cyclops",
+		level:       "#19",
+	}, {
+		coords:      [43.328,149.781],  // 1x Bilge Hag (L20) (in bald_mountain/bm4_poisoned_pond)
+		id:          "guardedPoisonPond",
+		name:        "bilgehag",
+		level:       "#20",
+	}, {
 		coords:      [132.000,69.516],
-		after:       "contract.griffin"
+		notBefore:   "contract.griffin"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -924,7 +943,7 @@
 	}, {
 		coords:      [198.409,107.094],
 		extraLabel:  "innkeep.label",
-		after:       "sidequest.cabaret"
+		notBefore:   "sidequest.cabaret"
 	}, {
 		coords:      [[206.063,101.203],
 		             [211.344,97.563],
@@ -940,7 +959,7 @@
 	}, {
 		coords:      [209.500,105.313],
 		extraLabel:  "innkeep.label",
-		after:       "sidequest.never"
+		notBefore:   "sidequest.never"
 	}, {
 		coords:      [[158.281,166.453],
 		             [178.844,176.203],
@@ -962,14 +981,14 @@
 		weakBefore:  "mainquest.hillock"
 	}, {
 		coords:      [134.016,131.469],
-		after:       "sidequest.eternal"
+		notBefore:   "sidequest.eternal"
 	}, {
 		coords:      [153.563,163.469],
 		extraLabel:  "v:gwent.shani.label"
 	}, {
 		coords:      [155.875,164.781],
 		extraLabel:  "v:gwent.olgierd.label",
-		after:       "mainquest.evil",
+		notBefore:   "mainquest.evil",
 		before:      "mainquest.marriage"
 	}],
 	// ----------------- Gwent Quests -------------------
@@ -977,7 +996,7 @@
 		coords:      [207.516,101.172],
 		name:        "vivaldi",
 		quest:       "sidequest.gw_city",
-		after:       "sidequest.gw_collect"
+		notBefore:   "sidequest.gw_collect"
 	}, {
 		coords:      [214.406,103.469],
 		name:        "dijkstra",
@@ -987,7 +1006,7 @@
 		quest:       "sidequest.gw_city",
 		afterQuest:  "sidequest.gw_city",
 		afterPlayer: "serenity",
-		after:       "mainquest.flowers",
+		notBefore:   "mainquest.flowers",
 		weakBefore:  "sidequest.reason"
 	}, {
 		coords:      [220.750,103.906],
@@ -996,7 +1015,7 @@
 		quest:       "sidequest.gw_city",
 		afterQuest:  "sidequest.gw_city",
 		afterPlayer: "vivaldi",
-		after:       "sidequest.gw_collect"
+		notBefore:   "sidequest.gw_collect"
 	}, {
 		coords:      [186.563,83.313],
 		name:        "merchant",
@@ -1004,12 +1023,12 @@
 		quest:       "sidequest.gw_city",
 		afterQuest:  "sidequest.gw_city",
 		afterPlayer: "dijkstra",
-		after:       "sidequest.gw_collect"
+		notBefore:   "sidequest.gw_collect"
 	}, {
 		coords:      [199.391,106.578],
 		name:        "zoltan",
 		quest:       "sidequest.gw_pals",
-		after:       "mainquest.dreaming"
+		notBefore:   "mainquest.dreaming"
 	}, {
 		coords:      [180.141,176.484],
 		name:        "roche",
@@ -1027,7 +1046,7 @@
 		quest:       "sidequest.gw_pals",
 		afterQuest:  "sidequest.gw_pals",
 		afterPlayer: "roche",
-		after:       "sidequest.deadly",
+		notBefore:   "sidequest.deadly",
 		weakBefore:  "sidequest.reason"
 	}, {
 		coords:      [128.031,95.813],
@@ -1052,7 +1071,7 @@
 		coords:      [106.859,73.734],
 		name:        "baron",
 		quest:       "sidequest.gw_velen",
-		after:       "mainquest.baron",
+		notBefore:   "mainquest.baron",
 		before:      "sidequest.crookback"
 	}, {
 		coords:      [69.000,72.734],
@@ -1073,7 +1092,7 @@
 		quest:       "sidequest.gw_pals",
 		afterQuest:  "sidequest.gw_pals",
 		afterPlayer: "thaler",
-		after:       "sidequest.thread"
+		notBefore:   "sidequest.thread"
 	}],
 	// ----------------- Harbors ------------------------
 	harbor: [{
@@ -1116,7 +1135,7 @@
 		coords:      [54.469,51.313],
 		underground: true,
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [[86.016,17.078],
 		             [50.922,182.641],
@@ -1291,7 +1310,7 @@
 		coords:      [198.859,106.875],
 		extraLabel:  "v:innkeep.rosemaryAndThyme.label",
 		sells:       ["food", "drinks"],
-		after:       "sidequest.cabaret"
+		notBefore:   "sidequest.cabaret"
 	}, {
 		coords:      [198.875,126.656],
 		extraLabel:  "v:innkeep.sevenCatsInn.label",
@@ -1405,10 +1424,10 @@
 	}],
 	// ----------------- Monsters -----------------------
 	monster: [{
-		disabled:    true, // Can't get them to spawn.
 		coords:      [55.875,197.250],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_01/drowners_group_01)
 		name:        "drowner",
 		level:       "#9",
+		cleared:     "guardedMeetingPoint",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[57.375,196.031], [57.375,198.594], [54.406,198.594], [54.406,196.031]]
@@ -1477,6 +1496,305 @@
 			name: "monster.spawn",
 			coords: [[40.813,175.188], [40.813,180.625], [33.188,180.625], [33.188,175.188]]
 		}]
+	}, {
+		coords:      [53.156,143.219],  // 1x Arachas (L11) (in _bald_mountain/bm_poe_02/arachas_group1)
+		name:        "arachas",
+		level:       "#11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[56.688,138.781], [56.688,147.406], [49.813,147.406], [49.813,138.781]]
+		}]
+	}, {
+		coords:      [52.031,144.531],  // 3x-4x Endrega Warrior (L11), 8x-10x Endrega Worker (L9) (in _bald_mountain/bm_poe_02/endriagas_group1,2,3)
+		name:        "endrega",
+		level:       "#9 & 11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[56.688,138.781], [56.688,147.406], [49.813,147.406], [49.813,138.781]]
+		}]
+	}, {
+		coords:      [58.344,154.375],  // 3x-4x Endrega Warrior (L11), 8x-10x Endrega Worker (L9) (in _bald_mountain/bm_poe_02/endriagas_group4,5,6)
+		name:        "endrega",
+		level:       "#9 & 11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[61.719,153.406], [61.719,159.563], [53.156,159.563], [53.156,153.406]]
+		}]
+	}, {
+		coords:      [36.781,138.531],  // 1x Basilisk (L32) (in _bald_mountain/bm_poe_02/basilisk_group1)
+		name:        "basilisk",
+		level:       "#32",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[38.969,136.313], [38.969,141.188], [34.594,141.188], [34.594,136.313]]
+		}]
+	}, {
+		coords:      [43.984,166.547],  // 1x Bear (L18) (in _bald_mountain/bm_poe_02/bear_group1)
+		name:        "bear",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[46.250,163.188], [46.250,170.500], [41.563,170.500], [41.563,163.188]]
+		}]
+	}, {
+		disabled:    true, // Seems to be permanently disabled.
+		coords:      [47.688,121.438],  // 1x Fiend (L16) (in _bald_mountain/bm_poe_02/bies_group1)
+		name:        "fiend",
+		level:       "#16",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[50.000,120.688], [50.000,124.125], [44.938,124.125], [44.938,120.688]]
+		}]
+	}, {
+		coords:      [47.875,142.719],  // 1x Fiend (L16) (in _bald_mountain/bm_poe_02/bies_group2)
+		name:        "fiend",
+		level:       "#16",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[49.313,139.906], [49.313,146.188], [46.438,146.188], [46.438,139.906]]
+		}]
+	}, {
+		disabled:    true, // Seems to be permanently disabled.
+		coords:      [59.594,128.531],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_02/drowners_group1)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[62.875,125.656], [63.406,130.844], [56.563,129.563], [57.188,126.156]]
+		}]
+	}, {
+		coords:      [55.625,122.406],  // 4x-6x Mucknixer (L15) (in _bald_mountain/bm_poe_02/drowners_group2)
+		name:        "mucknixer",
+		level:       "#15",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[55.813,124.813], [50.938,123.656], [53.656,118.625], [62.344,123.344]]
+		}]
+	}, {
+		coords:      [58.219,149.844],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_02/foglings_group1)
+		name:        "foglet",
+		level:       "#10",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[60.438,147.906], [60.438,152.438], [56.031,152.438], [56.031,147.906]]
+		}]
+	}, {
+		coords:      [29.609,123.703],  // 2x Foglet (L26) (in _bald_mountain/bm_poe_02/foglings_village)
+		name:        "foglet",
+		level:       "#26",
+		notDuring:   "mainquest.bald",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[30.531,123.063], [30.531,124.672], [28.766,124.672], [28.766,123.063]]
+		}]
+	}, {
+		coords:      [32.375,124.969],  // 2x Foglet (L26) (in _bald_mountain/bm_poe_02/foglings_village2)
+		name:        "foglet",
+		level:       "#26",
+		notDuring:   "mainquest.bald",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[33.313,124.172], [33.313,125.969], [31.484,125.969], [31.484,124.172]]
+		}]
+	}, {
+		coords:      [36.750,125.578],  // 2x Foglet (L26) (in _bald_mountain/bm_poe_02/foglings_village3)
+		name:        "foglet",
+		level:       "#26",
+		notDuring:   "mainquest.bald",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[37.563,124.758], [37.563,126.523], [35.844,126.523], [35.844,124.758]]
+		}]
+	}, {
+		coords:      [20.078,130.375],  // 1x Leshen (L20) (in _bald_mountain/bm_poe_02/lessun_group1)
+		name:        "leshen",
+		level:       "#20",
+		notDuring:   "mainquest.bald",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[21.234,128.641], [21.828,130.500], [21.406,131.875], [19.891,132.234], [18.703,131.594],
+			        [18.422,130.281], [19.109,128.859], [20.141,128.594]]
+		}]
+	}, {
+		coords:      [30.969,139.313],  // 1x Forktail (L18) (in _bald_mountain/bm_poe_02/forktail_group1)
+		name:        "forktail",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[33.219,137.031], [33.219,142.375], [28.813,142.375], [28.813,137.031]]
+		}]
+	}, {
+		coords:      [52.000,127.906],  // 8x-12x Ghoul (L9) (in _bald_mountain/bm_poe_02/ghouls_group_1_n_2)
+		name:        "ghoul",
+		level:       "#9",
+		after:       "contract.swamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[55.094,126.125], [54.438,130.438], [52.594,132.719], [50.219,132.938], [50.219,125.281]]
+		}]
+	}, {
+		coords:      [46.813,128.469],  // 10x-14x Harpy (L13) (in _bald_mountain/bm_poe_02/harpies_group_1_plus_2)
+		name:        "harpy",
+		level:       "#13",
+		cleared:     "paintingCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[49.531,125.313], [49.688,132.181], [44.250,132.181], [43.656,125.781]]
+		}]
+	}, {
+		coords:      [43.500,141.875],  // 5x-7x Harpy (L13) (in _bald_mountain/bm_poe_02/harpies_group_3)
+		name:        "harpy",
+		level:       "#13",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[45.438,138.531], [45.438,145.438], [41.688,145.438], [41.688,138.531]]
+		}]
+	}, {
+		coords:      [56.563,136.969],  // 3x-4x Nekker (L8) (in _bald_mountain/bm_poe_02/nekkers_group1)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[58.422,135.625], [58.422,138.500], [54.688,138.500], [54.688,135.625]]
+		}]
+	}, {
+		coords:      [36.500,168.125],  // 1x-2x Nekker Warrior (L12), 3x-4x Nekker (L8) (in _bald_mountain/bm_poe_02/nekkers_group2_n_3)
+		name:        "nekker",
+		level:       "#8 & 12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[38.750,166.563], [38.750,170.000], [34.563,170.000], [34.563,166.563]]
+		}]
+	}, {
+		coords:      [50.094,149.750],  // 2x-3x Wraith (L7) (in _bald_mountain/bm_poe_02/wraiths_group1)
+		name:        "wraith",
+		level:       "#7",
+		fromTime:    "#21",
+		toTime:      "#5",
+		cleared:     "guardedAncientStoneCircle",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[50.938,149.125], [50.938,152.031], [48.219,152.031], [48.219,149.125]]
+		}]
+	}, {
+		coords:      [33.219,147.719],  // 2x-3x Wraith (L7) (in _bald_mountain/bm_poe_02/wraiths_group2)
+		name:        "wraith",
+		level:       "#7",
+		fromTime:    "#21",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[35.344,144.938], [35.344,149.500], [31.563,149.500], [31.563,144.938]]
+		}]
+	}, {
+		coords:      [46.422,133.313],  // 2x-3x Wraith (L7) (in _bald_mountain/bm_poe_02/wraiths_group3)
+		name:        "wraith",
+		level:       "#7",
+		fromTime:    "#21",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[47.000,132.938], [47.000,133.750], [45.953,133.750], [45.953,132.938]]
+		}]
+	}, {
+		coords:      [39.719,153.406],  // 1x Rabid rock troll (L10) (in _bald_mountain/bm_poe_02/troll_group1)
+		name:        "rabidrocktroll",
+		level:       "#10",
+		cleared:     "oldBridgeCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[40.656,152.875], [40.656,155.406], [37.281,155.406], [37.281,152.875]]
+		}]
+	}, {
+		coords:      [57.313,133.313],  // 1x Water Hag (L8) (in _bald_mountain/bm_poe_02/waterhag_group1)
+		name:        "waterhag",
+		level:       "#8",
+		after:       "contract.swamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[58.438,131.313], [58.438,134.375], [54.563,134.375], [54.563,131.313]]
+		}]
+	}, {
+		coords:      [49.500,135.906],  // 1x Wyvern (L9) (in _bald_mountain/bm_poe_02/wyvern_group1)
+		name:        "wyvern",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[51.563,134.688], [51.563,137.500], [47.531,137.500], [47.531,134.688]]
+		}]
+	}, {
+		coords:      [27.781,155.453],  // 1x Wyvern (L14) (in _bald_mountain/bm_poe_02/wyvern_group3)
+		name:        "wyvern",
+		level:       "#14",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[29.500,153.188], [30.188,157.734], [26.000,158.031], [25.547,153.469]]
+		}]
+	}, {
+		coords:      [42.563,157.750],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group1)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[43.750,154.781], [45.375,158.609], [41.269,160.841], [39.422,157.344]]
+		}]
+	}, {
+		coords:      [50.375,158.344],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group2)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[52.813,156.969], [52.813,160.563], [47.969,160.563], [47.969,156.969]]
+		}]
+	}, {
+		coords:      [59.063,168.563],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group3)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[61.594,167.000], [61.594,170.406], [56.625,170.406], [56.625,167.000]]
+		}]
+	}, {
+		coords:      [50.156,168.625],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group4)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[52.656,167.031], [52.656,170.469], [47.844,170.469], [47.844,167.031]]
+		}]
+	}, {
+		coords:      [37.750,143.250],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group5)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[39.594,141.875], [39.594,145.063], [35.844,145.063], [35.844,141.875]]
+		}]
+	}, {
+		coords:      [42.094,150.672],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group6)
+		name:        "wolf",
+		level:       "#5 & 8",
+		cleared:     "guardedPoisonPond",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[44.906,148.453], [44.906,152.563], [39.766,152.563], [39.766,148.453]]
+		}]
+	}, {
+		coords:      [33.375,154.781],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group7)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[33.750,152.375], [36.344,155.219], [33.594,157.688], [30.875,154.281]]
+		}]
+	}, {
+		coords:      [34.063,161.984],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group8)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[36.391,162.453], [34.453,165.047], [31.203,161.953], [33.750,159.000]]
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
@@ -1524,7 +1842,7 @@
 		coords:      [[45.766,41.367],
 		             [45.266,41.125]],
 		underground: true,
-		after:       "mainquest.wandering",
+		notBefore:   "mainquest.wandering",
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"]
 	}],
 	// ----------------- Notice Boards ------------------
@@ -1586,12 +1904,12 @@
 		coords:      [53.234,52.414],
 		extraLabel:  "pop.yrden.label",
 		underground: true,
-		after:       "mainquest.wandering",
+		notBefore:   "mainquest.wandering",
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"]
 	}, {
 		coords:      [35.688,133.594],
 		extraLabel:  "pop.quen.label",
-		after:       "mainquest.bald"
+		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [80.219,141.359],
 		extraLabel:  "pop.yrden.label"
@@ -1698,7 +2016,7 @@
 		label:       "v:poi.acorn.label",
 		extraDesc:   ["v:poi.acorn.desc", "v:poi.questitem"],
 		quest:       "mainquest.bald",
-		after:       "mainquest.bald"
+		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [138.219,127.313],
 		label:       "v:poi.reinald0.label",
@@ -2012,7 +2330,7 @@
 	}, {
 		coords:      [213.813,93.063],
 		sells:       ["runestones", "alchemy"],
-		after:       "sidequest.stuff"
+		notBefore:   "sidequest.stuff"
 	}, {
 		coords:      [[239.766,70.563],
 		             [83.531,87.641]],
@@ -2129,15 +2447,15 @@
 	}, {
 		coords:      [35.406,124.250],
 		sells:       ["runestones", "alchemy"],
-		after:       "mainquest.bald"
+		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [28.500,123.875],
 		sells:       ["alchemy", "food"],
-		after:       "mainquest.bald"
+		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [133.906,131.266],
 		sells:       ["alchemy", "food"],
-		after:       "sidequest.eternal"
+		notBefore:   "sidequest.eternal"
 	}, {
 		coords:      [187.797,152.172],
 		sells:       "gwent"
@@ -2255,12 +2573,12 @@
 	}, {
 		coords:      [199.343,106.343],
 		name:        "dangerous",
-		after:       "mainquest.poet",
+		notBefore:   "mainquest.poet",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [150.531,166.578],
 		name:        "wanted",
-		after:       "mainquest.junior",
+		notBefore:   "mainquest.junior",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [66.687,91.125],
@@ -2268,27 +2586,27 @@
 	}, {
 		coords:      [89.843,48.609],
 		name:        "magiclamp",
-		after:       "mainquest.wandering",
+		notBefore:   "mainquest.wandering",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [89.843,48.809],
 		name:        "invitation",
-		after:       "sidequest.magiclamp",
+		notBefore:   "sidequest.magiclamp",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [89.843,49.009],
 		name:        "towerful",
-		after:       "sidequest.invitation",
+		notBefore:   "sidequest.invitation",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [89.843,49.209],
 		name:        "favor",
-		after:       "sidequest.towerful",
+		notBefore:   "sidequest.towerful",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [198.063,82.391],
 		name:        "reason",
-		after:       ["mainquest.blindingly",
+		notBefore:   ["mainquest.blindingly",
 		              "sidequest.deadly",
 		              "sidequest.eyeforeye",
 		              "sidequest.wanted"],
@@ -2297,11 +2615,11 @@
 	}, {
 		coords:      [200.375,105.203],
 		name:        "feast",
-		after:       "mainquest.flowers"
+		notBefore:   "mainquest.flowers"
 	}, {
 		coords:      [72.437,59.625],
 		name:        "greedy",
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [205.515,107.984],
 		name:        "entombed",
@@ -2313,7 +2631,7 @@
 	}, {
 		coords:      [180.000,176.125],
 		name:        "eyeforeye",
-		after:       "sidequest.gangs"
+		notBefore:   "sidequest.gangs"
 	}, {
 		coords:      [160.421,166.437],
 		name:        "avid",
@@ -2331,17 +2649,17 @@
 	}, {
 		coords:      [198.968,107.734],
 		name:        "cabaret",
-		after:       "mainquest.poet",
+		notBefore:   "mainquest.poet",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [198.968,108.000],
 		name:        "sins",
-		after:       "sidequest.cabaret",
+		notBefore:   "sidequest.cabaret",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [106.968,74.875],
 		name:        "ciri",
-		after:       "mainquest.ciriwolves",
+		notBefore:   "mainquest.ciriwolves",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [149.562,129.187],
@@ -2355,7 +2673,7 @@
 	}, {
 		coords:      [152.500,115.343],
 		name:        "fake",
-		after:       "sidequest.bitter"
+		notBefore:   "sidequest.bitter"
 	}, {
 		coords:      [218.000,106.109],
 		name:        "fencing",
@@ -2372,7 +2690,7 @@
 		coords:      [[104.391,76.938],
 		             [89.062,47.875]],
 		name:        "forefathers",
-		after:       "sidequest.towerful"
+		notBefore:   "sidequest.towerful"
 	}, {
 		coords:      [164.218,89.750],
 		name:        "fromfar2"
@@ -2386,7 +2704,7 @@
 	}, {
 		coords:      [209.078,104.125],
 		name:        "haunted",
-		after:       "mainquest.dreaming"
+		notBefore:   "mainquest.dreaming"
 	}, {
 		coords:      [104.562,129.296],
 		name:        "hazardous1"
@@ -2396,18 +2714,18 @@
 	}, {
 		coords:      [210.468,107.234],
 		name:        "messages",
-		after:       "event.children1"
+		notBefore:   "event.children1"
 	}, {
 		coords:      [221.109,104.375],
 		name:        "stakes"
 	}, {
 		coords:      [198.390,104.546],
 		name:        "honor",
-		after:       "sidequest.gangs"
+		notBefore:   "sidequest.gangs"
 	}, {
 		coords:      [111.843,54.500],
 		name:        "rites",
-		after:       "sidequest.defender"
+		notBefore:   "sidequest.defender"
 	}, {
 		coords:      [237.718,129.500],
 		name:        "red"
@@ -2430,12 +2748,12 @@
 	}, {
 		coords:      [210.562,95.609],
 		name:        "city2",
-		after:       ["sidequest.matter",
+		notBefore:   ["sidequest.matter",
 		              "mainquest.reuven"]
 	}, {
 		coords:      [221.812,98.968],
 		name:        "city1",
-		after:       ["sidequest.matter",
+		notBefore:   ["sidequest.matter",
 		              "mainquest.reuven"]
 	}, {
 		coords:      [155.093,208.531],
@@ -2446,11 +2764,11 @@
 	}, {
 		coords:      [201.578,98.515],
 		name:        "arse",
-		after:       "contract.deadly"
+		notBefore:   "contract.deadly"
 	}, {
 		coords:      [209.938,109.422],
 		name:        "matter",
-		after:       "mainquest.reuven"
+		notBefore:   "mainquest.reuven"
 	}, {
 		coords:      [246.547,198.938],
 		name:        "midnight",
@@ -2459,24 +2777,24 @@
 	}, {
 		coords:      [107.078,73.765],
 		name:        "crookback",
-		after:       "mainquest.family",
+		notBefore:   "mainquest.family",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [247.500,174.343],
 		name:        "rose",
-		after:       "mainquest.evil",
+		notBefore:   "mainquest.evil",
 		hos:         true
 	}, {
 		coords:      [154.000,163.500],
 		name:        "neighborhood",
-		after:       "contract.drunk"
+		notBefore:   "contract.drunk"
 	}, {
 		coords:      [149.281,183.343],
 		name:        "spooked"
 	}, {
 		coords:      [95.156,47.718],
 		name:        "takewant",
-		after:       "sidequest.cat"
+		notBefore:   "sidequest.cat"
 	}, {
 		coords:      [202.250,118.687],
 		name:        "dwarven"
@@ -2511,7 +2829,7 @@
 	}, {
 		coords:      [99.656,109.718],
 		name:        "wannabe",
-		after:       "contract.merry"
+		notBefore:   "contract.merry"
 	}, {
 		coords:      [242.906,198.562],
 		name:        "trace1",
@@ -2522,7 +2840,7 @@
 		id:          "sidequest.rc_derby",
 		name:        "rc_derby",
 		race:        true,
-		after:       "mainquest.junior",
+		notBefore:   "mainquest.junior",
 		routes: [{
 			name: "v:race.derby1.label",
 			coords: [[194.453,161.922], [195.016,162.406], [195.969,162.609], [196.984,162.484], [197.922,162.797],
@@ -2627,13 +2945,13 @@
 		coords:      [239.453,215.169],
 		name:        "en_q",
 		hos:         true,
-		after:       "sidequest.en_s"
+		notBefore:   "sidequest.en_s"
 	}, {
 		coords:      [239.453,215.369],
 		name:        "en_m",
 		extraDesc:   "sidequest.en_m.descMods",
 		hos:         true,
-		after:       "sidequest.en_q"
+		notBefore:   "sidequest.en_q"
 	}, {
 		coords:      [216.287,104.625],
 		name:        "nobleman"
@@ -2983,7 +3301,7 @@
 	}, {
 		coords:      [104.641,75.641],
 		name:        "v:castle",
-		after:       "sidequest.crookback"
+		notBefore:   "sidequest.crookback"
 	}],
 	// ----------------- Smugglers' Caches --------------
 	smugglers: [{
@@ -3190,7 +3508,7 @@
 	}, {
 		coords:      [[39.000,131.969],
 		             [34.531,129.891]],
-		after:       "mainquest.bald"
+		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [[52.617,50.609],
 		             [37.828,40.742],
@@ -3222,30 +3540,30 @@
 		             [51.727,39.453]],
 		underground: true,
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [51.227,43.102],
 		unreachable: true,
 		underground: true,
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [[214.531,193.344],
 		             [216.766,193.875],
 		             [216.734,192.906]],
 		underground: true,
 		entrances:   "everec_crypt",
-		after:       "mainquest.deadman"
+		notBefore:   "mainquest.deadman"
 	}, {
 		coords:      [[217.344,193.438],
 		             [220.672,193.000]],
-		after:       "mainquest.marriage"
+		notBefore:   "mainquest.marriage"
 	}, {
 		coords:      [[202.266,102.609],
 		             [201.991,102.406]],
 		underground: true,
 		entrances:   "pyres_hatch",
-		after:       "mainquest.pyres"
+		notBefore:   "mainquest.pyres"
 	}, {
 		coords:      [52.219,129.844],
 		underground: true,
@@ -3264,7 +3582,7 @@
 		             [157.875,208.891]],
 		underground: true,
 		entrances:   "cheese_dungeon",
-		after:       "sidequest.darkness"
+		notBefore:   "sidequest.darkness"
 	}, {
 		coords:      [94.813,183.438],
 		underground: true,
@@ -3275,7 +3593,7 @@
 		              "sidequest.matter"]
 	}, {
 		coords:      [164.094,164.391],
-		after:       "contract.drunk"
+		notBefore:   "contract.drunk"
 	}, {
 		coords:      [140.844,167.109],
 		during:      "mainquest.whatsoever"
@@ -3283,13 +3601,13 @@
 		coords:      [72.188,59.047],
 		underground: true,
 		entrances:   "allgod_basement",
-		after:       "sidequest.greedy"
+		notBefore:   "sidequest.greedy"
 	}, {
 		coords:      [[153.578,166.875],
 		             [154.438,167.266]],
 		underground: true,
 		entrances:   "escape_well",
-		after:       "mainquest.escape"
+		notBefore:   "mainquest.escape"
 	}, {
 		coords:      [99.766,117.875],
 		underground: true,
@@ -3324,7 +3642,7 @@
 		coords:      [208.594,104.875],
 		underground: true,
 		entrances:   "sewers3",
-		after:       "sidequest.never"
+		notBefore:   "sidequest.never"
 	}, {
 		coords:      [[92.313,149.797],
 		             [89.391,150.484]],
@@ -3348,7 +3666,7 @@
 		during:      "mainquest.evil"
 	}, {
 		coords:      [239.563,76.688],
-		after:       "mainquest.evil"
+		notBefore:   "mainquest.evil"
 	}, {
 		coords:      [223.297,90.469],
 		underground: true,
@@ -3415,7 +3733,7 @@
 		underwater:  true,
 		underground: true,
 		entrances:   "escape_well",
-		after:       "mainquest.escape"
+		notBefore:   "mainquest.escape"
 	}, {
 		coords:      [226.531,90.656],
 		underwater:  true,
@@ -3435,7 +3753,7 @@
 		underwater:  true,
 		underground: true,
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [[91.563,149.500],
 		             [91.375,149.703],
@@ -3454,7 +3772,7 @@
 	}, {
 		coords:      [238.844,76.656],
 		underwater:  true,
-		after:       "mainquest.evil"
+		notBefore:   "mainquest.evil"
 	}],
 	// ----------------- Treasure Hunts -----------------
 	treasurehunt: [{

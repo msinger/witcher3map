@@ -18,7 +18,7 @@
 		coords:      [52.719,62.609]
 	}, {
 		coords:      [79.141,53.453],
-		after:       "sidequest.vc_chuchote"
+		notBefore:   "sidequest.vc_chuchote"
 	}],
 	// ----------------- Armorers -----------------------
 	armorer: [{
@@ -77,7 +77,7 @@
 		coords:      [68.828,115.984],
 		extraDesc:   "t:banditcamp.ussar.desc",
 		uncleared:   "montcrane_hanse",
-		after:       "contract.bovineblues"
+		notBefore:   "contract.bovineblues"
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -248,7 +248,7 @@
 	}, {
 		coords:      [68.141,93.250],
 		notInGame:   true,
-		after:       "contract.tufo"
+		notBefore:   "contract.tufo"
 	}, {
 		coords:      [98.422,58.438],
 		notInGame:   true,
@@ -276,10 +276,10 @@
 		groupId:     "montcrane_hanse"
 	}, {
 		coords:      [96.703,106.250],
-		after:       "treasurehunt.spoon"
+		notBefore:   "treasurehunt.spoon"
 	}, {
 		coords:      [38.797,96.844],
-		after:       "mainquest.cage"
+		notBefore:   "mainquest.cage"
 	}, {
 		coords:      [84.922,53.875],
 		during:      "mainquest.wine"
@@ -298,7 +298,7 @@
 	}, {
 		coords:      [60.406,56.906],
 		name:        "naughty",
-		after:       "mainquest.humble"
+		notBefore:   "mainquest.humble"
 	}, {
 		coords:      [54.078,56.969],
 		name:        "ring",
@@ -310,7 +310,7 @@
 	}, {
 		coords:      [50.750,61.063],
 		name:        "drunk",
-		after:       "mainquest.humble"
+		notBefore:   "mainquest.humble"
 	}, {
 		coords:      [58.016,59.422],
 		name:        "delwyn",
@@ -405,7 +405,7 @@
 		coords:      [74.600,75.500],
 		label:       "sidequest.gw_tournment.label",
 		desc:        "sidequest.gw_tournment.desc",
-		after:       "sidequest.gw_fear"
+		notBefore:   "sidequest.gw_fear"
 	}, {
 		coords:      [51.359,60.890],
 		label:       "sidequest.gw_fear.label",
@@ -483,7 +483,7 @@
 		coords:      [47.625,64.625],
 		extraLabel:  "t:innkeep.clever.label",
 		desc:        "t:innkeep.desc",
-		after:       "sidequest.father"
+		notBefore:   "sidequest.father"
 	}],
 	// ----------------- Knights in Distress ------------
 	kid: [{
@@ -590,7 +590,7 @@
 	}, {
 		coords:      [52.281,56.406],
 		label:       "t:poi.haremask.label",
-		after:       "mainquest.toussaint"
+		notBefore:   "mainquest.toussaint"
 	}, {
 		coords:      [[27.781,82.109],
 		             [27.547,81.125],
@@ -708,24 +708,24 @@
 		coords:      [85.391,72.594],
 		extraLabel:  "t:shopkeeper.vintner.label",
 		sells:       ["crafting", "drinks"],
-		after:       "sidequest.vc_rivecalme"
+		notBefore:   "sidequest.vc_rivecalme"
 	}, {
 		coords:      [56.266,44.641],
 		extraLabel:  "t:shopkeeper.vintner.label",
 		sells:       ["food", "drinks"],
-		after:       "sidequest.vc_duchaton"
+		notBefore:   "sidequest.vc_duchaton"
 	}, {
 		coords:      [49.000,92.688],
 		extraLabel:  "t:shopkeeper.vintner.label",
 		sells:       ["food", "drinks"],
-		after:       "sidequest.vc_cleaning"
+		notBefore:   "sidequest.vc_cleaning"
 	}, {
 		coords:      [90.672,86.859],
 		extraLabel:  "t:shopkeeper.vintner.label",
 		sells:       ["runestones", "alchemy"],
 		underground: true,
 		entrances:   "dun_crossroads_cave",
-		after:       "sidequest.vc_dun"
+		notBefore:   "sidequest.vc_dun"
 	}, {
 		coords:      [50.719,65.109],
 		sells:       ["paintings", "crafting"]
@@ -808,7 +808,7 @@
 		coords:      [52.844,64.000],
 		name:        "smittenkight",
 		baw:         true,
-		after:       "mainquest.toussaint"
+		notBefore:   "mainquest.toussaint"
 	}, {
 		coords:      [52.844,64.500],
 		name:        "placelikehome",
@@ -821,7 +821,7 @@
 		coords:      [51.438,63.797],
 		name:        "portait",
 		baw:         true,
-		after:       "sidequest.smittenkight"
+		notBefore:   "sidequest.smittenkight"
 	}, {
 		coords:      [42.625,89.625],
 		name:        "cosplay",
@@ -830,7 +830,7 @@
 		coords:      [66.500,75.203],
 		name:        "grist",
 		baw:         true,
-		after:       "mainquest.cage",
+		notBefore:   "mainquest.cage",
 		before:      "mainquest.toys"
 	}, {
 		coords:      [64.703,43.500],
@@ -840,17 +840,17 @@
 		coords:      [47.156,63.750],
 		name:        "sheers",
 		baw:         true,
-		after:       "sidequest.smittenkight"
+		notBefore:   "sidequest.smittenkight"
 	}, {
 		coords:      [70.468,67.253],
 		name:        "placelikehome",
 		baw:         true,
-		after:       "mainquest.toussaint"
+		notBefore:   "mainquest.toussaint"
 	}, {
 		coords:      [70.468,67.453],
 		name:        "hunger",
 		baw:         true,
-		after:       "mainquest.cage"
+		notBefore:   "mainquest.cage"
 	}, {
 		coords:      [57.796,87.000],
 		name:        "jailbird",
@@ -872,12 +872,12 @@
 		coords:      [59.063,75.141],
 		name:        "ff_raging",
 		baw:         true,
-		after:       "sidequest.ff_toussaint"
+		notBefore:   "sidequest.ff_toussaint"
 	}, {
 		coords:      [93.750,65.906],
 		name:        "ww_coronata",
 		baw:         true,
-		after:       "sidequest.ww_belgaard"
+		notBefore:   "sidequest.ww_belgaard"
 	}, {
 		coords:      [74.600,76.000],
 		name:        "ww_belgaard",
@@ -886,14 +886,14 @@
 		coords:      [93.734,65.562],
 		name:        "ww_consorting",
 		baw:         true,
-		after:       "sidequest.ww_deus",
+		notBefore:   "sidequest.ww_deus",
 		before:      ["sidequest.ww_coronata",
 		              "sidequest.ww_vermentino"]
 	}, {
 		coords:      [93.750,66.234],
 		name:        "ww_vermentino",
 		baw:         true,
-		after:       "sidequest.ww_belgaard"
+		notBefore:   "sidequest.ww_belgaard"
 	}, {
 		coords:      [91.094,86.703],
 		name:        "vc_dun",
@@ -918,7 +918,7 @@
 		coords:      [69.074,101.234],
 		name:        "bf",
 		baw:         true,
-		after:       "contract.bovineblues"
+		notBefore:   "contract.bovineblues"
 	}, {
 		coords:      [94.609,50.297],
 		name:        "bf1",
@@ -1171,7 +1171,7 @@
 		coords:      [45.391,78.078],
 		underground: true,
 		entrances:   "regis_hideout",
-		after:       "mainquest.cage"
+		notBefore:   "mainquest.cage"
 	}, {
 		coords:      [[48.313,82.469],
 		             [47.172,83.125],
@@ -1285,7 +1285,7 @@
 		coords:      [37.594,97.641],
 		name:        "spoon",
 		baw:         true,
-		after:       "mainquest.cage"
+		notBefore:   "mainquest.cage"
 	}],
 	// ----------------- Vineyard Infestations ----------
 	vineyardinfestation: [{
