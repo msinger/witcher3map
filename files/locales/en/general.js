@@ -302,8 +302,8 @@ window.i18nData.en.general = {
 		label: "Hidden Treasure",
 		desc:  "A hidden cache of valuable goods.",
 		guarded: {
-			label: "Hidden Treasure (Guarded)",
-			desc:  "A hidden cache of valuable goods. (Guarded by monster)"
+			label: "Hidden Treasure (Guarded)__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
+			desc:  "A hidden cache of valuable goods, guarded by a monster."
 		}
 	},
 	hollow: {
@@ -499,6 +499,7 @@ window.i18nData.en.general = {
 		label: "__this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Monsters spawn here.",
 		spawn: "Spawn Area",
+		route: "Patrol Route",
 		underwater: {
 			label: "Underwater __this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
 			desc:  "Monsters spawn here underwater.",

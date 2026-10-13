@@ -855,7 +855,6 @@
 	guarded: [{
 		coords:      [[107.281,42.953],
 		             [98.313,40.141],
-		             [98.578,21.844],
 		             [181.156,220.687],
 		             [246.250,182.812],
 		             [258.843,129.187],
@@ -876,8 +875,7 @@
 		             [37.094,55.438],
 		             [23.172,78.391],
 		             [18.750,78.531],
-		             [34.438,93.125],
-		             [69.406,162.688]]
+		             [34.438,93.125]]
 	}, {
 		coords:      [84.875,123.281],  // 1x Bear (L12) (in _crookback_bog/cb_poe_01/bear_group1)
 		name:        "bear",
@@ -907,7 +905,15 @@
 		level:       "#20",
 	}, {
 		coords:      [132.000,69.516],
-		notBefore:   "contract.griffin"
+		after:       "contract.griffin"
+	}, {
+		coords:      [98.578,21.844],   // 1x {6h-18h: Noonwraith, 18h-6h: Nightwraith} (L15) (in nml_w_012)
+		name:        "wraith",
+		level:       "#15"
+	}, {
+		coords:      [69.406,162.688],  // 1x Water Hag (L8) (in crookback_bog/cb19_fossil)
+		name:        "waterhag",
+		level:       "#8"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -1140,9 +1146,22 @@
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
 		notBefore:   "mainquest.wandering"
 	}, {
-		coords:      [[86.016,17.078],
-		             [50.922,182.641],
-		             [99.469,197.203]],
+		coords:      [86.016,17.078],   // 2x-3x Drowner (L4) (in nml_w_013)
+		guarded:     true,
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[88.391,15.250], [89.016,18.250], [86.594,18.922], [83.625,18.984], [82.641,17.328],
+			        [82.094,14.156], [82.922,12.203], [87.047,12.547]]
+		}]
+	}, {
+		coords:      [50.922,182.641],  // 1x Fiend (L22) (in crookback_bog/cb17_childprison)
+		guarded:     true,
+		name:        "fiend",
+		level:       "#22"
+	}, {
+		coords:      [99.469,197.203],
 		guarded:     true
 	}],
 	// ----------------- Hollow Trees -------------------
@@ -2157,6 +2176,290 @@
 			        [116.797,180.563], [116.469,179.094], [116.891,177.750], [117.266,176.219],
 			        [118.359,175.125], [120.172,175.281]]
 		}]
+	}, {
+		coords:      [38.313,31.203],   // 3x Drowner (L10) (in nml_w_018)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[39.125,33.813], [36.094,32.422], [37.563,28.594], [40.641,30.219]]
+		}]
+	}, {
+		coords:      [35.625,27.797],   // 4x Drowner (L10) (in nml_w_018)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[33.328,28.516], [34.766,25.453], [37.703,27.031], [36.609,29.766]]
+		}]
+	}, {
+		coords:      [30.500,24.891],   // 2x Drowner (L10) (in nml_w_018)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[29.734,28.219], [28.828,28.219], [30.734,21.797], [32.391,22.563]]
+		}]
+	}, {
+		coords:      [43.188,65.156],   // 3x Drowner (L10) (in nml_w_020)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[42.344,68.531], [39.656,64.531], [44.031,61.656], [46.375,66.188]]
+		}]
+	}, {
+		coords:      [44.688,90.969],   // 3x Drowner (L10) (in nml_w_021)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[41.406,94.344], [41.406,87.531], [47.531,87.531], [47.531,94.344]]
+		}]
+	}, {
+		coords:      [59.750,72.375],   // 3x Drowner (L10) (in nml_w_022)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[61.969,66.344], [61.969,78.625], [57.344,78.625], [57.344,66.344]]
+		}]
+	}, {
+		coords:      [87.953,63.797],   // 3x Drowner (L10) (in nml_w_026)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[87.156,66.031], [85.734,65.844], [87.328,63.625], [87.609,62.313], [86.938,61.844],
+			        [88.375,60.563], [88.422,59.625], [89.391,59.359], [89.688,59.359], [90.203,59.891],
+			        [90.203,60.516], [89.453,61.063], [89.219,61.000], [88.828,60.828], [88.203,61.969],
+			        [88.438,62.734], [88.563,64.469], [89.078,65.859]]
+		}]
+	}, {
+		coords:      [57.344,116.500],  // 3x Drowner (L10) (in nml_w_028)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[55.563,118.406], [55.563,114.563], [59.188,114.563], [59.188,118.406]]
+		}]
+	}, {
+		coords:      [53.594,109.406],  // 4x Drowner (L10) (in nml_w_028)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[57.125,106.969], [57.125,112.000], [49.906,112.000], [49.906,106.969]]
+		}]
+	}, {
+		coords:      [47.125,115.781],  // 3x Drowner (L10) (in nml_w_028)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[45.125,117.656], [45.125,113.969], [49.094,113.969], [49.094,117.656]]
+		}]
+	}, {
+		coords:      [139.844,72.234],  // 3x Drowner (L10) (in nml_w_029)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[142.813,70.453], [138.063,75.703], [136.563,74.172], [141.609,69.016]]
+		}]
+	}, {
+		coords:      [153.109,63.875],  // 2x Drowner (L10) (in nml_w_030)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[152.281,64.672], [152.281,63.047], [153.922,63.047], [153.922,64.672]]
+		}]
+	}, {
+		coords:      [154.563,60.219],  // 3x Drowner (L10) (in nml_w_030)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[152.719,61.781], [152.031,60.094], [156.172,58.625], [156.656,60.438]]
+		}]
+	}, {
+		coords:      [156.281,64.141], // 1x Drowner (L10) (in nml_w_030)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[155.719,63.750], [156.719,63.578], [156.875,64.547], [155.859,64.656]]
+		}]
+	}, {
+		coords:      [148.438,91.906],  // 2x Drowner (L10) (in nml_w_033)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[146.906,93.688], [146.906,90.063], [149.719,90.063], [149.719,93.688]]
+		}]
+	}, {
+		coords:      [108.578,119.313], // 1x Drowner (L10) (in nml_w_035)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[108.281,118.750], [109.000,118.750], [109.000,119.906], [108.281,119.906]]
+		}]
+	}, {
+		coords:      [109.047,116.719], // 2x Drowner (L10) (in nml_w_035)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[109.156,117.828], [108.313,117.500], [108.844,115.547], [109.750,115.922]]
+		}]
+	}, {
+		coords:      [114.188,147.563], // 1x Drowner (L10) (in nml_w_036)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[114.688,148.016], [113.703,148.016], [113.703,147.094], [114.688,147.094]]
+		}]
+	}, {
+		coords:      [115.250,144.047], // 1x Drowner (L10) (in nml_w_036)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[115.953,143.063], [115.953,145.000], [114.641,145.000], [114.641,143.063]]
+		}]
+	}, {
+		coords:      [120.547,164.734], // 2x Drowner (L10) (in nml_w_037)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[119.625,163.484], [121.484,163.484], [121.484,165.906], [119.625,165.906]]
+		}]
+	}, {
+		coords:      [119.922,168.641], // 1x Drowner (L10) (in nml_w_037)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[120.750,167.563], [120.750,169.875], [119.094,169.875], [119.094,167.563]]
+		}]
+	}, {
+		coords:      [173.813,145.875], // 4x-6x Drowner (L10) (in nml_w_046)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[171.906,144.156], [175.719,144.156], [175.719,147.531], [171.906,147.531]]
+		}]
+	}, {
+		coords:      [175.281,151.031], // 4x-6x Drowner (L10) (in nml_w_046)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[176.875,149.406], [176.875,152.875], [173.750,152.875], [173.750,149.406]]
+		}]
+	}, {
+		coords:      [161.063,115.406], // 2x Drowner (L10) (in nml_w_047)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[158.719,113.125], [163.531,113.125], [163.531,117.500], [158.719,117.500]]
+		}]
+	}, {
+		coords:      [154.859,102.266], // 2x Drowner (L10) (in nml_w_047)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[155.625,101.703], [155.625,102.984], [154.063,102.984], [154.063,101.703]]
+		}]
+	}, {
+		disabled:    true, // Seems to be broken, I don't understand why. Maybe because another spawn in the same encounter has None assigned for monsters, maybe this breaks the whole encounter.
+		coords:      [173.250,130.844], // 2x Drowner (L10) (in nml_w_048)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[175.250,129.031], [175.250,132.656], [171.406,132.656], [171.406,129.031]]
+		}]
+	}, {
+		disabled:    true, // Seems to be broken, because someone didn't actually assign the drowners to it.
+		coords:      [169.250,126.531], // 3x Drowner (L10) (in nml_w_048)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[171.219,124.656], [171.219,128.500], [167.375,128.500], [167.375,124.656]]
+		}]
+	}, {
+		coords:      [197.492,122.055], // 1x Drowner (L10) (in nml_w_050)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[197.867,121.406], [198.234,122.484], [197.102,122.805], [196.758,121.641]]
+		}]
+	}, {
+		coords:      [199.359,78.469],  // 2x Drowner (L10) (in nml_w_052)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[198.891,79.250], [198.469,77.906], [199.922,77.547], [200.266,78.984]]
+		}]
+	}, {
+		coords:      [220.219,151.000], // 3x Wolf (L5) (in nml_w_057)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[221.531,149.813], [221.531,152.281], [218.969,152.281], [218.969,149.813]]
+		}]
+	}, {
+		coords:      [217.359,148.813], // 3x Wolf (L5) (in nml_w_057)
+		name:        "wolf",
+		level:       "#5",
+		routes: [{
+			name: "monster.route",
+			coords: [[217.766,146.109], [217.359,148.813], [216.734,150.359], [217.703,149.813],
+			        [217.703,148.484], [216.750,147.031], [216.063,146.719], [215.625,145.781],
+			        [217.766,146.109]]
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
@@ -2178,7 +2481,6 @@
 		             [110.656,88.094],
 		             [100.078,66.047],
 		             [82.969,86.828],
-		             [60.047,126.375],
 		             [204.843,186.437],
 		             [238.812,199.906],
 		             [235.656,201.531],
@@ -2206,6 +2508,10 @@
 		underground: true,
 		notBefore:   "mainquest.wandering",
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"]
+	}, {
+		coords:      [60.047,126.375],  // 1x Drowned Dead (L9), {6h-21h: 4x, 21h-6h: 7x} Drowner (L9) (in crookback_nog/cb21_swampnests)
+		name:        "drowner",
+		level:       "#9"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
