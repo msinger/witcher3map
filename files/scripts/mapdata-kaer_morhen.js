@@ -20,7 +20,7 @@
 	// ----------------- Boats --------------------------
 	boat: [{
 		coords:      [117.000,66.797],
-		after:       "mainquest.trial"
+		notBefore:   "mainquest.trial"
 	}, {
 		coords:      [83.671,64.687]
 	}],
@@ -156,11 +156,11 @@
 	}, {
 		coords:      [62.750,42.531],
 		name:        "bastion",
-		after:       "sidequest.magiclamp"
+		notBefore:   "sidequest.magiclamp"
 	}, {
 		coords:      [65.031,67.750],
 		name:        "forge",
-		after:       "mainquest.wandering"
+		notBefore:   "mainquest.wandering"
 	}],
 	// ----------------- Sign Posts ---------------------
 	signpost: [{

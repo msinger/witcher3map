@@ -16,7 +16,7 @@
 	}, {
 		coords:      [137.453,164.062],
 		extraLabel:  "s:alchemy.gremist.label",
-		after:       "sidequest.practicum"
+		notBefore:   "sidequest.practicum"
 	}],
 	// ----------------- Armorers -----------------------
 	armorer: [{
@@ -79,7 +79,7 @@
 	}, {
 		coords:      [108.157,73.688],
 		extraLabel:  "craftlevel.amateur",
-		after:       "mainquest.bpreparations"
+		notBefore:   "mainquest.bpreparations"
 	}],
 	// ----------------- Boats --------------------------
 	boat: [{
@@ -114,10 +114,10 @@
 		             [62.281,200.906]]
 	}, {
 		coords:      [117.282,53.625],
-		after:       "mainquest.mists"
+		notBefore:   "mainquest.mists"
 	}, {
 		coords:      [149.000,210.093],
-		after:       "sidequest.last"
+		notBefore:   "sidequest.last"
 	}],
 	// ----------------- Contracts ----------------------
 	contract: [{
@@ -198,7 +198,7 @@
 		groupId:     "old_watchtower_cave"
 	}, {
 		coords:      [140.500,52.875],
-		after:       "mainquest.elderblood"
+		notBefore:   "mainquest.elderblood"
 	}, {
 		coords:      [96.954,61.172],
 		groupId:     "urskar_tordarroch_cave"
@@ -207,7 +207,7 @@
 		groupId:     "urskar_boothouse_cave"
 	}, {
 		coords:      [99.344,72.594],
-		after:       "sidequest.undvik"
+		notBefore:   "sidequest.undvik"
 	}, {
 		coords:      [[78.640,145.688],
 		             [81.547,145.703]],
@@ -217,7 +217,7 @@
 		groupId:     "shroom_cave"
 	}, {
 		coords:      [107.859,121.547],
-		after:       "sidequest.gambit",
+		notBefore:   "sidequest.gambit",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [115.109,130.235],
@@ -233,13 +233,13 @@
 		groupId:     "disturbed_crypt"
 	}, {
 		coords:      [137.187,164.156],
-		after:       "sidequest.practicum"
+		notBefore:   "sidequest.practicum"
 	}, {
 		coords:      [150.469,150.968],
 		groupId:     "yustianna_grotto"
 	}, {
 		coords:      [158.844,135.986],
-		after:       "mainquest.sunstone",
+		notBefore:   "mainquest.sunstone",
 		groupId:     "sunstone_cave"
 	}, {
 		coords:      [145.203,131.781],
@@ -264,7 +264,7 @@
 	}, {
 		coords:      [153.891,121.656],
 		notInGame:   true,
-		after:       "sidequest.gambit",
+		notBefore:   "sidequest.gambit",
 		groupId:     "trolde_passage"
 	}, {
 		coords:      [[96.312,64.672],
@@ -277,7 +277,7 @@
 		during:      "contract.wanted"
 	}, {
 		coords:      [104.531,148.312],
-		after:       "contract.wanted"
+		notBefore:   "contract.wanted"
 	}, {
 		coords:      [121.766,137.391],
 		notInGame:   true,
@@ -324,7 +324,7 @@
 	}, {
 		coords:      [147.704,137.938],
 		name:        "punishment2",
-		after:       "sidequest.punishment1"
+		notBefore:   "sidequest.punishment1"
 	}],
 	// ----------------- Grindstones --------------------
 	grindstone: [{
@@ -420,7 +420,7 @@
 		coords:      [135.875,165.063],
 		name:        "ermion",
 		quest:       "sidequest.gw_skellige",
-		after:       "mainquest.echoes"
+		notBefore:   "mainquest.echoes"
 	}, {
 		coords:      [137.453,164.250],
 		name:        "gremist",
@@ -428,7 +428,7 @@
 		quest:       "sidequest.gw_skellige",
 		afterQuest:  "sidequest.gw_skellige",
 		afterPlayer: "ermion",
-		after:       "sidequest.practicum"
+		notBefore:   "sidequest.practicum"
 	}, {
 		coords:      [151.375,122.390],
 		name:        "crach",
@@ -436,7 +436,7 @@
 		quest:       "sidequest.gw_skellige",
 		afterQuest:  "sidequest.gw_skellige",
 		afterPlayer: "ermion",
-		after:       "mainquest.king"
+		notBefore:   "mainquest.king"
 	}, {
 		coords:      [149.141,127.609],
 		name:        "sjusta",
@@ -451,7 +451,7 @@
 		quest:       "sidequest.gw_skellige",
 		afterQuest:  "sidequest.gw_skellige",
 		afterPlayer: "gremist",
-		after:       "mainquest.king"
+		notBefore:   "mainquest.king"
 	}],
 	// ----------------- Harbors ------------------------
 	harbor: [{
@@ -504,7 +504,7 @@
 		coords:      [153.187,136.312],
 		underground: true,
 		entrances:   "sunstone_cave",
-		after:       "mainquest.sunstone"
+		notBefore:   "mainquest.sunstone"
 	}],
 	// ----------------- Hollow Trees -------------------
 	hollow: [{
@@ -678,13 +678,13 @@
 		extraLabel:  "pop.quen.label",
 		undergroung: true,
 		entrances:   "trolde_passage",
-		after:       "sidequest.gambit"
+		notBefore:   "sidequest.gambit"
 	}, {
 		coords:      [154.875,133.469],
 		extraLabel:  "pop.igni.label",
 		undergroung: true,
 		entrances:   "sunstone_cave",
-		after:       "mainquest.sunstone"
+		notBefore:   "mainquest.sunstone"
 	}],
 	// ----------------- Points of Interest -------------
 	poi: [{
@@ -915,7 +915,7 @@
 	}, {
 		coords:      [130.641,223.968],
 		name:        "passenger",
-		after:       "mainquest.storm",
+		notBefore:   "mainquest.storm",
 		before:      "mainquest.family"
 	}, {
 		coords:      [133.766,157.718],
@@ -923,7 +923,7 @@
 	}, {
 		coords:      [149.422,126.454],
 		name:        "unpaid",
-		after:       ["sidequest.stranger",
+		notBefore:   ["sidequest.stranger",
 		              "sidequest.dreams"],
 		before:      "sidequest.gambit"
 	}, {
@@ -935,7 +935,7 @@
 	}, {
 		coords:      [152.750,122.609],
 		name:        "coronation",
-		after:       "sidequest.gambit",
+		notBefore:   "sidequest.gambit",
 		before:      "mainquest.mists"
 	}, {
 		coords:      [160.968,140.782],
@@ -968,7 +968,7 @@
 	}, {
 		coords:      [153.296,122.219],
 		name:        "gambit",
-		after:       ["sidequest.possession",
+		notBefore:   ["sidequest.possession",
 		              "sidequest.undvik"],
 		before:      "mainquest.mists"
 	}, {
@@ -980,7 +980,7 @@
 	}, {
 		coords:      [173.265,71.704],
 		name:        "possession",
-		after:       "mainquest.king",
+		notBefore:   "mainquest.king",
 		before:      "mainquest.bpreparations"
 	}, {
 		coords:      [137.391,163.796],
@@ -991,7 +991,7 @@
 	}, {
 		coords:      [94.735,125.922],
 		name:        "stranger",
-		after:       "contract.eldberg"
+		notBefore:   "contract.eldberg"
 	}, {
 		coords:      [115.516,169.468],
 		name:        "taken1"
@@ -1001,7 +1001,7 @@
 	}, {
 		coords:      [81.407,135.626],
 		name:        "dreams",
-		after:       "mainquest.king",
+		notBefore:   "mainquest.king",
 		before:      "sidequest.gambit"
 	}, {
 		coords:      [137.703,143.063],
@@ -1009,12 +1009,12 @@
 	}, {
 		coords:      [130.172,223.000],
 		name:        "last",
-		after:       "mainquest.storm",
+		notBefore:   "mainquest.storm",
 		before:      "mainquest.baby"
 	}, {
 		coords:      [103.000,72.125],
 		name:        "undvik",
-		after:       "mainquest.king"
+		notBefore:   "mainquest.king"
 	}, {
 		coords:      [[127.501,135.750],
 		             [131.391,134.282]],
@@ -1023,7 +1023,7 @@
 		coords:      [[193.468,179.421],
 		             [196.250,184.984]],
 		name:        "warriors",
-		after:       "sidequest.nowheres"
+		notBefore:   "sidequest.nowheres"
 	}, {
 		coords:      [63.470,187.437],
 		name:        "price"
@@ -1061,7 +1061,7 @@
 		coords:      [130.376,220.593],
 		name:        "ps_goddess",
 		race:        true,
-		after:       ["sidequest.ps_fayrlund",
+		notBefore:   ["sidequest.ps_fayrlund",
 		              "sidequest.ps_fyresdal",
 		              "sidequest.ps_trolde"],
 		routes: [{
@@ -1116,7 +1116,7 @@
 	}, {
 		coords:      [174.953,80.813],
 		name:        "ff_champion",
-		after:       ["sidequest.ff_novigrad",
+		notBefore:   ["sidequest.ff_novigrad",
 		              "sidequest.ff_velen",
 		              "sidequest.ff_skellige"]
 	}, {
