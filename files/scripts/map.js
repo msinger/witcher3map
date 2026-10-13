@@ -848,7 +848,7 @@ function runMap() {
 
 		// Only add param and show center button if not a note
 		if (!notes[getNoteIndex(noteKey)]) {
-			hash.addParam("m", lat + "," + lng);
+			hash.addParam("m", lat.toFixed(3) + "," + lng.toFixed(3));
 			$("#centerButton").show();
 
 			if (paramDraw && window.event.ctrlKey)
@@ -867,6 +867,7 @@ function runMap() {
 	function deleteCircle() {
 		if(circle !== null) {
 			unselectRoutes();
+			unselectAreas();
 			map.removeLayer(circle);
 			hash.removeParam("m");
 			$("#centerButton").hide();

@@ -734,6 +734,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 					fuse:   dataKey == "alchemy" ||
 					        dataKey == "herbalist" ||
 					        dataKey == "shopkeeper" ||
+					        dataKey == "monster" ||
 					        portal ||
 					        mounted,
 					dashed: portal
