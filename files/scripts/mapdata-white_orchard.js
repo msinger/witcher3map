@@ -389,7 +389,7 @@
 		name:        "wilddog",
 		level:       "#1",
 		cleared:     "battlefieldNest",
-		notBefore:   "mainquest.lilac",
+		after:       "mainquest.lilac",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[99.188,132.500], [99.938,139.438], [96.563,143.625], [91.063,144.000], [88.250,142.438],
