@@ -568,7 +568,7 @@ window.i18nData.en.general = {
 		label: "__?!this.name:Monster Nest__" +
 		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
 		       "__?this.level: (Level _\\_this.level_\\_)__",
-		desc:  "Destroy monster nests with Grapeshot or Dancing Star bombs."
+		desc:  "Destroy monster nests with Grapeshot, Dancing Star or Samum bombs."
 	},
 	notes: {
 		delete:     "Delete Note",
@@ -585,7 +585,7 @@ window.i18nData.en.general = {
 		desc:  "Here you can find monster contracts and announcements about matters of local concern."
 	},
 	pid: {
-		label:       "Person in Distress",
+		label:       "Person in Distress__?this.level: (Level _\\_this.level_\\_)__",
 		desc:        "There's a person or a group of people here in need of assistance.",
 		afterrescue: "After being saved, person goes __here__.",
 		rescue:      "Needs to be saved from __here__."
