@@ -202,7 +202,6 @@
 	// ----------------- Bandit Camps -------------------
 	banditcamp: [{
 		coords:      [[136.625,89.219],
-		             [110.625,60.016],
 		             [94.344,37.016],
 		             [88.375,34.984],
 		             [85.125,33.172],
@@ -247,7 +246,9 @@
 		coords:      [[39.813,172.813],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [57.250,216.813],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.156,203.656],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
-		             [55.250,182.750]],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [55.250,182.750],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [133.156,61.844],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [122.938,63.125]],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
 	}, {
@@ -264,6 +265,29 @@
 			        [52.156,194.750], [53.359,193.609], [54.953,193.609], [56.438,193.906], [57.734,193.516],
 			        [58.141,192.891], [57.938,190.078], [58.422,187.719], [59.594,186.891]]
 		}]
+	}, {
+		coords:      [125.344,71.031],  // 2x Axe (L7), 1x Mace (L7), 1x Club (L7) (in _crow_perch/cp_poe_north/mounted_bandits)
+		level:       "#7",
+		mounted:     true,
+		notInGame:   true,
+		routes: [{
+			name: "banditcamp.mounted.route",
+			coords: [[104.219,64.688], [104.969,64.219], [105.875,62.406], [106.531,62.219], [107.469,62.000],
+			        [108.469,61.188], [109.969,60.938], [110.563,60.844], [111.344,61.313], [112.563,62.063],
+			        [113.844,62.969], [115.250,63.156], [116.250,62.969], [117.813,61.969], [119.125,61.438],
+			        [119.688,61.469], [120.844,61.813], [121.688,62.469], [122.000,63.688], [123.250,64.219],
+			        [123.906,63.625], [126.281,64.813], [126.531,66.250], [125.906,67.406], [125.844,68.938],
+			        [125.344,71.031], [125.469,72.094], [127.031,73.813], [127.094,75.125], [127.563,75.969],
+			        [127.406,77.000], [126.750,78.313], [125.719,78.719], [125.219,79.781], [124.375,81.063],
+			        [124.188,80.156], [123.906,79.938], [122.969,79.813], [122.094,79.250], [119.781,79.219],
+			        [118.813,78.969], [118.031,78.063], [116.875,77.500], [115.969,77.375], [115.063,76.938],
+			        [114.188,76.063], [113.625,75.813], [111.938,73.938], [111.406,72.656], [111.156,71.500],
+			        [110.875,70.813], [109.188,69.594], [108.688,68.781], [108.188,67.344], [107.531,66.594],
+			        [107.219,66.219], [107.000,65.875], [106.500,65.406], [105.469,65.156], [104.219,64.688]]
+		}]
+	}, {
+		coords:      [110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
+		level:       "#7"
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -853,8 +877,7 @@
 	}],
 	// ----------------- Guarded Treasure ---------------
 	guarded: [{
-		coords:      [[107.281,42.953],
-		             [98.313,40.141],
+		coords:      [[98.313,40.141],
 		             [181.156,220.687],
 		             [246.250,182.812],
 		             [258.843,129.187],
@@ -869,13 +892,15 @@
 		             [122.484,167.156],
 		             [144.641,87.578],
 		             [70.859,44.063],
-		             [93.516,99.344],
 		             [91.563,19.516],
-		             [147.047,57.047],
 		             [37.094,55.438],
 		             [23.172,78.391],
 		             [18.750,78.531],
 		             [34.438,93.125]]
+	}, {
+		coords:      [107.281,42.953],  // 7x Drowner (L4) (in crow_perch/cp14_hangmans_avenue)
+		name:        "drowner",
+		level:       "#4"
 	}, {
 		coords:      [84.875,123.281],  // 1x Bear (L12) (in _crookback_bog/cb_poe_01/bear_group1)
 		name:        "bear",
@@ -895,7 +920,7 @@
 		name:        "wyvern",
 		level:       "#14",
 	}, {
-		coords:      [24.063,150.188],  // 1x Cyclop (L19) (in bald_mountain/bm1_abandoned_castle)
+		coords:      [24.063,150.188],  // 1x Cyclops (L19) (in bald_mountain/bm1_abandoned_castle)
 		name:        "cyclops",
 		level:       "#19",
 	}, {
@@ -904,7 +929,10 @@
 		name:        "bilgehag",
 		level:       "#20",
 	}, {
-		coords:      [132.000,69.516],
+		coords:      [132.000,69.516],  // 1x Cyclops (L18) (in crow_perch/cp11_handmans_glade)
+		id:          "guardedSheep",
+		name:        "cyclops",
+		level:       "#18",
 		after:       "contract.griffin"
 	}, {
 		coords:      [98.578,21.844],   // 1x {6h-18h: Noonwraith, 18h-6h: Nightwraith} (L15) (in nml_w_012)
@@ -914,6 +942,15 @@
 		coords:      [69.406,162.688],  // 1x Water Hag (L8) (in crookback_bog/cb19_fossil)
 		name:        "waterhag",
 		level:       "#8"
+	}, {
+		coords:      [93.516,99.344],   // 1x Forktail (L14) (in crow_perch/cp36_forktail)
+		name:        "forktail",
+		level:       "#14"
+	}, {
+		coords:      [147.047,57.047],  // 1x Basilisk (L14) (in crow_perch/cp38_mini_boss)
+		id:          "guardedPerchBasilisk",
+		name:        "basilisk",
+		level:       "#14"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -1993,6 +2030,7 @@
 		name:        "drowner",
 		level:       "#10",
 		underwater:  true,
+		after:       "treasurehunt.sunkent",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[108.094,38.047], [108.328,36.953], [109.031,36.297], [110.469,36.859], [111.063,37.609],
@@ -2027,6 +2065,16 @@
 			name: "monster.spawn",
 			coords: [[68.172,17.922], [66.766,17.609], [65.844,16.813], [66.063,15.609], [66.875,14.828],
 			        [67.734,14.719], [69.063,15.891], [69.266,16.500], [69.594,17.031], [69.125,17.688]]
+		}]
+	}, {
+		coords:      [55.523,17.781],  // 3x Drowner (L10) (in ../lw_nml_w_016)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[58.281,17.727], [58.070,18.422], [57.063,18.961], [54.352,19.625], [53.625,18.906],
+			        [53.055,17.695], [53.055,16.406], [55.211,15.914], [57.789,16.867]]
 		}]
 	}, {
 		coords:      [46.512,30.496],  // 3x Drowner (L10) (in lw_nml_w_017)
@@ -2229,6 +2277,14 @@
 		areas: [{
 			name: "monster.spawn",
 			coords: [[61.969,66.344], [61.969,78.625], [57.344,78.625], [57.344,66.344]]
+		}]
+	}, {
+		coords:      [89.219,66.969],   // 4x-6x Drowner (L9) (in _crow_perch/cp_poe_east/drowner_group4)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[86.469,62.219], [92.469,62.219], [92.469,68.219], [86.469,68.219]]
 		}]
 	}, {
 		coords:      [87.953,63.797],   // 3x Drowner (L10) (in nml_w_026)
@@ -2460,6 +2516,221 @@
 			        [217.703,148.484], [216.750,147.031], [216.063,146.719], [215.625,145.781],
 			        [217.766,146.109]]
 		}]
+	}, {
+		coords:      [97.563,62.719],   // 12x-16x Nekker (L6) (in _crow_perch/cp_poe_east/nekker_group1)
+		name:        "nekker",
+		level:       "#6",
+		cleared:     "perchEastGhoulNestSouth",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[101.563,58.375], [101.563,68.781], [93.188,68.781], [93.188,58.375]]
+		}]
+	}, {
+		coords:      [97.906,95.250],   // 6x-8x Nekker (L6) (in _crow_perch/cp_poe_east/nekker_group2)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[102.125,93.500], [99.656,100.969], [93.250,98.281], [95.844,91.000]]
+		}]
+	}, {
+		coords:      [108.500,88.844],  // 5x-7x Wild Dog (L1) (in _crow_perch/cp_poe_east/wild_dogs_group1)
+		name:        "wilddog",
+		level:       "#1",
+		cleared:     "perchEastGhoulNestNorth",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[113.219,88.047], [108.406,96.109], [103.094,88.125], [110.344,83.563]]
+		}]
+	}, {
+		coords:      [79.375,82.031],   // 1x Warg (L8), 6x Wolf (L5) (in _crow_perch/cp_poe_east/wolf_group1)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[74.969,84.375], [76.563,77.063], [84.250,81.188], [82.281,85.500]]
+		}]
+	}, {
+		coords:      [89.203,87.031],   // 2x Warg (L8), 12x Wolf (L5) (in _crow_perch/cp_poe_east/wolf_group2)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[86.953,82.563], [92.641,83.250], [91.797,91.859], [86.188,91.406]]
+		}]
+	}, {
+		coords:      [88.188,78.313],   // 1x Warg (L8), 6x Wolf (L5) (in _crow_perch/cp_poe_east/wolf_group3)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[90.906,76.156], [90.906,81.250], [85.375,81.250], [85.375,76.156]]
+		}]
+	}, {
+		coords:      [75.172,93.375],   // 4x-6x Drowner (L4) (in _crow_perch/cp_poe_east/drowner_group1)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[77.313,96.422], [72.594,95.203], [73.719,90.719], [78.328,92.125]]
+		}]
+	}, {
+		coords:      [87.109,101.859],  // 4x-6x Drowner (L9) (in _crow_perch/cp_poe_east/drowner_group2)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[90.703,99.906], [87.219,105.078], [82.172,101.609], [85.719,96.375]]
+		}]
+	}, {
+		coords:      [97.813,102.594],  // 4x-6x Drowner (L9) (in _crow_perch/cp_poe_east/drowner_group3)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.281,101.344], [101.375,101.344], [101.375,104.219], [94.281,104.219]]
+		}]
+	}, {
+		coords:      [120.547,96.453],  // 1x Bear (L12) (in _crow_perch/cp_poe_east/bear_group1)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[116.078,99.859], [116.078,93.156], [122.422,93.156], [122.422,99.859]]
+		}]
+	}, {
+		coords:      [119.500,56.188],  // 4x-6x Drowner (L4) (in _crow_perch/cp_poe_north/drowners_group1)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[116.906,59.078], [114.797,54.641], [121.422,52.391], [123.500,56.969]]
+		}]
+	}, {
+		coords:      [143.688,61.266],  // 4x-6x Drowner (L4) (in _crow_perch/cp_poe_north/drowners_group2)
+		name:        "drowner",
+		level:       "#4",
+		cleared:     "guardedPerchBasilisk",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[146.109,61.016], [142.422,64.938], [140.469,63.141], [144.594,58.969]]
+		}]
+	}, {
+		coords:      [135.000,41.328],  // 4x-6x Drowner (L4) (in _crow_perch/cp_poe_north/drowners_group3)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[138.078,40.531], [136.359,43.813], [132.844,41.969], [134.625,38.656]]
+		}]
+	}, {
+		coords:      [120.422,84.172],  // 4x-6x Drowner (L4) (in _crow_perch/cp_poe_north/drowners_group4)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[123.781,85.328], [119.344,88.828], [116.406,84.000], [121.813,81.813]]
+		}]
+	}, {
+		coords:      [108.766,44.266],  // 10x-14x Wild Dog (L1) (in _crow_perch/cp_poe_north/wild_dogs_group1)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[104.906,43.203], [110.203,42.609], [110.828,47.625], [105.563,48.219]]
+		}]
+	}, {
+		coords:      [139.125,60.406],  // 10x-14x Wild Dog (L1) (in _crow_perch/cp_poe_north/wild_dogs_group2)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[143.734,58.719], [138.188,64.594], [135.078,61.047], [140.922,55.531]]
+		}]
+	}, {
+		coords:      [118.281,77.656],  // 5x-7x Wild Dog (L1) (in _crow_perch/cp_poe_north/wild_dogs3)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[124.625,78.656], [115.813,83.531], [111.813,74.813], [122.438,74.650]]
+		}]
+	}, {
+		coords:      [133.594,50.781],  // 2x Warg (L5), 12x Wolf (L5) (in _crow_perch/cp_poe_north/wolves_group1)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[136.063,54.719], [130.363,53.906], [130.213,49.406], [131.594,45.547], [133.594,45.891],
+			        [137.938,51.859]]
+		}]
+	}, {
+		coords:      [122.188,43.750],  // 2x Warg (L5), 12x Wolf (L5) (in _crow_perch/cp_poe_north/wolves_group2)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[126.297,39.516], [127.281,50.672], [118.219,50.484], [117.438,36.406]]
+		}]
+	}, {
+		coords:      [135.469,67.063],  // 2x Warg (L5), 12x Wolf (L5) (in _crow_perch/cp_poe_north/wolves_group3)
+		name:        "wolf",
+		level:       "#5",
+		cleared:     "guardedSheep",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[140.469,66.969], [134.594,74.125], [131.219,65.750], [131.219,63.844], [135.563,62.391]]
+		}]
+	}, {
+		coords:      [114.125,43.719],  // 12x-16x Nekker (L6) (in _crow_perch/cp_poe_north/nekkers_group1)
+		name:        "nekker", // TODO: Are those Nekkers disabled while we search for Princess?
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[116.781,47.609], [111.531,47.875], [110.672,41.031], [116.641,39.344]]
+		}]
+	}, {
+		coords:      [116.344,70.688],  // 12x-16x Nekker (L6) (in _crow_perch/cp_poe_north/nekkers_group2)
+		name:        "nekker", // TODO: Are those Nekkers disabled while doing ritual?
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[121.594,65.406], [121.969,73.813], [116.281,73.906], [113.031,73.188], [113.125,70.031],
+			        [111.125,65.344], [116.844,64.094]]
+		}]
+	}, {
+		coords:      [147.625,50.125],  // 12x-16x Harpy (L7) (in _crow_perch/cp_poe_north/harpies_group1)
+		name:        "harpy",
+		level:       "#7",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[146.813,42.750], [155.938,50.375], [147.375,61.750], [139.375,53.875]]
+		}]
+	}, {
+		coords:      [130.203,38.641],  // 2x Bear (L6) (in _crow_perch/cp_poe_north/black_bear_group1)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[132.875,41.078], [127.313,44.688], [126.578,35.469], [132.609,35.000]]
+		}]
+	}, {
+		coords:      [168.430,79.742],  // 4x-6x Mucknixer (L15) (in crow_perch/cp34_shipwreck_island)
+		name:        "mucknixer",
+		level:       "#15",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[168.664,78.781], [169.367,80.508], [168.469,80.883], [167.836,79.820], [167.797,78.891]]
+		}]
+	}, {
+		coords:      [169.195,77.789],  // 4x-6x Drowner (L10) (in crow_perch/cp34_shipwreck_island)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[170.492,77.219], [170.617,79.031], [167.703,78.445], [167.703,77.375]]
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
@@ -2478,9 +2749,6 @@
 	monsternest: [{
 		coords:      [[153.734,135.203],
 		             [160.500,127.328],
-		             [110.656,88.094],
-		             [100.078,66.047],
-		             [82.969,86.828],
 		             [204.843,186.437],
 		             [238.812,199.906],
 		             [235.656,201.531],
@@ -2512,6 +2780,20 @@
 		coords:      [60.047,126.375],  // 1x Drowned Dead (L9), {6h-21h: 4x, 21h-6h: 7x} Drowner (L9) (in crookback_nog/cb21_swampnests)
 		name:        "drowner",
 		level:       "#9"
+	}, {
+		coords:      [110.656,88.094],  // 5x Ghoul (L9) (in crow_perch/cp34_ghouls_nest)
+		id:          "perchEastGhoulNestNorth",
+		name:        "ghoul",
+		level:       "#9"
+	}, {
+		coords:      [100.078,66.047],  // 3x-4x Ghoul (L9) (in crow_perch/cp35_ghouls_nest)
+		id:          "perchEastGhoulNestSouth",
+		name:        "ghoul",
+		level:       "#9"
+	}, {
+		coords:      [82.969,86.828],   // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker)
+		name:        "ghoul",
+		level:       "#9"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -2539,8 +2821,9 @@
 		coords:      [147.578,119.578],
 		id:          "border_shopkeeper_pid"
 	}, {
-		coords:      [102.500,33.828],
-		id:          "claywich_barber_pid"
+		coords:      [102.500,33.828],  // 1x Leader-Sword (L6), 2x Sword (L5), 1x Pike-2H (L5), 1x Mace (L5), 1x Sword-Shield (L5), 2x Crossbow (L5)
+		id:          "claywich_barber_pid",
+		level:       "#5 & 6"
 	}, {
 		coords:      [198.687,186.906],
 		id:          "herbalist_pid"
