@@ -516,8 +516,11 @@ window.i18nData.en.general = {
 		bilgehag:       { label: "Bilge Hag",       link: "https://witcher.fandom.com/wiki/Water_hag" },
 		bruxa:          { label: "Bruxa",           link: "https://witcher.fandom.com/wiki/Bruxa" },
 		cyclops:        { label: "Cyclops",         link: "https://witcher.fandom.com/wiki/Cyclops" },
+		devourer:       { label: "Devourer",        link: "https://witcher.fandom.com/wiki/Devourer" },
+		drowneddead:    { label: "Drowned Dead",    link: "https://witcher.fandom.com/wiki/Drowner" },
 		drowner:        { label: "Drowner",         link: "https://witcher.fandom.com/wiki/Drowner" },
 		earthelemental: { label: "Earth Elemental", link: "https://witcher.fandom.com/wiki/Earth_Elemental" },
+		ekimmara:       { label: "Ekimmara",        link: "https://witcher.fandom.com/wiki/Ekimma" },
 		endrega:        { label: "Endrega",         link: "https://witcher.fandom.com/wiki/Endrega_drone" },
 		fiend:          { label: "Fiend",           link: "https://witcher.fandom.com/wiki/Fiend" },
 		fireelemental:  { label: "Fire Elemental",  link: "https://witcher.fandom.com/wiki/Fire_Elemental" },
@@ -537,12 +540,14 @@ window.i18nData.en.general = {
 		leshen:         { label: "Leshen",          link: "https://witcher.fandom.com/wiki/Leshy#The_Witcher_3:_Wild_Hunt" },
 		mucknixer:      { label: "Mucknixer",       link: "https://witcher.fandom.com/wiki/Drowner" },
 		nekker:         { label: "Nekker",          link: "https://witcher.fandom.com/wiki/Nekker" },
+		nekkerwarrior:  { label: "Nekker Warrior",  link: "https://witcher.fandom.com/wiki/Nekker" },
 		nightwraith:    { label: "Nightwraith",     link: "https://witcher.fandom.com/wiki/Nightwraith" },
 		noonwraith:     { label: "Noonwraith",      link: "https://witcher.fandom.com/wiki/Noonwraith" },
 		palewidow:      { label: "Pale Widow",      link: "https://witcher.fandom.com/wiki/Pale_Widow" },
 		panther:        { label: "Panther",         link: "https://witcher.fandom.com/wiki/Panther" },
 		rabidrocktroll: { label: "Rabid rock troll", link: "https://witcher.fandom.com/wiki/Rock_troll" },
 		rocktroll:      { label: "Rock Troll",      link: "https://witcher.fandom.com/wiki/Rock_troll" },
+		rotfiend:       { label: "Rotfiend",        link: "https://witcher.fandom.com/wiki/Rotfiend" },     // zgnilec
 		scurver:        { label: "Scurver",         link: "https://witcher.fandom.com/wiki/Scurver" },      // graveir
 		shaelmaar:      { label: "Shaelmaar",       link: "https://witcher.fandom.com/wiki/Shaelmaar" },    // sharley
 		siren:          { label: "Siren",           link: "https://witcher.fandom.com/wiki/Siren" },
@@ -928,7 +933,7 @@ window.i18nData.en.general = {
 		desc:  "Smuggled goods have been hidden here."
 	},
 	spoils: {
-		label: "Spoils of War",
+		label: "Spoils of War__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Search here for loot left behind after a battle or skirmish."
 	},
 	stash: {

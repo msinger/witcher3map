@@ -59,6 +59,7 @@ var monster_icons = [
 	"cyclops",
 	"drowner",
 	"earthelemental",
+	"ekimmara",
 	"endrega",
 	"fiend",
 	"fireelemental",
@@ -82,6 +83,7 @@ var monster_icons = [
 	"palewidow",
 	"panther",
 	"rocktroll",
+	"rotfiend",
 	"scurver",
 	"shaelmaar",
 	"siren",
@@ -100,7 +102,10 @@ var monster_icons = [
 
 var monster_map = {
 	bilgehag:       "waterhag",
+	devourer:       "rotfiend",
+	drowneddead:    "drowner",
 	mucknixer:      "drowner",
+	nekkerwarrior:  "nekker",
 	rabidrocktroll: "rocktroll"
 };
 
