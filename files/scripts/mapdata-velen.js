@@ -210,7 +210,6 @@
 		             [77.656,17.750],
 		             [67.531,23.656],
 		             [66.703,26.719],
-		             [106.188,115.703],
 		             [177.750,195.750],
 		             [204.500,197.968],
 		             [214.656,223.281],
@@ -224,8 +223,6 @@
 		coords:      [[175.547,83.125],
 		             [128.469,151.563],
 		             [134.406,129.094],
-		             [80.125,166.000],
-		             [108.234,145.344],
 		             [137.688,187.797]],
 		extraLabel:  "#< (lvl 9)"
 	}, {
@@ -240,15 +237,19 @@
 		coords:      [209.156,162.734],
 		extraLabel:  "#< (lvl 7)"
 	}, {
-		coords:      [97.828,124.594],
-		extraLabel:  "#< (lvl 7-9)"
+		coords:      [97.828,124.594],  // 1x Club-Shield (L9), 1x Axe (L9), 3x Bow (L7)
+		id:          "circlesCamp",
+		level:       "#7 & 9",
 	}, {
 		coords:      [[39.813,172.813],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [57.250,216.813],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.156,203.656],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [55.250,182.750],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [133.156,61.844],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
-		             [122.938,63.125]],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [122.938,63.125],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [61.953,184.094],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [85.156,186.453],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [70.500,141.219]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
 	}, {
@@ -288,6 +289,21 @@
 	}, {
 		coords:      [110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
 		level:       "#7"
+	}, {
+		coords:      [108.234,145.344], // 1x Axe-Shield (L9), 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 2x Bow (L7)
+		level:       "#7 & 9"
+	}, {
+		coords:      [106.188,115.703], // 1x Leader-Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
+		level:       "#9"
+	}, {
+		coords:      [80.125,166.000],  // 1x Leader-Axe2H (L9), 1x Axe (L9), 4x Ranged (L9), 3x Guard Dog (L1)
+		level:       "#1 & 9"
+	}, {
+		coords:      [109.797,138.398], // 1x Cannibal (L3)
+		label:       "v:banditcamp.cannibal.label",
+		desc:        "v:banditcamp.cannibal.desc",
+		level:       "#3",
+		notInGame:   true,
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -940,6 +956,7 @@
 		level:       "#15"
 	}, {
 		coords:      [69.406,162.688],  // 1x Water Hag (L8) (in crookback_bog/cb19_fossil)
+		id:          "guardedFossilHag",
 		name:        "waterhag",
 		level:       "#8"
 	}, {
@@ -1198,8 +1215,10 @@
 		name:        "fiend",
 		level:       "#22"
 	}, {
-		coords:      [99.469,197.203],
-		guarded:     true
+		coords:      [99.469,197.203],  // 2x Foglet (L4)
+		guarded:     true,
+		name:        "foglet",
+		level:       "#4"
 	}],
 	// ----------------- Hollow Trees -------------------
 	hollow: [{
@@ -1904,16 +1923,6 @@
 			        [80.313,132.188], [78.313,132.188], [75.875,130.844], [75.500,128.000]]
 		}]
 	}, {
-		coords:      [151.906,48.016],  // 3x Drowner (L10) (in lw_nml_w_001)
-		name:        "drowner",
-		level:       "#10",
-		underwater:  true,
-		areas: [{
-			name: "monster.spawn",
-			coords: [[152.875,47.750], [153.289,49.305], [152.758,49.805], [151.734,49.031], [151.094,48.375],
-			        [151.141,47.063], [151.719,46.680]]
-		}]
-	}, {
 		coords:      [150.063,42.672],  // 3x Drowner (L10) (in lw_nml_w_001)
 		name:        "drowner",
 		level:       "#10",
@@ -2398,15 +2407,6 @@
 			coords: [[114.688,148.016], [113.703,148.016], [113.703,147.094], [114.688,147.094]]
 		}]
 	}, {
-		coords:      [115.250,144.047], // 1x Drowner (L10) (in nml_w_036)
-		name:        "drowner",
-		level:       "#10",
-		underwater:  true,
-		areas: [{
-			name: "monster.spawn",
-			coords: [[115.953,143.063], [115.953,145.000], [114.641,145.000], [114.641,143.063]]
-		}]
-	}, {
 		coords:      [120.547,164.734], // 2x Drowner (L10) (in nml_w_037)
 		name:        "drowner",
 		level:       "#10",
@@ -2707,6 +2707,16 @@
 			coords: [[146.813,42.750], [155.938,50.375], [147.375,61.750], [139.375,53.875]]
 		}]
 	}, {
+		coords:      [151.906,48.016],  // 3x Drowner (L10) (in lw_nml_w_001)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[152.875,47.750], [153.289,49.305], [152.758,49.805], [151.734,49.031], [151.094,48.375],
+			        [151.141,47.063], [151.719,46.680]]
+		}]
+	}, {
 		coords:      [130.203,38.641],  // 2x Bear (L6) (in _crow_perch/cp_poe_north/black_bear_group1)
 		name:        "bear",
 		level:       "#6",
@@ -2731,19 +2741,490 @@
 			name: "monster.spawn",
 			coords: [[170.492,77.219], [170.617,79.031], [167.703,78.445], [167.703,77.375]]
 		}]
+	}, {
+		coords:      [65.625,190.000],  // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[67.734,186.469], [67.734,193.969], [63.453,193.969], [63.453,186.469]]
+		}]
+	}, {
+		coords:      [73.094,184.531],  // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[75.578,180.578], [75.578,189.156], [70.609,189.156], [70.609,180.578]]
+		}]
+	}, {
+		coords:      [71.297,192.250],  // 1x-2x Drowned Dead (L18) (in _descent/de_poe_01)
+		name:        "drowneddead",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[72.950,190.606], [72.950,194.125], [69.469,194.125], [69.469,190.606]]
+		}]
+	}, {
+		coords:      [66.297,177.891],  // 1x-2x Alghoul (L17) (in _descent/de_poe_01)
+		name:        "alghoul",
+		level:       "#17",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[69.047,174.688], [69.047,181.500], [63.531,181.500], [63.531,174.688]]
+		}]
+	}, {
+		coords:      [77.703,178.313],  // 1x Bear (L12) (in _descent/de_poe_01)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[79.094,175.125], [79.094,181.453], [76.375,181.453], [76.375,175.125]]
+		}]
+	}, {
+		coords:      [77.719,188.844],  // 1x-2x Drowned Dead (L18), 4x-6x Mucknixer (L15) (in _descent/de_poe_01)
+		name:        "drowner",
+		level:       "#15 & 18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[79.938,186.375], [81.000,187.906], [75.469,192.094], [74.313,190.438]]
+		}]
+	}, {
+		coords:      [91.875,177.281],  // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.313,172.313], [94.313,183.463], [89.313,183.463], [89.313,172.313]]
+		}]
+	}, {
+		coords:      [70.141,165.172],  // 1x Fiend (L16) (in _descent/de_poe_02)
+		name:        "fiend",
+		level:       "#16",
+		cleared:     "guardedFossilHag",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[73.922,160.203], [73.922,168.969], [65.281,168.969], [65.281,160.203]]
+		}]
+	}, {
+		coords:      [67.344,144.313],  // 2x-3x Foglet (L4) (in _descent/de_poe_02)
+		name:        "foglet",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[69.031,142.531], [69.031,146.734], [65.813,146.734], [65.813,142.531]]
+		}]
+	}, {
+		coords:      [67.375,154.844],  // 1x Earth Elemental (L25) (in _descent/de_poe_02)
+		name:        "earthelemental",
+		level:       "#25",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[68.734,154.906], [67.250,155.906], [66.328,154.781], [67.672,153.266]]
+		}]
+	}, {
+		coords:      [71.734,157.672],  // 1x Bilge Hag (L20) (in _descent/de_poe_02)
+		name:        "bilgehag",
+		level:       "#20",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[74.781,157.547], [74.781,158.969], [68.422,158.969], [68.656,158.016], [69.313,157.125],
+			        [69.969,156.500], [72.313,156.109]]
+		}]
+	}, {
+		coords:      [69.000,150.938],  // 2x-3x Foglel (L4) (in _descent/de_poe_02)
+		name:        "foglet",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[66.938,148.125], [72.547,151.547], [71.188,153.781], [65.500,150.453]]
+		}]
+	}, {
+		coords:      [74.281,152.844],  // 1x-2x Alghoul (L14) (in _descent/de_poe_02)
+		name:        "alghoul",
+		level:       "#14",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[75.578,151.781], [75.578,154.109], [73.109,154.109], [73.109,151.781]]
+		}]
+	}, {
+		coords:      [79.875,159.219],  // 1x-2x Nekker Warrior (L12) (in _descent/de_poe_02)
+		name:        "nekkerwarrior",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[83.406,157.438], [83.406,161.375], [76.406,161.375], [76.406,157.438]]
+		}]
+	}, {
+		coords:      [79.750,151.063],  // 1x Bear (L12) (in _descent/de_poe_02)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[80.922,148.625], [82.219,153.281], [78.625,154.078], [77.266,149.609]]
+		}]
+	}, {
+		coords:      [84.875,141.453],  // 1x Leshen (L20), 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_02)
+		name:        "leshen",
+		level:       "#5, 8 & 20",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[89.438,137.750], [89.438,146.469], [80.641,146.469], [80.641,137.750]]
+		}]
+	}, {
+		coords:      [64.109,137.656],  // 1x Water Hag (L8) (in _descent/de_poe_02)
+		name:        "waterhag",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[66.609,136.719], [66.609,139.219], [61.469,139.219], [61.469,136.719]]
+		}]
+	}, {
+		coords:      [73.125,137.250],  // 1x Wyvern (L9) (in _descent/de_poe_02)
+		name:        "wyvern",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[76.750,135.109], [74.609,141.766], [69.578,139.891], [71.750,133.625]]
+		}]
+	}, {
+		coords:      [62.828,133.219],  // 2x-3x Foglet (L4) (in _descent/de_poe_02)
+		name:        "foglet",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[64.281,128.422], [64.281,136.234], [61.391,136.234], [61.391,128.422]]
+		}]
+	}, {
+		coords:      [70.234,148.336],  // {21h-5h: 2x-3x Wraith (L7)} (in _descent/de_poe_02)
+		name:        "wraith",
+		level:       "#7",
+		fromTime:    "#21",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[71.688,146.703], [71.977,149.734], [68.969,149.992], [68.602,146.945]]
+		}]
+	}, {
+		coords:      [92.641,152.859],  // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.953,149.984], [94.953,155.781], [90.359,155.781], [90.359,149.984]]
+		}]
+	}, {
+		coords:      [92.531,144.906],  // 1x Bear (L6) (in _descent/de_poe_02)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.594,143.000], [94.594,147.125], [90.813,147.125], [90.813,143.000]]
+		}]
+	}, {
+		coords:      [92.250,136.250],  // 3x-4x Nekker (L8) (in _descent/de_poe_02)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.219,133.125], [94.219,140.281], [90.094,140.281], [90.094,133.125]]
+		}]
+	}, {
+		coords:      [86.063,131.531],  // 3x-4x Endrega Warrior (L12), 4x-5x Endrega Worker (L9) (in _descent/de_poe_02)
+		name:        "endrega",
+		level:       "#9 & 12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[89.219,129.563], [89.219,136.438], [80.125,136.438], [80.125,129.563]]
+		}]
+	}, {
+		coords:      [76.719,130.938],  // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[79.031,129.313], [79.031,132.875], [74.438,132.875], [74.438,129.313]]
+		}]
+	}, {
+		coords:      [67.938,129.375],  // 4x-6x Drowner (L4) (in _descent/de_poe_02)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[70.375,127.781], [70.375,132.188], [65.750,132.188], [65.750,127.781]]
+		}]
+	}, {
+		coords:      [62.891,152.672],  // 4x-5x Endrega Worker (L9) (in _descent/de_poe_02)
+		name:        "endrega",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[64.656,150.625], [64.656,155.328], [61.203,155.328], [61.203,150.625]]
+		}]
+	}, {
+		coords:      [62.766,162.344],  // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[64.422,156.891], [64.422,168.469], [61.156,168.469], [61.156,156.891]]
+		}]
+	}, {
+		coords:      [112.938,178.844], // 2x-4x Drowned Dead (L18) (in _descent/de_poe_03)
+		name:        "drowneddead",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[115.797,174.156], [117.609,176.563], [109.813,183.672], [108.109,181.250]]
+		}]
+	}, {
+		coords:      [116.594,167.938], // 1x Bilge Hag (L20) (in _descent/de_poe_03)
+		name:        "bilgehag",
+		level:       "#20",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[117.016,164.891], [118.094,170.172], [116.078,170.688], [114.859,165.328]]
+		}]
+	}, {
+		coords:      [108.078,167.375], // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_03)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[112.609,164.828], [112.609,170.563], [103.250,170.563], [103.250,164.828]]
+		}]
+	}, {
+		coords:      [105.438,173.594], // 1x Bear (L6) (in _descent/de_poe_03)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[107.984,171.328], [107.984,176.156], [102.906,176.156], [102.906,171.328]]
+		}]
+	}, {
+		coords:      [95.250,165.031],  // 1x-2x Nekker Warrior (L12) (in _descent/de_poe_03)
+		name:        "nekkerwarrior",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[96.859,163.359], [96.859,167.297], [93.766,167.297], [93.766,163.359]]
+		}]
+	}, {
+		coords:      [100.438,165.797], // 1x-2x Alghoul (L14) (in _descent/de_poe_03)
+		name:        "alghoul",
+		level:       "#14",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[102.359,163.109], [102.359,169.078], [98.359,169.078], [98.359,163.109]]
+		}]
+	}, {
+		coords:      [99.609,167.328],  // 4x-6x Devourer (L13) (in _descent/de_poe_03)
+		name:        "devourer",
+		level:       "#13",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[102.359,163.109], [102.359,169.078], [98.359,169.078], [98.359,163.109]]
+		}]
+	}, {
+		coords:      [110.203,174.063], // 4x-5x Endrega Worker (L9) (in _descent/de_poe_03)
+		name:        "endrega",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[111.750,172.172], [111.750,176.703], [108.563,176.703], [108.563,172.172]]
+		}]
+	}, {
+		coords:      [106.156,149.297], // 4x-6x Ghoul (L9) (in _descent/de_poe_04)
+		name:        "ghoul",
+		level:       "#9",
+		//after:       "treasurehunt.fire", // This quest also spawns 4x Ghoul (L9) here, so for the player it makes no difference.
+		areas: [{
+			name: "monster.spawn",
+			coords: [[107.203,146.750], [107.203,151.047], [105.219,150.672], [104.359,148.594], [105.094,146.750]]
+		}]
+	}, {
+		coords:      [96.188,124.109],  // 4x-5x Endrega Worker (L9) (in _descent/de_poe_04)
+		name:        "endrega",
+		level:       "#9",
+		cleared:     "circlesCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[97.609,121.781], [99.250,126.578], [95.234,127.938], [93.500,123.031]]
+		}]
+	}, {
+		coords:      [113.219,140.297], // 4x-6x Drowner (L4) (in _descent/de_poe_04)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[115.422,135.781], [115.422,146.406], [111.078,146.406], [111.078,135.781]]
+		}]
+	}, {
+		coords:      [115.250,144.047], // 1x Drowner (L10) (in nml_w_036)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[115.953,143.063], [115.953,145.000], [114.641,145.000], [114.641,143.063]]
+		}]
+	}, {
+		coords:      [112.813,153.313], // 1x Water Hag (L8) (in _descent/de_poe_04)
+		name:        "waterhag",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[114.719,148.484], [114.719,155.750], [111.344,155.750], [111.344,148.484]]
+		}]
+	}, {
+		coords:      [100.609,122.078], // {21h-5h: 2x-3x Wraith (L7)} (in _descent/de_poe_04)
+		name:        "wraith",
+		level:       "#7",
+		fromTime:    "#21",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[103.344,124.359], [99.922,125.938], [97.453,119.922], [101.453,118.578]]
+		}]
+	}, {
+		coords:      [105.875,119.078], // 1x Bear (L6) (in _descent/de_poe_04)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[107.453,117.031], [107.453,122.250], [104.469,122.250], [104.469,117.031]]
+		}]
+	}, {
+		coords:      [107.797,129.875], // 5x-7x Wild Dog (L1) (in _descent/de_poe_04)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[109.359,123.813], [110.938,131.688], [110.438,132.344], [110.297,135.297],
+			        [107.531,137.531], [106.156,136.656], [104.984,127.188], [105.375,124.641]]
+		}]
+	}, {
+		coords:      [103.781,160.031], // 2x-3x Foglet (L4) (in _descent/de_poe_04)
+		name:        "foglet",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[103.469,157.906], [105.781,159.469], [103.625,162.500], [101.344,160.844]]
+		}]
+	}, {
+		coords:      [109.922,158.656], // 6x-8x Nekker (L6) (in _descent/de_poe_04)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[112.609,157.672], [110.203,162.047], [106.984,160.125], [109.750,155.656]]
+		}]
+	}, {
+		coords:      [118.516,150.109], // 5x-7x Wild Dog (L1) (in _descent/de_poe_04)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[119.000,148.000], [120.406,151.938], [117.766,152.703], [116.578,148.641]]
+		}]
+	}, {
+		coords:      [104.672,154.781], // 1x Arachas (L11) (in _descent/de_poe_04)
+		name:        "arachas",
+		level:       "#11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[107.844,153.203], [107.844,157.203], [101.422,157.203], [101.422,153.203]]
+		}]
+	}, {
+		coords:      [98.359,145.578],  // 6x-8x Nekker (L6) (in _descent/de_poe_04)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[100.484,142.922], [100.484,149.016], [96.172,149.016], [96.172,142.922]]
+		}]
+	}, {
+		coords:      [105.188,141.047], // 1x Bear (L6) (in _descent/de_poe_04)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[107.297,139.109], [107.297,143.719], [103.031,143.719], [103.031,139.109]]
+		}]
+	}, {
+		coords:      [95.609,119.359],  // 1x Bear (L6) (in _descent/de_poe_04)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[95.766,117.141], [97.234,118.578], [96.328,120.844], [95.125,121.266],
+			        [93.672,120.422], [94.719,119.797]]
+		}]
+	}, {
+		coords:      [101.141,116.656], // 2x-3x Wraith (L7) (in _descent/de_poe_04)
+		name:        "wraith",
+		level:       "#7",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[102.156,116.219], [102.156,117.984], [99.563,117.984], [99.563,116.219]]
+		}]
+	}, {
+		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
+		name:        "",
+		level:       "#",
+		areas: [{
+			name: "monster.spawn",
+			coords: []
+		}]
+	}, {
+		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
+		name:        "",
+		level:       "#",
+		areas: [{
+			name: "monster.spawn",
+			coords: []
+		}]
+	}, {
+		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
+		name:        "",
+		level:       "#",
+		areas: [{
+			name: "monster.spawn",
+			coords: []
+		}]
+	}, {
+		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
+		name:        "",
+		level:       "#",
+		areas: [{
+			name: "monster.spawn",
+			coords: []
+		}]
+	}, {
+		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
+		name:        "",
+		level:       "#",
+		areas: [{
+			name: "monster.spawn",
+			coords: []
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
 		coords:      [142.984,118.125],
 		groupId:     "shoe_trolls_cave"
 	}, {
-		coords:      [81.656,136.359],
-		groupId:     "dragonslayers_grotto"
+		coords:      [81.656,136.359],  // 1x Ekimmara (L11), 8x Wraith (L7)
+		groupId:     "dragonslayers_grotto",
+		name:        "ekimmara",
+		level:       "#7 & 11"
 	}, {
 		coords:      [237.641,105.016],
 		groupId:     "cavern"
 	}, {
-		coords:      [165.891,99.375]
+		coords:      [165.891,99.375],  // 14x Nekker (L18), 1x Rabid rock troll (L16)
+		name:        "nekker",
+		level:       "#16 & 18"
 	}],
 	// ----------------- Monster Nests ------------------
 	monsternest: [{
@@ -2764,10 +3245,6 @@
 		             [125.938,147.391],
 		             [160.750,137.891],
 		             [43.578,108.563],
-		             [86.891,168.969],
-		             [91.297,165.547],
-		             [88.094,161.422],
-		             [87.891,158.172],
 		             [96.875,185.094],
 		             [95.656,185.125]]
 	}, {
@@ -2794,6 +3271,16 @@
 		coords:      [82.969,86.828],   // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker)
 		name:        "ghoul",
 		level:       "#9"
+	}, {
+		coords:      [86.891,168.969],  // 6x Nekker (L6), 2x Nekker (L8)
+		name:        "nekker",
+		level:       "#6 & 8"
+	}, {
+		coords:      [[91.297,165.547], // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		             [88.094,161.422],  // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		             [87.891,158.172]], // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		name:        "nekker",
+		level:       "#8 & 9"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -4264,8 +4751,11 @@
 	// ----------------- Spoils of War ------------------
 	spoils: [{
 		coords:      [[153.609,79.109],
-		             [111.500,105.250],
 		             [46.078,24.953]]
+	}, {
+		coords:      [111.500,105.250], // 3x Drowner (L4)
+		name:        "drowner",
+		level:       "#4"
 	}],
 	// ----------------- Stashes ------------------------
 	stash: [{

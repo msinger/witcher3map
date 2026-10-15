@@ -7,6 +7,9 @@ window.i18nData.en.v = {
 	armorer: {
 		yoana: { label: "Yoana" }
 	},
+	banditcamp: {
+		cannibal: { label: "Cannibal", desc: "A hostile cannibal lives here." }
+	},
 	barber: {
 		free: "Cuts Hair for free!"
 	},
