@@ -151,12 +151,21 @@
 		             [250.250,143.500],
 		             [241.125,155.875],
 		             [239.750,69.937],
-		             [115.828,133.875],
-		             [138.031,160.625],
-		             [122.281,179.266],
 		             [29.984,48.000],
 		             [33.969,99.250],
 		             [99.938,130.172]]
+	}, {
+		coords:      [122.281,179.266], // 1x Alghoul (L9), 5x Ghoul (L9)
+		name:        "ghoul",
+		level:       "#9"
+	}, {
+		coords:      [115.828,133.875], // 4x Drowner (L4), {optional: 2x Drowner (Underwater) (L10)}
+		name:        "drowner",
+		level:       "#4"
+	}, {
+		coords:      [138.031,160.625], // 4x Drowner (L9)
+		name:        "drowner",
+		level:       "#9"
 	}],
 	// ----------------- Alchemy Supplies ---------------
 	alchemy: [{
@@ -221,8 +230,6 @@
 		             [57.922,26.797]]
 	}, {
 		coords:      [[175.547,83.125],
-		             [128.469,151.563],
-		             [134.406,129.094],
 		             [137.688,187.797]],
 		extraLabel:  "#< (lvl 9)"
 	}, {
@@ -247,9 +254,11 @@
 		             [55.250,182.750],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [133.156,61.844],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [122.938,63.125],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [141.781,119.922],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.953,184.094],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [85.156,186.453],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [70.500,141.219]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [70.500,141.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [160.281,153.641]], // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
 	}, {
@@ -293,7 +302,8 @@
 		coords:      [108.234,145.344], // 1x Axe-Shield (L9), 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 2x Bow (L7)
 		level:       "#7 & 9"
 	}, {
-		coords:      [106.188,115.703], // 1x Leader-Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
+		coords:      [[106.188,115.703], // 1x Leader-Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
+		             [134.406,129.094]], // 3x Axe-2H (L9), 3x Mace (L9), 3x Club (L9)
 		level:       "#9"
 	}, {
 		coords:      [80.125,166.000],  // 1x Leader-Axe2H (L9), 1x Axe (L9), 4x Ranged (L9), 3x Guard Dog (L1)
@@ -304,6 +314,22 @@
 		desc:        "v:banditcamp.cannibal.desc",
 		level:       "#3",
 		notInGame:   true,
+	}, {
+		coords:      [128.469,151.563], // Mostly random (L9)
+		id:          "battlefieldCamp",
+		level:       "#9"
+	}, {
+		coords:      [147.719,121.047], // 2x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		mounted:     true,
+		notInGame:   true,
+		routes: [{
+			name: "banditcamp.mounted.route",
+			coords: [[149.125,117.719], [148.766,118.891], [148.594,120.063], [147.719,121.047],
+			        [147.297,121.359], [146.219,120.750], [145.625,120.203], [145.625,119.266],
+			        [146.094,118.250], [145.594,117.422], [145.188,116.859], [145.734,116.063],
+			        [146.844,116.188], [148.219,116.688], [149.125,117.719]]
+		}]
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -902,10 +928,7 @@
 		             [229.563,124.656],
 		             [239.594,104.219],
 		             [164.563,198.594],
-		             [171.500,119.516],
 		             [184.609,58.609],
-		             [121.781,136.625],
-		             [122.484,167.156],
 		             [144.641,87.578],
 		             [70.859,44.063],
 		             [91.563,19.516],
@@ -968,6 +991,18 @@
 		id:          "guardedPerchBasilisk",
 		name:        "basilisk",
 		level:       "#14"
+	}, {
+		coords:      [121.781,136.625], // 1x Alghoul (L13)
+		name:        "alghoul",
+		level:       "#13"
+	}, {
+		coords:      [122.484,167.156], // 1x-2x Drowned Dead (L9), 4x-6x Drowner (L9)
+		name:        "drowner",
+		level:       "#9"
+	}, {
+		coords:      [171.500,119.516], // 1x Wyvern (L18)
+		name:        "wyvern",
+		level:       "#18"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -3169,50 +3204,300 @@
 			coords: [[102.156,116.219], [102.156,117.984], [99.563,117.984], [99.563,116.219]]
 		}]
 	}, {
-		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
-		name:        "",
-		level:       "#",
+		coords:      [126.594,142.703], // 5x-6x Nekker (L18) (in _greyrocks/gr_poe_01)
+		name:        "nekker",
+		level:       "#18",
+		after:       "treasurehunt.luck",
 		areas: [{
 			name: "monster.spawn",
-			coords: []
+			coords: [[128.391,141.703], [128.391,145.094], [125.016,145.094], [125.016,141.703]]
 		}]
 	}, {
-		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
-		name:        "",
-		level:       "#",
+		coords:      [123.313,109.875], // 2x Warg (L8), 12x Wolf (L5) (in _greyrocks/gr_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
 		areas: [{
 			name: "monster.spawn",
-			coords: []
+			coords: [[128.313,111.781], [124.953,115.578], [118.031,109.188], [121.875,105.016]]
 		}]
 	}, {
-		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
-		name:        "",
-		level:       "#",
+		coords:      [117.625,117.281], // 2x Warg (L8), 12x Wolf (L5) (in _greyrocks/gr_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
 		areas: [{
 			name: "monster.spawn",
-			coords: []
+			coords: [[118.281,113.750], [120.594,115.938], [121.719,119.313], [118.344,122.063],
+			        [115.125,120.031], [113.625,117.656], [115.219,114.719]]
 		}]
 	}, {
-		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
-		name:        "",
-		level:       "#",
+		coords:      [119.578,124.422], // 4x-6x Ghoul (L2) (in _greyrocks/gr_poe_01)
+		name:        "ghoul",
+		level:       "#2",
 		areas: [{
 			name: "monster.spawn",
-			coords: []
+			coords: [[123.531,123.656], [123.531,125.313], [115.656,125.313], [115.656,123.656]]
 		}]
 	}, {
-		coords:      [],  // 1x X (L) (in _descent/de_poe_04)
-		name:        "",
-		level:       "#",
+		coords:      [117.406,129.141], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_01)
+		name:        "wilddog",
+		level:       "#1",
 		areas: [{
 			name: "monster.spawn",
-			coords: []
+			coords: [[118.688,127.875], [118.688,130.375], [116.109,130.375], [116.109,127.875]]
+		}]
+	}, {
+		coords:      [119.375,132.859], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_01)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[120.203,131.344], [120.203,134.766], [118.594,134.766], [118.594,131.344]]
+		}]
+	}, {
+		coords:      [123.172,132.781], // 1x Warg (L8), 6x Wolf (L5) (in _greyrocks/gr_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[125.313,130.594], [125.313,135.188], [121.125,135.188], [121.125,130.594]]
+		}]
+	}, {
+		coords:      [122.422,140.391], // 3x-4x Nekker (L8), 6x-8x Nekker (L6) (in _greyrocks/gr_poe_01)
+		name:        "nekker",
+		level:       "#6 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[124.391,138.594], [124.391,142.297], [120.734,142.297], [120.734,138.594]]
+		}]
+	}, {
+		coords:      [121.016,145.859], // 6x-8x Nekker (L6) (in _greyrocks/gr_poe_01)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[123.219,143.594], [123.219,148.469], [118.719,148.469], [118.719,143.594]]
+		}]
+	}, {
+		coords:      [132.594,141.219], // 1x Bear (L6) (in _greyrocks/gr_poe_01)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[134.469,139.000], [134.469,143.719], [130.750,143.719], [130.750,139.000]]
+		}]
+	}, {
+		coords:      [130.297,134.641], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_01)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[131.594,133.547], [131.594,136.000], [129.016,136.000], [129.016,133.547]]
+		}]
+	}, {
+		coords:      [127.625,129.172], // 12x-16x Nekker (L6) (in _greyrocks/gr_poe_01)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[128.906,127.078], [128.906,131.563], [126.359,131.563], [126.359,127.078]]
+		}]
+	}, {
+		coords:      [126.828,123.063], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_01)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[128.563,121.547], [128.563,124.578], [125.156,124.578], [125.156,121.547]]
+		}]
+	}, {
+		coords:      [136.688,120.313], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_01)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[138.328,119.641], [138.328,121.063], [135.094,121.063], [135.094,119.641]]
+		}]
+	}, {
+		coords:      [139.219,136.781], // 8x-12x Ghoul (L2) (in _greyrocks/gr_poe_01)
+		name:        "ghoul",
+		level:       "#2",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[141.344,133.438], [142.281,141.969], [137.750,141.500], [137.156,138.031],
+			        [134.328,135.609], [133.828,133.609]]
+		}]
+	}, {
+		coords:      [139.719,126.891], // 4x-6x Ghoul (L2) (in _greyrocks/gr_poe_01)
+		name:        "ghoul",
+		level:       "#2",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[141.313,124.719], [141.313,128.984], [137.469,128.984], [137.469,124.719]]
+		}]
+	}, {
+		coords:      [145.938,129.406], // 1x Warg (L8), 6x Wolf (L5) (in _greyrocks/gr_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[147.969,126.438], [147.969,132.344], [142.688,132.344], [142.688,126.438]]
+		}]
+	}, {
+		coords:      [131.625,152.031], // 4x-6x Ghoul (L2) (in _greyrocks/gr_poe_02)
+		name:        "ghoul",
+		level:       "#2",
+		cleared:     "battlefieldCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[133.688,149.375], [133.688,155.000], [129.625,155.000], [129.625,149.375]]
+		}]
+	}, {
+		coords:      [125.313,154.344], // 4x-6x Ghoul (L2) (in _greyrocks/gr_poe_02)
+		name:        "ghoul",
+		level:       "#2",
+		cleared:     "battlefieldCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[127.500,151.875], [127.500,156.969], [123.125,156.969], [123.125,151.875]]
+		}]
+	}, {
+		coords:      [123.453,161.172], // 4x-6x Drowner (L4) (in _greyrocks/gr_poe_02)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[124.563,158.344], [124.563,164.531], [122.313,164.531], [122.313,158.344]]
+		}]
+	}, {
+		coords:      [134.547,166.703], // 4x-6x Drowner (L4) (in _greyrocks/gr_poe_02)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[136.938,164.063], [135.094,170.453], [132.609,169.594], [134.578,163.094]]
+		}]
+	}, {
+		coords:      [137.359,154.484], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_02)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[139.656,153.141], [139.656,156.078], [135.125,156.078], [135.125,153.141]]
+		}]
+	}, {
+		coords:      [129.672,170.391], // 1x Warg (L8), 6x Wolf (L5) (in _greyrocks/gr_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[131.625,168.438], [131.625,172.375], [127.719,172.375], [127.719,168.438]]
+		}]
+	}, {
+		coords:      [127.188,162.578], // 2x Warg (L8), 12x Wolf (L5) (in _greyrocks/gr_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[128.828,159.563], [128.828,166.078], [125.516,166.078], [125.516,159.563]]
+		}]
+	}, {
+		coords:      [169.750,139.563], // 4x-6x Foglet (L4) (in _greyrocks/gr_poe_03)
+		name:        "foglet",
+		level:       "#4",
+		after:       "treasurehunt.battlefield",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[174.625,134.406], [174.625,143.875], [165.344,143.875], [165.344,134.406]]
+		}]
+	}, {
+		coords:      [165.969,150.469], // 4x-6x Drowner (L9) (in _greyrocks/gr_poe_03)
+		name:        "drowner",
+		level:       "#9",
+		after:       "treasurehunt.dowry",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[169.063,145.750], [169.063,155.406], [162.750,155.406], [162.750,145.750]]
+		}]
+	}, {
+		coords:      [156.672,135.828], // 4x-6x Ghoul (L2) (in _greyrocks/gr_poe_03)
+		name:        "ghoul",
+		level:       "#2",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[156.938,133.406], [158.969,136.031], [156.047,138.531], [155.250,138.563], [154.719,135.141]]
+		}]
+	}, {
+		coords:      [155.484,127.766], // 4x-6x Foglet (L4) (in _greyrocks/gr_poe_03)
+		name:        "foglet",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[157.188,123.641], [157.188,132.578], [153.609,132.578], [153.609,124.047]]
+		}]
+	}, {
+		coords:      [150.938,131.563], // 1x Bear (L6) (in _greyrocks/gr_poe_03)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[152.906,131.656], [150.688,133.969], [148.563,131.406], [151.156,129.188]]
+		}]
+	}, {
+		coords:      [152.156,152.594], // 4x-6x Drowner (L9) (in _greyrocks/gr_poe_03)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[154.797,146.984], [154.797,157.109], [149.328,157.109], [149.328,146.984]]
+		}]
+	}, {
+		coords:      [161.313,144.250], // 4x-6x Drowner (L9) (in _greyrocks/gr_poe_03)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[164.688,144.000], [159.750,147.719], [157.375,144.656], [162.453,140.672]]
+		}]
+	}, {
+		coords:      [150.563,141.391], // 6x-8x Nekker (L8) (in _greyrocks/gr_poe_03)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[153.141,138.500], [152.109,146.109], [148.063,145.500], [149.484,137.563]]
+		}]
+	}, {
+		coords:      [149.328,124.250], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_04)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[144.250,122.625], [151.609,122.625], [152.063,125.469], [149.438,126.859]]
+		}]
+	}, {
+		coords:      [142.922,108.250], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_04)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[147.491,104.344], [146.719,113.250], [138.859,114.219], [138.859,104.344]]
+		}]
+	}, {
+		coords:      [135.594,104.313], // 2x X (L6) (in _greyrocks/gr_poe_04)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[138.594,98.969], [141.563,103.750], [132.375,110.250], [129.188,105.438]]
 		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
-		coords:      [142.984,118.125],
-		groupId:     "shoe_trolls_cave"
+		coords:      [142.984,118.125], // 3x Nekker Warrior (L6), 8x Nekker (L6)
+		groupId:     "shoe_trolls_cave",
+		name:        "nekker",
+		level:       "#6",
+		notDuring:   "sidequest.deadly"
 	}, {
 		coords:      [81.656,136.359],  // 1x Ekimmara (L11), 8x Wraith (L7)
 		groupId:     "dragonslayers_grotto",
@@ -3228,9 +3513,7 @@
 	}],
 	// ----------------- Monster Nests ------------------
 	monsternest: [{
-		coords:      [[153.734,135.203],
-		             [160.500,127.328],
-		             [204.843,186.437],
+		coords:      [[204.843,186.437],
 		             [238.812,199.906],
 		             [235.656,201.531],
 		             [240.562,171.500],
@@ -3240,10 +3523,6 @@
 		             [169.094,95.281],
 		             [170.313,98.000],
 		             [170.266,112.969],
-		             [133.422,162.531],
-		             [133.750,161.688],
-		             [125.938,147.391],
-		             [160.750,137.891],
 		             [43.578,108.563],
 		             [96.875,185.094],
 		             [95.656,185.125]]
@@ -3268,7 +3547,10 @@
 		name:        "ghoul",
 		level:       "#9"
 	}, {
-		coords:      [82.969,86.828],   // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker)
+		coords:      [[82.969,86.828],   // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker)
+		             [133.422,162.531],  // --\__ together: 8x Ghoul (L9) (in greyrocks/gr18_trebuchet_factory)
+		             [133.750,161.688],  // --/
+		             [125.938,147.391]], // 4x Ghoul (L9) (in greyrocks/gr35_ghouls_nest)
 		name:        "ghoul",
 		level:       "#9"
 	}, {
@@ -3281,6 +3563,18 @@
 		             [87.891,158.172]], // 1x Nekker Warrior (L9), 5x Nekker (L8)
 		name:        "nekker",
 		level:       "#8 & 9"
+	}, {
+		coords:      [160.750,137.891], // 1x Devourer (L5), 5x Rotfiend (L6)
+		name:        "rotfiend",
+		level:       "#5 & 6"
+	}, {
+		coords:      [160.500,127.328], // 6x Harpy (L7), 1x Harpy (L5)
+		name:        "harpy",
+		level:       "#5 & 7"
+	}, {
+		coords:      [153.734,135.203], // 4x-5x Nekker (L6)
+		name:        "nekker",
+		level:       "#6"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -3318,8 +3612,9 @@
 		coords:      [142.984,199.375],
 		id:          "crossroads_shopkeeper_pid"
 	}, {
-		coords:      [115.391,107.094],
-		id:          "mulbrydale_armorer_pid"
+		coords:      [115.391,107.094], // 1x Nilfgaardian Deserter (Sword-Hard) (L16), 2x Nilfgaardian Deserter (Sword-Shield) (L16), 2x Nilfgaardian Deserter (Crossbow) (L14), 1x Slave Driver (Axe-2H) 2x, (L7), Slave Driver (Sword) (L7), 1x Slave Driver (Club) (L7)
+		id:          "mulbrydale_armorer_pid",
+		level:       "#7, 14 & 16"
 	}, {
 		coords:      [72.656,103.797],
 		id:          "claywich_shopkeeper_pid"
