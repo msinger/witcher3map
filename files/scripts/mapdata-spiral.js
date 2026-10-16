@@ -19,10 +19,10 @@
 		special:     false,
 		routes: [{
 			name:   "entrance.portal.dest.label",
-			coords: [[161.766,127.063], [35.063,290.313]]
+			coords: [[161.766,127.063], [36.227,289.710]]
 		}]
 	}, {
-		coords:      [32.750,291.313],
+		coords:      [34.279,289.646],
 		portal:      true,
 		underwater:  true,
 		underground: true,
@@ -32,10 +32,10 @@
 		special:     false,
 		routes: [{
 			name:   "entrance.portal.dest.label",
-			coords: [[32.750,291.313], [36.641,296.578]]
+			coords: [[34.279,289.646], [36.697,296.512]]
 		}]
 	}, {
-		coords:      [76.531,301.625],
+		coords:      [76.488,301.158],
 		portal:      true,
 		underground: true,
 		notInGame:   true, // TODO: Check if in game
@@ -43,7 +43,7 @@
 		special:     false,
 		routes: [{
 			name:   "entrance.portal.dest.label",
-			coords: [[76.531,301.625], [273.828,331.000]]
+			coords: [[76.488,301.158], [273.828,331.000]]
 		}]
 	}]
 }; };
