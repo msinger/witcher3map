@@ -56,6 +56,7 @@ var monster_icons = [
 	"basilisk",
 	"bear",
 	"bruxa",
+	"cockatrice",
 	"cyclops",
 	"drowner",
 	"earthelemental",
@@ -101,6 +102,7 @@ var monster_icons = [
 ];
 
 var monster_map = {
+	armoredarachas: "arachas",
 	bilgehag:       "waterhag",
 	devourer:       "rotfiend",
 	drowneddead:    "drowner",

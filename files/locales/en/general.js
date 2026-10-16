@@ -475,7 +475,9 @@ window.i18nData.en.general = {
 		weakBefore:   "May not be accessible after '__this.weakBefore[', ']__' mission.",
 		during:       "Only accessible during the '__this.during[', ']__' mission.",
 		notDuring:    "Not accessible during the '__this.notDuring[', ']__' mission.",
-		time:         "Only available between __this.fromTime__h and __this.toTime__h.",
+		time:         "Only available between " +
+		              "__this.fromTime____?this.fromTimeM::_\\_this.fromTimeM_\\_ ____?!this.fromTimeM::00__ and " +
+		              "__this.toTime____?this.toTimeM::_\\_this.toTimeM_\\_ ____?!this.toTimeM::00__.",
 		liberate:     "Appears after liberating the area.",
 		liberateThis: "Appears after liberating the site '__*this.liberate[', ']__'.",
 		cleared:      "Appears only after the site '__*this.cleared[', ']__' has been cleared.",
@@ -510,15 +512,17 @@ window.i18nData.en.general = {
 		arachas:        { label: "Arachas",         link: "https://witcher.fandom.com/wiki/Arachas" },
 		arachnomorph:   { label: "Arachnomorph",    link: "https://witcher.fandom.com/wiki/Arachnomorph" }, // blackspider
 		archespore:     { label: "Archespore",      link: "https://witcher.fandom.com/wiki/Archespore" },   // echinops
+		armoredarachas: { label: "Armored Arachas", link: "https://witcher.fandom.com/wiki/Armored_arachas" },
 		banshee:        { label: "Banshee",         link: "https://witcher.fandom.com/wiki/Banshee" },
 		barghest:       { label: "Barghest",        link: "https://witcher.fandom.com/wiki/Barghest" },
 		basilisk:       { label: "Basilisk",        link: "https://witcher.fandom.com/wiki/Basilisk" },
 		bear:           { label: "Bear",            link: "https://witcher.fandom.com/wiki/Bear" },
 		bilgehag:       { label: "Bilge Hag",       link: "https://witcher.fandom.com/wiki/Water_hag" },
 		bruxa:          { label: "Bruxa",           link: "https://witcher.fandom.com/wiki/Bruxa" },
+		cockatrice:     { label: "Cockatrice",      link: "https://witcher.fandom.com/wiki/Cockatrice" },   // kuroliszek
 		cyclops:        { label: "Cyclops",         link: "https://witcher.fandom.com/wiki/Cyclops" },
 		devourer:       { label: "Devourer",        link: "https://witcher.fandom.com/wiki/Devourer" },
-		drowneddead:    { label: "Drowned Dead",    link: "https://witcher.fandom.com/wiki/Drowner" },
+		drowneddead:    { label: "Drowned Dead",    link: "https://witcher.fandom.com/wiki/Drowned_dead" },
 		drowner:        { label: "Drowner",         link: "https://witcher.fandom.com/wiki/Drowner" },
 		earthelemental: { label: "Earth Elemental", link: "https://witcher.fandom.com/wiki/Earth_Elemental" },
 		ekimmara:       { label: "Ekimmara",        link: "https://witcher.fandom.com/wiki/Ekimma" },
@@ -541,7 +545,7 @@ window.i18nData.en.general = {
 		leshen:         { label: "Leshen",          link: "https://witcher.fandom.com/wiki/Leshy#The_Witcher_3:_Wild_Hunt" },
 		mucknixer:      { label: "Mucknixer",       link: "https://witcher.fandom.com/wiki/Drowner" },
 		nekker:         { label: "Nekker",          link: "https://witcher.fandom.com/wiki/Nekker" },
-		nekkerwarrior:  { label: "Nekker Warrior",  link: "https://witcher.fandom.com/wiki/Nekker" },
+		nekkerwarrior:  { label: "Nekker Warrior",  link: "https://witcher.fandom.com/wiki/Nekker_warrior" },
 		nightwraith:    { label: "Nightwraith",     link: "https://witcher.fandom.com/wiki/Nightwraith" },
 		noonwraith:     { label: "Noonwraith",      link: "https://witcher.fandom.com/wiki/Noonwraith" },
 		palewidow:      { label: "Pale Widow",      link: "https://witcher.fandom.com/wiki/Pale_Widow" },

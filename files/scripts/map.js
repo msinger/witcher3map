@@ -109,6 +109,7 @@ var draw_colors = {
 	"monster/basilisk":       "#3e352c",
 	"monster/bear":           "#3a2012",
 	"monster/bruxa":          "#331f1c",
+	"monster/cockatrice":     "#443734",
 	"monster/cyclops":        "#3f2f2d",
 	"monster/drowner":        "#738290",
 	"monster/earthelemental": "#8d352b",
