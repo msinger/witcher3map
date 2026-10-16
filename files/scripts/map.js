@@ -92,7 +92,7 @@ for (micon of monster_icons)
 
 var draw_colors = {
 	alchemy:                  "#8ac33b",
-	entrance:                 "#cb67fe",
+	portal:                   "#cb67fe",
 	herbalist:                "#8ac33b",
 	shopkeeper:               "#ffed86",
 	sidequest:                "#ffcc00",
