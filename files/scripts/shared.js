@@ -495,6 +495,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		let special     = false;
 		let underground = dataKey != "stash" && item.underground;
 		let entrances   = (data.entrance.length || data.monsterden.length) && item.entrances;
+		let once        = dataKey == "monster" && item.once;
 		let images      = item.images;
 
 		let subKey = genSubKey(item, dataKey);
@@ -652,6 +653,12 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			desc += esc($.t("misc.notInGame"));
 		}
 
+		if (once) {
+			if (desc)
+				desc += concat;
+			desc += esc($.t("monster.once"));
+		}
+
 		if (entrances) {
 			if (typeof entrances == "string")
 				entrances = [entrances];
@@ -784,7 +791,8 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 				let obj = {
 					name:   esc($.t(area.name)),
 					coords: area.coords,
-					fuse:   dataKey == "monster"
+					fuse:   dataKey == "monster",
+					dashed: once
 				};
 				obj.id = a ? a(obj, icon) : -1;
 				areaObjs.push(obj);

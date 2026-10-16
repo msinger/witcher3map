@@ -23,7 +23,8 @@
 	}, {
 		coords:      [64.907,114.000],  // 1x Axe2H-Weak (L2), 1x Sword (L2), 1x Ranged (L1)
 		id:          "bridgeBandits",
-		level:       "#1 & 2"
+		level:       "#1 & 2",
+		uncleared:   "tentBandits"
 	}, {
 		coords:      [102.000,109.840], // 1x Leader-Sword-Shield (L4), 2x Axe2H (L2), 1x Sword (L2), 2x Ranged (L1)
 		id:          "tentBandits",
@@ -196,6 +197,7 @@
 		coords:      [85.938,34.969],   // 1x Wraith (L6)
 		name:        "wraith",
 		level:       "#6",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[86.141,34.578], [86.141,35.609], [85.000,35.609], [85.000,34.578]]
@@ -204,7 +206,8 @@
 		coords:      [59.563,115.156],  // 2x Wolf (L5)
 		name:        "wolf",
 		level:       "#5",
-		uncleared:   "bridgeBandits",
+		once:        true,
+		uncleared:   "tentBandits",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[56.125,119.219], [54.688,113.750], [56.781,113.437], [58.469,112.344], [60.625,112.312],
@@ -286,6 +289,7 @@
 		coords:      [45.000,120.313],  // 2x Drowner (L4)
 		name:        "drowner",
 		level:       "#4",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[44.313,117.156], [45.469,120.781], [43.313,121.375], [42.281,117.688]]
@@ -294,6 +298,7 @@
 		coords:      [89.500,50.688],   // 2x Drowner (L4)
 		name:        "drowner",
 		level:       "#4",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[89.906,47.938], [91.281,52.281], [88.938,52.906], [87.656,48.563]]
@@ -371,6 +376,7 @@
 		coords:      [29.594,91.313],   // 1x Bear (L6) (in place_of_power_major area)
 		name:        "bear",
 		level:       "#6",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[31.750,90.938], [29.500,92.656], [27.750,90.375], [30.438,88.625]]
@@ -407,6 +413,7 @@
 		coords:      [111.250,100.563],  // 4x Wolf (L5)
 		name:        "wolf",
 		level:       "#5",
+		once:        true,
 		uncleared:   "tentBandits",
 		areas: [{
 			name: "monster.spawn",
