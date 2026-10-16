@@ -156,6 +156,7 @@
 		             [99.938,130.172]]
 	}, {
 		coords:      [122.281,179.266], // 1x Alghoul (L9), 5x Ghoul (L9)
+		id:          "abandonedFerryStation",
 		name:        "ghoul",
 		level:       "#9"
 	}, {
@@ -2763,6 +2764,7 @@
 		coords:      [168.430,79.742],  // 4x-6x Mucknixer (L15) (in crow_perch/cp34_shipwreck_island)
 		name:        "mucknixer",
 		level:       "#15",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[168.664,78.781], [169.367,80.508], [168.469,80.883], [167.836,79.820], [167.797,78.891]]
@@ -2772,6 +2774,7 @@
 		name:        "drowner",
 		level:       "#10",
 		underwater:  true,
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[170.492,77.219], [170.617,79.031], [167.703,78.445], [167.703,77.375]]
@@ -3196,6 +3199,7 @@
 			        [93.672,120.422], [94.719,119.797]]
 		}]
 	}, {
+		disabled:    true, // Not working, because there are no matching spawn points placed.
 		coords:      [101.141,116.656], // 2x-3x Wraith (L7) (in _descent/de_poe_04)
 		name:        "wraith",
 		level:       "#7",
@@ -3489,6 +3493,16 @@
 		areas: [{
 			name: "monster.spawn",
 			coords: [[138.594,98.969], [141.563,103.750], [132.375,110.250], [129.188,105.438]]
+		}]
+	}, {
+		coords:      [125.469,173.586], // 6x Ghoul (L9) (in greyrocks/gr11_ferry_station)
+		name:        "ghoul",
+		level:       "#9",
+		once:        true,
+		uncleared:   "abandonedFerryStation",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[126.844,171.969], [126.844,174.844], [124.117,174.844], [124.117,171.969]]
 		}]
 	}],
 	// ----------------- Monster Dens -------------------
