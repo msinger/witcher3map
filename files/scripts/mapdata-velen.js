@@ -242,12 +242,9 @@
 		id:          "oldBridgeCamp",
 		level:       "#9"
 	}, {
-		coords:      [209.156,162.734],
-		extraLabel:  "#< (lvl 7)"
-	}, {
 		coords:      [97.828,124.594],  // 1x Club-Shield (L9), 1x Axe (L9), 3x Bow (L7)
 		id:          "circlesCamp",
-		level:       "#7 & 9",
+		level:       "#7 & 9"
 	}, {
 		coords:      [[39.813,172.813],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [57.250,216.813],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
@@ -256,10 +253,24 @@
 		             [133.156,61.844],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [122.938,63.125],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [141.781,119.922],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [194.781,177.625],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.953,184.094],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [85.156,186.453],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [70.500,141.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [160.281,153.641]], // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [160.281,153.641],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [222.156,121.625],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [209.156,162.734],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)  // TODO: Check if it has an in-game map marker.
+		             [167.406,182.281],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [167.875,211.000],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [158.875,209.938],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [174.469,205.500],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [126.844,191.203],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [129.453,188.953]], // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		notInGame:   true
+	}, {
+		disabled:    true, // Disabled by HoS DLC.
+		coords:      [243.156,149.406],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
 	}, {
@@ -330,6 +341,29 @@
 			        [147.297,121.359], [146.219,120.750], [145.625,120.203], [145.625,119.266],
 			        [146.094,118.250], [145.594,117.422], [145.188,116.859], [145.734,116.063],
 			        [146.844,116.188], [148.219,116.688], [149.125,117.719]]
+		}]
+	}, {
+		disabled:    true, // Disabled by HoS DLC.
+		coords:      [187.406,184.219], // 2x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		mounted:     true,
+		notInGame:   true,
+		routes: [{
+			name: "banditcamp.mounted.route",
+			coords: [[[184.063,181.172], [186.500,181.328], [189.266,180.344], [192.063,179.156],
+			        [196.844,179.500], [198.625,181.344], [198.969,186.172], [196.484,186.141],
+			        [195.000,186.156], [193.234,185.828], [192.453,185.438], [190.906,184.438],
+			        [188.859,184.375], [187.406,184.219], [186.828,183.281], [186.281,181.953],
+			        [184.063,181.172], [180.445,182.672], [179.891,183.281], [179.906,184.078],
+			        [179.078,186.109], [177.297,186.656], [175.484,186.594], [174.375,188.656],
+			        [175.219,188.750], [175.891,188.672], [176.375,189.203], [176.719,189.531],
+			        [178.438,190.047], [178.578,190.297], [179.750,190.813], [180.641,190.453],
+			        [180.953,190.297], [181.547,190.438], [182.422,189.969], [182.547,189.641],
+			        [183.094,189.844], [183.844,190.016], [184.625,189.672], [185.297,189.578],
+			        [186.031,189.781], [186.719,189.531], [187.422,189.078], [188.266,189.109],
+			        [188.578,188.984], [189.781,188.641], [190.469,187.766], [190.797,187.594],
+			        [191.188,186.875], [192.453,185.438]],
+			        [[185.297,189.578], [185.844,187.313], [187.453,186.406], [187.406,184.219]]]
 		}]
 	}],
 	// ----------------- Barbers ------------------------
@@ -925,10 +959,6 @@
 		             [246.250,182.812],
 		             [258.843,129.187],
 		             [248.437,162.687],
-		             [215.016,126.328],
-		             [229.563,124.656],
-		             [239.594,104.219],
-		             [164.563,198.594],
 		             [184.609,58.609],
 		             [144.641,87.578],
 		             [70.859,44.063],
@@ -1004,6 +1034,22 @@
 		coords:      [171.500,119.516], // 1x Wyvern (L18)
 		name:        "wyvern",
 		level:       "#18"
+	}, {
+		coords:      [229.563,124.656], // 1x Bilge Hag (L15)
+		name:        "bilgehag",
+		level:       "#15",
+	}, {
+		coords:      [239.594,104.219], // 1x Armored Arachas (L23)
+		name:        "armoredarachas",
+		level:       "#23",
+	}, {
+		coords:      [215.016,126.328], // 1x Water Hag (L8)
+		name:        "waterhag",
+		level:       "#8"
+	}, {
+		coords:      [164.563,198.594], // 1x Leshen (L20)
+		name:        "leshen",
+		level:       "#20"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -1724,6 +1770,7 @@
 		name:        "leshen",
 		level:       "#20",
 		notDuring:   "mainquest.bald",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[21.234,128.641], [21.828,130.500], [21.406,131.875], [19.891,132.234], [18.703,131.594],
@@ -2902,12 +2949,21 @@
 			coords: [[80.922,148.625], [82.219,153.281], [78.625,154.078], [77.266,149.609]]
 		}]
 	}, {
-		coords:      [84.875,141.453],  // 1x Leshen (L20), 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_02)
-		name:        "leshen",
-		level:       "#5, 8 & 20",
+		coords:      [82.594,142.063],  // 1x Warg (L8), 6x Wolf (L5) (in _descent/de_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[89.438,137.750], [89.438,146.469], [80.641,146.469], [80.641,137.750]]
+		}]
+	}, {
+		coords:      [85.969,141.938],  // 1x Leshen (L20) (in _descent/de_poe_02)
+		name:        "leshen",
+		level:       "#20",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[90.688,138.688], [87.969,147.094], [82.188,145.531], [84.469,137.156]]
 		}]
 	}, {
 		coords:      [64.109,137.656],  // 1x Water Hag (L8) (in _descent/de_poe_02)
@@ -3503,6 +3559,476 @@
 		areas: [{
 			name: "monster.spawn",
 			coords: [[126.844,171.969], [126.844,174.844], [124.117,174.844], [124.117,171.969]]
+		}]
+	}, {
+		coords:      [218.906,119.094], // 4x-6x Devourer (L13) (in _gustfields/gf_poe_01)
+		name:        "devourer",
+		level:       "#13",
+		fromTime:    "#23",
+		toTime:      "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[218.500,117.875], [220.906,117.609], [221.156,119.734], [218.344,120.109], [217.641,119.047]]
+		}]
+	}, {
+		coords:      [219.938,118.703], // 1x-2x Alghoul (L14) (in _gustfields/gf_poe_01)
+		name:        "alghoul",
+		level:       "#14",
+		fromTime:    "#23",
+		toTime:      "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[218.500,117.875], [220.906,117.609], [221.156,119.734], [218.344,120.109], [217.641,119.047]]
+		}]
+	}, {
+		coords:      [226.094,128.188], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[224.375,129.781], [223.281,127.906], [227.000,126.156], [228.781,127.344], [227.969,128.625],
+			        [226.625,129.625]]
+		}]
+	}, {
+		coords:      [220.969,125.109], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[222.734,126.750], [221.250,127.641], [219.797,125.375], [219.359,123.984], [220.266,122.797],
+			        [221.500,123.656]]
+		}]
+	}, {
+		disabled:    true, // Disabled by HoS DLC.
+		coords:      [248.031,144.688], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[246.313,140.750], [248.453,142.344], [251.922,145.078], [251.453,147.844], [246.156,146.406],
+			        [245.031,142.750]]
+		}]
+	}, {
+		disabled:    true, // Disabled by HoS DLC.
+		coords:      [241.688,114.984], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[239.578,114.031], [241.594,113.172], [244.094,113.141], [244.750,115.578], [240.625,117.078],
+			        [238.422,115.641]]
+		}]
+	}, {
+		coords:      [224.219,125.109], // 1x Bear (L12) (in _gustfields/gf_poe_01)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[224.656,123.891], [225.281,125.750], [223.828,126.266], [223.094,124.313]]
+		}]
+	}, {
+		coords:      [225.500,114.500], // 1x Bear (L12) (in _gustfields/gf_poe_01)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[226.688,112.750], [227.469,113.938], [226.938,116.234], [224.703,116.500], [223.609,114.703],
+			        [224.234,112.984], [225.344,112.578]]
+		}]
+	}, {
+		coords:      [231.906,117.375], // 1x Cockatrice (L20) (in _gustfields/gf_poe_01)
+		name:        "cockatrice",
+		level:       "#20",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[230.847,114.294], [235.297,118.719], [233.344,120.656], [228.563,116.234]]
+		}]
+	}, {
+		coords:      [232.016,108.031], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_01)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[233.109,103.500], [235.031,105.625], [232.000,109.250], [230.031,107.500]]
+		}]
+	}, {
+		disabled:    true, // Disabled by HoS DLC.
+		coords:      [229.547,110.484], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_01)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[229.797,107.422], [232.063,109.531], [229.469,111.703], [228.078,112.344], [226.781,111.328]]
+		}]
+	}, {
+		coords:      [242.891,84.609], // 1x-2x Drowned Dead (L18) (in _gustfields/gf_poe_01)
+		name:        "drowneddead",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[246.438,80.594], [244.125,90.969], [238.375,90.000], [240.531,80.656]]
+		}]
+	}, {
+		coords:      [238.125,109.578], // 3x-4x Endrage Warrior (L11), 4x-5x Endrega Worker (L9) (in _gustfields/gf_poe_01)
+		name:        "endrega",
+		level:       "#9 & 11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[235.547,107.500], [238.125,106.969], [240.750,110.375], [240.125,112.078], [238.703,112.219],
+			        [236.656,111.172]]
+		}]
+	}, {
+		coords:      [240.734,106.734], // 3x-4x Endrage Warrior (L11) (in _gustfields/gf_poe_01)
+		name:        "endrega",
+		level:       "#11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[238.984,106.594], [240.984,104.750], [242.656,106.844], [240.250,108.547]]
+		}]
+	}, {
+		disabled:    true, // Disabled by HoS DLC.
+		coords:      [250.344,102.359], // 3x-4x Endrage Warrior (L11) (in _gustfields/gf_poe_01)
+		name:        "endrega",
+		level:       "#11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[246.516,100.375], [251.750,98.313], [254.000,104.453], [249.000,106.484]]
+		}]
+	}, {
+		coords:      [243.594,98.156], // 5x-6x Nekker (L18) (in _gustfields/gf_poe_01)
+		name:        "nekker",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[241.438,96.313], [244.078,95.234], [246.000,100.422], [243.469,101.547]]
+		}]
+	}, {
+		coords:      [200.688,130.672], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_02)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[202.375,129.031], [202.375,133.109], [199.031,133.109], [199.031,128.938]]
+		}]
+	}, {
+		coords:      [206.281,129.641], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_02)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[206.047,126.359], [209.125,128.203], [206.438,133.172], [203.469,131.484]]
+		}]
+	}, {
+		coords:      [198.156,151.766], // 1x Nightwraith (L15) (in _gustfields/gf_poe_02)
+		name:        "nightwraith",
+		level:       "#15",
+		fromTime:    "#22",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[202.016,147.641], [199.547,153.047], [196.406,151.719], [199.047,146.000]]
+		}]
+	}, {
+		coords:      [199.219,149.313], // 1x Noonwraith (L15) (in _gustfields/gf_poe_02)
+		name:        "noonwraith",
+		level:       "#15",
+		fromTime:    "#9",
+		toTime:      "#16",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[199.016,147.031], [201.375,148.250], [199.156,151.922], [196.859,150.609]]
+		}]
+	}, {
+		coords:      [198.625,140.781], // 2x Warg (L8), 12x Wolf (L5) (in _gustfields/gf_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		notDuring:   "mainquest.poet",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[201.031,134.938], [205.281,140.438], [196.563,147.156], [192.281,141.656]]
+		}]
+	}, {
+		coords:      [212.281,131.891], // 3x-4x Nekker (L8) (in _gustfields/gf_poe_02)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[215.125,128.547], [217.016,132.672], [209.359,135.672], [207.719,131.203]]
+		}]
+	}, {
+		coords:      [207.578,139.438], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_02)
+		name:        "drowner",
+		level:       "#9",
+		notDuring:   "mainquest.poet",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[210.750,137.656], [210.750,141.063], [206.141,141.063], [206.141,137.656]]
+		}]
+	}, {
+		coords:      [207.625,148.906], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_02)
+		name:        "drowner",
+		level:       "#9",
+		after:       "sidequest.empty", // TODO: Check if this works. Fact 'mq1016_aftermath_triggered' is only set in bugfixing phase, not in quest itself.
+		areas: [{
+			name: "monster.spawn",
+			coords: [[209.656,147.344], [209.656,150.375], [205.469,150.375], [205.469,147.344]]
+		}]
+	}, {
+		coords:      [225.344,159.719], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_03)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[222.766,157.891], [224.781,158.047], [226.359,158.688], [227.969,160.313],
+			        [226.766,162.609], [222.969,159.797]]
+		}]
+	}, {
+		coords:      [209.188,177.719], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_03)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[207.875,180.000], [207.844,175.656], [209.313,174.344], [210.344,175.563],
+			        [211.000,177.719], [210.188,180.094]]
+		}]
+	}, {
+		coords:      [235.984,171.406], // 3x-4x Endrega Warrior (L11), 4x-5x Endrega Worker (L9) (in _gustfields/gf_poe_03)
+		name:        "endrega",
+		level:       "#9 & 11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[235.016,168.266], [238.531,168.969], [236.719,174.984], [233.906,174.156]]
+		}]
+	}, {
+		coords:      [218.844,159.625], // 3x-4x Nekker (L8), 6x-8x Nekker (L6) (in _gustfields/gf_poe_03)
+		name:        "nekker",
+		level:       "#6 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[215.516,159.531], [216.703,157.594], [220.234,157.516], [220.766,160.594], [217.219,163.125]]
+		}]
+	}, {
+		coords:      [210.328,168.375], // 3x-4x Nekker (L8), 6x-8x Nekker (L6) (in _gustfields/gf_poe_03)
+		name:        "nekker",
+		level:       "#6 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[209.813,165.625], [213.922,166.766], [213.281,169.672], [209.609,171.984], [206.969,168.484]]
+		}]
+	}, {
+		coords:      [213.875,183.656], // 1x Wyvern (L14) (in _gustfields/gf_poe_03)
+		name:        "wyvern",
+		level:       "#14",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[214.625,181.906], [215.938,183.313], [213.375,185.781], [212.000,184.063]]
+		}]
+	}, {
+		coords:      [174.031,162.844], // 1x Nightwraith (L15) (in _gustfields/gf_poe_04)
+		name:        "nightwraith",
+		level:       "#15",
+		fromTime:    "#19",
+		fromTimeM:   "#30",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[171.469,162.406], [174.328,158.766], [177.156,161.234], [174.313,164.594]]
+		}]
+	}, {
+		coords:      [174.281,161.156], // 1x Noonwraith (L15) (in _gustfields/gf_poe_04)
+		name:        "noonwraith",
+		level:       "#15",
+		fromTime:    "#5",
+		toTime:      "#19",
+		toTimeM:     "#30",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[171.469,162.406], [174.328,158.766], [177.156,161.234], [174.313,164.594]]
+		}]
+	}, {
+		coords:      [189.156,149.922], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_04)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[190.828,146.859], [190.828,151.141], [185.703,151.141], [185.703,146.859]]
+		}]
+	}, {
+		coords:      [172.234,172.375], // 1x Nightwraith (L15) (in _gustfields/gf_poe_04)
+		name:        "nightwraith",
+		level:       "#15",
+		fromTime:    "#19",
+		fromTimeM:   "#30",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[171.797,169.828], [174.563,170.875], [172.906,175.031], [169.969,173.922]]
+		}]
+	}, {
+		coords:      [174.922,180.688], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_04)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[178.031,177.797], [176.078,184.906], [171.844,183.891], [173.922,176.500]]
+		}]
+	}, {
+		coords:      [187.063,194.031], // 1x Forktail (L18) (in _gustfields/gf_poe_04)
+		name:        "forktail",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[190.875,190.531], [192.250,196.750], [183.703,198.656], [182.297,192.438]]
+		}]
+	}, {
+		coords:      [204.219,173.500], // 3x-4x Nekker (L8) (in _gustfields/gf_poe_04)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[206.875,171.281], [206.875,176.469], [201.563,176.469], [201.563,171.281]]
+		}]
+	}, {
+		disabled:    true, // Disabled by HoS DLC.
+		coords:      [200.250,186.563], // 1x Grave Hag (L28) (in _gustfields/gf_poe_04)
+		name:        "gravehag",
+		level:       "#28",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[198.031,183.594], [203.078,185.781], [202.000,190.359], [196.313,188.469]]
+		}]
+	}, {
+		coords:      [143.813,188.172], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_05)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[145.352,185.422], [145.695,187.086], [145.320,188.914], [143.484,191.047],
+			        [141.453,189.484], [143.359,185.594]]
+		}]
+	}, {
+		coords:      [162.563,195.375], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_05)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[163.625,193.469], [164.781,195.625], [162.156,197.281], [160.594,196.938],
+			        [161.125,195.563], [161.938,194.469]]
+		}]
+	}, {
+		coords:      [161.313,201.344], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_05)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[159.344,199.594], [160.781,198.813], [163.188,202.219], [162.938,204.156],
+			        [161.594,203.625], [160.125,202.219]]
+		}]
+	}, {
+		coords:      [168.938,196.781], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_05)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[166.875,194.813], [168.469,195.000], [170.469,196.656], [171.469,198.188],
+			        [169.438,199.375], [166.844,196.313]]
+		}]
+	}, {
+		coords:      [153.563,193.750], // 1x-2x Nekker Warrior (L12), 6x-8x Nekker (L8) (in _gustfields/gf_poe_05)
+		name:        "nekker",
+		level:       "#8 & 12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[157.094,196.063], [151.969,198.500], [150.469,194.000], [151.531,190.469], [155.500,190.469]]
+		}]
+	}, {
+		coords:      [146.906,193.250], // 1x Bear (L12) (in _gustfields/gf_poe_05)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[147.313,191.156], [148.969,193.781], [146.563,195.188], [144.844,192.719]]
+		}]
+	}, {
+		coords:      [160.531,192.500], // 1x Bear (L12) (in _gustfields/gf_poe_05)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[160.750,190.000], [162.750,193.313], [160.156,194.781], [158.125,191.313]]
+		}]
+	}, {
+		coords:      [140.469,183.297], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_05)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[141.469,180.188], [143.063,182.766], [138.984,185.516], [137.359,182.781]]
+		}]
+	}, {
+		coords:      [147.406,208.313], // 3x-4x Endrega Warrior (L11), 4x-5x Endrega Worker (L9) (in _gustfields/gf_poe_06)
+		name:        "endrega",
+		level:       "#9 & 11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[151.500,203.875], [151.500,212.188], [143.500,212.188], [143.500,203.875]]
+		}]
+	}, {
+		coords:      [125.125,204.938], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_06)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[129.531,202.063], [129.531,208.438], [120.938,208.438], [120.938,202.063]]
+		}]
+	}, {
+		coords:      [138.250,203.063], // 3x-4x Nekker (L8) (in _gustfields/gf_poe_06)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[143.500,200.875], [141.469,207.813], [132.750,205.906], [134.594,198.813]]
+		}]
+	}, {
+		coords:      [120.484,193.734], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_06)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[122.844,190.781], [123.766,195.281], [117.844,196.281], [117.063,191.891]]
+		}]
+	}, {
+		coords:      [138.313,193.656], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_06)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[140.094,189.656], [142.656,194.000], [136.500,198.156], [133.844,193.219]]
+		}]
+	}, {
+		coords:      [134.094,188.609], // 1x Bear (L12) (in _gustfields/gf_poe_06)
+		name:        "bear",
+		level:       "#12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[135.281,186.578], [136.313,189.531], [132.672,190.719], [131.656,187.438]]
+		}]
+	}, {
+		coords:      [117.219,202.188], // 3x-4x Nekker (L8) (in _gustfields/gf_poe_06)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[119.688,198.781], [119.688,206.188], [114.656,206.188], [114.656,198.781]]
+		}]
+	}, {
+		coords:      [123.750,197.875], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_06)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[125.219,194.328], [127.453,198.453], [122.219,201.469], [119.953,197.438]]
 		}]
 	}],
 	// ----------------- Monster Dens -------------------
