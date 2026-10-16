@@ -435,7 +435,7 @@ function processData(checkedMarkers) {
 				}
 			}
 			let id = areas.length;
-			a.layer = L.polygon(arr, { color: draw_colors[icon] || "red" });
+			a.layer = L.polygon(arr, { color: draw_colors[icon] || "red", dashArray: a.dashed ? "4 8" : null });
 			a.layer.area = a;
 			areas.push(a);
 			return id;

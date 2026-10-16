@@ -500,6 +500,7 @@ window.i18nData.en.general = {
 		desc:  "Monsters spawn here.",
 		spawn: "Spawn Area",
 		route: "Patrol Route",
+		once:  "Will never respawn once slain.",
 		underwater: {
 			label: "Underwater __this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
 			desc:  "Monsters spawn here underwater.",
