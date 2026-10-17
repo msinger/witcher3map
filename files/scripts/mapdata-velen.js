@@ -230,8 +230,7 @@
 		             [252.875,113.687],
 		             [57.922,26.797]]
 	}, {
-		coords:      [[175.547,83.125],
-		             [137.688,187.797]],
+		coords:      [175.547,83.125],
 		extraLabel:  "#< (lvl 9)"
 	}, {
 		coords:      [47.000,123.172],  // 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 1x Ranged (L9)
@@ -259,7 +258,6 @@
 		             [70.500,141.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [160.281,153.641],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [222.156,121.625],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [209.156,162.734],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)  // TODO: Check if it has an in-game map marker.
 		             [167.406,182.281],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [167.875,211.000],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [158.875,209.938],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
@@ -308,14 +306,16 @@
 			        [107.219,66.219], [107.000,65.875], [106.500,65.406], [105.469,65.156], [104.219,64.688]]
 		}]
 	}, {
-		coords:      [110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
+		coords:      [[110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
+		             [209.156,162.734]], // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7"
 	}, {
 		coords:      [108.234,145.344], // 1x Axe-Shield (L9), 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 2x Bow (L7)
 		level:       "#7 & 9"
 	}, {
 		coords:      [[106.188,115.703], // 1x Leader-Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
-		             [134.406,129.094]], // 3x Axe-2H (L9), 3x Mace (L9), 3x Club (L9)
+		             [134.406,129.094],  // 3x Axe-2H (L9), 3x Mace (L9), 3x Club (L9)
+		             [137.688,187.797]], // 1x Leader-Sword-Shield (L9), 3x Sword (L9), 2x Ranged (L9)
 		level:       "#9"
 	}, {
 		coords:      [80.125,166.000],  // 1x Leader-Axe2H (L9), 1x Axe (L9), 4x Ranged (L9), 3x Guard Dog (L1)
@@ -4045,7 +4045,9 @@
 		level:       "#7 & 11"
 	}, {
 		coords:      [237.641,105.016],
-		groupId:     "cavern"
+		groupId:     "cavern",
+		name:        "golem",
+		level:       "#19"
 	}, {
 		coords:      [165.891,99.375],  // 14x Nekker (L18), 1x Rabid rock troll (L16)
 		name:        "nekker",
