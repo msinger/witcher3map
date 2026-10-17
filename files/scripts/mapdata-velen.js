@@ -142,9 +142,6 @@
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
 		coords:      [[82.797,87.984],
-		             [106.219,31.016],
-		             [86.703,27.938],
-		             [75.875,26.844],
 		             [177.969,211.656],
 		             [185.750,209.531],
 		             [238.156,201.687],
@@ -167,6 +164,13 @@
 		coords:      [138.031,160.625], // 4x Drowner (L9)
 		name:        "drowner",
 		level:       "#9"
+	}, {
+		coords:      [86.703,27.938],   // 1x Leader-Sword (L6), 2x Sword (L5), 2x Axe (L5), 2x Mace (L5), 5x Crossbow (L5)
+		level:       "#5 & 6"
+	}, {
+		coords:      [[106.219,31.016], // 1x Axe (L7), 1x Sword (L7), 1x Club (L7), 1x Bow (L7)
+		             [75.875,26.844]],  // 1x Axe (L7), 3x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
+		level:       "#7"
 	}],
 	// ----------------- Alchemy Supplies ---------------
 	alchemy: [{
@@ -211,24 +215,14 @@
 	}],
 	// ----------------- Bandit Camps -------------------
 	banditcamp: [{
-		coords:      [[136.625,89.219],
-		             [94.344,37.016],
-		             [88.375,34.984],
-		             [85.125,33.172],
-		             [96.938,31.047],
-		             [72.953,24.188],
-		             [77.656,17.750],
-		             [67.531,23.656],
-		             [66.703,26.719],
-		             [177.750,195.750],
+		coords:      [[177.750,195.750],
 		             [204.500,197.968],
 		             [214.656,223.281],
 		             [225.812,218.781],
 		             [257.468,208.500],
 		             [260.625,178.468],
 		             [260.937,165.437],
-		             [252.875,113.687],
-		             [57.922,26.797]]
+		             [252.875,113.687]]
 	}, {
 		coords:      [175.547,83.125],  // 1x Leader-Sword-Shield (L9), 1x Club (L9), 1x Spear (L9)
 		id:          "lucianCamp",
@@ -254,6 +248,7 @@
 		             [122.938,63.125],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [141.781,119.922],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [194.781,177.625],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [92.125,55.750],    // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.953,184.094],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [85.156,186.453],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [70.500,141.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
@@ -265,7 +260,9 @@
 		             [174.469,205.500],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [126.844,191.203],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [129.453,188.953],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [161.031,96.531]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [161.031,96.531],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [151.172,68.781],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [136.625,89.219]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7) // TODO: Check if this is on in-game map.
 		level:       "#7",
 		notInGame:   true
 	}, {
@@ -309,7 +306,9 @@
 		}]
 	}, {
 		coords:      [[110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
-		             [209.156,162.734]], // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [209.156,162.734],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [96.938,31.047],    // 1x Axe (L7), 2x Sword (L7), 1x Bow (L7)
+		             [77.656,17.750]],   // 1x Leader-Sword (L7), 2x Axe (L7), 4x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
 		level:       "#7"
 	}, {
 		coords:      [108.234,145.344], // 1x Axe-Shield (L9), 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 2x Bow (L7)
@@ -317,7 +316,9 @@
 	}, {
 		coords:      [[106.188,115.703], // 1x Leader-Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
 		             [134.406,129.094],  // 3x Axe-2H (L9), 3x Mace (L9), 3x Club (L9)
-		             [137.688,187.797]], // 1x Leader-Sword-Shield (L9), 3x Sword (L9), 2x Ranged (L9)
+		             [137.688,187.797],  // 1x Leader-Sword-Shield (L9), 3x Sword (L9), 2x Ranged (L9)
+		             [85.125,33.172],    // 1x Leader-Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
+		             [88.375,34.984]],   // 1x Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
 		level:       "#9"
 	}, {
 		coords:      [80.125,166.000],  // 1x Leader-Axe2H (L9), 1x Axe (L9), 4x Ranged (L9), 3x Guard Dog (L1)
@@ -380,6 +381,30 @@
 			        [175.328,107.422], [174.578,106.609], [173.625,106.031], [173.219,105.281],
 			        [173.375,104.391]]
 		}]
+	}, {
+		coords:      [94.344,37.016],   // Mostly random (L9)
+		id:          "forestHutCamp",
+		level:       "#9"
+	}, {
+		coords:      [96.375,42.266],   // 2x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		mounted:     true,
+		notInGame:   true,
+		routes: [{
+			name: "banditcamp.mounted.route",
+			coords: [[96.375,42.266], [97.063,42.625], [97.453,43.172], [97.703,43.844], [98.297,44.625],
+			        [98.875,44.813], [99.453,44.688], [100.000,44.813], [100.500,45.375], [100.516,45.938],
+			        [100.297,46.500], [100.328,47.188], [100.797,48.047], [101.578,47.313], [102.484,45.313],
+			        [100.500,45.375]]
+		}]
+	}, {
+		coords:      [[67.531,23.656],  // 4x Club (L3), 3x Spear (L3)
+		             [57.922,26.797]],  // 3x Club (L3), 1x Bow (L3)
+		level:       "#3"
+	}, {
+		coords:      [[66.703,26.719],  // Cannibal Chief Hammer-2H (L5), and a shit ton of Cannibals (L3)
+		             [72.953,24.188]],  // Cannibal Chief Hammer-2H (L5), 4x Club (L3), 2x Bow (L3)
+		level:       "#3 & 5"
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -969,20 +994,17 @@
 	}],
 	// ----------------- Guarded Treasure ---------------
 	guarded: [{
-		coords:      [[98.313,40.141],
-		             [181.156,220.687],
+		coords:      [[181.156,220.687],
 		             [246.250,182.812],
 		             [258.843,129.187],
 		             [248.437,162.687],
-		             [144.641,87.578],
-		             [70.859,44.063],
-		             [91.563,19.516],
 		             [37.094,55.438],
 		             [23.172,78.391],
 		             [18.750,78.531],
 		             [34.438,93.125]]
 	}, {
-		coords:      [107.281,42.953],  // 7x Drowner (L4) (in crow_perch/cp14_hangmans_avenue)
+		coords:      [[107.281,42.953], // 7x Drowner (L4) (in crow_perch/cp14_hangmans_avenue)
+		             [91.563,19.516]],  // 4x Drowner (L4)
 		name:        "drowner",
 		level:       "#4"
 	}, {
@@ -1050,7 +1072,8 @@
 		name:        "wyvern",
 		level:       "#18"
 	}, {
-		coords:      [229.563,124.656], // 1x Bilge Hag (L15)
+		coords:      [[229.563,124.656], // 1x Bilge Hag (L15)
+		             [144.641,87.578]],  // 1x Bilge Hag (L15)
 		name:        "bilgehag",
 		level:       "#15",
 	}, {
@@ -1058,7 +1081,8 @@
 		name:        "armoredarachas",
 		level:       "#23",
 	}, {
-		coords:      [215.016,126.328], // 1x Water Hag (L8)
+		coords:      [[215.016,126.328], // 1x Water Hag (L8)
+		             [70.859,44.063]],   // 1x Water Hag (L8)
 		name:        "waterhag",
 		level:       "#8"
 	}, {
@@ -1074,6 +1098,10 @@
 		name:        "wraith",
 		level:       "#15",
 		after:       "sidequest.fromfar2"
+	}, {
+		coords:      [98.313,40.141],   // 1x Endrega Warrior (L9), 6x Endrega Worker (L9)
+		name:        "endrega",
+		level:       "#9"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -1299,9 +1327,15 @@
 	}],
 	// ----------------- Hidden Treasure ----------------
 	hidden: [{
-		coords:      [153.063,45.953]
+		coords:      [153.063,45.953], // 1x Wyvern (L14)
+		guarded:     true,
+		name:        "wyvern",
+		level:       "#14"
 	}, {
-		coords:      [54.469,51.313],
+		coords:      [54.469,51.313],  // 1x Golem (L6)
+		guarded:     true,
+		name:        "golem",
+		level:       "#6",
 		underground: true,
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
 		notBefore:   "mainquest.wandering"
@@ -2151,16 +2185,6 @@
 			name: "monster.spawn",
 			coords: [[107.453,27.625], [107.688,26.406], [108.469,25.734], [109.766,25.734], [110.734,26.672],
 			        [110.344,28.094], [109.625,27.859], [108.625,28.172]]
-		}]
-	}, {
-		coords:      [99.516,24.531],  // 3x Drowner (L10) (in lw_nml_w_012)
-		name:        "drowner",
-		level:       "#10",
-		underwater:  true,
-		areas: [{
-			name: "monster.spawn",
-			coords: [[100.703,24.766], [100.453,25.516], [99.781,26.078], [98.531,25.563], [98.047,23.781],
-			        [99.000,23.578], [99.688,23.172], [100.406,23.172]]
 		}]
 	}, {
 		coords:      [67.594,16.484],  // 1x Drowner (L10) (in lw_nml_w_015)
@@ -4172,6 +4196,178 @@
 			coords: [[194.703,75.813], [193.891,75.531], [194.047,74.391], [194.422,73.656], [195.344,73.391],
 			        [196.016,73.750], [196.250,74.703], [195.969,75.531]]
 		}]
+	}, {
+		coords:      [125.969,104.906], // 5x-7x Wild Dog (L1) (in _mudplough/encounters)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[127.906,102.031], [126.906,108.219], [125.063,107.656], [124.156,102.781]]
+		}]
+	}, {
+		coords:      [133.094,87.500],  // 5x-7x Wild Dog (L1) (in _mudplough/encounters)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[134.500,85.000], [135.406,87.344], [133.625,89.938], [130.313,90.750], [129.500,88.125]]
+		}]
+	}, {
+		coords:      [134.047,101.797], // 5x-7x Wild Dog (L1) (in _mudplough/encounters)
+		name:        "wilddog",
+		level:       "#1",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[136.469,100.266], [138.281,101.922], [130.844,104.047], [130.953,101.422], [133.797,100.188]]
+		}]
+	}, {
+		coords:      [141.688,96.953],  // 6x-8x Nekker (L6) (in _mudplough/encounters)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[143.281,95.063], [145.906,96.453], [140.922,99.188], [137.453,96.625]]
+		}]
+	}, {
+		coords:      [142.219,81.594],  // 12x-16x Nekker (L6) (in _mudplough/encounters)
+		name:        "nekker",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[138.813,78.563], [142.250,75.938], [144.063,79.281], [144.531,82.969], [144.344,86.031],
+			        [141.375,86.688]]
+		}]
+	}, {
+		coords:      [132.828,98.266],  // 4x-6x Drowner (L4) (in _mudplough/encounters)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[133.047,96.766], [134.172,97.891], [133.234,99.297], [132.188,99.375], [130.703,97.266]]
+		}]
+	}, {
+		coords:      [140.391,89.297],  // 4x-6x Drowner (L4) (in _mudplough/encounters)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[143.813,89.688], [138.297,91.609], [137.688,89.703], [140.344,87.922], [142.922,88.406]]
+		}]
+	}, {
+		coords:      [150.609,73.391],  // 1x Forktail (L18) (in _mudplough/encounters)
+		name:        "forktail",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[152.313,71.781], [152.313,74.734], [150.906,75.422], [148.938,74.453], [148.938,71.781]]
+		}]
+	}, {
+		coords:      [145.266,71.656],  // 2x-3x Foglet (L4) (in _mudplough/encounters)
+		name:        "foglet",
+		level:       "#4",
+		after:       "event.troll",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[146.063,68.984], [147.625,72.469], [144.391,74.109], [142.516,70.906]]
+		}]
+	}, {
+		coords:      [94.047,34.750],   // 4x-5x Endrega Worker (L9) (in _spitfire_bluff/encounters)
+		name:        "endrega",
+		level:       "#9",
+		cleared:     "forestHutCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[96.188,39.203], [91.016,41.000], [88.891,35.125], [94.734,33.078]]
+		}]
+	}, {
+		coords:      [92.141,39.031],   // 1x Arachas (L11) (in _spitfire_bluff/encounters)
+		name:        "arachas",
+		level:       "#11",
+		cleared:     "forestHutCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.828,36.906], [93.063,40.984], [89.047,38.078], [89.250,34.188]]
+		}]
+	}, {
+		disabled:    true, // Seems to be permanently disabled.
+		coords:      [80.141,18.047],   // 1x Arachas (L18) (in _spitfire_bluff/encounters)
+		name:        "arachas",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[80.406,12.813], [82.844,19.938], [78.391,21.391], [75.875,14.359]]
+		}]
+	}, {
+		coords:      [85.531,50.438],   // 4x-6x Drowner (L4) (in _spitfire_bluff/encounters)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[85.922,48.813], [89.203,50.563], [90.078,51.813], [89.406,53.422], [83.484,52.063],
+			        [83.797,49.422]]
+		}]
+	}, {
+		coords:      [75.375,46.094],   // 4x-6x Drowner (L9) (in _spitfire_bluff/encounters)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[79.594,48.047], [77.781,50.219], [71.172,45.078], [73.141,42.688]]
+		}]
+	}, {
+		coords:      [69.688,19.516],   // 4x-6x Drowner (L4) (in _spitfire_bluff/encounters)
+		name:        "drowner",
+		level:       "#4",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[74.563,20.531], [73.688,22.531], [67.406,19.094], [68.359,17.281]]
+		}]
+	}, {
+		coords:      [95.438,50.563],   // 2x Warg (L8), 12x Wolf (L5) (in _spitfire_bluff/encounters)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[94.750,43.688], [99.563,53.281], [94.094,55.438], [91.938,46.125]]
+		}]
+	}, {
+		coords:      [81.969,34.031],   // 1x Warg (L8), 6x Wolf (L5) (in _spitfire_bluff/encounters)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[79.406,33.594], [83.359,32.313], [83.906,35.219], [80.188,35.109]]
+		}]
+	}, {
+		coords:      [73.156,33.156],   // 4x-5x Endrega Worker (L9) (in _spitfire_bluff/encounters)
+		name:        "endrega",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[69.531,30.875], [74.188,29.250], [76.563,35.781], [71.875,37.625]]
+		}]
+	}, {
+		coords:      [102.422,22.875],  // 4x Drowner (L4) (in _spitfire_bluff/encounters)
+		name:        "drowner",
+		level:       "#4",
+		once:        true,
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[[104.359,17.656], [105.891,23.453], [100.672,24.656], [99.219,23.641], [99.766,23.250],
+			        [100.125,22.109], [98.172,20.516], [97.844,18.922], [100.109,17.719]],
+			        [[102.797,20.859], [103.000,21.563], [100.594,21.641], [100.797,20.938]]]
+		}]
+	}, {
+		coords:      [99.516,24.531],  // 3x Drowner (L10) (in lw_nml_w_012)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[100.703,24.766], [100.453,25.516], [99.781,26.078], [98.531,25.563], [98.047,23.781],
+			        [99.000,23.578], [99.688,23.172], [100.406,23.172]]
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
@@ -4203,7 +4399,6 @@
 		             [240.562,171.500],
 		             [255.125,119.750],
 		             [218.687,183.875],
-		             [154.141,85.000],
 		             [43.578,108.563],
 		             [96.875,185.094],
 		             [95.656,185.125]]
@@ -4272,6 +4467,10 @@
 		level:       "#9"
 	}, {
 		coords:      [170.266,112.969], // 1x Devourer (L5), 3x Rotfiend (L6)
+		name:        "rotfiend",
+		level:       "#5 & 6"
+	}, {
+		coords:      [154.141,85.000],  // 1x Devourer (L5), 4x Rotfiend (L6)
 		name:        "rotfiend",
 		level:       "#5 & 6"
 	}],
@@ -5745,8 +5944,11 @@
 	}],
 	// ----------------- Spoils of War ------------------
 	spoils: [{
-		coords:      [[153.609,79.109],
-		             [46.078,24.953]]
+		coords:      [153.609,79.109]
+	}, {
+		coords:      [46.078,24.953],   // 3x Drowner (Underwater) (L10)
+		name:        "drowner",
+		level:       "#10"
 	}, {
 		coords:      [111.500,105.250], // 3x Drowner (L4)
 		name:        "drowner",
