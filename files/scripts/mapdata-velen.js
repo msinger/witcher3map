@@ -148,8 +148,6 @@
 		             [250.250,143.500],
 		             [241.125,155.875],
 		             [239.750,69.937],
-		             [29.984,48.000],
-		             [33.969,99.250],
 		             [99.938,130.172]]
 	}, {
 		coords:      [122.281,179.266], // 1x Alghoul (L9), 5x Ghoul (L9)
@@ -171,6 +169,13 @@
 		coords:      [[106.219,31.016], // 1x Axe (L7), 1x Sword (L7), 1x Club (L7), 1x Bow (L7)
 		             [75.875,26.844]],  // 1x Axe (L7), 3x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
 		level:       "#7"
+	}, {
+		coords:      [33.969,99.250],   // 1x Endrega Warrior (L11), 3x Endrega Worker (L9)
+		name:        "endrega",
+		level:       "#9 & 11"
+	}, {
+		coords:      [29.984,48.000],   // 6x Sword (L9), 3x Ranged (L9)
+		level:       "#9"
 	}],
 	// ----------------- Alchemy Supplies ---------------
 	alchemy: [{
@@ -249,6 +254,7 @@
 		             [141.781,119.922],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [194.781,177.625],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [92.125,55.750],    // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [51.938,19.578],    // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.953,184.094],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [85.156,186.453],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [70.500,141.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
@@ -262,7 +268,10 @@
 		             [129.453,188.953],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [161.031,96.531],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [151.172,68.781],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [136.625,89.219]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7) // TODO: Check if this is on in-game map.
+		             [136.625,89.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7) // TODO: Check if this is on in-game map.
+		             [72.250,54.875],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [64.563,90.172],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [28.844,101.078]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
 	}, {
@@ -997,11 +1006,7 @@
 		coords:      [[181.156,220.687],
 		             [246.250,182.812],
 		             [258.843,129.187],
-		             [248.437,162.687],
-		             [37.094,55.438],
-		             [23.172,78.391],
-		             [18.750,78.531],
-		             [34.438,93.125]]
+		             [248.437,162.687]]
 	}, {
 		coords:      [[107.281,42.953], // 7x Drowner (L4) (in crow_perch/cp14_hangmans_avenue)
 		             [91.563,19.516]],  // 4x Drowner (L4)
@@ -1059,7 +1064,8 @@
 		name:        "basilisk",
 		level:       "#14"
 	}, {
-		coords:      [121.781,136.625], // 1x Alghoul (L13)
+		coords:      [[121.781,136.625], // 1x Alghoul (L13)
+		             [34.438,93.125]],   // 1x Alghoul (L13)
 		name:        "alghoul",
 		level:       "#13"
 	}, {
@@ -1094,7 +1100,7 @@
 		name:        "basilisk",
 		level:       "#14"
 	}, {
-		coords:      [174.000,78.914],  // 1x {5:00-19:30: Noonwraith, 19:30-5:00: Nightwraith} (L15)
+		coords:      [174.000,78.914],  // 1x {5:00-19:30: Noonwraith (L15), 19:30-5:00: Nightwraith} (L15)
 		name:        "wraith",
 		level:       "#15",
 		after:       "sidequest.fromfar2"
@@ -1102,6 +1108,18 @@
 		coords:      [98.313,40.141],   // 1x Endrega Warrior (L9), 6x Endrega Worker (L9)
 		name:        "endrega",
 		level:       "#9"
+	}, {
+		coords:      [18.750,78.531],   // 1x Gargoyle (L19)
+		name:        "gargoyle",
+		level:       "#19"
+	}, {
+		coords:      [37.094,55.438],   // 2x Wraith (L7)
+		name:        "wraith",
+		level:       "#7"
+	}, {
+		coords:      [23.172,78.391],   // 1x {6h-22h: Noonwraith (L18), 22h-6h: Nightwraith} (L18)
+		name:        "wraith",
+		level:       "#18"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -2355,15 +2373,6 @@
 			        [118.359,175.125], [120.172,175.281]]
 		}]
 	}, {
-		coords:      [38.313,31.203],   // 3x Drowner (L10) (in nml_w_018)
-		name:        "drowner",
-		level:       "#10",
-		underwater:  true,
-		areas: [{
-			name: "monster.spawn",
-			coords: [[39.125,33.813], [36.094,32.422], [37.563,28.594], [40.641,30.219]]
-		}]
-	}, {
 		coords:      [35.625,27.797],   // 4x Drowner (L10) (in nml_w_018)
 		name:        "drowner",
 		level:       "#10",
@@ -3023,6 +3032,7 @@
 		coords:      [62.828,133.219],  // 2x-3x Foglet (L4) (in _descent/de_poe_02)
 		name:        "foglet",
 		level:       "#4",
+		notDuring:   "sidequest.forefathers",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[64.281,128.422], [64.281,136.234], [61.391,136.234], [61.391,128.422]]
@@ -4368,6 +4378,312 @@
 			coords: [[100.703,24.766], [100.453,25.516], [99.781,26.078], [98.531,25.563], [98.047,23.781],
 			        [99.000,23.578], [99.688,23.172], [100.406,23.172]]
 		}]
+	}, {
+		coords:      [55.563,24.813],   // 8x-12x Mucknixer (L15) (in _the_mire/the_mire_01)
+		name:        "mucknixer",
+		level:       "#15",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[58.953,21.984], [58.953,26.766], [49.234,26.766], [49.234,21.984]]
+		}]
+	}, {
+		coords:      [62.734,33.141],   // 8x-12x Mucknixer (L15) (in _the_mire/the_mire_01)
+		name:        "mucknixer",
+		level:       "#15",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[66.219,30.172], [66.219,36.672], [59.438,36.672], [59.438,30.172]]
+		}]
+	}, {
+		coords:      [39.703,34.422],   // 8x-12x Mucknixer (L15) (in _the_mire/the_mire_01)
+		name:        "mucknixer",
+		level:       "#15",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[43.047,30.984], [43.047,36.281], [35.047,36.281], [35.047,30.984]]
+		}]
+	}, {
+		coords:      [38.313,31.203],   // 3x Drowner (L10) (in nml_w_018)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[39.125,33.813], [36.094,32.422], [37.563,28.594], [40.641,30.219]]
+		}]
+	}, {
+		coords:      [52.188,33.219],   // 1x Water Hag (L8) (in _the_mire/the_mire_01)
+		name:        "waterhag",
+		level:       "#8",
+		once:        true,
+		after:       "treasurehunt.defense",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[53.391,31.672], [53.391,35.516], [49.359,35.516], [49.359,31.672]]
+		}]
+	}, {
+		coords:      [45.297,53.125],   // 2x-3x Foglet (L10) (in _the_mire/the_mire_01)
+		name:        "foglet",
+		level:       "#10",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[47.703,51.500], [47.703,55.734], [43.672,55.734], [43.672,51.500]]
+		}]
+	}, {
+		coords:      [45.203,52.109],   // 1x Water Hag (L8) (in _the_mire/the_mire_01)
+		name:        "waterhag",
+		level:       "#8",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[47.703,51.500], [47.703,55.734], [43.672,55.734], [43.672,51.500]]
+		}]
+	}, {
+		coords:      [43.078,38.953],   // 1x Bear (L12) (in _the_mire/the_mire_01)
+		name:        "bear",
+		level:       "#12",
+		notDuring:   "mainquest.wandering",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[45.719,38.125], [45.719,41.625], [42.500,41.625], [42.500,38.125]]
+		}]
+	}, {
+		coords:      [51.531,44.531],   // 1x Griffin (L25) (in _the_mire/the_mire_01)
+		name:        "griffin",
+		level:       "#25",
+		once:        true,
+		notDuring:   "mainquest.wandering",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[54.391,41.744], [54.391,47.084], [46.406,47.084], [46.406,41.744]]
+		}]
+	}, {
+		coords:      [59.031,45.531],   // 2x Warg (L8), 12x Wolf (L5) (in _the_mire/the_mire_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[61.813,40.781], [61.813,50.031], [56.000,50.031], [56.000,40.781]]
+		}]
+	}, {
+		coords:      [37.094,41.750],   // 2x Warg (L8), 12x Wolf (L5) (in _the_mire/the_mire_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[39.719,39.344], [39.719,43.219], [35.688,43.219], [35.688,39.344]]
+		}]
+	}, {
+		coords:      [53.234,63.938],   // 4x-6x Rotfiend (L6) (in _the_mire/the_mire_02)
+		name:        "rotfiend",
+		level:       "#6",
+		notDuring:   "sidequest.forefathers",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[57.328,60.281], [57.328,67.500], [49.984,67.500], [49.984,60.281]]
+		}]
+	}, {
+		coords:      [53.516,74.156],   // 8x-12x Rotfiend (L6) (in _the_mire/the_mire_02)
+		name:        "rotfiend",
+		level:       "#6",
+		notDuring:   "sidequest.forefathers",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[56.641,72.516], [56.641,76.359], [51.719,76.359], [51.719,72.516]]
+		}]
+	}, {
+		coords:      [45.781,80.188],   // 4x-6x Rotfiend (L6) (in _the_mire/the_mire_02)
+		name:        "rotfiend",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[47.203,76.875], [48.281,82.500], [43.328,83.328], [42.234,77.719]]
+		}]
+	}, {
+		coords:      [69.859,64.266],   // 1x Warg (L8), 6x Wolf (L5) (in _the_mire/the_mire_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[71.766,61.156], [71.766,67.859], [67.719,67.859], [67.719,61.156]]
+		}]
+	}, {
+		coords:      [75.313,64.375],   // 1x Warg (L8), 6x Wolf (L5) (in _the_mire/the_mire_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[77.109,61.156], [77.109,67.859], [73.250,67.859], [73.250,61.156]]
+		}]
+	}, {
+		coords:      [66.594,57.953],   // 2x-3x Foglet (L10) (in _the_mire/the_mire_02)
+		name:        "foglet",
+		level:       "#10",
+		before:      "sidequest.favor", // TODO: Do the foglets stay disabled after ploughing Keira?
+		areas: [{
+			name: "monster.spawn",
+			coords: [[68.500,56.219], [68.500,60.188], [64.578,60.188], [64.578,56.219]]
+		}]
+	}, {
+		coords:      [69.219,89.750],   // 2x-3x Foglet (L10) (in _the_mire/the_mire_02)
+		name:        "foglet",
+		level:       "#10",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[71.203,88.281], [71.203,91.797], [67.391,91.797], [67.391,88.281]]
+		}]
+	}, {
+		coords:      [49.578,75.320],   // 4x-6x Ghoul (L9) (in _the_mire/the_mire_02)
+		name:        "ghoul",
+		level:       "#9",
+		notDuring:   "sidequest.forefathers",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[50.797,73.211], [50.797,78.164], [47.594,78.164], [47.594,73.211]]
+		}]
+	}, {
+		coords:      [52.328,70.000],   // 4x-6x Drowner (L4) (in _the_mire/the_mire_02)
+		name:        "drowner",
+		level:       "#4",
+		notDuring:   "sidequest.forefathers",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[54.859,68.938], [54.859,72.078], [50.859,72.078], [50.859,68.938]]
+		}]
+	}, {
+		coords:      [25.953,65.016],   // 4x-5x Endrega Worker (L9) (in _the_mire/the_mire_03)
+		name:        "endrega",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[30.375,62.000], [30.375,67.859], [21.719,67.859], [21.719,62.000]]
+		}]
+	}, {
+		coords:      [30.031,56.844],   // 2x Bear (L6) (in _the_mire/the_mire_03)
+		name:        "bear",
+		level:       "#6",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[32.188,52.188], [34.906,59.063], [27.625,61.656], [24.656,54.563]]
+		}]
+	}, {
+		coords:      [26.500,43.031], // 4x-6x Drowner (L9) (in _the_mire/the_mire_03)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[31.563,36.625], [27.531,46.750], [21.469,46.750], [28.094,36.625]]
+		}]
+	}, {
+		coords:      [21.109,49.969],   // 4x-5x Endrega Worker (L9) (in _the_mire/the_mire_03)
+		name:        "endrega",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[23.438,48.313], [22.594,52.750], [19.609,52.172], [18.469,49.500], [20.516,47.578]]
+		}]
+	}, {
+		coords:      [21.375,76.750],   // 2x-3x Wraith (L7) (in _the_mire/the_mire_03)
+		name:        "wraith",
+		level:       "#7",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[27.000,74.125], [27.000,81.156], [17.500,81.156], [17.500,74.125]]
+		}]
+	}, {
+		coords:      [30.656,91.063],   // 3x-4x Nekker (L8) (in _the_mire/the_mire_03)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[36.563,87.281], [37.469,89.625], [35.844,93.375], [29.469,95.469], [26.500,95.469],
+			        [25.313,93.969], [24.875,91.313], [26.531,89.344], [29.969,87.281]]
+		}]
+	}, {
+		coords:      [41.281,121.719],  // 4x-6x Drowner (L9) (in _the_mire/the_mire_04)
+		name:        "drowner",
+		level:       "#9",
+		cleared:     "paintingCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[43.125,119.734], [42.625,122.188], [41.203,123.141], [39.844,122.281], [39.625,119.391]]
+		}]
+	}, {
+		coords:      [20.156,122.313], // 1x Warg (L8), 6x Wolf (L5) (in _the_mire/the_mire_04)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[21.969,120.188], [21.969,124.750], [19.000,125.281], [17.688,119.781], [19.906,119.438]]
+		}]
+	}, {
+		coords:      [41.313,105.000],  // 4x-6x Drowner (L9) (in _the_mire/the_mire_04)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[42.109,101.719], [47.438,105.813], [40.109,111.828], [37.109,107.359]]
+		}]
+	}, {
+		coords:      [32.328,104.891],  // 4x-5x Endrega Worker (L9) (in _the_mire/the_mire_04)
+		name:        "endrega",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[36.422,103.344], [36.422,107.359], [29.156,107.359], [29.156,103.344]]
+		}]
+	}, {
+		coords:      [62.719,106.188],  // 4x-5x Endrega Worker (L9) (in _the_mire/the_mire_04)
+		name:        "endrega",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[64.672,101.750], [68.000,104.516], [63.906,110.344], [60.813,107.031]]
+		}]
+	}, {
+		coords:      [52.594,97.750],   // 3x-4x Nekker (L8) (in _the_mire/the_mire_04)
+		name:        "nekker",
+		level:       "#8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[52.516,95.266], [54.859,96.359], [53.125,100.000], [50.375,99.359]]
+		}]
+	}, {
+		coords:      [29.313,113.609],  // 3x-4x Nekker (L8), 6x-8x Nekker (L6) (in _the_mire/the_mire_04)
+		name:        "nekker",
+		level:       "#6 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[30.344,110.359], [33.547,113.703], [26.453,117.281], [26.063,113.266]]
+		}]
+	}, {
+		coords:      [39.945,70.008],   // 5x Drowner (L4) (in the_mire/tm13_underwater_ruins)
+		name:        "drowner",
+		level:       "#4",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[40.445,69.453], [40.898,71.055], [39.391,71.438], [38.820,69.719]]
+		}]
+	}, {
+		coords:      [54.516,50.641],   // 6x Wraith (L13), {6h-22h: 1x Noonwraith (L15)}, {22h-6h: 1x Nightwraith (L15)} (in the_mire/tm15_miniboss)
+		name:        "wraith",
+		level:       "#13 & 15",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[55.203,50.172], [55.203,51.578], [53.797,51.578], [53.797,50.172]]
+		}]
+	}, {
+		coords:      [38.766,73.188],   // 3x Drowner (Underwater) (L10) (in the_mire/tm_underwater_dungeon)
+		name:        "drowner",
+		level:       "#10",
+		once:        true,
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[40.305,71.391], [40.305,73.938], [37.875,73.938], [37.875,71.391]]
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
@@ -4515,8 +4831,9 @@
 		id:          "mulbrydale_armorer_pid",
 		level:       "#7, 14 & 16"
 	}, {
-		coords:      [72.656,103.797],
-		id:          "claywich_shopkeeper_pid"
+		coords:      [72.656,103.797],  // 1x Leader-Sword (L6), 2x Sword (L5), 1x Axe-2H (L5), 2x Axe-1H (L5), 2x Crossbow (L5)
+		id:          "claywich_shopkeeper_pid",
+		level:       "#5 & 6"
 	}],
 	// ----------------- Places of Power ----------------
 	pop: [{
