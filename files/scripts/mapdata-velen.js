@@ -230,8 +230,9 @@
 		             [252.875,113.687],
 		             [57.922,26.797]]
 	}, {
-		coords:      [175.547,83.125],
-		extraLabel:  "#< (lvl 9)"
+		coords:      [175.547,83.125],  // 1x Leader-Sword-Shield (L9), 1x Club (L9), 1x Spear (L9)
+		id:          "lucianCamp",
+		level:       "#9"
 	}, {
 		coords:      [47.000,123.172],  // 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 1x Ranged (L9)
 		id:          "paintingCamp",
@@ -263,7 +264,8 @@
 		             [158.875,209.938],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [174.469,205.500],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [126.844,191.203],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [129.453,188.953]], // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [129.453,188.953],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [161.031,96.531]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
 	}, {
@@ -364,6 +366,19 @@
 			        [188.578,188.984], [189.781,188.641], [190.469,187.766], [190.797,187.594],
 			        [191.188,186.875], [192.453,185.438]],
 			        [[185.297,189.578], [185.844,187.313], [187.453,186.406], [187.406,184.219]]]
+		}]
+	}, {
+		coords:      [173.375,104.391], // 2x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		mounted:     true,
+		notInGame:   true,
+		routes: [{
+			name: "banditcamp.mounted.route",
+			coords: [[173.375,104.391], [173.859,104.922], [174.938,105.156], [175.656,105.813],
+			        [175.969,106.406], [176.703,106.984], [177.250,107.125], [178.172,107.172],
+			        [179.000,107.547], [178.813,108.094], [177.031,107.563], [176.094,107.828],
+			        [175.328,107.422], [174.578,106.609], [173.625,106.031], [173.219,105.281],
+			        [173.375,104.391]]
 		}]
 	}],
 	// ----------------- Barbers ------------------------
@@ -959,7 +974,6 @@
 		             [246.250,182.812],
 		             [258.843,129.187],
 		             [248.437,162.687],
-		             [184.609,58.609],
 		             [144.641,87.578],
 		             [70.859,44.063],
 		             [91.563,19.516],
@@ -1032,6 +1046,7 @@
 		level:       "#9"
 	}, {
 		coords:      [171.500,119.516], // 1x Wyvern (L18)
+		id:          "guardedPontarWyvern",
 		name:        "wyvern",
 		level:       "#18"
 	}, {
@@ -1050,6 +1065,15 @@
 		coords:      [164.563,198.594], // 1x Leshen (L20)
 		name:        "leshen",
 		level:       "#20"
+	}, {
+		coords:      [184.609,58.609],  // 1x Basilisk (L14)
+		name:        "basilisk",
+		level:       "#14"
+	}, {
+		coords:      [174.000,78.914],  // 1x {5:00-19:30: Noonwraith, 19:30-5:00: Nightwraith} (L15)
+		name:        "wraith",
+		level:       "#15",
+		after:       "sidequest.fromfar2"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -2066,16 +2090,6 @@
 			name: "monster.spawn",
 			coords: [[183.406,63.563], [184.234,63.563], [184.813,65.109], [183.719,66.859], [181.063,67.578],
 			        [180.172,66.922], [179.859,65.938], [180.219,65.000]]
-		}]
-	}, {
-		coords:      [195.234,74.641],  // 3x Drowner (L10) (in lw_nml_w_007)
-		name:        "drowner",
-		level:       "#10",
-		underwater:  true,
-		areas: [{
-			name: "monster.spawn",
-			coords: [[194.703,75.813], [193.891,75.531], [194.047,74.391], [194.422,73.656], [195.344,73.391],
-			        [196.016,73.750], [196.250,74.703], [195.969,75.531]]
 		}]
 	}, {
 		coords:      [195.734,68.734],  // 3x Drowner (L10) (in lw_nml_w_007)
@@ -3099,6 +3113,7 @@
 		coords:      [95.250,165.031],  // 1x-2x Nekker Warrior (L12) (in _descent/de_poe_03)
 		name:        "nekkerwarrior",
 		level:       "#12",
+		uncleared:   "decentNekkerNestNorth",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[96.859,163.359], [96.859,167.297], [93.766,167.297], [93.766,163.359]]
@@ -4030,6 +4045,133 @@
 			name: "monster.spawn",
 			coords: [[125.219,194.328], [127.453,198.453], [122.219,201.469], [119.953,197.438]]
 		}]
+	}, {
+		coords:      [170.781,120.938], // 2x-3x Foglet (L4) (in _homestead/hs_poe_01)
+		name:        "foglet",
+		level:       "#4",
+		cleared:     "guardedPontarWyvern",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[170.344,115.219], [174.078,120.156], [173.188,123.516], [169.484,123.172], [167.016,117.813]]
+		}]
+	}, {
+		coords:      [177.844,137.438], // 4x-6x Drowner (L9) (in _homestead/hs_poe_01)
+		name:        "drowner",
+		level:       "#9",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[179.547,134.109], [179.719,141.141], [176.344,141.500], [175.672,134.453]]
+		}]
+	}, {
+		coords:      [189.250,134.453], // 3x-4x Endrega Warrior (L11), 4x-5x Endrega Worker (L9) (in _homestead/hs_poe_01)
+		name:        "endrega",
+		level:       "#9 & 11",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[192.938,132.578], [189.594,139.016], [185.922,140.531], [185.922,134.875], [189.828,130.203],
+			        [191.375,129.563], [192.938,130.219]]
+		}]
+	}, {
+		coords:      [185.969,127.156], // 1x-2x Nekker Warrior (L12), 3x-4x Nekker (L8) (in _homestead/hs_poe_01)
+		name:        "nekker",
+		level:       "#8 & 12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[188.703,126.828], [188.703,128.891], [186.672,129.984], [183.672,129.172], [183.672,125.094],
+			        [184.734,123.500]]
+		}]
+	}, {
+		coords:      [190.000,118.281], // 1x Nightwraith (L15) (in _homestead/hs_poe_01)
+		name:        "nightwraith",
+		level:       "#15",
+		fromTime:    "#19",
+		fromTimeM:   "#30",
+		toTime:      "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[191.688,116.594], [191.688,119.188], [189.172,119.188], [189.172,116.594]]
+		}]
+	}, {
+		coords:      [190.672,117.406], // 1x Noonwraith (L15) (in _homestead/hs_poe_01)
+		name:        "noonwraith",
+		level:       "#15",
+		fromTime:    "#5",
+		toTime:      "#19",
+		toTimeM:     "#30",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[191.688,116.594], [191.688,119.188], [189.172,119.188], [189.172,116.594]]
+		}]
+	}, {
+		coords:      [181.734,138.703], // 1x Warg (L8), 6x Wolf (L5) (in _homestead/hs_poe_01)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[182.984,136.656], [182.734,141.125], [180.578,140.781], [180.500,136.719]]
+		}]
+	}, {
+		coords:      [169.406,100.297], // 1x Warg (L8), 6x Wolf (L5) (in _homestead/hs_poe_02)
+		name:        "wolf",
+		level:       "#5 & 8",
+		cleared:     "urstenNestEast",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[172.234,96.109], [172.234,103.891], [166.328,103.891], [166.328,96.109]]
+		}]
+	}, {
+		coords:      [188.438,87.406],  // 1x Warg (L8), 6x Wolf (L5) (in _homestead/hs_poe_02)
+		name:        "wolf",
+		level:       "#5",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[192.297,84.609], [191.688,89.109], [184.688,89.453], [183.891,86.828]]
+		}]
+	}, {
+		coords:      [173.844,109.438], // 1x-2x Drowned Dead (L18) (in _homestead/hs_poe_02)
+		name:        "drowneddead",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[175.781,107.703], [175.156,112.547], [172.266,112.156], [171.703,107.125]]
+		}]
+	}, {
+		coords:      [176.844,85.594],  // 5x-7x Wild Dog (L1) (in _homestead/hs_poe_03)
+		name:        "wilddog",
+		level:       "#1",
+		cleared:     "lucianCamp",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[180.156,81.281], [181.500,86.125], [178.031,89.188], [173.156,89.188],
+			        [171.563,87.250], [171.750,83.750], [175.094,80.719]]
+		}]
+	}, {
+		coords:      [182.625,77.609],  // 2x Warg (L8), 12x Wolf (L5) (in _homestead/hs_poe_03)
+		name:        "wolf",
+		level:       "#5 & 8",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[183.719,73.172], [187.078,78.906], [182.406,82.750], [177.516,77.578], [179.719,74.219]]
+		}]
+	}, {
+		coords:      [190.938,73.500],  // 1x-2x Nekker Warrior (L12), 3x-4x Nekker (L8) (in _homestead/hs_poe_03)
+		name:        "nekker",
+		level:       "#8 & 12",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[191.797,68.625], [193.672,69.719], [195.516,73.469], [193.328,76.875], [191.328,77.563],
+			        [188.328,77.141], [187.547,75.313], [187.641,73.297]]
+		}]
+	}, {
+		coords:      [195.234,74.641],  // 3x Drowner (L10) (in lw_nml_w_007)
+		name:        "drowner",
+		level:       "#10",
+		underwater:  true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[194.703,75.813], [193.891,75.531], [194.047,74.391], [194.422,73.656], [195.344,73.391],
+			        [196.016,73.750], [196.250,74.703], [195.969,75.531]]
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
@@ -4062,9 +4204,6 @@
 		             [255.125,119.750],
 		             [218.687,183.875],
 		             [154.141,85.000],
-		             [169.094,95.281],
-		             [170.313,98.000],
-		             [170.266,112.969],
 		             [43.578,108.563],
 		             [96.875,185.094],
 		             [95.656,185.125]]
@@ -4100,8 +4239,12 @@
 		name:        "nekker",
 		level:       "#6 & 8"
 	}, {
-		coords:      [[91.297,165.547], // 1x Nekker Warrior (L9), 5x Nekker (L8)
-		             [88.094,161.422],  // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		coords:      [91.297,165.547],  // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		id:          "decentNekkerNestNorth",
+		name:        "nekker",
+		level:       "#8 & 9"
+	}, {
+		coords:      [[88.094,161.422], // 1x Nekker Warrior (L9), 5x Nekker (L8)
 		             [87.891,158.172]], // 1x Nekker Warrior (L9), 5x Nekker (L8)
 		name:        "nekker",
 		level:       "#8 & 9"
@@ -4117,6 +4260,20 @@
 		coords:      [153.734,135.203], // 4x-5x Nekker (L6)
 		name:        "nekker",
 		level:       "#6"
+	}, {
+		coords:      [169.094,95.281],  // 1x Endrega Warrior (L9), 3x Endrega Worker (L9)
+		id:          "urstenNestWest",
+		name:        "endrega",
+		level:       "#9"
+	}, {
+		coords:      [170.313,98.000],
+		id:          "urstenNestEast",
+		name:        "endrega",
+		level:       "#9"
+	}, {
+		coords:      [170.266,112.969], // 1x Devourer (L5), 3x Rotfiend (L6)
+		name:        "rotfiend",
+		level:       "#5 & 6"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -4151,8 +4308,9 @@
 		coords:      [198.687,186.906],
 		id:          "herbalist_pid"
 	}, {
-		coords:      [142.984,199.375],
-		id:          "crossroads_shopkeeper_pid"
+		coords:      [142.984,199.375], // // 1x Leader-Axe-2H (L9), 1x Axe-2H (L9), 2x Sword (L9), 1x Ranged (L9)
+		id:          "crossroads_shopkeeper_pid",
+		level:       "#9"
 	}, {
 		coords:      [115.391,107.094], // 1x Nilfgaardian Deserter (Sword-Hard) (L16), 2x Nilfgaardian Deserter (Sword-Shield) (L16), 2x Nilfgaardian Deserter (Crossbow) (L14), 1x Slave Driver (Axe-2H) 2x, (L7), Slave Driver (Sword) (L7), 1x Slave Driver (Club) (L7)
 		id:          "mulbrydale_armorer_pid",
