@@ -512,12 +512,14 @@ window.i18nData.en.general = {
 		arachas:        { label: "Arachas",         link: "https://witcher.fandom.com/wiki/Arachas" },
 		arachnomorph:   { label: "Arachnomorph",    link: "https://witcher.fandom.com/wiki/Arachnomorph" }, // blackspider
 		archespore:     { label: "Archespore",      link: "https://witcher.fandom.com/wiki/Archespore" },   // echinops
+		archgriffin:    { label: "Archgriffin",     link: "https://witcher.fandom.com/wiki/Archgriffin" },
 		armoredarachas: { label: "Armored Arachas", link: "https://witcher.fandom.com/wiki/Armored_arachas" },
 		banshee:        { label: "Banshee",         link: "https://witcher.fandom.com/wiki/Banshee" },
 		barghest:       { label: "Barghest",        link: "https://witcher.fandom.com/wiki/Barghest" },
 		basilisk:       { label: "Basilisk",        link: "https://witcher.fandom.com/wiki/Basilisk" },
 		bear:           { label: "Bear",            link: "https://witcher.fandom.com/wiki/Bear" },
 		bilgehag:       { label: "Bilge Hag",       link: "https://witcher.fandom.com/wiki/Water_hag" },
+		boar:           { label: "Boar",            link: "https://witcher.fandom.com/wiki/Wild_boar" },
 		bruxa:          { label: "Bruxa",           link: "https://witcher.fandom.com/wiki/Bruxa" },
 		cockatrice:     { label: "Cockatrice",      link: "https://witcher.fandom.com/wiki/Cockatrice" },   // kuroliszek
 		cyclops:        { label: "Cyclops",         link: "https://witcher.fandom.com/wiki/Cyclops" },
@@ -558,10 +560,10 @@ window.i18nData.en.general = {
 		siren:          { label: "Siren",           link: "https://witcher.fandom.com/wiki/Siren" },
 		slyzard:        { label: "Slyzard",         link: "https://witcher.fandom.com/wiki/Dracolizard" },  // dracolizard
 		spriggan:       { label: "Spriggan",        link: "https://witcher.fandom.com/wiki/Spriggan" },
+		venomousarachas: { label: "Venomous Arachas", link: "https://witcher.fandom.com/wiki/Venomous_arachas" },
 		waterhag:       { label: "Water Hag",       link: "https://witcher.fandom.com/wiki/Water_hag" },
 		werewolf:       { label: "Werewolf",        link: "https://witcher.fandom.com/wiki/Werewolf" },
 		wight:          { label: "Wight",           link: "https://witcher.fandom.com/wiki/Wight_(creature)" }, // wicht
-		wildboar:       { label: "Wild Boar",       link: "https://witcher.fandom.com/wiki/Wild_boar" },
 		wilddog:        { label: "Wild Dog",        link: "https://witcher.fandom.com/wiki/Dog" },
 		wildhunthound:  { label: "Hound of the Wild Hunt", link: "https://witcher.fandom.com/wiki/Hound_of_the_Wild_Hunt" },
 		wolf:           { label: "Wolf",            link: "https://witcher.fandom.com/wiki/Wolf_(creature)" },

@@ -142,12 +142,7 @@
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
 		coords:      [[82.797,87.984],
-		             [177.969,211.656],
-		             [185.750,209.531],
 		             [238.156,201.687],
-		             [250.250,143.500],
-		             [241.125,155.875],
-		             [239.750,69.937],
 		             [99.938,130.172]]
 	}, {
 		coords:      [122.281,179.266], // 1x Alghoul (L9), 5x Ghoul (L9)
@@ -176,6 +171,25 @@
 	}, {
 		coords:      [29.984,48.000],   // 6x Sword (L9), 3x Ranged (L9)
 		level:       "#9"
+	}, {
+		coords:      [241.125,155.875], // all Fallen Knight: 2x Sword (L33), 1x Sword-Shield (L33), 1x Hammer-2H (L33), 1x Mace (L33), 1x Crossbow (L33) (in ep1_poi_04)
+		level:       "#33" // TODO: Check if this contains diagrams for the 'From Ofier's Distant Shores' quest.
+	}, {
+		coords:      [239.750,69.937],  // 1x Bilge Hag (L34), 3x Drowned Dead (L34) (in ep1_poi_06)
+		name:        "bilgehag",
+		level:       "#34"
+	}, {
+		coords:      [250.250,143.500], // 5x Wraith (L29) (in ep1_poi_07)
+		name:        "wraith",
+		level:       "#29"
+	}, {
+		coords:      [185.750,209.531], // 6x Ghoul (L34) (in ep1_poi_08)
+		name:        "ghoul",
+		level:       "#34"
+	}, {
+		coords:      [177.969,211.656], // 1x Arachnomorph (L30), 4x Arachnomorph (L34) (in ep1_poi_30)
+		name:        "arachnomorph",
+		level:       "#30 & 34"
 	}],
 	// ----------------- Alchemy Supplies ---------------
 	alchemy: [{
@@ -220,15 +234,6 @@
 	}],
 	// ----------------- Bandit Camps -------------------
 	banditcamp: [{
-		coords:      [[177.750,195.750],
-		             [204.500,197.968],
-		             [214.656,223.281],
-		             [225.812,218.781],
-		             [257.468,208.500],
-		             [260.625,178.468],
-		             [260.937,165.437],
-		             [252.875,113.687]]
-	}, {
 		coords:      [175.547,83.125],  // 1x Leader-Sword-Shield (L9), 1x Club (L9), 1x Spear (L9)
 		id:          "lucianCamp",
 		level:       "#9"
@@ -414,6 +419,17 @@
 		coords:      [[66.703,26.719],  // Cannibal Chief Hammer-2H (L5), and a shit ton of Cannibals (L3)
 		             [72.953,24.188]],  // Cannibal Chief Hammer-2H (L5), 4x Club (L3), 2x Bow (L3)
 		level:       "#3 & 5"
+	}, {
+		coords:      [[225.812,218.781], // all Fallen Knight: 1x Sword-Shield (L33), 4x Sword (L33), 1x Hammer-2H (L33), 4x Crossbow (L33) (in ep1_poi_09)
+		             [252.875,113.687],  // all Fallen Knight: 1x Sword-Shield (L33), 2x Sword (L33), 1x Hammer-2H (L33), 2x Crossbow (L33) (in ep1_poi_11)
+		             [260.937,165.437],  // all Fallen Knight: 1x Sword-Shield (L33), 2x Sword (L33), 1x Hammer-2H (L33), 2x Crossbow (L33) (in ep1_poi_12)
+		             [260.625,178.468],  // all Fallen Knight: 1x Sword-Shield (L33), 2x Sword (L33), 1x Hammer-2H (L33), 2x Crossbow (L33) (in ep1_poi_13)
+		             [257.468,208.500],  // all Fallen Knight: 1x Sword-Shield (L33), 1x Sword (L33), 1x Halberd (L33), 1x Mace (L33), 2x Crossbow (L33) (in ep1_poi_14)
+		             [204.500,197.968],  // all Fallen Knight: 1x Sword-Shield (L33), 1x Sword (L33), 3x Hammer-2H (L33), 1x Crossbow (L33) (in ep1_poi_16)
+		             [177.750,195.750],  // all Fallen Knight: 2x Sword (L33), 1x Halberd (L33), 1x Crossbow (L33) (in ep1_poi_17)
+		             [214.656,223.281]], // all Fallen Knight: 1x Sword-Shield (L33), 1x Sword (L33), 1x Mace (L33), 3x Crossbow (L33) (in ep1_poi_23)
+		label:       "v:banditcamp.fallen.label",
+		level:       "#33"
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -1003,11 +1019,6 @@
 	}],
 	// ----------------- Guarded Treasure ---------------
 	guarded: [{
-		coords:      [[181.156,220.687],
-		             [246.250,182.812],
-		             [258.843,129.187],
-		             [248.437,162.687]]
-	}, {
 		coords:      [[107.281,42.953], // 7x Drowner (L4) (in crow_perch/cp14_hangmans_avenue)
 		             [91.563,19.516]],  // 4x Drowner (L4)
 		name:        "drowner",
@@ -1120,6 +1131,22 @@
 		coords:      [23.172,78.391],   // 1x {6h-22h: Noonwraith (L18), 22h-6h: Nightwraith} (L18)
 		name:        "wraith",
 		level:       "#18"
+	}, {
+		coords:      [248.437,162.687], // 1x Golem (L37) (in ep1_poi_03)
+		name:        "golem",
+		level:       "#37"
+	}, {
+		coords:      [258.843,129.187], // 1x Bear (L34) (in ep1_poi_24)
+		name:        "bear",
+		level:       "#34"
+	}, {
+		coords:      [181.156,220.687], // 1x Alghoul (L34), 6x Ghoul (L34) (in ep1_poi_33)
+		name:        "alghoul",
+		level:       "#34"
+	}, {
+		coords:      [246.250,182.812], // 4x Boar (L34) (in ep1_poi_35)
+		name:        "boar",
+		level:       "#34"
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -2684,6 +2711,7 @@
 		coords:      [89.203,87.031],   // 2x Warg (L8), 12x Wolf (L5) (in _crow_perch/cp_poe_east/wolf_group2)
 		name:        "wolf",
 		level:       "#5 & 8",
+		notDuring:   "sidequest.cat",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[86.953,82.563], [92.641,83.250], [91.797,91.859], [86.188,91.406]]
@@ -4336,6 +4364,7 @@
 		coords:      [95.438,50.563],   // 2x Warg (L8), 12x Wolf (L5) (in _spitfire_bluff/encounters)
 		name:        "wolf",
 		level:       "#5 & 8",
+		notDuring:   "sidequest.takewant",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[94.750,43.688], [99.563,53.281], [94.094,55.438], [91.938,46.125]]
@@ -4684,6 +4713,301 @@
 			name: "monster.spawn",
 			coords: [[40.305,71.391], [40.305,73.938], [37.875,73.938], [37.875,71.391]]
 		}]
+	}, {
+		coords:      [252.906,203.875], // 1x Warg (L37), 2x-3x Wolf (L37) (in ep1_poe_01)
+		name:        "wolf",
+		level:       "#37",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[251.484,205.047], [252.156,202.281], [254.156,202.734], [253.531,205.359]]
+		}]
+	}, {
+		coords:      [250.984,183.016], // 1x Warg (L37), 2x-3x Wolf (L37) (in ep1_poe_01)
+		name:        "wolf",
+		level:       "#37",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[254.078,178.734], [254.078,187.281], [247.828,187.281], [247.828,178.734]]
+		}]
+	}, {
+		coords:      [254.297,174.250], // 5x-6x Arachnomorph (L34) (in ep1_poe_01)
+		name:        "arachnomorph",
+		level:       "#34",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[255.844,171.984], [255.844,176.531], [252.656,176.531], [252.656,171.984]]
+		}]
+	}, {
+		coords:      [260.063,171.250], // 4x-6x Endrega Drone (L35) (in ep1_poe_01)
+		name:        "endrega",
+		level:       "#35",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[256.969,168.156], [263.063,169.375], [263.250,172.938], [258.000,174.250]]
+		}]
+	}, {
+		coords:      [242.469,169.313], // 1x Bear (L34) (in ep1_poe_01)
+		name:        "bear",
+		level:       "#34",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[242.844,167.453], [244.172,171.078], [242.141,171.672], [240.984,167.969]]
+		}]
+	}, {
+		coords:      [250.969,215.234], // 5x-6x Arachnomorph (L34) (in ep1_poe_01)
+		name:        "arachnomorph",
+		level:       "#34",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[248.984,212.703], [255.297,211.797], [254.359,216.781], [245.469,219.250]]
+		}]
+	}, {
+		coords:      [246.438,160.266], // 5x-7x Wild Dog (L32) (in ep1_poe_01)
+		name:        "wilddog",
+		level:       "#32",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[250.734,157.453], [248.969,161.250], [246.516,163.109], [243.297,163.469],
+			        [243.297,159.234], [248.266,156.625]]
+		}]
+	}, {
+		coords:      [257.500,186.531], // 8x-12x Boar (L34) (in ep1_poe_01)
+		name:        "boar",
+		level:       "#34",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[254.625,182.625], [261.063,181.625], [257.781,199.344], [254.188,198.594]]
+		}]
+	}, {
+		coords:      [248.188,166.000], // 5x-6x Nekker (L34) (in ep1_poe_01)
+		name:        "nekker",
+		level:       "#34",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[250.281,165.078], [250.281,166.813], [246.141,166.813], [246.141,165.078]]
+		}]
+	}, {
+		coords:      [247.422,208.578], // 3x-5x Drowned Dead (L33) (in ep1_poe_01)
+		name:        "drowneddead",
+		level:       "#33",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[247.109,206.219], [249.313,207.359], [247.641,210.828], [245.281,209.719]]
+		}]
+	}, {
+		coords:      [243.188,149.406], // 5x-6x Arachnomorph (L34) (in ep1_poe_02)
+		name:        "arachnomorph",
+		level:       "#34",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[242.219,145.063], [246.906,147.969], [244.406,153.500], [239.969,151.094]]
+		}]
+	}, {
+		coords:      [261.688,155.594], // 1x Wyvern (L34) (in ep1_poe_02)
+		name:        "wyvern",
+		level:       "#34",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[264.719,150.313], [264.719,160.375], [258.500,160.375], [258.500,150.313]]
+		}]
+	}, {
+		coords:      [264.469,144.844], // 1x Warg (L37), 2x-3x Wolf (L37) (in ep1_poe_02)
+		name:        "wolf",
+		level:       "#37",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[259.969,142.875], [264.906,139.719], [269.250,146.781], [264.375,150.031]]
+		}]
+	}, {
+		coords:      [254.766,158.344], // 1x-2x Drowned Dead (L18) (in ep1_poe_02)
+		name:        "drowneddead",
+		level:       "#18",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[256.125,155.750], [256.391,161.031], [253.125,160.859], [253.625,156.109]]
+		}]
+	}, {
+		coords:      [255.156,143.719], // 5x-7x Wild Dog (L32) (in ep1_poe_02)
+		name:        "wilddog",
+		level:       "#32",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[252.219,143.797], [252.219,139.953], [254.609,140.531], [256.344,141.859],
+			        [258.516,147.422], [256.281,147.422], [254.391,145.469]]
+		}]
+	}, {
+		coords:      [255.719,132.875], // 2x-3x Endrega Drone Level 35 (in ep1_poe_02)
+		name:        "endrega",
+		level:       "#35",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[260.094,133.563], [256.625,138.031], [252.938,137.563], [251.469,134.938],
+			        [251.656,128.281], [258.563,128.156]]
+		}]
+	}, {
+		coords:      [256.781,130.625], // 1x Venomous Arachas (L38) (in ep1_poe_02)
+		name:        "venomousarachas",
+		level:       "#38",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[260.094,133.563], [256.625,138.031], [252.938,137.563], [251.469,134.938],
+			        [251.656,128.281], [258.563,128.156]]
+		}]
+	}, {
+		coords:      [245.578,125.016], // {11h-13h: 1x Noonwraith (L34)} (in ep1_poe_02)
+		name:        "noonwraith",
+		level:       "#34",
+		fromTime:    "#11",
+		toTime:      "#13",
+		areas: [{
+			name: "monster.spawn",
+			coords: [[246.109,121.984], [247.977,127.125], [244.883,128.148], [243.141,122.953]]
+		}]
+	}, {
+		coords:      [237.875,207.109], // 3x-5x Drowned Dead (L33) (in ep1_poe_03)
+		name:        "drowneddead",
+		level:       "#33",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[239.281,201.719], [239.281,205.853], [242.703,207.353], [242.156,211.125],
+			        [239.406,211.094], [235.953,209.266], [233.594,206.734], [233.594,205.281],
+			        [235.656,203.344]]
+		}]
+	}, {
+		coords:      [236.531,218.906], // 5x-6x Nekker (L34) (in ep1_poe_03)
+		name:        "nekker",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[239.734,215.656], [239.734,222.156], [233.219,222.156], [233.219,215.656]]
+		}]
+	}, {
+		coords:      [241.594,204.453], // {22h-4h: 1x Bilge Hag (L34)} (in ep1_poe_03)
+		name:        "bilgehag",
+		level:       "#34",
+		fromTime:    "#22",
+		toTime:      "#4",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[242.547,203.188], [243.625,204.844], [241.031,205.813], [239.797,204.703], [240.391,203.547]]
+		}]
+	}, {
+		coords:      [226.828,205.359], // 1x Bear (L34) (in ep1_poe_03)
+		name:        "bear",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[225.813,203.453], [228.391,204.141], [227.891,207.094], [225.297,206.516]]
+		}]
+	}, {
+		coords:      [238.297,180.781], // 4x-6x Boar (L34) (in ep1_poe_03)
+		name:        "boar",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[240.797,177.688], [240.797,183.750], [235.781,183.750], [235.781,177.688]]
+		}]
+	}, {
+		coords:      [234.469,190.625], // 5x-7x Wild Dog (L32) (in ep1_poe_03)
+		name:        "wilddog",
+		level:       "#32",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[234.625,184.719], [236.844,188.313], [237.688,191.156], [233.969,194.469],
+			        [232.250,196.594], [231.031,194.813], [232.563,188.094]]
+		}]
+	}, {
+		coords:      [186.828,201.688], // 5x-6x Nekker (L34) (in ep1_poe_04)
+		name:        "nekker",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[189.719,203.828], [189.078,204.469], [187.188,203.313], [183.938,202.172],
+			        [183.484,200.625], [184.781,199.688], [186.297,199.344], [187.063,199.688],
+			        [188.875,200.984], [189.547,202.094]]
+		}]
+	}, {
+		coords:      [216.781,211.750], // 1x Bear (L34) (in ep1_poe_04)
+		name:        "bear",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[216.813,209.375], [220.969,211.063], [220.969,213.094], [214.938,213.922],
+			        [212.328,212.047], [213.797,210.469]]
+		}]
+	}, {
+		coords:      [173.344,216.609], // 5x-6x Nekker (L34) (in ep1_poe_04)
+		name:        "nekker",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[177.141,217.156], [175.422,219.953], [169.344,216.266], [171.422,213.594]]
+		}]
+	}, {
+		coords:      [218.047,200.000], // 5x-6x Arachnomorph (L34) (in ep1_poe_04)
+		name:        "arachnomorph",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[219.656,198.578], [219.656,201.688], [216.500,201.688], [216.500,198.578]]
+		}]
+	}, {
+		coords:      [187.969,222.938], // 1x Arachas (L37), 1x Armored Arachas (L37), 1x Venomous Arachas (L38) (in ep1_poe_04)
+		name:        "arachas",
+		level:       "#37 & 38",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[193.094,222.703], [195.625,229.359], [192.547,230.219], [188.688,224.719],
+			        [179.600,222.700], [180.078,217.453], [185.891,219.266], [189.969,222.141]]
+		}]
+	}, {
+		coords:      [213.188,219.938], // 4x-6x Boar (L34) (in ep1_poe_04)
+		name:        "boar",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[218.344,217.531], [217.344,221.344], [214.188,221.406], [214.656,222.797],
+			        [208.656,223.203], [209.297,219.406], [209.391,218.031], [212.344,217.781]]
+		}]
+	}, {
+		coords:      [184.766,195.547], // 1x Wyvern (L34) (in ep1_poe_04)
+		name:        "wyvern",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[187.750,194.313], [187.094,197.953], [181.766,196.891], [182.672,193.063]]
+		}]
+	}, {
+		coords:      [219.875,223.453], // 5x-6x Arachnomorph (L34) (in ep1_poe_04)
+		name:        "arachnomorph",
+		level:       "#34",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[220.609,221.109], [222.531,223.406], [219.219,226.250], [217.094,223.344]]
+		}]
+	}, {
+		coords:      [191.297,216.703], // 1x Archgriffin (L39) (in ep1_poi_08)
+		name:        "archgriffin",
+		level:       "#39",
+		once:        true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[193.297,214.469], [193.734,218.844], [189.031,219.219], [188.531,214.391]]
+		}]
 	}],
 	// ----------------- Monster Dens -------------------
 	monsterden: [{
@@ -4709,13 +5033,7 @@
 	}],
 	// ----------------- Monster Nests ------------------
 	monsternest: [{
-		coords:      [[204.843,186.437],
-		             [238.812,199.906],
-		             [235.656,201.531],
-		             [240.562,171.500],
-		             [255.125,119.750],
-		             [218.687,183.875],
-		             [43.578,108.563],
+		coords:      [[43.578,108.563],
 		             [96.875,185.094],
 		             [95.656,185.125]]
 	}, {
@@ -4782,13 +5100,28 @@
 		name:        "endrega",
 		level:       "#9"
 	}, {
-		coords:      [170.266,112.969], // 1x Devourer (L5), 3x Rotfiend (L6)
+		coords:      [[170.266,112.969], // 1x Devourer (L5), 3x Rotfiend (L6)
+		             [154.141,85.000]],  // 1x Devourer (L5), 4x Rotfiend (L6)
 		name:        "rotfiend",
 		level:       "#5 & 6"
 	}, {
-		coords:      [154.141,85.000],  // 1x Devourer (L5), 4x Rotfiend (L6)
-		name:        "rotfiend",
-		level:       "#5 & 6"
+		coords:      [218.687,183.875], // 1x Wyvern (L34) (in ep1_poi_19)
+		name:        "wyvern",
+		level:       "#34"
+	}, {
+		coords:      [[255.125,119.750], // 6x Nekker (L34)
+		             [238.812,199.906],  // --\__ together: 10x Nekker (L34)
+		             [235.656,201.531]], // --/
+		name:        "nekker",
+		level:       "#34"
+	}, {
+		coords:      [240.562,171.500], // 6x Arachnomorph (L34)
+		name:        "arachnomorph",
+		level:       "#34"
+	}, {
+		coords:      [204.843,186.437], // 1x Forktail (L30) (in ep1_poi_34)
+		name:        "forktail",
+		level:       "#30"
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -4820,8 +5153,9 @@
 		id:          "claywich_barber_pid",
 		level:       "#5 & 6"
 	}, {
-		coords:      [198.687,186.906],
-		id:          "herbalist_pid"
+		coords:      [198.687,186.906], // all Fallen Knight: 2x Sword (L33), 1x Sword-Shield (L33), 1x Hammer-2H, 1x Crossbow (L33) (in ep1_poi_20)
+		id:          "herbalist_pid",
+		level:       "#33" // TODO: Check if this contains diagrams for the 'From Ofier's Distant Shores' quest.
 	}, {
 		coords:      [142.984,199.375], // // 1x Leader-Axe-2H (L9), 1x Axe-2H (L9), 2x Sword (L9), 1x Ranged (L9)
 		id:          "crossroads_shopkeeper_pid",
@@ -5513,6 +5847,16 @@
 			         [186.953,96.281], [187.359,96.516], [187.719,96.484], [188.313,96.281], [189.641,96.234],
 			         [190.641,96.438], [190.891,96.672], [190.938,97.063], [190.938,97.547], [190.906,97.922],
 			         [190.766,98.547], [190.672,99.391]]
+		}]
+	}, {
+		coords:      [233.766,179.250],
+		sells:       "food",
+		extraDesc:   "#TODO: Check what he is actually selling, I just added him for the route.",
+		routes: [{
+			name:    "shopkeeper.label",
+			coords:  [[233.766,179.250], [233.828,180.297], [233.688,181.531], [233.797,182.297], [234.328,183.406],
+			         [235.094,184.578], [235.781,185.219], [236.266,186.266], [237.313,188.344], [237.469,188.828],
+			         [238.531,190.281], [239.516,191.484], [240.594,193.047]]
 		}]
 	}],
 	// ----------------- Sidequests ---------------------

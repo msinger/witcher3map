@@ -55,6 +55,7 @@ var monster_icons = [
 	"barghest",
 	"basilisk",
 	"bear",
+	"boar",
 	"bruxa",
 	"cockatrice",
 	"cyclops",
@@ -93,7 +94,6 @@ var monster_icons = [
 	"waterhag",
 	"werewolf",
 	"wight",
-	"wildboar",
 	"wilddog",
 	"wildhunthound",
 	"wolf",
@@ -102,13 +102,15 @@ var monster_icons = [
 ];
 
 var monster_map = {
-	armoredarachas: "arachas",
-	bilgehag:       "waterhag",
-	devourer:       "rotfiend",
-	drowneddead:    "drowner",
-	mucknixer:      "drowner",
-	nekkerwarrior:  "nekker",
-	rabidrocktroll: "rocktroll"
+	archgriffin:     "griffin",
+	armoredarachas:  "arachas",
+	bilgehag:        "waterhag",
+	devourer:        "rotfiend",
+	drowneddead:     "drowner",
+	mucknixer:       "drowner",
+	nekkerwarrior:   "nekker",
+	rabidrocktroll:  "rocktroll",
+	venomousarachas: "arachas"
 };
 
 function loadScript(url) {
