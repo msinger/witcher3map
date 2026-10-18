@@ -8,7 +8,13 @@ window.i18nData.en.v = {
 		yoana: { label: "Yoana" }
 	},
 	banditcamp: {
-		cannibal: { label: "Cannibal", desc: "A hostile cannibal lives here." }
+		cannibal: {
+			label: "Cannibal__?this.level: (Level _\\_this.level_\\_)__",
+			desc:  "A hostile cannibal lives here."
+		},
+		fallen: {
+			label: "Fallen Knights__?this.level: (Level _\\_this.level_\\_)__"
+		}
 	},
 	barber: {
 		free: "Cuts Hair for free!"
