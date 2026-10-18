@@ -61,8 +61,9 @@ window.i18nData.en.v = {
 		theNowhere:         { label: "The Nowhere" }
 	},
 	interior: {
-		sabbath_cave:   { label: "__v:entrance.sabbath_cave__" },
-		wandering_cave: { label: "__v:entrance.wandering_cave__" }
+		oxenfurt_sewers: { label: "Oxenfurt Sewers" },
+		sabbath_cave:    { label: "__v:entrance.sabbath_cave__" },
+		wandering_cave:  { label: "__v:entrance.wandering_cave__" }
 	},
 	poi: {
 		eternal:   "If collected during the '__sidequest.eternal__' quest, it will spawn additional dialog options " +
