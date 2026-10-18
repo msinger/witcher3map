@@ -138,6 +138,43 @@
 	let bald07p2 = [bald07p1[0] + bald07pxSize.h / scale,
 	                bald07p1[1] + bald07pxSize.w / scale];
 
+	let oxenfurt = {
+		p01: { size: { w:  250, h:  250 }, off: { x: 1016, y: 896 } },
+		p02: { size: { w:  502, h:  502 }, off: { x:  943, y: 740 } },
+		c02: { size: { w:  546, h:  546 }, off: { x:  961, y:  94 } },
+		c03: { size: { w:  250, h:  250 }, off: { x: 1346, y: 495 } },
+		c04: { size: { w:  272, h:  272 }, off: { x: 1067, y: 549 } },
+		c05: { size: { w:  250, h:  250 }, off: { x: 1149, y: 840 } },
+		c07: { size: { w: 1068, h: 1068 }, off: { x:  412, y:   0 } },
+		c08: { size: { w: 1000, h: 1000 }, off: { x:    0, y: 378 } },
+		c09: { size: { w:  654, h:  654 }, off: { x:   36, y: 290 } },
+		c11: { size: { w:  218, h:  218 }, off: { x:  561, y: 331 } },
+		c12: { size: { w:  294, h:  294 }, off: { x:  507, y:  96 } },
+		c14: { size: { w:  424, h:  424 }, off: { x:  620, y: 798 } },
+		c15: { size: { w:  304, h:  304 }, off: { x:  968, y: 728 } }
+	};
+	let oxenfurt_pxRef = { x: 1478, y: 662 };
+	let oxenfurt_mpRef = { lat: 151.102, lng: 170.664 };
+	for (let item of Object.values(oxenfurt)) {
+		item.p1 = [oxenfurt_mpRef.lat - (item.off.y + item.size.h - oxenfurt_pxRef.y) / scale,
+		           oxenfurt_mpRef.lng + (item.off.x - oxenfurt_pxRef.x) / scale];
+		item.p2 = [item.p1[0] + item.size.h / scale,
+		           item.p1[1] + item.size.w / scale];
+	}
+
+	let frog = {
+		s01: { size: { w:  972, h:  972 }, off: { x: 404, y:   0 } },
+		s02: { size: { w: 1288, h: 1288 }, off: { x:   0, y: 177 } }
+	};
+	let frog_pxRef = { x: 1021, y: 188 };
+	let frog_mpRef = { lat: 159.250, lng: 165.641 };
+	for (let item of Object.values(frog)) {
+		item.p1 = [frog_mpRef.lat - (item.off.y + item.size.h - frog_pxRef.y) / scale,
+		           frog_mpRef.lng + (item.off.x - frog_pxRef.x) / scale];
+		item.p2 = [item.p1[0] + item.size.h / scale,
+		           item.p1[1] + item.size.w / scale];
+	}
+
 	return {
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
@@ -700,6 +737,16 @@
 		notBefore:   "mainquest.escape",
 		groupId:     "escape_well"
 	}, {
+		coords:      [150.109,169.797],
+		during:      "mainquest.escape", // TODO: Is it accessible after the mission?
+		groupId:     "oxenfurt_prison",
+		notInGame:   true
+	}, {
+		coords:      [152.852,168.727],
+		during:      "mainquest.junior", // TODO: Is it accessible after the mission?
+		groupId:     "whoreson_basement",
+		notInGame:   true
+	}, {
 		coords:      [251.812,134.875],
 		groupId:     "spider_cave"
 	}, {
@@ -732,7 +779,7 @@
 		notInGame:   true,
 		groupId:     "crows_perch_well"
 	}, {
-		coords:      [151.359,170.094],
+		coords:      [151.078,170.672],
 		notInGame:   true,
 		groupId:     "oxenfurt_blacksmith"
 	}, {
@@ -1682,6 +1729,61 @@
 			}, {
 				bounds: [bald07p1, bald07p2],
 				file:   "v/interiors/novigrad_q111_cave_07.png"
+			}]
+		}]
+	}, {
+		label:       "v:interior.oxenfurt_sewers.label",
+		floors: [{
+			label:     "interior.levelB2.label",
+			images: [{
+				bounds: [oxenfurt.p01.p1, oxenfurt.p01.p2],
+				file:   "v/interiors/novigrad_q310_prison.png"
+			}, {
+				bounds: [oxenfurt.c07.p1, oxenfurt.c07.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_7.png"
+			}, {
+				bounds: [oxenfurt.c08.p1, oxenfurt.c08.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_8.png"
+			}, {
+				bounds: [oxenfurt.c09.p1, oxenfurt.c09.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_9_mod.png"
+			}, {
+				bounds: [oxenfurt.c11.p1, oxenfurt.c11.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_11.png"
+			}, {
+				bounds: [oxenfurt.c12.p1, oxenfurt.c12.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_12.png"
+			}, {
+				bounds: [oxenfurt.c14.p1, oxenfurt.c14.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_14.png"
+			}, {
+				bounds: [oxenfurt.c15.p1, oxenfurt.c15.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_15_mod.png"
+			}, {
+				bounds: [oxenfurt.c04.p1, oxenfurt.c04.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_4.png"
+			}, {
+				bounds: [oxenfurt.c05.p1, oxenfurt.c05.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_5.png"
+			}, {
+				bounds: [frog.s02.p1, frog.s02.p2],
+				file:   "v/interiors/q601_sewers_2.png"
+			}]
+		}, {
+			label:     "interior.levelB1.label",
+			entrances: ["oxenfurt_blacksmith", "escape_well", "oxenfurt_prison", "whoreson_basement", "frog_lair"],
+			images: [{
+				bounds: [oxenfurt.p02.p1, oxenfurt.p02.p2],
+				file:   "v/interiors/novigrad_q310_prison_2.png"
+			}, {
+				bounds: [oxenfurt.c02.p1, oxenfurt.c02.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_2.png"
+			}, {
+				bounds: [oxenfurt.c03.p1, oxenfurt.c03.p2],
+				file:   "v/interiors/novigrad_q310_prison_cave_3.png"
+			}, {
+				bounds: [frog.s01.p1, frog.s01.p2],
+				file:   "v/interiors/q601_sewers_1.png"
 			}]
 		}]
 	}],
@@ -5434,7 +5536,7 @@
 		underground: true,
 		entrances:   "cavern"
 	}, {
-		coords:      [151.093,170.312],
+		coords:      [152.055,169.594],
 		upgrade:     "enhanced",
 		school:      "feline",
 		items:       "trousers",
@@ -6903,7 +7005,7 @@
 		notBefore:   "sidequest.greedy"
 	}, {
 		coords:      [[153.578,166.875],
-		             [154.438,167.266]],
+		             [154.500,167.477]],
 		underground: true,
 		entrances:   "escape_well",
 		notBefore:   "mainquest.escape"
@@ -6955,10 +7057,10 @@
 		underground: true,
 		entrances:   "mikel_cave"
 	}, {
-		coords:      [[159.109,166.578],
-		             [157.906,164.922],
-		             [156.344,165.328],
-		             [155.047,164.672],
+		coords:      [[158.922,166.141],
+		             [157.781,164.570],
+		             [155.961,165.281],
+		             [155.219,164.195],
 		             [154.094,164.313]],
 		underground: true,
 		entrances:   "frog_lair",
@@ -7028,7 +7130,7 @@
 	}, {
 		coords:      [[151.125,163.938],
 		             [151.875,165.313],
-		             [149.297,164.859]],
+		             [149.359,165.227]],
 		underwater:  true,
 		underground: true,
 		entrances:   "escape_well",
