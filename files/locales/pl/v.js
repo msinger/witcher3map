@@ -25,10 +25,6 @@ window.i18nData.pl.v = {
 		passiflora:   { label: "Passiflora" }
 	},
 	entrance: {
-		sewers1: { label: "Wejście do Kanałów", desc: "Dostęp do kanału nr 1." },
-		sewers2: { label: "Wejście do Kanałów", desc: "Dostęp do kanału nr 2." },
-		sewers3: { label: "Wejście do Kanałów", desc: "Dostęp do kanału nr 3." },
-		sewers4: { label: "Wejście do Kanałów", desc: "Dostęp do kanału nr 4." },
 		pass: {
 			label: "Tajemne przejście",
 			desc:  "Tajne przejście prowadzące do Putrid Grove. Dostęp do klucza do drzwi w tunelu można uzyskać " +

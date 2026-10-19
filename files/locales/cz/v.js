@@ -24,10 +24,6 @@ window.i18nData.cz.v = {
 		passiflora:   { label: "Passiflora" }
 	},
 	entrance: {
-		sewers1: { label: "Vstup do kanalizace", desc: "Přístup ke kanalizaci č. 1" },
-		sewers2: { label: "Vstup do kanalizace", desc: "Přístup ke kanalizaci č. 2" },
-		sewers3: { label: "Vstup do kanalizace", desc: "Přístup ke kanalizaci č. 3" },
-		sewers4: { label: "Vstup do kanalizace", desc: "Přístup ke kanalizaci č. 4" },
 		pass: {
 			label: "Tajný průchod",
 			desc:  "Tajná chodba používaná ke vstupu do Putrid Grove. Klíč ke dveřím uvnitř tunelu je přístupný " +
