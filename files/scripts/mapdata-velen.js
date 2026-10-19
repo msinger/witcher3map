@@ -1558,6 +1558,7 @@
 		label:       "v:interior.oxenfurt_sewers.label",
 		floors: [{
 			label:     "interior.levelB2.label",
+			entrances: "escape_well",
 			images: [{
 				bounds: i.oxenfurt.p01,
 				file:   "v/interiors/novigrad_q310_prison.png"
@@ -1594,7 +1595,7 @@
 			}]
 		}, {
 			label:     "interior.levelB1.label",
-			entrances: ["oxenfurt_blacksmith", "escape_well", "oxenfurt_prison", "whoreson_basement", "frog_lair"],
+			entrances: ["oxenfurt_blacksmith", "oxenfurt_prison", "whoreson_basement", "frog_lair"],
 			images: [{
 				bounds: i.oxenfurt.p02,
 				file:   "v/interiors/novigrad_q310_prison_2.png"
