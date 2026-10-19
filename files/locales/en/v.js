@@ -33,17 +33,19 @@ window.i18nData.en.v = {
 		passiflora:   { label: "Passiflora" }
 	},
 	entrance: {
-		sabbath_cave: { label: "Sabbath Cave" },
-		sewers1: { label: "Sewers Entrance", desc: "Access to Sewer No. 1." },
-		sewers2: { label: "Sewers Entrance", desc: "Access to Sewer No. 2." },
-		sewers3: { label: "Sewers Entrance", desc: "Access to Sewer No. 3." },
-		sewers4: { label: "Sewers Entrance", desc: "Access to Sewer No. 4." },
+		bath_sewers:       { label: "Bathhouse Sewers",      desc: "Access to sewers under the bathhouse." },
+		bits_sewers:       { label: "Bits Sewers",           desc: "Access to Novigrad-Bits sewers." },
+		gildorf_sewers:    { label: "Gildorf Sewers",        desc: "Access to Novigrad-Gildorf sewers." },
+		kingfisher_sewers: { label: "Kingfisher Inn Sewers", desc: "Access to sewers under the Kingfisher Inn." },
+		morgue_sewers:     { label: "Morgue Sewers",         desc: "Access to sewers under the morgue." },
 		pass: {
 			label: "Secret Passage",
 			desc:  "Secret passage used to enter Putrid Grove. The key to the door inside the tunnel can only be " +
 			       "accessed during '__mainquest.pyres__' mission."
 		},
-		wandering_cave: { label: "Elven Catacombs" }
+		sabbath_cave:      { label: "Sabbath Cave" },
+		wandering_cave:    { label: "Elven Catacombs" },
+		whoreson_arena:    { label: "Whoreson's Arena",      desc: "Entrance to Whoreson Junior's Arena." }
 	},
 	gwent: {
 		olgierd: { label: "Olgierd von Everec" },
@@ -61,6 +63,7 @@ window.i18nData.en.v = {
 		theNowhere:         { label: "The Nowhere" }
 	},
 	interior: {
+		novigrad_sewers: { label: "Novigrad Sewers" },
 		oxenfurt_sewers: { label: "Oxenfurt Sewers" },
 		sabbath_cave:    { label: "__v:entrance.sabbath_cave__" },
 		wandering_cave:  { label: "__v:entrance.wandering_cave__" }

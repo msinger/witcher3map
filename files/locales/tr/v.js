@@ -25,10 +25,6 @@ window.i18nData.tr.v = {
 		passiflora:   { label: "Passiflora" }
 	},
 	entrance: {
-		sewers1: { label: "Kanalizasyon Girişi", desc: "1 Numaralı Kanalizasyon Girişi." },
-		sewers2: { label: "Kanalizasyon Girişi", desc: "2 Numaralı Kanalizasyon Girişi." },
-		sewers3: { label: "Kanalizasyon Girişi", desc: "3 Numaralı Kanalizasyon Girişi." },
-		sewers4: { label: "Kanalizasyon Girişi", desc: "4 Numaralı Kanalizasyon Girişi." },
 		pass: {
 			label: "Gizli Geçit",
 			desc:  "Kokuşmuş Koru'ya giriş için kullanılan gizli geçit. Tünelin içerisindeki kapının anahtarı " +

@@ -23,10 +23,6 @@ window.i18nData.zh.v = {
 		passiflora:   { label: "帕西弗羅拉" }
 	},
 	entrance: {
-		sewers1: { label: "下水道入口", desc: "進入一號下水道。" },
-		sewers2: { label: "下水道入口", desc: "進入二號下水道。" },
-		sewers3: { label: "下水道入口", desc: "進入三號下水道。" },
-		sewers4: { label: "下水道入口", desc: "進入四號下水道。" },
 		pass: {
 			label: "秘密通道",
 			desc:  "用於進入腐爛樹林的秘密通道。隧道內門的鑰匙只能在「__mainquest.pyres__」任務期間使用。"

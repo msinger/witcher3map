@@ -610,9 +610,11 @@
 		notInGame:   true,
 		groupId:     "hillock_lair"
 	}, {
-		coords:      [204.500,105.656],
+		coords:      [203.781,106.453],
 		notInGame:   true,
-		groupId:     "dreamer_basement"
+		groupId:     "dreamer_basement",
+		underground: true,
+		notBefore:   "mainquest.dreaming"
 	}, {
 		coords:      [[94.266,184.891],
 		             [96.203,184.750]],
@@ -637,13 +639,14 @@
 		notInGame:   true,
 		groupId:     "sabbath_cave"
 	}, {
-		coords:      [219.063,101.688],
-		label:       "v:entrance.sewers4.label",
-		desc:        "v:entrance.sewers4.desc",
-		notInGame:   true
+		coords:      [218.352,101.594],
+		label:       "v:entrance.bath_sewers.label",
+		desc:        "v:entrance.bath_sewers.desc",
+		notInGame:   true,
+		groupId:     "bath_sewers"
 	}, {
-		coords:      [213.422,102.359],
-		desc:        "v:entrance.sewers4.desc",
+		coords:      [213.016,102.594],
+		desc:        "v:entrance.bath_sewers.desc",
 		notInGame:   true,
 		notBefore:   "mainquest.flowers",
 		groupId:     "bathhouse"
@@ -657,49 +660,64 @@
 		notBefore:   "sidequest.rose"
 	}, {
 		coords:      [[211.656,110.422],
-		             [205.125,112.234]],
-		label:       "v:entrance.sewers1.label",
-		desc:        "v:entrance.sewers1.desc",
-		groupId:     "sewers1"
+		             [205.117,112.461]],
+		label:       "v:entrance.bits_sewers.label",
+		desc:        "v:entrance.bits_sewers.desc",
+		groupId:     "bits_sewers"
 	}, {
-		coords:      [[214.297,108.094],
-		             [217.359,105.906],
-		             [219.875,108.391]],
-		label:       "v:entrance.sewers2.label",
-		desc:        "v:entrance.sewers2.desc",
-		groupId:     "sewers2"
+		coords:      [[214.398,108.336],
+		             [217.188,106.000],
+		             [219.719,108.742]], // TODO: Is this on the in-game map?
+		label:       "v:entrance.gildorf_sewers.label",
+		desc:        "v:entrance.gildorf_sewers.desc",
+		groupId:     "gildorf_sewers"
 	}, {
-		coords:      [206.750,93.438],
-		label:       "v:entrance.sewers3.label",
-		desc:        "v:entrance.sewers3.desc",
-		groupId:     "sewers3"
+		coords:      [207.086,93.391],
+		label:       "v:entrance.kingfisher_sewers.label",
+		desc:        "v:entrance.kingfisher_sewers.desc",
+		groupId:     "kingfisher_sewers"
 	}, {
-		coords:      [194.828,103.578],
+		coords:      [[195.094,103.867],
+		             [199.109,103.289]],
 		label:       "v:entrance.pass.label",
-		desc:        "v:entrance.pass.desc"
+		desc:        "v:entrance.pass.desc",
+		groupId:     "glory_sewers"
 	}, {
-		coords:      [199.031,103.266],
-		label:       "v:entrance.pass.label",
-		desc:        "v:entrance.pass.desc"
-	}, {
-		coords:      [210.281,104.297],
-		label:       "v:entrance.sewers3.label",
-		desc:        "v:entrance.sewers3.desc",
+		coords:      [209.849,104.909],
+		label:       "v:entrance.kingfisher_sewers.label",
+		desc:        "v:entrance.kingfisher_sewers.desc",
+		notInGame:   true,
 		notBefore:   "sidequest.never",
-		groupId:     "sewers3"
+		groupId:     "kingfisher_sewers"
 	}, {
-		coords:      [201.891,102.406],
+		coords:      [210.383,104.352],
+		label:       "v:entrance.morgue_sewers.label",
+		desc:        "v:entrance.morgue_sewers.desc",
+		notBefore:   "sidequest.sins",
+		groupId:     "lower_morgue_sewers"
+	}, {
+		coords:      [201.328,103.164],
 		notInGame:   true,
 		notBefore:   "mainquest.pyres",
-		groupId:     "pyres_hatch"
+		groupId:     "kluhg_hatch"
 	}, {
-		coords:      [202.531,102.953],
+		coords:      [202.391,102.781], // TODO: Can you enter this from the canal before the quest?
 		notBefore:   "mainquest.pyres",
-		groupId:     "pyres_hatch"
+		groupId:     "kluhg_hatch"
 	}, {
-		coords:      [213.844,106.094],
+		coords:      [213.758,106.242],
+		label:       "v:entrance.morgue_sewers.label",
+		desc:        "v:entrance.morgue_sewers.desc",
 		notInGame:   true,
-		notBefore:   "sidequest.sins"
+		notBefore:   "sidequest.sins",
+		groupId:     "upper_morgue_sewers"
+	}, {
+		coords:      [218.000,110.703],
+		label:       "v:entrance.whoreson_arena.label",
+		desc:        "v:entrance.whoreson_arena.desc",
+		notInGame:   true,
+		notBefore:   "mainquest.junior",
+		groupId:     "whoreson_arena"
 	}],
 	// ----------------- Events -------------------------
 	event: [{
@@ -1608,6 +1626,116 @@
 			}, {
 				bounds: i.frog.s01,
 				file:   "v/interiors/q601_sewers_1.png"
+			}]
+		}]
+	}, {
+		label:       "v:interior.novigrad_sewers.label",
+		floors: [{
+			label:     "interior.levelB4.label",
+			images: [{
+				bounds: i.noviInn.i03,
+				file:   "v/interiors/novigrad_zimorodek_sewers_3.png"
+			}]
+		}, {
+			label:     "interior.levelB3.label",
+			images: [{
+				bounds: i.noviInn.i02,
+				file:   "v/interiors/novigrad_zimorodek_sewers_2.png"
+			}, {
+				bounds: i.noviInn.i06,
+				file:   "v/interiors/novigrad_zimorodek_sewers_6.png"
+			}, {
+				bounds: i.noviInn.i07,
+				file:   "v/interiors/novigrad_zimorodek_sewers_7_mod.png"
+			}, {
+				bounds: i.noviInn.i09,
+				file:   "v/interiors/novigrad_zimorodek_sewers_9.png"
+			}, {
+				bounds: i.noviArena.a01,
+				file:   "v/interiors/novigrad_sewers_01.png"
+			}]
+		}, {
+			label:     "interior.levelB2.label",
+			entrances: ["kingfisher_sewers", "lower_morgue_sewers", "bath_sewers", "glory_sewers", "bits_sewers"],
+			images: [{
+				bounds: i.noviInn.i01,
+				file:   "v/interiors/novigrad_zimorodek_sewers_1.png"
+			}, {
+				bounds: i.noviInn.i10,
+				file:   "v/interiors/novigrad_zimorodek_sewers_10.png"
+			}, {
+				bounds: i.noviMorgue.m02,
+				file:   "v/interiors/kingfisher_underground_passage_02.png"
+			}, {
+				bounds: i.noviMorgue.m01,
+				file:   "v/interiors/kingfisher_underground_passage_01.png"
+			}, {
+				bounds: i.noviBath.p01,
+				file:   "v/interiors/philipa_fight_construction_1.png"
+			}, {
+				bounds: i.noviBath.p05,
+				file:   "v/interiors/philipa_fight_construction_5.png"
+			}, {
+				bounds: i.noviArena.a02,
+				file:   "v/interiors/novigrad_sewers_02.png"
+			}, {
+				bounds: i.noviKluhg.k01,
+				file:   "v/interiors/novigrad_q301_store_basement_1.png"
+			}, {
+				bounds: i.noviGlory.g01,
+				file:   "v/interiors/novigrad_q301_sewers.png"
+			}, {
+				bounds: i.noviBits.d01,
+				file:   "v/interiors/novigrad_sewers_1.png"
+			}, {
+				bounds: i.noviBits.d02,
+				file:   "v/interiors/novigrad_sewers_entrance_2.png"
+			}, {
+				bounds: i.noviTomb.t01,
+				file:   "v/interiors/novigrad_elven_grave.png"
+			}]
+		}, {
+			label:     "interior.levelB1.label",
+			entrances: ["gildorf_sewers", "upper_morgue_sewers", "bathhouse", "whoreson_arena", "temple_isle_cave"],
+			images: [{
+				bounds: i.noviRich.r03,
+				file:   "v/interiors/novigrad_very_rich_district_sewers_03.png"
+			}, {
+				bounds: i.noviMorgue.m04,
+				file:   "v/interiors/kingfisher_underground_passage_04.png"
+			}, {
+				bounds: i.noviBath.b02,
+				file:   "v/interiors/novigrad_bathhouse_02.png"
+			}, {
+				bounds: i.noviBath.b01,
+				file:   "v/interiors/novigrad_bathhouse.png"
+			}, {
+				bounds: i.noviBath.p03,
+				file:   "v/interiors/philipa_fight_construction_3.png"
+			}, {
+				bounds: i.noviArenaE.a03,
+				file:   "v/interiors/novigrad_sewers_03.png"
+			}, {
+				bounds: i.noviLynx.l05,
+				file:   "v/interiors/novigrad_lynx_dungeon_05_mod.png"
+			}, {
+				bounds: i.noviLynx.l06,
+				file:   "v/interiors/novigrad_lynx_dungeon_06_mod.png"
+			}, {
+				bounds: i.noviLynx.l07,
+				file:   "v/interiors/novigrad_lynx_dungeon_07.png"
+			}, {
+				bounds: i.noviLynx.l08,
+				file:   "v/interiors/novigrad_lynx_dungeon_08_mod.png"
+			}, {
+				bounds: i.noviLynx.l03,
+				file:   "v/interiors/novigrad_lynx_dungeon_03.png"
+			}, {
+				bounds: i.noviLynx.l02,
+				file:   "v/interiors/novigrad_lynx_dungeon_02.png"
+			}, {
+				bounds: i.noviLynx.l04,
+				file:   "v/interiors/novigrad_lynx_dungeon_04_mod.png"
 			}]
 		}]
 	}],
@@ -5840,10 +5968,10 @@
 		name:        "greedy",
 		notBefore:   "mainquest.wandering"
 	}, {
-		coords:      [205.515,107.984],
+		coords:      [205.563,108.188],
 		name:        "entombed",
 		underground: true,
-		entrances:   "sewers1"
+		entrances:   "bits_sewers"
 	}, {
 		coords:      [197.609,93.546],
 		name:        "waterfront"
@@ -6784,10 +6912,10 @@
 		             [220.672,193.000]],
 		notBefore:   "mainquest.marriage"
 	}, {
-		coords:      [[202.266,102.609],
-		             [201.991,102.406]],
+		coords:      [[201.664,102.797], // TODO: Can you enter this from the canal before the quest?
+		             [201.398,103.234]],
 		underground: true,
-		entrances:   "pyres_hatch",
+		entrances:   "kluhg_hatch",
 		notBefore:   "mainquest.pyres"
 	}, {
 		coords:      [52.219,129.844],
@@ -6798,9 +6926,9 @@
 		underground: true,
 		entrances:   "windmill_cave"
 	}, {
-		coords:      [217.391,108.344],
+		coords:      [217.227,108.344],
 		underground: true,
-		entrances:   "sewers2"
+		entrances:   "gildorf_sewers"
 	}, {
 		coords:      [[158.266,210.969],
 		             [159.297,211.203],
@@ -6852,7 +6980,8 @@
 	}, {
 		coords:      [203.875,107.125],
 		underground: true,
-		entrances:   "dreamer_basement"
+		entrances:   "dreamer_basement",
+		notBefore:   "mainquest.dreaming"
 	}, {
 		coords:      [142.672,120.313],
 		underground: true,
@@ -6864,9 +6993,9 @@
 		entrances:   "devils_pit",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [208.594,104.875],
+		coords:      [208.125,104.742],
 		underground: true,
-		entrances:   "sewers3",
+		entrances:   "kingfisher_sewers",
 		notBefore:   "sidequest.never"
 	}, {
 		coords:      [[92.313,149.797],
@@ -7132,18 +7261,18 @@
 	}]
 }; }; let calcInteriors = function(scale) { return {
 	saltmain: calcInteriorBounds({
-			s04: { size: { w:  992, h:  992 }, off: { x:  538, y:  989 } },
-			s09: { size: { w: 2172, h: 2172 }, off: { x:   78, y:    0 } },
-			s03: { size: { w: 1048, h: 1048 }, off: { x:  963, y: 1922 } },
 			s01: { size: { w: 1932, h: 1932 }, off: { x:    0, y: 1808 } },
-			s11: { size: { w:  546, h:  546 }, off: { x: 1620, y: 2439 } },
+			s03: { size: { w: 1048, h: 1048 }, off: { x:  963, y: 1922 } },
+			s04: { size: { w:  992, h:  992 }, off: { x:  538, y:  989 } },
 			s07: { size: { w:  889, h:  889 }, off: { x:  141, y: 1312 } },
-			s08: { size: { w:  414, h:  414 }, off: { x:  334, y: 1511 } }
+			s08: { size: { w:  414, h:  414 }, off: { x:  334, y: 1511 } },
+			s09: { size: { w: 2172, h: 2172 }, off: { x:   78, y:    0 } },
+			s11: { size: { w:  546, h:  546 }, off: { x: 1620, y: 2439 } }
 		}, { x: 867, y: 1934 }, { lat: 44.594, lng: 39.688 }, scale),
 	saltback: calcInteriorBounds({
+			s05: { size: { w: 1922, h: 1922 }, off: { x:    0, y:    0 } },
 			s06: { size: { w: 1670, h: 1670 }, off: { x: 1292, y:  295 } },
-			s12: { size: { w:  603, h:  557 }, off: { x: 1098, y: 1232 } },
-			s05: { size: { w: 1922, h: 1922 }, off: { x:    0, y:    0 } }
+			s12: { size: { w:  603, h:  557 }, off: { x: 1098, y: 1232 } }
 		}, { x: 2374, y: 1610 }, { lat: 49.109, lng: 53.047 }, scale),
 	saltchest: calcInteriorBounds({
 			s10: { size: { w: 1102, h: 1102 }, off: { x: 0, y: 0 } }
@@ -7164,8 +7293,8 @@
 		}, { x: 566, y: 584 }, { lat: 36.462, lng: 131.513 }, scale),
 	balddrop: calcInteriorBounds({
 			b06: { size: { w: 1474, h: 1200 }, off: { x: 323, y:    0 } },
-			b10: { size: { w:  392, h:  392 }, off: { x: 537, y: 1012 } },
-			b09: { size: { w:  906, h:  750 }, off: { x:   0, y:  659 } }
+			b09: { size: { w:  906, h:  750 }, off: { x:   0, y:  659 } },
+			b10: { size: { w:  392, h:  392 }, off: { x: 537, y: 1012 } }
 		}, { x: 879, y: 771 }, { lat: 35.528, lng: 128.611 }, scale),
 	baldwater: calcInteriorBounds({
 			b08: { size: { w: 620, h: 1000 }, off: { x: 0, y: 0 } }
@@ -7192,7 +7321,61 @@
 	frog: calcInteriorBounds({
 			s01: { size: { w:  972, h:  972 }, off: { x: 404, y:   0 } },
 			s02: { size: { w: 1288, h: 1288 }, off: { x:   0, y: 177 } }
-		}, { x: 1021, y: 188 }, { lat: 159.250, lng: 165.641 }, scale)
+		}, { x: 1021, y: 188 }, { lat: 159.250, lng: 165.641 }, scale),
+
+	noviRich: calcInteriorBounds({
+			r03: { size: { w: 1600, h: 1600 }, off: { x: 0, y: 0 } }
+		}, { x: 589, y: 527 }, { lat: 217.188, lng: 106.000 }, scale),
+	noviInn: calcInteriorBounds({
+			i01: { size: { w:  480, h:  480 }, off: { x:   55, y: 275 } },
+			i02: { size: { w:  872, h:  872 }, off: { x:    0, y: 175 } },
+			i03: { size: { w: 1300, h: 1300 }, off: { x:  446, y:   0 } },
+			i06: { size: { w:  666, h:  666 }, off: { x:  869, y:  39 } },
+			i07: { size: { w:  622, h:  622 }, off: { x: 1499, y:  52 } },
+			i09: { size: { w:  546, h:  546 }, off: { x: 1981, y:  64 } },
+			i10: { size: { w:  350, h:  350 }, off: { x: 2141, y:   6 } }
+		}, { x: 2229, y: 181 }, { lat: 209.849, lng: 104.909 }, scale),
+	noviMorgue: calcInteriorBounds({
+			m01: { size: { w: 505, h: 505 }, off: { x:   0, y: 278 } },
+			m02: { size: { w: 632, h: 632 }, off: { x: 283, y:  58 } },
+			m04: { size: { w: 647, h: 647 }, off: { x: 313, y:   0 } }
+		}, { x: 607, y: 42 }, { lat: 213.758, lng: 106.242 }, scale),
+	noviBath: calcInteriorBounds({
+			b01: { size: { w:  730, h:  730 }, off: { x:  686, y: 844 } },
+			b02: { size: { w:  370, h:  370 }, off: { x: 1292, y: 901 } },
+			p01: { size: { w:  912, h:  912 }, off: { x:  257, y:  40 } },
+			p03: { size: { w:  696, h:  696 }, off: { x:  594, y: 152 } },
+			p05: { size: { w: 2268, h: 2268 }, off: { x:    0, y:   0 } }
+		}, { x: 808, y: 1370 }, { lat: 213.063, lng: 102.773 }, scale),
+	noviArena: calcInteriorBounds({
+			a01: { size: { w: 1146, h: 1146 }, off: { x: 68, y: 84 } },
+			a02: { size: { w: 1058, h: 1058 }, off: { x:  0, y:  0 } }
+		}, { x: 558, y: 180 }, { lat: 218.047, lng: 109.813 }, scale),
+	noviArenaE: calcInteriorBounds({
+			a03: { size: { w: 262, h: 262 }, off: { x: 0, y: 0 } }
+		}, { x: 172, y: 151 }, { lat: 218.047, lng: 110.656 }, scale),
+	noviLynx: calcInteriorBounds({
+			l02: { size: { w: 1200, h: 1200 }, off: { x:    0, y: 394 } },
+			l03: { size: { w:  424, h:  424 }, off: { x:  562, y: 499 } },
+			l04: { size: { w:  742, h:  742 }, off: { x:  708, y: 162 } },
+			l05: { size: { w:  688, h:  688 }, off: { x: 1082, y: 673 } },
+			l06: { size: { w:  546, h:  546 }, off: { x: 1105, y: 115 } },
+			l07: { size: { w:  774, h:  774 }, off: { x: 1357, y: 367 } },
+			l08: { size: { w:  654, h:  654 }, off: { x:  214, y:   0 } }
+		}, { x: 254, y: 330 }, { lat: 229.938, lng: 88.758 }, scale),
+	noviKluhg: calcInteriorBounds({
+			k01: { size: { w: 294, h: 294 }, off: { x: 0, y: 0 } }
+		}, { x: 180, y: 182 }, { lat: 201.383, lng: 103.172 }, scale),
+	noviGlory: calcInteriorBounds({
+			g01: { size: { w: 1014, h: 1014 }, off: { x: 0, y: 0 } }
+		}, { x: 468, y: 317 }, { lat: 199.109, lng: 103.289 }, scale),
+	noviBits: calcInteriorBounds({
+			d01: { size: { w: 1180, h: 1180 }, off: { x:   0, y: 137 } },
+			d02: { size: { w:  294, h:  294 }, off: { x: 296, y:   0 } }
+		}, { x: 509, y: 39 }, { lat: 211.594, lng: 109.719 }, scale),
+	noviTomb: calcInteriorBounds({
+			t01: { size: { w: 622, h: 622 }, off: { x: 0, y: 0 } }
+		}, { x: 268, y: 299 }, { lat: 205.563, lng: 108.188 }, scale),
 }; };
 
 registerMap({
@@ -7205,5 +7388,5 @@ registerMap({
 	minNativeZoom: 1,
 	maxNativeZoom: 5,
 	initialZoom:   2,
-	getMapData:    function() { return getMapData(calcInteriors(186.3)); }
+	getMapData:    function() { return getMapData(calcInteriors(183.0)); }
 }); }
