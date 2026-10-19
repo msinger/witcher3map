@@ -1,181 +1,4 @@
-{ let getMapData = function() {
-	// calculate some values for interiors
-	let scale = 186.3;
-	let salt04pxSize = { w: 992, h: 992 };
-	let salt04pxExit = { x: 329, y: 945 };
-	let salt04mpExit = { lat: 44.594, lng: 39.688 };
-	let salt04p1 = [salt04mpExit.lat - (salt04pxSize.h - salt04pxExit.y) / scale,
-	                salt04mpExit.lng - salt04pxExit.x / scale];
-	let salt04p2 = [salt04p1[0] + salt04pxSize.h / scale,
-	                salt04p1[1] + salt04pxSize.w / scale];
-	let salt06pxSize = { w: 1670, h: 1670 };
-	let salt06pxExit = { x: 1082, y: 1315 };
-	let salt06mpExit = { lat: 49.109, lng: 53.047 };
-	let salt06p1 = [salt06mpExit.lat - (salt06pxSize.h - salt06pxExit.y) / scale,
-	                salt06mpExit.lng - salt06pxExit.x / scale];
-	let salt06p2 = [salt06p1[0] + salt06pxSize.h / scale,
-	                salt06p1[1] + salt06pxSize.w / scale];
-	let salt12pxSize  = { w: 603, h: 557 };
-	let salt12pxOff06 = { x: -194, y: 176 };
-	let salt12p1 = [salt06p1[0] + salt12pxOff06.y / scale,
-	                salt06p1[1] + salt12pxOff06.x / scale];
-	let salt12p2 = [salt12p1[0] + salt12pxSize.h / scale,
-	                salt12p1[1] + salt12pxSize.w / scale];
-	let salt05pxSize  = { w: 1922, h: 1922 };
-	let salt05pxOff06 = { x: -1292, y: 43 };
-	let salt05p1 = [salt06p1[0] + salt05pxOff06.y / scale,
-	                salt06p1[1] + salt05pxOff06.x / scale];
-	let salt05p2 = [salt05p1[0] + salt05pxSize.h / scale,
-	                salt05p1[1] + salt05pxSize.w / scale];
-	let salt09pxSize  = { w: 2172, h: 2172 };
-	let salt09pxOff04 = { x: -460, y: -191 };
-	let salt09p1 = [salt04p1[0] + salt09pxOff04.y / scale,
-	                salt04p1[1] + salt09pxOff04.x / scale];
-	let salt09p2 = [salt09p1[0] + salt09pxSize.h / scale,
-	                salt09p1[1] + salt09pxSize.w / scale];
-	let salt10pxSize  = { w: 1102, h: 1102 };
-	let salt10pxChest = { x: 535, y: 467 };
-	let salt10mpChest = { lat: 57.516, lng: 40.891 };
-	let salt10p1 = [salt10mpChest.lat - (salt10pxSize.h - salt10pxChest.y) / scale,
-	                salt10mpChest.lng - salt10pxChest.x / scale];
-	let salt10p2 = [salt10p1[0] + salt10pxSize.h / scale,
-	                salt10p1[1] + salt10pxSize.w / scale];
-	let salt03pxSize  = { w: 1048, h: 1048 };
-	let salt03pxOff09 = { x: 885, y: -798 };
-	let salt03p1 = [salt09p1[0] + salt03pxOff09.y / scale,
-	                salt09p1[1] + salt03pxOff09.x / scale];
-	let salt03p2 = [salt03p1[0] + salt03pxSize.h / scale,
-	                salt03p1[1] + salt03pxSize.w / scale];
-	let salt01pxSize  = { w: 1932, h: 1932 };
-	let salt01pxOff09 = { x: -78, y: -1568 };
-	let salt01p1 = [salt09p1[0] + salt01pxOff09.y / scale,
-	                salt09p1[1] + salt01pxOff09.x / scale];
-	let salt01p2 = [salt01p1[0] + salt01pxSize.h / scale,
-	                salt01p1[1] + salt01pxSize.w / scale];
-	let salt11pxSize  = { w: 546, h: 546 };
-	let salt11pxOff01 = { x: 1620, y: 755 };
-	let salt11p1 = [salt01p1[0] + salt11pxOff01.y / scale,
-	                salt01p1[1] + salt11pxOff01.x / scale];
-	let salt11p2 = [salt11p1[0] + salt11pxSize.h / scale,
-	                salt11p1[1] + salt11pxSize.w / scale];
-	let salt07pxSize  = { w: 889, h: 889 };
-	let salt07pxOff01 = { x: 141, y: 1539 };
-	let salt07p1 = [salt01p1[0] + salt07pxOff01.y / scale,
-	                salt01p1[1] + salt07pxOff01.x / scale];
-	let salt07p2 = [salt07p1[0] + salt07pxSize.h / scale,
-	                salt07p1[1] + salt07pxSize.w / scale];
-	let salt08pxSize  = { w: 414, h: 414 };
-	let salt08pxOff07 = { x: 193, y: 276 };
-	let salt08p1 = [salt07p1[0] + salt08pxOff07.y / scale,
-	                salt07p1[1] + salt08pxOff07.x / scale];
-	let salt08p2 = [salt08p1[0] + salt08pxSize.h / scale,
-	                salt08p1[1] + salt08pxSize.w / scale];
-	let bald01pxSize = { w: 360, h: 360 };
-	let bald01pxExit = { x: 24, y: 265 };
-	let bald01mpExit = { lat: 33.391, lng: 129.047 };
-	let bald01p1 = [bald01mpExit.lat - (bald01pxSize.h - bald01pxExit.y) / scale,
-	                bald01mpExit.lng - bald01pxExit.x / scale];
-	let bald01p2 = [bald01p1[0] + bald01pxSize.h / scale,
-	                bald01p1[1] + bald01pxSize.w / scale];
-	let bald02pxSize = { w: 544, h: 544 };
-	let bald02pxRef  = { x: 159, y: 208 };
-	let bald02mpRef  = { lat: 35.671, lng: 129.249 };
-	let bald02p1 = [bald02mpRef.lat - (bald02pxSize.h - bald02pxRef.y) / scale,
-	                bald02mpRef.lng - bald02pxRef.x / scale];
-	let bald02p2 = [bald02p1[0] + bald02pxSize.h / scale,
-	                bald02p1[1] + bald02pxSize.w / scale];
-	let bald11pxSize = { w: 1300, h: 938 };
-	let bald11pxExit = { x: 704, y: 802 };
-	let bald11mpExit = { lat: 33.250, lng: 132.172 };
-	let bald11p1 = [bald11mpExit.lat - (bald11pxSize.h - bald11pxExit.y) / scale,
-	                bald11mpExit.lng - bald11pxExit.x / scale];
-	let bald11p2 = [bald11p1[0] + bald11pxSize.h / scale,
-	                bald11p1[1] + bald11pxSize.w / scale];
-	let bald03pxSize = { w: 382, h: 382 };
-	let bald03pxRef  = { x: 269, y: 225 };
-	let bald03mpRef  = { lat: 36.462, lng: 131.513 };
-	let bald03p1 = [bald03mpRef.lat - (bald03pxSize.h - bald03pxRef.y) / scale,
-	                bald03mpRef.lng - bald03pxRef.x / scale];
-	let bald03p2 = [bald03p1[0] + bald03pxSize.h / scale,
-	                bald03p1[1] + bald03pxSize.w / scale];
-	let bald04pxSize  = { w: 696, h: 696 };
-	let bald04pxOff03 = { x: -297, y: 45 };
-	let bald04p1 = [bald03p1[0] + bald04pxOff03.y / scale,
-	                bald03p1[1] + bald04pxOff03.x / scale];
-	let bald04p2 = [bald04p1[0] + bald04pxSize.h / scale,
-	                bald04p1[1] + bald04pxSize.w / scale];
-	let bald06pxSize = { w: 1474, h: 1200 };
-	let bald06pxRef  = { x: 556, y: 771 };
-	let bald06mpRef  = { lat: 35.528, lng: 128.611 };
-	let bald06p1 = [bald06mpRef.lat - (bald06pxSize.h - bald06pxRef.y) / scale,
-	                bald06mpRef.lng - bald06pxRef.x / scale];
-	let bald06p2 = [bald06p1[0] + bald06pxSize.h / scale,
-	                bald06p1[1] + bald06pxSize.w / scale];
-	let bald10pxSize  = { w: 392, h: 392 };
-	let bald10pxOff06 = { x: 214, y: -204 };
-	let bald10p1 = [bald06p1[0] + bald10pxOff06.y / scale,
-	                bald06p1[1] + bald10pxOff06.x / scale];
-	let bald10p2 = [bald10p1[0] + bald10pxSize.h / scale,
-	                bald10p1[1] + bald10pxSize.w / scale];
-	let bald09pxSize  = { w: 906, h: 750 };
-	let bald09pxOff10 = { x: -537, y: -5 };
-	let bald09p1 = [bald10p1[0] + bald09pxOff10.y / scale,
-	                bald10p1[1] + bald09pxOff10.x / scale];
-	let bald09p2 = [bald09p1[0] + bald09pxSize.h / scale,
-	                bald09p1[1] + bald09pxSize.w / scale];
-	let bald08pxSize = { w: 620, h: 1000 };
-	let bald08pxRef  = { x: 74, y: 227 };
-	let bald08mpRef  = { lat: 37.938, lng: 123.297 };
-	let bald08p1 = [bald08mpRef.lat - (bald08pxSize.h - bald08pxRef.y) / scale,
-	                bald08mpRef.lng - bald08pxRef.x / scale];
-	let bald08p2 = [bald08p1[0] + bald08pxSize.h / scale,
-	                bald08p1[1] + bald08pxSize.w / scale];
-	let bald07pxSize = { w: 830, h: 830 };
-	let bald07pxRef  = { x: 87, y: 615 };
-	let bald07mpRef  = { lat: 35.359, lng: 123.156 };
-	let bald07p1 = [bald07mpRef.lat - (bald07pxSize.h - bald07pxRef.y) / scale,
-	                bald07mpRef.lng - bald07pxRef.x / scale];
-	let bald07p2 = [bald07p1[0] + bald07pxSize.h / scale,
-	                bald07p1[1] + bald07pxSize.w / scale];
-
-	let oxenfurt = {
-		p01: { size: { w:  250, h:  250 }, off: { x: 1016, y: 896 } },
-		p02: { size: { w:  502, h:  502 }, off: { x:  943, y: 740 } },
-		c02: { size: { w:  546, h:  546 }, off: { x:  961, y:  94 } },
-		c03: { size: { w:  250, h:  250 }, off: { x: 1346, y: 495 } },
-		c04: { size: { w:  272, h:  272 }, off: { x: 1067, y: 549 } },
-		c05: { size: { w:  250, h:  250 }, off: { x: 1149, y: 840 } },
-		c07: { size: { w: 1068, h: 1068 }, off: { x:  412, y:   0 } },
-		c08: { size: { w: 1000, h: 1000 }, off: { x:    0, y: 378 } },
-		c09: { size: { w:  654, h:  654 }, off: { x:   36, y: 290 } },
-		c11: { size: { w:  218, h:  218 }, off: { x:  561, y: 331 } },
-		c12: { size: { w:  294, h:  294 }, off: { x:  507, y:  96 } },
-		c14: { size: { w:  424, h:  424 }, off: { x:  620, y: 798 } },
-		c15: { size: { w:  304, h:  304 }, off: { x:  968, y: 728 } }
-	};
-	let oxenfurt_pxRef = { x: 1478, y: 662 };
-	let oxenfurt_mpRef = { lat: 151.102, lng: 170.664 };
-	for (let item of Object.values(oxenfurt)) {
-		item.p1 = [oxenfurt_mpRef.lat - (item.off.y + item.size.h - oxenfurt_pxRef.y) / scale,
-		           oxenfurt_mpRef.lng + (item.off.x - oxenfurt_pxRef.x) / scale];
-		item.p2 = [item.p1[0] + item.size.h / scale,
-		           item.p1[1] + item.size.w / scale];
-	}
-
-	let frog = {
-		s01: { size: { w:  972, h:  972 }, off: { x: 404, y:   0 } },
-		s02: { size: { w: 1288, h: 1288 }, off: { x:   0, y: 177 } }
-	};
-	let frog_pxRef = { x: 1021, y: 188 };
-	let frog_mpRef = { lat: 159.250, lng: 165.641 };
-	for (let item of Object.values(frog)) {
-		item.p1 = [frog_mpRef.lat - (item.off.y + item.size.h - frog_pxRef.y) / scale,
-		           frog_mpRef.lng + (item.off.x - frog_pxRef.x) / scale];
-		item.p2 = [item.p1[0] + item.size.h / scale,
-		           item.p1[1] + item.size.w / scale];
-	}
-
-	return {
+{ let getMapData = function(i) { return {
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
 		coords:      [[82.797,87.984],
@@ -1648,45 +1471,45 @@
 		floors: [{
 			label:     "interior.levelB3.label",
 			images: [{
-				bounds: [salt01p1, salt01p2],
+				bounds: i.saltmain.s01,
 				file:   "v/interiors/novigrad_salt_mine_01_mod.png"
 			}, {
-				bounds: [salt09p1, salt09p2],
+				bounds: i.saltmain.s09,
 				file:   "v/interiors/novigrad_salt_mine_09_mod.png"
 			}, {
-				bounds: [salt10p1, salt10p2],
+				bounds: i.saltchest.s10,
 				file:   "v/interiors/novigrad_salt_mine_10.png"
 			}, {
-				bounds: [salt11p1, salt11p2],
+				bounds: i.saltmain.s11,
 				file:   "v/interiors/novigrad_salt_mine_11.png"
 			}, {
-				bounds: [salt08p1, salt08p2],
+				bounds: i.saltmain.s08,
 				file:   "v/interiors/novigrad_salt_mine_08.png"
 			}]
 		}, {
 			label:     "interior.levelB2.label",
 			entrances: "wandering_cave_exit",
 			images: [{
-				bounds: [salt06p1, salt06p2],
+				bounds: i.saltback.s06,
 				file:   "v/interiors/novigrad_salt_mine_06.png"
 			}, {
-				bounds: [salt12p1, salt12p2],
+				bounds: i.saltback.s12,
 				file:   "v/interiors/novigrad_salt_mine_12_crop.png"
 			}, {
-				bounds: [salt05p1, salt05p2],
+				bounds: i.saltback.s05,
 				file:   "v/interiors/novigrad_salt_mine_05_mod.png"
 			}, {
-				bounds: [salt03p1, salt03p2],
+				bounds: i.saltmain.s03,
 				file:   "v/interiors/novigrad_salt_mine_03.png"
 			}, {
-				bounds: [salt07p1, salt07p2],
+				bounds: i.saltmain.s07,
 				file:   "v/interiors/novigrad_salt_mine_07.png"
 			}]
 		}, {
 			label:     "interior.levelB1.label",
 			entrances: "wandering_cave_entry",
 			images: [{
-				bounds: [salt04p1, salt04p2],
+				bounds: i.saltmain.s04,
 				file:   "v/interiors/novigrad_salt_mine_04.png"
 			}]
 		}]
@@ -1696,38 +1519,38 @@
 			label:     "interior.levelB2.label",
 			entrances: "coin_fetch_cave",
 			images: [{
-				bounds: [bald06p1, bald06p2],
+				bounds: i.balddrop.b06,
 				file:   "v/interiors/novigrad_q111_cave_06_crop.png"
 			}, {
-				bounds: [bald09p1, bald09p2],
+				bounds: i.balddrop.b09,
 				file:   "v/interiors/novigrad_q111_cave_09_crop.png"
 			}, {
-				bounds: [bald10p1, bald10p2],
+				bounds: i.balddrop.b10,
 				file:   "v/interiors/novigrad_q111_cave_10.png"
 			}, {
-				bounds: [bald08p1, bald08p2],
+				bounds: i.baldwater.b08,
 				file:   "v/interiors/novigrad_q111_cave_08_crop.png"
 			}]
 		}, {
 			label:     "interior.levelB1.label",
 			entrances: ["sabbath_cave", "sabbath_aux_cave"],
 			images: [{
-				bounds: [bald02p1, bald02p2],
+				bounds: i.baldfugas.b02,
 				file:   "v/interiors/novigrad_q111_cave_02.png"
 			}, {
-				bounds: [bald01p1, bald01p2],
+				bounds: i.balddoor.b01,
 				file:   "v/interiors/novigrad_q111_cave_01.png"
 			}, {
-				bounds: [bald11p1, bald11p2],
+				bounds: i.baldtop.b11,
 				file:   "v/interiors/novigrad_q111_cave_11_crop.png"
 			}, {
-				bounds: [bald04p1, bald04p2],
+				bounds: i.baldciri.b04,
 				file:   "v/interiors/novigrad_q111_cave_04.png"
 			}, {
-				bounds: [bald03p1, bald03p2],
+				bounds: i.baldciri.b03,
 				file:   "v/interiors/novigrad_q111_cave_03.png"
 			}, {
-				bounds: [bald07p1, bald07p2],
+				bounds: i.baldcave.b07,
 				file:   "v/interiors/novigrad_q111_cave_07.png"
 			}]
 		}]
@@ -1736,53 +1559,53 @@
 		floors: [{
 			label:     "interior.levelB2.label",
 			images: [{
-				bounds: [oxenfurt.p01.p1, oxenfurt.p01.p2],
+				bounds: i.oxenfurt.p01,
 				file:   "v/interiors/novigrad_q310_prison.png"
 			}, {
-				bounds: [oxenfurt.c07.p1, oxenfurt.c07.p2],
+				bounds: i.oxenfurt.c07,
 				file:   "v/interiors/novigrad_q310_prison_cave_7.png"
 			}, {
-				bounds: [oxenfurt.c08.p1, oxenfurt.c08.p2],
+				bounds: i.oxenfurt.c08,
 				file:   "v/interiors/novigrad_q310_prison_cave_8.png"
 			}, {
-				bounds: [oxenfurt.c09.p1, oxenfurt.c09.p2],
+				bounds: i.oxenfurt.c09,
 				file:   "v/interiors/novigrad_q310_prison_cave_9_mod.png"
 			}, {
-				bounds: [oxenfurt.c11.p1, oxenfurt.c11.p2],
+				bounds: i.oxenfurt.c11,
 				file:   "v/interiors/novigrad_q310_prison_cave_11.png"
 			}, {
-				bounds: [oxenfurt.c12.p1, oxenfurt.c12.p2],
+				bounds: i.oxenfurt.c12,
 				file:   "v/interiors/novigrad_q310_prison_cave_12.png"
 			}, {
-				bounds: [oxenfurt.c14.p1, oxenfurt.c14.p2],
+				bounds: i.oxenfurt.c14,
 				file:   "v/interiors/novigrad_q310_prison_cave_14.png"
 			}, {
-				bounds: [oxenfurt.c15.p1, oxenfurt.c15.p2],
+				bounds: i.oxenfurt.c15,
 				file:   "v/interiors/novigrad_q310_prison_cave_15_mod.png"
 			}, {
-				bounds: [oxenfurt.c04.p1, oxenfurt.c04.p2],
+				bounds: i.oxenfurt.c04,
 				file:   "v/interiors/novigrad_q310_prison_cave_4.png"
 			}, {
-				bounds: [oxenfurt.c05.p1, oxenfurt.c05.p2],
+				bounds: i.oxenfurt.c05,
 				file:   "v/interiors/novigrad_q310_prison_cave_5.png"
 			}, {
-				bounds: [frog.s02.p1, frog.s02.p2],
+				bounds: i.frog.s02,
 				file:   "v/interiors/q601_sewers_2.png"
 			}]
 		}, {
 			label:     "interior.levelB1.label",
 			entrances: ["oxenfurt_blacksmith", "escape_well", "oxenfurt_prison", "whoreson_basement", "frog_lair"],
 			images: [{
-				bounds: [oxenfurt.p02.p1, oxenfurt.p02.p2],
+				bounds: i.oxenfurt.p02,
 				file:   "v/interiors/novigrad_q310_prison_2.png"
 			}, {
-				bounds: [oxenfurt.c02.p1, oxenfurt.c02.p2],
+				bounds: i.oxenfurt.c02,
 				file:   "v/interiors/novigrad_q310_prison_cave_2.png"
 			}, {
-				bounds: [oxenfurt.c03.p1, oxenfurt.c03.p2],
+				bounds: i.oxenfurt.c03,
 				file:   "v/interiors/novigrad_q310_prison_cave_3.png"
 			}, {
-				bounds: [frog.s01.p1, frog.s01.p2],
+				bounds: i.frog.s01,
 				file:   "v/interiors/q601_sewers_1.png"
 			}]
 		}]
@@ -7306,6 +7129,69 @@
 		coords:      [197.062,99.631],
 		name:        "scav_wolf5"
 	}]
+}; }; let calcInteriors = function(scale) { return {
+	saltmain: calcInteriorBounds({
+			s04: { size: { w:  992, h:  992 }, off: { x:  538, y:  989 } },
+			s09: { size: { w: 2172, h: 2172 }, off: { x:   78, y:    0 } },
+			s03: { size: { w: 1048, h: 1048 }, off: { x:  963, y: 1922 } },
+			s01: { size: { w: 1932, h: 1932 }, off: { x:    0, y: 1808 } },
+			s11: { size: { w:  546, h:  546 }, off: { x: 1620, y: 2439 } },
+			s07: { size: { w:  889, h:  889 }, off: { x:  141, y: 1312 } },
+			s08: { size: { w:  414, h:  414 }, off: { x:  334, y: 1511 } }
+		}, { x: 867, y: 1934 }, { lat: 44.594, lng: 39.688 }, scale),
+	saltback: calcInteriorBounds({
+			s06: { size: { w: 1670, h: 1670 }, off: { x: 1292, y:  295 } },
+			s12: { size: { w:  603, h:  557 }, off: { x: 1098, y: 1232 } },
+			s05: { size: { w: 1922, h: 1922 }, off: { x:    0, y:    0 } }
+		}, { x: 2374, y: 1610 }, { lat: 49.109, lng: 53.047 }, scale),
+	saltchest: calcInteriorBounds({
+			s10: { size: { w: 1102, h: 1102 }, off: { x: 0, y: 0 } }
+		}, { x: 535, y: 467 }, { lat: 57.516, lng: 40.891 }, scale),
+
+	balddoor: calcInteriorBounds({
+			b01: { size: { w: 360, h: 360 }, off: { x: 0, y: 0 } }
+		}, { x: 24, y: 265 }, { lat: 33.391, lng: 129.047 }, scale),
+	baldfugas: calcInteriorBounds({
+			b02: { size: { w: 544, h: 544 }, off: { x: 0, y: 0 } }
+		}, { x: 159, y: 208 }, { lat: 35.671, lng: 129.249 }, scale),
+	baldtop: calcInteriorBounds({
+			b11: { size: { w: 1300, h: 938 }, off: { x: 0, y: 0 } }
+		}, { x: 704, y: 802 }, { lat: 33.250, lng: 132.172 }, scale),
+	baldciri: calcInteriorBounds({
+			b03: { size: { w: 382, h: 382 }, off: { x: 297, y: 359 } },
+			b04: { size: { w: 696, h: 696 }, off: { x:   0, y:   0 } }
+		}, { x: 566, y: 584 }, { lat: 36.462, lng: 131.513 }, scale),
+	balddrop: calcInteriorBounds({
+			b06: { size: { w: 1474, h: 1200 }, off: { x: 323, y:    0 } },
+			b10: { size: { w:  392, h:  392 }, off: { x: 537, y: 1012 } },
+			b09: { size: { w:  906, h:  750 }, off: { x:   0, y:  659 } }
+		}, { x: 879, y: 771 }, { lat: 35.528, lng: 128.611 }, scale),
+	baldwater: calcInteriorBounds({
+			b08: { size: { w: 620, h: 1000 }, off: { x: 0, y: 0 } }
+		}, { x: 74, y: 227 }, { lat: 37.938, lng: 123.297 }, scale),
+	baldcave: calcInteriorBounds({
+			b07: { size: { w: 830, h: 830 }, off: { x: 0, y: 0 } }
+		}, { x: 87, y: 615 }, { lat: 35.359, lng: 123.156 }, scale),
+
+	oxenfurt: calcInteriorBounds({
+			p01: { size: { w:  250, h:  250 }, off: { x: 1016, y: 896 } },
+			p02: { size: { w:  502, h:  502 }, off: { x:  943, y: 740 } },
+			c02: { size: { w:  546, h:  546 }, off: { x:  961, y:  94 } },
+			c03: { size: { w:  250, h:  250 }, off: { x: 1346, y: 495 } },
+			c04: { size: { w:  272, h:  272 }, off: { x: 1067, y: 549 } },
+			c05: { size: { w:  250, h:  250 }, off: { x: 1149, y: 840 } },
+			c07: { size: { w: 1068, h: 1068 }, off: { x:  412, y:   0 } },
+			c08: { size: { w: 1000, h: 1000 }, off: { x:    0, y: 378 } },
+			c09: { size: { w:  654, h:  654 }, off: { x:   36, y: 290 } },
+			c11: { size: { w:  218, h:  218 }, off: { x:  561, y: 331 } },
+			c12: { size: { w:  294, h:  294 }, off: { x:  507, y:  96 } },
+			c14: { size: { w:  424, h:  424 }, off: { x:  620, y: 798 } },
+			c15: { size: { w:  304, h:  304 }, off: { x:  968, y: 728 } }
+		}, { x: 1478, y: 662 }, { lat: 151.102, lng: 170.664 }, scale),
+	frog: calcInteriorBounds({
+			s01: { size: { w:  972, h:  972 }, off: { x: 404, y:   0 } },
+			s02: { size: { w: 1288, h: 1288 }, off: { x:   0, y: 177 } }
+		}, { x: 1021, y: 188 }, { lat: 159.250, lng: 165.641 }, scale)
 }; };
 
 registerMap({
@@ -7318,5 +7204,5 @@ registerMap({
 	minNativeZoom: 1,
 	maxNativeZoom: 5,
 	initialZoom:   2,
-	getMapData:    getMapData
+	getMapData:    function() { return getMapData(calcInteriors(186.3)); }
 }); }
