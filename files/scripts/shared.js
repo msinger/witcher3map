@@ -1009,3 +1009,15 @@ function substInteriors(mapInfo, data, dataKey, f, noLinks) {
 		}
 	}
 }
+
+function calcInteriorBounds(obj, pxRef, mpRef, scale) {
+	let res = {};
+	for (let [key, item] of Object.entries(obj)) {
+		let p1 = [mpRef.lat - (item.off.y + item.size.h - pxRef.y) / scale,
+		          mpRef.lng + (item.off.x - pxRef.x) / scale];
+		let p2 = [p1[0] + item.size.h / scale,
+		          p1[1] + item.size.w / scale];
+		res[key] = [p1, p2];
+	}
+	return res;
+}
