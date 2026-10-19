@@ -549,6 +549,24 @@ function selectFloor(interiorId, floorId, fit) {
 	updateInteriorHash();
 }
 
+function findNearestInterior(p) {
+	let found = null;
+	let fdist = 0;
+	for (let i = 0; i < interiors.length; i++) {
+		let interior = interiors[i];
+		if (!interior.shown)
+			continue;
+		let centerLat = (interior.bounds[0][0] + interior.bounds[1][0]) / 2;
+		let centerLng = (interior.bounds[0][1] + interior.bounds[1][1]) / 2;
+		let dist = Math.hypot(centerLat - p.lat, centerLng - p.lng);
+		if (!found || dist < fdist) {
+			found = interior;
+			fdist = dist;
+		}
+	}
+	return found;
+}
+
 function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
@@ -894,6 +912,27 @@ function runMap() {
 		infoClose();
 		if (notePopupOpen)
 			notePopupEnd();
+	});
+
+	map.on("keydown", function(e) {
+		let key = e.originalEvent.key;
+		if (key == "PageUp") {
+			let interior = findNearestInterior(map.getCenter());
+			if (interior) {
+				let floor = (interior.shownFloorId + 1) % interior.floors.length;
+				selectFloor(interior.id, floor);
+			}
+		} else if (key == "PageDown") {
+			let interior = findNearestInterior(map.getCenter());
+			if (interior) {
+				let floor = interior.shownFloorId != 0 ? interior.shownFloorId - 1 : interior.floors.length - 1;
+				selectFloor(interior.id, floor);
+			}
+		} else if (key == "Escape") {
+			let interior = findNearestInterior(map.getCenter());
+			if (interior)
+				closeInterior(interior.id);
+		}
 	});
 
 	window.updateRouteHash = function(r) {
