@@ -686,8 +686,8 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			let interior = item.goesToInterior;
 			let floorId  = item.goesToFloorId;
 			let linkText = esc($.t("misc.floorLink")).replace(/ /g, "&nbsp;");
-			let link = '[&nbsp;<a href="javascript:selectFloor(' + interior.id + ", " + floorId + ', true);">' +
-			           linkText + "</a>&nbsp;]";
+			let link = '[&nbsp;<a href="javascript:document.getElementById(\'map\').focus(); selectFloor(' +
+			           interior.id + ", " + floorId + ', true);">' + linkText + "</a>&nbsp;]";
 			if (noLinks)
 				link = linkText;
 			if (desc)
@@ -757,7 +757,8 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 				};
 				obj.id = r ? r(obj, icon) : -1;
 				routeObjs.push(obj);
-				let link = '<a href="javascript:selectRoute(' + obj.id + ');">' + obj.name + '</a>';
+				let link = '<a href="javascript:document.getElementById(\'map\').focus(); selectRoute(' +
+				           obj.id + ');">' + obj.name + '</a>';
 				if (noLinks)
 					link = obj.name;
 				links.push(link);
@@ -800,7 +801,8 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 				};
 				obj.id = a ? a(obj, icon) : -1;
 				areaObjs.push(obj);
-				let link = '<a href="javascript:selectArea(' + obj.id + ');">' + obj.name + '</a>';
+				let link = '<a href="javascript:document.getElementById(\'map\').focus(); selectArea(' +
+				           obj.id + ');">' + obj.name + '</a>';
 				if (noLinks)
 					link = obj.name;
 				links.push(link);
