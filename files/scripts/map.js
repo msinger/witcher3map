@@ -546,15 +546,16 @@ function updateInteriorLabel(interiorId, floorId) {
 	if (intr.floors.length != 1) {
 		const next = esc($.t("misc.nextLink")).replace(/ /g, "&nbsp;");
 		const prev = esc($.t("misc.prevLink")).replace(/ /g, "&nbsp;");
-		let nextLink = '[&nbsp;<a href="javascript:selectFloor(' + interiorId + ", " +
-		               ((floorId + 1) % intr.floors.length) + ');">' + next + "</a>&nbsp;]";
+		let nextLink = '[&nbsp;<a href="javascript:document.getElementById(\'map\').focus(); selectFloor(' +
+		               interiorId + ", " + ((floorId + 1) % intr.floors.length) + ');">' + next + "</a>&nbsp;]";
 		let prevId = floorId != 0 ? floorId - 1 : intr.floors.length - 1;
-		let prevLink = '[&nbsp;<a href="javascript:selectFloor(' + interiorId + ", " +
-		               prevId + ');">' + prev + "</a>&nbsp;]";
+		let prevLink = '[&nbsp;<a href="javascript:document.getElementById(\'map\').focus(); selectFloor(' +
+		               interiorId + ", " + prevId + ');">' + prev + "</a>&nbsp;]";
 		label += "<br>" + prevLink + concat + nextLink;
 	}
 	const close = esc($.t("misc.closeLink")).replace(/ /g, "&nbsp;");
-	let closeLink = '[&nbsp;<a href="javascript:closeInterior(' + interiorId + ');">' + close + "</a>&nbsp;]";
+	let closeLink = '[&nbsp;<a href="javascript:document.getElementById(\'map\').focus(); closeInterior(' +
+	                interiorId + ');">' + close + "</a>&nbsp;]";
 	label += concat + closeLink;
 	intr.tooltip.setContent("<center>" + label + "</center>");
 }
