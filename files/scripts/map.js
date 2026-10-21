@@ -20,6 +20,7 @@ var areas = [];
 var interiors = [];
 var map = null;
 var searchData = [];
+var prevHashParams = {};
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
@@ -458,12 +459,13 @@ function unselectRoutes(skipHashUpdate) {
 		updateRouteHash(-1);
 }
 
-function selectRoute(id, skipFit) {
+function selectRoute(id, skipFit, skipHashUpdate) {
 	unselectRoutes(true);
 	let r = routes[id];
 	if (!r.fuse) {
 		r.layer.addTo(map);
-		updateRouteHash(id);
+		if (!skipHashUpdate)
+			updateRouteHash(id);
 	}
 	if (!skipFit)
 		map.fitBounds(r.layer.getBounds());
@@ -479,12 +481,13 @@ function unselectAreas(skipHashUpdate) {
 		updateAreaHash(-1);
 }
 
-function selectArea(id, skipFit) {
+function selectArea(id, skipFit, skipHashUpdate) {
 	unselectAreas(true);
 	let a = areas[id];
 	if (!a.fuse) {
 		a.layer.addTo(map);
-		updateAreaHash(id);
+		if (!skipHashUpdate)
+			updateAreaHash(id);
 	}
 	if (!skipFit)
 		map.fitBounds(a.layer.getBounds());
@@ -495,12 +498,13 @@ function unselectFloors(id) {
 		map.removeLayer(floor.layer);
 }
 
-function closeInterior(id) {
+function closeInterior(id, skipHashUpdate) {
 	unselectFloors(id);
 	map.removeLayer(interiors[id].tooltip);
 	map.removeLayer(interiors[id].rectangle);
 	interiors[id].shown = false;
-	updateInteriorHash();
+	if (!skipHashUpdate)
+		updateInteriorHash();
 }
 
 function updateInteriorLabel(interiorId, floorId) {
@@ -528,9 +532,9 @@ function updateInteriorLabel(interiorId, floorId) {
 	intr.tooltip.setContent("<center>" + label + "</center>");
 }
 
-function selectFloor(interiorId, floorId, fit) {
+function selectFloor(interiorId, floorId, fit, skipHashUpdate) {
 	updateInteriorLabel(interiorId, floorId);
-	unselectFloors(interiorId);
+	unselectFloors(interiorId, true);
 	let interior = interiors[interiorId];
 	interior.rectangle.addTo(map);
 	for (let i = 0; i < interior.floors.length; i++) {
@@ -545,7 +549,8 @@ function selectFloor(interiorId, floorId, fit) {
 	interior.tooltip.addTo(map);
 	interior.shown = true;
 	interior.shownFloorId = floorId;
-	updateInteriorHash();
+	if (!skipHashUpdate)
+		updateInteriorHash();
 	if (fit)
 		map.fitBounds(interior.bounds);
 }
@@ -1593,71 +1598,105 @@ function runMap() {
 
 	document.getElementById("map").style.cursor = "crosshair";
 
-	let hashParams = hash.getHashParams();
+	let hashParams = hash.getHashParams() || {};
 
-	if (!hashParams) {
-		$("#centerButton").hide();
-		return;
-	}
-
-	if (hashParams.w) {
-		var hashWayPoint = hashParams.w.split(",");
-		if (hashWayPoint.length == 2 && typeof +hashWayPoint[0] == "number" && typeof +hashWayPoint[1] == "number") {
-			wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
-				icon: L.icon({
-					iconUrl:    window.topdir + "/files/images/icons/waypoint.png",
-					iconSize:   [26, 32],
-					iconAnchor: [12, 29]
-				})
-			}).on("click", function() {
+	function processHashParams(hashParams) {
+		if (hashParams.w != prevHashParams.w) {
+			if (wayPoint)
 				map.removeLayer(wayPoint);
-				hash.removeParam("w");
-			}).on("contextmenu", function() {
-				map.removeLayer(wayPoint);
-				hash.removeParam("w");
-			}).addTo(map);
-		}
-	}
+			wayPoint = false;
 
-	if (hashParams.m) {
-		var hashMarker = hashParams.m.split(",");
-		for (var val of allLayers) {
-			for (var marker of val.getLayers()) {
-				if (!marker.getLatLng)
-					continue;
-				let pos = marker.getLatLng();
-				if(hashMarker[0] == pos.lat && hashMarker[1] == pos.lng)
-					marker.openPopup();
+			if (hashParams.w) {
+				var hashWayPoint = hashParams.w.split(",");
+				if (hashWayPoint.length == 2 && typeof +hashWayPoint[0] == "number" && typeof +hashWayPoint[1] == "number") {
+					wayPoint = new L.marker(L.latLng(hashWayPoint[0], hashWayPoint[1]), {
+						icon: L.icon({
+							iconUrl:    window.topdir + "/files/images/icons/waypoint.png",
+							iconSize:   [26, 32],
+							iconAnchor: [12, 29]
+						})
+					}).on("click", function() {
+						map.removeLayer(wayPoint);
+						hash.removeParam("w");
+					}).on("contextmenu", function() {
+						map.removeLayer(wayPoint);
+						hash.removeParam("w");
+					}).addTo(map);
+				}
 			}
 		}
-	} else {
-		$("#centerButton").hide();
-	}
 
-	if (hashParams.r) {
-		let rid = +hashParams.r;
-		if (rid >= 0 && rid < routes.length)
-			selectRoute(rid, true);
-	}
-
-	if (hashParams.a) {
-		let aid = +hashParams.a;
-		if (aid >= 0 && aid < areas.length)
-			selectArea(aid, true);
-	}
-
-	if (hashParams.i) {
-		let intrs = hashParams.i.split(",");
-		for (intr of intrs) {
-			let tup = intr.split(".");
-			if (tup.length == 1)
-				tup[1] = 0;
-			let id = +tup[0];
-			let fl = +tup[1];
-			if (id >= 0 && id < interiors.length && fl >= 0 && fl < interiors[id].floors.length)
-				selectFloor(id, fl);
+		if (hashParams.m != prevHashParams.m) {
+			if (hashParams.m) {
+				var hashMarker = hashParams.m.split(",");
+				for (var val of allLayers) {
+					for (var marker of val.getLayers()) {
+						if (!marker.getLatLng)
+							continue;
+						let pos = marker.getLatLng();
+						if(hashMarker[0] == pos.lat && hashMarker[1] == pos.lng)
+							marker.openPopup();
+					}
+				}
+				$("#centerButton").show();
+			} else {
+				$("#centerButton").hide();
+			}
 		}
+
+		if (hashParams.r != prevHashParams.r) {
+			if (hashParams.r) {
+				let rid = +hashParams.r;
+				if (rid >= 0 && rid < routes.length)
+					selectRoute(rid, true, true);
+			} else {
+				unselectRoutes(true);
+			}
+		}
+
+		if (hashParams.a != prevHashParams.a) {
+			if (hashParams.a) {
+				let aid = +hashParams.a;
+				if (aid >= 0 && aid < areas.length)
+					selectArea(aid, true, true);
+			} else {
+				unselectAreas(true);
+			}
+		}
+
+		if (hashParams.i != prevHashParams.i) {
+			let isel = [];
+			for (let i = 0; i < interiors.length; i++)
+				isel[i] = -1;
+			if (hashParams.i) {
+				let intrs = hashParams.i.split(",");
+				for (intr of intrs) {
+					let tup = intr.split(".");
+					if (tup.length == 1)
+						tup[1] = 0;
+					let id = +tup[0];
+					let fl = +tup[1];
+					if (id >= 0 && id < interiors.length && fl >= 0 && fl < interiors[id].floors.length)
+						isel[id] = fl;
+				}
+			}
+			for (let i = 0; i < interiors.length; i++) {
+				if (isel[i] >= 0)
+					selectFloor(i, isel[i], false, true);
+				else
+					closeInterior(i, true);
+			}
+		}
+
+		prevHashParams = hashParams;
 	}
+
+	processHashParams(hashParams);
+
+	L.DomEvent.addListener(window, "hashchange", function() {
+		let hashParams = hash.getHashParams() || {};
+		processHashParams(hashParams);
+	});
 }
 
 $(function() {
