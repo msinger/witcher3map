@@ -1,12 +1,6 @@
 // loosely based on https://github.com/sephcoster/leaflet-hash but heavily modified
 // to remove underscore and fix a few issues
 (function(window) {
-	var HAS_HASHCHANGE = (function() {
-		var doc_mode = window.documentMode;
-		return ("onhashchange" in window) &&
-			(doc_mode === undefined || doc_mode > 7);
-	})();
-
 	L.Hash = function(map) {
 		this.onHashChange = L.Util.bind(this.onHashChange, this);
 
@@ -71,51 +65,44 @@
 	};
 
 	L.Hash.parseHash = function(hash) {
-		if(hash.indexOf("#") === 0) {
+		if(hash.indexOf("#") === 0)
 			hash = hash.substr(1);
-		}
 		var args = hash.split("/");
-		if (args.length >= 3 && args.length <= 4) {
-			var zoom = parseInt(args[0], 10),
-			lat = parseFloat(args[1]),
-			lon = parseFloat(args[2]);
-			params = this.getHashParams();
-			if (isNaN(zoom) || isNaN(lat) || isNaN(lon)) {
-				return false;
-			} else {
-				return {
-					center: new L.LatLng(lat, lon),
-					zoom:   zoom,
-					params: params
-				};
-			}
-		} else {
+		if (args.length < 3 && args.length > 4)
 			return false;
-		}
+		var zoom = parseInt(args[0], 10),
+		lat = parseFloat(args[1]),
+		lng = parseFloat(args[2]);
+		params = this.getHashParams();
+		if (isNaN(zoom) || isNaN(lat) || isNaN(lng))
+			return false;
+		return {
+			center: new L.LatLng(lat, lng),
+			zoom:   zoom,
+			params: params
+		};
 	};
 
 	L.Hash.formatHash = function(map) {
-		var center = map.getCenter(),
-		    zoom = map.getZoom(),
-		    precision = Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));
+		var center = map.getCenter();
+		var zoom = map.getZoom();
 
 		var baseHash = "#" + [zoom,
-			center.lat.toFixed(precision),
-			center.lng.toFixed(precision)
+			center.lat.toFixed(3),
+			center.lng.toFixed(3)
 		].join("/");
 
 		var hashParams = this.getHashParams();
 
-		if (hashParams) {
-			var hashParamsTemp = [];
-			// Loop through params, stringify them and push them into the temp array.
-			for (var param in hashParams) {
-				hashParamsTemp.push(param + "=" + hashParams[param]);
-			}
-			return baseHash + "/" + hashParamsTemp.join("&");
-		} else {
+		if (!hashParams)
 			return baseHash;
+
+		var hashParamsTemp = [];
+		// Loop through params, stringify them and push them into the temp array.
+		for (var param in hashParams) {
+			hashParamsTemp.push(param + "=" + hashParams[param]);
 		}
+		return baseHash + "/" + hashParamsTemp.join("&");
 	},
 
 	L.Hash.prototype = {
@@ -154,11 +141,19 @@
 			this.map = null;
 		},
 
-		onMapMove: function() {
-			// bail if we're moving the map (updating from a hash),
-			// or if the map is not yet loaded
+		moving: false,
+		zooming: false,
 
-			if (this.movingMap || !this.map._loaded) {
+		onMapMoveStart: function() {
+			this.moving = true;
+		},
+
+		onMapMoveEnd: function() {
+			this.moving = false;
+
+			// Bail if we're moving the map ourselves due to a hash update,
+			// or if the map is not yet loaded, or if a zoom animation is still running.
+			if (this.updateFromHash || !this.map._loaded || this.zooming) {
 				return false;
 			}
 
@@ -169,7 +164,27 @@
 			}
 		},
 
-		movingMap: false,
+		onMapZoomStart: function() {
+			this.zooming = true;
+		},
+
+		onMapZoomEnd: function() {
+			this.zooming = false;
+
+			// Bail if we're zooming the map ourselves due to a hash update,
+			// or if the map is not yet loaded, or if a move animation is still running.
+			if (this.updateFromHash || !this.map._loaded || this.moving) {
+				return false;
+			}
+
+			var hash = this.formatHash(this.map);
+			if (this.lastHash != hash) {
+				location.replace(hash);
+				this.lastHash = hash;
+			}
+		},
+
+		updateFromHash: false,
 		update: function() {
 			var hash = location.hash;
 			if (hash === this.lastHash) {
@@ -177,13 +192,15 @@
 			}
 			var parsed = this.parseHash(hash);
 			if (parsed) {
-				this.movingMap = true;
-
-				this.map.setView(parsed.center, parsed.zoom, { animate: false });
-
-				this.movingMap = false;
+				if (!this.moving && !this.zooming) {
+					this.updateFromHash = true;
+					this.map.setView(parsed.center, parsed.zoom, { animate: false });
+					this.updateFromHash = false;
+				}
 			} else {
-				this.onMapMove(this.map);
+				var hash = this.formatHash(this.map);
+				location.replace(hash);
+				this.lastHash = hash;
 			}
 		},
 
@@ -203,27 +220,23 @@
 		},
 
 		isListening: false,
-		hashChangeInterval: null,
 		startListening: function() {
-			this.map.on("moveend", this.onMapMove, this);
+			this.map.on("movestart", this.onMapMoveStart, this);
+			this.map.on("moveend", this.onMapMoveEnd, this);
+			this.map.on("zoomstart", this.onMapZoomStart, this);
+			this.map.on("zoomend", this.onMapZoomEnd, this);
 
-			if (HAS_HASHCHANGE) {
-				L.DomEvent.addListener(window, "hashchange", this.onHashChange);
-			} else {
-				clearInterval(this.hashChangeInterval);
-				this.hashChangeInterval = setInterval(this.onHashChange, 500);
-			}
+			L.DomEvent.addListener(window, "hashchange", this.onHashChange);
 			this.isListening = true;
 		},
 
 		stopListening: function() {
-			this.map.off("moveend", this.onMapMove, this);
+			this.map.off("movestart", this.onMapMoveStart, this);
+			this.map.off("moveend", this.onMapMoveEnd, this);
+			this.map.off("zoomstart", this.onMapZoomStart, this);
+			this.map.off("zoomend", this.onMapZoomEnd, this);
 
-			if (HAS_HASHCHANGE) {
-				L.DomEvent.removeListener(window, "hashchange", this.onHashChange);
-			} else {
-				clearInterval(this.hashChangeInterval);
-			}
+			L.DomEvent.removeListener(window, "hashchange", this.onHashChange);
 			this.isListening = false;
 		}
 	};
