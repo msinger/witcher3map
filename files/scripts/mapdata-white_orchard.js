@@ -43,7 +43,6 @@
 	contract: [{
 		coords:      [[62.406,64.437],
 		             [62.344,56.344]],
-		id:          "contract.devil",
 		name:        "devil",
 		before:      "mainquest.ice"
 	}],
@@ -510,7 +509,6 @@
 	}, {
 		coords:      [[48.469,124.407],
 		             [61.438,64.422]],
-		id:          "sidequest.missing",
 		name:        "missing"
 	}, {
 		coords:      [64.814,33.156],
@@ -638,11 +636,9 @@
 		name:        "deserter"
 	}, {
 		coords:      [51.984,115.969],
-		id:          "treasurehunt.scav_viper",
 		name:        "scav_viper"
 	}, {
 		coords:      [103.195,60.086],
-		id:          "treasurehunt.scav_viper",
 		name:        "scav_viper",
 		underground: true,
 		entrances:   "crypt"

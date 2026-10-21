@@ -344,6 +344,16 @@ function prescreenMapData(mapInfo, data) {
 				continue;
 			}
 
+			if (dataKey == "sidequest" ||
+			    dataKey == "event" ||
+			    dataKey == "contract" ||
+			    dataKey == "gwentquest" ||
+			    dataKey == "treasurehunt") {
+				if (!item.id && item.name && typeof item.name == "string") {
+					item.id = dataKey + "." + item.name;
+				}
+			}
+
 			if (item.id && typeof item.id == "string") {
 				if (!ids[item.id])
 					ids[item.id] = [];

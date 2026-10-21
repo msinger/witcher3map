@@ -426,13 +426,11 @@
 	}, {
 		coords:      [[77.250,148.218],
 		             [62.297,131.980]],
-		id:          "contract.swamp",
 		name:        "swamp",
 		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [[237.156,130.546],
 		             [216.359,137.453]],
-		id:          "contract.apirian",
 		name:        "apirian"
 	}, {
 		coords:      [104.531,80.312],
@@ -735,8 +733,7 @@
 	}, {
 		coords:      [120.250,142.281],
 		name:        "caravan",
-		rescuable:   true,
-		id:          "anselm_event"
+		rescuable:   true
 	}, {
 		coords:      [101.343,80.187],
 		name:        "crow",
@@ -5741,7 +5738,7 @@
 		coords:      [100.531,76.344],
 		extraLabel:  "v:shopkeeper.anselm.label",
 		sells:       "v:racingBlinders",
-		rescueFrom:  "anselm_event"
+		rescueFrom:  "event.caravan"
 	}, {
 		coords:      [70.563,73.188],
 		sells:       ["drinks", "v:ruggedSaddlebags"]
@@ -6184,7 +6181,6 @@
 	}, {
 		coords:      [[207.875,103.062],
 		             [194.445,163.172]],
-		id:          "sidequest.rc_derby",
 		name:        "rc_derby",
 		race:        true,
 		notBefore:   "mainquest.junior",
