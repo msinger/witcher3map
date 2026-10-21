@@ -448,34 +448,6 @@ function processData(checkedMarkers) {
 	}
 }
 
-function fitBoundsAndCallbackAfterAnimations(bounds, callback) {
-	let zooming = false;
-	let moving = false;
-	let zoomStart = function() { zooming = true; }
-	let moveStart = function() { moving = true; }
-	let zoomEnd = function() {
-		map.off("zoomstart", zoomStart);
-		map.off("zoomend", zoomEnd);
-		if (!moving)
-			callback();
-		zooming = false;
-	};
-	let moveEnd = function() {
-		map.off("movestart", moveStart);
-		map.off("moveend", moveEnd);
-		if (!zooming)
-			callback();
-		moving = false;
-	};
-	map.on("zoomend", zoomEnd);
-	map.on("moveend", moveEnd);
-	map.on("zoomstart", zoomStart);
-	map.on("movestart", moveStart);
-	map.fitBounds(bounds);
-	if (!zooming && !moving)
-		callback();
-}
-
 function unselectRoutes(skipHashUpdate) {
 	for (r of routes) {
 		if (r.fuse)
@@ -489,14 +461,12 @@ function unselectRoutes(skipHashUpdate) {
 function selectRoute(id, skipFit) {
 	unselectRoutes(true);
 	let r = routes[id];
-	if (!r.fuse)
+	if (!r.fuse) {
 		r.layer.addTo(map);
-	if (!skipFit && r.fuse)
-		map.fitBounds(r.layer.getBounds());
-	else if (!skipFit)
-		fitBoundsAndCallbackAfterAnimations(r.layer.getBounds(), function() { updateRouteHash(id); });
-	else if (!r.fuse)
 		updateRouteHash(id);
+	}
+	if (!skipFit)
+		map.fitBounds(r.layer.getBounds());
 }
 
 function unselectAreas(skipHashUpdate) {
@@ -512,14 +482,12 @@ function unselectAreas(skipHashUpdate) {
 function selectArea(id, skipFit) {
 	unselectAreas(true);
 	let a = areas[id];
-	if (!a.fuse)
+	if (!a.fuse) {
 		a.layer.addTo(map);
-	if (!skipFit && a.fuse)
-		map.fitBounds(a.layer.getBounds());
-	else if (!skipFit)
-		fitBoundsAndCallbackAfterAnimations(a.layer.getBounds(), function() { updateAreaHash(id); });
-	else if (!a.fuse)
 		updateAreaHash(id);
+	}
+	if (!skipFit)
+		map.fitBounds(a.layer.getBounds());
 }
 
 function unselectFloors(id) {
@@ -577,10 +545,9 @@ function selectFloor(interiorId, floorId, fit) {
 	interior.tooltip.addTo(map);
 	interior.shown = true;
 	interior.shownFloorId = floorId;
+	updateInteriorHash();
 	if (fit)
-		fitBoundsAndCallbackAfterAnimations(interior.bounds, updateInteriorHash);
-	else
-		updateInteriorHash();
+		map.fitBounds(interior.bounds);
 }
 
 function findNearestInterior(p) {
