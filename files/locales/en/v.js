@@ -65,6 +65,7 @@ window.i18nData.en.v = {
 		theNowhere:         { label: "The Nowhere" }
 	},
 	interior: {
+		cheese:          { label: "Aeramas' Lair" },
 		novigrad_sewers: { label: "Novigrad Sewers" },
 		oxenfurt_sewers: { label: "Oxenfurt Sewers" },
 		sabbath_cave:    { label: "__v:entrance.sabbath_cave__" },
