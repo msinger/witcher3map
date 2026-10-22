@@ -5,7 +5,8 @@ window.i18nData.en.v = {
 		pellar: { label: "Pellar" }
 	},
 	armorer: {
-		yoana: { label: "Yoana" }
+		fergus: { label: "Fergus" },
+		yoana:  { label: "Yoana" }
 	},
 	banditcamp: {
 		cannibal: {
@@ -20,6 +21,7 @@ window.i18nData.en.v = {
 		free: "Cuts Hair for free!"
 	},
 	blacksmith: {
+		dulla:   { label: "Dulla kh'Amanni" },
 		hattori: { label: "Hattori" },
 		rune: {
 			label: "Runewright",

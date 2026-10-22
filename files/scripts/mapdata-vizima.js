@@ -2,6 +2,7 @@
 	// ----------------- Gwent Players ------------------
 	gwent: [{
 		coords:      [120.938,120.750],
+		id:          "noblemanGwent",
 		extraLabel:  "z:gwent.nobleman.label"
 	}],
 	// ----------------- Points of Interest -------------

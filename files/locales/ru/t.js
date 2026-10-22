@@ -52,6 +52,7 @@ window.i18nData.ru.t = {
 	shopkeeper: {
 		butcher: { label: "мясники" },
 		dye:     { label: "Торговец красками" },
+		tailor:  { desc: "Продает одежду и маски." },
 		vintner: { label: "Винтернер" }
 	},
 	signpost: {

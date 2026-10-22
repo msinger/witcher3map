@@ -62,8 +62,7 @@
 	// ----------------- Armorers -----------------------
 	armorer: [{
 		coords:      [[208.672,100.828],
-		             [158.047,166.344],
-		             [104.734,77.531]],
+		             [158.047,166.344]],
 		extraLabel:  "craftlevel.journeyman"
 	}, {
 		coords:      [129.688,118.719],
@@ -75,8 +74,13 @@
 		extraLabel:  "craftlevel.amateur"
 	}, {
 		coords:      [104.906,77.063],
+		id:          "yoana",
 		extraLabel:  ["craftlevel.master", "v:armorer.yoana.label"],
 		notBefore:   "sidequest.masterarmor"
+	}, {
+		coords:      [104.734,77.531],
+		id:          "fergus",
+		extraLabel:  ["craftlevel.journeyman", "v:armorer.fergus.label"]
 	}],
 	// ----------------- Armorer's Tables ---------------
 	armorerstable: [{
@@ -322,7 +326,9 @@
 		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [239.500,214.687],
+		id:          "runewright",
 		label:       "v:blacksmith.rune.label",
+		extraLabel:  "v:blacksmith.dulla.label",
 		desc:        "v:blacksmith.rune.desc",
 		runewright:  true,
 		notBefore:   "sidequest.en_s"
@@ -1039,7 +1045,6 @@
 		             [209.703,102.953],
 		             [204.547,109.125],
 		             [199.141,101.578],
-		             [198.813,113.438],
 		             [209.453,94.750],
 		             [212.156,96.172],
 		             [216.281,104.438],
@@ -1047,13 +1052,9 @@
 		             [211.969,114.422],
 		             [159.344,164.703],
 		             [107.641,54.969],
-		             [101.750,76.297],
-		             [104.297,76.969],
 		             [70.688,73.453],
 		             [81.969,41.453],
-		             [99.984,110.703],
-		             [33.672,204.953],
-		             [187.875,152.038]],
+		             [33.672,204.953]],
 		extraLabel:  "shopkeeper.label"
 	}, {
 		coords:      [200.859,98.078]
@@ -1062,10 +1063,7 @@
 		             [170.047,179.250]],
 		extraLabel:  "herbalist.label"
 	}, {
-		coords:      [[199.188,126.813],
-		             [206.406,96.734],
-		             [214.328,110.844],
-		             [185.375,117.734]],
+		coords:      [214.328,110.844],
 		extraLabel:  "innkeep.label"
 	}, {
 		coords:      [198.409,107.094],
@@ -1085,14 +1083,13 @@
 		extraLabel:  "alchemy.label"
 	}, {
 		coords:      [209.500,105.313],
+		id:          "kingfisherInnkeepGwent",
 		extraLabel:  "innkeep.label",
 		notBefore:   "sidequest.never"
 	}, {
 		coords:      [[158.281,166.453],
 		             [178.844,176.203],
-		             [104.813,77.609],
-		             [82.453,40.422],
-		             [105.125,77.000]],
+		             [82.453,40.422]],
 		extraLabel:  "armorer.label"
 	}, {
 		coords:      [129.922,118.688],
@@ -1100,6 +1097,7 @@
 		rescueFrom:  "mulbrydale_armorer_pid"
 	}, {
 		coords:      [84.000,70.125],
+		id:          "claywichMerchantGwent",
 		extraLabel:  "shopkeeper.label",
 		rescueFrom:  "claywich_shopkeeper_pid"
 	}, {
@@ -1111,12 +1109,54 @@
 		notBefore:   "sidequest.eternal"
 	}, {
 		coords:      [153.563,163.469],
+		id:          "shaniGwent",
 		extraLabel:  "v:gwent.shani.label"
 	}, {
 		coords:      [155.875,164.781],
+		id:          "olgierdGwent",
 		extraLabel:  "v:gwent.olgierd.label",
 		notBefore:   "mainquest.evil",
 		before:      "mainquest.marriage"
+	}, {
+		coords:      [104.297,76.969],
+		id:          "perchQuartermasterGwent",
+		extraLabel:  "v:shopkeeper.quartermaster.label"
+	}, {
+		coords:      [105.125,77.000], // TODO: Check if you can play Gwent with her only after she's available as master armorer.
+		id:          "yoanaGwent",
+		extraLabel:  "v:armorer.yoana.label"
+	}, {
+		coords:      [104.813,77.609],
+		id:          "fergusGwent",
+		extraLabel:  "v:armorer.fergus.label"
+	}, {
+		coords:      [187.875,152.038],
+		id:          "circusMerchantGwent",
+		extraLabel:  "shopkeeper.label"
+	}, {
+		coords:      [99.984,110.703],
+		id:          "lindenvaleMerchantGwent",
+		extraLabel:  "shopkeeper.label"
+	}, {
+		coords:      [101.750,76.297],
+		id:          "perchTraderGwent",
+		extraLabel:  "shopkeeper.label"
+	}, {
+		coords:      [185.375,117.734],
+		id:          "cunnyInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [199.188,126.813],
+		id:          "sevenCatsInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [206.406,96.734],
+		id:          "sturgeonInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [198.813,113.438],
+		id:          "elihalGwent",
+		extraLabel:  "v:shopkeeper.elihal.label"
 	}],
 	// ----------------- Gwent Quests -------------------
 	gwentquest: [{
@@ -1444,11 +1484,13 @@
 	// ----------------- Innkeeps -----------------------
 	innkeep: [{
 		coords:      [206.000,96.547],
+		id:          "sturgeonInnkeep",
 		extraLabel:  "v:innkeep.theGoldenSturgen.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [220.609,104.172],
-		extraLabel:  "v:innkeep.passiflora.label",
+		id:          "serenity",
+		extraLabel:  ["v:innkeep.passiflora.label", "gwentquest.serenity.label"],
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [214.000,110.672],
@@ -1461,22 +1503,27 @@
 		notBefore:   "sidequest.cabaret"
 	}, {
 		coords:      [198.875,126.656],
+		id:          "sevenCatsInnkeep",
 		extraLabel:  "v:innkeep.sevenCatsInn.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [209.328,104.719],
+		id:          "kingfisherInnkeep",
 		extraLabel:  "v:innkeep.theKingfisher.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [185.125,118.047],
+		id:          "cunnyInnkeep",
 		extraLabel:  "v:innkeep.cunnyOfTheGoose.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [156.063,165.172],
-		extraLabel:  "v:innkeep.theAlchemy.label",
+		id:          "stjepan",
+		extraLabel:  ["v:innkeep.theAlchemy.label", "gwentquest.stjepan.label"],
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [128.141,95.516],
+		id:          "crossroadsInnkeep",
 		extraLabel:  "v:innkeep.innAtTheCrossroads.label",
 		sells:       ["gwent", "drinks"]
 	}],
@@ -5643,6 +5690,7 @@
 		desc:        "shopkeeper.banker.desc"
 	}, {
 		coords:      [198.516,113.328],
+		id:          "elihal",
 		extraLabel:  ["shopkeeper.tailor.label",
 		              "v:shopkeeper.elihal.label"],
 		desc:        "shopkeeper.tailor.desc",
@@ -5721,17 +5769,21 @@
 		desc:        "v:shopkeeper.uselessMerchant.desc"
 	}, {
 		coords:      [101.547,76.094],
+		id:          "perchTrader",
 		sells:       ["gwent", "drinks"]
 	}, {
 		coords:      [81.797,41.406],
+		id:          "midcopseMerchant",
 		sells:       ["gwent", "jewellery"]
 	}, {
 		coords:      [90.109,47.906],
+		id:          "keira",
 		extraLabel:  "v:shopkeeper.keira.label",
 		sells:       ["alchemy", "recipes", "v:clearancePotion"],
 		before:      "sidequest.favor"
 	}, {
 		coords:      [104.031,76.875],
+		id:          "perchQuartermaster",
 		extraLabel:  "v:shopkeeper.quartermaster.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
@@ -5744,6 +5796,7 @@
 		sells:       ["drinks", "v:ruggedSaddlebags"]
 	}, {
 		coords:      [83.766,69.922],
+		id:          "claywichMerchant",
 		sells:       ["gwent", "drinks"],
 		rescueFrom:  "claywich_shopkeeper_pid"
 	}, {
@@ -5759,10 +5812,14 @@
 		liberate:    true
 	}, {
 		coords:      [99.844,110.594],
+		id:          "lindenvaleMerchant",
 		sells:       ["gwent", "crafting"]
 	}, {
 		coords:      [99.000,109.281],
-		sells:       ["runestones", "alchemy", "food"]
+		id:          "lindenvaleInnkeep",
+		label:       "innkeep.label", // TODO: Check if he has the correct icon now ingame.
+		desc:        "innkeep.desc",
+		sells:       ["runestones", "alchemy", "food"] // TODO: According to the wiki, inventory should be linked with Crossroads Inn.
 	}, {
 		coords:      [33.453,204.859],
 		extraLabel:  "v:shopkeeper.quartermaster.label",
@@ -5792,6 +5849,7 @@
 		notBefore:   "sidequest.eternal"
 	}, {
 		coords:      [187.797,152.172],
+		id:          "circusMerchant",
 		sells:       "gwent"
 	}, {
 		coords:      [[107.250,52.844],

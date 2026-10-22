@@ -57,6 +57,7 @@
 		coords:      [175.016,72.125]
 	}, {
 		coords:      [149.188,127.375],
+		id:          "sjustaBarber",
 		extraLabel:  "s:shopkeeper.sjusta.label"
 	}],
 	// ----------------- Blacksmiths --------------------
@@ -369,12 +370,7 @@
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
-		coords:      [[61.786,186.756],
-		             [130.199,223.567],
-		             [193.674,180.642],
-		             [175.256,71.537],
-		             [118.752,107.751],
-		             [149.478,126.173]],
+		coords:      [130.199,223.567],
 		extraLabel:  "innkeep.label"
 	}, {
 		coords:      [[62.128,187.478],
@@ -414,6 +410,26 @@
 		coords:      [121.266,146.750],
 		extraLabel:  "herbalist.label",
 		rescueFrom:  "herbalist_pid"
+	}, {
+		coords:      [118.752,107.751],
+		id:          "arinbjornInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [61.786,186.756],
+		id:          "harvikenInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [193.674,180.642],
+		id:          "uriallaHerborInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [175.256,71.537],
+		id:          "svorlagInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [149.478,126.173],
+		id:          "jonasGwent",
+		extraLabel:  "s:innkeep.jonas.label"
 	}],
 	// ----------------- Gwent Quests -------------------
 	gwentquest: [{
@@ -586,6 +602,7 @@
 	// ----------------- Innkeeps -----------------------
 	innkeep: [{
 		coords:      [61.688,186.599],
+		id:          "harvikenInnkeep",
 		extraLabel:  "s:innkeep.harvikenInn.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
@@ -594,19 +611,23 @@
 		sells:       ["food", "drinks"]
 	}, {
 		coords:      [193.562,180.500],
-		extraLabel:  "s:innkeep.uriallaHarbourInn.label",
+		id:          "uriallaHerborInnkeep",
+		extraLabel:  "s:innkeep.uriallaHarborInn.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [175.156,71.360],
+		id:          "svorlagInnkeep",
 		extraLabel:  "s:innkeep.svorlagInn.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [118.656,107.609],
+		id:          "arinbjornInnkeep",
 		extraLabel:  "s:innkeep.arinbjornInn.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [149.406,126.031],
-		extraLabel:  "s:innkeep.theNewPort.label",
+		id:          "jonas",
+		extraLabel:  ["s:innkeep.theNewPort.label", "s:innkeep.jonas.label"],
 		sells:       ["gwent", "food", "drinks"]
 	}],
 	// ----------------- Monster Dens -------------------
@@ -898,6 +919,7 @@
 		sells:       ["maps", "crafting", "food", "drinks"]
 	}, {
 		coords:      [149.330,127.517],
+		id:          "sjusta",
 		extraLabel:  "s:shopkeeper.sjusta.label",
 		sells:       ["clothes", "crafting"],
 		extraDesc:   "s:shopkeeper.barber.desc"

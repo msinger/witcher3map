@@ -5,12 +5,12 @@ window.i18nData.zh.s = {
 		gremist: { label: "格瑞米斯特" }
 	},
 	innkeep: {
-		arinbjornInn:      { label: "阿林比翁旅館" },
-		harvikenInn:       { label: "哈爾維肯旅館" },
-		houseOfWarriors:   { label: "勇士之家" },
-		svorlagInn:        { label: "斯沃拉格旅館" },
-		theNewPort:        { label: "新港旅館" },
-		uriallaHarbourInn: { label: "尤里埃拉港口旅館" }
+		arinbjornInn:     { label: "阿林比翁旅館" },
+		harvikenInn:      { label: "哈爾維肯旅館" },
+		houseOfWarriors:  { label: "勇士之家" },
+		svorlagInn:       { label: "斯沃拉格旅館" },
+		theNewPort:       { label: "新港旅館" },
+		uriallaHarborInn: { label: "尤里埃拉港口旅館" }
 	},
 	poi: {
 		birna: {

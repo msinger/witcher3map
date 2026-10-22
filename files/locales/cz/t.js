@@ -51,6 +51,7 @@ window.i18nData.cz.t = {
 	shopkeeper: {
 		butcher: { label: "Řezník" },
 		dye:     { label: "Obchodník s barvivy" },
+		tailor:  { desc: "Prodává oblečení a masky." },
 		vintner: { label: "Vinař" }
 	},
 	signpost: {

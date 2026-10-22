@@ -5,12 +5,13 @@ window.i18nData.en.s = {
 		gremist: { label: "Gremist" }
 	},
 	innkeep: {
-		arinbjornInn:      { label: "Arinbjorn Inn" },
-		harvikenInn:       { label: "Harviken Inn" },
-		houseOfWarriors:   { label: "House of Warriors" },
-		svorlagInn:        { label: "Svorlag Inn" },
-		theNewPort:        { label: "The New Port" },
-		uriallaHarbourInn: { label: "Urialla Harbour Inn" }
+		arinbjornInn:     { label: "Arinbjorn Inn" },
+		jonas:            { label: "Jonas" },
+		harvikenInn:      { label: "Harviken Inn" },
+		houseOfWarriors:  { label: "House of Warriors" },
+		svorlagInn:       { label: "Svorlag Inn" },
+		theNewPort:       { label: "The New Port" },
+		uriallaHarborInn: { label: "Urialla Harbor Inn" }
 	},
 	poi: {
 		birna: {

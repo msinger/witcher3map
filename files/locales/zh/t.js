@@ -48,6 +48,7 @@ window.i18nData.zh.t = {
 	shopkeeper: {
 		butcher: { label: "屠夫" },
 		dye:     { label: "染料商人" },
+		tailor:  { desc: "販售衣服及面具。" },
 		vintner: { label: "葡萄酒商" }
 	},
 	signpost: {

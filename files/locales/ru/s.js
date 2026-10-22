@@ -5,12 +5,12 @@ window.i18nData.ru.s = {
 		gremist: { label: "Гремист" }
 	},
 	innkeep: {
-		arinbjornInn:      { label: "Корчмарь в деревне Аринбьорн" },
-		harvikenInn:       { label: "Корчмарь в Харвикене" },
-		houseOfWarriors:   { label: "Дом Воинов" },
-		svorlagInn:        { label: "Корчмарь в деревне Сворлаг" },
-		theNewPort:        { label: "Новый порт" },
-		uriallaHarbourInn: { label: "Корчма гавани Уриалла" }
+		arinbjornInn:     { label: "Корчмарь в деревне Аринбьорн" },
+		harvikenInn:      { label: "Корчмарь в Харвикене" },
+		houseOfWarriors:  { label: "Дом Воинов" },
+		svorlagInn:       { label: "Корчмарь в деревне Сворлаг" },
+		theNewPort:       { label: "Новый порт" },
+		uriallaHarborInn: { label: "Корчма гавани Уриалла" }
 	},
 	poi: {
 		birna: {

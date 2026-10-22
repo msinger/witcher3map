@@ -1,13 +1,23 @@
 window.i18nData = window.i18nData || {};
 window.i18nData.en = window.i18nData.en || {};
 window.i18nData.en.w = {
+	armorer: {
+		willis: { label: "Willis" }
+	},
 	grindstone: {
 		forge: {
 			desc: "It will become accessible once the forge has been rebuilt. This happens after the " +
 			      "'__sidequest.twist__' mission and only after you have left White Orchard and returned."
 		}
 	},
+	gwent: {
+		aldert: { label: "Aldert Geert" }
+	},
+	herbalist: {
+		tomira: { label: "Tomira" }
+	},
 	innkeep: {
+		elsa:            { label: "Elsa" },
 		whiteOrchardInn: { label: "White Orchard Inn" }
 	},
 	poi: {
@@ -27,6 +37,7 @@ window.i18nData.en.w = {
 		}
 	},
 	shopkeeper: {
+		bram:        { label: "Bram" },
 		temerianSet: { label: "'Temerian: blinders, saddle, saddlebags, armor'" }
 	},
 	signpost: {

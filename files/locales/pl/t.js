@@ -51,6 +51,7 @@ window.i18nData.pl.t = {
 	shopkeeper: {
 		butcher: { label: "Rzeźnik" },
 		dye:     { label: "Barwny Handlowiec" },
+		tailor:  { desc: "Sprzedaje ubrania i maski." },
 		vintner: { label: "Vintner" }
 	},
 	signpost: {
