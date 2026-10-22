@@ -76,6 +76,7 @@
 	// ----------------- Places of Power ----------------
 	pop: [{
 		coords:      [125.781,67.891],
+		id:          "igniPop",
 		extraLabel:  "pop.igni.label"
 	}],
 	// ----------------- Points of Interest -------------

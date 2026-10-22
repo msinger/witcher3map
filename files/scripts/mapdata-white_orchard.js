@@ -443,20 +443,28 @@
 	}],
 	// ----------------- Places of Power ----------------
 	pop: [{
-		coords:      [[22.126,52.125],
-		             [93.313,128.219]],
+		coords:      [22.126,52.125],
+		id:          "quenPopSW",
+		extraLabel:  "pop.quen.label"
+	}, {
+		coords:      [93.313,128.219],
+		id:          "quenPopNE",
 		extraLabel:  "pop.quen.label"
 	}, {
 		coords:      [29.937,90.438],
+		id:          "yrdenPop",
 		extraLabel:  "pop.yrden.label"
 	}, {
 		coords:      [85.539,35.086],
+		id:          "axiiPop",
 		extraLabel:  "pop.axii.label"
 	}, {
 		coords:      [102.062,61.125],
+		id:          "igniPop",
 		extraLabel:  "pop.igni.label"
 	}, {
 		coords:      [118.438,58.625],
+		id:          "aardPop",
 		extraLabel:  "pop.aard.label"
 	}],
 	// ----------------- Points of Interest -------------
