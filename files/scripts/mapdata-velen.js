@@ -502,10 +502,49 @@
 		coords:      [183.219,191.281],
 		groupId:     "est_tayiar"
 	}, {
-		coords:      [156.031,209.125],
+		coords:      [155.438,209.445], // TODO: Is this the entry location? Is ingame map marker wrong?
 		notBefore:   "sidequest.darkness",
 		groupId:     "cheese_dungeon",
-		portal:      true
+		portal:      true,
+		routes: [{
+			name: "entrance.portal.dest.label",
+			coords: [[155.438,209.445], [151.406,207.359]]
+		}]
+	}, {
+		coords:      [151.484,213.055],
+		notBefore:   "sidequest.darkness",
+		groupId:     "cheese_dungeon2",
+		portal:      true,
+		underground: true,
+		entrances:   "cheese_dungeon",
+		notInGame:   true,
+		routes: [{
+			name: "entrance.portal.dest.label",
+			coords: [[151.484,213.055], [158.719,209.828]]
+		}]
+	}, {
+		coords:      [158.984,211.320],
+		notBefore:   "sidequest.darkness",
+		groupId:     "cheese_dungeon3",
+		portal:      true,
+		underground: true,
+		entrances:   "cheese_dungeon2",
+		notInGame:   true,
+		routes: [{
+			name: "entrance.portal.dest.label",
+			coords: [[158.984,211.320], [155.508,209.586]]
+		}]
+	}, {
+		coords:      [154.602,207.734],
+		notBefore:   "sidequest.darkness",
+		portal:      true,
+		underground: true,
+		entrances:   "cheese_dungeon3",
+		notInGame:   true,
+		routes: [{
+			name: "entrance.portal.dest.label",
+			coords: [[154.602,207.734], [155.398,209.070]]
+		}]
 	}, {
 		coords:      [173.750,77.156],
 		groupId:     "widows_grotto"
@@ -1780,6 +1819,32 @@
 			}, {
 				bounds: i.noviLynx.l04,
 				file:   "v/interiors/novigrad_lynx_dungeon_04_mod.png"
+			}]
+		}]
+	}, {
+		label:       "v:interior.cheese.label",
+		floors: [{
+			label:     "interior.levelB2.label",
+			entrances: ["cheese_dungeon", "cheese_dungeon3"],
+			images: [{
+				bounds: i.cheeseMind.m02,
+				file:   "v/interiors/gf33_hall_of_mind_2.png"
+			}, {
+				bounds: i.cheeseMind.m01,
+				file:   "v/interiors/gf33_hall_of_mind_1.png"
+			}, {
+				bounds: i.cheeseDext.d01,
+				file:   "v/interiors/gf33_hall_of_dexterity.png"
+			}, {
+				bounds: i.cheeseEnd.e01,
+				file:   "v/interiors/gf33_cave_entrance_hall.png"
+			}]
+		}, {
+			label:     "interior.levelB1.label",
+			entrances: "cheese_dungeon2",
+			images: [{
+				bounds: i.cheeseDext.d02,
+				file:   "v/interiors/gf33_hall_of_dexterity_02_mod.png"
 			}]
 		}]
 	}],
@@ -6996,7 +7061,7 @@
 	}, {
 		coords:      [[158.266,210.969],
 		             [159.297,211.203],
-		             [157.875,208.891]],
+		             [158.148,209.000]],
 		underground: true,
 		entrances:   "cheese_dungeon",
 		notBefore:   "sidequest.darkness"
@@ -7440,6 +7505,17 @@
 	noviTomb: calcInteriorBounds({
 			t01: { size: { w: 622, h: 622 }, off: { x: 0, y: 0 } }
 		}, { x: 268, y: 299 }, { lat: 205.563, lng: 108.188 }, scale),
+	cheeseMind: calcInteriorBounds({
+			m01: { size: { w: 316, h: 316 }, off: { x: 786, y: 290 } },
+			m02: { size: { w: 884, h: 884 }, off: { x:   0, y:   0 } }
+		}, { x: 38, y: 466 }, { lat: 151.406, lng: 207.359 }, scale),
+	cheeseDext: calcInteriorBounds({
+			d01: { size: { w: 1540, h: 1540 }, off: { x: 179, y:   0 } },
+			d02: { size: { w: 1000, h: 1000 }, off: { x:   0, y: 547 } }
+		}, { x: 706, y: 926 }, { lat: 158.734, lng: 209.797 }, scale),
+	cheeseEnd: calcInteriorBounds({
+			e01: { size: { w: 862, h: 862 }, off: { x: 0, y: 0 } }
+		}, { x: 351, y: 440 }, { lat: 154.875, lng: 208.383 }, scale)
 }; };
 
 registerMap({
