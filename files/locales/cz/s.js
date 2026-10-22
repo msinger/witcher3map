@@ -5,12 +5,12 @@ window.i18nData.cz.s = {
 		gremist: { label: "Gremist" }
 	},
 	innkeep: {
-		arinbjornInn:      { label: "Arinbjornská hospoda" },
-		harvikenInn:       { label: "Harvikenská hospoda" },
-		houseOfWarriors:   { label: "Dům válečníků" },
-		svorlagInn:        { label: "Svorlagská hospoda" },
-		theNewPort:        { label: "Nový přístav" },
-		uriallaHarbourInn: { label: "Urialla - Přístavní krčma" }
+		arinbjornInn:     { label: "Arinbjornská hospoda" },
+		harvikenInn:      { label: "Harvikenská hospoda" },
+		houseOfWarriors:  { label: "Dům válečníků" },
+		svorlagInn:       { label: "Svorlagská hospoda" },
+		theNewPort:       { label: "Nový přístav" },
+		uriallaHarborInn: { label: "Urialla - Přístavní krčma" }
 	},
 	poi: {
 		birna: {

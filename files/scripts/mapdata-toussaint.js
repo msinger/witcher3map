@@ -15,16 +15,17 @@
 	}],
 	// ----------------- Alchemy Supplies ---------------
 	alchemy: [{
-		coords:      [52.719,62.609]
+		coords:      [52.719,62.609],
+		id:          "perfumeryMerchant",
+		extraLabel:  "t:alchemy.perfumery.label"
 	}, {
 		coords:      [79.141,53.453],
 		notBefore:   "sidequest.vc_chuchote"
 	}],
 	// ----------------- Armorers -----------------------
 	armorer: [{
-		coords:      [[39.969,81.000],
-		             [64.956,65.109],
-		             [50.281,64.297]],
+		coords:      [64.956,65.109],
+		id:          "tourneyArmorer",
 		extraLabel:  "craftlevel.journeyman"
 	}, {
 		coords:      [86.156,63.453],
@@ -41,6 +42,14 @@
 		underground: true,
 		entrances:   "foxhollow_hanse",
 		liberate:    true
+	}, {
+		coords:      [39.969,81.000],
+		id:          "francollartsArmorer",
+		extraLabel:  "craftlevel.journeyman"
+	}, {
+		coords:      [50.281,64.297],
+		id:          "beauclairArmorer",
+		extraLabel:  "craftlevel.journeyman"
 	}],
 	// ----------------- Armorer's Tables ---------------
 	armorerstable: [{
@@ -81,7 +90,8 @@
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
-		coords:      [64.531,63.641]
+		coords:      [64.531,63.641],
+		id:          "tourneyBarber"
 	}, {
 		coords:      [88.969,102.594],
 		liberate:    true
@@ -89,7 +99,6 @@
 	// ----------------- Blacksmiths --------------------
 	blacksmith: [{
 		coords:      [[49.813,64.359],
-		             [65.113,64.688],
 		             [69.578,100.859]],
 		extraLabel:  "craftlevel.journeyman"
 	}, {
@@ -109,6 +118,10 @@
 		desc:        "armorer.desc",
 		extraDesc:   "blacksmith.desc",
 		master:      true
+	}, {
+		coords:      [65.113,64.688],
+		id:          "tourneyBlacksmith",
+		extraLabel:  "craftlevel.journeyman"
 	}],
 	// ----------------- Boats --------------------------
 	boat: [{
@@ -368,37 +381,81 @@
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
-		coords:      [[51.397,61.141],
-		             [52.328,65.000],
-		             [41.528,81.109],
-		             [64.856,62.734],
-		             [63.653,90.625],
-		             [75.606,75.188]],
+		coords:      [64.856,62.734],
+		id:          "tourneyInnkeepGwent",
 		extraLabel:  "innkeep.label"
 	}, {
-		coords:      [[51.047,66.250],
-		             [85.628,53.734]],
+		coords:      [51.121,66.141],
+		id:          "beauclairHerbalistGwent",
 		extraLabel:  "herbalist.label"
 	}, {
-		coords:      [[53.672,61.313],
-		             [52.919,62.609],
-		             [58.359,72.672]]
+		coords:      [58.359,72.672],
+		id:          "isabelleGwent",
+		extraLabel:  "t:gwent.isabelle.label"
 	}, {
-		coords:      [[50.750,65.109],
-		             [55.328,61.891],
-		             [58.328,72.000]],
-		extraLabel:  "shopkeeper.label"
+		coords:      [58.328,72.000],
+		id:          "butcherGwent",
+		extraLabel:  "t:shopkeeper.butcher.label"
 	}, {
-		coords:      [[50.481,64.297],
-		             [40.169,81.000],
-		             [65.156,65.109]],
+		coords:      [65.156,65.109],
+		id:          "tourneyArmorerGwent",
 		extraLabel:  "armorer.label"
 	}, {
 		coords:      [64.831,63.641],
+		id:          "tourneyBarberGwent",
 		extraLabel:  "barber.label"
 	}, {
 		coords:      [65.313,64.688],
+		id:          "tourneyBlacksmithGwent",
 		extraLabel:  "blacksmith.label"
+	}, {
+		coords:      [63.653,90.625],
+		id:          "barrelandbungInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [85.628,53.734],
+		id:          "ravelloHerbalistGwent",
+		extraLabel:  "herbalist.label"
+	}, {
+		coords:      [50.750,65.109],
+		id:          "dupontMerchantGwent",
+		extraLabel:  "shopkeeper.label"
+	}, {
+		coords:      [40.169,81.000],
+		id:          "francollartsArmorerGwent",
+		extraLabel:  "armorer.label"
+	}, {
+		coords:      [75.606,75.188],
+		id:          "cockatriceInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [51.397,61.141],
+		id:          "pheasantryInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [41.528,81.109],
+		id:          "scarletInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [50.481,64.297],
+		id:          "beauclairArmorerGwent",
+		extraLabel:  "armorer.label"
+	}, {
+		coords:      [53.672,61.313],
+		id:          "ducalGwent",
+		extraLabel:  "t:poi.ducal.label"
+	}, {
+		coords:      [52.919,62.609],
+		id:          "perfumeryMerchantGwent",
+		extraLabel:  "alchemy.label"
+	}, {
+		coords:      [52.328,65.000],
+		id:          "wineryInnkeepGwent",
+		extraLabel:  "innkeep.label"
+	}, {
+		coords:      [55.328,61.891],
+		id:          "pierreGwent",
+		extraLabel:  "t:shopkeeper.pierre.label"
 	}],
 	// ----------------- Gwent Quests -------------------
 	gwentquest: [{
@@ -431,14 +488,17 @@
 	}],
 	// ----------------- Herbalists ---------------------
 	herbalist: [{
-		coords:      [[85.328,53.734],
-		             [51.047,66.250]]
+		coords:      [51.047,66.250],
+		id:          "beauclairHerbalist"
 	}, {
 		coords:      [32.406,68.047],
 		liberate:    true
 	}, {
 		coords:      [94.469,70.844],
 		rescueFrom:  "herbalist_pid"
+	}, {
+		coords:      [85.328,53.734],
+		id:          "ravelloHerbalist"
 	}],
 	// ----------------- Honeycombs ---------------------
 	honeycomb: [{
@@ -451,14 +511,16 @@
 	// ----------------- Innkeeps -----------------------
 	innkeep: [{
 		coords:      [75.406,75.188],
+		id:          "cockatriceInnkeep",
 		extraLabel:  "t:innkeep.cockatrice.label",
 		desc:        "t:innkeep.desc"
 	}, {
-		coords:      [[64.656,62.734],
-		             [41.328,81.109]],
+		coords:      [64.656,62.734],
+		id:          "tourneyInnkeep",
 		desc:        "t:innkeep.desc"
 	}, {
 		coords:      [51.438,61.234],
+		id:          "pheasantryInnkeep",
 		extraLabel:  "t:innkeep.pheasantry.label",
 		desc:        "t:innkeep.desc"
 	}, {
@@ -468,6 +530,7 @@
 		liberate:    true
 	}, {
 		coords:      [63.453,90.625],
+		id:          "barrelandbungInnkeep",
 		extraLabel:  "t:innkeep.barrelandbung.label",
 		desc:        "t:innkeep.desc"
 	}, {
@@ -477,6 +540,7 @@
 		liberate:    true
 	}, {
 		coords:      [52.128,65.000],
+		id:          "wineryInnkeep",
 		extraLabel:  "t:innkeep.winery.label",
 		desc:        "t:innkeep.desc"
 	}, {
@@ -484,6 +548,11 @@
 		extraLabel:  "t:innkeep.clever.label",
 		desc:        "t:innkeep.desc",
 		notBefore:   "sidequest.father"
+	}, {
+		coords:      [41.328,81.109],
+		id:          "scarletInnkeep",
+		extraLabel:  "t:innkeep.scarlet.label",
+		desc:        "t:innkeep.desc"
 	}],
 	// ----------------- Knights in Distress ------------
 	kid: [{
@@ -576,6 +645,7 @@
 	// ----------------- Points of Interest -------------
 	poi: [{
 		coords:      [53.768,61.625],
+		id:          "ducal",
 		label:       "t:poi.ducal.label"
 	}, {
 		coords:      [5.500,4.000],
@@ -728,6 +798,8 @@
 		notBefore:   "sidequest.vc_dun"
 	}, {
 		coords:      [50.719,65.109],
+		id:          "dupontMerchant",
+		extraLabel:  "t:shopkeeper.dupont.label",
 		sells:       ["paintings", "crafting"]
 	}, {
 		coords:      [[63.734,89.188],
@@ -752,10 +824,12 @@
 		rescueFrom:  "cockatrice_shopkeeper_pid"
 	}, {
 		coords:      [55.344,62.078],
-		extraLabel:  "shopkeeper.tailor.label",
-		desc:        "shopkeeper.tailor.desc"
+		id:          "pierre",
+		extraLabel:  ["t:shopkeeper.tailor.label", "t:shopkeeper.pierre.label"],
+		desc:        "t:shopkeeper.tailor.desc"
 	}, {
 		coords:      [58.359,71.797],
+		id:          "butcher",
 		extraLabel:  "t:shopkeeper.butcher.label",
 		sells:       "food"
 	}, {

@@ -51,6 +51,7 @@ window.i18nData.tr.t = {
 	shopkeeper: {
 		butcher: { label: "Kasap" },
 		dye:     { label: "Boya Tüccarı" },
+		tailor:  { desc: "Giysi ve maske satar." },
 		vintner: { label: "Şarap Tüccarı" }
 	},
 	signpost: {

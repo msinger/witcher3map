@@ -1,6 +1,9 @@
 window.i18nData = window.i18nData || {};
 window.i18nData.en = window.i18nData.en || {};
 window.i18nData.en.t = {
+	alchemy: {
+		perfumery: { label: "Perfumery" }
+	},
 	banditcamp: {
 		ussar: { desc: "It will only spawn if the eggs were not destroyed during the '__contract.bovineblues__' mission." }
 	},
@@ -10,6 +13,9 @@ window.i18nData.en.t = {
 	brothel: {
 		belle: { label: "The Belles of Beauclair" }
 	},
+	gwent: {
+		isabelle: { label: "Madame Isabelle" }
+	},
 	innkeep: {
 		desc: "Here you can buy or sell various items.",
 		auberge:       { label: "The Ruddy Brush Auberge" },
@@ -18,6 +24,7 @@ window.i18nData.en.t = {
 		cockatrice:    { label: "The Cockatrice Inn" },
 		pheasantry:    { label: "The Pheasantry" },
 		salamander:    { label: "The Silver Salamander Inn" },
+		scarlet:       { label: "The Scarlet Cardinal Inn" },
 		winery:        { label: "The Adder And Jewels Winery" }
 	},
 	poi: {
@@ -52,7 +59,10 @@ window.i18nData.en.t = {
 	},
 	shopkeeper: {
 		butcher: { label: "Butcher" },
+		dupont:  { label: "Dupont & Sons" },
 		dye:     { label: "Dye Merchant" },
+		pierre:  { label: "Pierre" },
+		tailor:  { label: "Tailor's Workshop", desc:  "Sells clothes and masks." },
 		vintner: { label: "Vintner" }
 	},
 	signpost: {

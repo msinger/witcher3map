@@ -5,12 +5,12 @@ window.i18nData.pl.s = {
 		gremist: { label: "Gremist" }
 	},
 	innkeep: {
-		arinbjornInn:      { label: "Karczma w Arinbjorn" },
-		harvikenInn:       { label: "Karczma w Harviken" },
-		houseOfWarriors:   { label: "Dom Wojowników" },
-		svorlagInn:        { label: "Karczma w Svorlag" },
-		theNewPort:        { label: "Nowy Port" },
-		uriallaHarbourInn: { label: "Karczma w Urialli" }
+		arinbjornInn:     { label: "Karczma w Arinbjorn" },
+		harvikenInn:      { label: "Karczma w Harviken" },
+		houseOfWarriors:  { label: "Dom Wojowników" },
+		svorlagInn:       { label: "Karczma w Svorlag" },
+		theNewPort:       { label: "Nowy Port" },
+		uriallaHarborInn: { label: "Karczma w Urialli" }
 	},
 	poi: {
 		birna: {

@@ -5,12 +5,12 @@ window.i18nData.tr.s = {
 		gremist: { label: "Gremist" }
 	},
 	innkeep: {
-		arinbjornInn:      { label: "Arinbjorn Hanı" },
-		harvikenInn:       { label: "Harviken Hanı" },
-		houseOfWarriors:   { label: "Savaşçıların Evi" },
-		svorlagInn:        { label: "Svorlag Hanı" },
-		theNewPort:        { label: "Yeni Liman" },
-		uriallaHarbourInn: { label: "Urialla Harbour Hanı" }
+		arinbjornInn:     { label: "Arinbjorn Hanı" },
+		harvikenInn:      { label: "Harviken Hanı" },
+		houseOfWarriors:  { label: "Savaşçıların Evi" },
+		svorlagInn:       { label: "Svorlag Hanı" },
+		theNewPort:       { label: "Yeni Liman" },
+		uriallaHarborInn: { label: "Urialla Harbour Hanı" }
 	},
 	poi: {
 		birna: {

@@ -9,7 +9,8 @@
 	// ----------------- Armorers -----------------------
 	armorer: [{
 		coords:      [59.187,64.750],
-		extraLabel:  "craftlevel.amateur"
+		id:          "willis",
+		extraLabel:  ["craftlevel.amateur", "w:armorer.willis.label"]
 	}],
 	// ----------------- Armorer's Tables ---------------
 	armorerstable: [{
@@ -99,11 +100,15 @@
 	// ----------------- Gwent Players ------------------
 	gwent: [{
 		coords:      [66.030,70.938],
+		id:          "aldertGwent",
+		extraLabel:  "w:gwent.aldert.label",
 		before:      "mainquest.incident"
 	}],
 	// ----------------- Herbalists ---------------------
 	herbalist: [{
-		coords:      [64.437,33.687]
+		coords:      [64.437,33.687],
+		id:          "tomira",
+		extraLabel:  "w:herbalist.tomira.label",
 	}, {
 		coords:      [37.750,93.125],
 		liberate:    true
@@ -187,7 +192,8 @@
 	// ----------------- Innkeeps -----------------------
 	innkeep: [{
 		coords:      [65.125,70.219],
-		extraLabel:  "w:innkeep.whiteOrchardInn.label",
+		id:          "elsa",
+		extraLabel:  ["w:innkeep.whiteOrchardInn.label", "w:innkeep.elsa.label"],
 		sells:       ["gwent", "food", "drinks"],
 		before:      "mainquest.incident"
 	}],
@@ -489,6 +495,8 @@
 	// ----------------- Shopkeepers --------------------
 	shopkeeper: [{
 		coords:      [64.344,74.187],
+		id:          "bram",
+		extraLabel:  "w:shopkeeper.bram.label",
 		sells:       ["gwent", "drinks", "crafting", "recipes", "w:temerianSet"]
 	}, {
 		coords:      [64.312,17.313],
