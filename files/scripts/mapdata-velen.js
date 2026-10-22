@@ -5269,30 +5269,40 @@
 	}],
 	// ----------------- Places of Power ----------------
 	pop: [{
-		coords:      [[230.391,98.688],
-		             [55.922,154.672]],
+		coords:      [230.391,98.688],
+		id:          "igniPopTempleIsle",
+		extraLabel:  "pop.igni.label"
+	}, {
+		coords:      [55.922,154.672],
+		id:          "igniPopHillock",
 		extraLabel:  "pop.igni.label"
 	}, {
 		coords:      [200.813,162.688],
+		id:          "axiiPop",
 		extraLabel:  "pop.axii.label"
 	}, {
 		coords:      [152.688,47.781],
+		id:          "quenPopLornruk",
 		extraLabel:  "pop.quen.label"
 	}, {
 		coords:      [15.063,76.140],
+		id:          "aardPop",
 		extraLabel:  "pop.aard.label"
 	}, {
 		coords:      [53.234,52.414],
+		id:          "yrdenPopMire",
 		extraLabel:  "pop.yrden.label",
 		underground: true,
 		notBefore:   "mainquest.wandering",
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"]
 	}, {
 		coords:      [35.688,133.594],
+		id:          "quenPopBald",
 		extraLabel:  "pop.quen.label",
 		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [80.219,141.359],
+		id:          "yrdenPopDescent",
 		extraLabel:  "pop.yrden.label"
 	}],
 	// ----------------- Points of Interest -------------

@@ -622,24 +622,29 @@
 	// ----------------- Places of Power ----------------
 	pop: [{
 		coords:      [48.422,100.266],
+		id:          "quenPop",
 		extraLabel:  "pop.quen.label",
 		underground: true,
 		entrances:   "quen_cave"
 	}, {
 		coords:      [61.531,44.969],
+		id:          "axiiPop",
 		extraLabel:  "pop.axii.label",
 		underground: true,
 		entrances:   "albertus_grotto"
 	}, {
 		coords:      [36.359,59.375],
+		id:          "aardPop",
 		extraLabel:  "pop.aard.label"
 	}, {
 		coords:      [68.625,114.844],
+		id:          "igniPop",
 		extraLabel:  "pop.igni.label",
 		underground: true,
 		entrances:   "ussar_cave"
 	}, {
 		coords:      [119.188,74.125],
+		id:          "yrdenPop",
 		extraLabel:  "pop.yrden.label"
 	}],
 	// ----------------- Points of Interest -------------

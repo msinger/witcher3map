@@ -678,32 +678,45 @@
 	}],
 	// ----------------- Places of Power ----------------
 	pop: [{
-		coords:      [[63.718,180.828],
-		             [127.547,162.922]],
+		coords:      [63.718,180.828],
+		id:          "yrdenPopHarviken",
+		extraLabel:  "pop.yrden.label"
+	}, {
+		coords:      [127.547,162.922],
+		id:          "yrdenPopDruid",
 		extraLabel:  "pop.yrden.label"
 	}, {
 		coords:      [198.157,177.281],
+		id:          "quenPopUrialla",
 		extraLabel:  "pop.quen.label"
 	}, {
 		coords:      [177.781,66.016],
+		id:          "igniPopSvorlag",
 		extraLabel:  "pop.igni.label"
 	}, {
-		coords:      [[101.719,117.187],
-		             [133.641,125.797]],
+		coords:      [101.719,117.187],
+		id:          "axiiPopFart",
+		extraLabel:  "pop.axii.label"
+	}, {
+		coords:      [133.641,125.797],
+		id:          "axiiPopWreck",
 		extraLabel:  "pop.axii.label"
 	}, {
 		coords:      [136.031,172.938],
+		id:          "aardPop",
 		extraLabel:  "pop.aard.label"
 	}, {
 		coords:      [155.156,121.563],
+		id:          "quenPopTrolde",
 		extraLabel:  "pop.quen.label",
-		undergroung: true,
+		underground: true,
 		entrances:   "trolde_passage",
 		notBefore:   "sidequest.gambit"
 	}, {
 		coords:      [154.875,133.469],
+		id:          "igniPopSunstone",
 		extraLabel:  "pop.igni.label",
-		undergroung: true,
+		underground: true,
 		entrances:   "sunstone_cave",
 		notBefore:   "mainquest.sunstone"
 	}],
