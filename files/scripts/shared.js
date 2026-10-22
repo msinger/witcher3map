@@ -348,9 +348,14 @@ function prescreenMapData(mapInfo, data) {
 			    dataKey == "event" ||
 			    dataKey == "contract" ||
 			    dataKey == "gwentquest" ||
-			    dataKey == "treasurehunt") {
+			    dataKey == "treasurehunt" ||
+			    dataKey == "signpost") {
 				if (!item.id && item.name && typeof item.name == "string") {
-					item.id = dataKey + "." + item.name;
+					let n = item.name;
+					let p = n.indexOf(":");
+					if (p >= 0)
+						n = n.substr(p + 1);
+					item.id = dataKey + "." + n;
 				}
 			}
 
