@@ -21,6 +21,7 @@ var interiors = [];
 var map = null;
 var searchData = [];
 var prevHashParams = {};
+var selectedTab = "filter";
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
@@ -262,7 +263,7 @@ function saveDisabledMarkers() {
 }
 
 function updateCount(dataKey) {
-	$("ul.key:not(.controls) > li:not(.none) > i." + dataKey + " ~ :last").text(uncheckedMarkerCount[dataKey]);
+	$("ul.key.filter > li:not(.none) > i." + dataKey + " ~ :last").text(uncheckedMarkerCount[dataKey]);
 }
 
 function toggleMarker(mobj, noUpdate) {
@@ -505,6 +506,7 @@ function closeInterior(id, skipHashUpdate) {
 	interiors[id].shown = false;
 	if (!skipHashUpdate)
 		updateInteriorHash();
+	$("#interior-switch" + id).addClass("interior-hidden").children("i").removeClass("fa-eye").addClass("fa-eye-slash");
 }
 
 function updateInteriorLabel(interiorId, floorId) {
@@ -549,6 +551,7 @@ function selectFloor(interiorId, floorId, fit, skipHashUpdate) {
 	interior.tooltip.addTo(map);
 	interior.shown = true;
 	interior.shownFloorId = floorId;
+	$("#interior-switch" + interiorId).removeClass("interior-hidden").children("i").removeClass("fa-eye-slash").addClass("fa-eye");
 	if (!skipHashUpdate)
 		updateInteriorHash();
 	if (fit)
@@ -573,12 +576,42 @@ function findNearestInterior(p) {
 	return found;
 }
 
+function hackySticky() {
+	if ($(window).height() > $("#sidebar-wrap").outerHeight() + $("div#copyright").outerHeight() + 45)
+		$("div#copyright").addClass("absolute");
+	else
+		$("div#copyright").removeClass("absolute");
+}
+
+function selectTab(tab) {
+	if (tab == selectedTab)
+		return;
+	$("#sidebar-tabs > i").removeClass("sel");
+	$("#sidebar-wrap > div[id^='body-']").hide();
+	$("#tab-" + tab).addClass("sel");
+	$("#body-" + tab).show();
+	selectedTab = tab;
+	hackySticky();
+	$("#sidebar").getNiceScroll().resize();
+}
+
 function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
 			'<div id="sidebar-wrap">' +
 				'<a href="' + window.topdir + '/index.html" title="' + esc($.t("controls.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a>' +
-				'<ul class="key">';
+				'<div id="sidebar-tabs">' +
+					'<b></b><i id="tab-filter" class="fa fa-sliders sel"></i>';
+
+	if (interiors.length > 0)
+		sidebar += '<b></b><i id="tab-interior"></i>';
+
+	sidebar +=
+					'<b></b><i id="tab-settings" class="fa fa-cog"></i>' +
+					'<b class="fill"></b>' +
+				'</div>' +
+				'<div id="body-filter">' +
+					'<ul class="key filter">';
 
 	let count = 0;
 	for (key of markerGroupNames) {
@@ -596,18 +629,43 @@ function createSidebar() {
 		sidebar += '<li class="none"></li>';
 
 	sidebar +=
-				'</ul>' +
-				'<ul class="key controls">' +
-					'<li id="show-all"><i class="fa fa-eye"></i><div>' + esc($.t("controls.show")) + '</div></li>' +
-					'<li id="hide-all"><i class="fa fa-eye-slash"></i><div>' + esc($.t("controls.hide")) + '</div></li>' +
-					'<li id="show-counts"><i class="fa fa-check-square"></i><div>' + esc($.t("controls.showCounts")) + '</div></li>' +
-					'<li id="hide-counts"><i class="fa fa-square"></i><div>' + esc($.t("controls.hideCounts")) + '</div></li>' +
-					'<li id="reset-tracking"><i class="fa fa-eraser"></i><div>' + esc($.t("controls.resetInvisible")) + '</div></li>' +
-					'<li><a href="https://github.com/witcher3map/witcher3map/wiki" target="_blank"><i class="fa fa-info-circle"></i><div>' + esc($.t("controls.helpFeatures")) + '</div></a></li>' +
-					'<li id="Credits" class="credits"><i class="fa fa-copyright"></i><span>' + esc($.t("controls.credits")) + '</span></li>' +
-					'<li class="none"></li>' +
-				'</ul>' +
-				'<div id="lang-switcher"></div>' +
+					'</ul>' +
+					'<ul class="key controls">' +
+						'<li id="show-all"><i class="fa fa-eye"></i><div>' + esc($.t("controls.show")) + '</div></li>' +
+						'<li id="hide-all"><i class="fa fa-eye-slash"></i><div>' + esc($.t("controls.hide")) + '</div></li>' +
+						'<li id="show-counts"><i class="fa fa-check-square"></i><div>' + esc($.t("controls.showCounts")) + '</div></li>' +
+						'<li id="hide-counts"><i class="fa fa-square"></i><div>' + esc($.t("controls.hideCounts")) + '</div></li>' +
+						'<li><a href="https://github.com/witcher3map/witcher3map/wiki" target="_blank"><i class="fa fa-info-circle"></i><div>' + esc($.t("controls.helpFeatures")) + '</div></a></li>' +
+						'<li id="Credits" class="credits"><i class="fa fa-copyright"></i><span>' + esc($.t("controls.credits")) + '</span></li>' +
+					'</ul>' +
+				'</div>' +
+				'<div id="body-interior" hidden>' +
+					'<ul class="key interior">';
+
+	for (let i = 0; i < interiors.length; i++) {
+		let disabledClass = "";
+		let eye = "fa-eye";
+		if (!interiors[i].shown) {
+			disabledClass = ' class="interior-hidden"';
+			eye = "fa-eye-slash";
+		}
+		sidebar += '<li id="interior-switch' + i + '"' + disabledClass + '><i class="fa ' + eye + '"></i><div>' + interiors[i].label + '</div></li>';
+	}
+
+	// Number of elements must be even.
+	if (interiors.length & 1)
+		sidebar += '<li class="none"></li>';
+
+	sidebar +=
+					'</ul>' +
+				'</div>' +
+				'<div id="body-settings" hidden>' +
+					'<ul class="key controls">' +
+						'<li id="reset-tracking"><i class="fa fa-eraser"></i><div>' + esc($.t("controls.resetInvisible")) + '</div></li>' +
+						'<li class="none"></li>' +
+					'</ul>' +
+					'<div id="lang-switcher"></div>' +
+				'</div>' +
 			'</div>' +
 			'<div id="copyright">' +
 				'<div id="note">' +
@@ -712,13 +770,6 @@ function runMap() {
 	if (initialHideAll) {
 		$("#hide-all").hide();
 		$("#show-all").show();
-	}
-
-	function hackySticky() {
-		if ($(window).height() > $("#sidebar-wrap").outerHeight() + $("div#copyright").outerHeight() + 45)
-			$("div#copyright").addClass("absolute");
-		else
-			$("div#copyright").removeClass("absolute");
 	}
 
 	$(window).on("resize", function() {
@@ -972,7 +1023,7 @@ function runMap() {
 			hash.removeParam("i");
 	}
 
-	for (var val of $("ul.key:not(.controls) li:not(.none) i")) {
+	for (var val of $("ul.key.filter li:not(.none) i")) {
 		var marker = $(val).attr("class");
 		var pill = $('<div class="pill">' + uncheckedMarkerCount[marker] + "</div>");
 		$(val).next().after(pill);
@@ -1024,7 +1075,7 @@ function runMap() {
 	});
 
 	$("#hide-counts").on("click", function(e) {
-		for (var val of $("ul.key:not(.controls) > li:not(.none) i"))
+		for (var val of $("ul.key.filter > li:not(.none) i"))
 			$(val).siblings(":last").hide();
 
 		$("#hide-counts").hide();
@@ -1033,7 +1084,7 @@ function runMap() {
 	});
 
 	$("#show-counts").on("click", function(e) {
-		for (var val of $("ul.key:not(.controls) > li:not(.none) i"))
+		for (var val of $("ul.key.filter > li:not(.none) i"))
 			$(val).siblings(":last").show();
 
 		$("#show-counts").hide();
@@ -1047,7 +1098,7 @@ function runMap() {
 			resetMarkers();
 	});
 
-	$("ul.key:not(.controls)").on("click", "li:not(.none)", function(e) {
+	$("ul.key.filter").on("click", "li:not(.none)", function(e) {
 		var dataKey = $(this).find("i").attr("class");
 
 		let disabled = markerLayers[dataKey].disabled;
@@ -1594,6 +1645,25 @@ function runMap() {
 
 	map.on("mousemove", function (e) {
 		coordDiv.innerHTML = "<p>" + e.latlng.lat.toFixed(3) + ", " + e.latlng.lng.toFixed(3) + "</p>";
+	});
+
+	$("#sidebar-tabs > i").on("click", function(e) {
+		let id = this.id;
+		if (!id || id.substr(0, 4) != "tab-")
+			return;
+		id = id.substr(4);
+		selectTab(id)
+	});
+
+	$("ul.key.interior").on("click", "li:not(.none)", function(e) {
+		let id = this.id;
+		if (!id || id.substr(0, 15) != "interior-switch")
+			return;
+		id = +id.substr(15);
+		if (interiors[id].shown)
+			closeInterior(id);
+		else
+			selectFloor(id, interiors[id].shownFloorId || 0, true);
 	});
 
 	document.getElementById("map").style.cursor = "crosshair";
