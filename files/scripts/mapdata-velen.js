@@ -1739,7 +1739,8 @@
 			}]
 		}, {
 			label:     "interior.levelB2.label",
-			entrances: ["kingfisher_sewers", "lower_morgue_sewers", "bath_sewers", "glory_sewers", "bits_sewers"],
+			entrances: ["kingfisher_sewers", "lower_morgue_sewers", "bath_sewers", "glory_sewers",
+			            "bits_sewers", "kluhg_hatch"],
 			images: [{
 				bounds: i.noviInn.i01,
 				file:   "v/interiors/novigrad_zimorodek_sewers_1.png"
@@ -1845,6 +1846,37 @@
 			images: [{
 				bounds: i.cheeseDext.d02,
 				file:   "v/interiors/gf33_hall_of_dexterity_02_mod.png"
+			}]
+		}]
+	}, {
+		label:       "v:interior.mikel_cave.label",
+		floors: [{
+			label:     "interior.levelB3.label",
+			images: [{
+				bounds: i.hideoutDive.h06,
+				file:   "v/interiors/gr17_hideout_06.png"
+			}, {
+				bounds: i.hideoutEgg.h05,
+				file:   "v/interiors/gr17_hideout_05.png"
+			}]
+		}, {
+			label:     "interior.levelB2.label",
+			images: [{
+				bounds: i.hideoutMain.h02,
+				file:   "v/interiors/gr17_hideout_02.png"
+			}, {
+				bounds: i.hideoutNest.h03,
+				file:   "v/interiors/gr17_hideout_03.png"
+			}, {
+				bounds: i.hideoutEgg.h04,
+				file:   "v/interiors/gr17_hideout_04.png"
+			}]
+		}, {
+			label:     "interior.levelB1.label",
+			entrances: "mikel_cave",
+			images: [{
+				bounds: i.hideoutMain.h01,
+				file:   "v/interiors/gr17_hideout_01.png"
 			}]
 		}]
 	}],
@@ -7132,7 +7164,7 @@
 		underground: true,
 		entrances:   "fools_cave"
 	}, {
-		coords:      [[142.953,107.594],
+		coords:      [[142.953,107.594], // TODO: Can't see these four chests in REDkit. They may only show up during the quest. Check exact location.
 		             [142.188,109.547],
 		             [141.313,106.375],
 		             [139.703,107.656]],
@@ -7245,9 +7277,9 @@
 		underground: true,
 		entrances:   "fools_cave"
 	}, {
-		coords:      [[145.172,108.625],
-		             [144.563,110.125],
-		             [143.547,110.484],
+		coords:      [[144.508,108.766],
+		             [143.961,109.891],
+		             [143.352,110.391],
 		             [140.781,112.344]],
 		underwater:  true,
 		underground: true,
@@ -7515,7 +7547,21 @@
 		}, { x: 706, y: 926 }, { lat: 158.734, lng: 209.797 }, scale),
 	cheeseEnd: calcInteriorBounds({
 			e01: { size: { w: 862, h: 862 }, off: { x: 0, y: 0 } }
-		}, { x: 351, y: 440 }, { lat: 154.875, lng: 208.383 }, scale)
+		}, { x: 351, y: 440 }, { lat: 154.875, lng: 208.383 }, scale),
+	hideoutMain: calcInteriorBounds({
+			h01: { size: { w: 588, h: 588 }, off: { x: 132, y:  0 } },
+			h02: { size: { w: 982, h: 982 }, off: { x:   0, y: 14 } }
+		}, { x: 496, y: 131 }, { lat: 147.250, lng: 106.961 }, scale),
+	hideoutDive: calcInteriorBounds({
+			h06: { size: { w: 446, h: 446 }, off: { x: 0, y: 0 } }
+		}, { x: 173, y: 27 }, { lat: 144.766, lng: 109.383 }, scale),
+	hideoutNest: calcInteriorBounds({
+			h03: { size: { w: 1342, h: 1342 }, off: { x: 0, y: 0 } }
+		}, { x: 1218, y: 523 }, { lat: 142.109, lng: 111.844 }, scale),
+	hideoutEgg: calcInteriorBounds({
+			h04: { size: { w:  404, h:  404 }, off: { x:  0, y: 643 } },
+			h05: { size: { w: 1036, h: 1036 }, off: { x: 51, y:   0 } }
+		}, { x: 364, y: 311 }, { lat: 141.547, lng: 112.813 }, scale)
 }; };
 
 registerMap({
