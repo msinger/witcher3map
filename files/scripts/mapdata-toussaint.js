@@ -465,6 +465,7 @@
 		notBefore:   "sidequest.gw_fear"
 	}, {
 		coords:      [51.359,60.890],
+		id:          "countMonnier",
 		label:       "sidequest.gw_fear.label",
 		desc:        "sidequest.gw_fear.desc"
 	},],
