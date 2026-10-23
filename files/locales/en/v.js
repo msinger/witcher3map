@@ -69,6 +69,7 @@ window.i18nData.en.v = {
 		mikel_cave:      { label: "Hideout" },
 		novigrad_sewers: { label: "Novigrad Sewers" },
 		oxenfurt_sewers: { label: "Oxenfurt Sewers" },
+		pit:             { label: "Devil's Pit" },
 		sabbath_cave:    { label: "__v:entrance.sabbath_cave__" },
 		wandering_cave:  { label: "__v:entrance.wandering_cave__" }
 	},
