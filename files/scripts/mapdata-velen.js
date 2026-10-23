@@ -694,7 +694,7 @@
 		notBefore:   "mainquest.flowers",
 		groupId:     "bathhouse"
 	}, {
-		coords:      [135.344,127.547],
+		coords:      [135.703,128.250],
 		during:      "sidequest.eternal",
 		groupId:     "devils_pit"
 	}, {
@@ -1877,6 +1877,22 @@
 			images: [{
 				bounds: i.hideoutMain.h01,
 				file:   "v/interiors/gr17_hideout_01.png"
+			}]
+		}]
+	}, {
+		label:       "v:interior.pit.label",
+		floors: [{
+			label:     "interior.levelB2.label",
+			entrances: "devils_pit",
+			images: [{
+				bounds: i.pit.p01,
+				file:   "v/interiors/plaguepit_dlc_interior_minimap_01_patched.png"
+			}]
+		}, {
+			label:     "interior.levelB1.label",
+			images: [{
+				bounds: i.pit.p02,
+				file:   "v/interiors/plaguepit_dlc_interior_minimap_02_patched.png"
 			}]
 		}]
 	}],
@@ -5514,7 +5530,7 @@
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [138.984,126.234],
+		coords:      [138.977,126.484],
 		label:       "v:poi.reinald1.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -7561,7 +7577,11 @@
 	hideoutEgg: calcInteriorBounds({
 			h04: { size: { w:  404, h:  404 }, off: { x:  0, y: 643 } },
 			h05: { size: { w: 1036, h: 1036 }, off: { x: 51, y:   0 } }
-		}, { x: 364, y: 311 }, { lat: 141.547, lng: 112.813 }, scale)
+		}, { x: 364, y: 311 }, { lat: 141.547, lng: 112.813 }, scale),
+	pit: calcInteriorBounds({
+			p01: { size: { w: 2666, h: 2409 }, off: { x:   0, y: 33 } },
+			p02: { size: { w: 1380, h: 1777 }, off: { x: 739, y:  0 } }
+		}, { x: 817, y: 1998 }, { lat: 135.922, lng: 128.031 }, scale)
 }; };
 
 registerMap({
