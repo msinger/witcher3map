@@ -7359,7 +7359,7 @@
 		name:        "events"
 	}, {
 		coords:      [130.344,173.906],
-		name:        "gods"
+		name:        "goods"
 	}, {
 		coords:      [164.563,146.844],
 		name:        "bloodgold"
