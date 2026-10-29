@@ -764,9 +764,9 @@ function createQuestList(groups, f) {
 
 	let r = '<ul class="questcat">';
 	for (let i = 0; i < groups.length; i++) {
-		r += '<li class="questcat questcat-' + groups[i].id + '">' +
+		r += '<li tabindex="0" class="questcat questcat-' + groups[i].id + '" data-quest-cat="' + groups[i].id + '">' +
 		     '<div class="ellip-tooltip" data-quest-cat="' + groups[i].id + '">' + groups[i].label + '</div>' +
-		     '<i class="caret fa fa-caret-down" data-quest-cat="' + groups[i].id + '"></i>' +
+		     '<i class="caret fa fa-caret-down" data-quest-cat="' + groups[i].id + '"></i><br>' +
 		     '<ul class="quest" hidden>';
 		for (let quest of g[groups[i].id]) {
 			let dlcClass = "";
@@ -787,12 +787,12 @@ function createQuestList(groups, f) {
 			if (quest.initial)
 				r += '<i class="checkbox checkbox-frozen fa fa-check-square-o"></i>';
 			else
-				r += '<i class="checkbox fa ' + checkedClass + '" data-quest-id="' + quest.id + '"></i>';
-			r += '<i class="checkbox-f fa ' + finishedClass + '" data-quest-id="' + quest.id + '"></i>' +
+				r += '<i tabindex="0" class="checkbox fa ' + checkedClass + '" data-quest-id="' + quest.id + '"></i>';
+			r += '<i tabindex="0" class="checkbox-f fa ' + finishedClass + '" data-quest-id="' + quest.id + '"></i>' +
 			     '<i class="quest-region region-' + quest.region + '"></i>' +
 			     '<i class="quest-type ' + quest.questKey + '"></i>' +
 			     '<b class="quest-level">' + (quest.level || "") + '</b>' +
-			     '<div class="ellip-tooltip' + dlcClass + '">' + quest.labelText + '</div></li>';
+			     '<div class="ellip-tooltip' + dlcClass + '">' + quest.labelText + '</div><br></li>';
 		}
 		r += '</ul>' +
 		     '</li>';
@@ -806,14 +806,14 @@ function createSidebar() {
 		'<div id="sidebar">' +
 			'<div id="sidebar-logo"><a href="' + window.topdir + '/index.html" title="' + esc($.t("controls.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a></div>' +
 			'<div id="sidebar-tabs">' +
-				'<b></b><i id="tab-filter" class="fa fa-sliders sel"></i>';
+				'<b></b><i tabindex="0" id="tab-filter" class="fa fa-sliders sel"></i>';
 
 	if (interiors.length > 0)
-		sidebar += '<b></b><i id="tab-interior"></i>';
+		sidebar += '<b></b><i tabindex="0" id="tab-interior"></i>';
 
 	sidebar +=
-				'<b></b><i id="tab-quest"></i>' +
-				'<b></b><i id="tab-settings" class="fa fa-cog"></i>' +
+				'<b></b><i tabindex="0" id="tab-quest"></i>' +
+				'<b></b><i tabindex="0" id="tab-settings" class="fa fa-cog"></i>' +
 				'<b class="fill"></b>' +
 			'</div>' +
 			'<div id="sidebar-wrap">' +
@@ -826,7 +826,7 @@ function createSidebar() {
 			let disabledClass = "";
 			if (markerLayers[key].disabled)
 				disabledClass = ' class="layer-disabled"';
-			sidebar += "<li" + disabledClass + '><i class="' + key + '"></i><div class="ellip-tooltip">' + esc($.t("sidebar." + key)) + '</div></li>';
+			sidebar += '<li tabindex="0"' + disabledClass + '><i class="' + key + '"></i><div class="ellip-tooltip">' + esc($.t("sidebar." + key)) + '</div></li>';
 			count++;
 		}
 	}
@@ -838,12 +838,12 @@ function createSidebar() {
 	sidebar +=
 					'</ul>' +
 					'<ul class="key controls">' +
-						'<li id="show-all"><i class="fa fa-eye"></i><div class="ellip-tooltip">' + esc($.t("controls.show")) + '</div></li>' +
-						'<li id="hide-all"><i class="fa fa-eye-slash"></i><div class="ellip-tooltip">' + esc($.t("controls.hide")) + '</div></li>' +
-						'<li id="show-counts"><i class="fa fa-check-square"></i><div class="ellip-tooltip">' + esc($.t("controls.showCounts")) + '</div></li>' +
-						'<li id="hide-counts"><i class="fa fa-square"></i><div class="ellip-tooltip">' + esc($.t("controls.hideCounts")) + '</div></li>' +
+						'<li id="show-all" tabindex="0"><i class="fa fa-eye"></i><div class="ellip-tooltip">' + esc($.t("controls.show")) + '</div></li>' +
+						'<li id="hide-all" tabindex="0"><i class="fa fa-eye-slash"></i><div class="ellip-tooltip">' + esc($.t("controls.hide")) + '</div></li>' +
+						'<li id="show-counts" tabindex="0"><i class="fa fa-check-square"></i><div class="ellip-tooltip">' + esc($.t("controls.showCounts")) + '</div></li>' +
+						'<li id="hide-counts" tabindex="0"><i class="fa fa-square"></i><div class="ellip-tooltip">' + esc($.t("controls.hideCounts")) + '</div></li>' +
 						'<li><a href="https://github.com/witcher3map/witcher3map/wiki" target="_blank"><i class="fa fa-info-circle"></i><div class="ellip-tooltip">' + esc($.t("controls.helpFeatures")) + '</div></a></li>' +
-						'<li id="Credits" class="credits"><i class="fa fa-copyright"></i><span class="ellip-tooltip">' + esc($.t("controls.credits")) + '</span></li>' +
+						'<li id="Credits" tabindex="0" class="credits"><i class="fa fa-copyright"></i><span class="ellip-tooltip">' + esc($.t("controls.credits")) + '</span></li>' +
 					'</ul>' +
 				'</div>' +
 				'<div id="body-interior" hidden>' +
@@ -856,7 +856,7 @@ function createSidebar() {
 			disabledClass = ' class="interior-hidden"';
 			eye = "fa-eye-slash";
 		}
-		sidebar += '<li id="interior-switch' + i + '"' + disabledClass + '><i class="fa ' + eye + '"></i><div class="ellip-tooltip">' + interiors[i].label + '</div></li>';
+		sidebar += '<li id="interior-switch' + i + '" tabindex="0"' + disabledClass + '><i class="fa ' + eye + '"></i><div class="ellip-tooltip">' + interiors[i].label + '</div></li>';
 	}
 
 	// Number of elements must be even.
@@ -881,7 +881,7 @@ function createSidebar() {
 				'</div>' +
 				'<div id="body-settings" hidden>' +
 					'<ul class="key controls">' +
-						'<li id="reset-tracking"><i class="fa fa-eraser"></i><div class="ellip-tooltip">' + esc($.t("controls.resetProgress")) + '</div></li>' +
+						'<li id="reset-tracking" tabindex="0"><i class="fa fa-eraser"></i><div class="ellip-tooltip">' + esc($.t("controls.resetProgress")) + '</div></li>' +
 						'<li class="none"></li>' +
 					'</ul>' +
 					'<div id="lang-switcher"></div>' +
@@ -902,7 +902,7 @@ function createSidebar() {
 			'</div>' +
 		'</div>' +
 		'<div id="sidebar-border"></div>' +
-		'<div id="hide-sidebar"></div>';
+		'<div tabindex="0" id="hide-sidebar"></div>';
 
 	$("body").append(sidebar);
 }
@@ -970,6 +970,28 @@ function runMap() {
 				initialLayers.push(markerLayers[groupName]);
 		}
 	}
+
+	$.event.special.enter = {
+		delegateType: 'keydown',
+		bindType: 'keydown',
+		handle: function (e) {
+			if (e.originalEvent.key === "Enter") {
+				e.handleObj.handler.apply(this, arguments);
+				return false;
+			}
+		}
+	};
+
+	$.event.special.spacebar = {
+		delegateType: 'keydown',
+		bindType: 'keydown',
+		handle: function (e) {
+			if (e.originalEvent.key === " ") {
+				e.handleObj.handler.apply(this, arguments);
+				return false;
+			}
+		}
+	};
 
 	$("body").empty();
 	createSidebar();
@@ -1262,7 +1284,7 @@ function runMap() {
 		$("#show-counts").show();
 	}
 
-	$("#hide-all").on("click", function(e) {
+	$("#hide-all").on("click enter spacebar", function(e) {
 		disabledMarkers = [];
 		for (let val of markerGroupNames)
 			disabledMarkers.push(val);
@@ -1282,7 +1304,7 @@ function runMap() {
 		localStorage["hide-all-" + mapInfo.name] = true;
 	});
 
-	$("#show-all").on("click", function(e) {
+	$("#show-all").on("click enter spacebar", function(e) {
 		for (let val of allLayers) {
 			val.disabled = false;
 			map.addLayer(val);
@@ -1300,31 +1322,28 @@ function runMap() {
 		localStorage.removeItem("hide-all-" + mapInfo.name);
 	});
 
-	$("#hide-counts").on("click", function(e) {
+	$("#hide-counts").on("click enter spacebar", function(e) {
 		for (var val of $("ul.key.filter > li:not(.none) i"))
 			$(val).siblings(":last").hide();
-
 		$("#hide-counts").hide();
 		$("#show-counts").show();
 		localStorage["hide-counts"] = true;
 	});
 
-	$("#show-counts").on("click", function(e) {
+	$("#show-counts").on("click enter spacebar", function(e) {
 		for (var val of $("ul.key.filter > li:not(.none) i"))
 			$(val).siblings(":last").show();
-
 		$("#show-counts").hide();
 		$("#hide-counts").show();
 		localStorage.removeItem("hide-counts");
 	});
 
-	$("#reset-tracking").on("click", function(e) {
-		e.preventDefault();
+	$("#reset-tracking").on("click enter", function(e) {
 		if (confirm($.t("controls.resetConfirm")))
 			resetProgress();
 	});
 
-	$("ul.key.filter").on("click", "li:not(.none)", function(e) {
+	$("ul.key.filter").on("click enter spacebar", "li:not(.none)", function(e) {
 		var dataKey = $(this).find("i").attr("class");
 
 		let disabled = markerLayers[dataKey].disabled;
@@ -1381,12 +1400,12 @@ function runMap() {
 		});
 	}
 
-	$(document).on("click", "div#hide-sidebar:not(.show-sidebar)", function(e) {
+	$(document).on("click enter", "div#hide-sidebar:not(.show-sidebar)", function(e) {
 		hideSidebar(true);
 		localStorage["hide-sidebar"] = true;
 	});
 
-	$(document).on("click", "div#hide-sidebar.show-sidebar", function(e) {
+	$(document).on("click enter", "div#hide-sidebar.show-sidebar", function(e) {
 		showSidebar();
 		localStorage.removeItem("hide-sidebar");
 	});
@@ -1394,27 +1413,13 @@ function runMap() {
 	if (localStorage["hide-sidebar"])
 		hideSidebar(false);
 
-	$(document).on("click", "div#warn", function(e) {
+	$("div#warn").on("click", function(e) {
 		localStorage.hideWarn = true;
 		$(this).remove();
 	});
 
-	// This is supposed to close the popup when the user clicks anywhere in the window except the popup itself.
-	// But this doesn't work. e.toElement is undefined most of the time and just causes an exception.
-	/*
-	function popupClick(e) {
-		if ($(e.target).is("#popup-content") ||
-		    $(e.toElement.offsetParent).is("#popup-content") ||
-		    $(e.toElement.offsetParent).is("#popup-wrap"))
-			return;
-
-		popupClose();
-	}
-	*/
-
 	window.popupClose = function() {
 		$("#popup-wrap").remove();
-		//$(document).off("click", "*", popupClick);
 	}
 
 	function popup(title, content) {
@@ -1427,11 +1432,9 @@ function runMap() {
 			cursorborder: "none",
 			autohidemode: false
 		});
-		//$(document).on("click", "*", popupClick);
 	}
 
-	$(document).on("click", ".credits", function(e) {
-		e.preventDefault();
+	$(".credits").on("click enter", function(e) {
 		popup("Credits", [
 			'<p>Created by:</p>',
 			'<ul>',
@@ -1844,15 +1847,15 @@ function runMap() {
 		coordDiv.innerHTML = "<p>" + e.latlng.lat.toFixed(3) + ", " + e.latlng.lng.toFixed(3) + "</p>";
 	});
 
-	$("#sidebar-tabs > i").on("click", function(e) {
+	$("#sidebar-tabs > i").on("click enter", function(e) {
 		let id = this.id;
 		if (!id || id.substr(0, 4) != "tab-")
 			return;
 		id = id.substr(4);
-		selectTab(id)
+		selectTab(id);
 	});
 
-	$("ul.key.interior").on("click", "li:not(.none)", function(e) {
+	$("ul.key.interior").on("click enter spacebar", "li:not(.none)", function(e) {
 		let id = this.id;
 		if (!id || id.substr(0, 15) != "interior-switch")
 			return;
@@ -1865,7 +1868,7 @@ function runMap() {
 
 	document.getElementById("map").style.cursor = "crosshair";
 
-	$("li.quest i.checkbox").on("click", function(e) {
+	$("li.quest i.checkbox").on("click enter spacebar", function(e) {
 		let questId = this.dataset.questId;
 		if (!questId)
 			return;
@@ -1875,7 +1878,7 @@ function runMap() {
 		toggleChecked(quest.obj);
 	});
 
-	$("li.quest i.checkbox-f").on("click", function(e) {
+	$("li.quest i.checkbox-f").on("click enter spacebar", function(e) {
 		let questId = this.dataset.questId;
 		if (!questId)
 			return;
@@ -1890,6 +1893,23 @@ function runMap() {
 		if (!cat)
 			return;
 		toggleQuestCatOpen(cat);
+	});
+	$("li.questcat").on("keydown", function(e) {
+		let cat = this.dataset.questCat;
+		if (!cat)
+			return;
+		let key = e.originalEvent.key;
+		if (key == "Enter" || key == "+") {
+			if (questCatOpen.indexOf(cat) >= 0)
+				return;
+			toggleQuestCatOpen(cat);
+			return false;
+		} else if (key == "Backspace" || key == "-") {
+			if (questCatOpen.indexOf(cat) < 0)
+				return;
+			toggleQuestCatOpen(cat);
+			return false;
+		}
 	});
 
 	window.addEventListener("pagehide", function() {
