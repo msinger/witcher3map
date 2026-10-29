@@ -806,8 +806,9 @@ div#popup-wrap img#popup-close {
 		left: 205px
 	}
 
-	div#map {
-		left: 0
+	div#sidebar-logo img {
+		width: 180px;
+		height: 118px;
 	}
 
 	ul.key {
