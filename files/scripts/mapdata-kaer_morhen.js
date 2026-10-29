@@ -146,8 +146,7 @@
 	// ----------------- Sidequests ---------------------
 	sidequest: [{
 		coords:      [64.156,59.828],
-		name:        "berengar",
-		before:      "mainquest.mists"
+		name:        "berengar"
 	}, {
 		coords:      [39.703,77.000],
 		name:        "greenhouse"
@@ -156,12 +155,10 @@
 		name:        "slayer"
 	}, {
 		coords:      [62.750,42.531],
-		name:        "bastion",
-		notBefore:   "sidequest.magiclamp"
+		name:        "bastion"
 	}, {
 		coords:      [65.031,67.750],
-		name:        "forge",
-		notBefore:   "mainquest.wandering"
+		name:        "forge"
 	}],
 	// ----------------- Sign Posts ---------------------
 	signpost: [{

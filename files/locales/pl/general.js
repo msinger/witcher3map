@@ -42,7 +42,7 @@ window.i18nData.pl.general = {
 	contract: {
 		label: "__this.name@contract__",
 		desc:  "__this.name@contract/desc__",
-		apirian:       { label: "Kontrakt: Barciowe Widziadło" },
+		apiarian:      { label: "Kontrakt: Barciowe Widziadło" },
 		beast:         { label: "Kontrakt: Bestia z Hindarsfjall" },
 		biggamehunter: { label: "Beauclairskie Safari" },
 		bovineblues:   { label: "Kontrakt: Łaciate Kłopoty" },
@@ -95,9 +95,9 @@ window.i18nData.pl.general = {
 		hide:                 "Ukryj wszystko",
 		hideCounts:           "Ukryj ilość",
 		hideMonsters:         "Ukryj potwory",
-		resetInvisConfirm:    "To zresetuje wszystkie widzialne/zaznaczone znaki na mapie, do postaci domyślnej, " +
+		resetConfirm:         "To zresetuje wszystkie widzialne/zaznaczone znaki na mapie, do postaci domyślnej, " +
 		                      "jesteś pewien?",
-		resetInvisible:       "Przywróć ukryte",
+		resetProgress:        "Przywróć ukryte",
 		restoreDataButton:    "Przywróć kopię zapasową",
 		returnToMapSelection: "Powrót do wyboru mapy",
 		searchButton:         "Szukaj...",
@@ -186,13 +186,13 @@ window.i18nData.pl.general = {
 		},
 		neighborhood: { label: "Rough Neighborhood" },
 		passage1:     { label: "Cena Przejścia (Część 1)" },
-		passage2a: {
+		passage2: {
 			label: "Cena Przejścia (Część 2)",
 			desc:  "Żołnierze pojawią się w tym miejscu, jeśli w pierwszej części misji zostanie zapłacony hołd " +
 			       "żołnierzom."
 		},
-		passage2b: {
-			label: "Cena Przejścia (Część 2)",
+		passage3: {
+			label: "Cena Przejścia (Część 3)",
 			desc:  "Żołnierze pojawią się w tym miejscu, jeśli w pierwszej części misji żołnierzom nie zostanie " +
 			       "zapłacona danina."
 		},
@@ -314,6 +314,7 @@ window.i18nData.pl.general = {
 		desc:  "W tym miejscu możesz pomóc błędnemu rycerzowi w walce z bandytami."
 	},
 	mainquest: {
+		label: "__this.name@mainquest__",
 		baby:              { label: "Najbrzydszy człowiek na świecie" },
 		bald:              { label: "Łysa Góra" },
 		baron:             { label: "Krwawy Baron" },
@@ -479,6 +480,12 @@ window.i18nData.pl.general = {
 		quen:  { label: "Quen"  },
 		yrden: { label: "Yrden" }
 	},
+	questcategory: {
+		contracts:     "Kontrakty",
+		events:        "Wydarzenie",
+		sidequests:    "Zadanie poboczne",
+		treasurehunts: "Poszukiwanie skarbu"
+	},
 	scavengerhunt: {
 		label: "Diagramy: __this.upgrade@scavengerhunt__ __this.school@scavengerhunt__ __this.items[, ]@scavengerhunt__",
 		desc:  "",
@@ -604,7 +611,7 @@ window.i18nData.pl.general = {
 		cabaret:         { label: "Kabaret" },
 		cat:             { label: "Jak kot z wilkiem..." },
 		ciri:            { label: "Pokój Ciri" },
-		city1:           { label: "Represje w Novigradzie (Lussi, Fritz, Walter)" },
+		city:            { label: "Represje w Novigradzie (Lussi, Fritz, Walter)" },
 		city2:           { label: "Represje w Novigradzie (bandyci)" },
 		clothing:        { label: "W wilczej skórze" },
 		coronation:      { label: "Koronacja" },
@@ -613,7 +620,7 @@ window.i18nData.pl.general = {
 		dangerous:       { label: "Niebezpieczna gra" },
 		darkness:        { label: "Nabiał i ciemne siły" },
 		deadly:          { label: "Spisek" },
-		death1:          { label: "Na łożu śmierci (część 1)" },
+		death:           { label: "Na łożu śmierci" },
 		deathfire:       { label: "Śmierć w ogniu" },
 		defender:        { label: "Obrońca wiary" },
 		disturbed:       { label: "Zakłócony spokój" },
@@ -652,8 +659,7 @@ window.i18nData.pl.general = {
 		fools:           { label: "Złoto głupców" },
 		forefathers:     { label: "Dziady" },
 		forge:           { label: "Wiedźmińska kuźnia" },
-		fromfar1:        { label: "Za siedmioma morzami (część 1)" },
-		fromfar2:        { label: "Za siedmioma morzami(część 2)" },
+		fromfar:         { label: "Za siedmioma morzami" },
 		fry:             { label: "Patelnia jak nowa" },
 		funeral:         { label: "Stosy pogrzebowe" },
 		gambit:          { label: "Królewski Gambit" },
@@ -672,11 +678,11 @@ window.i18nData.pl.general = {
 		gw_pals:         { label: "Gwint: Starzy znajomi" },
 		gw_skellige:     { label: "Gwint: Rozgrywki na Skellige" },
 		gw_thaler:       { label: "Gwint: Partyjka z Talarem" },
-		gw_tournment:    { label: "Gwint: Wielki Turniej w Beauclair!" },
+		gw_tournament:   { label: "Gwint: Wielki Turniej w Beauclair!" },
 		gw_velen:        { label: "Gwint: Rozgrywki w Velen" },
 		hardtimes:       { label: "Złe wieści" },
 		haunted:         { label: "Nawiedzony dom" },
-		hazardous1:      { label: "Niebezpieczny ładunek (część 1)" },
+		hazardous:       { label: "Niebezpieczny ładunek" },
 		heart:           { label: "Dzikość serca" },
 		hillock:         { label: "Szepczące Wzgórze" },
 		honor:           { label: "Honor złodzieja" },
@@ -719,7 +725,7 @@ window.i18nData.pl.general = {
 		ps_fyresdal:     { label: "Wyścigi Śmiałków: Fyresdal" },
 		ps_goddess:      { label: "Wyścigi Śmiałków: Ku chwale bogini!" },
 		ps_trolde:       { label: "Wyścigi Śmiałków: Kaer Trolde" },
-		punishment1:     { label: "Zbrodnia i kara (Część 1)" },
+		punishment:      { label: "Zbrodnia i kara" },
 		rc_derby:        { label: "Wyścig: Gonitwa Erazma Vegelbuda" },
 		rc_perch:        { label: "Wyścigi: Wrońce" },
 		rc_western:      { label: "Wyścigi: Jak zachodni wiatr" },
@@ -741,15 +747,14 @@ window.i18nData.pl.general = {
 		stars:           { label: "Wróżbita prawdę ci powie" },
 		stranger:        { label: "Obcy w obcym kraju" },
 		stuff:           { label: "Tajemniczy handlarz" },
-		taken1:          { label: "Porwana za młodu (część 1)" },
-		taken2:          { label: "Porwana za młodu (część 2)" },
+		taken:           { label: "Porwana za młodu" },
 		takewant:        { label: "Bierz co chcesz" },
 		taxman:          { label: "Płać i płacz" },
 		therapy:         { label: "Terapia szokowa" },
 		thread:          { label: "Po nitce do kłębka" },
 		tilldeath:       { label: "Wieczne Odpoczywanie" },
 		towerful:        { label: "Mysia wieża" },
-		trace1:          { label: "Bez ślazdu (część 1)" },
+		trace:           { label: "Bez ślazdu" },
 		twist:           { label: "Zabawy z ogniem" },
 		undvik:          { label: "Władca Undvik" },
 		unpaid:          { label: "Niespłacony dług" },
@@ -765,10 +770,11 @@ window.i18nData.pl.general = {
 		waterfront:      { label: "Spacer po nadbrzeżu" },
 		wildkingdom:     { label: "Równowaga w przyrodzie" },
 		woe:             { label: "Przeklęty magazyn" },
-		worthy1:         { label: "Kredyt zaufania (część 1)" },
+		worthy:          { label: "Kredyt zaufania (część 1)" },
 		worthy2:         { label: "Kredyt zaufania (część 2)" },
 		worthy3:         { label: "Kredyt zaufania (część 3)" },
-		ww_belgaard:     { label: "Awantura o wino: Belgaard" },
+		ww_belgaard:     { label: "Awantura o wino: Belgaard (część 1)" },
+		ww_belgaard2:    { label: "Awantura o wino: Belgaard (część 2)" },
 		ww_consorting:   { label: "Awantura o wino: Konsorcjum" },
 		ww_coronata:     { label: "Awantura o wino: Coronata" },
 		ww_deus:         { label: "Awantura o wino: Deus Ex Machina" },

@@ -1,5 +1,13 @@
 var mapInfos = [];
 
+var questGroupNames = [
+	"contract",
+	"event",
+	"mainquest",
+	"sidequest",
+	"treasurehunt"
+];
+
 var markerGroupNames = [
 	"abandoned",
 	"alchemy",
@@ -359,6 +367,13 @@ function prescreenMapData(mapInfo, data) {
 				}
 			}
 
+			if (dataKey == "sidequest" ||
+			    dataKey == "event" ||
+			    dataKey == "contract" ||
+			    dataKey == "gwentquest" ||
+			    dataKey == "treasurehunt")
+				item.global = true;
+
 			if (item.id && typeof item.id == "string") {
 				if (!ids[item.id])
 					ids[item.id] = [];
@@ -380,7 +395,7 @@ function prescreenMapData(mapInfo, data) {
 	}
 }
 
-function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
+function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
@@ -491,8 +506,11 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		if (!coords)
 			continue;
 
+		let isQuest     = questGroupNames.indexOf(dataKey) >= 0;
 		let id          = (item.id && typeof item.id == "string") ? item.id : null;
+		let global      = item.global && id;
 		let icon        = dataKey;
+		let label       = null;
 		let desc        = item.desc;
 		let extraDesc   = item.extraDesc;
 		let notInGame   = item.notInGame;
@@ -501,6 +519,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		let mounted     = isMounted(item, dataKey);
 		let underwater  = isUnderwater(item, dataKey);
 		let after       = item.after;
+		let notAfter    = item.notAfter;
 		let before      = item.before;
 		let notBefore   = item.notBefore;
 		let weakBefore  = item.weakBefore;
@@ -516,19 +535,41 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		let entrances   = (data.entrance.length || data.monsterden.length) && item.entrances;
 		let once        = dataKey == "monster" && item.once;
 		let images      = item.images;
+		let hos         = item.hos;
+		let baw         = item.baw;
+		let race        = item.race;
 
 		let subKey = genSubKey(item, dataKey);
-		let label = genLabel(item, dataKey, subKey, noLinks);
 
-		if (typeof desc != "string" || (desc !== "" && !desc)) {
-			desc = dataKey + subKey + ".desc";
-			if (dataKey == "hollow" && item.stump)
-				desc = "#" + (esc($.t(dataKey + ".stump.desc")) || esc($.t(desc)));
-			else if (dataKey == "hollow" && item.log)
-				desc = "#" + (esc($.t(dataKey + ".log.desc")) || esc($.t(desc)));
+		let q = false;
+		if (isQuest) {
+			q = quests[id];
+			if (!q) {
+				console.error("Supposed quest marker doesn't match any quest id:", item);
+				isQuest = false;
+			}
 		}
 
-		desc = desc && subst(esc(desc[0] == "#" ? desc.substring(1) : $.t(desc)), item, noLinks);
+		if (isQuest) {
+			label   = q.label;
+			desc    = q.desc;
+			special = q.special;
+			hos     = q.hos;
+			baw     = q.baw;
+			race    = q.race;
+		} else {
+			label = genLabel(item, dataKey, subKey, noLinks);
+
+			if (typeof desc != "string" || (desc !== "" && !desc)) {
+				desc = dataKey + subKey + ".desc";
+				if (dataKey == "hollow" && item.stump)
+					desc = "#" + (esc($.t(dataKey + ".stump.desc")) || esc($.t(desc)));
+				else if (dataKey == "hollow" && item.log)
+					desc = "#" + (esc($.t(dataKey + ".log.desc")) || esc($.t(desc)));
+			}
+
+			desc = desc && subst(esc(desc[0] == "#" ? desc.substring(1) : $.t(desc)), item, noLinks);
+		}
 
 		if (extraDesc) {
 			if (typeof extraDesc == "string")
@@ -577,52 +618,85 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			special = true;
 		}
 
-		if (after) {
-			after = subst(esc($.t("misc.after")), item, noLinks);
-			if (desc)
-				desc = concat + desc;
-			desc = after + desc;
-			special = true;
+		function addReverseRefs(name, arr) {
+			if (!(arr instanceof Array))
+				arr = [arr];
+			for (let r of arr) {
+				let i = quests[r];
+				if (!i) {
+					console.error("An element of " + mapInfo.name + "->" + dataKey + " references a nonexisting id: ", r, item);
+					continue;
+				}
+				if (!i[name])
+					i[name] = [];
+				if (i[name].indexOf(item) < 0)
+					i[name].push(item);
+			}
 		}
 
-		if (notBefore) {
-			notBefore = subst(esc($.t("misc.notBefore")), item, noLinks);
-			if (desc)
-				desc = concat + desc;
-			desc = notBefore + desc;
-			special = true;
-		}
+		if (!isQuest) {
+			if (after) {
+				addReverseRefs("revAfter", after);
+				after = subst(esc($.t("misc.after")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = after + desc;
+				special = true;
+			}
 
-		if (weakBefore) {
-			weakBefore = subst(esc($.t("misc.weakBefore")), item, noLinks);
-			if (desc)
-				desc = concat + desc;
-			desc = weakBefore + desc;
-			special = true;
-		}
+			if (notAfter) {
+				addReverseRefs("revNotAfter", notAfter);
+				notAfter = subst(esc($.t("misc.notAfter")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = notAfter + desc;
+				special = true;
+			}
 
-		if (before) {
-			before = subst(esc($.t("misc.before")), item, noLinks);
-			if (desc)
-				desc = concat + desc;
-			desc = before + desc;
-			special = true;
-		}
+			if (notBefore) {
+				addReverseRefs("revNotBefore", notBefore);
+				notBefore = subst(esc($.t("misc.notBefore")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = notBefore + desc;
+				special = true;
+			}
 
-		if (during) {
-			during = subst(esc($.t("misc.during")), item, noLinks);
-			if (desc)
-				desc = concat + desc;
-			desc = during + desc;
-			special = true;
-		}
+			if (weakBefore) {
+				addReverseRefs("revWeakBefore", weakBefore);
+				weakBefore = subst(esc($.t("misc.weakBefore")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = weakBefore + desc;
+				special = true;
+			}
 
-		if (notDuring) {
-			notDuring = subst(esc($.t("misc.notDuring")), item, noLinks);
-			if (desc)
-				desc = concat + desc;
-			desc = notDuring + desc;
-			special = true;
+			if (before) {
+				addReverseRefs("revBefore", before);
+				before = subst(esc($.t("misc.before")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = before + desc;
+				special = true;
+			}
+
+			if (during) {
+				addReverseRefs("revDuring", during);
+				during = subst(esc($.t("misc.during")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = during + desc;
+				special = true;
+			}
+
+			if (notDuring) {
+				addReverseRefs("revNotDuring", notDuring);
+				notDuring = subst(esc($.t("misc.notDuring")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = notDuring + desc;
+				special = true;
+			}
 		}
 
 		if (rescuable) {
@@ -717,15 +791,15 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 		if (dataKey == "monster" && monster_icons.indexOf(monsterIcon) >= 0)
 			hasMonster = true;
 
-		if (item.hos && dataKey == "sidequest")
+		if (hos && dataKey == "sidequest")
 			icon += "_hos";
-		else if (item.baw && dataKey == "sidequest")
+		else if (baw && dataKey == "sidequest")
 			icon += "_baw";
-		if (item.race && dataKey == "sidequest")
+		if (race && dataKey == "sidequest")
 			icon = "race";
 		if (dataKey == "treasurehunt" && typeof item.name == "string" && item.name.startsWith("scav_"))
 			icon += "_scav";
-		else if (item.hos && (dataKey == "contract" || dataKey == "treasurehunt"))
+		else if (hos && (dataKey == "contract" || dataKey == "treasurehunt"))
 			icon += "_hos";
 		if (item.guarded && dataKey == "hidden")
 			icon += "_guarded";
@@ -869,7 +943,7 @@ function substMapData(mapInfo, data, dataKey, f, r, a, noLinks) {
 			label += "*";
 
 		for (let coord of coords) {
-			if (f(coord, id, label, desc, icon, routeObjs, areaObjs) === false)
+			if (f(coord, id, global, label, desc, icon, routeObjs, areaObjs) === false)
 				return;
 		}
 	}
@@ -1036,5 +1110,207 @@ function calcInteriorBounds(obj, pxRef, mpRef, scale) {
 		          p1[1] + item.size.w / scale];
 		res[key] = [p1, p2];
 	}
+	return res;
+}
+
+function prescreenQuests(quests) {
+	let ids = {};
+	quests.ids = ids;
+
+	for (let questKey of questGroupNames) {
+		let items = [];
+
+		if (questKey in quests)
+			items = quests[questKey];
+
+		if (!(items instanceof Array)) {
+			console.error("quests->" + questKey + " is not an array: ", items);
+			items = [];
+		}
+
+		quests[questKey] = items;
+
+		for (let item of items) {
+			if (!(item instanceof Object)) {
+				console.error("An element of quests->" + questKey + " is not an object: ", item);
+				continue;
+			}
+
+			if (!item.name || typeof item.name != "string") {
+				console.error("An element of quests->" + questKey + " does not have valid name: ", item);
+				item.name = false;
+				continue;
+			}
+
+			item.questKey = questKey;
+
+			if (item.disabled) {
+				item.name = false;
+				continue;
+			}
+
+			if (!item.id || typeof item.id != "string")
+				item.id = questKey + "." + item.name;
+
+			if (ids[item.id]) {
+				console.error("An element of quests->" + questKey + " has a duplicate id: ", item);
+				item.name = false;
+				continue;
+			}
+
+			ids[item.id] = item;
+		}
+	}
+}
+
+function substQuests(quests, noLinks) {
+	const concat = esc($.t("misc.concat"));
+
+	let res = {};
+
+	for (let questKey of questGroupNames) {
+		for (let item of quests[questKey]) {
+			if (!(item instanceof Object))
+				continue;
+
+			let name = item.name;
+			if (!name)
+				continue;
+			let id = item.id;
+
+			let label = item.label || "";
+			if (typeof label != "string" || !label)
+				label = questKey + ".label";
+			let labelText = label;
+			label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, noLinks);
+			labelText = subst(esc(labelText[0] == "#" ? labelText.substring(1) : $.t(labelText)), item, true);
+
+			let desc = item.desc;
+			if (typeof desc != "string" || (desc !== "" && !desc))
+				desc = questKey + ".desc";
+			desc = desc && subst(esc(desc[0] == "#" ? desc.substring(1) : $.t(desc)), item, noLinks);
+
+			let icon       = questKey;
+			let after      = item.after;
+			let notAfter   = item.notAfter;
+			let before     = item.before;
+			let notBefore  = item.notBefore;
+			let weakBefore = item.weakBefore;
+			let during     = item.during;
+			let notDuring  = item.notDuring;
+			let special    = false;
+			let region     = item.region || "any";
+			let level      = +item.level || 0;
+
+			function addReverseRefs(name, arr) {
+				if (!(arr instanceof Array))
+					arr = [arr];
+				for (let r of arr) {
+					let i = quests.ids[r];
+					if (!i) {
+						console.error("An element of quests->" + questKey + " references a nonexisting id: ", r, item);
+						continue;
+					}
+					if (!i[name])
+						i[name] = [];
+					if (i[name].indexOf(item) < 0)
+						i[name].push(item);
+				}
+			}
+
+			if (after) {
+				addReverseRefs("revAfter", after);
+				after = subst(esc($.t("misc.after")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = after + desc;
+				special = true;
+			}
+
+			if (notAfter) {
+				addReverseRefs("revNotAfter", notAfter);
+				notAfter = subst(esc($.t("misc.notAfter")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = notAfter + desc;
+				special = true;
+			}
+
+			if (notBefore) {
+				addReverseRefs("revNotBefore", notBefore);
+				notBefore = subst(esc($.t("misc.notBefore")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = notBefore + desc;
+				special = true;
+			}
+
+			if (weakBefore) {
+				addReverseRefs("revWeakBefore", weakBefore);
+				weakBefore = subst(esc($.t("misc.weakBefore")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = weakBefore + desc;
+				special = true;
+			}
+
+			if (before) {
+				addReverseRefs("revBefore", before);
+				before = subst(esc($.t("misc.before")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = before + desc;
+				special = true;
+			}
+
+			if (during) {
+				addReverseRefs("revDuring", during);
+				during = subst(esc($.t("misc.during")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = during + desc;
+				special = true;
+			}
+
+			if (notDuring) {
+				addReverseRefs("revNotDuring", notDuring);
+				notDuring = subst(esc($.t("misc.notDuring")), item, noLinks);
+				if (desc)
+					desc = concat + desc;
+				desc = notDuring + desc;
+				special = true;
+			}
+
+			let regions = ["any", "kaer_morhen", "novigrad", "skellige", "toussaint", "velen", "vizima", "white_orchard"];
+			if (regions.indexOf(region) < 0) {
+				console.error("An element of quests->" + questKey + " references an invalid region: ", item);
+				region = "";
+			}
+
+			if (item.hos && questKey == "sidequest")
+				icon += "_hos";
+			else if (item.baw && questKey == "sidequest")
+				icon += "_baw";
+			if (item.race && questKey == "sidequest")
+				icon = "race";
+			if (questKey == "treasurehunt" && name.startsWith("scav_"))
+				icon += "_scav";
+			else if (item.hos && (questKey == "contract" || questKey == "treasurehunt"))
+				icon += "_hos";
+
+			if (typeof item.special == "boolean")
+				special = item.special;
+
+			item.label     = label;
+			item.labelText = labelText;
+			item.desc      = desc;
+			item.special   = special;
+			item.icon      = icon;
+			item.region    = region;
+			item.level     = level;
+			res[id] = item;
+		}
+	}
+
 	return res;
 }

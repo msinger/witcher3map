@@ -110,9 +110,7 @@
 	// ----------------- Sidequests ---------------------
 	sidequest: [{
 		coords:      [127.188,93.688],
-		name:        "duck",
-		during:      "mainquest.beyond",
-		baw:         true
+		name:        "duck"
 	}],
 	// ----------------- Treasure -----------------------
 	treasure: [{
