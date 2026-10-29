@@ -2009,6 +2009,7 @@ function runMap() {
 		prevHashParams = hashParams;
 	}
 
+	$("#centerButton").hide();
 	processHashParams(hashParams);
 
 	L.DomEvent.addListener(window, "hashchange", function() {
