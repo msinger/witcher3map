@@ -4,7 +4,7 @@ function processMapDataForGlobalSearch(map) {
 	prescreenMapData(map, data);
 
 	for (let dataKey of markerGroupNames) {
-		substMapData(map, data, dataKey, function(coord, id, label, desc, icon) {
+		substMapData(map, data, dataKey, quests, function(coord, id, global, label, desc, icon) {
 			let link = map.ns + "/index.html#" + map.maxZoom + "/" + coord[0] + "/" + coord[1] +
 			           "/m=" + coord[0] + "," + coord[1];
 
@@ -73,6 +73,9 @@ function runHome() {
 
 	createLangSwitcher();
 
+	prescreenQuests(quests);
+	quests = substQuests(quests, true);
+
 	for (var map of window.mapInfos)
 		processMapDataForGlobalSearch(map);
 
@@ -111,9 +114,9 @@ const mapParam = urlParams.get("map");
 let loadMap = false;
 
 if (mapParam) {
-	for (let mapInfo of window.mapInfos) {
-		if (mapParam == mapInfo.ns) {
-			window.mapInfos = [mapInfo];
+	for (let i = 0; i < window.mapInfos.length; i++) {
+		if (mapParam == window.mapInfos[i].ns) {
+			window.mapInfoIndex = i;
 			loadMap = true;
 			break;
 		}

@@ -22,6 +22,18 @@ var map = null;
 var searchData = [];
 var prevHashParams = {};
 var selectedTab = "filter";
+var globalItems = {};
+var questCatOpen = [];
+
+window.mapInfoIndex = window.mapInfoIndex || 0;
+window.mapInfo = mapInfos[window.mapInfoIndex];
+
+var scrollPos = {
+	filter:   0,
+	interior: 0,
+	quest:    0,
+	settings: 0
+};
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
@@ -160,7 +172,7 @@ function toCoordId(coord) {
 	return coord[0].toFixed(3) + ";" + coord[1].toFixed(3);
 }
 
-function createMarker(coord, icon, label, popup, dataKey, id, checked, routes, areas) {
+function createMarker(coord, icon, label, popup, dataKey, id, global, checked, routes, areas) {
 	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
 
 	marker.bindTooltip(label);
@@ -168,28 +180,33 @@ function createMarker(coord, icon, label, popup, dataKey, id, checked, routes, a
 
 	let coordId = toCoordId(coord);
 
-	let obj = { id: coordId, icons: [], layers: [], checked: checked };
+	let obj = { id: coordId, markers: [], layers: [], checked: checked, global: global };
 	if (id) {
-		if (id in markers)
+		if (global && id in globalItems)
+			obj = globalItems[id];
+		else if (id in markers)
 			obj = markers[id];
 		obj.id = id;
 		markers[id] = obj;
+		if (global)
+			globalItems[id] = obj;
 	} else {
 		id = coordId;
 	}
 
-	if (obj.icons.length > 0) {
+	if (obj.markers.length > 0) {
 		if (checked && !obj.checked)
-			toggleMarker(obj, true);
+			toggleChecked(obj, true);
 		checked = obj.checked;
 	} else if (checked) {
-		checkedMarkers.push(id);
+		if (!obj.global)
+			checkedMarkers.push(id);
 	}
 
 	marker.setOpacity(checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
 
 	markers[coordId] = obj;
-	obj.icons.push(marker);
+	obj.markers.push(marker);
 	marker.obj = obj;
 	if (obj.layers.indexOf(dataKey) < 0) {
 		obj.layers.push(dataKey);
@@ -200,7 +217,7 @@ function createMarker(coord, icon, label, popup, dataKey, id, checked, routes, a
 	marker.on("contextmenu", function(e) {
 		if (!e.target || !e.target.obj)
 			return;
-		toggleMarker(e.target.obj);
+		toggleChecked(e.target.obj);
 	});
 
 	hasMarkers[dataKey] = true;
@@ -225,7 +242,7 @@ function createMarker(coord, icon, label, popup, dataKey, id, checked, routes, a
 			if (!e.target || !e.target.route || !e.target.route.marker || !e.target.route.marker.obj)
 				return;
 			L.DomEvent.stopPropagation(e);
-			toggleMarker(e.target.route.marker.obj);
+			toggleChecked(e.target.route.marker.obj);
 		});
 	}
 
@@ -253,12 +270,12 @@ function createMarker(coord, icon, label, popup, dataKey, id, checked, routes, a
 }
 
 function saveCheckedMarkers() {
-	let checkedKey = "markers-" + mapInfos[0].name + "-checked";
+	let checkedKey = "markers-" + mapInfo.name + "-checked";
 	localStorage[checkedKey] = JSON.stringify(checkedMarkers);
 }
 
 function saveDisabledMarkers() {
-	let disabledKey = "markers-" + mapInfos[0].name + "-disabled";
+	let disabledKey = "markers-" + mapInfo.name + "-disabled";
 	localStorage[disabledKey] = JSON.stringify(disabledMarkers);
 }
 
@@ -266,55 +283,155 @@ function updateCount(dataKey) {
 	$("ul.key.filter > li:not(.none) > i." + dataKey + " ~ :last").text(uncheckedMarkerCount[dataKey]);
 }
 
-function toggleMarker(mobj, noUpdate) {
-	mobj.checked = !mobj.checked;
+function toggleChecked(obj, noUpdate) {
+	if (obj.global && obj.quest && obj.quest.initial)
+		return;
 
-	for (m of mobj.icons) {
-		m.setOpacity(mobj.checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
+	obj.checked = !obj.checked;
+
+	for (m of obj.markers) {
+		m.setOpacity(obj.checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
 		for (let route of m.routes) {
 			if (!route.fuse)
 				continue;
-			route.layer.setStyle({ opacity: mobj.checked ? checkedRouteOpacity : uncheckedRouteOpacity });
+			route.layer.setStyle({ opacity: obj.checked ? checkedRouteOpacity : uncheckedRouteOpacity });
 		}
 		for (let area of m.areas) {
 			if (!area.fuse)
 				continue;
 			area.layer.setStyle({
-				opacity:     mobj.checked ? checkedAreaStrokeOpacity : uncheckedAreaStrokeOpacity,
-				fillOpacity: mobj.checked ? checkedAreaFillOpacity   : uncheckedAreaFillOpacity
+				opacity:     obj.checked ? checkedAreaStrokeOpacity : uncheckedAreaStrokeOpacity,
+				fillOpacity: obj.checked ? checkedAreaFillOpacity   : uncheckedAreaFillOpacity
 			});
 		}
 	}
 
-	if (mobj.checked) {
-		checkedMarkers.push(mobj.id);
-		for (let dataKey of mobj.layers)
+	let newClass = "fa-square-o";
+	let oldClass = "fa-square-o";
+	if (obj.checked)
+		newClass = "fa-check-square-o";
+	else
+		oldClass = "fa-check-square-o";
+
+	if (obj.quest)
+		$("li.quest-" + $.escapeSelector(obj.id) + " i.checkbox").removeClass(oldClass).addClass(newClass);
+
+	if (obj.checked) {
+		if (!obj.global)
+			checkedMarkers.push(obj.id);
+		for (let dataKey of obj.layers)
 			uncheckedMarkerCount[dataKey]--;
 	} else {
-		checkedMarkers = checkedMarkers.filter(function (item) { return item !== mobj.id; });
-		for (let dataKey of mobj.layers)
+		if (!obj.global)
+			checkedMarkers = checkedMarkers.filter(function (item) { return item !== obj.id; });
+		for (let dataKey of obj.layers)
 			uncheckedMarkerCount[dataKey]++;
 	}
 
 	if(!noUpdate) {
+		if (obj.global) {
+			let globs = null;
+			if (localStorage["globals-checked"])
+				globs = JSON.parse(localStorage["globals-checked"]);
+			if (!(globs instanceof Array))
+				globs = [];
+			let mod = false;
+			if (obj.checked) {
+				if (globs.indexOf(obj.id) < 0) {
+					globs.push(obj.id);
+					mod = true;
+				}
+			} else {
+				if (globs.indexOf(obj.id) >= 0) {
+					globs = globs.filter(function (item) { return item !== obj.id; });
+					mod = true;
+				}
+			}
+			if (mod)
+				localStorage["globals-checked"] = JSON.stringify(globs);
+		}
 		saveCheckedMarkers();
-		for (let dataKey of mobj.layers)
+		for (let dataKey of obj.layers)
 			updateCount(dataKey);
 	}
 }
 
-function resetMarkers() {
-	let checkedKey = "markers-" + mapInfos[0].name + "-checked";
-	localStorage.removeItem(checkedKey);
+function toggleFinished(obj, noUpdate) {
+	if (!obj.global || !obj.quest)
+		return;
+
+	obj.finished = !obj.finished;
+
+	let newClass = "fa-square-o";
+	let oldClass = "fa-square-o";
+	if (obj.finished)
+		newClass = "fa-check-square-o";
+	else
+		oldClass = "fa-check-square-o";
+
+	if (obj.quest) {
+		$("li.quest-" + $.escapeSelector(obj.id) + " i.checkbox-f").removeClass(oldClass).addClass(newClass);
+		if (obj.finished)
+			$("li.quest-" + $.escapeSelector(obj.id)).addClass("item-finished");
+		else
+			$("li.quest-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+	}
+
+	if(!noUpdate) {
+		let globs = null;
+		if (localStorage["globals-checked"])
+			globs = JSON.parse(localStorage["globals-checked"]);
+		if (!(globs instanceof Array))
+			globs = [];
+		let mod = false;
+		if (obj.finished) {
+			if (globs.indexOf(obj.id + "$f") < 0) {
+				globs.push(obj.id + "$f");
+				mod = true;
+			}
+		} else {
+			if (globs.indexOf(obj.id + "$f") >= 0) {
+				globs = globs.filter(function (item) { return item !== obj.id + "$f"; });
+				mod = true;
+			}
+		}
+		if (mod)
+			localStorage["globals-checked"] = JSON.stringify(globs);
+	}
+}
+
+function resetProgress() {
+	for (let m of mapInfos) {
+		let key = "markers-" + m.name + "-checked";
+		localStorage.removeItem(key);
+	}
+	localStorage.removeItem("globals-checked");
 	location.reload();
 }
 
-function processData(checkedMarkers) {
-	let data = mapInfos[0].getMapData();
+function processData(checkedMarkersLd, checkedGlobalsLd) {
+	let data = mapInfo.getMapData();
 
-	prescreenMapData(mapInfos[0], data);
+	prescreenQuests(quests);
+	prescreenMapData(mapInfo, data);
 
-	substInteriors(mapInfos[0], data, "interior", function(interior) {
+	quests = substQuests(quests);
+
+	for (let [id, quest] of Object.entries(quests)) {
+		let obj = {
+			id:       id,
+			markers:  [],
+			layers:   [],
+			checked:  quest.initial || checkedGlobalsLd.indexOf(id) >= 0,
+			finished: checkedGlobalsLd.indexOf(id + "$f") >= 0,
+			global:   true,
+			quest:    quest
+		};
+		globalItems[id] = obj;
+		quest.obj = obj;
+	}
+
+	substInteriors(mapInfo, data, "interior", function(interior) {
 		let id = interiors.length;
 		let z = 0;
 		for (let i = 0; i < interior.floors.length; i++) {
@@ -355,7 +472,7 @@ function processData(checkedMarkers) {
 	for (let dataKey of markerGroupNames) {
 		let groupItems = [];
 
-		substMapData(mapInfos[0], data, dataKey, function(coord, id, label, desc, icon, routes, areas) {
+		substMapData(mapInfo, data, dataKey, quests, function(coord, id, global, label, desc, icon, routes, areas) {
 			if (!icons[icon]) {
 				console.error("Invalid icon:", icon);
 				return;
@@ -363,13 +480,22 @@ function processData(checkedMarkers) {
 
 			let checked = false;
 			let coordId = toCoordId(coord);
-			if (checkedMarkers.indexOf(coordId) >= 0 || (id && checkedMarkers.indexOf(id) >= 0))
+			if (checkedMarkersLd.indexOf(coordId) >= 0 || (id && checkedMarkersLd.indexOf(id) >= 0))
 				checked = true;
+			if (global) {
+				if (checked && checkedGlobalsLd.indexOf(id) < 0) {
+					// Migrate local to global
+					checkedGlobalsLd.push(id);
+					localStorage["globals-checked"] = JSON.stringify(checkedGlobalsLd);
+				}
+				if (checkedGlobalsLd.indexOf(id) >= 0)
+					checked = true;
+			}
 
 			let tooltip = label.replace(/<\/?[^>]+(>|$)/g, "");
 			let m = createMarker(coord, icons[icon], tooltip,
 			                     "<h1>" + label + "</h1>" + desc,
-			                     dataKey, id, checked, routes, areas);
+			                     dataKey, id, global, checked, routes, areas);
 			groupItems.push(m);
 
 			searchData.push({
@@ -577,7 +703,10 @@ function findNearestInterior(p) {
 }
 
 function hackySticky() {
-	if ($(window).height() > $("#sidebar-wrap").outerHeight() + $("div#copyright").outerHeight() + 45)
+	if ($(window).height() > $("#sidebar-logo").outerHeight() +
+	                         $("#sidebar-tabs").outerHeight() +
+	                         $("#sidebar-wrap").outerHeight() +
+	                         $("div#copyright").outerHeight() + 45)
 		$("div#copyright").addClass("absolute");
 	else
 		$("div#copyright").removeClass("absolute");
@@ -586,6 +715,10 @@ function hackySticky() {
 function selectTab(tab) {
 	if (tab == selectedTab)
 		return;
+	if ($("#tab-" + tab).length != 1)
+		return;
+	scrollPos[selectedTab] = $("#sidebar").getNiceScroll(0).getScrollTop();
+	sessionStorage["scrollbar-" + selectedTab] = scrollPos[selectedTab];
 	$("#sidebar-tabs > i").removeClass("sel");
 	$("#sidebar-wrap > div[id^='body-']").hide();
 	$("#tab-" + tab).addClass("sel");
@@ -593,23 +726,97 @@ function selectTab(tab) {
 	selectedTab = tab;
 	hackySticky();
 	$("#sidebar").getNiceScroll().resize();
+	$("#sidebar").getNiceScroll(0).scrollTop(scrollPos[tab]);
+	sessionStorage["selectedTab"] = tab;
+}
+
+function toggleQuestCatOpen(cat, noUpdate) {
+	let index = questCatOpen.indexOf(cat);
+	let open = index >= 0;
+	if (open) {
+		$("li.questcat-" + cat + ">i.caret").removeClass("fa-caret-up").addClass("fa-caret-down");
+		$("li.questcat-" + cat + ">ul.quest").hide();
+		questCatOpen.splice(index, 1);
+	} else {
+		$("li.questcat-" + cat + ">i.caret").removeClass("fa-caret-down").addClass("fa-caret-up");
+		$("li.questcat-" + cat + ">ul.quest").show();
+		questCatOpen.push(cat);
+	}
+	hackySticky();
+	$("#sidebar").getNiceScroll().resize();
+	if (!noUpdate)
+		sessionStorage.questCatOpen = JSON.stringify(questCatOpen);
+}
+
+function createQuestList(groups, f) {
+	let g = {};
+
+	for (let quest of Object.values(quests)) {
+		let cat = f(quest);
+		if (!g[cat])
+			g[cat] = [];
+		g[cat].push(quest);
+	}
+
+	for (let i = 0; i < groups.length; i++) {
+		g[groups[i].id].sort(function(a, b) { return a.labelText.localeCompare(b.labelText); });
+	}
+
+	let r = '<ul class="questcat">';
+	for (let i = 0; i < groups.length; i++) {
+		r += '<li class="questcat questcat-' + groups[i].id + '">' +
+		     '<div class="ellip-tooltip" data-quest-cat="' + groups[i].id + '">' + groups[i].label + '</div>' +
+		     '<i class="caret fa fa-caret-down" data-quest-cat="' + groups[i].id + '"></i>' +
+		     '<ul class="quest" hidden>';
+		for (let quest of g[groups[i].id]) {
+			let dlcClass = "";
+			if (quest.hos)
+				dlcClass = " hos";
+			else if (quest.baw)
+				dlcClass = " baw";
+			let checkedClass = "fa-square-o";
+			let finishedClass = "fa-square-o";
+			let finishedClass2 = "";
+			if (quest.obj.checked)
+				checkedClass = "fa-check-square-o";
+			if (quest.obj.finished) {
+				finishedClass = "fa-check-square-o";
+				finishedClass2 = " item-finished";
+			}
+			r += '<li class="quest quest-' + quest.id + finishedClass2 + '">';
+			if (quest.initial)
+				r += '<i class="checkbox checkbox-frozen fa fa-check-square-o"></i>';
+			else
+				r += '<i class="checkbox fa ' + checkedClass + '" data-quest-id="' + quest.id + '"></i>';
+			r += '<i class="checkbox-f fa ' + finishedClass + '" data-quest-id="' + quest.id + '"></i>' +
+			     '<i class="quest-region region-' + quest.region + '"></i>' +
+			     '<i class="quest-type ' + quest.questKey + '"></i>' +
+			     '<b class="quest-level">' + (quest.level || "") + '</b>' +
+			     '<div class="ellip-tooltip' + dlcClass + '">' + quest.labelText + '</div></li>';
+		}
+		r += '</ul>' +
+		     '</li>';
+	}
+	r += '</ul>';
+	return r;
 }
 
 function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
-			'<div id="sidebar-wrap">' +
-				'<a href="' + window.topdir + '/index.html" title="' + esc($.t("controls.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a>' +
-				'<div id="sidebar-tabs">' +
-					'<b></b><i id="tab-filter" class="fa fa-sliders sel"></i>';
+			'<div id="sidebar-logo"><a href="' + window.topdir + '/index.html" title="' + esc($.t("controls.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a></div>' +
+			'<div id="sidebar-tabs">' +
+				'<b></b><i id="tab-filter" class="fa fa-sliders sel"></i>';
 
 	if (interiors.length > 0)
 		sidebar += '<b></b><i id="tab-interior"></i>';
 
 	sidebar +=
-					'<b></b><i id="tab-settings" class="fa fa-cog"></i>' +
-					'<b class="fill"></b>' +
-				'</div>' +
+				'<b></b><i id="tab-quest"></i>' +
+				'<b></b><i id="tab-settings" class="fa fa-cog"></i>' +
+				'<b class="fill"></b>' +
+			'</div>' +
+			'<div id="sidebar-wrap">' +
 				'<div id="body-filter">' +
 					'<ul class="key filter">';
 
@@ -619,7 +826,7 @@ function createSidebar() {
 			let disabledClass = "";
 			if (markerLayers[key].disabled)
 				disabledClass = ' class="layer-disabled"';
-			sidebar += "<li" + disabledClass + '><i class="' + key + '"></i><div>' + esc($.t("sidebar." + key)) + '</div></li>';
+			sidebar += "<li" + disabledClass + '><i class="' + key + '"></i><div class="ellip-tooltip">' + esc($.t("sidebar." + key)) + '</div></li>';
 			count++;
 		}
 	}
@@ -631,12 +838,12 @@ function createSidebar() {
 	sidebar +=
 					'</ul>' +
 					'<ul class="key controls">' +
-						'<li id="show-all"><i class="fa fa-eye"></i><div>' + esc($.t("controls.show")) + '</div></li>' +
-						'<li id="hide-all"><i class="fa fa-eye-slash"></i><div>' + esc($.t("controls.hide")) + '</div></li>' +
-						'<li id="show-counts"><i class="fa fa-check-square"></i><div>' + esc($.t("controls.showCounts")) + '</div></li>' +
-						'<li id="hide-counts"><i class="fa fa-square"></i><div>' + esc($.t("controls.hideCounts")) + '</div></li>' +
-						'<li><a href="https://github.com/witcher3map/witcher3map/wiki" target="_blank"><i class="fa fa-info-circle"></i><div>' + esc($.t("controls.helpFeatures")) + '</div></a></li>' +
-						'<li id="Credits" class="credits"><i class="fa fa-copyright"></i><span>' + esc($.t("controls.credits")) + '</span></li>' +
+						'<li id="show-all"><i class="fa fa-eye"></i><div class="ellip-tooltip">' + esc($.t("controls.show")) + '</div></li>' +
+						'<li id="hide-all"><i class="fa fa-eye-slash"></i><div class="ellip-tooltip">' + esc($.t("controls.hide")) + '</div></li>' +
+						'<li id="show-counts"><i class="fa fa-check-square"></i><div class="ellip-tooltip">' + esc($.t("controls.showCounts")) + '</div></li>' +
+						'<li id="hide-counts"><i class="fa fa-square"></i><div class="ellip-tooltip">' + esc($.t("controls.hideCounts")) + '</div></li>' +
+						'<li><a href="https://github.com/witcher3map/witcher3map/wiki" target="_blank"><i class="fa fa-info-circle"></i><div class="ellip-tooltip">' + esc($.t("controls.helpFeatures")) + '</div></a></li>' +
+						'<li id="Credits" class="credits"><i class="fa fa-copyright"></i><span class="ellip-tooltip">' + esc($.t("controls.credits")) + '</span></li>' +
 					'</ul>' +
 				'</div>' +
 				'<div id="body-interior" hidden>' +
@@ -649,7 +856,7 @@ function createSidebar() {
 			disabledClass = ' class="interior-hidden"';
 			eye = "fa-eye-slash";
 		}
-		sidebar += '<li id="interior-switch' + i + '"' + disabledClass + '><i class="fa ' + eye + '"></i><div>' + interiors[i].label + '</div></li>';
+		sidebar += '<li id="interior-switch' + i + '"' + disabledClass + '><i class="fa ' + eye + '"></i><div class="ellip-tooltip">' + interiors[i].label + '</div></li>';
 	}
 
 	// Number of elements must be even.
@@ -659,9 +866,22 @@ function createSidebar() {
 	sidebar +=
 					'</ul>' +
 				'</div>' +
+				'<div id="body-quest" hidden>';
+
+	let questGroups = [
+		{ id: "mainquest",    label: esc($.t("questcategory.mainquests")) },
+		{ id: "sidequest",    label: esc($.t("questcategory.sidequests")) },
+		{ id: "contract",     label: esc($.t("questcategory.contracts")) },
+		{ id: "treasurehunt", label: esc($.t("questcategory.treasurehunts")) },
+		{ id: "event",        label: esc($.t("questcategory.events")) }
+	];
+	sidebar += createQuestList(questGroups, function(q) { return q.questKey; });
+
+	sidebar +=
+				'</div>' +
 				'<div id="body-settings" hidden>' +
 					'<ul class="key controls">' +
-						'<li id="reset-tracking"><i class="fa fa-eraser"></i><div>' + esc($.t("controls.resetInvisible")) + '</div></li>' +
+						'<li id="reset-tracking"><i class="fa fa-eraser"></i><div class="ellip-tooltip">' + esc($.t("controls.resetProgress")) + '</div></li>' +
 						'<li class="none"></li>' +
 					'</ul>' +
 					'<div id="lang-switcher"></div>' +
@@ -705,35 +925,41 @@ function runMap() {
 	const params = new URLSearchParams(window.location.search);
 	const paramDraw = params.get("draw") != null;
 
-	let disabledKey = "markers-" + mapInfos[0].name + "-disabled";
+	let disabledKey = "markers-" + mapInfo.name + "-disabled";
 	if (localStorage[disabledKey])
 		disabledMarkers = JSON.parse(localStorage[disabledKey]);
 	if (!(disabledMarkers instanceof Array))
 		disabledMarkers = [];
 
 	let initialHideAll = false;
-	if (localStorage["hide-all-" + mapInfos[0].name])
+	if (localStorage["hide-all-" + mapInfo.name])
 		initialHideAll = true;
 
-	let checkedKey = "markers-" + mapInfos[0].name + "-checked";
+	let checkedKey = "markers-" + mapInfo.name + "-checked";
 	let checkedMarkersLd = [];
 	if (localStorage[checkedKey])
 		checkedMarkersLd = JSON.parse(localStorage[checkedKey]);
 	if (!(checkedMarkersLd instanceof Array))
 		checkedMarkersLd = [];
 
-	let notesKey = "notes-" + mapInfos[0].name;
+	let notesKey = "notes-" + mapInfo.name;
 	if (localStorage[notesKey])
 		notes = JSON.parse(localStorage[notesKey]);
 	if (!(notes instanceof Array))
 		notes = [];
+
+	let checkedGlobalsLd = [];
+	if (localStorage["globals-checked"])
+		checkedGlobalsLd = JSON.parse(localStorage["globals-checked"]);
+	if (!(checkedGlobalsLd instanceof Array))
+		checkedGlobalsLd = [];
 
 	for (let dataKey of markerGroupNames) {
 		hasMarkers[dataKey] = false;
 		uncheckedMarkerCount[dataKey] = 0;
 	}
 
-	processData(checkedMarkersLd);
+	processData(checkedMarkersLd, checkedGlobalsLd);
 
 	window.allLayers = [];
 	let initialLayers = [];
@@ -786,13 +1012,13 @@ function runMap() {
 		cursorborder: "none"
 	});
 
-	var bounds = new L.LatLngBounds(L.latLng(mapInfos[0].bounds[0]), L.latLng(mapInfos[0].bounds[1]));
+	var bounds = new L.LatLngBounds(L.latLng(mapInfo.bounds[0]), L.latLng(mapInfo.bounds[1]));
 
 	var map_settings = {
-		minZoom:             mapInfos[0].minZoom,
-		maxZoom:             mapInfos[0].maxZoom,
-		center:              mapInfos[0].initialPos,
-		zoom:                mapInfos[0].initialZoom,
+		minZoom:             mapInfo.minZoom,
+		maxZoom:             mapInfo.maxZoom,
+		center:              mapInfo.initialPos,
+		zoom:                mapInfo.initialZoom,
 		attributionControl:  false,
 		zoomControl:         false,
 		layers:              initialLayers,
@@ -829,7 +1055,7 @@ function runMap() {
 		minLength:    2,
 		position:     "topright",
 		autoCollapse: false,
-		zoom:         mapInfos[0].maxZoom,
+		zoom:         mapInfo.maxZoom,
 		text:         $.t("controls.searchButton"),
 		filterJSON: function(json) {
 			return json;
@@ -872,12 +1098,12 @@ function runMap() {
 	var layer_settings = {
 		bounds:        bounds,
 		noWrap:        true,
-		minNativeZoom: mapInfos[0].minNativeZoom,
-		maxNativeZoom: mapInfos[0].maxNativeZoom
+		minNativeZoom: mapInfo.minNativeZoom,
+		maxNativeZoom: mapInfo.maxNativeZoom
 	};
 
-	L.tileLayer(window.topdir + "/files/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.png", layer_settings).addTo(map);
-	L.tileLayer(window.topdir + "/files/maps/" + mapInfos[0].name + "/{z}/{x}/{y}.jpg", layer_settings).addTo(map);
+	L.tileLayer(window.topdir + "/files/maps/" + mapInfo.name + "/{z}/{x}/{y}.png", layer_settings).addTo(map);
+	L.tileLayer(window.topdir + "/files/maps/" + mapInfo.name + "/{z}/{x}/{y}.jpg", layer_settings).addTo(map);
 
 	map.on("contextmenu", function(e) {
 		if (!bounds.contains(e.latlng))
@@ -1053,7 +1279,7 @@ function runMap() {
 		$("#show-all").show();
 
 		saveDisabledMarkers();
-		localStorage["hide-all-" + mapInfos[0].name] = true;
+		localStorage["hide-all-" + mapInfo.name] = true;
 	});
 
 	$("#show-all").on("click", function(e) {
@@ -1070,8 +1296,8 @@ function runMap() {
 		$("#show-all").hide();
 		$("#hide-all").show();
 
-		localStorage.removeItem("markers-" + mapInfos[0].name + "-disabled");
-		localStorage.removeItem("hide-all-" + mapInfos[0].name);
+		localStorage.removeItem("markers-" + mapInfo.name + "-disabled");
+		localStorage.removeItem("hide-all-" + mapInfo.name);
 	});
 
 	$("#hide-counts").on("click", function(e) {
@@ -1094,8 +1320,8 @@ function runMap() {
 
 	$("#reset-tracking").on("click", function(e) {
 		e.preventDefault();
-		if (confirm($.t("controls.resetInvisConfirm")))
-			resetMarkers();
+		if (confirm($.t("controls.resetConfirm")))
+			resetProgress();
 	});
 
 	$("ul.key.filter").on("click", "li:not(.none)", function(e) {
@@ -1270,57 +1496,28 @@ function runMap() {
 	hackySticky();
 	$("#sidebar").getNiceScroll().resize();
 
-	// Create tooltips for sidebar texts that get ellipsis.
+	for (let val of $("ul li div.ellip-tooltip")) {
+		$(val).bind({
+			mouseenter: function(e) {
+				$("div.ellip-tooltip-box").remove();
+				let elem = $(e.target);
+				if (elem.outerWidth() < elem[0].scrollWidth)
+					$('<div class="ellip-tooltip-box">' + $(e.target).text() + '</div>').css(
+						{ top: e.pageY, left: e.pageX }
+					).appendTo("body");
+			},
+			mousemove: function(e) {
+				let elem = $(e.target);
+				if (elem.outerWidth() < elem[0].scrollWidth)
+					$("div.ellip-tooltip-box").css({ top: e.pageY, left: e.pageX });
+			},
+			mouseleave: function(e) {
+				$("div.ellip-tooltip-box").remove();
+			}
+		});
+	}
+
 	setTimeout(function() {
-		let wrap = $("#sidebar-wrap");
-		for (let val of $("ul.key:not(.controls) li:not(.none) i")) {
-			let key = $(val).attr("class");
-			let text = esc($.t("sidebar." + key));
-			let tooltip = $('<span class="tooltip">' + text + "</span>");
-
-			let ellipsis = $(val).next();
-			if (ellipsis.outerWidth() < ellipsis[0].scrollWidth) {
-				$(val).parent().mousemove(function(e) {
-					let x = e.clientX;
-					let y = e.clientY;
-
-					// Calculate y-position to counteract scroll offset.
-					y = y - wrap.offset().top + wrap.scrollTop();
-
-					tooltip.css("top", (y + 15) + "px");
-					tooltip.css("left", (x + 15) + "px");
-					tooltip.css("display", "block");
-				}).mouseleave(function() {
-					tooltip.css("display", "none");
-				});
-			}
-
-			wrap.append(tooltip);
-		}
-		for (let val of $("ul.controls li:not(.none) i")) {
-			let text = $(val).next().text();
-			let tooltip = $('<span class="tooltip">' + text + "</span>");
-
-			let ellipsis = $(val).next();
-			if (ellipsis.outerWidth() < ellipsis[0].scrollWidth) {
-				$(val).parent().mousemove(function(e) {
-					let x = e.clientX;
-					let y = e.clientY;
-
-					// Calculate y-position to counteract scroll offset.
-					y = y - wrap.offset().top + wrap.scrollTop();
-
-					tooltip.css("top", (y + 15) + "px");
-					tooltip.css("left", (x + 15) + "px");
-					tooltip.css("display", "block");
-				}).mouseleave(function() {
-					tooltip.css("display", "none");
-				});
-			}
-
-			wrap.append(tooltip);
-		}
-
 		hackySticky();
 		$("#sidebar").getNiceScroll().resize();
 
@@ -1407,7 +1604,7 @@ function runMap() {
 			if (hashMarker.length == 2 && typeof +hashMarker[0] == "number" && typeof +hashMarker[1] == "number")
 				map.setView([hashMarker[0], hashMarker[1]]);
 		} else {
-			map.setView(mapInfos[0].initialPos);
+			map.setView(mapInfo.initialPos);
 		}
 	}, $.t("controls.centerMarkerButton"), "centerButton").addTo(map);
 
@@ -1432,7 +1629,7 @@ function runMap() {
 	}
 
 	function backupNotes() {
-		localStorage["notes-" + mapInfos[0].name] = JSON.stringify(notes);
+		localStorage["notes-" + mapInfo.name] = JSON.stringify(notes);
 	}
 
 	window.saveNote = function(noteKey) {
@@ -1668,6 +1865,57 @@ function runMap() {
 
 	document.getElementById("map").style.cursor = "crosshair";
 
+	$("li.quest i.checkbox").on("click", function(e) {
+		let questId = this.dataset.questId;
+		if (!questId)
+			return;
+		let quest = quests[questId];
+		if (!quest)
+			return;
+		toggleChecked(quest.obj);
+	});
+
+	$("li.quest i.checkbox-f").on("click", function(e) {
+		let questId = this.dataset.questId;
+		if (!questId)
+			return;
+		let quest = quests[questId];
+		if (!quest)
+			return;
+		toggleFinished(quest.obj);
+	});
+
+	$("li.questcat>div, li.questcat>i").on("click", function(e) {
+		let cat = this.dataset.questCat;
+		if (!cat)
+			return;
+		toggleQuestCatOpen(cat);
+	});
+
+	window.addEventListener("pagehide", function() {
+		sessionStorage["scrollbar-" + selectedTab] = $("#sidebar").getNiceScroll(0).getScrollTop();
+	});
+
+	let sessionQuestCatOpen = null;
+	if (sessionStorage.questCatOpen)
+		sessionQuestCatOpen = JSON.parse(sessionStorage.questCatOpen);
+	if (!(sessionQuestCatOpen instanceof Array))
+		sessionQuestCatOpen = [];
+	for (let cat of sessionQuestCatOpen)
+		toggleQuestCatOpen(cat, true);
+
+	for (let tab of Object.keys(scrollPos)) {
+		let pos = sessionStorage["scrollbar-" + tab];
+		if (!pos || Number.isNaN(+pos))
+			continue;
+		scrollPos[tab] = +pos;
+	}
+	$("#sidebar").getNiceScroll(0).scrollTop(scrollPos[selectedTab]);
+
+	let sessionTab = sessionStorage.selectedTab;
+	if (sessionTab && sessionTab in scrollPos)
+		selectTab(sessionTab);
+
 	let hashParams = hash.getHashParams() || {};
 
 	function processHashParams(hashParams) {
@@ -1771,7 +2019,7 @@ function runMap() {
 
 $(function() {
 	$.i18n.init(i18noptions, function() {
-		$.i18n.loadNamespace(mapInfos[0].ns, function() {
+		$.i18n.loadNamespace(mapInfo.ns, function() {
 			try {
 				$(document).i18n();
 				runMap();

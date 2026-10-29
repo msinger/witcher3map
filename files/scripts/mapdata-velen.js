@@ -21,8 +21,11 @@
 		coords:      [86.703,27.938],   // 1x Leader-Sword (L6), 2x Sword (L5), 2x Axe (L5), 2x Mace (L5), 5x Crossbow (L5)
 		level:       "#5 & 6"
 	}, {
-		coords:      [[106.219,31.016], // 1x Axe (L7), 1x Sword (L7), 1x Club (L7), 1x Bow (L7)
-		             [75.875,26.844]],  // 1x Axe (L7), 3x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
+		coords:      [106.219,31.016],  // 1x Axe (L7), 1x Sword (L7), 1x Club (L7), 1x Bow (L7)
+		level:       "#7"
+	}, {
+		coords:      [75.875,26.844],   // 1x Axe (L7), 3x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
+		id:          "abandonedBoatyard",
 		level:       "#7"
 	}, {
 		coords:      [33.969,99.250],   // 1x Endrega Warrior (L11), 3x Endrega Worker (L9)
@@ -185,8 +188,11 @@
 	}, {
 		coords:      [[110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
 		             [209.156,162.734],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [96.938,31.047],    // 1x Axe (L7), 2x Sword (L7), 1x Bow (L7)
-		             [77.656,17.750]],   // 1x Leader-Sword (L7), 2x Axe (L7), 4x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
+		             [96.938,31.047]],   // 1x Axe (L7), 2x Sword (L7), 1x Bow (L7)
+		level:       "#7"
+	}, {
+		coords:      [77.656,17.750],    // 1x Leader-Sword (L7), 2x Axe (L7), 4x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
+		id:          "peninsulaPirateCamp",
 		level:       "#7"
 	}, {
 		coords:      [108.234,145.344], // 1x Axe-Shield (L9), 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 2x Bow (L7)
@@ -402,8 +408,7 @@
 		name:        "elusive"
 	}, {
 		coords:      [205.625,97.281],
-		name:        "deadly",
-		before:      "mainquest.mists"
+		name:        "deadly"
 	}, {
 		coords:      [208.828,103.593],
 		name:        "doors"
@@ -421,8 +426,7 @@
 		name:        "tracks"
 	}, {
 		coords:      [33.656,206.687],
-		name:        "patrol",
-		notBefore:   "sidequest.blood"
+		name:        "patrol"
 	}, {
 		coords:      [86.281,177.343],
 		name:        "phantom"
@@ -432,12 +436,11 @@
 	}, {
 		coords:      [[77.250,148.218],
 		             [62.297,131.980]],
-		name:        "swamp",
-		notBefore:   "mainquest.wandering"
+		name:        "swamp"
 	}, {
 		coords:      [[237.156,130.546],
 		             [216.359,137.453]],
-		name:        "apirian"
+		name:        "apiarian"
 	}, {
 		coords:      [104.531,80.312],
 		name:        "honorton"
@@ -446,8 +449,7 @@
 		name:        "creature"
 	}, {
 		coords:      [104.468,80.750],
-		name:        "griffin",
-		notBefore:   "sidequest.masterarmor"
+		name:        "griffin"
 	}, {
 		coords:      [100.625,110.312],
 		name:        "merry"
@@ -484,7 +486,7 @@
 		notBefore:   "treasurehunt.shores"
 	}, {
 		coords:      [206.000,144.031],
-		notBefore:   "contract.apirian"
+		notBefore:   "contract.apiarian"
 	}, {
 		coords:      [159.250,165.641],
 		notInGame:   true,
@@ -781,8 +783,9 @@
 		rescuable:   true
 	}, {
 		coords:      [101.343,80.187],
-		name:        "crow",
-		notBefore:   "mainquest.nilfgaardian"
+		name:        "crow"
+		// TODO: I think this fight only happens if you fuck up Baron's men at the Crossroads Inn. But I think it actually
+		//       happens at the other gate further up?
 	}, {
 		coords:      [89.859,62.218],
 		name:        "crossing1"
@@ -804,12 +807,10 @@
 		name:        "dare1"
 	}, {
 		coords:      [199.125,117.375],
-		name:        "dare2",
-		notBefore:   "event.dare1"
+		name:        "dare2"
 	}, {
 		coords:      [209.656,93.875],
-		name:        "dare3",
-		notBefore:   "event.dare2"
+		name:        "dare3"
 	}, {
 		coords:      [144.062,71.921],
 		name:        "troll"
@@ -839,12 +840,10 @@
 		name:        "racist2"
 	}, {
 		coords:      [194.734,102.656],
-		name:        "pyre",
-		notBefore:   "sidequest.never"
+		name:        "pyre"
 	}, {
 		coords:      [237.938,149.906],
-		name:        "gift",
-		notBefore:   "mainquest.poet"
+		name:        "gift"
 	}, {
 		coords:      [185.750,145.312],
 		name:        "strangers"
@@ -853,8 +852,7 @@
 		name:        "strumpet"
 	}, {
 		coords:      [200.781,108.046],
-		name:        "suspicious",
-		notBefore:   "mainquest.pyres"
+		name:        "suspicious"
 	}, {
 		coords:      [206.406,106.468],
 		name:        "flame1"
@@ -866,66 +864,49 @@
 		name:        "basilisk"
 	}, {
 		coords:      [157.593,163.812],
-		name:        "passage1",
-		notBefore:   "contract.drunk"
+		name:        "passage1"
 	}, {
 		coords:      [157.531,169.500],
-		name:        "passage2a",
-		notBefore:   "event.passage1"
+		name:        "passage2"
 	}, {
 		coords:      [159.563,178.578],
-		name:        "passage2b",
-		notBefore:   "event.passage1"
+		name:        "passage3"
 	}, {
 		coords:      [189.500,98.640],
-		name:        "raids",
-		notBefore:   "mainquest.pyres",
-		before:      "sidequest.never"
+		name:        "raids"
 	}, {
 		coords:      [149.312,166.500],
-		name:        "neighborhood",
-		notBefore:   "sidequest.neighborhood"
+		name:        "neighborhood"
 	}, {
 		coords:      [87.203,164.265],
-		name:        "hazardous2",
-		notBefore:   "sidequest.hazardous1"
+		name:        "hazardous2"
 	}, {
 		coords:      [42.234,203.172],
-		name:        "death2",
-		notBefore:   "sidequest.death1"
+		name:        "death2"
 	}, {
 		coords:      [204.594,210.031],
-		name:        "trace2",
-		notBefore:   "sidequest.trace1"
+		name:        "trace2"
 	}, {
 		coords:      [215.328,105.031],
-		name:        "raids2",
-		notBefore:   "mainquest.pyres",
-		before:      "sidequest.never"
+		name:        "raids2"
 	}, {
 		coords:      [68.844,75.234],
-		name:        "millie",
-		notBefore:   "sidequest.cat"
+		name:        "millie"
 	}, {
 		coords:      [209.656,88.375],
-		name:        "vivienne",
-		notBefore:   "mainquest.humble"
+		name:        "vivienne"
 	}, {
 		coords:      [101.625,74.625],
-		name:        "daughter1",
-		notBefore:   "sidequest.crookback"
+		name:        "daughter1"
 	}, {
 		coords:      [102.094,78.188],
-		name:        "daughter2",
-		notBefore:   "sidequest.crookback"
+		name:        "daughter2"
 	}, {
 		coords:      [104.719,76.563],
-		name:        "stable",
-		notBefore:   "mainquest.family"
+		name:        "stable"
 	}, {
 		coords:      [225.425,151.080],
-		name:        "doors2",
-		notBefore:   "contract.doors"
+		name:        "doors2"
 	}],
 	// ----------------- Grindstones --------------------
 	grindstone: [{
@@ -1044,7 +1025,7 @@
 		coords:      [174.000,78.914],  // 1x {5:00-19:30: Noonwraith (L15), 19:30-5:00: Nightwraith} (L15)
 		name:        "wraith",
 		level:       "#15",
-		after:       "sidequest.fromfar2"
+		after:       "sidequest.fromfar"
 	}, {
 		coords:      [98.313,40.141],   // 1x Endrega Warrior (L9), 6x Endrega Worker (L9)
 		name:        "endrega",
@@ -6097,54 +6078,34 @@
 		name:        "barnful"
 	}, {
 		coords:      [199.343,106.343],
-		name:        "dangerous",
-		notBefore:   "mainquest.poet",
-		before:      "mainquest.mists"
+		name:        "dangerous"
 	}, {
 		coords:      [150.531,166.578],
-		name:        "wanted",
-		notBefore:   "mainquest.junior",
-		before:      "mainquest.mists"
+		name:        "wanted"
 	}, {
 		coords:      [66.687,91.125],
 		name:        "dog"
 	}, {
 		coords:      [89.843,48.609],
-		name:        "magiclamp",
-		notBefore:   "mainquest.wandering",
-		before:      "mainquest.mists"
+		name:        "magiclamp"
 	}, {
 		coords:      [89.843,48.809],
-		name:        "invitation",
-		notBefore:   "sidequest.magiclamp",
-		before:      "mainquest.mists"
+		name:        "invitation"
 	}, {
 		coords:      [89.843,49.009],
-		name:        "towerful",
-		notBefore:   "sidequest.invitation",
-		before:      "mainquest.mists"
+		name:        "towerful"
 	}, {
 		coords:      [89.843,49.209],
-		name:        "favor",
-		notBefore:   "sidequest.towerful",
-		before:      "mainquest.mists"
+		name:        "favor"
 	}, {
 		coords:      [198.063,82.391],
-		name:        "reason",
-		notBefore:   ["mainquest.blindingly",
-		              "sidequest.deadly",
-		              "sidequest.eyeforeye",
-		              "sidequest.wanted"],
-		before:      ["mainquest.mists",
-		              "mainquest.ice"]
+		name:        "reason"
 	}, {
 		coords:      [200.375,105.203],
-		name:        "feast",
-		notBefore:   "mainquest.flowers"
+		name:        "feast"
 	}, {
 		coords:      [72.437,59.625],
-		name:        "greedy",
-		notBefore:   "mainquest.wandering"
+		name:        "greedy"
 	}, {
 		coords:      [205.563,108.188],
 		name:        "entombed",
@@ -6155,13 +6116,10 @@
 		name:        "waterfront"
 	}, {
 		coords:      [180.000,176.125],
-		name:        "eyeforeye",
-		notBefore:   "sidequest.gangs"
+		name:        "eyeforeye"
 	}, {
 		coords:      [160.421,166.437],
-		name:        "avid",
-		during:      "mainquest.sesame",
-		hos:         true
+		name:        "avid"
 	}, {
 		coords:      [148.156,114.093],
 		name:        "bitter"
@@ -6173,19 +6131,13 @@
 		name:        "blood"
 	}, {
 		coords:      [198.968,107.734],
-		name:        "cabaret",
-		notBefore:   "mainquest.poet",
-		before:      "mainquest.mists"
+		name:        "cabaret"
 	}, {
 		coords:      [198.968,108.000],
-		name:        "sins",
-		notBefore:   "sidequest.cabaret",
-		before:      "mainquest.mists"
+		name:        "sins"
 	}, {
 		coords:      [106.968,74.875],
-		name:        "ciri",
-		notBefore:   "mainquest.ciriwolves",
-		before:      "mainquest.mists"
+		name:        "ciri"
 	}, {
 		coords:      [149.562,129.187],
 		name:        "deathfire"
@@ -6197,70 +6149,57 @@
 		name:        "empty"
 	}, {
 		coords:      [152.500,115.343],
-		name:        "fake",
-		notBefore:   "sidequest.bitter"
+		name:        "fake"
 	}, {
 		coords:      [218.000,106.109],
-		name:        "fencing",
-		during:      "mainquest.flowers",
-		before:      "mainquest.mists"
+		name:        "fencing"
 	}, {
 		coords:      [209.109,103.250],
-		name:        "thread",
-		before:      "mainquest.baby"
+		name:        "thread"
 	}, {
 		coords:      [101.781,137.718],
 		name:        "fools"
 	}, {
 		coords:      [[104.391,76.938],
 		             [89.062,47.875]],
-		name:        "forefathers",
-		notBefore:   "sidequest.towerful"
-	}, {
-		coords:      [164.218,89.750],
-		name:        "fromfar2"
+		name:        "forefathers"
 	}, {
 		coords:      [129.687,111.093],
 		name:        "funeral"
 	}, {
 		coords:      [84.625,150.094],
-		name:        "ghosts",
-		before:      "mainquest.mists"
+		name:        "ghosts"
 	}, {
 		coords:      [209.078,104.125],
-		name:        "haunted",
-		notBefore:   "mainquest.dreaming"
+		name:        "haunted"
 	}, {
 		coords:      [104.562,129.296],
-		name:        "hazardous1"
+		name:        "hazardous"
 	}, {
 		coords:      [213.187,94.671],
 		name:        "stuff"
 	}, {
 		coords:      [210.468,107.234],
-		name:        "messages",
-		notBefore:   "event.children1"
+		name:        "messages"
 	}, {
 		coords:      [221.109,104.375],
 		name:        "stakes"
 	}, {
 		coords:      [198.390,104.546],
-		name:        "honor",
-		notBefore:   "sidequest.gangs"
+		name:        "honor"
 	}, {
 		coords:      [111.843,54.500],
-		name:        "rites",
-		notBefore:   "sidequest.defender"
+		name:        "rites"
 	}, {
 		coords:      [237.718,129.500],
 		name:        "red"
 	}, {
 		coords:      [76.156,28.031],
-		name:        "snares"
+		name:        "snares",
+		cleared:     ["abandonedBoatyard", "peninsulaPirateCamp"]
 	}, {
 		coords:      [103.843,39.812],
-		name:        "mob",
-		before:      "sidequest.favor"
+		name:        "mob"
 	}, {
 		coords:      [104.843,77.312],
 		name:        "masterarmor"
@@ -6272,14 +6211,10 @@
 		name:        "hospitality"
 	}, {
 		coords:      [210.562,95.609],
-		name:        "city2",
-		notBefore:   ["sidequest.matter",
-		              "mainquest.reuven"]
+		name:        "city2"
 	}, {
 		coords:      [221.812,98.968],
-		name:        "city1",
-		notBefore:   ["sidequest.matter",
-		              "mainquest.reuven"]
+		name:        "city"
 	}, {
 		coords:      [155.093,208.531],
 		name:        "darkness"
@@ -6288,54 +6223,44 @@
 		name:        "dumplings"
 	}, {
 		coords:      [201.578,98.515],
-		name:        "arse",
-		notBefore:   "contract.deadly"
+		name:        "arse"
 	}, {
 		coords:      [209.938,109.422],
-		name:        "matter",
-		notBefore:   "mainquest.reuven"
+		name:        "matter"
 	}, {
 		coords:      [246.547,198.938],
-		name:        "midnight",
-		during:      "mainquest.deadman",
-		hos:         true
+		name:        "midnight"
 	}, {
 		coords:      [107.078,73.765],
-		name:        "crookback",
-		notBefore:   "mainquest.family",
-		before:      "mainquest.mists"
+		name:        "crookback"
 	}, {
 		coords:      [247.500,174.343],
-		name:        "rose",
-		notBefore:   "mainquest.evil",
-		hos:         true
+		name:        "rose"
 	}, {
 		coords:      [154.000,163.500],
-		name:        "neighborhood",
-		notBefore:   "contract.drunk"
+		name:        "neighborhood"
 	}, {
 		coords:      [149.281,183.343],
 		name:        "spooked"
 	}, {
 		coords:      [95.156,47.718],
-		name:        "takewant",
-		notBefore:   "sidequest.cat"
+		name:        "takewant"
 	}, {
 		coords:      [202.250,118.687],
 		name:        "dwarven"
 	}, {
 		coords:      [98.781,110.562],
-		name:        "reardon",
-		before:      "mainquest.mists"
+		name:        "reardon"
 	}, {
 		coords:      [159.375,167.218],
-		name:        "taxman",
-		hos:         true
+		name:        "taxman"
 	}, {
-		coords:      [84.406,175.437],
+		coords:      [[158.156,164.781],
+		             [84.406,175.437]],
 		name:        "stars"
 	}, {
-		coords:      [155.937,153.281],
+		coords:      [[158.133,164.641],
+		             [155.937,153.281]],
 		name:        "volunteer"
 	}, {
 		coords:      [76.687,148.281],
@@ -6352,19 +6277,18 @@
 		             [108.438,53.219]],
 		name:        "heart"
 	}, {
-		coords:      [99.656,109.718],
-		name:        "wannabe",
-		notBefore:   "contract.merry"
+		coords:      [[104.539,79.070],
+		             [69.234,76.086],
+		             [77.266,148.016],
+		             [99.656,109.718]],
+		name:        "wannabe"
 	}, {
 		coords:      [242.906,198.562],
-		name:        "trace1",
-		hos:         true
+		name:        "trace"
 	}, {
 		coords:      [[207.875,103.062],
 		             [194.445,163.172]],
 		name:        "rc_derby",
-		race:        true,
-		notBefore:   "mainquest.junior",
 		routes: [{
 			name: "v:race.derby1.label",
 			coords: [[194.453,161.922], [195.016,162.406], [195.969,162.609], [196.984,162.484], [197.922,162.797],
@@ -6434,7 +6358,6 @@
 	}, {
 		coords:      [104.562,79.312],
 		name:        "rc_perch",
-		race:        true,
 		routes: [{
 			name: "v:race.perch.label",
 			coords: [[103.375,65.305], [102.930,63.773], [102.883,62.789], [103.422,61.328], [104.086,60.227],
@@ -6447,9 +6370,7 @@
 		}]
 	}, {
 		coords:      [239.468,213.281],
-		name:        "rc_western",
-		hos:         true,
-		race:        true
+		name:        "rc_western"
 	}, {
 		coords:      [[209.062,103.859],
 		             [194.438,97.547],
@@ -6463,30 +6384,35 @@
 		name:        "ff_velen"
 	}, {
 		coords:      [239.453,214.969],
-		name:        "en_s",
-		hos:         true
+		name:        "en_s"
 	}, {
 		coords:      [239.453,215.169],
-		name:        "en_q",
-		hos:         true,
-		notBefore:   "sidequest.en_s"
+		name:        "en_q"
 	}, {
 		coords:      [239.453,215.369],
-		name:        "en_m",
-		extraDesc:   "sidequest.en_m.descMods",
-		hos:         true,
-		notBefore:   "sidequest.en_q"
+		name:        "en_m"
 	}, {
 		coords:      [216.287,104.625],
 		name:        "nobleman"
 	}, {
 		coords:      [205.969,103.797],
-		name:        "soldier",
-		during:      "sidequest.dangerous",
-		before:      "mainquest.mists"
+		name:        "soldier"
 	}, {
 		coords:      [131.234,131.375],
 		name:        "eternal"
+	}, {
+		coords:      [205.625,97.625],
+		name:        "gw_city"
+	}, {
+		coords:      [158.148,164.914],
+		name:        "gw_inn"
+	}, {
+		coords:      [[104.547,78.531],
+		             [82.075,42.883]],
+		name:        "gw_velen"
+	}, {
+		coords:      [169.789,179.383],
+		name:        "practicum"
 	}],
 	// ----------------- Sign Posts ---------------------
 	signpost: [{
@@ -7320,34 +7246,27 @@
 		name:        "fire"
 	}, {
 		coords:      [190.937,195.125],
-		name:        "airforce",
-		hos:         true
+		name:        "airforce"
 	}, {
 		coords:      [186.312,211.250],
-		name:        "surprise",
-		hos:         true
+		name:        "surprise"
 	}, {
 		coords:      [197.593,226.125],
-		name:        "romilly",
-		hos:         true
+		name:        "romilly"
 	}, {
 		coords:      [245.562,212.562],
-		name:        "cursed",
-		hos:         true
+		name:        "cursed"
 	}, {
 		coords:      [252.625,133.625],
 		name:        "redemption",
-		hos:         true,
 		underground: true,
 		entrances:   "spider_cave"
 	}, {
 		coords:      [238.156,155.891],
-		name:        "tinker",
-		hos:         true
+		name:        "tinker"
 	}, {
 		coords:      [241.750,94.062],
-		name:        "perfidy",
-		hos:         true
+		name:        "perfidy"
 	}, {
 		coords:      [154.313,96.734],
 		name:        "forcoin"
@@ -7389,13 +7308,10 @@
 		name:        "sunkenc"
 	}, {
 		coords:      [160.437,166.187],
-		name:        "legacy",
-		hos:         true,
-		during:      "mainquest.sesame"
+		name:        "legacy"
 	}, {
 		coords:      [239.468,213.515],
-		name:        "shores",
-		hos:         true
+		name:        "shores"
 	}, {
 		coords:      [107.391,55.188],
 		name:        "scav_cat1"

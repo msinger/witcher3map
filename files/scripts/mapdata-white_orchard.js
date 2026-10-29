@@ -44,8 +44,7 @@
 	contract: [{
 		coords:      [[62.406,64.437],
 		             [62.344,56.344]],
-		name:        "devil",
-		before:      "mainquest.ice"
+		name:        "devil"
 	}],
 	// ----------------- Entrances ----------------------
 	entrance: [{
@@ -60,12 +59,10 @@
 	// ----------------- Events -------------------------
 	event: [{
 		coords:      [64.938,34.313],
-		name:        "tomira",
-		during:      "mainquest.something"
+		name:        "tomira"
 	}, {
 		coords:      [88.688,38.125],
-		name:        "dwarves",
-		during:      "mainquest.something"
+		name:        "dwarves"
 	}],
 	// ----------------- Grindstones --------------------
 	grindstone: [{
@@ -520,16 +517,14 @@
 		name:        "twist"
 	}, {
 		coords:      [62.064,67.531],
-		name:        "faith",
-		during:      "mainquest.something"
+		name:        "faith"
 	}, {
 		coords:      [[48.469,124.407],
 		             [61.438,64.422]],
 		name:        "missing"
 	}, {
 		coords:      [64.814,33.156],
-		name:        "death1",
-		during:      "mainquest.orchard"
+		name:        "death"
 	}, {
 		coords:      [89.813,26.126],
 		name:        "precious"

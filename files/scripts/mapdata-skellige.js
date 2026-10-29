@@ -315,8 +315,7 @@
 		name:        "woe"
 	}, {
 		coords:      [150.828,122.359],
-		name:        "hammond",
-		during:      "sidequest.thread"
+		name:        "hammond"
 	}, {
 		coords:      [150.141,151.422],
 		name:        "yustianna",
@@ -324,8 +323,7 @@
 		entrances:   "yustianna_grotto"
 	}, {
 		coords:      [147.704,137.938],
-		name:        "punishment2",
-		notBefore:   "sidequest.punishment1"
+		name:        "punishment2"
 	}],
 	// ----------------- Grindstones --------------------
 	grindstone: [{
@@ -942,25 +940,15 @@
 		coords:      [117.282,157.765],
 		name:        "beloved"
 	}, {
-		coords:      [132.891,104.063],
+		coords:      [[132.891,104.063],
+		             [93.405,120.969]],
 		name:        "horn"
-	}, {
-		coords:      [93.405,120.969],
-		name:        "horn"
-	}, {
-		coords:      [130.641,223.968],
-		name:        "passenger",
-		notBefore:   "mainquest.storm",
-		before:      "mainquest.family"
 	}, {
 		coords:      [133.766,157.718],
 		name:        "sawmill"
 	}, {
 		coords:      [149.422,126.454],
-		name:        "unpaid",
-		notBefore:   ["sidequest.stranger",
-		              "sidequest.dreams"],
-		before:      "sidequest.gambit"
+		name:        "unpaid"
 	}, {
 		coords:      [126.923,137.594],
 		name:        "assault"
@@ -969,19 +957,16 @@
 		name:        "brave"
 	}, {
 		coords:      [152.750,122.609],
-		name:        "coronation",
-		notBefore:   "sidequest.gambit",
-		before:      "mainquest.mists"
+		name:        "coronation"
 	}, {
 		coords:      [160.968,140.782],
-		name:        "punishment1"
+		name:        "punishment"
 	}, {
 		coords:      [160.703,160.750],
 		name:        "keepers"
 	}, {
 		coords:      [61.312,200.140],
-		name:        "flesh",
-		before:      "sidequest.thread"
+		name:        "flesh"
 	}, {
 		coords:      [129.860,218.718],
 		name:        "glory"
@@ -990,7 +975,7 @@
 		name:        "spirit"
 	}, {
 		coords:      [126.672,182.469],
-		name:        "fromfar1"
+		name:        "fromfar"
 	}, {
 		coords:      [135.563,145.688],
 		name:        "hardtimes"
@@ -1002,10 +987,7 @@
 		name:        "maiden"
 	}, {
 		coords:      [153.296,122.219],
-		name:        "gambit",
-		notBefore:   ["sidequest.possession",
-		              "sidequest.undvik"],
-		before:      "mainquest.mists"
+		name:        "gambit"
 	}, {
 		coords:      [174.969,80.594],
 		name:        "arena"
@@ -1014,9 +996,7 @@
 		name:        "disturbed"
 	}, {
 		coords:      [173.265,71.704],
-		name:        "possession",
-		notBefore:   "mainquest.king",
-		before:      "mainquest.bpreparations"
+		name:        "possession"
 	}, {
 		coords:      [137.391,163.796],
 		name:        "practicum"
@@ -1025,31 +1005,23 @@
 		name:        "therapy"
 	}, {
 		coords:      [94.735,125.922],
-		name:        "stranger",
-		notBefore:   "contract.eldberg"
+		name:        "stranger"
 	}, {
-		coords:      [115.516,169.468],
-		name:        "taken1"
-	}, {
-		coords:      [137.078,217.765],
-		name:        "taken2"
+		coords:      [[115.516,169.468],
+		             [137.078,217.765]],
+		name:        "taken"
 	}, {
 		coords:      [81.407,135.626],
-		name:        "dreams",
-		notBefore:   "mainquest.king",
-		before:      "sidequest.gambit"
+		name:        "dreams"
 	}, {
 		coords:      [137.703,143.063],
 		name:        "blade"
 	}, {
 		coords:      [130.172,223.000],
-		name:        "last",
-		notBefore:   "mainquest.storm",
-		before:      "mainquest.baby"
+		name:        "last"
 	}, {
 		coords:      [103.000,72.125],
-		name:        "undvik",
-		notBefore:   "mainquest.king"
+		name:        "undvik"
 	}, {
 		coords:      [[127.501,135.750],
 		             [131.391,134.282]],
@@ -1057,8 +1029,7 @@
 	}, {
 		coords:      [[193.468,179.421],
 		             [196.250,184.984]],
-		name:        "warriors",
-		notBefore:   "sidequest.nowheres"
+		name:        "warriors"
 	}, {
 		coords:      [63.470,187.437],
 		name:        "price"
@@ -1070,7 +1041,7 @@
 		name:        "nowheres"
 	}, {
 		coords:      [146.532,123.844],
-		name:        "worthy1"
+		name:        "worthy"
 	}, {
 		coords:      [141.063,128.547],
 		name:        "worthy2"
@@ -1080,7 +1051,6 @@
 	}, {
 		coords:      [125.438,132.438],
 		name:        "ps_fayrlund",
-		race:        true,
 		routes: [{
 			name: "s:race.fayrlund.label",
 			coords: [[125.242,132.742], [125.258,132.367], [125.109,131.914], [125.047,131.633], [125.133,131.359],
@@ -1093,12 +1063,9 @@
 			        [124.383,123.875]]
 		}]
 	}, {
-		coords:      [130.376,220.593],
+		coords:      [[130.376,220.593],
+		             [130.727,223.367]],
 		name:        "ps_goddess",
-		race:        true,
-		notBefore:   ["sidequest.ps_fayrlund",
-		              "sidequest.ps_fyresdal",
-		              "sidequest.ps_trolde"],
 		routes: [{
 			name: "s:race.larvik.label",
 			coords: [[130.578,219.609], [130.836,219.141], [131.164,218.773], [131.672,218.445], [132.039,218.023],
@@ -1113,7 +1080,6 @@
 	}, {
 		coords:      [119.782,148.813],
 		name:        "ps_fyresdal",
-		race:        true,
 		routes: [{
 			name: "s:race.fyresdal.label",
 			coords: [[121.141,147.734], [120.406,147.891], [120.047,148.141], [119.750,148.719], [119.250,149.250],
@@ -1129,7 +1095,6 @@
 	}, {
 		coords:      [131.250,133.438],
 		name:        "ps_trolde",
-		race:        true,
 		routes: [{
 			name: "s:race.trolde.label",
 			coords: [[131.344,133.656], [131.578,133.766], [131.922,133.859], [132.406,134.109], [132.750,134.500],
@@ -1150,10 +1115,7 @@
 		name:        "gw_skellige"
 	}, {
 		coords:      [174.953,80.813],
-		name:        "ff_champion",
-		notBefore:   ["sidequest.ff_novigrad",
-		              "sidequest.ff_velen",
-		              "sidequest.ff_skellige"]
+		name:        "ff_champion"
 	}, {
 		coords:      [[146.844,127.016],
 		             [148.813,126.562],

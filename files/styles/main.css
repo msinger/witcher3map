@@ -25,22 +25,26 @@ div#title {
 	font-family: PFDinTextCondPro, Arial, sans-serif
 }
 
-*,
-div#sidebar-wrap>span.tooltip {
+* {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none
 }
 
 div#sidebar-tabs {
+	background: rgba(0, 0, 0, 1.0);
+	position: sticky;
+	top: 0;
 	margin-bottom: 8px;
+	opacity: 1.0;
+	z-index: 1;
 }
 
 div#sidebar-tabs>i {
 	float: left;
 	box-sizing: border-box;
 	display: block;
-	color: #b08948;
+	color: #886a34;
 	padding-top: 5px;
 	margin-top: 5px;
 	text-decoration: none;
@@ -49,7 +53,7 @@ div#sidebar-tabs>i {
 	max-height: 32px;
 	min-height: 32px;
 	text-align: center;
-	border: 2px solid #b08948;
+	border: 2px solid #886a34;
 	border-bottom-width: 1px;
 	cursor: pointer;
 }
@@ -63,6 +67,18 @@ div#sidebar-tabs>i#tab-interior {
 
 div#sidebar-tabs>i#tab-interior.sel {
 	background-image: url(../images/interior-sel.png);
+	background-position-y: 10px;
+}
+
+div#sidebar-tabs>i#tab-quest {
+	background-image: url(../images/quest.png);
+	background-position-x: center;
+	background-position-y: 5px;
+	background-repeat: no-repeat;
+}
+
+div#sidebar-tabs>i#tab-quest.sel {
+	background-image: url(../images/quest-sel.png);
 	background-position-y: 10px;
 }
 
@@ -103,8 +119,7 @@ div#sidebar-tabs>b.fill {
 	min-height: 37px;
 }
 
-body,
-div#sidebar {
+body {
 	background: #000;
 	overflow: hidden
 }
@@ -145,17 +160,23 @@ div#popup-wrap #popup-content a:hover {
 
 body,
 div#popup-wrap h3,
-ul.key {
+ul.key,
+ul.quest,
+ul.questcat {
 	margin: 0;
 	padding: 0
 }
 
 .leaflet-tooltip,
-div#sidebar-wrap>span.tooltip {
+div.ellip-tooltip-box {
 	padding: 1px 6px;
 	pointer-events: none;
 	z-index: 6;
 	position: absolute
+}
+
+div.ellip-tooltip-box {
+	margin: 8px 16px;
 }
 
 div#copyright,
@@ -211,14 +232,20 @@ div#map {
 }
 
 div#sidebar {
+	background: rgb(0, 0, 0);
+	overflow: hidden;
 	width: 360px;
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	padding: 15px 10px 0 15px;
+	padding: 0 10px 0 15px;
 	color: #fff;
-	opacity: .7
+	opacity: 0.7;
+}
+
+div#sidebar-logo {
+	padding-top: 15px;
 }
 
 div#sidebar-border {
@@ -228,33 +255,32 @@ div#sidebar-border {
 	top: 0;
 	bottom: 0;
 	left: 385px;
-	opacity: .7
+	opacity: 0.7;
 }
 
-div#sidebar-wrap>span.tooltip {
-	background: rgba(0, 0, 0, .7);
+div.ellip-tooltip-box {
+	background: rgba(0, 0, 0, 0.7);
 	background-clip: padding-box;
 	border-color: #000;
 	border-radius: 4px;
-	border: 4px solid rgba(0, 0, 0, .7);
+	border: 4px solid rgba(0, 0, 0, 0.7);
 	color: #f0cb0b;
-	display: none;
 	font: 20px PFDinTextCondPro, Arial, sans-serif;
 	user-select: none;
-	max-width: 100px;
+	max-width: 300px;
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
 	white-space: -pre-wrap;
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
-	opacity: .7
+	opacity: 0.7;
 }
 
 div#lang-switcher .dd-option-image,
 div#lang-switcher .dd-selected-image,
 div#note-popup button:disabled,
 head {
-	opacity: .5
+	opacity: 0.5;
 }
 
 ul.key {
@@ -269,18 +295,18 @@ ul.key {
 	-ms-column-gap: 10px;
 	-o-column-gap: 10px;
 	column-gap: 2px;
-	columns: 2
+	columns: 2;
 }
 
 ul.key>li,
 ul.key>li>a {
 	font-size: 18px;
 	height: 32px;
-	cursor: pointer
+	cursor: pointer;
 }
 
 ul.key>li>a {
-	display: block
+	display: block;
 }
 
 ul.key>li>a>i,
@@ -292,7 +318,7 @@ ul.key>li>i {
 	background-size: contain;
 	float: left;
 	margin-right: 7px;
-	line-height: 25px
+	line-height: 25px;
 }
 
 ul.key>li>a>div,
@@ -302,12 +328,12 @@ ul.key>li>div {
 	width: 120px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	float: left
+	float: left;
 }
 
 ul.controls>li>a>div,
 ul.controls>li>div {
-	width: 148px
+	width: 148px;
 }
 
 ul.key>li>div.pill {
@@ -317,38 +343,160 @@ ul.key>li>div.pill {
 	font-size: 14px;
 	line-height: 17px;
 	max-width: 19px;
-	float: left
+	float: left;
 }
 
 ul.key>li:after {
-	clear: both
+	clear: both;
 }
 
 ul.key>li.layer-disabled>div,
-ul.key>li.interior-hidden>div {
+ul.key>li.interior-hidden>div,
+ul.quest>li.item-finished>div {
 	text-decoration: line-through;
 	-moz-opacity: 0.6;
 	-khtml-opacity: 0.6;
-	opacity: .6
+	opacity: 0.6;
 }
 
 ul.key>li.layer-disabled,
-ul.key>li.interior-hidden {
+ul.key>li.interior-hidden,
+ul.quest>li.item-finished {
 	-moz-opacity: 0.9;
 	-khtml-opacity: 0.9;
-	opacity: .9
+	opacity: 0.9;
 }
 
 ul.key>li.layer-disabled>i,
-ul.key>li.interior-hidden>i {
+ul.key>li.interior-hidden>i,
+ul.key>li.item-finished>i {
 	-moz-opacity: 0.6;
 	-khtml-opacity: 0.6;
-	opacity: .6
+	opacity: 0.6;
+}
+
+ul.quest,
+ul.questcat {
+	list-style-type: none;
+	clear: left;
+}
+
+ul.quest>li {
+	font-size: 18px;
+	height: 32px;
+	clear: left;
+}
+
+ul.questcat>li {
+	font-size: 18px;
+	clear: left;
+}
+
+ul.quest>li>i,
+ul.questcat>li>i {
+	height: 20px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: left;
+	line-height: 25px;
+}
+
+ul.quest>li>i.checkbox,
+ul.quest>li>i.checkbox-f {
+	width: 20px;
+	margin-right: 6px;
+	cursor: pointer;
+}
+
+ul.questcat>li>i.caret {
+	height: 30px;
+	width: 20px;
+	cursor: pointer;
+}
+
+ul.quest>li>i.checkbox-frozen {
+	cursor: default;
+}
+
+ul.quest>li>i.quest-type {
+	width: 17px;
+	margin-left: -30px;
+	margin-right: 13px;
+}
+
+ul.quest>li>i.quest-region {
+	width: 19px;
+	margin-left: 10px;
+}
+
+ul.quest>li>b.quest-level {
+	width: 18px;
+	height: 20px;
+	display: block;
+	float: left;
+	line-height: 25px
+	white-space: nowrap;
+	color: #ffffff;
+	font-size: 12px;
+	text-decoration: none;
+	overflow: hidden;
+	text-align: center;
+	padding-top: 4px;
+	margin-left: -2px;
+}
+
+ul.quest>li>div,
+ul.questcat>li>div {
+	line-height: 21px;
+	white-space: nowrap;
+	width: 263px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+}
+
+ul.questcat>li>div {
+	text-transform: uppercase;
+	width: 340px;
+	cursor: pointer;
+}
+
+ul.quest>li:after,
+ul.questcat>li:after {
+	clear: both;
+}
+
+ul.quest>li,
+ul.questcat>li {
+	color: #b08948;
+	text-decoration: none;
+}
+
+ul.quest>li:hover,
+ul.questcat>li:hover {
+	color: #f0cb0b;
+}
+
+ul.quest>li>div.hos {
+	color: #4889b0;
+}
+
+ul.quest>li>div.hos:hover {
+	color: #0bcbf0;
+}
+
+ul.quest>li>div.baw {
+	color: #b04848;
+}
+
+ul.quest>li>div.baw:hover {
+	color: #f00b0b;
 }
 
 ul.controls {
 	margin-top: 10px;
-	font-weight: 700
+	font-weight: 700;
 }
 
 div#note {
@@ -356,7 +504,8 @@ div#note {
 	color: #000;
 	font-size: 18px;
 	height: 110px;
-	line-height: 110px
+	line-height: 110px;
+	clear: both;
 }
 
 div#note span#note-msg {
@@ -569,7 +718,7 @@ div#hide-sidebar {
 	position: absolute;
 	left: 390px;
 	top: 0;
-	background: url(../images/sidebarhide.png) 0 3px no-repeat rgba(0, 0, 0, .7);
+	background: url(../images/sidebarhide.png) 0 3px no-repeat rgba(0, 0, 0, 0.7);
 	border-bottom-right-radius: 8px;
 	width: 28px;
 	height: 32px;
@@ -673,6 +822,14 @@ div#popup-wrap img#popup-close {
 		-o-column-gap: 0;
 		column-gap: 0;
 		columns: 1
+	}
+
+	ul.questcat>li>div {
+		width: 160px;
+	}
+
+	ul.quest>li>div {
+		width: 83px;
 	}
 
 	div#copyright,
@@ -861,6 +1018,10 @@ i.kid {
 	background-image: url(../images/icons/kid.png)
 }
 
+i.mainquest {
+	background-image: url(../images/icons/mainquest.png)
+}
+
 i.monster {
 	background-image: url(../images/icons/monster.png)
 }
@@ -935,6 +1096,38 @@ i.treasurehunt {
 
 i.vineyardinfestation {
 	background-image: url(../images/icons/vineyardinfestation.png)
+}
+
+i.region-any {
+	background-image: url(../images/region/any.png)
+}
+
+i.region-kaer_morhen {
+	background-image: url(../images/region/kaer_morhen.png)
+}
+
+i.region-novigrad {
+	background-image: url(../images/region/novigrad.png)
+}
+
+i.region-skellige {
+	background-image: url(../images/region/skellige.png)
+}
+
+i.region-toussaint {
+	background-image: url(../images/region/toussaint.png)
+}
+
+i.region-velen {
+	background-image: url(../images/region/velen.png)
+}
+
+i.region-vizima {
+	background-image: url(../images/region/vizima.png)
+}
+
+i.region-white_orchard {
+	background-image: url(../images/region/white_orchard.png)
 }
 
 .leaflet-container {
