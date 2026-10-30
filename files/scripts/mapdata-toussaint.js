@@ -1300,5 +1300,6 @@ registerMap({
 	minNativeZoom: 2,
 	maxNativeZoom: 6,
 	initialZoom:   3,
+	baw:           true,
 	getMapData:    getMapData
 }); }

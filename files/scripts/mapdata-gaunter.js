@@ -60,5 +60,6 @@ registerMap({
 	minNativeZoom: 0,
 	maxNativeZoom: 2,
 	initialZoom:   1,
+	hos:           true,
 	getMapData:    getMapData
 }); }

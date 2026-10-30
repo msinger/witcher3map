@@ -2,8 +2,10 @@
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
 		coords:      [[82.797,87.984],
-		             [238.156,201.687],
 		             [99.938,130.172]]
+	}, {
+		coords:      [238.156,201.687],
+		hos:         true
 	}, {
 		coords:      [122.281,179.266], // 1x Alghoul (L9), 5x Ghoul (L9)
 		id:          "abandonedFerryStation",
@@ -36,23 +38,28 @@
 		level:       "#9"
 	}, {
 		coords:      [241.125,155.875], // all Fallen Knight: 2x Sword (L33), 1x Sword-Shield (L33), 1x Hammer-2H (L33), 1x Mace (L33), 1x Crossbow (L33) (in ep1_poi_04)
-		level:       "#33" // TODO: Check if this contains diagrams for the 'From Ofier's Distant Shores' quest.
+		level:       "#33", // TODO: Check if this contains diagrams for the 'From Ofier's Distant Shores' quest.
+		hos:         true
 	}, {
 		coords:      [239.750,69.937],  // 1x Bilge Hag (L34), 3x Drowned Dead (L34) (in ep1_poi_06)
 		name:        "bilgehag",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}, {
 		coords:      [250.250,143.500], // 5x Wraith (L29) (in ep1_poi_07)
 		name:        "wraith",
-		level:       "#29"
+		level:       "#29",
+		hos:         true
 	}, {
 		coords:      [185.750,209.531], // 6x Ghoul (L34) (in ep1_poi_08)
 		name:        "ghoul",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}, {
 		coords:      [177.969,211.656], // 1x Arachnomorph (L30), 4x Arachnomorph (L34) (in ep1_poi_30)
 		name:        "arachnomorph",
-		level:       "#30 & 34"
+		level:       "#30 & 34",
+		hos:         true
 	}],
 	// ----------------- Alchemy Supplies ---------------
 	alchemy: [{
@@ -147,10 +154,10 @@
 		level:       "#7",
 		notInGame:   true
 	}, {
-		disabled:    true, // Disabled by HoS DLC.
 		coords:      [243.156,149.406],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
-		notInGame:   true
+		notInGame:   true,
+		notHos:      true
 	}, {
 		coords:      [58.578,190.109],  // 2x Axe (L7), 1x Mace (L7), 1x Club (L7) (in _bald_mountain/bm_poe_01/mounted_bandits_group_01)
 		level:       "#7",
@@ -230,11 +237,11 @@
 			        [146.844,116.188], [148.219,116.688], [149.125,117.719]]
 		}]
 	}, {
-		disabled:    true, // Disabled by HoS DLC.
 		coords:      [187.406,184.219], // 2x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		mounted:     true,
 		notInGame:   true,
+		notHos:      true,
 		routes: [{
 			name: "banditcamp.mounted.route",
 			coords: [[[184.063,181.172], [186.500,181.328], [189.266,180.344], [192.063,179.156],
@@ -299,7 +306,8 @@
 		             [177.750,195.750],  // all Fallen Knight: 2x Sword (L33), 1x Halberd (L33), 1x Crossbow (L33) (in ep1_poi_17)
 		             [214.656,223.281]], // all Fallen Knight: 1x Sword-Shield (L33), 1x Sword (L33), 1x Mace (L33), 3x Crossbow (L33) (in ep1_poi_23)
 		label:       "v:banditcamp.fallen.label",
-		level:       "#33"
+		level:       "#33",
+		hos:         true
 	}],
 	// ----------------- Barbers ------------------------
 	barber: [{
@@ -337,7 +345,8 @@
 		extraLabel:  "v:blacksmith.dulla.label",
 		desc:        "v:blacksmith.rune.desc",
 		runewright:  true,
-		notBefore:   "sidequest.en_s"
+		notBefore:   "sidequest.en_s",
+		hos:         true
 	}],
 	// ----------------- Boats --------------------------
 	boat: [{
@@ -370,8 +379,6 @@
 		             [150.000,172.093],
 		             [154.031,171.187],
 		             [155.250,176.093],
-		             [239.687,202.562],
-		             [240.281,210.656],
 		             [171.437,76.312],
 		             [193.562,77.000],
 		             [199.250,87.125],
@@ -389,6 +396,10 @@
 		             [239.187,89.437],
 		             [48.281,53.593],
 		             [65.563,69.594]]
+	}, {
+		coords:      [[239.687,202.562],
+		             [240.281,210.656]],
+		hos:         true
 	}, {
 		coords:      [83.171,49.453],
 		notBefore:   "mainquest.wandering"
@@ -483,7 +494,8 @@
 	}, {
 		coords:      [197.969,201.469],
 		notInGame:   true,
-		notBefore:   "treasurehunt.shores"
+		notBefore:   "treasurehunt.shores",
+		hos:         true
 	}, {
 		coords:      [206.000,144.031],
 		notBefore:   "contract.apiarian"
@@ -491,12 +503,14 @@
 		coords:      [159.250,165.641],
 		notInGame:   true,
 		during:      "mainquest.evil",
-		groupId:     "frog_lair"
+		groupId:     "frog_lair",
+		hos:         true
 	}, {
 		coords:      [214.656,192.859],
 		notInGame:   true,
 		notBefore:   "mainquest.deadman",
-		groupId:     "everec_crypt"
+		groupId:     "everec_crypt",
+		hos:         true
 	}, {
 		coords:      [179.438,175.406],
 		groupId:     "temerian_hideout"
@@ -616,7 +630,8 @@
 		notInGame:   true
 	}, {
 		coords:      [251.812,134.875],
-		groupId:     "spider_cave"
+		groupId:     "spider_cave",
+		hos:         true
 	}, {
 		coords:      [226.875,151.562],
 		notBefore:   "contract.doors"
@@ -702,7 +717,8 @@
 	}, {
 		coords:      [257.500,189.876],
 		notInGame:   true,
-		notBefore:   "sidequest.rose"
+		notBefore:   "sidequest.rose",
+		hos:         true
 	}, {
 		coords:      [[211.656,110.422],
 		             [205.117,112.461]],
@@ -1045,19 +1061,23 @@
 	}, {
 		coords:      [248.437,162.687], // 1x Golem (L37) (in ep1_poi_03)
 		name:        "golem",
-		level:       "#37"
+		level:       "#37",
+		hos:         true
 	}, {
 		coords:      [258.843,129.187], // 1x Bear (L34) (in ep1_poi_24)
 		name:        "bear",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}, {
 		coords:      [181.156,220.687], // 1x Alghoul (L34), 6x Ghoul (L34) (in ep1_poi_33)
 		name:        "alghoul",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}, {
 		coords:      [246.250,182.812], // 4x Boar (L34) (in ep1_poi_35)
 		name:        "boar",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}],
 	// ----------------- Gwent Players ------------------
 	gwent: [{
@@ -1130,13 +1150,15 @@
 	}, {
 		coords:      [153.563,163.469],
 		id:          "shaniGwent",
-		extraLabel:  "v:gwent.shani.label"
+		extraLabel:  "v:gwent.shani.label",
+		hos:         true
 	}, {
 		coords:      [155.875,164.781],
 		id:          "olgierdGwent",
 		extraLabel:  "v:gwent.olgierd.label",
 		notBefore:   "mainquest.evil",
-		before:      "mainquest.marriage"
+		before:      "mainquest.marriage",
+		hos:         true
 	}, {
 		coords:      [104.297,76.969],
 		id:          "perchQuartermasterGwent",
@@ -1302,18 +1324,22 @@
 		             [184.547,118.500],
 		             [169.859,179.094]]
 	}, {
-		coords:      [[178.593,216.218],
-		             [251.016,141.938],
-		             [86.609,29.156],
+		coords:      [[86.609,29.156],
 		             [107.125,31.641],
 		             [34.578,98.656],
 		             [99.828,129.547],
 		             [68.109,23.281]],
 		liberate:    true
 	}, {
+		coords:      [[251.016,141.938],
+		             [178.593,216.218]],
+		liberate:    true,
+		hos:         true
+	}, {
 		coords:      [199.563,187.438],
 		liberate:    true,
-		rescueFrom:  "herbalist_pid"
+		rescueFrom:  "herbalist_pid",
+		hos:         true
 	}],
 	// ----------------- Hidden Treasure ----------------
 	hidden: [{
@@ -1447,15 +1473,8 @@
 	// ----------------- Honeycombs ---------------------
 	honeycomb: [{
 		coords:      [[34.438,93.688],
-		             [203.750,197.891],
-		             [205.344,197.359],
-		             [206.563,197.703],
-		             [206.844,196.859],
-		             [207.531,198.000],
-		             [207.859,197.125],
 		             [213.000,141.156],
 		             [215.266,140.344],
-		             [251.719,142.266],
 		             [29.125,97.844],
 		             [29.750,97.969],
 		             [75.531,55.906],
@@ -1498,8 +1517,17 @@
 		             [79.719,167.656],
 		             [184.781,113.438],
 		             [188.750,103.031],
-		             [205.703,197.328],
 		             [69.344,145.984]]
+	}, {
+		coords:      [[203.750,197.891],
+		             [205.344,197.359],
+		             [205.703,197.328],
+		             [206.563,197.703],
+		             [206.844,196.859],
+		             [207.531,198.000],
+		             [207.859,197.125],
+		             [251.719,142.266]],
+		hos:         true
 	}],
 	// ----------------- Innkeeps -----------------------
 	innkeep: [{
@@ -1673,7 +1701,8 @@
 				file:   "v/interiors/novigrad_q310_prison_cave_5.png"
 			}, {
 				bounds: i.frog.s02,
-				file:   "v/interiors/q601_sewers_2.png"
+				file:   "v/interiors/q601_sewers_2.png",
+				hos:    true
 			}]
 		}, {
 			label:     "interior.levelB1.label",
@@ -1689,7 +1718,8 @@
 				file:   "v/interiors/novigrad_q310_prison_cave_3.png"
 			}, {
 				bounds: i.frog.s01,
-				file:   "v/interiors/q601_sewers_1.png"
+				file:   "v/interiors/q601_sewers_1.png",
+				hos:    true
 			}]
 		}]
 	}, {
@@ -3868,20 +3898,20 @@
 			        [221.500,123.656]]
 		}]
 	}, {
-		disabled:    true, // Disabled by HoS DLC.
 		coords:      [248.031,144.688], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_01)
 		name:        "wolf",
 		level:       "#5 & 8",
+		notHos:      true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[246.313,140.750], [248.453,142.344], [251.922,145.078], [251.453,147.844], [246.156,146.406],
 			        [245.031,142.750]]
 		}]
 	}, {
-		disabled:    true, // Disabled by HoS DLC.
 		coords:      [241.688,114.984], // 1x Warg (L8), 6x Wolf (L5) (in _gustfields/gf_poe_01)
 		name:        "wolf",
 		level:       "#5 & 8",
+		notHos:      true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[239.578,114.031], [241.594,113.172], [244.094,113.141], [244.750,115.578], [240.625,117.078],
@@ -3921,10 +3951,10 @@
 			coords: [[233.109,103.500], [235.031,105.625], [232.000,109.250], [230.031,107.500]]
 		}]
 	}, {
-		disabled:    true, // Disabled by HoS DLC.
 		coords:      [229.547,110.484], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_01)
 		name:        "drowner",
 		level:       "#9",
+		notHos:      true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[229.797,107.422], [232.063,109.531], [229.469,111.703], [228.078,112.344], [226.781,111.328]]
@@ -3955,10 +3985,10 @@
 			coords: [[238.984,106.594], [240.984,104.750], [242.656,106.844], [240.250,108.547]]
 		}]
 	}, {
-		disabled:    true, // Disabled by HoS DLC.
 		coords:      [250.344,102.359], // 3x-4x Endrage Warrior (L11) (in _gustfields/gf_poe_01)
 		name:        "endrega",
 		level:       "#11",
+		notHos:      true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[246.516,100.375], [251.750,98.313], [254.000,104.453], [249.000,106.484]]
@@ -4158,11 +4188,11 @@
 			coords: [[206.875,171.281], [206.875,176.469], [201.563,176.469], [201.563,171.281]]
 		}]
 	}, {
-		disabled:    true, // Disabled by HoS DLC.
 		coords:      [200.250,186.563], // 1x Grave Hag (L28) (in _gustfields/gf_poe_04)
 		name:        "gravehag",
 		level:       "#28",
 		once:        true,
+		notHos:      true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[198.031,183.594], [203.078,185.781], [202.000,190.359], [196.313,188.469]]
@@ -4909,6 +4939,7 @@
 		coords:      [252.906,203.875], // 1x Warg (L37), 2x-3x Wolf (L37) (in ep1_poe_01)
 		name:        "wolf",
 		level:       "#37",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[251.484,205.047], [252.156,202.281], [254.156,202.734], [253.531,205.359]]
@@ -4917,6 +4948,7 @@
 		coords:      [250.984,183.016], // 1x Warg (L37), 2x-3x Wolf (L37) (in ep1_poe_01)
 		name:        "wolf",
 		level:       "#37",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[254.078,178.734], [254.078,187.281], [247.828,187.281], [247.828,178.734]]
@@ -4925,6 +4957,7 @@
 		coords:      [254.297,174.250], // 5x-6x Arachnomorph (L34) (in ep1_poe_01)
 		name:        "arachnomorph",
 		level:       "#34",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[255.844,171.984], [255.844,176.531], [252.656,176.531], [252.656,171.984]]
@@ -4933,6 +4966,7 @@
 		coords:      [260.063,171.250], // 4x-6x Endrega Drone (L35) (in ep1_poe_01)
 		name:        "endrega",
 		level:       "#35",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[256.969,168.156], [263.063,169.375], [263.250,172.938], [258.000,174.250]]
@@ -4941,6 +4975,7 @@
 		coords:      [242.469,169.313], // 1x Bear (L34) (in ep1_poe_01)
 		name:        "bear",
 		level:       "#34",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[242.844,167.453], [244.172,171.078], [242.141,171.672], [240.984,167.969]]
@@ -4949,6 +4984,7 @@
 		coords:      [250.969,215.234], // 5x-6x Arachnomorph (L34) (in ep1_poe_01)
 		name:        "arachnomorph",
 		level:       "#34",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[248.984,212.703], [255.297,211.797], [254.359,216.781], [245.469,219.250]]
@@ -4957,6 +4993,7 @@
 		coords:      [246.438,160.266], // 5x-7x Wild Dog (L32) (in ep1_poe_01)
 		name:        "wilddog",
 		level:       "#32",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[250.734,157.453], [248.969,161.250], [246.516,163.109], [243.297,163.469],
@@ -4966,6 +5003,7 @@
 		coords:      [257.500,186.531], // 8x-12x Boar (L34) (in ep1_poe_01)
 		name:        "boar",
 		level:       "#34",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[254.625,182.625], [261.063,181.625], [257.781,199.344], [254.188,198.594]]
@@ -4974,6 +5012,7 @@
 		coords:      [248.188,166.000], // 5x-6x Nekker (L34) (in ep1_poe_01)
 		name:        "nekker",
 		level:       "#34",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[250.281,165.078], [250.281,166.813], [246.141,166.813], [246.141,165.078]]
@@ -4982,6 +5021,7 @@
 		coords:      [247.422,208.578], // 3x-5x Drowned Dead (L33) (in ep1_poe_01)
 		name:        "drowneddead",
 		level:       "#33",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[247.109,206.219], [249.313,207.359], [247.641,210.828], [245.281,209.719]]
@@ -4990,6 +5030,7 @@
 		coords:      [243.188,149.406], // 5x-6x Arachnomorph (L34) (in ep1_poe_02)
 		name:        "arachnomorph",
 		level:       "#34",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[242.219,145.063], [246.906,147.969], [244.406,153.500], [239.969,151.094]]
@@ -4998,6 +5039,7 @@
 		coords:      [261.688,155.594], // 1x Wyvern (L34) (in ep1_poe_02)
 		name:        "wyvern",
 		level:       "#34",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[264.719,150.313], [264.719,160.375], [258.500,160.375], [258.500,150.313]]
@@ -5006,6 +5048,7 @@
 		coords:      [264.469,144.844], // 1x Warg (L37), 2x-3x Wolf (L37) (in ep1_poe_02)
 		name:        "wolf",
 		level:       "#37",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[259.969,142.875], [264.906,139.719], [269.250,146.781], [264.375,150.031]]
@@ -5014,6 +5057,7 @@
 		coords:      [254.766,158.344], // 1x-2x Drowned Dead (L18) (in ep1_poe_02)
 		name:        "drowneddead",
 		level:       "#18",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[256.125,155.750], [256.391,161.031], [253.125,160.859], [253.625,156.109]]
@@ -5022,6 +5066,7 @@
 		coords:      [255.156,143.719], // 5x-7x Wild Dog (L32) (in ep1_poe_02)
 		name:        "wilddog",
 		level:       "#32",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[252.219,143.797], [252.219,139.953], [254.609,140.531], [256.344,141.859],
@@ -5031,6 +5076,7 @@
 		coords:      [255.719,132.875], // 2x-3x Endrega Drone Level 35 (in ep1_poe_02)
 		name:        "endrega",
 		level:       "#35",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[260.094,133.563], [256.625,138.031], [252.938,137.563], [251.469,134.938],
@@ -5040,6 +5086,7 @@
 		coords:      [256.781,130.625], // 1x Venomous Arachas (L38) (in ep1_poe_02)
 		name:        "venomousarachas",
 		level:       "#38",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[260.094,133.563], [256.625,138.031], [252.938,137.563], [251.469,134.938],
@@ -5051,6 +5098,7 @@
 		level:       "#34",
 		fromTime:    "#11",
 		toTime:      "#13",
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[246.109,121.984], [247.977,127.125], [244.883,128.148], [243.141,122.953]]
@@ -5060,6 +5108,7 @@
 		name:        "drowneddead",
 		level:       "#33",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[239.281,201.719], [239.281,205.853], [242.703,207.353], [242.156,211.125],
@@ -5071,6 +5120,7 @@
 		name:        "nekker",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[239.734,215.656], [239.734,222.156], [233.219,222.156], [233.219,215.656]]
@@ -5082,6 +5132,7 @@
 		fromTime:    "#22",
 		toTime:      "#4",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[242.547,203.188], [243.625,204.844], [241.031,205.813], [239.797,204.703], [240.391,203.547]]
@@ -5091,6 +5142,7 @@
 		name:        "bear",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[225.813,203.453], [228.391,204.141], [227.891,207.094], [225.297,206.516]]
@@ -5100,6 +5152,7 @@
 		name:        "boar",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[240.797,177.688], [240.797,183.750], [235.781,183.750], [235.781,177.688]]
@@ -5109,6 +5162,7 @@
 		name:        "wilddog",
 		level:       "#32",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[234.625,184.719], [236.844,188.313], [237.688,191.156], [233.969,194.469],
@@ -5119,6 +5173,7 @@
 		name:        "nekker",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[189.719,203.828], [189.078,204.469], [187.188,203.313], [183.938,202.172],
@@ -5130,6 +5185,7 @@
 		name:        "bear",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[216.813,209.375], [220.969,211.063], [220.969,213.094], [214.938,213.922],
@@ -5140,6 +5196,7 @@
 		name:        "nekker",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[177.141,217.156], [175.422,219.953], [169.344,216.266], [171.422,213.594]]
@@ -5149,6 +5206,7 @@
 		name:        "arachnomorph",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[219.656,198.578], [219.656,201.688], [216.500,201.688], [216.500,198.578]]
@@ -5158,6 +5216,7 @@
 		name:        "arachas",
 		level:       "#37 & 38",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[193.094,222.703], [195.625,229.359], [192.547,230.219], [188.688,224.719],
@@ -5168,6 +5227,7 @@
 		name:        "boar",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[218.344,217.531], [217.344,221.344], [214.188,221.406], [214.656,222.797],
@@ -5178,6 +5238,7 @@
 		name:        "wyvern",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[187.750,194.313], [187.094,197.953], [181.766,196.891], [182.672,193.063]]
@@ -5187,6 +5248,7 @@
 		name:        "arachnomorph",
 		level:       "#34",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[220.609,221.109], [222.531,223.406], [219.219,226.250], [217.094,223.344]]
@@ -5196,6 +5258,7 @@
 		name:        "archgriffin",
 		level:       "#39",
 		once:        true,
+		hos:         true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[193.297,214.469], [193.734,218.844], [189.031,219.219], [188.531,214.391]]
@@ -5299,21 +5362,25 @@
 	}, {
 		coords:      [218.687,183.875], // 1x Wyvern (L34) (in ep1_poi_19)
 		name:        "wyvern",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}, {
 		coords:      [[255.125,119.750], // 6x Nekker (L34)
 		             [238.812,199.906],  // --\__ together: 10x Nekker (L34)
 		             [235.656,201.531]], // --/
 		name:        "nekker",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}, {
 		coords:      [240.562,171.500], // 6x Arachnomorph (L34)
 		name:        "arachnomorph",
-		level:       "#34"
+		level:       "#34",
+		hos:         true
 	}, {
 		coords:      [204.843,186.437], // 1x Forktail (L30) (in ep1_poi_34)
 		name:        "forktail",
-		level:       "#30"
+		level:       "#30",
+		hos:         true
 	}],
 	// ----------------- Notice Boards ------------------
 	notice: [{
@@ -5347,7 +5414,8 @@
 	}, {
 		coords:      [198.687,186.906], // all Fallen Knight: 2x Sword (L33), 1x Sword-Shield (L33), 1x Hammer-2H, 1x Crossbow (L33) (in ep1_poi_20)
 		id:          "herbalist_pid",
-		level:       "#33" // TODO: Check if this contains diagrams for the 'From Ofier's Distant Shores' quest.
+		level:       "#33", // TODO: Check if this contains diagrams for the 'From Ofier's Distant Shores' quest.
+		hos:         true
 	}, {
 		coords:      [142.984,199.375], // // 1x Leader-Axe-2H (L9), 1x Axe-2H (L9), 2x Sword (L9), 1x Ranged (L9)
 		id:          "crossroads_shopkeeper_pid",
@@ -5457,13 +5525,15 @@
 		label:       "v:poi.hat.label",
 		extraDesc:   "v:poi.questitem",
 		quest:       "mainquest.deadman",
-		during:      "mainquest.deadman"
+		during:      "mainquest.deadman",
+		hos:         true
 	}, {
 		coords:      [221.094,193.250],
 		label:       "v:poi.sketchbook.label",
 		extraDesc:   "v:poi.questitem",
 		quest:       "mainquest.marriage",
-		during:      "mainquest.marriage"
+		during:      "mainquest.marriage",
+		hos:         true
 	}, {
 		coords:      [86.766,150.891],
 		label:       "v:poi.diary.label",
@@ -5483,13 +5553,15 @@
 		label:       "v:poi.portrait.label",
 		extraDesc:   "v:poi.questitem",
 		quest:       "mainquest.marriage",
-		during:      "mainquest.marriage"
+		during:      "mainquest.marriage",
+		hos:         true
 	}, {
 		coords:      [215.938,194.344],
 		label:       "v:poi.brush.label",
 		extraDesc:   "v:poi.questitem",
 		quest:       "mainquest.marriage",
-		during:      "mainquest.marriage"
+		during:      "mainquest.marriage",
+		hos:         true
 	}, {
 		coords:      [83.109,78.406],
 		label:       "v:poi.doll.label",
@@ -5821,7 +5893,8 @@
 		coords:      [[239.766,70.563],
 		             [83.531,87.641]],
 		sells:       ["runestones", "alchemy"],
-		liberate:    true
+		liberate:    true,
+		hos:         true
 	}, {
 		coords:      [210.578,113.344],
 		desc:        "v:shopkeeper.uselessMerchant.desc"
@@ -5862,7 +5935,8 @@
 		             [99.984,130.453],
 		             [185.500,206.969]],
 		sells:       ["weapons", "crafting"],
-		liberate:    true
+		liberate:    true,
+		hos:         true
 	}, {
 		coords:      [[137.406,160.781],
 		             [30.359,46.734]],
@@ -5908,7 +5982,8 @@
 		             [76.797,26.313],
 		             [239.063,156.281]],
 		sells:       ["armor", "crafting"],
-		liberate:    true
+		liberate:    true,
+		hos:         true
 	}, {
 		coords:      [[100.578,130.578],
 		             [129.578,125.719]],
@@ -6065,6 +6140,7 @@
 		coords:      [233.766,179.250],
 		sells:       "food",
 		extraDesc:   "#TODO: Check what he is actually selling, I just added him for the route.",
+		hos:         true,
 		routes: [{
 			name:    "shopkeeper.label",
 			coords:  [[233.766,179.250], [233.828,180.297], [233.688,181.531], [233.797,182.297], [234.328,183.406],
@@ -6708,46 +6784,60 @@
 		name:        "v:grotto"
 	}, {
 		coords:      [197.203,225.640],
-		name:        "v:arns"
+		name:        "v:arns",
+		hos:         true
 	}, {
 		coords:      [254.000,153.312],
-		name:        "v:bowdon"
+		name:        "v:bowdon",
+		hos:         true
 	}, {
 		coords:      [243.343,197.468],
-		name:        "v:brun"
+		name:        "v:brun",
+		hos:         true
 	}, {
 		coords:      [239.969,70.000],
-		name:        "v:crane"
+		name:        "v:crane",
+		hos:         true
 	}, {
 		coords:      [217.562,184.625],
-		name:        "v:draken"
+		name:        "v:draken",
+		hos:         true
 	}, {
 		coords:      [203.281,207.437],
-		name:        "v:erde"
+		name:        "v:erde",
+		hos:         true
 	}, {
 		coords:      [240.937,175.625],
-		name:        "v:garin"
+		name:        "v:garin",
+		hos:         true
 	}, {
 		coords:      [176.343,209.875],
-		name:        "v:heddel"
+		name:        "v:heddel",
+		hos:         true
 	}, {
 		coords:      [258.031,128.687],
-		name:        "v:hunter"
+		name:        "v:hunter",
+		hos:         true
 	}, {
 		coords:      [213.625,221.812],
-		name:        "v:kilker"
+		name:        "v:kilker",
+		hos:         true
 	}, {
 		coords:      [239.312,211.562],
-		name:        "v:mill"
+		name:        "v:mill",
+		hos:         true
 	}, {
 		coords:      [195.875,192.125],
-		name:        "v:vikk"
+		name:        "v:vikk",
+		hos:         true
 	}, {
 		coords:      [228.218,197.500],
-		name:        "v:voneverec"
+		name:        "v:voneverec",
+		hos:         true
 	}, {
 		coords:      [221.000,217.968],
-		name:        "v:zuetzer"
+		name:        "v:zuetzer",
+		hos:         true
 	}, {
 		coords:      [104.641,75.641],
 		name:        "v:castle",
@@ -6780,16 +6870,13 @@
 	// ----------------- Treasure -----------------------
 	treasure: [{
 		coords:      [[101.094,25.344],
-		             [239.609,201.875],
 		             [225.313,147.875],
 		             [206.344,142.734],
 		             [192.469,124.016],
-		             [249.656,143.984],
 		             [222.625,97.109],
 		             [222.109,95.031],
 		             [229.625,90.328],
 		             [226.000,95.563],
-		             [239.828,69.625],
 		             [199.906,130.766],
 		             [196.750,87.063],
 		             [178.094,106.000],
@@ -6843,7 +6930,6 @@
 		             [143.719,118.500],
 		             [148.281,119.875],
 		             [220.188,105.844],
-		             [227.281,216.844],
 		             [146.281,180.063],
 		             [119.125,133.563],
 		             [139.313,152.813],
@@ -6864,9 +6950,6 @@
 		             [136.344,176.000],
 		             [150.906,162.219],
 		             [157.641,163.406],
-		             [214.734,225.734],
-		             [234.625,205.719],
-		             [239.938,207.094],
 		             [211.813,137.063],
 		             [216.063,138.688],
 		             [217.313,135.375],
@@ -6962,6 +7045,15 @@
 		             [186.625,151.688],
 		             [226.031,99.156]]
 	}, {
+		coords:      [[239.609,201.875],
+		             [239.938,207.094],
+		             [234.625,205.719],
+		             [227.281,216.844],
+		             [214.734,225.734],
+		             [239.828,69.625],
+		             [249.656,143.984]],
+		hos:         true
+	}, {
 		coords:      [[39.000,131.969],
 		             [34.531,129.891]],
 		notBefore:   "mainquest.bald"
@@ -7009,11 +7101,13 @@
 		             [216.734,192.906]],
 		underground: true,
 		entrances:   "everec_crypt",
-		notBefore:   "mainquest.deadman"
+		notBefore:   "mainquest.deadman",
+		hos:         true
 	}, {
 		coords:      [[217.344,193.438],
 		             [220.672,193.000]],
-		notBefore:   "mainquest.marriage"
+		notBefore:   "mainquest.marriage",
+		hos:         true
 	}, {
 		coords:      [[201.664,102.797], // TODO: Can you enter this from the canal before the quest?
 		             [201.398,103.234]],
@@ -7120,10 +7214,12 @@
 		             [154.094,164.313]],
 		underground: true,
 		entrances:   "frog_lair",
-		during:      "mainquest.evil"
+		during:      "mainquest.evil",
+		hos:         true
 	}, {
 		coords:      [239.563,76.688],
-		notBefore:   "mainquest.evil"
+		notBefore:   "mainquest.evil",
+		hos:         true
 	}, {
 		coords:      [223.297,90.469],
 		underground: true,
@@ -7157,8 +7253,6 @@
 		             [97.969,16.953],
 		             [50.031,25.656],
 		             [146.281,168.781],
-		             [238.906,205.156],
-		             [242.906,208.000],
 		             [159.734,98.563],
 		             [156.125,97.047],
 		             [160.578,100.063],
@@ -7178,6 +7272,11 @@
 		             [146.266,158.922],
 		             [145.922,169.266]],
 		underwater:  true
+	}, {
+		coords:      [[242.906,208.000],
+		             [238.906,205.156]],
+		underwater:  true,
+		hos:         true
 	}, {
 		coords:      [37.766,124.672],
 		underwater:  true,
@@ -7229,7 +7328,8 @@
 	}, {
 		coords:      [238.844,76.656],
 		underwater:  true,
-		notBefore:   "mainquest.evil"
+		notBefore:   "mainquest.evil",
+		hos:         true
 	}],
 	// ----------------- Treasure Hunts -----------------
 	treasurehunt: [{

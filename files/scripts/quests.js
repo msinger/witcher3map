@@ -1051,7 +1051,8 @@ var quests = {
 		level:      32,
 		region:     "novigrad",
 		after:      "sidequest.en_q",
-		hos:        true // TODO: Add another switch for this mod quest.
+		hos:        true,
+		mod:        true
 	}, {
 		name:       "en_q",
 		level:      32,

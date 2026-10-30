@@ -125,13 +125,16 @@ body {
 }
 
 ul.key>li,
-ul.key>li>a {
+ul.key>li>a,
+ul.setting>li {
 	color: #b08948;
 	text-decoration: none
 }
 
 ul.key>li:hover,
-ul.key>li:hover>a {
+ul.key>li:hover>a,
+ul.key>li:hover,
+ul.setting>li:hover {
 	color: #f0cb0b
 }
 
@@ -162,7 +165,8 @@ body,
 div#popup-wrap h3,
 ul.key,
 ul.quest,
-ul.questcat {
+ul.questcat,
+ul.setting {
 	margin: 0;
 	padding: 0
 }
@@ -299,7 +303,8 @@ ul.key {
 }
 
 ul.key>li,
-ul.key>li>a {
+ul.key>li>a,
+ul.setting>li {
 	font-size: 18px;
 	height: 32px;
 	cursor: pointer;
@@ -310,7 +315,8 @@ ul.key>li>a {
 }
 
 ul.key>li>a>i,
-ul.key>li>i {
+ul.key>li>i,
+ul.setting>li>i {
 	width: 20px;
 	height: 20px;
 	background-position: center center;
@@ -346,7 +352,17 @@ ul.key>li>div.pill {
 	float: left;
 }
 
-ul.key>li:after {
+ul.setting>li>div {
+	line-height: 21px;
+	white-space: nowrap;
+	width: 333px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+}
+
+ul.key>li:after,
+ul.setting>li:after {
 	clear: both;
 }
 
@@ -376,7 +392,8 @@ ul.key>li.item-finished>i {
 }
 
 ul.quest,
-ul.questcat {
+ul.questcat,
+ul.setting {
 	list-style-type: none;
 	clear: left;
 }
@@ -831,6 +848,10 @@ div#popup-wrap img#popup-close {
 
 	ul.quest>li>div {
 		width: 83px;
+	}
+
+	ul.setting>li>div {
+		width: 153px;
 	}
 
 	div#copyright,

@@ -1,18 +1,24 @@
 function processMapDataForGlobalSearch(map) {
+	if (!fitDlc(map))
+		return;
+
 	let data = map.getMapData();
 
 	prescreenMapData(map, data);
 
 	for (let dataKey of markerGroupNames) {
-		substMapData(map, data, dataKey, quests, function(coord, id, global, label, desc, icon) {
+		substMapData(map, data, dataKey, quests, function(coord, item) {
+			if (!fitDlc(item))
+				return;
+
 			let link = map.ns + "/index.html#" + map.maxZoom + "/" + coord[0] + "/" + coord[1] +
 			           "/m=" + coord[0] + "," + coord[1];
 
 			searchData.push({
 				id:    searchCount,
 				map:   $.t("maps." + map.name),
-				label: label,
-				desc:  desc,
+				label: item.label,
+				desc:  item.desc,
 				link:  link
 			});
 
@@ -72,6 +78,23 @@ function runHome() {
 	window.searchData = [];
 
 	createLangSwitcher();
+
+	if (localStorage.enableHoS === "false")
+		enable_hos = false;
+	if (localStorage.enableBaW === "false")
+		enable_baw = false;
+	if (localStorage.enableMod === "true")
+		enable_mod = true;
+
+	if (enable_hos)
+		$("li.not-hos").hide();
+	else
+		$("li.hos").hide();
+
+	if (enable_baw)
+		$("li.not-baw").hide();
+	else
+		$("li.baw").hide();
 
 	prescreenQuests(quests);
 	quests = substQuests(quests, true);
