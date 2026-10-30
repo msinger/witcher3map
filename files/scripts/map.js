@@ -814,7 +814,7 @@ function createQuestList(groups, f) {
 				r += '<i tabindex="0" class="checkbox fa ' + checkedClass + '" data-quest-id="' + quest.id + '"></i>';
 			r += '<i tabindex="0" class="checkbox-f fa ' + finishedClass + '" data-quest-id="' + quest.id + '"></i>' +
 			     '<i class="quest-region region-' + quest.region + '"></i>' +
-			     '<i class="quest-type ' + quest.questKey + '"></i>' +
+			     '<i class="quest-type ' + quest.icon + '"></i>' +
 			     '<b class="quest-level">' + (quest.level || "") + '</b>' +
 			     '<div class="ellip-tooltip' + dlcClass + '">' + quest.labelText + '</div><br></li>';
 		}

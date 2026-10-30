@@ -984,6 +984,10 @@ i.contract {
 	background-image: url(../images/icons/contract.png)
 }
 
+i.contract_hos {
+	background-image: url(../images/icons/contract_hos.png)
+}
+
 i.entrance {
 	background-image: url(../images/icons/entrance.png)
 }
@@ -1072,6 +1076,10 @@ i.pop {
 	background-image: url(../images/icons/pop.png)
 }
 
+i.race {
+	background-image: url(../images/icons/race.png)
+}
+
 i.scavengerhunt {
 	background-image: url(../images/icons/scavengerhunt.png)
 }
@@ -1082,6 +1090,14 @@ i.shopkeeper {
 
 i.sidequest {
 	background-image: url(../images/icons/sidequest.png)
+}
+
+i.sidequest_baw {
+	background-image: url(../images/icons/sidequest_baw.png)
+}
+
+i.sidequest_hos {
+	background-image: url(../images/icons/sidequest_hos.png)
 }
 
 i.signalfire {
@@ -1114,6 +1130,14 @@ i.treasure_uw {
 
 i.treasurehunt {
 	background-image: url(../images/icons/treasurehunt.png)
+}
+
+i.treasurehunt_hos {
+	background-image: url(../images/icons/treasurehunt_hos.png)
+}
+
+i.treasurehunt_scav {
+	background-image: url(../images/icons/treasurehunt_scav.png)
 }
 
 i.vineyardinfestation {
