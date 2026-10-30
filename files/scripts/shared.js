@@ -1,4 +1,7 @@
 var mapInfos = [];
+var enable_hos = true;
+var enable_baw = true;
+var enable_mod = false;
 
 var questGroupNames = [
 	"contract",
@@ -146,6 +149,22 @@ function loadStyle(url) {
 
 function registerMap(mapInfo) {
 	mapInfos.push(mapInfo);
+}
+
+function fitDlc(item) {
+	if (item.hos && !enable_hos)
+		return false;
+	if (item.notHos && enable_hos)
+		return false;
+	if (item.baw && !enable_baw)
+		return false;
+	if (item.notBaw && enable_baw)
+		return false;
+	if (item.mod && !enable_mod)
+		return false;
+	if (item.notMod && enable_mod)
+		return false;
+	return true;
 }
 
 function esc(text, quotes) {
@@ -536,7 +555,11 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		let once        = dataKey == "monster" && item.once;
 		let images      = item.images;
 		let hos         = item.hos;
+		let notHos      = item.notHos;
 		let baw         = item.baw;
+		let notBaw      = item.notBaw;
+		let mod         = item.mod;
+		let notMod      = item.notMod;
 		let race        = item.race;
 
 		let subKey = genSubKey(item, dataKey);
@@ -555,7 +578,11 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 			desc    = q.desc;
 			special = q.special;
 			hos     = q.hos;
+			notHos  = q.notHos;
 			baw     = q.baw;
+			notBaw  = q.notBaw;
+			mod     = q.mod;
+			notMod  = q.notMod;
 			race    = q.race;
 		} else {
 			label = genLabel(item, dataKey, subKey, noLinks);
@@ -822,6 +849,14 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		if (hasMonster)
 			icon = "monster/" + monsterIcon;
 
+		item.icon   = icon;
+		item.hos    = hos;
+		item.notHos = notHos;
+		item.baw    = baw;
+		item.notBaw = notBaw;
+		item.mod    = mod;
+		item.notMod = notMod;
+
 		let routeObjs = [];
 		if (item.routes instanceof Array) {
 			let links = [];
@@ -844,7 +879,7 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 					        mounted,
 					dashed: portal
 				};
-				obj.id = r ? r(obj, icon) : -1;
+				obj.id = r ? r(obj, item) : -1;
 				routeObjs.push(obj);
 				let link = '<a href="javascript:document.getElementById(\'map\').focus(); selectRoute(' +
 				           obj.id + ');">' + obj.name + '</a>';
@@ -888,7 +923,7 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 					fuse:   dataKey == "monster",
 					dashed: once
 				};
-				obj.id = a ? a(obj, icon) : -1;
+				obj.id = a ? a(obj, item) : -1;
 				areaObjs.push(obj);
 				let link = '<a href="javascript:document.getElementById(\'map\').focus(); selectArea(' +
 				           obj.id + ');">' + obj.name + '</a>';
@@ -942,14 +977,30 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		if (special)
 			label += "*";
 
+		item.id          = id;
+		item.global      = global;
+		item.icon        = icon;
+		item.label       = label;
+		item.desc        = desc;
+		item.notInGame   = notInGame;
+		item.portal      = portal;
+		item.mounted     = mounted;
+		item.underwater  = underwater;
+		item.rescueFrom  = rescueFrom;
+		item.rescuable   = rescuable;
+		item.underground = underground;
+		item.once        = once;
+		item.special     = special;
+		item.race        = race;
+
 		for (let coord of coords) {
-			if (f(coord, id, global, label, desc, icon, routeObjs, areaObjs) === false)
+			if (f(coord, item, routeObjs, areaObjs) === false)
 				return;
 		}
 	}
 }
 
-function substInteriors(mapInfo, data, dataKey, f, noLinks) {
+function substInteriors(mapInfo, data, dataKey, f, checkImage, noLinks) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
@@ -1029,6 +1080,8 @@ function substInteriors(mapInfo, data, dataKey, f, noLinks) {
 				if (!isCoord(image.bounds[0]) || !isCoord(image.bounds[1]))
 					continue;
 				if (!image.file || typeof image.file != "string")
+					continue;
+				if (!checkImage(image))
 					continue;
 				images.push({ bounds: image.bounds, file: image.file });
 				expandSuperBounds(image.bounds);

@@ -172,14 +172,7 @@ function toCoordId(coord) {
 	return coord[0].toFixed(3) + ";" + coord[1].toFixed(3);
 }
 
-function createMarker(coord, icon, label, popup, dataKey, id, global, checked, routes, areas) {
-	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
-
-	marker.bindTooltip(label);
-	marker.bindPopup(popup);
-
-	let coordId = toCoordId(coord);
-
+function createMarkerObj(coord, coordId, id, global, checked) {
 	let obj = { id: coordId, markers: [], layers: [], checked: checked, global: global };
 	if (id) {
 		if (global && id in globalItems)
@@ -202,6 +195,20 @@ function createMarker(coord, icon, label, popup, dataKey, id, global, checked, r
 		if (!obj.global)
 			checkedMarkers.push(id);
 	}
+
+	return [obj, id, checked];
+}
+
+function createMarker(coord, icon, label, popup, dataKey, id, global, checked, routes, areas) {
+	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
+
+	marker.bindTooltip(label);
+	marker.bindPopup(popup);
+
+	let coordId = toCoordId(coord);
+
+	let obj;
+	[obj, id, checked] = createMarkerObj(coord, coordId, id, global, checked);
 
 	marker.setOpacity(checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
 
@@ -409,6 +416,15 @@ function resetProgress() {
 	location.reload();
 }
 
+function inheritMapDlc(item, map) {
+	if (map.hos)    item.hos    = true;
+	if (map.notHos) item.notHos = true;
+	if (map.baw)    item.baw    = true;
+	if (map.notBaw) item.notBaw = true;
+	if (map.mod)    item.mod    = true;
+	if (map.notMod) item.notMod = true;
+}
+
 function processData(checkedMarkersLd, checkedGlobalsLd) {
 	let data = mapInfo.getMapData();
 
@@ -467,54 +483,60 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 
 		interiors.push(interior);
 		return id;
-	});
+	}, fitDlc);
 
 	for (let dataKey of markerGroupNames) {
 		let groupItems = [];
 
-		substMapData(mapInfo, data, dataKey, quests, function(coord, id, global, label, desc, icon, routes, areas) {
-			if (!icons[icon]) {
-				console.error("Invalid icon:", icon);
+		substMapData(mapInfo, data, dataKey, quests, function(coord, item, routes, areas) {
+			if (!icons[item.icon]) {
+				console.error("Invalid icon:", item.icon);
 				return;
 			}
 
+			inheritMapDlc(item, mapInfo);
+
 			let checked = false;
 			let coordId = toCoordId(coord);
-			if (checkedMarkersLd.indexOf(coordId) >= 0 || (id && checkedMarkersLd.indexOf(id) >= 0))
+			if (checkedMarkersLd.indexOf(coordId) >= 0 || (item.id && checkedMarkersLd.indexOf(item.id) >= 0))
 				checked = true;
-			if (global) {
-				if (checked && checkedGlobalsLd.indexOf(id) < 0) {
+			if (item.global) {
+				if (checked && checkedGlobalsLd.indexOf(item.id) < 0) {
 					// Migrate local to global
-					checkedGlobalsLd.push(id);
+					checkedGlobalsLd.push(item.id);
 					localStorage["globals-checked"] = JSON.stringify(checkedGlobalsLd);
 				}
-				if (checkedGlobalsLd.indexOf(id) >= 0)
+				if (checkedGlobalsLd.indexOf(item.id) >= 0)
 					checked = true;
 			}
 
-			let tooltip = label.replace(/<\/?[^>]+(>|$)/g, "");
-			let m = createMarker(coord, icons[icon], tooltip,
-			                     "<h1>" + label + "</h1>" + desc,
-			                     dataKey, id, global, checked, routes, areas);
-			groupItems.push(m);
+			if (fitDlc(item)) {
+				let tooltip = item.label.replace(/<\/?[^>]+(>|$)/g, "");
+				let m = createMarker(coord, icons[item.icon], tooltip,
+				                     "<h1>" + item.label + "</h1>" + item.desc,
+				                     dataKey, item.id, item.global, checked, routes, areas);
+				groupItems.push(m);
 
-			searchData.push({
-				loc:   coord,
-				title: label.replace(/<\/?a[^>]*(>|$)/g, "") + " - " + desc.replace(/<\/?a[^>]*(>|$)/g, "")
-			});
+				searchData.push({
+					loc:   coord,
+					title: item.label.replace(/<\/?a[^>]*(>|$)/g, "") + " - " + item.desc.replace(/<\/?a[^>]*(>|$)/g, "")
+				});
 
-			for (let route of routes) {
-				if (!route.fuse)
-					continue;
-				groupItems.push(route.layer);
+				for (let route of routes) {
+					if (!route.fuse)
+						continue;
+					groupItems.push(route.layer);
+				}
+
+				for (let area of areas) {
+					if (!area.fuse)
+						continue;
+					groupItems.push(area.layer);
+				}
+			} else {
+				createMarkerObj(coord, toCoordId(coord), item.id, item.global, checked);
 			}
-
-			for (let area of areas) {
-				if (!area.fuse)
-					continue;
-				groupItems.push(area.layer);
-			}
-		}, function(r, icon) {
+		}, function(r, item) {
 			let arr = [];
 			if (!isCoord(r.coords[0]) && r.coords[0] instanceof Array) {
 				for (let sub of r.coords) {
@@ -537,11 +559,11 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 				}
 			}
 			let id = routes.length;
-			r.layer = L.polyline(arr, { color: draw_colors[icon] || "red", dashArray: r.dashed ? "4 8" : null });
+			r.layer = L.polyline(arr, { color: draw_colors[item.icon] || "red", dashArray: r.dashed ? "4 8" : null });
 			r.layer.route = r;
 			routes.push(r);
 			return id;
-		}, function(a, icon) {
+		}, function(a, item) {
 			let arr = [];
 			if (!isCoord(a.coords[0]) && a.coords[0] instanceof Array) {
 				for (let sub of a.coords) {
@@ -564,7 +586,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 				}
 			}
 			let id = areas.length;
-			a.layer = L.polygon(arr, { color: draw_colors[icon] || "red", dashArray: a.dashed ? "4 8" : null });
+			a.layer = L.polygon(arr, { color: draw_colors[item.icon] || "red", dashArray: a.dashed ? "4 8" : null });
 			a.layer.area = a;
 			areas.push(a);
 			return id;
@@ -752,6 +774,8 @@ function createQuestList(groups, f) {
 	let g = {};
 
 	for (let quest of Object.values(quests)) {
+		if (!fitDlc(quest))
+			continue;
 		let cat = f(quest);
 		if (!g[cat])
 			g[cat] = [];
@@ -880,9 +904,11 @@ function createSidebar() {
 	sidebar +=
 				'</div>' +
 				'<div id="body-settings" hidden>' +
-					'<ul class="key controls">' +
+					'<ul class="setting">' +
+						'<li id="enable-hos" tabindex="0"><i class="fa ' + (enable_hos ? 'fa-check-square-o' : 'fa-square-o') + '"></i><div class="ellip-tooltip">' + esc($.t("controls.enableHoS")) + '</div></li>' +
+						'<li id="enable-baw" tabindex="0"><i class="fa ' + (enable_baw ? 'fa-check-square-o' : 'fa-square-o') + '"></i><div class="ellip-tooltip">' + esc($.t("controls.enableBaW")) + '</div></li>' +
+						'<li id="enable-mod" tabindex="0"><i class="fa ' + (enable_mod ? 'fa-check-square-o' : 'fa-square-o') + '"></i><div class="ellip-tooltip">' + esc($.t("controls.enableMod")) + '</div></li>' +
 						'<li id="reset-tracking" tabindex="0"><i class="fa fa-eraser"></i><div class="ellip-tooltip">' + esc($.t("controls.resetProgress")) + '</div></li>' +
-						'<li class="none"></li>' +
 					'</ul>' +
 					'<div id="lang-switcher"></div>' +
 				'</div>' +
@@ -924,6 +950,13 @@ function runMap() {
 
 	const params = new URLSearchParams(window.location.search);
 	const paramDraw = params.get("draw") != null;
+
+	if (localStorage.enableHoS === "false")
+		enable_hos = false;
+	if (localStorage.enableBaW === "false")
+		enable_baw = false;
+	if (localStorage.enableMod === "true")
+		enable_mod = true;
 
 	let disabledKey = "markers-" + mapInfo.name + "-disabled";
 	if (localStorage[disabledKey])
@@ -1341,6 +1374,30 @@ function runMap() {
 	$("#reset-tracking").on("click enter", function(e) {
 		if (confirm($.t("controls.resetConfirm")))
 			resetProgress();
+	});
+
+	$("#enable-hos").on("click enter spacebar", function(e) {
+		if (enable_hos)
+			localStorage.enableHoS = "false";
+		else
+			localStorage.removeItem("enableHoS");
+		location.reload();
+	});
+
+	$("#enable-baw").on("click enter spacebar", function(e) {
+		if (enable_baw)
+			localStorage.enableBaW = "false";
+		else
+			localStorage.removeItem("enableBaW");
+		location.reload();
+	});
+
+	$("#enable-mod").on("click enter spacebar", function(e) {
+		if (enable_mod)
+			localStorage.removeItem("enableMod");
+		else
+			localStorage.enableMod = "true";
+		location.reload();
 	});
 
 	$("ul.key.filter").on("click enter spacebar", "li:not(.none)", function(e) {
