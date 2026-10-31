@@ -1190,9 +1190,11 @@ function runMap() {
 	map.on("popupopen", function(e) {
 		deleteCircle();
 		createCircle(e.popup._latlng.lat, e.popup._latlng.lng);
-		for (let area of e.popup._source.areas) {
-			if (area.fuse)
-				area.layer.setStyle({ opacity: selectedAreaStrokeOpacity });
+		if (e.popup._source.areas) {
+			for (let area of e.popup._source.areas) {
+				if (area.fuse)
+					area.layer.setStyle({ opacity: selectedAreaStrokeOpacity });
+			}
 		}
 		$("#info-wrap").stop();
 		$("#info").html(e.popup._source._popup._content);
@@ -1242,10 +1244,12 @@ function runMap() {
 	}
 
 	map.on("popupclose", function(e) {
-		for (let area of e.popup._source.areas) {
-			if (area.fuse)
-				area.layer.setStyle({ opacity: e.popup._source.obj.checked ? checkedAreaStrokeOpacity :
-				                                                             uncheckedAreaStrokeOpacity });
+		if (e.popup._source.areas) {
+			for (let area of e.popup._source.areas) {
+				if (area.fuse)
+					area.layer.setStyle({ opacity: e.popup._source.obj.checked ? checkedAreaStrokeOpacity :
+					                                                             uncheckedAreaStrokeOpacity });
+			}
 		}
 		infoClose();
 		if (notePopupOpen)
