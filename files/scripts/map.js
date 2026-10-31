@@ -1425,39 +1425,46 @@ function runMap() {
 	});
 
 	function hideSidebar(anim) {
-		$("#info-wrap").css({ left: "0px", width: "100%" });
-		$("#info").css({ width: "auto", "margin-right": "80px" });
+		$("#info-wrap").addClass("nosidebar");
+		$("#info-fade-intro").addClass("nosidebar");
+		$("#info").getNiceScroll().resize();
 
 		let base = $("#sidebar").outerWidth();
+		let border = $("#sidebar-border").outerWidth();
+		let total = base + border;
 		if (anim) {
-			$("#sidebar").animate({ left: "-" + base + "px" }, 200);
-			$("#sidebar-border").animate({ left: "-" + (base + 15) + "px"}, 200);
+			$("#sidebar").animate({ left: "-" + total + "px" }, 200);
+			$("#sidebar-border").animate({ left: "-" + border + "px"}, 200);
 			$("#hide-sidebar").animate({ left: "0px" }, 200, function() {
 				$("#hide-sidebar").addClass("show-sidebar");
-
-				// In case the sidebar gets hidden while being narrow due to a small browser window,
-				// place it at the position it would have when it were wider. Otherwise, on Chrome
-				// it would be half visible when the browser window gets enlarged while the bar is
-				// hidden.
-				$("#sidebar").finish();
-				$("#sidebar").css({ left: "-390px" });
+				$("#sidebar").finish().hide();
+				$("#sidebar-border").finish().hide();
 			});
 		} else {
-			$("#sidebar").css({ left: "-" + base + "px" });
-			$("#sidebar-border").css({ left: "-" + (base + 15) + "px" });
+			$("#sidebar").css({ left: "-" + total + "px" }).hide();
+			$("#sidebar-border").css({ left: "-" + border + "px" }).hide();
 			$("#hide-sidebar").css({ left: "0px" });
 			$("#hide-sidebar").addClass("show-sidebar");
 		}
 	}
 
 	function showSidebar() {
-		$("#info-wrap").css({ left: "", width: "" });
-		$("#info").css({ width: "", "margin-right": "" });
+		// Call hide to calculate hidden position (which is the start for the animation) based on current
+		// sidebar width again.
+		hideSidebar(false);
+
+		$("#info-wrap").removeClass("nosidebar");
+		$("#info-fade-intro").removeClass("nosidebar");
+		$("#info").getNiceScroll().resize();
+
+		$("#sidebar").show();
+		hackySticky();
+		$("#sidebar").getNiceScroll().resize();
 
 		$("#hide-sidebar").removeClass("show-sidebar");
 		$("#sidebar").animate({ left: "" }, 200, function() {
 			$("#hide-sidebar").css({ left: "" });
-			$("#sidebar-border").css({ left: "" });
+			$("#sidebar-border").css({ left: "" }).show();
 		});
 	}
 
@@ -1553,6 +1560,7 @@ function runMap() {
 			'<li><a href="http://git.io/vkCPC" target="_blank">Leaflet Control Search</a> (MIT)</li>',
 			'<li><a href="https://github.com/krisk/Fuse" target="_blank">Fuse</a> (Apache)</li>',
 			'<li><a href="http://git.io/vIAs2" target="_blank">Font Awesome</a> (MIT)</li>',
+			'<li><a href="http://www.webfontfree.com">Web Font Free</a> (CC BY 4.0)</li>',
 			'</ul>'
 		].join('\n'));
 	});
