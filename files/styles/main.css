@@ -291,7 +291,7 @@ div#sidebar-logo img {
 }
 
 div#sidebar-border {
-	width: 30px;
+	width: 15px;
 	background-repeat: repeat-y;
 	background-image: url(../images/border.png);
 	top: 0;
