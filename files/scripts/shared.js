@@ -134,7 +134,7 @@ function loadScript(url) {
 	});
 }
 
-function loadStyle(url) {
+function loadStyle(url, after) {
 	return new Promise(function(resolve, reject) {
 		let style = document.createElement("link");
 		style.rel = "stylesheet";
@@ -143,7 +143,12 @@ function loadStyle(url) {
 		style.href = url;
 		style.onload = resolve;
 		style.onerror = reject;
-		document.head.appendChild(style);
+		if (after) {
+			let prev = document.getElementById(after);
+			prev.after(style);
+		} else {
+			document.head.appendChild(style);
+		}
 	});
 }
 
