@@ -501,7 +501,10 @@ window.i18nData.en.general = {
 		contribute:   "Bug reports and other contributions: __link__",
 		portraitWarn: "Note: the map is best viewed in landscape mode, tap to dismiss",
 		logo:         "files/images/logo/logo_en.png",
-		logo_min:     "files/images/logo/logo_en_min.png"
+		logo_min:     "files/images/logo/logo_en_min.png",
+		noinfo:       "[No information available]",
+		wiki:         "Open wiki",
+		startPoint:   "Starting location"
 	},
 	monster: {
 		label: "__this.name@monster____?this.level: (Level _\\_this.level_\\_)__",
