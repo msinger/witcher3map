@@ -199,14 +199,16 @@ function tLink(key, noLink) {
 	let res   = esc($.t(key + ".label")) || key;
 	let link  = esc($.t(key + ".link"), true);
 	let blank = ' target="_blank"';
+	let icon  = '<i class="fa fa-small fa-external-link"></i>';
 	if (noLink || link == key + ".link")
 		link = "";
 	if (!noLink && isQuestId(key)) {
 		blank = "";
+		icon = "";
 		link = "javascript: jumpIntoList('" + key + "');";
 	}
 	if (link)
-		res = '<a' + blank + ' href="' + link + '">' + res + "</a>";
+		res = '<a' + blank + ' href="' + link + '">' + res + icon + "</a>";
 	return res;
 }
 
