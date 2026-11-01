@@ -507,7 +507,8 @@ ul#quest-expand>li a {
 }
 
 ul.quest>li>i.checkbox,
-ul.quest>li>i.checkbox-f {
+ul.quest>li>i.checkbox-f,
+ul.quest>li>i.skip-checkbox {
 	width: var(--checkbox-width);
 	margin-right: var(--checkbox-margin);
 	cursor: pointer;
@@ -519,6 +520,7 @@ ul.questcat>li>i.caret {
 	cursor: pointer;
 }
 
+ul.quest>li>i.skip-checkbox,
 ul.quest>li>i.checkbox-frozen {
 	cursor: default;
 }
