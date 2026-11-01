@@ -24,6 +24,7 @@ var prevHashParams = {};
 var selectedTab = "filter";
 var globalItems = {};
 var questCatOpen = [];
+var questListEntryOpen = null;
 
 window.mapInfoIndex = window.mapInfoIndex || 0;
 window.mapInfo = mapInfos[window.mapInfoIndex];
@@ -172,8 +173,8 @@ function toCoordId(coord) {
 	return coord[0].toFixed(3) + ";" + coord[1].toFixed(3);
 }
 
-function createMarkerObj(coord, coordId, id, global, checked) {
-	let obj = { id: coordId, markers: [], layers: [], checked: checked, global: global };
+function createMarkerObj(coordId, id, global, checked) {
+	let obj = { id: coordId, coordIds: [], markers: [], layers: [], checked: checked, global: global };
 	if (id) {
 		if (global && id in globalItems)
 			obj = globalItems[id];
@@ -186,6 +187,8 @@ function createMarkerObj(coord, coordId, id, global, checked) {
 	} else {
 		id = coordId;
 	}
+
+	obj.coordIds.push(coordId);
 
 	if (obj.markers.length > 0) {
 		if (checked && !obj.checked)
@@ -208,7 +211,7 @@ function createMarker(coord, icon, label, popup, dataKey, id, global, checked, r
 	let coordId = toCoordId(coord);
 
 	let obj;
-	[obj, id, checked] = createMarkerObj(coord, coordId, id, global, checked);
+	[obj, id, checked] = createMarkerObj(coordId, id, global, checked);
 
 	marker.setOpacity(checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
 
@@ -436,6 +439,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 	for (let [id, quest] of Object.entries(quests)) {
 		let obj = {
 			id:       id,
+			coordIds: [],
 			markers:  [],
 			layers:   [],
 			checked:  quest.initial || checkedGlobalsLd.indexOf(id) >= 0,
@@ -534,7 +538,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 					groupItems.push(area.layer);
 				}
 			} else {
-				createMarkerObj(coord, toCoordId(coord), item.id, item.global, checked);
+				createMarkerObj(toCoordId(coord), item.id, item.global, checked);
 			}
 		}, function(r, item) {
 			let arr = [];
@@ -807,7 +811,7 @@ function createQuestList(groups, f) {
 				finishedClass = "fa-check-square-o";
 				finishedClass2 = " item-finished";
 			}
-			r += '<li class="quest quest-' + quest.id + finishedClass2 + '">';
+			r += '<li tabindex="0" class="quest quest-' + quest.id + finishedClass2 + '" data-quest-id="' + quest.id + '">';
 			if (quest.initial)
 				r += '<i class="checkbox checkbox-frozen fa fa-check-square-o"></i>';
 			else
@@ -816,7 +820,7 @@ function createQuestList(groups, f) {
 			     '<i class="quest-region region-' + quest.region + '"></i>' +
 			     '<i class="quest-type ' + quest.icon + '"></i>' +
 			     '<b class="quest-level">' + (quest.level || "") + '</b>' +
-			     '<div class="ellip-tooltip' + dlcClass + '">' + quest.labelText + '</div><br></li>';
+			     '<div class="quest-title ellip-tooltip' + dlcClass + '" data-quest-id="' + quest.id + '">' + quest.labelText + '</div><br></li>';
 		}
 		r += '</ul>' +
 		     '</li>';
@@ -830,7 +834,7 @@ function createSidebar() {
 		'<div id="sidebar">' +
 			'<div id="sidebar-logo"><a href="' + window.topdir + '/index.html" title="' + esc($.t("controls.returnToMapSelection"), true) + '"><center><img width="250" height="165" src="' + window.topdir + "/" + esc($.t("misc.logo_min"), true) + '" class="center"></center></a></div>' +
 			'<div id="sidebar-tabs">' +
-				'<b></b><i tabindex="0" id="tab-filter" class="fa fa-sliders sel"></i>';
+				'<b></b><i tabindex="0" id="tab-filter" class="fa fa-filter sel"></i>';
 
 	if (interiors.length > 0)
 		sidebar += '<b></b><i tabindex="0" id="tab-interior"></i>';
@@ -1981,6 +1985,70 @@ function runMap() {
 		}
 	});
 
+	function openQuestListEntry(qid) {
+		if (questListEntryOpen == qid)
+			return;
+		closeQuestListEntry();
+		let exp = '<ul id="quest-expand">';
+		let hasInfo = false;
+		let link = esc($.t(qid + ".link"));
+		if (link != qid + ".link") {
+			hasInfo = true;
+			exp += '<li><i class="quest-expand-indent fa fa-external-link"></i>' +
+			       '<div><a target="_blank" href="' + link + '">' + esc($.t("misc.wiki")) + '</a></div></li>';
+		}
+		if (quests[qid]) {
+			let obj = quests[qid].obj;
+			for (coordId of obj.coordIds) {
+				hasInfo = true;
+				let coord = coordId.split(";");
+				link = "#" + mapInfo.maxZoom + "/" +
+				       coord[0] + "/" + coord[1];
+				exp += '<li><i class="quest-expand-indent fa fa-crosshairs"></i>' +
+				       '<div><a href="' + link + '">' + esc($.t("misc.startPoint")) + '</a></div></li>';
+			}
+		}
+		if (!hasInfo)
+			exp += '<li><i class="quest-expand-indent"></i>' +
+			       '<div>' + esc($.t("misc.noinfo")) + '</div>' +
+			       '</li>';
+		exp += '</ul>';
+		$("li.quest-" + $.escapeSelector(qid)).append(exp);
+		questListEntryOpen = qid;
+		sessionStorage.questListEntryOpen = qid;
+	}
+
+	function closeQuestListEntry() {
+		$("#quest-expand").remove();
+		questListEntryOpen = null;
+		sessionStorage.removeItem("questListEntryOpen");
+	}
+
+	$("li.quest div.quest-title").on("click", function() {
+		let id = this.dataset.questId;
+		if (!id)
+			return;
+		let wasOpen = questListEntryOpen == id;
+		closeQuestListEntry();
+		if (wasOpen)
+			return;
+		openQuestListEntry(id);
+	});
+	$("li.quest").on("keydown", function(e) {
+		let id = this.dataset.questId;
+		if (!id)
+			return;
+		let key = e.originalEvent.key;
+		let wasOpen = questListEntryOpen == id;
+		if (!wasOpen && (key == "Enter" || key == "+")) {
+			openQuestListEntry(id);
+			return false;
+		} else if (wasOpen && (key == "Backspace" || key == "-")) {
+			closeQuestListEntry();
+			return false;
+		}
+	});
+
 	window.addEventListener("pagehide", function() {
 		sessionStorage["scrollbar-" + selectedTab] = $("#sidebar").getNiceScroll(0).getScrollTop();
 	});
@@ -1992,6 +2060,9 @@ function runMap() {
 		sessionQuestCatOpen = [];
 	for (let cat of sessionQuestCatOpen)
 		toggleQuestCatOpen(cat, true);
+
+	if (sessionStorage.questListEntryOpen)
+		openQuestListEntry(sessionStorage.questListEntryOpen);
 
 	for (let tab of Object.keys(scrollPos)) {
 		let pos = sessionStorage["scrollbar-" + tab];
