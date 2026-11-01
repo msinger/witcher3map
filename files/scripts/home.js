@@ -153,8 +153,8 @@ if (mapParam) {
 
 if (loadMap) {
 	(async function() {
+		await loadStyle(window.topdir + "/files/styles/main.css", "home-css");
 		document.getElementById("home-css").remove();
-		await loadStyle(window.topdir + "/files/styles/main.css");
 		loadScript(window.topdir + "/files/scripts/map.js");
 	})();
 } else {
