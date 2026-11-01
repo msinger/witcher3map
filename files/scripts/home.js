@@ -86,15 +86,20 @@ function runHome() {
 	if (localStorage.enableMod === "true")
 		enable_mod = true;
 
-	if (enable_hos)
-		$("li.not-hos").hide();
-	else
-		$("li.hos").hide();
+	if (!enable_hos) {
+		$("li.not-hos").removeClass("hidden");
+		$("li.hos").addClass("hidden");
+	}
 
-	if (enable_baw)
-		$("li.not-baw").hide();
-	else
-		$("li.baw").hide();
+	if (!enable_baw) {
+		$("li.not-baw").removeClass("hidden");
+		$("li.baw").addClass("hidden");
+	}
+
+	if (enable_mod) {
+		$("li.not-mod").addClass("hidden");
+		$("li.mod").removeClass("hidden");
+	}
 
 	prescreenQuests(quests);
 	quests = substQuests(quests, true);
