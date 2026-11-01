@@ -185,13 +185,23 @@ function isCoord(coord) {
 	       typeof coord[1] == "number";
 }
 
+function isQuestId(key) {
+	let s = key.split(".");
+	return ["mainquest", "sidequest", "contract", "treasurehunt", "event"].indexOf(s[0]) >= 0;
+}
+
 function tLink(key, noLink) {
-	let res  = esc($.t(key + ".label")) || key;
-	let link = esc($.t(key + ".link"), true);
+	let res   = esc($.t(key + ".label")) || key;
+	let link  = esc($.t(key + ".link"), true);
+	let blank = ' target="_blank"';
 	if (noLink || link == key + ".link")
 		link = "";
+	if (!noLink && isQuestId(key)) {
+		blank = "";
+		link = "javascript: jumpIntoList('" + key + "');";
+	}
 	if (link)
-		res = '<a target="_blank" href="' + link + '">' + res + "</a>";
+		res = '<a' + blank + ' href="' + link + '">' + res + "</a>";
 	return res;
 }
 
