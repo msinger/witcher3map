@@ -41,11 +41,19 @@
 
 ul#download li,
 ul#nav li {
-	display: inline-block;
 	margin: 20px 10px 0;
 	width: 245px;
 	font-size: 21px;
 	text-transform: uppercase;
+}
+
+ul#download li,
+ul#nav li:not(.hidden) {
+	display: inline-block;
+}
+
+ul#nav li.hidden {
+	display: none;
 }
 
 body,
