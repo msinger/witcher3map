@@ -323,8 +323,13 @@ function toggleChecked(obj, noUpdate) {
 	else
 		oldClass = "fa-check-square-o";
 
-	if (obj.quest)
+	if (obj.quest) {
 		$("li.quest-" + $.escapeSelector(obj.id) + " i.checkbox").removeClass(oldClass).addClass(newClass);
+		if (typeof obj.finished != "boolean" && obj.checked)
+			$("li.quest-" + $.escapeSelector(obj.id)).addClass("item-finished");
+		else
+			$("li.quest-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+	}
 
 	if (obj.checked) {
 		if (!obj.global)
@@ -367,7 +372,7 @@ function toggleChecked(obj, noUpdate) {
 }
 
 function toggleFinished(obj, noUpdate) {
-	if (!obj.global || !obj.quest)
+	if (!obj.global || !obj.quest || typeof obj.finished != "boolean")
 		return;
 
 	obj.finished = !obj.finished;
@@ -443,7 +448,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 			markers:  [],
 			layers:   [],
 			checked:  quest.initial || checkedGlobalsLd.indexOf(id) >= 0,
-			finished: checkedGlobalsLd.indexOf(id + "$f") >= 0,
+			finished: quest.questKey != "event" ? checkedGlobalsLd.indexOf(id + "$f") >= 0 : null,
 			global:   true,
 			quest:    quest
 		};
@@ -805,8 +810,11 @@ function createQuestList(groups, f) {
 			let checkedClass = "fa-square-o";
 			let finishedClass = "fa-square-o";
 			let finishedClass2 = "";
-			if (quest.obj.checked)
+			if (quest.obj.checked) {
 				checkedClass = "fa-check-square-o";
+				if (typeof quest.obj.finished != "boolean")
+					finishedClass2 = " item-finished";
+			}
 			if (quest.obj.finished) {
 				finishedClass = "fa-check-square-o";
 				finishedClass2 = " item-finished";
@@ -816,8 +824,11 @@ function createQuestList(groups, f) {
 				r += '<i class="checkbox checkbox-frozen fa fa-check-square-o"></i>';
 			else
 				r += '<i tabindex="0" class="checkbox fa ' + checkedClass + '" data-quest-id="' + quest.id + '"></i>';
-			r += '<i tabindex="0" class="checkbox-f fa ' + finishedClass + '" data-quest-id="' + quest.id + '"></i>' +
-			     '<i class="quest-region region-' + quest.region + '"></i>' +
+			if (typeof quest.obj.finished != "boolean")
+				r += '<i class="skip-checkbox"></i>';
+			else
+				r += '<i tabindex="0" class="checkbox-f fa ' + finishedClass + '" data-quest-id="' + quest.id + '"></i>';
+			r += '<i class="quest-region region-' + quest.region + '"></i>' +
 			     '<i class="quest-type ' + quest.icon + '"></i>' +
 			     '<b class="quest-level">' + (quest.level || "") + '</b>' +
 			     '<div class="quest-title ellip-tooltip' + dlcClass + '" data-quest-id="' + quest.id + '">' + quest.labelText + '</div><br></li>';
