@@ -25,6 +25,7 @@ var selectedTab = "filter";
 var globalItems = {};
 var questCatOpen = [];
 var questListEntryOpen = null;
+var sidebarShown = true;
 
 window.mapInfoIndex = window.mapInfoIndex || 0;
 window.mapInfo = mapInfos[window.mapInfoIndex];
@@ -819,7 +820,7 @@ function createQuestList(groups, f) {
 				finishedClass = "fa-check-square-o";
 				finishedClass2 = " item-finished";
 			}
-			r += '<li tabindex="0" class="quest quest-' + quest.id + finishedClass2 + '" data-quest-id="' + quest.id + '">';
+			r += '<li tabindex="0" id="quest-' + quest.id + '" class="quest quest-' + quest.id + finishedClass2 + '" data-quest-id="' + quest.id + '">';
 			if (quest.initial)
 				r += '<i class="checkbox checkbox-frozen fa fa-check-square-o"></i>';
 			else
@@ -1440,6 +1441,8 @@ function runMap() {
 	});
 
 	function hideSidebar(anim) {
+		sidebarShown = false;
+
 		$("#info-wrap").addClass("nosidebar");
 		$("#info-fade-intro").addClass("nosidebar");
 		$("#info").getNiceScroll().resize();
@@ -1468,6 +1471,9 @@ function runMap() {
 		// sidebar width again.
 		hideSidebar(false);
 
+		sidebarShown = true;
+		localStorage.removeItem("hide-sidebar");
+
 		$("#info-wrap").removeClass("nosidebar");
 		$("#info-fade-intro").removeClass("nosidebar");
 		$("#info").getNiceScroll().resize();
@@ -1490,7 +1496,6 @@ function runMap() {
 
 	$(document).on("click enter", "div#hide-sidebar.show-sidebar", function(e) {
 		showSidebar();
-		localStorage.removeItem("hide-sidebar");
 	});
 
 	if (localStorage["hide-sidebar"])
@@ -2059,6 +2064,26 @@ function runMap() {
 			return false;
 		}
 	});
+
+	window.jumpIntoList = function(id) {
+		if (!quests[id])
+			return;
+		let quest = quests[id];
+		if (!sidebarShown)
+			showSidebar();
+		selectTab("quest");
+		if (questCatOpen.indexOf(quest.questKey) < 0)
+			toggleQuestCatOpen(quest.questKey);
+		openQuestListEntry(id);
+		let qElem = $("#quest-" + $.escapeSelector(id));
+		let wrap = $("#sidebar-wrap");
+		let pos = qElem.position().top -
+		          wrap.position().top +
+		          wrap[0].offsetTop -
+		          $("#sidebar-tabs").height();
+		$("#sidebar").getNiceScroll(0).doScrollTop(pos);
+		qElem.focus();
+	}
 
 	window.addEventListener("pagehide", function() {
 		sessionStorage["scrollbar-" + selectedTab] = $("#sidebar").getNiceScroll(0).getScrollTop();
