@@ -504,6 +504,7 @@ window.i18nData.en.general = {
 		logo_min:     "files/images/logo/logo_en_min.png",
 		noinfo:       "[No information available]",
 		wiki:         "Open wiki",
+		location:     "Location",
 		startPoint:   "Starting location"
 	},
 	monster: {
