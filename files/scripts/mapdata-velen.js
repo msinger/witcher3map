@@ -6162,8 +6162,10 @@
 		coords:      [66.687,91.125],
 		name:        "dog"
 	}, {
-		coords:      [89.843,48.609],
-		name:        "magiclamp"
+		coords:      [50.984,54.258],
+		name:        "magiclamp",
+		underground: true,
+		entrances:   "wandering_cave_entry"
 	}, {
 		coords:      [89.843,48.809],
 		name:        "invitation"
