@@ -30,6 +30,11 @@ var sidebarShown = true;
 window.mapInfoIndex = window.mapInfoIndex || 0;
 window.mapInfo = mapInfos[window.mapInfoIndex];
 
+var externalItems = { all: [] };
+for (let info of mapInfos)
+	if (info != mapInfo)
+		externalItems[info.name] = {};
+
 var scrollPos = {
 	filter:   0,
 	interior: 0,
@@ -175,7 +180,7 @@ function toCoordId(coord) {
 }
 
 function createMarkerObj(coordId, id, global, checked) {
-	let obj = { id: coordId, coordIds: [], markers: [], layers: [], checked: checked, global: global };
+	let obj = { id: coordId, coordIds: [], markers: [], layers: [], externals: [], checked: checked, global: global };
 	if (id) {
 		if (global && id in globalItems)
 			obj = globalItems[id];
@@ -201,6 +206,43 @@ function createMarkerObj(coordId, id, global, checked) {
 	}
 
 	return [obj, id, checked];
+}
+
+function createExternalObj(map, coord, dataKey, id, global) {
+	let coordId = toCoordId(coord);
+	let mapName = map.name;
+
+	let obj = {
+		id:        coordId,
+		coordIds:  [],
+		markers:   [],
+		layers:    [],
+		externals: [],
+		global:    global
+	};
+
+	if (id) {
+		if (global && id in globalItems)
+			obj = globalItems[id];
+		else if (externalItems[mapName] && id in externalItems[mapName])
+			obj = externalItems[mapName][id];
+		obj.id = id;
+		if (global)
+			globalItems[id] = obj;
+	} else {
+		id = coordId;
+	}
+
+	let ext = {
+		coordId:  coordId,
+		external: true,
+		map:      map,
+		obj:      obj
+	};
+
+	obj.externals.push(ext);
+	externalItems.all.push(ext);
+	externalItems[mapName][id] = obj;
 }
 
 function createMarker(coord, icon, label, popup, dataKey, id, global, checked, routes, areas) {
@@ -435,29 +477,33 @@ function inheritMapDlc(item, map) {
 }
 
 function processData(checkedMarkersLd, checkedGlobalsLd) {
-	let data = mapInfo.getMapData();
+	let data = [];
+	for (let i = 0; i < mapInfos.length; i++)
+		data.push(mapInfos[i].getMapData());
 
 	prescreenQuests(quests);
-	prescreenMapData(mapInfo, data);
+	for (let i = 0; i < mapInfos.length; i++)
+		prescreenMapData(mapInfos[i], data[i]);
 
 	quests = substQuests(quests);
 
 	for (let [id, quest] of Object.entries(quests)) {
 		let obj = {
-			id:       id,
-			coordIds: [],
-			markers:  [],
-			layers:   [],
-			checked:  quest.initial || checkedGlobalsLd.indexOf(id) >= 0,
-			finished: quest.questKey != "event" ? checkedGlobalsLd.indexOf(id + "$f") >= 0 : null,
-			global:   true,
-			quest:    quest
+			id:        id,
+			coordIds:  [],
+			markers:   [],
+			layers:    [],
+			externals: [],
+			checked:   quest.initial || checkedGlobalsLd.indexOf(id) >= 0,
+			finished:  quest.questKey != "event" ? checkedGlobalsLd.indexOf(id + "$f") >= 0 : null,
+			global:    true,
+			quest:     quest
 		};
 		globalItems[id] = obj;
 		quest.obj = obj;
 	}
 
-	substInteriors(mapInfo, data, "interior", function(interior) {
+	substInteriors(mapInfo, data[mapInfoIndex], "interior", function(interior) {
 		let id = interiors.length;
 		let z = 0;
 		for (let i = 0; i < interior.floors.length; i++) {
@@ -498,7 +544,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 	for (let dataKey of markerGroupNames) {
 		let groupItems = [];
 
-		substMapData(mapInfo, data, dataKey, quests, function(coord, item, routes, areas) {
+		substMapData(mapInfo, data[mapInfoIndex], dataKey, quests, function(coord, item, routes, areas) {
 			if (!icons[item.icon]) {
 				console.error("Invalid icon:", item.icon);
 				return;
@@ -605,6 +651,27 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 		markerLayers[dataKey] = L.layerGroup(groupItems);
 		if (disabledMarkers.indexOf(dataKey) >= 0)
 			markerLayers[dataKey].disabled = true;
+	}
+
+	for (let i = 0; i < mapInfos.length; i++) {
+		if (i == mapInfoIndex)
+			continue;
+
+		for (let dataKey of ["contract", "event", "sidequest", "treasurehunt"]) {
+			substMapData(mapInfos[i], data[i], dataKey, quests, function(coord, item) {
+				if (!icons[item.icon]) {
+					console.error("Invalid icon:", item.icon);
+					return;
+				}
+
+				inheritMapDlc(item, mapInfos[i]);
+
+				if (!fitDlc(item))
+					return;
+
+				createExternalObj(mapInfos[i], coord, dataKey, item.id, item.global);
+			});
+		}
 	}
 }
 
@@ -1007,6 +1074,9 @@ function runMap() {
 		hasMarkers[dataKey] = false;
 		uncheckedMarkerCount[dataKey] = 0;
 	}
+
+	for (let info of mapInfos)
+		info.label = esc($.t("maps." + info.name));
 
 	processData(checkedMarkersLd, checkedGlobalsLd);
 
@@ -2005,6 +2075,11 @@ function runMap() {
 		if (questListEntryOpen == qid)
 			return;
 		closeQuestListEntry();
+		const concat       = esc($.t("misc.concat"));
+		const openBracket  = esc($.t("misc.openBracket"));
+		const closeBracket = esc($.t("misc.closeBracket"));
+		const loc          = esc($.t("misc.location"));
+		const startPoint   = esc($.t("misc.startPoint"));
 		let exp = '<ul id="quest-expand">';
 		let hasInfo = false;
 		let link = esc($.t(qid + ".link"));
@@ -2015,13 +2090,25 @@ function runMap() {
 		}
 		if (quests[qid]) {
 			let obj = quests[qid].obj;
-			for (coordId of obj.coordIds) {
+			let isEv = typeof obj.finished != "boolean";
+			let l = isEv ? loc : startPoint;
+			for (let coordId of obj.coordIds) {
 				hasInfo = true;
 				let coord = coordId.split(";");
 				link = "#" + mapInfo.maxZoom + "/" +
 				       coord[0] + "/" + coord[1];
 				exp += '<li><i class="quest-expand-indent fa fa-crosshairs"></i>' +
-				       '<div><a href="' + link + '">' + esc($.t("misc.startPoint")) + '</a></div></li>';
+				       '<div><a href="' + link + '">' + l + '</a></div></li>';
+			}
+			for (let ext of obj.externals) {
+				hasInfo = true;
+				let coord = ext.coordId.split(";");
+				link = topdir + "/" + ext.map.ns + "/index.html" +
+				       "#" + ext.map.maxZoom + "/" +
+				       coord[0] + "/" + coord[1];
+				let label = l + concat + openBracket + ext.map.label + closeBracket;
+				exp += '<li><i class="quest-expand-indent fa fa-map"></i>' +
+				       '<div><a href="' + link + '">' + label + '</a></div></li>';
 			}
 		}
 		if (!hasInfo)
