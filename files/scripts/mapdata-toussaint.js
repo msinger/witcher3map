@@ -501,6 +501,7 @@
 		desc:        "t:innkeep.desc"
 	}, {
 		coords:      [90.703,47.578],
+		id:          "aubergeInnkeep",
 		extraLabel:  "t:innkeep.auberge.label",
 		desc:        "t:innkeep.desc",
 		liberate:    true
@@ -511,6 +512,7 @@
 		desc:        "t:innkeep.desc"
 	}, {
 		coords:      [113.891,66.391],
+		id:          "salamanderInnkeep",
 		extraLabel:  "t:innkeep.salamander.label",
 		desc:        "t:innkeep.desc",
 		liberate:    true
@@ -521,6 +523,7 @@
 		desc:        "t:innkeep.desc"
 	}, {
 		coords:      [47.625,64.625],
+		id:          "cleverInnkeep",
 		extraLabel:  "t:innkeep.clever.label",
 		desc:        "t:innkeep.desc",
 		notBefore:   "sidequest.father"

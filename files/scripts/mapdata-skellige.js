@@ -609,7 +609,7 @@
 		sells:       ["food", "drinks"]
 	}, {
 		coords:      [193.562,180.500],
-		id:          "uriallaHerborInnkeep",
+		id:          "uriallaHarborInnkeep",
 		extraLabel:  "s:innkeep.uriallaHarborInn.label",
 		sells:       ["gwent", "food", "drinks"]
 	}, {

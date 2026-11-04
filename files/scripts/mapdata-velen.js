@@ -1181,7 +1181,7 @@
 		extraLabel:  "shopkeeper.label"
 	}, {
 		coords:      [101.750,76.297],
-		id:          "perchTraderGwent",
+		id:          "perchMerchantGwent",
 		extraLabel:  "shopkeeper.label"
 	}, {
 		coords:      [185.375,117.734],
@@ -5947,7 +5947,7 @@
 		desc:        "v:shopkeeper.uselessMerchant.desc"
 	}, {
 		coords:      [101.547,76.094],
-		id:          "perchTrader",
+		id:          "perchMerchant",
 		sells:       ["gwent", "drinks"]
 	}, {
 		coords:      [81.797,41.406],
@@ -6024,6 +6024,7 @@
 		notBefore:   "mainquest.bald"
 	}, {
 		coords:      [133.906,131.266],
+		id:          "pitMerchant",
 		sells:       ["alchemy", "food"],
 		notBefore:   "sidequest.eternal"
 	}, {

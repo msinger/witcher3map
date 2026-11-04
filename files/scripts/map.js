@@ -25,6 +25,8 @@ var selectedTab = "filter";
 var globalItems = {};
 var questCatOpen = [];
 var questListEntryOpen = null;
+var cardDeckOpen = [];
+var cardListEntryOpen = null;
 var sidebarShown = true;
 
 window.mapInfoIndex = window.mapInfoIndex || 0;
@@ -33,16 +35,31 @@ window.mapInfo = mapInfos[window.mapInfoIndex];
 var externalItems = { all: [] };
 for (let info of mapInfos)
 	if (info != mapInfo)
-		externalItems[info.name] = {};
+		externalItems[info.ns] = {};
 
 var scrollPos = {
 	filter:   0,
 	interior: 0,
 	quest:    0,
+	card:     0,
 	settings: 0
 };
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
+
+var externItemsProcessList = [
+	"armorer",
+	"blacksmith",
+	"contract",
+	"event",
+	"gwent",
+	"gwentquest",
+	"innkeep",
+	"poi",
+	"shopkeeper",
+	"sidequest",
+	"treasurehunt"
+];
 
 var icon_sizes = {
 	//                     regular, underground, optional anchors
@@ -179,7 +196,9 @@ function toCoordId(coord) {
 	return coord[0].toFixed(3) + ";" + coord[1].toFixed(3);
 }
 
-function createMarkerObj(coordId, id, global, checked) {
+function createMarkerObj(coordId, item, checked) {
+	let id = item.id;
+	let global = item.global;
 	let obj = { id: coordId, coordIds: [], markers: [], layers: [], externals: [], checked: checked, global: global };
 	if (id) {
 		if (global && id in globalItems)
@@ -205,12 +224,16 @@ function createMarkerObj(coordId, id, global, checked) {
 			checkedMarkers.push(id);
 	}
 
+	obj.item = item;
+
 	return [obj, id, checked];
 }
 
-function createExternalObj(map, coord, dataKey, id, global) {
+function createExternalObj(map, coord, dataKey, item) {
+	let id = item.id;
+	let global = item.global;
 	let coordId = toCoordId(coord);
-	let mapName = map.name;
+	let ns = map.ns;
 
 	let obj = {
 		id:        coordId,
@@ -224,8 +247,8 @@ function createExternalObj(map, coord, dataKey, id, global) {
 	if (id) {
 		if (global && id in globalItems)
 			obj = globalItems[id];
-		else if (externalItems[mapName] && id in externalItems[mapName])
-			obj = externalItems[mapName][id];
+		else if (externalItems[ns] && id in externalItems[ns])
+			obj = externalItems[ns][id];
 		obj.id = id;
 		if (global)
 			globalItems[id] = obj;
@@ -237,15 +260,16 @@ function createExternalObj(map, coord, dataKey, id, global) {
 		coordId:  coordId,
 		external: true,
 		map:      map,
-		obj:      obj
+		obj:      obj,
+		item:     item
 	};
 
 	obj.externals.push(ext);
 	externalItems.all.push(ext);
-	externalItems[mapName][id] = obj;
+	externalItems[ns][id] = obj;
 }
 
-function createMarker(coord, icon, label, popup, dataKey, id, global, checked, routes, areas) {
+function createMarker(coord, icon, label, popup, dataKey, item, checked, routes, areas) {
 	let marker = L.marker(coord, { icon: icon, riseOnHover: true });
 
 	marker.bindTooltip(label);
@@ -254,7 +278,8 @@ function createMarker(coord, icon, label, popup, dataKey, id, global, checked, r
 	let coordId = toCoordId(coord);
 
 	let obj;
-	[obj, id, checked] = createMarkerObj(coordId, id, global, checked);
+	let id;
+	[obj, id, checked] = createMarkerObj(coordId, item, checked);
 
 	marker.setOpacity(checked ? checkedMarkerOpacity : uncheckedMarkerOpacity);
 
@@ -372,6 +397,14 @@ function toggleChecked(obj, noUpdate) {
 			$("li.quest-" + $.escapeSelector(obj.id)).addClass("item-finished");
 		else
 			$("li.quest-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+	}
+
+	if (obj.card) {
+		$("li.card-" + $.escapeSelector(obj.id) + " i.checkbox").removeClass(oldClass).addClass(newClass);
+		if (obj.checked)
+			$("li.card-" + $.escapeSelector(obj.id)).addClass("item-finished");
+		else
+			$("li.card-" + $.escapeSelector(obj.id)).removeClass("item-finished");
 	}
 
 	if (obj.checked) {
@@ -570,7 +603,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 				let tooltip = item.label.replace(/<\/?[^>]+(>|$)/g, "");
 				let m = createMarker(coord, icons[item.icon], tooltip,
 				                     "<h1>" + item.label + "</h1>" + item.desc,
-				                     dataKey, item.id, item.global, checked, routes, areas);
+				                     dataKey, item, checked, routes, areas);
 				groupItems.push(m);
 
 				searchData.push({
@@ -590,7 +623,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 					groupItems.push(area.layer);
 				}
 			} else {
-				createMarkerObj(toCoordId(coord), item.id, item.global, checked);
+				createMarkerObj(toCoordId(coord), item, checked);
 			}
 		}, function(r, item) {
 			let arr = [];
@@ -657,7 +690,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 		if (i == mapInfoIndex)
 			continue;
 
-		for (let dataKey of ["contract", "event", "sidequest", "treasurehunt"]) {
+		for (let dataKey of externItemsProcessList) {
 			substMapData(mapInfos[i], data[i], dataKey, quests, function(coord, item) {
 				if (!icons[item.icon]) {
 					console.error("Invalid icon:", item.icon);
@@ -669,9 +702,104 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 				if (!fitDlc(item))
 					return;
 
-				createExternalObj(mapInfos[i], coord, dataKey, item.id, item.global);
+				createExternalObj(mapInfos[i], coord, dataKey, item);
 			});
 		}
+	}
+
+	cards = substCards(cards);
+
+	for (let [id, card] of Object.entries(cards)) {
+		let obj = {
+			id:        id,
+			coordIds:  [],
+			markers:   [],
+			layers:    [],
+			externals: [],
+			checked:   card.initial || checkedGlobalsLd.indexOf(id) >= 0,
+			global:    true,
+			card:      card
+		};
+		globalItems[id] = obj;
+		card.obj = obj;
+
+		let sources = card.sources || [];
+		let nsrcs = [];
+		if (!(sources instanceof Array))
+			sources = [sources];
+		for (let src of sources) {
+			let hasNs = src.indexOf(":") >= 0;
+			if (hasNs) {
+				let ns;
+				[ns, src] = src.split(":");
+				if (ns == mapInfo.ns) {
+					let sobj = markers[src];
+					if (!sobj) {
+						console.error("card " + id + " has non-existent source " + src, card);
+						continue;
+					}
+					if (sobj.coordIds.length == 0) {
+						console.error("card " + id + " source " + src + " has no coordinates", card);
+						continue;
+					}
+					if (!sobj.item) {
+						console.error("card " + id + " source " + src + " has no item information", card);
+						continue;
+					}
+					for (let coordId of sobj.coordIds)
+						nsrcs.push({ coordId: coordId, obj: sobj });
+				} else {
+					let sobj = externalItems[ns][src];
+					if (!sobj) {
+						console.error("card " + ns + ":" + id + " has non-existent source " + src, card);
+						continue;
+					}
+					let exts = sobj.externals;
+					if (exts.length == 0) {
+						console.error("card " + ns + ":" + id + " source " + src + " has no coordinates", card);
+						continue;
+					}
+					for (let ext of exts) {
+						if (!ext.item) {
+							console.error("card " + ns + ":" + id + " source " + src + " has no item information", card);
+							continue;
+						}
+						nsrcs.push({ ns: ext.map.ns, coordId: ext.coordId, obj: ext });
+					}
+				}
+				continue;
+			}
+			let sobj = globalItems[src];
+			if (!sobj) {
+				console.error("card " + id + " has non-existent source " + src, card);
+				continue;
+			}
+			if (sobj.quest) {
+				nsrcs.push({ quest: sobj.quest, obj: sobj });
+				continue;
+			}
+			let exts = sobj.externals;
+			if (sobj.coordIds.length == 0 && exts.length == 0) {
+				console.error("card " + id + " source " + src + " has no coordinates", card);
+				continue;
+			}
+			for (let coordId of sobj.coordIds) {
+				if (!sobj.item) {
+					console.error("card " + id + " source " + src + " has no item information", card);
+					continue;
+				}
+				nsrcs.push({ coordId: coordId, obj: sobj });
+			}
+			for (let ext of exts) {
+				if (!ext.item) {
+					console.error("card (" + ext.map.ns + ":)" + id + " source " + src + " has no item information", card);
+					continue;
+				}
+				nsrcs.push({ ns: ext.map.ns, coordId: ext.coordId, obj: ext });
+			}
+		}
+
+		card.sources = nsrcs;
 	}
 }
 
@@ -847,6 +975,24 @@ function toggleQuestCatOpen(cat, noUpdate) {
 		sessionStorage.questCatOpen = JSON.stringify(questCatOpen);
 }
 
+function toggleCardDeckOpen(deck, noUpdate) {
+	let index = cardDeckOpen.indexOf(deck);
+	let open = index >= 0;
+	if (open) {
+		$("li.carddeck-" + deck + ">i.caret").removeClass("fa-caret-up").addClass("fa-caret-down");
+		$("li.carddeck-" + deck + ">ul.card").hide();
+		cardDeckOpen.splice(index, 1);
+	} else {
+		$("li.carddeck-" + deck + ">i.caret").removeClass("fa-caret-down").addClass("fa-caret-up");
+		$("li.carddeck-" + deck + ">ul.card").show();
+		cardDeckOpen.push(deck);
+	}
+	hackySticky();
+	$("#sidebar").getNiceScroll().resize();
+	if (!noUpdate)
+		sessionStorage.cardDeckOpen = JSON.stringify(cardDeckOpen);
+}
+
 function createQuestList(groups, f) {
 	let g = {};
 
@@ -908,6 +1054,71 @@ function createQuestList(groups, f) {
 	return r;
 }
 
+function createCardList() {
+	let decks = [
+		{ id: "monsters",            label: esc($.t("card.monsters.label")) },
+		{ id: "nilfgaardian_empire", label: esc($.t("card.nilfgaardian_empire.label")) },
+		{ id: "northern_realms",     label: esc($.t("card.northern_realms.label")) },
+		{ id: "scoiatael",           label: esc($.t("card.scoiatael.label")) },
+		{ id: "skellige",            label: esc($.t("card.skellige.label")) },
+		{ id: "neutral",             label: esc($.t("card.neutral.label")) }
+	];
+
+	let g = {
+		monsters:            [],
+		nilfgaardian_empire: [],
+		northern_realms:     [],
+		scoiatael:           [],
+		skellige:            [],
+		neutral:             []
+	};
+
+	for (let card of Object.values(cards)) {
+		if (!fitDlc(card))
+			continue;
+		let deck = card.cardKey;
+		g[deck].push(card);
+	}
+
+	for (let i = 0; i < decks.length; i++) {
+		g[decks[i].id].sort(function(a, b) { return a.labelText.localeCompare(b.labelText); });
+	}
+
+	let r = '<ul class="carddeck">';
+	for (let i = 0; i < decks.length; i++) {
+		if (g[decks[i].id].length == 0)
+			continue;
+		r += '<li tabindex="0" class="carddeck carddeck-' + decks[i].id + '" data-card-deck="' + decks[i].id + '">' +
+		     '<div class="ellip-tooltip" data-card-deck="' + decks[i].id + '">' + decks[i].label + '</div>' +
+		     '<i class="caret fa fa-caret-down" data-card-deck="' + decks[i].id + '"></i><br>' +
+		     '<ul class="card" hidden>';
+		for (let card of g[decks[i].id]) {
+			let dlcClass = "";
+			if (card.hos)
+				dlcClass = " hos";
+			else if (card.baw)
+				dlcClass = " baw";
+			let checkedClass = "fa-square-o";
+			let checkedClass2 = "";
+			if (card.obj.checked) {
+				checkedClass = "fa-check-square-o";
+				checkedClass2 = " item-finished";
+			}
+			r += '<li tabindex="0" id="card-' + card.id + '" class="card card-' + card.id + checkedClass2 + '" data-card-id="' + card.id + '">';
+			if (card.initial)
+				r += '<i class="checkbox checkbox-frozen fa fa-check-square-o"></i>';
+			else
+				r += '<i tabindex="0" class="checkbox fa ' + checkedClass + '" data-card-id="' + card.id + '"></i>';
+			r += '<i class="card-icon card-' + card.icon + '"></i>' +
+			     '<div class="card-label ellip-tooltip' + dlcClass + '" data-card-id="' + card.id + '">' + card.labelText + '</div><br></li>';
+		}
+		r += '</ul>' +
+		     '</li>';
+	}
+	r += '</ul>';
+	return r;
+}
+
 function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
@@ -920,6 +1131,7 @@ function createSidebar() {
 
 	sidebar +=
 				'<b></b><i tabindex="0" id="tab-quest"></i>' +
+				'<b></b><i tabindex="0" id="tab-card"></i>' +
 				'<b></b><i tabindex="0" id="tab-settings" class="fa fa-cog"></i>' +
 				'<b class="fill"></b>' +
 			'</div>' +
@@ -985,6 +1197,9 @@ function createSidebar() {
 	sidebar += createQuestList(questGroups, function(q) { return q.questKey; });
 
 	sidebar +=
+				'</div>' +
+				'<div id="body-card" hidden>' +
+					createCardList() +
 				'</div>' +
 				'<div id="body-settings" hidden>' +
 					'<ul class="setting">' +
@@ -1658,26 +1873,30 @@ function runMap() {
 	hackySticky();
 	$("#sidebar").getNiceScroll().resize();
 
-	for (let val of $("ul li div.ellip-tooltip")) {
-		$(val).bind({
-			mouseenter: function(e) {
-				$("div.ellip-tooltip-box").remove();
-				let elem = $(e.target);
-				if (elem.outerWidth() < elem[0].scrollWidth)
-					$('<div class="ellip-tooltip-box">' + $(e.target).text() + '</div>').css(
-						{ top: e.pageY, left: e.pageX }
-					).appendTo("body");
-			},
-			mousemove: function(e) {
-				let elem = $(e.target);
-				if (elem.outerWidth() < elem[0].scrollWidth)
-					$("div.ellip-tooltip-box").css({ top: e.pageY, left: e.pageX });
-			},
-			mouseleave: function(e) {
-				$("div.ellip-tooltip-box").remove();
-			}
-		});
+	function bindEllips(selector) {
+		for (let val of $(selector)) {
+			$(val).bind({
+				mouseenter: function(e) {
+					$("div.ellip-tooltip-box").remove();
+					let elem = $(e.target);
+					if (elem.outerWidth() < elem[0].scrollWidth)
+						$('<div class="ellip-tooltip-box">' + $(e.target).text() + '</div>').css(
+							{ top: e.pageY, left: e.pageX }
+						).appendTo("body");
+				},
+				mousemove: function(e) {
+					let elem = $(e.target);
+					if (elem.outerWidth() < elem[0].scrollWidth)
+						$("div.ellip-tooltip-box").css({ top: e.pageY, left: e.pageX });
+				},
+				mouseleave: function(e) {
+					$("div.ellip-tooltip-box").remove();
+				}
+			});
+		}
 	}
+
+	bindEllips("ul li div.ellip-tooltip");
 
 	setTimeout(function() {
 		hackySticky();
@@ -2071,6 +2290,40 @@ function runMap() {
 		}
 	});
 
+	$("li.card i.checkbox").on("click enter spacebar", function(e) {
+		let cardId = this.dataset.cardId;
+		if (!cardId)
+			return;
+		let card = cards[cardId];
+		if (!card)
+			return;
+		toggleChecked(card.obj);
+	});
+
+	$("li.carddeck>div, li.carddeck>i").on("click", function(e) {
+		let deck = this.dataset.cardDeck;
+		if (!deck)
+			return;
+		toggleCardDeckOpen(deck);
+	});
+	$("li.carddeck").on("keydown", function(e) {
+		let deck = this.dataset.cardDeck;
+		if (!deck)
+			return;
+		let key = e.originalEvent.key;
+		if (key == "Enter" || key == "+") {
+			if (cardDeckOpen.indexOf(deck) >= 0)
+				return;
+			toggleCardDeckOpen(deck);
+			return false;
+		} else if (key == "Backspace" || key == "-") {
+			if (cardDeckOpen.indexOf(deck) < 0)
+				return;
+			toggleCardDeckOpen(deck);
+			return false;
+		}
+	});
+
 	function openQuestListEntry(qid) {
 		if (questListEntryOpen == qid)
 			return;
@@ -2086,7 +2339,8 @@ function runMap() {
 		if (link != qid + ".link") {
 			hasInfo = true;
 			exp += '<li><i class="quest-expand-indent fa fa-external-link"></i>' +
-			       '<div><a target="_blank" href="' + link + '">' + esc($.t("misc.wiki")) + '</a></div></li>';
+			       '<a class="ellip-tooltip" target="_blank" href="' + link + '"><div class="ellip-tooltip">' +
+			       esc($.t("misc.wiki")) + '</div></a></li>';
 		}
 		if (quests[qid]) {
 			let obj = quests[qid].obj;
@@ -2098,7 +2352,7 @@ function runMap() {
 				link = "#" + mapInfo.maxZoom + "/" +
 				       coord[0] + "/" + coord[1];
 				exp += '<li><i class="quest-expand-indent fa fa-crosshairs"></i>' +
-				       '<div><a href="' + link + '">' + l + '</a></div></li>';
+				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' + l + '</div></a></li>';
 			}
 			for (let ext of obj.externals) {
 				hasInfo = true;
@@ -2108,15 +2362,16 @@ function runMap() {
 				       coord[0] + "/" + coord[1];
 				let label = l + concat + openBracket + ext.map.label + closeBracket;
 				exp += '<li><i class="quest-expand-indent fa fa-map"></i>' +
-				       '<div><a href="' + link + '">' + label + '</a></div></li>';
+				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' + label + '</div></a></li>';
 			}
 		}
 		if (!hasInfo)
 			exp += '<li><i class="quest-expand-indent"></i>' +
-			       '<div>' + esc($.t("misc.noinfo")) + '</div>' +
+			       '<div class="ellip-tooltip noclick">' + esc($.t("misc.noinfo")) + '</div>' +
 			       '</li>';
 		exp += '</ul>';
 		$("li.quest-" + $.escapeSelector(qid)).append(exp);
+		bindEllips("ul#quest-expand li .ellip-tooltip");
 		questListEntryOpen = qid;
 		sessionStorage.questListEntryOpen = qid;
 	}
@@ -2148,6 +2403,105 @@ function runMap() {
 			return false;
 		} else if (wasOpen && (key == "Backspace" || key == "-")) {
 			closeQuestListEntry();
+			return false;
+		}
+	});
+
+	function openCardListEntry(cid) {
+		if (cardListEntryOpen == cid)
+			return;
+		closeCardListEntry();
+		const base         = esc($.t("misc.baseDeck"));
+		const random       = esc($.t("misc.randomPlayer"));
+		const concat       = esc($.t("misc.concat"));
+		const openBracket  = esc($.t("misc.openBracket"));
+		const closeBracket = esc($.t("misc.closeBracket"));
+		const loc          = esc($.t("misc.location"));
+		let exp = '<ul id="card-expand">';
+		let hasInfo = false;
+		let card = cards[cid];
+		if (card) {
+			if (card.link) {
+				hasInfo = true;
+				exp += '<li><i class="card-expand-indent fa fa-external-link"></i>' +
+				       '<a class="ellip-tooltip" target="_blank" href="' + card.link + '"><div class="ellip-tooltip">' +
+				       esc($.t("misc.wiki")) + '</div></a></li>';
+			}
+			if (card.initial) {
+				hasInfo = true;
+				exp += '<li><i class="card-expand-indent"></i>' +
+				       '<div class="ellip-tooltip noclick">' + base + '</div></li>';
+			}
+			if (card.random) {
+				hasInfo = true;
+				exp += '<li><i class="card-expand-indent"></i>' +
+				       '<div class="ellip-tooltip noclick">' + random + '</div></li>';
+			}
+			for (let src of card.sources) {
+				hasInfo = true;
+				if (src.quest) {
+					const inQuest = esc($.t("misc.acquireInQuest", { quest: src.quest.labelText }));
+					exp += '<li><i class="card-expand-indent ' + src.quest.icon + '"></i>' +
+					       '<a class="ellip-tooltip" href="' + src.quest.linkSelf + '"><div class="ellip-tooltip">' +
+					       inQuest + '</div></a></li>';
+					continue;
+				}
+				let text = loc;
+				if (src.obj.item.dataKey == "gwent" || src.obj.item.dataKey == "gwentquest")
+					text = esc($.t("misc.wonFrom", { person: src.obj.item.labelText }));
+				else if (isPerson(src.obj.item.dataKey))
+					text = esc($.t("misc.purchasedFrom", { person: src.obj.item.labelText }));
+				let coord = src.coordId.split(";");
+				let link = "#" + mapInfo.maxZoom + "/" + coord[0] + "/" + coord[1];
+				let icon = "fa-crosshairs";
+				if (src.ns) {
+					text += concat + openBracket + src.obj.map.label + closeBracket;
+					link = topdir + "/" + src.ns + "/index.html" + link;
+					icon = "fa-map";
+				}
+				exp += '<li><i class="card-expand-indent fa ' + icon + '"></i>' +
+				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' +
+				       text + '</div></a></li>';
+			}
+		}
+		if (!hasInfo)
+			exp += '<li><i class="card-expand-indent"></i>' +
+			       '<div class="ellip-tooltip noclick">' + esc($.t("misc.noinfo")) + '</div>' +
+			       '</li>';
+		exp += '</ul>';
+		$("li.card-" + $.escapeSelector(cid)).append(exp);
+		bindEllips("ul#card-expand li .ellip-tooltip");
+		cardListEntryOpen = cid;
+		sessionStorage.cardListEntryOpen = cid;
+	}
+
+	function closeCardListEntry() {
+		$("#card-expand").remove();
+		cardListEntryOpen = null;
+		sessionStorage.removeItem("cardListEntryOpen");
+	}
+
+	$("li.card div.card-label").on("click", function() {
+		let id = this.dataset.cardId;
+		if (!id)
+			return;
+		let wasOpen = cardListEntryOpen == id;
+		closeCardListEntry();
+		if (wasOpen)
+			return;
+		openCardListEntry(id);
+	});
+	$("li.card").on("keydown", function(e) {
+		let id = this.dataset.cardId;
+		if (!id)
+			return;
+		let key = e.originalEvent.key;
+		let wasOpen = cardListEntryOpen == id;
+		if (!wasOpen && (key == "Enter" || key == "+")) {
+			openCardListEntry(id);
+			return false;
+		} else if (wasOpen && (key == "Backspace" || key == "-")) {
+			closeCardListEntry();
 			return false;
 		}
 	});
@@ -2186,6 +2540,17 @@ function runMap() {
 
 	if (sessionStorage.questListEntryOpen)
 		openQuestListEntry(sessionStorage.questListEntryOpen);
+
+	let sessionCardDeckOpen = null;
+	if (sessionStorage.cardDeckOpen)
+		sessionCardDeckOpen = JSON.parse(sessionStorage.cardDeckOpen);
+	if (!(sessionQuestCatOpen instanceof Array))
+		sessionCardDeckOpen = [];
+	for (let deck of sessionCardDeckOpen)
+		toggleCardDeckOpen(deck, true);
+
+	if (sessionStorage.cardListEntryOpen)
+		openCardListEntry(sessionStorage.cardListEntryOpen);
 
 	for (let tab of Object.keys(scrollPos)) {
 		let pos = sessionStorage["scrollbar-" + tab];
@@ -2302,15 +2667,15 @@ function runMap() {
 }
 
 $(function() {
-	$.i18n.init(i18noptions, function() {
-		$.i18n.loadNamespace(mapInfo.ns, function() {
-			try {
-				$(document).i18n();
-				runMap();
-			} catch(e) {
-				console.error("Uncaught in i18n callback:", e);
-				throw e;
-			}
-		});
+	$.i18n.init(i18noptions, async function() {
+		$(document).i18n();
+
+		for (let map of window.mapInfos) {
+			await new Promise(function(resolve) {
+				$.i18n.loadNamespace(map.ns, resolve);
+			});
+		}
+
+		runMap();
 	});
 });

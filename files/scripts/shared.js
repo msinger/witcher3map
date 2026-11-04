@@ -11,6 +11,15 @@ var questGroupNames = [
 	"treasurehunt"
 ];
 
+var cardDeckNames = [
+	"monsters",
+	"nilfgaardian_empire",
+	"northern_realms",
+	"scoiatael",
+	"skellige",
+	"neutral"
+];
+
 var markerGroupNames = [
 	"abandoned",
 	"alchemy",
@@ -547,6 +556,7 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		let global      = item.global && id;
 		let icon        = dataKey;
 		let label       = null;
+		let labelText   = null;
 		let desc        = item.desc;
 		let extraDesc   = item.extraDesc;
 		let notInGame   = item.notInGame;
@@ -591,18 +601,20 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		}
 
 		if (isQuest) {
-			label   = q.label;
-			desc    = q.desc;
-			special = q.special;
-			hos     = q.hos;
-			notHos  = q.notHos;
-			baw     = q.baw;
-			notBaw  = q.notBaw;
-			mod     = q.mod;
-			notMod  = q.notMod;
-			race    = q.race;
+			label     = q.label;
+			labelText = q.labelText;
+			desc      = q.desc;
+			special   = q.special;
+			hos       = q.hos;
+			notHos    = q.notHos;
+			baw       = q.baw;
+			notBaw    = q.notBaw;
+			mod       = q.mod;
+			notMod    = q.notMod;
+			race      = q.race;
 		} else {
-			label = genLabel(item, dataKey, subKey, noLinks);
+			label     = genLabel(item, dataKey, subKey, noLinks);
+			labelText = genLabel(item, dataKey, subKey, true);
 
 			if (typeof desc != "string" || (desc !== "" && !desc)) {
 				desc = dataKey + subKey + ".desc";
@@ -998,6 +1010,7 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		item.global      = global;
 		item.icon        = icon;
 		item.label       = label;
+		item.labelText   = labelText;
 		item.desc        = desc;
 		item.notInGame   = notInGame;
 		item.portal      = portal;
@@ -1373,11 +1386,73 @@ function substQuests(quests, noLinks) {
 
 			item.label     = label;
 			item.labelText = labelText;
+			item.linkSelf  = "javascript: jumpIntoList('" + id + "');";
 			item.desc      = desc;
 			item.special   = special;
 			item.icon      = icon;
 			item.region    = region;
 			item.level     = level;
+			res[id] = item;
+		}
+	}
+
+	return res;
+}
+
+function substCards(cards, noLinks) {
+	let res = {};
+
+	for (let cardKey of cardDeckNames) {
+		let items = [];
+
+		if (cardKey in cards)
+			items = cards[cardKey];
+
+		if (!(items instanceof Array)) {
+			console.error("cards->" + cardKey + " is not an array: ", items);
+			items = [];
+		}
+
+		for (let item of items) {
+			if (!(item instanceof Object)) {
+				console.error("An element of cards->" + cardKey + " is not an object: ", item);
+				continue;
+			}
+
+			if (!item.name || typeof item.name != "string") {
+				console.error("An element of cards->" + cardKey + " does not have valid name: ", item);
+				continue;
+			}
+
+			if (item.disabled)
+				continue;
+
+			let name = item.name;
+			let id   = item.id;
+			let icon = cardKey + "-" + item.icon;
+
+			if (!id || typeof id != "string")
+				id = "card." + cardKey + "." + name;
+
+			let label = item.label || "";
+			if (typeof label != "string" || !label)
+				label = "card." + cardKey + "." + name + ".label";
+			let labelText = label;
+			label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, noLinks);
+			labelText = subst(esc(labelText[0] == "#" ? labelText.substring(1) : $.t(labelText)), item, true);
+			let linkKey = "card." + cardKey + "." + name + ".link";
+			let link = $.t(linkKey);
+			if (link != linkKey)
+				link = esc(link, true);
+			else
+				link = false;
+
+			item.id        = id;
+			item.label     = label;
+			item.labelText = labelText;
+			item.link      = link;
+			item.icon      = icon;
+			item.cardKey   = cardKey;
 			res[id] = item;
 		}
 	}
