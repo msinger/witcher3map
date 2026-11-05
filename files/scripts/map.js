@@ -2569,8 +2569,6 @@ function runMap() {
 	if (sessionTab && sessionTab in scrollPos)
 		selectTab(sessionTab);
 
-	let hashParams = hash.getHashParams() || {};
-
 	function processHashParams(hashParams) {
 		if (hashParams.w != prevHashParams.w) {
 			if (wayPoint)
@@ -2612,6 +2610,7 @@ function runMap() {
 				$("#centerButton").show();
 			} else {
 				$("#centerButton").hide();
+				map.closePopup();
 			}
 		}
 
@@ -2663,11 +2662,10 @@ function runMap() {
 	}
 
 	$("#centerButton").hide();
-	processHashParams(hashParams);
+	processHashParams(hash.getHashParams() || {});
 
-	L.DomEvent.addListener(window, "hashchange", function() {
-		let hashParams = hash.getHashParams() || {};
-		processHashParams(hashParams);
+	hash.init(function() {
+		processHashParams(this.getHashParams() || {});
 	});
 }
 

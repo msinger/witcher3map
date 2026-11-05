@@ -3,9 +3,20 @@
 (function(window) {
 	L.Hash = function(map) {
 		this.onHashChange = L.Util.bind(this.onHashChange, this);
+		this.map = map;
+		// reset the hash
+		this.lastHash = null;
+	};
 
-		if (map) {
-			this.init(map);
+	L.Hash.init =  function(changeCallback) {
+		this.changeCallback = changeCallback;
+
+		// reset the hash
+		this.lastHash = null;
+		this.onHashChange();
+
+		if (!this.isListening) {
+			this.startListening();
 		}
 	};
 
@@ -109,6 +120,7 @@
 		map: null,
 		lastHash: null,
 
+		init: L.Hash.init,
 		getHashParams: L.Hash.getHashParams,
 		addParam: L.Hash.addParam,
 		removeParam: L.Hash.removeParam,
@@ -117,23 +129,7 @@
 		parseHash: L.Hash.parseHash,
 		formatHash: L.Hash.formatHash,
 
-		init: function(map) {
-			this.map = map;
-
-			// reset the hash
-			this.lastHash = null;
-			this.onHashChange();
-
-			if (!this.isListening) {
-				this.startListening();
-			}
-		},
-
 		removeFrom: function(map) {
-			if (this.changeTimeout) {
-				clearTimeout(this.changeTimeout);
-			}
-
 			if (this.isListening) {
 				this.stopListening();
 			}
@@ -204,19 +200,10 @@
 			}
 		},
 
-		// defer hash change updates every 200ms
-		changeDefer: 200,
-		changeTimeout: null,
 		onHashChange: function() {
-			// throttle calls to update() so that they only happen every
-			// `changeDefer` ms
-			if (!this.changeTimeout) {
-				var that = this;
-				this.changeTimeout = setTimeout(function() {
-					that.update();
-					that.changeTimeout = null;
-				}, this.changeDefer);
-			}
+			this.update();
+			if (this.changeCallback)
+				this.changeCallback();
 		},
 
 		isListening: false,
