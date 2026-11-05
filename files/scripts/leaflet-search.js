@@ -1,7 +1,7 @@
 (function() {
 
 L.Control.Search = L.Control.extend({
-	includes: L.Mixin.Events,
+	includes: L.Evented.prototype,
 	//
 	//	Name					Data passed			   Description
 	//
@@ -803,7 +803,7 @@ L.Control.Search = L.Control.extend({
 
 var SearchMarker = L.Marker.extend({
 
-	includes: L.Mixin.Events,
+	includes: L.Evented.prototype,
 	
 	options: {
 		radius: 10,
