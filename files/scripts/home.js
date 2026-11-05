@@ -11,8 +11,7 @@ function processMapDataForGlobalSearch(map) {
 			if (!fitDlc(item))
 				return;
 
-			let link = map.ns + "/index.html#" + map.maxZoom + "/" + coord[0] + "/" + coord[1] +
-			           "/m=" + coord[0] + "," + coord[1];
+			let link = linkIntoMap(map, coord);
 
 			searchData.push({
 				id:    searchCount,

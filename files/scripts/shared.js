@@ -204,6 +204,22 @@ function isQuestId(key) {
 	return ["mainquest", "sidequest", "contract", "treasurehunt", "event"].indexOf(s[0]) >= 0;
 }
 
+function linkToCoord(coord) {
+	if (typeof coord == "string")
+		coord = coord.split(";");
+	return "javascript:document.getElementById('map').focus(); jumpToCoord([" + coord[0] + ", " + coord[1] + "]);";
+}
+
+function linkIntoMap(map, coord) {
+	if (typeof coord == "string")
+		coord = coord.split(";");
+	let link = topdir + "/" + map.ns + "/index.html" +
+	           "#" + map.maxZoom + "/" +
+	           coord[0] + "/" + coord[1] + "/m=" +
+	           coord[0] + "," + coord[1];
+	return link;
+}
+
 function tLink(key, noLink) {
 	let res   = esc($.t(key + ".label")) || key;
 	let link  = esc($.t(key + ".link"), true);
@@ -536,9 +552,7 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 			if (noLinks)
 				links += ltext;
 			else
-				links += '<a href="#' + mapInfo.maxZoom + "/" +
-				         items[i].coord[0] + "/" + items[i].coord[1] +
-				         '">' + ltext + "</a>";
+				links += '<a href="' + linkToCoord(items[i].coord) + '">' + ltext + "</a>";
 		}
 		return links;
 	}
