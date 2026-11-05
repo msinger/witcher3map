@@ -206,14 +206,18 @@ function createMarkerObj(coordId, item, checked) {
 		else if (id in markers)
 			obj = markers[id];
 		obj.id = id;
-		markers[id] = obj;
+		if (coordId)
+			markers[id] = obj;
 		if (global)
 			globalItems[id] = obj;
 	} else {
+		if (!coordId)
+			console.error("creating non-global obj without coordId", item);
 		id = coordId;
 	}
 
-	obj.coordIds.push(coordId);
+	if (coordId)
+		obj.coordIds.push(coordId);
 
 	if (obj.markers.length > 0) {
 		if (checked && !obj.checked)
@@ -363,6 +367,9 @@ function updateCount(dataKey) {
 
 function toggleChecked(obj, noUpdate) {
 	if (obj.global && obj.quest && obj.quest.initial)
+		return;
+
+	if (obj.global && obj.card && obj.card.initial)
 		return;
 
 	obj.checked = !obj.checked;
@@ -710,21 +717,19 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 	cards = substCards(cards);
 
 	for (let [id, card] of Object.entries(cards)) {
-		let obj = {
-			id:        id,
-			coordIds:  [],
-			markers:   [],
-			layers:    [],
-			externals: [],
-			checked:   card.initial || checkedGlobalsLd.indexOf(id) >= 0,
-			global:    true,
-			card:      card
-		};
-		globalItems[id] = obj;
+		card.global = true;
+		let [obj] = createMarkerObj(null, card, card.initial || checkedGlobalsLd.indexOf(id) >= 0);
+		obj.card = card;
 		card.obj = obj;
 
-		let sources = card.sources || [];
 		let nsrcs = [];
+
+		for (let coordId of obj.coordIds)
+			nsrcs.push({ coordId: coordId, obj: obj });
+		for (let ext of obj.externals)
+			nsrcs.push({ ns: ext.map.ns, coordId: ext.coordId, obj: ext });
+
+		let sources = card.sources || [];
 		if (!(sources instanceof Array))
 			sources = [sources];
 		for (let src of sources) {

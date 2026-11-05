@@ -46,6 +46,7 @@ window.i18nData.en.general = {
 		desc:  "You can call on the services of a prostitute here."
 	},
 	card: {
+		label: "Gwent Card",
 		monsters: {
 			label: "Monsters",
 			arachas:           { label: "Arachas", link: "https://witcher.fandom.com/wiki/Arachas_(gwent_card)" },

@@ -553,7 +553,7 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 
 		let isQuest     = questGroupNames.indexOf(dataKey) >= 0;
 		let id          = (item.id && typeof item.id == "string") ? item.id : null;
-		let global      = item.global && id;
+		let global      = item.global && !!id;
 		let icon        = dataKey;
 		let label       = null;
 		let labelText   = null;
@@ -571,14 +571,14 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		let weakBefore  = item.weakBefore;
 		let during      = item.during;
 		let notDuring   = item.notDuring;
-		let time        = item.fromTime && item.toTime;
+		let time        = item.fromTime && !!item.toTime;
 		let cleared     = item.cleared;
 		let uncleared   = item.uncleared;
-		let rescueFrom  = isPerson(dataKey) && item.rescueFrom;
-		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) && id;
+		let rescueFrom  = isPerson(dataKey) && !!item.rescueFrom;
+		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) && !!id;
 		let special     = false;
 		let underground = dataKey != "stash" && item.underground;
-		let entrances   = (data.entrance.length || data.monsterden.length) && item.entrances;
+		let entrances   = (data.entrance.length || data.monsterden.length) && !!item.entrances;
 		let once        = dataKey == "monster" && item.once;
 		let images      = item.images;
 		let hos         = item.hos;

@@ -1023,7 +1023,7 @@ var cards = {
 		random:  true
 	}, {
 		name:    "cow",
-		icon:    "melee", // TODO: In barn in Brunwich
+		icon:    "melee",
 		hos:     true
 	}, {
 		name:    "dandelion",
@@ -1200,6 +1200,6 @@ var cards = {
 	}, {
 		name:    "zoltan",
 		icon:    "melee",
-		sources: "w:aldertGwent" // TODO: Also under Hanged Man's Tree
+		sources: "w:aldertGwent"
 	}]
 };

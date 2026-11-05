@@ -5638,6 +5638,19 @@
 		entrances:   "devils_pit",
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
+	}, {
+		coords:      [246.313,197.125],
+		id:          "card.neutral.cow",
+		global:      true,
+		label:       "card.label",
+		extraLabel:  "card.neutral.cow.label",
+		hos:         true
+	}, {
+		coords:      [137.531,122.414],
+		id:          "card.neutral.zoltan",
+		global:      true,
+		label:       "card.label",
+		extraLabel:  "card.neutral.zoltan.label"
 	}],
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
