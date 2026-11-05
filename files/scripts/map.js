@@ -2549,7 +2549,7 @@ function runMap() {
 	let sessionCardDeckOpen = null;
 	if (sessionStorage.cardDeckOpen)
 		sessionCardDeckOpen = JSON.parse(sessionStorage.cardDeckOpen);
-	if (!(sessionQuestCatOpen instanceof Array))
+	if (!(sessionCardDeckOpen instanceof Array))
 		sessionCardDeckOpen = [];
 	for (let deck of sessionCardDeckOpen)
 		toggleCardDeckOpen(deck, true);
