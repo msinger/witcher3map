@@ -2353,18 +2353,13 @@ function runMap() {
 			let l = isEv ? loc : startPoint;
 			for (let coordId of obj.coordIds) {
 				hasInfo = true;
-				let coord = coordId.split(";");
-				link = "#" + mapInfo.maxZoom + "/" +
-				       coord[0] + "/" + coord[1];
+				link = linkToCoord(coordId);
 				exp += '<li><i class="quest-expand-indent fa fa-crosshairs"></i>' +
 				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' + l + '</div></a></li>';
 			}
 			for (let ext of obj.externals) {
 				hasInfo = true;
-				let coord = ext.coordId.split(";");
-				link = topdir + "/" + ext.map.ns + "/index.html" +
-				       "#" + ext.map.maxZoom + "/" +
-				       coord[0] + "/" + coord[1];
+				link = linkIntoMap(ext.map, ext.coordId);
 				let label = l + concat + openBracket + ext.map.label + closeBracket;
 				exp += '<li><i class="quest-expand-indent fa fa-map"></i>' +
 				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' + label + '</div></a></li>';
@@ -2456,13 +2451,14 @@ function runMap() {
 					text = esc($.t("misc.wonFrom", { person: src.obj.item.labelText }));
 				else if (isPerson(src.obj.item.dataKey))
 					text = esc($.t("misc.purchasedFrom", { person: src.obj.item.labelText }));
-				let coord = src.coordId.split(";");
-				let link = "#" + mapInfo.maxZoom + "/" + coord[0] + "/" + coord[1];
+				let link;
 				let icon = "fa-crosshairs";
 				if (src.ns) {
 					text += concat + openBracket + src.obj.map.label + closeBracket;
-					link = topdir + "/" + src.ns + "/index.html" + link;
+					link = linkIntoMap(src.obj.map, src.coordId);
 					icon = "fa-map";
+				} else {
+					link = linkToCoord(src.coordId);
 				}
 				exp += '<li><i class="card-expand-indent fa ' + icon + '"></i>' +
 				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' +
@@ -2510,6 +2506,22 @@ function runMap() {
 			return false;
 		}
 	});
+
+	window.jumpToCoord = function(coord) {
+		let coordId = toCoordId(coord);
+
+		for (let val of allLayers) {
+			for (let marker of val.getLayers()) {
+				if (!marker.getLatLng)
+					continue;
+				let pos = marker.getLatLng();
+				if(coord[0] == pos.lat && coord[1] == pos.lng)
+					marker.openPopup();
+			}
+		}
+
+		map.flyTo(coord, mapInfo.maxZoom);
+	}
 
 	window.jumpIntoList = function(id) {
 		if (!quests[id])
