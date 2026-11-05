@@ -588,11 +588,11 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		let time        = item.fromTime && !!item.toTime;
 		let cleared     = item.cleared;
 		let uncleared   = item.uncleared;
-		let rescueFrom  = isPerson(dataKey) && !!item.rescueFrom;
+		let rescueFrom  = isPerson(dataKey) && item.rescueFrom;
 		let rescuable   = (dataKey == "pid" || (dataKey == "event" && item.rescuable)) && !!id;
 		let special     = false;
 		let underground = dataKey != "stash" && item.underground;
-		let entrances   = (data.entrance.length || data.monsterden.length) && !!item.entrances;
+		let entrances   = (data.entrance.length || data.monsterden.length) && item.entrances;
 		let once        = dataKey == "monster" && item.once;
 		let images      = item.images;
 		let hos         = item.hos;
