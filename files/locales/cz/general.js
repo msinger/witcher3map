@@ -219,6 +219,11 @@ window.i18nData.cz.general = {
 		woe:          { label: "Ach já nešťastný" },
 		yustianna:    { label: "Znepokojená Justiána" }
 	},
+	gear: {
+		viper: {
+			venomousSilverSword: { label: "Otrávený stříbrný meč Hadí školy" }
+		}
+	},
 	grindstone: {
 		label: "Brusný kotouč",
 		desc:  "Zde naostřená čepel bude působit větší poškození."

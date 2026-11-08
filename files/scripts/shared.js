@@ -20,6 +20,16 @@ var cardDeckNames = [
 	"neutral"
 ];
 
+var schoolNames = [
+	"bear",
+	"cat",
+	"forgotten",
+	"griffin",
+	"manticore",
+	"viper",
+	"wolf"
+];
+
 var markerGroupNames = [
 	"abandoned",
 	"alchemy",
@@ -432,6 +442,7 @@ function prescreenMapData(mapInfo, data) {
 			    dataKey == "event" ||
 			    dataKey == "contract" ||
 			    dataKey == "gwentquest" ||
+			    dataKey == "scavengerhunt" ||
 			    dataKey == "treasurehunt")
 				item.global = true;
 
@@ -456,7 +467,7 @@ function prescreenMapData(mapInfo, data) {
 	}
 }
 
-function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
+function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks, skipLocals) {
 	const concat       = esc($.t("misc.concat"));
 	const concatDash   = esc($.t("misc.concatDash"));
 	const openBracket  = esc($.t("misc.openBracket"));
@@ -602,6 +613,9 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks) {
 		let mod         = item.mod;
 		let notMod      = item.notMod;
 		let race        = item.race;
+
+		if (skipLocals && !global)
+			continue;
 
 		let subKey = genSubKey(item, dataKey);
 
@@ -1467,6 +1481,73 @@ function substCards(cards, noLinks) {
 			item.link      = link;
 			item.icon      = icon;
 			item.cardKey   = cardKey;
+			res[id] = item;
+		}
+	}
+
+	return res;
+}
+
+function substGear(gear, noLinks) {
+	let res = {};
+
+	for (let gearKey of schoolNames) {
+		let items = [];
+
+		if (gearKey in gear)
+			items = gear[gearKey];
+
+		if (!(items instanceof Array)) {
+			console.error("gear->" + gearKey + " is not an array: ", items);
+			items = [];
+		}
+
+		for (let item of items) {
+			if (!(item instanceof Object)) {
+				console.error("An element of gear->" + gearKey + " is not an object: ", item);
+				continue;
+			}
+
+			if (!item.name || typeof item.name != "string") {
+				console.error("An element of gear->" + gearKey + " does not have valid name: ", item);
+				continue;
+			}
+
+			if (item.disabled)
+				continue;
+
+			let name = item.name;
+			let id   = item.id;
+			let icon = item.icon;
+
+			if (!id || typeof id != "string")
+				id = "gear." + gearKey + "." + name;
+
+			let label = item.label || "";
+			if (typeof label != "string" || !label)
+				label = "gear." + gearKey + "." + name + ".label";
+			let labelText = label;
+			label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, noLinks);
+			labelText = subst(esc(labelText[0] == "#" ? labelText.substring(1) : $.t(labelText)), item, true);
+			let linkKey = "gear." + gearKey + "." + name + ".link";
+			let link = $.t(linkKey);
+			if (link != linkKey)
+				link = esc(link, true);
+			else
+				link = false;
+
+			if (!icon)
+				icon = name.toLowerCase().replace("enhanced", "").replace("superior", "")
+				                         .replace("mastercrafted", "").replace("grandmaster", "")
+				                         .replace("silver", "").replace("steel", "")
+				                         .replace("venomous", "");
+
+			item.id        = id;
+			item.label     = label;
+			item.labelText = labelText;
+			item.link      = link;
+			item.icon      = icon;
+			item.gearKey   = gearKey;
 			res[id] = item;
 		}
 	}

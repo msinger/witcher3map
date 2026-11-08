@@ -107,7 +107,7 @@ div#sidebar-tabs>i {
 	padding-top: 5px;
 	margin-top: 5px;
 	text-decoration: none;
-	width: 40px;
+	width: 32px;
 	height: 32px;
 	max-height: 32px;
 	min-height: 32px;
@@ -153,6 +153,30 @@ div#sidebar-tabs>i#tab-card.sel {
 	background-position-y: 10px;
 }
 
+div#sidebar-tabs>i#tab-gear {
+	background-image: url(../images/gear.png);
+	background-position-x: center;
+	background-position-y: 5px;
+	background-repeat: no-repeat;
+}
+
+div#sidebar-tabs>i#tab-gear.sel {
+	background-image: url(../images/gear-sel.png);
+	background-position-y: 10px;
+}
+
+div#sidebar-tabs>i#tab-alchemy {
+	background-image: url(../images/alchemy.png);
+	background-position-x: center;
+	background-position-y: 5px;
+	background-repeat: no-repeat;
+}
+
+div#sidebar-tabs>i#tab-alchemy.sel {
+	background-image: url(../images/alchemy-sel.png);
+	background-position-y: 10px;
+}
+
 div#sidebar-tabs>i.sel {
 	padding-top: 10px;
 	margin-top: 0;
@@ -170,9 +194,9 @@ div#sidebar-tabs>b {
 	padding-top: 5px;
 	margin-top: 5px;
 	text-decoration: none;
-	width: 5px;
-	min-width: 5px;
-	max-width: 5px;
+	width: 4px;
+	min-width: 4px;
+	max-width: 4px;
 	height: 32px;
 	max-height: 32px;
 	min-height: 32px;
@@ -246,6 +270,9 @@ ul#quest-expand,
 ul.card,
 ul.carddeck,
 ul#card-expand,
+ul.gear,
+ul.school,
+ul#gear-expand,
 ul.setting {
 	margin: 0;
 	padding: 0;
@@ -350,6 +377,7 @@ ul.key {
 	list-style-type: none;
 	column-count: var(--columns);
 	column-gap: var(--column-gap);
+	width: var(--sidebar-width);
 }
 
 ul.key>li,
@@ -424,7 +452,8 @@ ul.setting>li:after {
 ul.key>li.layer-disabled>div,
 ul.key>li.interior-hidden>div,
 ul.quest>li.item-finished>div,
-ul.card>li.item-finished>div {
+ul.card>li.item-finished>div,
+ul.gear>li.item-finished>div {
 	text-decoration: line-through;
 	opacity: 0.6;
 }
@@ -432,19 +461,22 @@ ul.card>li.item-finished>div {
 ul.key>li.layer-disabled,
 ul.key>li.interior-hidden,
 ul.quest>li.item-finished,
-ul.card>li.item-finished {
+ul.card>li.item-finished,
+ul.gear>li.item-finished {
 	opacity: 0.9;
 }
 
 ul.key>li.layer-disabled>i,
 ul.key>li.interior-hidden>i,
 ul.quest>li.item-finished>i,
-ul.card>li.item-finished>i {
+ul.card>li.item-finished>i,
+ul.gear>li.item-finished>i {
 	opacity: 0.6;
 }
 
 ul.questcat,
-ul.carddeck {
+ul.carddeck,
+ul.school {
 	--caret-width: 20px;
 	--label-width: calc(var(--sidebar-width) - var(--caret-width));
 }
@@ -492,33 +524,57 @@ ul#card-expand {
 	--label-width: calc(var(--sidebar-width) - var(--expand-indent) - var(--icons-width));
 }
 
+ul.gear {
+	--checkbox-width: 20px;
+	--checkbox-margin: 6px;
+	--checkboxes-width: calc(2 * (var(--checkbox-width) + var(--checkbox-margin)));
+	--gear-width: var(--icon-width);
+	--gear-margin: 4px;
+	--icons-width: calc(var(--checkboxes-width) +
+	                    var(--gear-width) + var(--gear-margin));
+	--label-width: calc(var(--sidebar-width) - var(--icons-width));
+	--expand-indent: 4px;
+}
+
+ul#gear-expand {
+	--icons-width: calc(var(--checkboxes-width) +
+	               var(--icon-width) + var(--icon-margin));
+	--label-width: calc(var(--sidebar-width) - var(--expand-indent) - var(--icons-width));
+}
+
 ul.quest,
 ul.questcat,
 ul#quest-expand,
 ul.card,
 ul.carddeck,
 ul#card-expand,
+ul.gear,
+ul.school,
+ul#gear-expand,
 ul.setting {
 	list-style-type: none;
 	clear: left;
 }
 
 ul.quest>li,
-ul.card>li {
+ul.card>li,
+ul.gear>li {
 	font-size: 18px;
 	min-height: 32px;
 	clear: left;
 }
 
 ul#quest-expand>li,
-ul#card-expand>li {
+ul#card-expand>li,
+ul#gear-expand>li {
 	font-size: 18px;
 	height: 32px;
 	clear: left;
 }
 
 ul.questcat>li,
-ul.carddeck>li {
+ul.carddeck>li,
+ul.school>li {
 	font-size: 18px;
 	clear: left;
 }
@@ -528,7 +584,10 @@ ul.questcat>li>i,
 ul#quest-expand>li>i,
 ul.card>li>i,
 ul.carddeck>li>i,
-ul#card-expand>li>i {
+ul#card-expand>li>i,
+ul.gear>li>i,
+ul.school>li>i,
+ul#gear-expand>li>i {
 	height: 20px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -538,19 +597,22 @@ ul#card-expand>li>i {
 }
 
 ul#quest-expand>li>i,
-ul#card-expand>li>i {
+ul#card-expand>li>i,
+ul#gear-expand>li>i {
 	width: var(--icon-width);
 	height: var(--icon-height);
 	margin-right: var(--icon-margin);
 }
 
 ul#quest-expand>li>i.quest-expand-indent,
-ul#card-expand>li>i.card-expand-indent {
+ul#card-expand>li>i.card-expand-indent,
+ul#gear-expand>li>i.gear-expand-indent {
 	margin-left: calc(var(--expand-indent) + var(--checkboxes-width));
 }
 
 ul#quest-expand>li a,
-ul#card-expand>li a {
+ul#card-expand>li a,
+ul#gear-expand>li a {
 	color: inherit;
 	text-decoration: none;
 }
@@ -559,14 +621,18 @@ ul.quest>li>i.checkbox,
 ul.quest>li>i.checkbox-f,
 ul.quest>li>i.skip-checkbox,
 ul.card>li>i.checkbox,
-ul.card>li>i.skip-checkbox {
+ul.card>li>i.skip-checkbox,
+ul.gear>li>i.checkbox,
+ul.gear>li>i.checkbox-f,
+ul.gear>li>i.skip-checkbox {
 	width: var(--checkbox-width);
 	margin-right: var(--checkbox-margin);
 	cursor: pointer;
 }
 
 ul.questcat>li>i.caret,
-ul.carddeck>li>i.caret {
+ul.carddeck>li>i.caret,
+ul.school>li>i.caret {
 	height: 30px;
 	width: var(--caret-width);
 	cursor: pointer;
@@ -575,7 +641,9 @@ ul.carddeck>li>i.caret {
 ul.quest>li>i.skip-checkbox,
 ul.quest>li>i.checkbox-frozen,
 ul.card>li>i.skip-checkbox,
-ul.card>li>i.checkbox-frozen {
+ul.card>li>i.checkbox-frozen,
+ul.gear>li>i.skip-checkbox,
+ul.gear>li>i.checkbox-frozen {
 	cursor: default;
 }
 
@@ -610,6 +678,11 @@ ul.card>li>i.card-icon {
 	margin-right: var(--card-margin);
 }
 
+ul.gear>li>i.gear-icon {
+	width: var(--gear-width);
+	margin-right: var(--gear-margin);
+}
+
 ul.quest>li>div,
 ul.questcat>li>div,
 ul#quest-expand>li>div,
@@ -619,7 +692,12 @@ ul.card>li>div,
 ul.carddeck>li>div,
 ul#card-expand>li>div,
 ul#card-expand>li>a,
-ul#card-expand>li>a>div {
+ul#card-expand>li>a>div,
+ul.gear>li>div,
+ul.school>li>div,
+ul#gear-expand>li>div,
+ul#gear-expand>li>a,
+ul#gear-expand>li>a>div {
 	line-height: 21px;
 	white-space: nowrap;
 	overflow: hidden;
@@ -633,7 +711,11 @@ ul#quest-expand>li>a,
 ul.card>li>div,
 ul.carddeck>li>div,
 ul#card-expand>li>div,
-ul#card-expand>li>a {
+ul#card-expand>li>a,
+ul.gear>li>div,
+ul.school>li>div,
+ul#gear-expand>li>div,
+ul#gear-expand>li>a {
 	float: left;
 }
 
@@ -644,7 +726,11 @@ ul#quest-expand>li>a>div,
 ul.card>li>div,
 ul#card-expand>li>div,
 ul#card-expand>li>a,
-ul#card-expand>li>a>div {
+ul#card-expand>li>a>div,
+ul.gear>li>div,
+ul#gear-expand>li>div,
+ul#gear-expand>li>a,
+ul#gear-expand>li>a>div {
 	width: var(--label-width);
 }
 
@@ -653,12 +739,16 @@ ul#quest-expand>li>div:not(.noclick),
 ul#quest-expand>li>a>div:not(.noclick),
 ul.card>li>div,
 ul#card-expand>li>div:not(.noclick),
-ul#card-expand>li>a>div:not(.noclick) {
+ul#card-expand>li>a>div:not(.noclick),
+ul.gear>li>div,
+ul#gear-expand>li>div:not(.noclick),
+ul#gear-expand>li>a>div:not(.noclick) {
 	cursor: pointer;
 }
 
 ul.questcat>li>div,
-ul.carddeck>li>div {
+ul.carddeck>li>div,
+ul.school>li>div {
 	text-transform: uppercase;
 	width: var(--label-width);
 	cursor: pointer;
@@ -669,7 +759,10 @@ ul.questcat>li:after,
 ul#quest-expand>li:after,
 ul.card>li:after,
 ul.carddeck>li:after,
-ul#card-expand>li:after {
+ul#card-expand>li:after,
+ul.gear>li:after,
+ul.school>li:after,
+ul#gear-expand>li:after {
 	clear: both;
 }
 
@@ -678,7 +771,10 @@ ul.questcat>li,
 ul#quest-expand>li,
 ul.card>li,
 ul.carddeck>li,
-ul#card-expand>li {
+ul#card-expand>li,
+ul.gear>li,
+ul.school>li,
+ul#gear-expand>li {
 	color: var(--color);
 	text-decoration: none;
 }
@@ -688,32 +784,48 @@ ul.questcat>li:hover,
 ul#quest-expand>li:hover,
 ul.card>li:hover,
 ul.carddeck>li:hover,
-ul#card-expand>li:hover {
+ul#card-expand>li:hover,
+ul.gear>li:hover,
+ul.school>li:hover,
+ul#gear-expand>li:hover {
 	color: var(--hvcolor);
 }
 
 ul#quest-expand>li:hover>div.noclick,
-ul#card-expand>li:hover>div.noclick {
+ul#card-expand>li:hover>div.noclick,
+ul#gear-expand>li:hover>div.noclick {
 	color: var(--color);
 }
 
 ul.quest>li>div.hos,
-ul.card>li>div.hos {
+ul.card>li>div.hos,
+ul#card-expand>li div.hos,
+ul.gear>li>div.hos,
+ul#gear-expand>li div.hos {
 	color: var(--hos-color);
 }
 
 ul.quest>li:hover>div.hos,
-ul.card>li:hover>div.hos {
+ul.card>li:hover>div.hos,
+ul#card-expand>li:hover div.hos,
+ul.gear>li:hover>div.hos,
+ul#gear-expand>li:hover div.hos {
 	color: var(--hos-hvcolor);
 }
 
 ul.quest>li>div.baw,
-ul.card>li>div.baw {
+ul.card>li>div.baw,
+ul#card-expand>li div.baw,
+ul.gear>li>div.baw,
+ul#gear-expand>li div.baw {
 	color: var(--baw-color);
 }
 
 ul.quest>li:hover>div.baw,
-ul.card>li:hover>div.baw {
+ul.card>li:hover>div.baw,
+ul#card-expand>li:hover div.baw,
+ul.gear>li:hover>div.baw,
+ul#gear-expand>li:hover div.baw {
 	color: var(--baw-hvcolor);
 }
 
@@ -1479,6 +1591,30 @@ i.card-neutral-soldier {
 
 i.card-neutral-weather {
 	background-image: url(../images/gwent/neutral-weather.png);
+}
+
+i.gear-armor {
+	background-image: url(../images/armor.png);
+}
+
+i.gear-boots {
+	background-image: url(../images/boots.png);
+}
+
+i.gear-crossbow {
+	background-image: url(../images/crossbow.png);
+}
+
+i.gear-gauntlets {
+	background-image: url(../images/gauntlets.png);
+}
+
+i.gear-sword {
+	background-image: url(../images/sword.png);
+}
+
+i.gear-trousers {
+	background-image: url(../images/trousers.png);
 }
 
 .leaflet-container {

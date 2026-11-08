@@ -218,6 +218,11 @@ window.i18nData.ru.general = {
 		woe:          { label: "Засада на Палисаде" },
 		yustianna:    { label: "Пещера Юстианны" }
 	},
+	gear: {
+		viper: {
+			venomousSilverSword: { label: "Отравленный серебряный меч Школы Змеи" }
+		}
+	},
 	grindstone: {
 		label: "Точило",
 		desc:  "Заточенный здесь клинок будет наносить больший урон."

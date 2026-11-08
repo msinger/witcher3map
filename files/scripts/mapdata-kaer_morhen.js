@@ -99,46 +99,55 @@
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
 		coords:      [59.687,89.875],
+		id:          "superiorWolvenBootsDiag",
 		upgrade:     "superior",
 		school:      "wolven",
 		items:       "boots"
 	}, {
 		coords:      [35.000,72.875],
+		id:          "enhancedWolvenGauntletsDiag",
 		upgrade:     "enhanced",
 		school:      "wolven",
 		items:       "gauntlets"
 	}, {
 		coords:      [46.062,50.843],
+		id:          "superiorWolvenGauntletsDiag",
 		upgrade:     "superior",
 		school:      "wolven",
 		items:       "gauntlets"
 	}, {
 		coords:      [117.031,60.312],
+		id:          "wolvenSilverSwordDiag",
 		upgrade:     "basic",
 		school:      "wolven",
 		items:       "silverSword"
 	}, {
 		coords:      [62.796,41.718],
+		id:          "wolvenSteelSwordDiag",
 		upgrade:     "basic",
 		school:      "wolven",
 		items:       "steelSword"
 	}, {
 		coords:      [117.437,58.687],
+		id:          "enhancedWolvenSteelSwordDiag",
 		upgrade:     "enhanced",
 		school:      "wolven",
 		items:       "steelSword"
 	}, {
 		coords:      [89.843,69.968],
+		id:          "enhancedWolvenTrousersDiag",
 		upgrade:     "enhanced",
 		school:      "wolven",
 		items:       "trousers"
 	}, {
 		coords:      [75.437,42.484],
+		id:          "superiorWolvenTrousersDiag",
 		upgrade:     "superior",
 		school:      "wolven",
 		items:       "trousers"
 	}, {
 		coords:      [57.031,58.375],
+		id:          "wolvenArmorDiags",
 		upgrade:     "basic",
 		school:      "wolven",
 		items:       ["armor", "boots", "gauntlets", "trousers"]

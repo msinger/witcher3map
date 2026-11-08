@@ -674,21 +674,25 @@
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
 		coords:      [113.609,81.078],
+		id:          "grandmasterFelineArmorDiag",
 		upgrade:     "grandmaster",
 		school:      "feline",
 		items:       "armor"
 	}, {
 		coords:      [107.422,77.000],
+		id:          "grandmasterFelineDiags1",
 		upgrade:     "grandmaster",
 		school:      "feline",
 		items:       ["gauntlets", "silverSword", "steelSword"]
 	}, {
 		coords:      [116.781,71.500],
+		id:          "grandmasterFelineDiags2",
 		upgrade:     "grandmaster",
 		school:      "feline",
 		items:       ["boots", "trousers"]
 	}, {
 		coords:      [80.250,108.641],
+		id:          "grandmasterGriffinDiags1",
 		upgrade:     "grandmaster",
 		school:      "griffin",
 		items:       ["armor", "trousers", "silverSword"],
@@ -696,21 +700,25 @@
 		entrances:   "montcrane_hanse"
 	}, {
 		coords:      [69.078,116.578],
+		id:          "grandmasterGriffinDiags2",
 		upgrade:     "grandmaster",
 		school:      "griffin",
 		items:       ["boots", "gauntlets", "steelSword"]
 	}, {
 		coords:      [43.656,96.250],
+		id:          "manticoreArmorDiag",
 		upgrade:     "grandmaster",
 		school:      "manticore",
 		items:       "armor"
 	}, {
 		coords:      [91.547,106.172],
+		id:          "manticoreGauntletsDiag",
 		upgrade:     "grandmaster",
 		school:      "manticore",
 		items:       "gauntlets"
 	}, {
 		coords:      [50.703,50.938],
+		id:          "manticoreSilverSwordDiag",
 		upgrade:     "grandmaster",
 		school:      "manticore",
 		items:       "silverSword",
@@ -718,11 +726,13 @@
 		entrances:   "murky_cave"
 	}, {
 		coords:      [69.984,42.813],
+		id:          "manticoreSteelSwordDiag",
 		upgrade:     "grandmaster",
 		school:      "manticore",
 		items:       "steelSword"
 	}, {
 		coords:      [98.859,57.922],
+		id:          "manticoreDiags",
 		upgrade:     "grandmaster",
 		school:      "manticore",
 		items:       ["boots", "trousers"],
@@ -730,6 +740,7 @@
 		entrances:   "lebioda_temple"
 	}, {
 		coords:      [65.953,91.953],
+		id:          "grandmasterUrsineDiags1",
 		upgrade:     "grandmaster",
 		school:      "ursine",
 		items:       ["armor", "gauntlets", "silverSword"],
@@ -737,6 +748,7 @@
 		entrances:   "flovive_cellar"
 	}, {
 		coords:      [71.453,88.109],
+		id:          "grandmasterUrsineDiags2",
 		upgrade:     "grandmaster",
 		school:      "ursine",
 		items:       ["boots", "trousers", "steelSword"],
@@ -744,6 +756,7 @@
 		entrances:   "owl_eye_grottos"
 	}, {
 		coords:      [48.891,101.328],
+		id:          "grandmasterWolvenDiags1",
 		upgrade:     "grandmaster",
 		school:      "wolven",
 		items:       ["gauntlets", "silverSword", "steelSword"],
@@ -751,6 +764,7 @@
 		entrances:   "termes_ruins"
 	}, {
 		coords:      [48.797,100.172],
+		id:          "grandmasterWolvenDiags2",
 		upgrade:     "grandmaster",
 		school:      "wolven",
 		items:       ["armor", "boots", "trousers"],

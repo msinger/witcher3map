@@ -27,6 +27,8 @@ var questCatOpen = [];
 var questListEntryOpen = null;
 var cardDeckOpen = [];
 var cardListEntryOpen = null;
+var schoolOpen = [];
+var gearListEntryOpen = null;
 var sidebarShown = true;
 
 window.mapInfoIndex = window.mapInfoIndex || 0;
@@ -42,23 +44,26 @@ var scrollPos = {
 	interior: 0,
 	quest:    0,
 	card:     0,
+	gear:     0,
 	settings: 0
 };
 
 L.Icon.Default.imagePath = window.topdir + "/files/images/leaflet";
 
 var externItemsProcessList = [
-	"armorer",
-	"blacksmith",
-	"contract",
-	"event",
-	"gwent",
-	"gwentquest",
-	"innkeep",
-	"poi",
-	"shopkeeper",
-	"sidequest",
-	"treasurehunt"
+	[ "armorer",       true ],
+	[ "blacksmith",    true ],
+	[ "contract",      true ],
+	[ "event",         true ],
+	[ "gwent",         true ],
+	[ "gwentquest",    true ],
+	[ "innkeep",       true ],
+	[ "poi",           true ],
+	[ "scavengerhunt", true ],
+	[ "shopkeeper",    true ],
+	[ "sidequest",     true ],
+	[ "treasure",      false ],
+	[ "treasurehunt",  true ]
 ];
 
 var icon_sizes = {
@@ -414,6 +419,17 @@ function toggleChecked(obj, noUpdate) {
 			$("li.card-" + $.escapeSelector(obj.id)).removeClass("item-finished");
 	}
 
+	if (obj.diagram)
+		$("li.diagram-" + $.escapeSelector(obj.id) + " i.checkbox").removeClass(oldClass).addClass(newClass);
+
+	if (obj.gear) {
+		$("li.gear-" + $.escapeSelector(obj.id) + " i.checkbox-f").removeClass(oldClass).addClass(newClass);
+		if (obj.checked)
+			$("li.gear-" + $.escapeSelector(obj.id)).addClass("item-finished");
+		else
+			$("li.gear-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+	}
+
 	if (obj.checked) {
 		if (!obj.global)
 			checkedMarkers.push(obj.id);
@@ -697,7 +713,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 		if (i == mapInfoIndex)
 			continue;
 
-		for (let dataKey of externItemsProcessList) {
+		for (let [dataKey, doLocals] of externItemsProcessList) {
 			substMapData(mapInfos[i], data[i], dataKey, quests, function(coord, item) {
 				if (!icons[item.icon]) {
 					console.error("Invalid icon:", item.icon);
@@ -710,7 +726,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 					return;
 
 				createExternalObj(mapInfos[i], coord, dataKey, item);
-			});
+			}, undefined, undefined, undefined, !doLocals);
 		}
 	}
 
@@ -756,17 +772,17 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 				} else {
 					let sobj = externalItems[ns][src];
 					if (!sobj) {
-						console.error("card " + ns + ":" + id + " has non-existent source " + src, card);
+						console.error("card " + id + " has non-existent source " + ns + ":" + src, card);
 						continue;
 					}
 					let exts = sobj.externals;
 					if (exts.length == 0) {
-						console.error("card " + ns + ":" + id + " source " + src + " has no coordinates", card);
+						console.error("card " + id + " source " + ns + ":" + src + " has no coordinates", card);
 						continue;
 					}
 					for (let ext of exts) {
 						if (!ext.item) {
-							console.error("card " + ns + ":" + id + " source " + src + " has no item information", card);
+							console.error("card " + id + " source " + ns + ":" + src + " has no item information", card);
 							continue;
 						}
 						nsrcs.push({ ns: ext.map.ns, coordId: ext.coordId, obj: ext });
@@ -797,7 +813,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 			}
 			for (let ext of exts) {
 				if (!ext.item) {
-					console.error("card (" + ext.map.ns + ":)" + id + " source " + src + " has no item information", card);
+					console.error("card " + id + " source (" + ext.map.ns + ":)" + src + " has no item information", card);
 					continue;
 				}
 				nsrcs.push({ ns: ext.map.ns, coordId: ext.coordId, obj: ext });
@@ -805,6 +821,37 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 		}
 
 		card.sources = nsrcs;
+	}
+
+	gear = substGear(gear);
+
+	for (let [id, item] of Object.entries(gear)) {
+		item.global = true;
+		let [obj] = createMarkerObj(null, item, checkedGlobalsLd.indexOf(id) >= 0);
+		obj.gear = item;
+		item.obj = obj;
+
+		let diagram = item.diagram;
+		if (diagram) {
+			diagram = {
+				id:     diagram,
+				global: true
+			};
+			let [dobj] = createMarkerObj(null, diagram, checkedGlobalsLd.indexOf(diagram.id) >= 0);
+			dobj.diagram = true;
+			diagram.obj = dobj;
+			diagram = dobj;
+		}
+
+		let quest = item.quest;
+		if (quest) {
+			quest = quests[quest];
+			if (!quest)
+				console.error("gear " + id + " has non-existent quest " + item.quest, item);
+		}
+
+		item.diagram = diagram;
+		item.quest = quest;
 	}
 }
 
@@ -998,6 +1045,24 @@ function toggleCardDeckOpen(deck, noUpdate) {
 		sessionStorage.cardDeckOpen = JSON.stringify(cardDeckOpen);
 }
 
+function toggleSchoolOpen(school, noUpdate) {
+	let index = schoolOpen.indexOf(school);
+	let open = index >= 0;
+	if (open) {
+		$("li.school-" + school + ">i.caret").removeClass("fa-caret-up").addClass("fa-caret-down");
+		$("li.school-" + school + ">ul.gear").hide();
+		schoolOpen.splice(index, 1);
+	} else {
+		$("li.school-" + school + ">i.caret").removeClass("fa-caret-down").addClass("fa-caret-up");
+		$("li.school-" + school + ">ul.gear").show();
+		schoolOpen.push(school);
+	}
+	hackySticky();
+	$("#sidebar").getNiceScroll().resize();
+	if (!noUpdate)
+		sessionStorage.schoolOpen = JSON.stringify(schoolOpen);
+}
+
 function createQuestList(groups, f) {
 	let g = {};
 
@@ -1124,6 +1189,83 @@ function createCardList() {
 	return r;
 }
 
+function createGearList() {
+	let schools = [
+		{ id: "bear",      label: esc($.t("gear.bear.label")) },
+		{ id: "cat",       label: esc($.t("gear.cat.label")) },
+		{ id: "forgotten", label: esc($.t("gear.forgotten.label")) },
+		{ id: "griffin",   label: esc($.t("gear.griffin.label")) },
+		{ id: "manticore", label: esc($.t("gear.manticore.label")) },
+		{ id: "viper",     label: esc($.t("gear.viper.label")) },
+		{ id: "wolf",      label: esc($.t("gear.wolf.label")) }
+	];
+
+	let g = {
+		bear:      [],
+		cat:       [],
+		forgotten: [],
+		griffin:   [],
+		manticore: [],
+		viper:     [],
+		wolf:      []
+	};
+
+	for (let item of Object.values(gear)) {
+		if (!fitDlc(item))
+			continue;
+		let school = item.gearKey;
+		g[school].push(item);
+	}
+
+	for (let i = 0; i < schools.length; i++) {
+		g[schools[i].id].sort(function(a, b) { return a.labelText.localeCompare(b.labelText); });
+	}
+
+	let r = '<ul class="school">';
+	for (let i = 0; i < schools.length; i++) {
+		if (g[schools[i].id].length == 0)
+			continue;
+		r += '<li tabindex="0" class="school school-' + schools[i].id + '" data-school="' + schools[i].id + '">' +
+		     '<div class="ellip-tooltip" data-school="' + schools[i].id + '">' + schools[i].label + '</div>' +
+		     '<i class="caret fa fa-caret-down" data-school="' + schools[i].id + '"></i><br>' +
+		     '<ul class="gear" hidden>';
+		for (let item of g[schools[i].id]) {
+			let dlcClass = "";
+			if (item.hos)
+				dlcClass = " hos";
+			else if (item.baw)
+				dlcClass = " baw";
+			let checkedClass = "fa-square-o";
+			let craftedClass = "fa-square-o";
+			let craftedClass2 = "";
+			if (item.obj.checked) {
+				craftedClass = "fa-check-square-o";
+				craftedClass2 = " item-finished";
+			}
+			let diagId = "";
+			let diagId2 = "";
+			if (item.diagram) {
+				if (item.diagram.checked)
+					checkedClass = "fa-check-square-o";
+				diagId = " diagram-" + item.diagram.id;
+				diagId2 = ' data-diagram-id="' + item.diagram.id + '"';
+			}
+			r += '<li tabindex="0" id="gear-' + item.id + '" class="gear gear-' + item.id + diagId + craftedClass2 + '" data-gear-id="' + item.id + '"' + diagId2 + '>';
+			if (item.diagram)
+				r += '<i tabindex="0" class="checkbox fa ' + checkedClass + '" data-gear-id="' + item.id + '"' + diagId2 + '></i>';
+			else
+				r += '<i class="skip-checkbox"></i>';
+			r += '<i tabindex="0" class="checkbox-f fa ' + craftedClass + '" data-gear-id="' + item.id + '"></i>' +
+			     '<i class="gear-icon gear-' + item.icon + '"></i>' +
+			     '<div class="gear-label ellip-tooltip' + dlcClass + '" data-gear-id="' + item.id + '">' + item.labelText + '</div><br></li>';
+		}
+		r += '</ul>' +
+		     '</li>';
+	}
+	r += '</ul>';
+	return r;
+}
+
 function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
@@ -1137,6 +1279,7 @@ function createSidebar() {
 	sidebar +=
 				'<b></b><i tabindex="0" id="tab-quest"></i>' +
 				'<b></b><i tabindex="0" id="tab-card"></i>' +
+				'<b></b><i tabindex="0" id="tab-gear"></i>' +
 				'<b></b><i tabindex="0" id="tab-settings" class="fa fa-cog"></i>' +
 				'<b class="fill"></b>' +
 			'</div>' +
@@ -1205,6 +1348,9 @@ function createSidebar() {
 				'</div>' +
 				'<div id="body-card" hidden>' +
 					createCardList() +
+				'</div>' +
+				'<div id="body-gear" hidden>' +
+					createGearList() +
 				'</div>' +
 				'<div id="body-settings" hidden>' +
 					'<ul class="setting">' +
@@ -2329,6 +2475,50 @@ function runMap() {
 		}
 	});
 
+	$("li.gear i.checkbox").on("click enter spacebar", function(e) {
+		let diagId = this.dataset.diagramId;
+		if (!diagId)
+			return;
+		let diagram = globalItems[diagId];
+		if (!diagram)
+			return;
+		toggleChecked(diagram);
+	});
+
+	$("li.gear i.checkbox-f").on("click enter spacebar", function(e) {
+		let gearId = this.dataset.gearId;
+		if (!gearId)
+			return;
+		let item = gear[gearId];
+		if (!item)
+			return;
+		toggleChecked(item.obj);
+	});
+
+	$("li.school>div, li.school>i").on("click", function(e) {
+		let school = this.dataset.school;
+		if (!school)
+			return;
+		toggleSchoolOpen(school);
+	});
+	$("li.school").on("keydown", function(e) {
+		let school = this.dataset.school;
+		if (!school)
+			return;
+		let key = e.originalEvent.key;
+		if (key == "Enter" || key == "+") {
+			if (schoolOpen.indexOf(school) >= 0)
+				return;
+			toggleSchoolOpen(school);
+			return false;
+		} else if (key == "Backspace" || key == "-") {
+			if (schoolOpen.indexOf(school) < 0)
+				return;
+			toggleSchoolOpen(school);
+			return false;
+		}
+	});
+
 	function openQuestListEntry(qid) {
 		if (questListEntryOpen == qid)
 			return;
@@ -2441,8 +2631,13 @@ function runMap() {
 				hasInfo = true;
 				if (src.quest) {
 					const inQuest = esc($.t("misc.acquireInQuest", { quest: src.quest.labelText }));
+					let dlcClass = "";
+					if (src.quest.hos)
+						dlcClass = " hos";
+					else if (src.quest.baw)
+						dlcClass = " baw";
 					exp += '<li><i class="card-expand-indent ' + src.quest.icon + '"></i>' +
-					       '<a class="ellip-tooltip" href="' + src.quest.linkSelf + '"><div class="ellip-tooltip">' +
+					       '<a class="ellip-tooltip" href="' + src.quest.linkSelf + '"><div class="ellip-tooltip' + dlcClass + '">' +
 					       inQuest + '</div></a></li>';
 					continue;
 				}
@@ -2503,6 +2698,115 @@ function runMap() {
 			return false;
 		} else if (wasOpen && (key == "Backspace" || key == "-")) {
 			closeCardListEntry();
+			return false;
+		}
+	});
+
+	function openGearListEntry(gid) {
+		if (gearListEntryOpen == gid)
+			return;
+		closeGearListEntry();
+		const concat       = esc($.t("misc.concat"));
+		const openBracket  = esc($.t("misc.openBracket"));
+		const closeBracket = esc($.t("misc.closeBracket"));
+		const diagLoc      = esc($.t("misc.diagLocation"));
+		let exp = '<ul id="gear-expand">';
+		let hasInfo = false;
+		let item = gear[gid];
+		if (item) {
+			if (item.link) {
+				hasInfo = true;
+				exp += '<li><i class="gear-expand-indent fa fa-external-link"></i>' +
+				       '<a class="ellip-tooltip" target="_blank" href="' + item.link + '"><div class="ellip-tooltip">' +
+				       esc($.t("misc.wiki")) + '</div></a></li>';
+			}
+			let quest = item.quest;
+			if (quest) {
+				hasInfo = true;
+				let dlcClass = "";
+				if (quest.hos)
+					dlcClass = " hos";
+				else if (quest.baw)
+					dlcClass = " baw";
+				exp += '<li><i class="gear-expand-indent ' + quest.icon + '"></i>' +
+				       '<a class="ellip-tooltip" href="' + quest.linkSelf + '"><div class="ellip-tooltip' + dlcClass + '">' +
+				       quest.labelText + '</div></a></li>';
+			}
+			let diagram = item.diagram;
+			if (diagram && (diagram.coordIds.length == 1 || diagram.externals.length == 1)) {
+				hasInfo = true;
+				let text = diagLoc;
+				let link;
+				let icon = "fa-crosshairs";
+				if (diagram.externals.length == 1) {
+					let map = diagram.externals[0].map;
+					text += concat + openBracket + map.label + closeBracket;
+					link = linkIntoMap(map, diagram.externals[0].coordId);
+					icon = "fa-map";
+				} else {
+					link = linkToCoord(diagram.coordIds[0]);
+				}
+				exp += '<li><i class="gear-expand-indent fa ' + icon + '"></i>' +
+				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' +
+				       text + '</div></a></li>';
+			}
+			let gobj = item.obj;
+			if (gobj.coordIds.length == 1 || gobj.externals.length == 1) {
+				hasInfo = true;
+				let text = esc($.t("misc.itemLocation"));
+				let link;
+				let icon = "fa-crosshairs";
+				if (gobj.externals.length == 1) {
+					let map = gobj.externals[0].map;
+					text += concat + openBracket + map.label + closeBracket;
+					link = linkIntoMap(map, gobj.externals[0].coordId);
+					icon = "fa-map";
+				} else {
+					link = linkToCoord(gobj.coordIds[0]);
+				}
+				exp += '<li><i class="gear-expand-indent fa ' + icon + '"></i>' +
+				       '<a class="ellip-tooltip" href="' + link + '"><div class="ellip-tooltip">' +
+				       text + '</div></a></li>';
+			}
+		}
+		if (!hasInfo)
+			exp += '<li><i class="gear-expand-indent"></i>' +
+			       '<div class="ellip-tooltip noclick">' + esc($.t("misc.noinfo")) + '</div>' +
+			       '</li>';
+		exp += '</ul>';
+		$("li.gear-" + $.escapeSelector(gid)).append(exp);
+		bindEllips("ul#gear-expand li .ellip-tooltip");
+		gearListEntryOpen = gid;
+		sessionStorage.gearListEntryOpen = gid;
+	}
+
+	function closeGearListEntry() {
+		$("#gear-expand").remove();
+		gearListEntryOpen = null;
+		sessionStorage.removeItem("gearListEntryOpen");
+	}
+
+	$("li.gear div.gear-label").on("click", function() {
+		let id = this.dataset.gearId;
+		if (!id)
+			return;
+		let wasOpen = gearListEntryOpen == id;
+		closeGearListEntry();
+		if (wasOpen)
+			return;
+		openGearListEntry(id);
+	});
+	$("li.gear").on("keydown", function(e) {
+		let id = this.dataset.gearId;
+		if (!id)
+			return;
+		let key = e.originalEvent.key;
+		let wasOpen = gearListEntryOpen == id;
+		if (!wasOpen && (key == "Enter" || key == "+")) {
+			openGearListEntry(id);
+			return false;
+		} else if (wasOpen && (key == "Backspace" || key == "-")) {
+			closeGearListEntry();
 			return false;
 		}
 	});
@@ -2568,6 +2872,17 @@ function runMap() {
 
 	if (sessionStorage.cardListEntryOpen)
 		openCardListEntry(sessionStorage.cardListEntryOpen);
+
+	let sessionSchoolOpen = null;
+	if (sessionStorage.schoolOpen)
+		sessionSchoolOpen = JSON.parse(sessionStorage.schoolOpen);
+	if (!(sessionSchoolOpen instanceof Array))
+		sessionSchoolOpen = [];
+	for (let school of sessionSchoolOpen)
+		toggleSchoolOpen(school, true);
+
+	if (sessionStorage.gearListEntryOpen)
+		openGearListEntry(sessionStorage.gearListEntryOpen);
 
 	for (let tab of Object.keys(scrollPos)) {
 		let pos = sessionStorage["scrollbar-" + tab];

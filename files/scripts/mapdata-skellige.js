@@ -760,6 +760,7 @@
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
 		coords:      [62.782,193.110],
+		id:          "mastercraftedFelineSilverSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "feline",
 		items:       "silverSword",
@@ -767,16 +768,19 @@
 		entrances:   "harviken_den"
 	}, {
 		coords:      [142.938,152.297],
+		id:          "mastercraftedFelineSteelSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "feline",
 		items:       "steelSword"
 	}, {
 		coords:      [110.571,127.217],
+		id:          "mastercraftedGriffinSilverSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "griffin",
 		items:       "silverSword"
 	}, {
 		coords:      [79.991,145.634],
+		id:          "superiorGriffinSilverSwordDiag",
 		upgrade:     "superior",
 		school:      "griffin",
 		items:       "silverSword",
@@ -784,16 +788,19 @@
 		entrances:   "elverum_lighthouse_cave"
 	}, {
 		coords:      [120.562,141.406],
+		id:          "mastercraftedGriffinSteelSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "griffin",
 		items:       "steelSword"
 	}, {
 		coords:      [198.162,174.506],
+		id:          "superiorGriffinSteelSwordDiag",
 		upgrade:     "superior",
 		school:      "griffin",
 		items:       "steelSword"
 	}, {
 		coords:      [102.876,165.797],
+		id:          "enhancedUrsineArmorDiag",
 		upgrade:     "enhanced",
 		school:      "ursine",
 		items:       "armor",
@@ -801,6 +808,7 @@
 		entrances:   "grotto"
 	}, {
 		coords:      [101.648,116.657],
+		id:          "enhancedUrsineBootsDiag",
 		upgrade:     "enhanced",
 		school:      "ursine",
 		items:       "boots",
@@ -808,6 +816,7 @@
 		entrances:   "fart_cave"
 	}, {
 		coords:      [164.616,63.928],
+		id:          "ursineCrossbowDiag",
 		upgrade:     "#",
 		school:      "ursine",
 		items:       "crossbow",
@@ -815,16 +824,19 @@
 		entrances:   "old_watchtower_cave"
 	}, {
 		coords:      [150.844,143.266],
+		id:          "enhancedUrsineGauntletsDiag",
 		upgrade:     "enhanced",
 		school:      "ursine",
 		items:       "gauntlets"
 	}, {
 		coords:      [155.667,139.661],
+		id:          "ursineSilverSwordDiag",
 		upgrade:     "basic",
 		school:      "ursine",
 		items:       "silverSword"
 	}, {
 		coords:      [147.000,155.719],
+		id:          "enhancedUrsineSilverSwordDiag",
 		upgrade:     "enhanced",
 		school:      "ursine",
 		items:       "silverSword",
@@ -832,36 +844,43 @@
 		entrances:   "ruins_northeast_of_gelen"
 	}, {
 		coords:      [100.391,149.937],
+		id:          "ursineSteelSwordDiag",
 		upgrade:     "basic",
 		school:      "ursine",
 		items:       "steelSword"
 	}, {
 		coords:      [143.516,80.547],
+		id:          "enhancedUrsineSteelSwordDiag",
 		upgrade:     "enhanced",
 		school:      "ursine",
 		items:       "steelSword"
 	}, {
 		coords:      [114.892,78.750],
+		id:          "enhancedUrsineTrousersDiag",
 		upgrade:     "enhanced",
 		school:      "ursine",
 		items:       "trousers"
 	}, {
 		coords:      [99.187,134.875],
+		id:          "superiorWolvenArmorDiag",
 		upgrade:     "superior",
 		school:      "wolven",
 		items:       "armor"
 	}, {
 		coords:      [100.797,75.031],
+		id:          "mastercraftedWolvenBootsDiag",
 		upgrade:     "mastercrafted",
 		school:      "wolven",
 		items:       "boots"
 	}, {
 		coords:      [123.000,136.172],
+		id:          "mastercraftedWolvenGauntletsDiag",
 		upgrade:     "mastercrafted",
 		school:      "wolven",
 		items:       "gauntlets"
 	}, {
 		coords:      [114.703,110.906],
+		id:          "superiorWolvenSilverSwordDiag",
 		upgrade:     "superior",
 		school:      "wolven",
 		items:       "silverSword",
@@ -869,16 +888,19 @@
 		entrances:   "arinbjorn_grave"
 	}, {
 		coords:      [131.219,204.297],
+		id:          "superiorWolvenSteelSwordDiag",
 		upgrade:     "superior",
 		school:      "wolven",
 		items:       "steelSword"
 	}, {
 		coords:      [168.281,65.812],
+		id:          "mastercraftedWolvenTrousersDiag",
 		upgrade:     "mastercrafted",
 		school:      "wolven",
 		items:       "trousers"
 	}, {
 		coords:      [59.829,200.140],
+		id:          "mastercraftedFelineArmorDiags",
 		upgrade:     "mastercrafted",
 		school:      "feline",
 		items:       ["armor", "boots", "gauntlets", "trousers"],
@@ -886,16 +908,19 @@
 		entrances:   "trottheim_den"
 	}, {
 		coords:      [135.706,173.794],
+		id:          "mastercraftedGriffinArmorDiags",
 		upgrade:     "mastercrafted",
 		school:      "griffin",
 		items:       ["armor", "boots", "gauntlets", "trousers"]
 	}, {
 		coords:      [157.859,161.516],
+		id:          "superiorGriffinArmorDiags",
 		upgrade:     "superior",
 		school:      "griffin",
 		items:       ["armor", "boots", "gauntlets", "trousers"]
 	}, {
 		coords:      [197.579,179.156],
+		id:          "ursineArmorDiags",
 		upgrade:     "basic",
 		school:      "ursine",
 		items:       ["armor", "boots", "gauntlets", "trousers"],

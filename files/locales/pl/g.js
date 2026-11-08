@@ -28,7 +28,6 @@ window.i18nData.pl.g = {
 		}
 	},
 	treasure: {
-		cave:  { desc:  "Jaskinia pełna skarbów" },
-		viper: { label: "Jadowity Srebrny Miecz Cechu Żmiji" }
+		cave: { desc: "Jaskinia pełna skarbów" }
 	}
 };

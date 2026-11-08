@@ -28,7 +28,6 @@ window.i18nData.cz.g = {
 		}
 	},
 	treasure: {
-		cave:  { desc:  "Jeskyně plná pokladů" },
-		viper: { label: "Otrávený stříbrný meč Hadí školy" }
+		cave: { desc: "Jeskyně plná pokladů" }
 	}
 };

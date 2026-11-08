@@ -223,6 +223,11 @@ window.i18nData.pl.general = {
 		woe:          { label: "Biada mi!" },
 		yustianna:    { label: "Zaniepokojona Yustianna" }
 	},
+	gear: {
+		viper: {
+			venomousSilverSword: { label: "Jadowity Srebrny Miecz Cechu Żmiji" }
+		}
+	},
 	grindstone: {
 		label: "Kamień szlifierski",
 		desc:  "Miecz naostrzony tutaj, zadaje więcej obrażeń."

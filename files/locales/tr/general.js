@@ -214,6 +214,11 @@ window.i18nData.tr.general = {
 		woe:          { label: "Vay Başıma Gelenler" },
 		yustianna:    { label: "Yustianna Rahatsız" }
 	},
+	gear: {
+		viper: {
+			venomousSilverSword: { label: "Engerek Zehirli Gümüş Kılıç" }
+		}
+	},
 	grindstone: {
 		label: "Bileme Taşı",
 		desc:  "Burada bilenmiş bir kılıç daha fazla hasar verir."

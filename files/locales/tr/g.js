@@ -28,7 +28,6 @@ window.i18nData.tr.g = {
 		}
 	},
 	treasure: {
-		cave:  { desc:  "Hazine dolu bir mağara" },
-		viper: { label: "Engerek Zehirli Gümüş Kılıç" }
+		cave: { desc: "Hazine dolu bir mağara" }
 	}
 };

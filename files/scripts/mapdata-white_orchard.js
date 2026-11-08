@@ -486,11 +486,13 @@
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
 		coords:      [51.754,115.911],
+		id:          "viperSteelSwordDiag",
 		upgrade:     "#",
 		school:      "serpentine",
 		items:       "steelSword"
 	}, {
 		coords:      [103.157,60.343],
+		id:          "viperSilverSwordDiag",
 		upgrade:     "#",
 		school:      "serpentine",
 		items:       "silverSword",

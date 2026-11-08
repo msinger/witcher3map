@@ -28,7 +28,6 @@ window.i18nData.zh.g = {
 		}
 	},
 	treasure: {
-		cave:  { desc:  "一個充滿寶藏的洞穴" },
-		viper: { label: "蝰蛇毒銀劍" }
+		cave: { desc: "一個充滿寶藏的洞穴" }
 	}
 };

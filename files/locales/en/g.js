@@ -28,7 +28,6 @@ window.i18nData.en.g = {
 		}
 	},
 	treasure: {
-		cave:  { desc:  "A cave full of treasure." },
-		viper: { label: "Viper venomous silver sword" }
+		cave: { desc: "A cave full of treasure." }
 	}
 };

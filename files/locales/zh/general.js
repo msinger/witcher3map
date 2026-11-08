@@ -214,6 +214,11 @@ window.i18nData.zh.general = {
 		woe:          { label: "禍哉是我" },
 		yustianna:    { label: "尤斯蒂安娜心煩意亂" }
 	},
+	gear: {
+		viper: {
+			venomousSilverSword: { label: "蝰蛇毒銀劍" }
+		}
+	},
 	grindstone: {
 		label: "研磨石",
 		desc:  "在這裡研磨過的劍會造成更多傷害。"

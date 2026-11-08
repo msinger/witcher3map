@@ -40,7 +40,9 @@
 	// ----------------- Treasure -----------------------
 	treasure: [{
 		coords:      [277.750,48.125],
-		label:       "g:treasure.viper.label",
+		id:          "gear.viper.venomousSilverSword",
+		global:      true,
+		label:       "gear.viper.venomousSilverSword.label",
 		during:      "mainquest.whatsoever"
 	}, {
 		coords:      [300.000,150.750],

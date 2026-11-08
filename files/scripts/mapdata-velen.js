@@ -5655,11 +5655,13 @@
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
 		coords:      [156.031,208.844],
+		id:          "enhancedFelineArmorDiag",
 		upgrade:     "enhanced",
 		school:      "feline",
 		items:       "armor"
 	}, {
 		coords:      [100.671,177.343],
+		id:          "enhancedFelineBootsDiag",
 		upgrade:     "enhanced",
 		school:      "feline",
 		items:       "boots",
@@ -5667,11 +5669,13 @@
 		entrances:   "phantom_cave"
 	}, {
 		coords:      [184.469,62.484],
+		id:          "felineCrossbowDiag",
 		upgrade:     "#",
 		school:      "feline",
 		items:       "crossbow"
 	}, {
 		coords:      [137.531,136.906],
+		id:          "forgottenDiags",
 		upgrade:     "basic",
 		school:      "forgotten",
 		items:       ["armor", "boots", "gauntlets", "trousers",
@@ -5681,11 +5685,13 @@
 		during:      "sidequest.eternal"
 	}, {
 		coords:      [144.234,134.609],
+		id:          "enhancedFelineGauntletsDiag",
 		upgrade:     "enhanced",
 		school:      "feline",
 		items:       "gauntlets"
 	}, {
 		coords:      [182.563,191.609],
+		id:          "felineSilverSwordDiag",
 		upgrade:     "basic",
 		school:      "feline",
 		items:       "silverSword",
@@ -5693,21 +5699,25 @@
 		entrances:   "est_tayiar"
 	}, {
 		coords:      [212.688,113.969],
+		id:          "enhancedFelineSilverSwordDiag",
 		upgrade:     "enhanced",
 		school:      "feline",
 		items:       "silverSword"
 	}, {
 		coords:      [166.359,99.516],
+		id:          "superiorFelineSilverSwordDiag",
 		upgrade:     "superior",
 		school:      "feline",
 		items:       "silverSword"
 	}, {
 		coords:      [178.547,106.328],
+		id:          "felineSteelSwordDiag",
 		upgrade:     "basic",
 		school:      "feline",
 		items:       "steelSword"
 	}, {
 		coords:      [92.859,155.953],
+		id:          "enhancedFelineSteelSwordDiag",
 		upgrade:     "enhanced",
 		school:      "feline",
 		items:       "steelSword",
@@ -5715,6 +5725,7 @@
 		entrances:   "fools_cave"
 	}, {
 		coords:      [237.984,105.422],
+		id:          "superiorFelineSteelSwordDiag",
 		upgrade:     "superior",
 		school:      "feline",
 		items:       "steelSword",
@@ -5722,6 +5733,7 @@
 		entrances:   "cavern"
 	}, {
 		coords:      [152.055,169.594],
+		id:          "enhancedFelineTrousersDiag",
 		upgrade:     "enhanced",
 		school:      "feline",
 		items:       "trousers",
@@ -5729,21 +5741,25 @@
 		entrances:   "oxenfurt_blacksmith"
 	}, {
 		coords:      [156.047,152.828],
+		id:          "enhancedGriffinArmorDiag",
 		upgrade:     "enhanced",
 		school:      "griffin",
 		items:       "armor"
 	}, {
 		coords:      [149.938,75.813],
+		id:          "enhancedGriffinBootsDiag",
 		upgrade:     "enhanced",
 		school:      "griffin",
 		items:       "boots"
 	}, {
 		coords:      [23.656,78.094],
+		id:          "enhancedGriffinGauntletsDiag",
 		upgrade:     "enhanced",
 		school:      "griffin",
 		items:       "gauntlets"
 	}, {
 		coords:      [153.094,46.281],
+		id:          "griffinSilverSwordDiag",
 		upgrade:     "basic",
 		school:      "griffin",
 		items:       "silverSword",
@@ -5751,6 +5767,7 @@
 		entrances:   "lornruk"
 	}, {
 		coords:      [45.656,165.313],
+		id:          "enhancedGriffinSilverSwordDiag",
 		upgrade:     "enhanced",
 		school:      "griffin",
 		items:       "silverSword",
@@ -5758,26 +5775,31 @@
 		entrances:   "patrol_cave"
 	}, {
 		coords:      [160.063,127.094],
+		id:          "griffinSteelSwordDiag",
 		upgrade:     "basic",
 		school:      "griffin",
 		items:       "steelSword"
 	}, {
 		coords:      [78.516,16.875],
+		id:          "enhancedGriffinSteelSwordDiag",
 		upgrade:     "enhanced",
 		school:      "griffin",
 		items:       "steelSword"
 	}, {
 		coords:      [107.375,84.438],
+		id:          "enhancedGriffinTrousersDiag",
 		upgrade:     "enhanced",
 		school:      "griffin",
 		items:       "trousers"
 	}, {
 		coords:      [43.828,107.953],
+		id:          "mastercraftedUrsineSilverSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "ursine",
 		items:       "silverSword"
 	}, {
 		coords:      [53.000,130.547],
+		id:          "superiorUrsineSilverSwordDiag",
 		upgrade:     "superior",
 		school:      "ursine",
 		items:       "silverSword",
@@ -5785,6 +5807,7 @@
 		entrances:   "swamp_cave"
 	}, {
 		coords:      [116.344,45.563],
+		id:          "mastercraftedUrsineSteelSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "ursine",
 		items:       "steelSword",
@@ -5792,21 +5815,25 @@
 		entrances:   "pellar_cave"
 	}, {
 		coords:      [68.297,154.859],
+		id:          "superiorUrsineSteelSwordDiag",
 		upgrade:     "superior",
 		school:      "ursine",
 		items:       "steelSword"
 	}, {
 		coords:      [39.219,71.719],
+		id:          "enhancedWolvenArmorDiag",
 		upgrade:     "enhanced",
 		school:      "wolven",
 		items:       "armor"
 	}, {
 		coords:      [36.688,53.203],
+		id:          "mastercraftedWolvenArmorDiag",
 		upgrade:     "mastercrafted",
 		school:      "wolven",
 		items:       "armor"
 	}, {
 		coords:      [110.813,179.125],
+		id:          "enhancedWolvenBootsDiag",
 		upgrade:     "enhanced",
 		school:      "wolven",
 		items:       "boots",
@@ -5814,6 +5841,7 @@
 		entrances:   "grotto"
 	}, {
 		coords:      [107.094,73.391],
+		id:          "enhancedWolvenSilverSwordDiag",
 		upgrade:     "enhanced",
 		school:      "wolven",
 		items:       "silverSword",
@@ -5821,16 +5849,19 @@
 		entrances:   "crows_perch_well"
 	}, {
 		coords:      [50.953,182.453],
+		id:          "mastercraftedWolvenSilverSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "wolven",
 		items:       "silverSword"
 	}, {
 		coords:      [46.797,24.547],
+		id:          "mastercraftedWolvenSteelSwordDiag",
 		upgrade:     "mastercrafted",
 		school:      "wolven",
 		items:       "steelSword"
 	}, {
 		coords:      [225.359,95.906],
+		id:          "felineArmorDiags",
 		upgrade:     "basic",
 		school:      "feline",
 		items:       ["armor", "boots", "gauntlets", "trousers"],
@@ -5838,11 +5869,13 @@
 		entrances:   "temple_isle_cave"
 	}, {
 		coords:      [73.047,121.813],
+		id:          "superiorFelineArmorDiags",
 		upgrade:     "superior",
 		school:      "feline",
 		items:       ["armor", "boots", "gauntlets", "trousers"]
 	}, {
 		coords:      [79.531,137.203],
+		id:          "griffinArmorDiags",
 		upgrade:     "basic",
 		school:      "griffin",
 		items:       ["armor", "boots", "gauntlets", "trousers"],
@@ -5850,11 +5883,13 @@
 		entrances:   "dragonslayers_grotto"
 	}, {
 		coords:      [24.250,150.500],
+		id:          "mastercraftedUrsineArmorDiags",
 		upgrade:     "mastercrafted",
 		school:      "ursine",
 		items:       ["armor", "boots", "gauntlets", "trousers"]
 	}, {
 		coords:      [141.453,119.125],
+		id:          "superiorUrsineArmorDiags",
 		upgrade:     "superior",
 		school:      "ursine",
 		items:       ["armor", "boots", "gauntlets", "trousers"],
