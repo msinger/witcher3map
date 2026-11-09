@@ -411,10 +411,12 @@ function toggleChecked(obj, noUpdate) {
 
 	if (obj.quest) {
 		$("li.quest-" + $.escapeSelector(obj.id) + " i.checkbox").removeClass(oldClass).addClass(newClass);
-		if (typeof obj.finished != "boolean" && obj.checked)
-			$("li.quest-" + $.escapeSelector(obj.id)).addClass("item-finished");
-		else
-			$("li.quest-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+		if (typeof obj.finished != "boolean") {
+			if (obj.checked)
+				$("li.quest-" + $.escapeSelector(obj.id)).addClass("item-finished");
+			else
+				$("li.quest-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+		}
 	}
 
 	if (obj.card) {
@@ -438,10 +440,12 @@ function toggleChecked(obj, noUpdate) {
 
 	if (obj.alchemy) {
 		$("li.alchemy-" + $.escapeSelector(obj.id) + " i.checkbox").removeClass(oldClass).addClass(newClass);
-		if (typeof obj.finished != "boolean" && obj.checked)
-			$("li.alchemy-" + $.escapeSelector(obj.id)).addClass("item-finished");
-		else
-			$("li.alchemy-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+		if (typeof obj.finished != "boolean") {
+			if (obj.checked)
+				$("li.alchemy-" + $.escapeSelector(obj.id)).addClass("item-finished");
+			else
+				$("li.alchemy-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+		}
 	}
 
 	if (obj.checked) {
@@ -486,6 +490,9 @@ function toggleChecked(obj, noUpdate) {
 
 function toggleFinished(obj, noUpdate) {
 	if (!obj.global || (!obj.quest && !obj.alchemy) || typeof obj.finished != "boolean")
+		return;
+
+	if (obj.alchemy && obj.alchemy.initialCrafted)
 		return;
 
 	obj.finished = !obj.finished;
@@ -570,7 +577,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 			externals: [],
 			checked:   item.initial || checkedGlobalsLd.indexOf(id) >= 0,
 			finished:  (item.alchemyKey != "alcohol" && item.alchemyKey != "substance") ?
-			           checkedGlobalsLd.indexOf(id + "$f") >= 0 : null,
+			           (item.initialCrafted || checkedGlobalsLd.indexOf(id + "$f") >= 0) : null,
 			global:    true,
 			alchemy:   item
 		};
@@ -1400,6 +1407,8 @@ function createAlchemyList() {
 				r += '<i tabindex="0" class="checkbox fa ' + checkedClass + '" data-alchemy-id="' + item.id + '"></i>';
 			if (typeof item.obj.finished != "boolean")
 				r += '<i class="skip-checkbox"></i>';
+			else if (item.initialCrafted)
+				r += '<i class="checkbox-f checkbox-frozen fa fa-check-square-o"></i>';
 			else
 				r += '<i tabindex="0" class="checkbox-f fa ' + finishedClass + '" data-alchemy-id="' + item.id + '"></i>';
 			r += '<i class="alchemy-icon" style="background-image: url(' + topdir + '/files/images/alchemy/' + item.icon + '.png);"></i>' +

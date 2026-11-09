@@ -1,6 +1,6 @@
 var alchemy = {
 	alcohol: [
-		"alcohest",
+		{ name: "alcohest", initial: true },
 		"dwarvenSpirit",
 		"whiteGull"
 	],
@@ -9,10 +9,12 @@ var alchemy = {
 		"devilsPuffball", ["enhancedDevilsPuffball", "devilsPuffball"], ["superiorDevilsPuffball", "devilsPuffball"],
 		"dimeritiumBomb", ["enhancedDimeritiumBomb", "dimeritiumBomb"], ["superiorDimeritiumBomb", "dimeritiumBomb"],
 		"dragonsDream",   ["enhancedDragonsDream", "dragonsDream"],     ["superiorDragonsDream", "dragonsDream"],
-		"grapeshot",      ["enhancedGrapeshot", "grapeshot"],           ["superiorGrapeshot", "grapeshot"],
+		{ name: "grapeshot", initial: true },
+		                  ["enhancedGrapeshot", "grapeshot"],           ["superiorGrapeshot", "grapeshot"],
 		"moonDust",       ["enhancedMoonDust", "moonDust"],             ["superiorMoonDust", "moonDust"],
 		"northernWind",   ["enhancedNorthernWind", "northernWind"],     ["superiorNorthernWind", "northernWind"],
-		"samum",          ["enhancedSamum", "samum"],                   ["superiorSamum", "samum"]
+		{ name: "samum", initial: true },
+		                  ["enhancedSamum", "samum"],                   ["superiorSamum", "samum"]
 	],
 	decoction: [
 		"alghoulDecoction",
@@ -52,16 +54,19 @@ var alchemy = {
 		"hangedMansVenom", "enhancedHangedMansVenom", "superiorHangedMansVenom",
 		"hybridOil",       "enhancedHybridOil",       "superiorHybridOil",
 		"insectoidOil",    "enhancedInsectoidOil",    "superiorInsectoidOil",
-		"necrophageOil",   "enhancedNecrophageOil",   "superiorNecrophageOil",
+		{ name: "necrophageOil", initial: true },
+		                   "enhancedNecrophageOil",   "superiorNecrophageOil",
 		"ogroidOil",       "enhancedOgroidOil",       "superiorOgroidOil",
 		"relictOil",       "enhancedRelictOil",       "superiorRelictOil",
-		"specterOil",      "enhancedSpecterOil",      "superiorSpecterOil",
+		{ name: "specterOil", initial: true },
+		                   "enhancedSpecterOil",      "superiorSpecterOil",
 		"vampireOil",      "enhancedVampireOil",      "superiorVampireOil"
 	],
 	potion: [
 		"blackBlood",             ["enhancedBlackBlood", "blackBlood"],                         ["superiorBlackBlood", "blackBlood"],
 		"blizzard",               ["enhancedBlizzard", "blizzard"],                             ["superiorBlizzard", "blizzard"],
-		"cat",                    ["enhancedCat", "cat"],                                       ["superiorCat", "cat"],
+		{ name: "cat", initial: true },
+		                          ["enhancedCat", "cat"],                                       ["superiorCat", "cat"],
 		"drownerPheromones",
 		"fullMoon",               ["enhancedFullMoon", "fullMoon"],                             ["superiorFullMoon", "fullMoon"],
 		"goldenOriole",           ["enhancedGoldenOriole", "goldenOriole"],                     ["superiorGoldenOriole", "goldenOriole"],
@@ -70,10 +75,13 @@ var alchemy = {
 		"petrisPhilter",          ["enhancedPetrisPhilter", "petrisPhilter"],                   ["superiorPetrisPhilter", "petrisPhilter"],
 		"popsMoldAntidote",
 		["reinaldsPhilter", "popsMoldAntidote"],
-		"swallow",                ["enhancedSwallow", "swallow"],                               ["superiorSwallow", "swallow"],
-		"tawnyOwl",               ["enhancedTawnyOwl", "tawnyOwl"],                             ["superiorTawnyOwl", "tawnyOwl"],
+		{ name: "swallow", initial: true },
+		                          ["enhancedSwallow", "swallow"],                               ["superiorSwallow", "swallow"],
+		{ name: "tawnyOwl", initialCrafted: true },
+		                          ["enhancedTawnyOwl", "tawnyOwl"],                             ["superiorTawnyOwl", "tawnyOwl"],
 		"thunderbolt",            ["enhancedThunderbolt", "thunderbolt"],                       ["superiorThunderbolt", "thunderbolt"],
-		"whiteHoney",             ["enhancedWhiteHoney", "whiteHoney"],                         ["superiorWhiteHoney", "whiteHoney"],
+		{ name: "whiteHoney", initial: true },
+		                          ["enhancedWhiteHoney", "whiteHoney"],                         ["superiorWhiteHoney", "whiteHoney"],
 		"whiteRaffardsDecoction", ["enhancedWhiteRaffardsDecoction", "whiteRaffardsDecoction"], ["superiorWhiteRaffardsDecoction", "whiteRaffardsDecoction"]
 	],
 	quest: [

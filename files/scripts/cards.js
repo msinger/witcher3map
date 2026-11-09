@@ -393,17 +393,17 @@ var cards = {
 		id:      "card.northern_realms.blueStripes1",
 		name:    "blueStripes",
 		icon:    "melee",
-		sources: ["w:elsa", "w:bram"]
+		initial: true
 	}, {
 		id:      "card.northern_realms.blueStripes2",
 		name:    "blueStripes",
 		icon:    "melee",
-		sources: "v:perchQuartermaster"
+		initial: true
 	}, {
 		id:      "card.northern_realms.blueStripes3",
 		name:    "blueStripes",
 		icon:    "melee",
-		sources: "v:midcopseMerchant"
+		sources: ["w:elsa", "w:bram", "v:perchQuartermaster", "v:midcopseMerchant"]
 	}, {
 		id:      "card.northern_realms.catapult1",
 		name:    "catapult",
