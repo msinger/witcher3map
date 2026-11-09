@@ -29,6 +29,8 @@ var cardDeckOpen = [];
 var cardListEntryOpen = null;
 var schoolOpen = [];
 var gearListEntryOpen = null;
+var alchemyCatOpen = [];
+var alchemyListEntryOpen = null;
 var sidebarShown = true;
 
 window.mapInfoIndex = window.mapInfoIndex || 0;
@@ -45,6 +47,7 @@ var scrollPos = {
 	quest:    0,
 	card:     0,
 	gear:     0,
+	alchemy:  0,
 	settings: 0
 };
 
@@ -377,6 +380,9 @@ function toggleChecked(obj, noUpdate) {
 	if (obj.global && obj.card && obj.card.initial)
 		return;
 
+	if (obj.global && obj.alchemy && obj.alchemy.initial)
+		return;
+
 	obj.checked = !obj.checked;
 
 	for (m of obj.markers) {
@@ -430,6 +436,14 @@ function toggleChecked(obj, noUpdate) {
 			$("li.gear-" + $.escapeSelector(obj.id)).removeClass("item-finished");
 	}
 
+	if (obj.alchemy) {
+		$("li.alchemy-" + $.escapeSelector(obj.id) + " i.checkbox").removeClass(oldClass).addClass(newClass);
+		if (typeof obj.finished != "boolean" && obj.checked)
+			$("li.alchemy-" + $.escapeSelector(obj.id)).addClass("item-finished");
+		else
+			$("li.alchemy-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+	}
+
 	if (obj.checked) {
 		if (!obj.global)
 			checkedMarkers.push(obj.id);
@@ -471,7 +485,7 @@ function toggleChecked(obj, noUpdate) {
 }
 
 function toggleFinished(obj, noUpdate) {
-	if (!obj.global || !obj.quest || typeof obj.finished != "boolean")
+	if (!obj.global || (!obj.quest && !obj.alchemy) || typeof obj.finished != "boolean")
 		return;
 
 	obj.finished = !obj.finished;
@@ -489,6 +503,14 @@ function toggleFinished(obj, noUpdate) {
 			$("li.quest-" + $.escapeSelector(obj.id)).addClass("item-finished");
 		else
 			$("li.quest-" + $.escapeSelector(obj.id)).removeClass("item-finished");
+	}
+
+	if (obj.alchemy) {
+		$("li.alchemy-" + $.escapeSelector(obj.id) + " i.checkbox-f").removeClass(oldClass).addClass(newClass);
+		if (obj.finished)
+			$("li.alchemy-" + $.escapeSelector(obj.id)).addClass("item-finished");
+		else
+			$("li.alchemy-" + $.escapeSelector(obj.id)).removeClass("item-finished");
 	}
 
 	if(!noUpdate) {
@@ -536,6 +558,25 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 	let data = [];
 	for (let i = 0; i < mapInfos.length; i++)
 		data.push(mapInfos[i].getMapData());
+
+	alchemy = substAlchemy(alchemy);
+
+	for (let [id, item] of Object.entries(alchemy)) {
+		let obj = {
+			id:        id,
+			coordIds:  [],
+			markers:   [],
+			layers:    [],
+			externals: [],
+			checked:   item.initial || checkedGlobalsLd.indexOf(id) >= 0,
+			finished:  (item.alchemyKey != "alcohol" && item.alchemyKey != "substance") ?
+			           checkedGlobalsLd.indexOf(id + "$f") >= 0 : null,
+			global:    true,
+			alchemy:   item
+		};
+		globalItems[id] = obj;
+		item.obj = obj;
+	}
 
 	prescreenQuests(quests);
 	for (let i = 0; i < mapInfos.length; i++)
@@ -1063,15 +1104,45 @@ function toggleSchoolOpen(school, noUpdate) {
 		sessionStorage.schoolOpen = JSON.stringify(schoolOpen);
 }
 
-function createQuestList(groups, f) {
-	let g = {};
+function toggleAlchemyCatOpen(cat, noUpdate) {
+	let index = alchemyCatOpen.indexOf(cat);
+	let open = index >= 0;
+	if (open) {
+		$("li.alchemycat-" + cat + ">i.caret").removeClass("fa-caret-up").addClass("fa-caret-down");
+		$("li.alchemycat-" + cat + ">ul.alchemy").hide();
+		alchemyCatOpen.splice(index, 1);
+	} else {
+		$("li.alchemycat-" + cat + ">i.caret").removeClass("fa-caret-down").addClass("fa-caret-up");
+		$("li.alchemycat-" + cat + ">ul.alchemy").show();
+		alchemyCatOpen.push(cat);
+	}
+	hackySticky();
+	$("#sidebar").getNiceScroll().resize();
+	if (!noUpdate)
+		sessionStorage.alchemyCatOpen = JSON.stringify(alchemyCatOpen);
+}
+
+function createQuestList() {
+	let groups = [
+		{ id: "mainquest",    label: esc($.t("questcategory.mainquests")) },
+		{ id: "sidequest",    label: esc($.t("questcategory.sidequests")) },
+		{ id: "contract",     label: esc($.t("questcategory.contracts")) },
+		{ id: "treasurehunt", label: esc($.t("questcategory.treasurehunts")) },
+		{ id: "event",        label: esc($.t("questcategory.events")) }
+	];
+
+	let g = {
+		mainquest:    [],
+		sidequest:    [],
+		contract:     [],
+		treasurehunt: [],
+		event:        []
+	};
 
 	for (let quest of Object.values(quests)) {
 		if (!fitDlc(quest))
 			continue;
-		let cat = f(quest);
-		if (!g[cat])
-			g[cat] = [];
+		let cat = quest.questKey;
 		g[cat].push(quest);
 	}
 
@@ -1266,6 +1337,81 @@ function createGearList() {
 	return r;
 }
 
+function createAlchemyList() {
+	let groups = [
+		{ id: "substance", label: esc($.t("alchemylist.substance.label")) },
+		{ id: "alcohol",   label: esc($.t("alchemylist.alcohol.label")) },
+		{ id: "bomb",      label: esc($.t("alchemylist.bomb.label")) },
+		{ id: "decoction", label: esc($.t("alchemylist.decoction.label")) },
+		{ id: "oil",       label: esc($.t("alchemylist.oil.label")) },
+		{ id: "potion",    label: esc($.t("alchemylist.potion.label")) },
+		{ id: "quest",     label: esc($.t("alchemylist.quest.label")) }
+	];
+
+	let g = {
+		alcohol:   [],
+		bomb:      [],
+		decoction: [],
+		oil:       [],
+		potion:    [],
+		quest:     [],
+		substance: []
+	};
+
+	for (let item of Object.values(alchemy)) {
+		if (!fitDlc(item))
+			continue;
+		let cat = item.alchemyKey;
+		g[cat].push(item);
+	}
+
+	for (let i = 0; i < groups.length; i++) {
+		g[groups[i].id].sort(function(a, b) { return a.labelText.localeCompare(b.labelText); });
+	}
+
+	let r = '<ul class="alchemycat">';
+	for (let i = 0; i < groups.length; i++) {
+		r += '<li tabindex="0" class="alchemycat alchemycat-' + groups[i].id + '" data-alchemy-cat="' + groups[i].id + '">' +
+		     '<div class="ellip-tooltip" data-alchemy-cat="' + groups[i].id + '">' + groups[i].label + '</div>' +
+		     '<i class="caret fa fa-caret-down" data-alchemy-cat="' + groups[i].id + '"></i><br>' +
+		     '<ul class="alchemy" hidden>';
+		for (let item of g[groups[i].id]) {
+			let dlcClass = "";
+			if (item.hos)
+				dlcClass = " hos";
+			else if (item.baw)
+				dlcClass = " baw";
+			let checkedClass = "fa-square-o";
+			let finishedClass = "fa-square-o";
+			let finishedClass2 = "";
+			if (item.obj.checked) {
+				checkedClass = "fa-check-square-o";
+				if (typeof item.obj.finished != "boolean")
+					finishedClass2 = " item-finished";
+			}
+			if (item.obj.finished) {
+				finishedClass = "fa-check-square-o";
+				finishedClass2 = " item-finished";
+			}
+			r += '<li tabindex="0" id="alchemy-' + item.id + '" class="alchemy alchemy-' + item.id + finishedClass2 + '" data-alchemy-id="' + item.id + '">';
+			if (item.initial)
+				r += '<i class="checkbox checkbox-frozen fa fa-check-square-o"></i>';
+			else
+				r += '<i tabindex="0" class="checkbox fa ' + checkedClass + '" data-alchemy-id="' + item.id + '"></i>';
+			if (typeof item.obj.finished != "boolean")
+				r += '<i class="skip-checkbox"></i>';
+			else
+				r += '<i tabindex="0" class="checkbox-f fa ' + finishedClass + '" data-alchemy-id="' + item.id + '"></i>';
+			r += '<i class="alchemy-icon" style="background-image: url(' + topdir + '/files/images/alchemy/' + item.icon + '.png);"></i>' +
+			     '<div class="alchemy-label ellip-tooltip' + dlcClass + '" data-alchemy-id="' + item.id + '">' + item.labelText + '</div><br></li>';
+		}
+		r += '</ul>' +
+		     '</li>';
+	}
+	r += '</ul>';
+	return r;
+}
+
 function createSidebar() {
 	let sidebar =
 		'<div id="sidebar">' +
@@ -1280,6 +1426,7 @@ function createSidebar() {
 				'<b></b><i tabindex="0" id="tab-quest"></i>' +
 				'<b></b><i tabindex="0" id="tab-card"></i>' +
 				'<b></b><i tabindex="0" id="tab-gear"></i>' +
+				'<b></b><i tabindex="0" id="tab-alchemy"></i>' +
 				'<b></b><i tabindex="0" id="tab-settings" class="fa fa-cog"></i>' +
 				'<b class="fill"></b>' +
 			'</div>' +
@@ -1333,24 +1480,17 @@ function createSidebar() {
 	sidebar +=
 					'</ul>' +
 				'</div>' +
-				'<div id="body-quest" hidden>';
-
-	let questGroups = [
-		{ id: "mainquest",    label: esc($.t("questcategory.mainquests")) },
-		{ id: "sidequest",    label: esc($.t("questcategory.sidequests")) },
-		{ id: "contract",     label: esc($.t("questcategory.contracts")) },
-		{ id: "treasurehunt", label: esc($.t("questcategory.treasurehunts")) },
-		{ id: "event",        label: esc($.t("questcategory.events")) }
-	];
-	sidebar += createQuestList(questGroups, function(q) { return q.questKey; });
-
-	sidebar +=
+				'<div id="body-quest" hidden>' +
+					createQuestList() +
 				'</div>' +
 				'<div id="body-card" hidden>' +
 					createCardList() +
 				'</div>' +
 				'<div id="body-gear" hidden>' +
 					createGearList() +
+				'</div>' +
+				'<div id="body-alchemy" hidden>' +
+					createAlchemyList() +
 				'</div>' +
 				'<div id="body-settings" hidden>' +
 					'<ul class="setting">' +
@@ -2519,6 +2659,50 @@ function runMap() {
 		}
 	});
 
+	$("li.alchemy i.checkbox").on("click enter spacebar", function(e) {
+		let alchemyId = this.dataset.alchemyId;
+		if (!alchemyId)
+			return;
+		let item = alchemy[alchemyId];
+		if (!item)
+			return;
+		toggleChecked(item.obj);
+	});
+
+	$("li.alchemy i.checkbox-f").on("click enter spacebar", function(e) {
+		let alchemyId = this.dataset.alchemyId;
+		if (!alchemyId)
+			return;
+		let item = alchemy[alchemyId];
+		if (!item)
+			return;
+		toggleFinished(item.obj);
+	});
+
+	$("li.alchemycat>div, li.alchemycat>i").on("click", function(e) {
+		let cat = this.dataset.alchemyCat;
+		if (!cat)
+			return;
+		toggleAlchemyCatOpen(cat);
+	});
+	$("li.alchemycat").on("keydown", function(e) {
+		let cat = this.dataset.alchemyCat;
+		if (!cat)
+			return;
+		let key = e.originalEvent.key;
+		if (key == "Enter" || key == "+") {
+			if (alchemyCatOpen.indexOf(cat) >= 0)
+				return;
+			toggleAlchemyCatOpen(cat);
+			return false;
+		} else if (key == "Backspace" || key == "-") {
+			if (alchemyCatOpen.indexOf(cat) < 0)
+				return;
+			toggleAlchemyCatOpen(cat);
+			return false;
+		}
+	});
+
 	function openQuestListEntry(qid) {
 		if (questListEntryOpen == qid)
 			return;
@@ -2811,6 +2995,63 @@ function runMap() {
 		}
 	});
 
+	function openAlchemyListEntry(aid) {
+		if (alchemyListEntryOpen == aid)
+			return;
+		closeAlchemyListEntry();
+		let exp = '<ul id="alchemy-expand">';
+		let hasInfo = false;
+		let item = alchemy[aid];
+		if (item) {
+			if (item.link) {
+				hasInfo = true;
+				exp += '<li><i class="alchemy-expand-indent fa fa-external-link"></i>' +
+				       '<a class="ellip-tooltip" target="_blank" href="' + item.link + '"><div class="ellip-tooltip">' +
+				       esc($.t("misc.wiki")) + '</div></a></li>';
+			}
+		}
+		if (!hasInfo)
+			exp += '<li><i class="alchemy-expand-indent"></i>' +
+			       '<div class="ellip-tooltip noclick">' + esc($.t("misc.noinfo")) + '</div>' +
+			       '</li>';
+		exp += '</ul>';
+		$("li.alchemy-" + $.escapeSelector(aid)).append(exp);
+		bindEllips("ul#alchemy-expand li .ellip-tooltip");
+		alchemyListEntryOpen = aid;
+		sessionStorage.alchemyListEntryOpen = aid;
+	}
+
+	function closeAlchemyListEntry() {
+		$("#alchemy-expand").remove();
+		alchemyListEntryOpen = null;
+		sessionStorage.removeItem("alchemyListEntryOpen");
+	}
+
+	$("li.alchemy div.alchemy-label").on("click", function() {
+		let id = this.dataset.alchemyId;
+		if (!id)
+			return;
+		let wasOpen = alchemyListEntryOpen == id;
+		closeAlchemyListEntry();
+		if (wasOpen)
+			return;
+		openAlchemyListEntry(id);
+	});
+	$("li.alchemy").on("keydown", function(e) {
+		let id = this.dataset.alchemyId;
+		if (!id)
+			return;
+		let key = e.originalEvent.key;
+		let wasOpen = alchemyListEntryOpen == id;
+		if (!wasOpen && (key == "Enter" || key == "+")) {
+			openAlchemyListEntry(id);
+			return false;
+		} else if (wasOpen && (key == "Backspace" || key == "-")) {
+			closeAlchemyListEntry();
+			return false;
+		}
+	});
+
 	window.jumpToCoord = function(coord) {
 		let coordId = toCoordId(coord);
 
@@ -2883,6 +3124,17 @@ function runMap() {
 
 	if (sessionStorage.gearListEntryOpen)
 		openGearListEntry(sessionStorage.gearListEntryOpen);
+
+	let sessionAlchemyCatOpen = null;
+	if (sessionStorage.alchemyCatOpen)
+		sessionAlchemyCatOpen = JSON.parse(sessionStorage.alchemyCatOpen);
+	if (!(sessionAlchemyCatOpen instanceof Array))
+		sessionAlchemyCatOpen = [];
+	for (let cat of sessionAlchemyCatOpen)
+		toggleAlchemyCatOpen(cat, true);
+
+	if (sessionStorage.alchemyListEntryOpen)
+		openAlchemyListEntry(sessionStorage.alchemyListEntryOpen);
 
 	for (let tab of Object.keys(scrollPos)) {
 		let pos = sessionStorage["scrollbar-" + tab];

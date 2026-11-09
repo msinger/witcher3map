@@ -37,7 +37,7 @@ Things I have added and fixed:
   will provide a link to open the interior map in their info box.
 * Markers for quests with alternative starting points can now be linked and will be toggled in sync.
 * Added wiki links for all quests.
-* Added full quest list.
+* Added full checklists for quests, Gwent cards, Witcher gear and alchemy.
 * DLC (and mod) content can be enabled/disabled in settings.
 
 Below follows the original README.md from [https://github.com/root-BB](https://github.com/root-BB):

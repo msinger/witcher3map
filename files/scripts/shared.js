@@ -30,6 +30,16 @@ var schoolNames = [
 	"wolf"
 ];
 
+var alchemyGroupNames = [
+	"alcohol",
+	"bomb",
+	"decoction",
+	"oil",
+	"potion",
+	"quest",
+	"substance"
+];
+
 var markerGroupNames = [
 	"abandoned",
 	"alchemy",
@@ -1548,6 +1558,75 @@ function substGear(gear, noLinks) {
 			item.link      = link;
 			item.icon      = icon;
 			item.gearKey   = gearKey;
+			res[id] = item;
+		}
+	}
+
+	return res;
+}
+
+function substAlchemy(alchemy, noLinks) {
+	let res = {};
+
+	for (let alchemyKey of alchemyGroupNames) {
+		let items = [];
+
+		if (alchemyKey in alchemy)
+			items = alchemy[alchemyKey];
+
+		if (!(items instanceof Array)) {
+			console.error("alchemy->" + alchemyKey + " is not an array: ", items);
+			items = [];
+		}
+
+		for (let item of items) {
+			if (item && typeof item == "string")
+				item = { name: item };
+			if (item && item instanceof Array && item.length == 2)
+				item = { name: item[0], icon: item[1] };
+
+			if (!(item instanceof Object)) {
+				console.error("An element of alchemy->" + alchemyKey + " is not an object: ", item);
+				continue;
+			}
+
+			if (!item.name || typeof item.name != "string") {
+				console.error("An element of alchemy->" + alchemyKey + " does not have valid name: ", item);
+				continue;
+			}
+
+			if (item.disabled)
+				continue;
+
+			let name = item.name;
+			let id   = item.id;
+			let icon = item.icon;
+
+			if (!id || typeof id != "string")
+				id = "alchemy." + name;
+
+			let label = item.label || "";
+			if (typeof label != "string" || !label)
+				label = "alchemylist." + alchemyKey + "." + name + ".label";
+			let labelText = label;
+			label = subst(esc(label[0] == "#" ? label.substring(1) : $.t(label)), item, noLinks);
+			labelText = subst(esc(labelText[0] == "#" ? labelText.substring(1) : $.t(labelText)), item, true);
+			let linkKey = "alchemylist." + alchemyKey + "." + name + ".link";
+			let link = $.t(linkKey);
+			if (link != linkKey)
+				link = esc(link, true);
+			else
+				link = false;
+
+			if (!icon)
+				icon = name;
+
+			item.id         = id;
+			item.label      = label;
+			item.labelText  = labelText;
+			item.link       = link;
+			item.icon       = icon;
+			item.alchemyKey = alchemyKey;
 			res[id] = item;
 		}
 	}

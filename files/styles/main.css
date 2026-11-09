@@ -273,6 +273,9 @@ ul#card-expand,
 ul.gear,
 ul.school,
 ul#gear-expand,
+ul.alchemy,
+ul.alchemycat,
+ul#alchemy-expand,
 ul.setting {
 	margin: 0;
 	padding: 0;
@@ -453,7 +456,8 @@ ul.key>li.layer-disabled>div,
 ul.key>li.interior-hidden>div,
 ul.quest>li.item-finished>div,
 ul.card>li.item-finished>div,
-ul.gear>li.item-finished>div {
+ul.gear>li.item-finished>div,
+ul.alchemy>li.item-finished>div {
 	text-decoration: line-through;
 	opacity: 0.6;
 }
@@ -462,7 +466,8 @@ ul.key>li.layer-disabled,
 ul.key>li.interior-hidden,
 ul.quest>li.item-finished,
 ul.card>li.item-finished,
-ul.gear>li.item-finished {
+ul.gear>li.item-finished,
+ul.alchemy>li.item-finished {
 	opacity: 0.9;
 }
 
@@ -470,13 +475,15 @@ ul.key>li.layer-disabled>i,
 ul.key>li.interior-hidden>i,
 ul.quest>li.item-finished>i,
 ul.card>li.item-finished>i,
-ul.gear>li.item-finished>i {
+ul.gear>li.item-finished>i,
+ul.alchemy>li.item-finished>i {
 	opacity: 0.6;
 }
 
 ul.questcat,
 ul.carddeck,
-ul.school {
+ul.school,
+ul.alchemycat {
 	--caret-width: 20px;
 	--label-width: calc(var(--sidebar-width) - var(--caret-width));
 }
@@ -542,6 +549,24 @@ ul#gear-expand {
 	--label-width: calc(var(--sidebar-width) - var(--expand-indent) - var(--icons-width));
 }
 
+ul.alchemy {
+	--checkbox-width: 20px;
+	--checkbox-margin: 6px;
+	--checkboxes-width: calc(2 * (var(--checkbox-width) + var(--checkbox-margin)));
+	--alchemy-width: var(--icon-width);
+	--alchemy-margin: 4px;
+	--icons-width: calc(var(--checkboxes-width) +
+	                    var(--alchemy-width) + var(--alchemy-margin));
+	--label-width: calc(var(--sidebar-width) - var(--icons-width));
+	--expand-indent: 4px;
+}
+
+ul#alchemy-expand {
+	--icons-width: calc(var(--checkboxes-width) +
+	               var(--icon-width) + var(--icon-margin));
+	--label-width: calc(var(--sidebar-width) - var(--expand-indent) - var(--icons-width));
+}
+
 ul.quest,
 ul.questcat,
 ul#quest-expand,
@@ -551,6 +576,9 @@ ul#card-expand,
 ul.gear,
 ul.school,
 ul#gear-expand,
+ul.alchemy,
+ul.alchemycat,
+ul#alchemy-expand,
 ul.setting {
 	list-style-type: none;
 	clear: left;
@@ -558,7 +586,8 @@ ul.setting {
 
 ul.quest>li,
 ul.card>li,
-ul.gear>li {
+ul.gear>li,
+ul.alchemy>li {
 	font-size: 18px;
 	min-height: 32px;
 	clear: left;
@@ -566,7 +595,8 @@ ul.gear>li {
 
 ul#quest-expand>li,
 ul#card-expand>li,
-ul#gear-expand>li {
+ul#gear-expand>li,
+ul#alchemy-expand>li {
 	font-size: 18px;
 	height: 32px;
 	clear: left;
@@ -574,7 +604,8 @@ ul#gear-expand>li {
 
 ul.questcat>li,
 ul.carddeck>li,
-ul.school>li {
+ul.school>li,
+ul.alchemycat>li {
 	font-size: 18px;
 	clear: left;
 }
@@ -587,7 +618,10 @@ ul.carddeck>li>i,
 ul#card-expand>li>i,
 ul.gear>li>i,
 ul.school>li>i,
-ul#gear-expand>li>i {
+ul#gear-expand>li>i,
+ul.alchemy>li>i,
+ul.alchemycat>li>i,
+ul#alchemy-expand>li>i {
 	height: 20px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -598,7 +632,8 @@ ul#gear-expand>li>i {
 
 ul#quest-expand>li>i,
 ul#card-expand>li>i,
-ul#gear-expand>li>i {
+ul#gear-expand>li>i,
+ul#alchemy-expand>li>i {
 	width: var(--icon-width);
 	height: var(--icon-height);
 	margin-right: var(--icon-margin);
@@ -606,13 +641,15 @@ ul#gear-expand>li>i {
 
 ul#quest-expand>li>i.quest-expand-indent,
 ul#card-expand>li>i.card-expand-indent,
-ul#gear-expand>li>i.gear-expand-indent {
+ul#gear-expand>li>i.gear-expand-indent,
+ul#alchemy-expand>li>i.alchemy-expand-indent {
 	margin-left: calc(var(--expand-indent) + var(--checkboxes-width));
 }
 
 ul#quest-expand>li a,
 ul#card-expand>li a,
-ul#gear-expand>li a {
+ul#gear-expand>li a,
+ul#alchemy-expand>li a {
 	color: inherit;
 	text-decoration: none;
 }
@@ -624,7 +661,10 @@ ul.card>li>i.checkbox,
 ul.card>li>i.skip-checkbox,
 ul.gear>li>i.checkbox,
 ul.gear>li>i.checkbox-f,
-ul.gear>li>i.skip-checkbox {
+ul.gear>li>i.skip-checkbox,
+ul.alchemy>li>i.checkbox,
+ul.alchemy>li>i.checkbox-f,
+ul.alchemy>li>i.skip-checkbox {
 	width: var(--checkbox-width);
 	margin-right: var(--checkbox-margin);
 	cursor: pointer;
@@ -632,7 +672,8 @@ ul.gear>li>i.skip-checkbox {
 
 ul.questcat>li>i.caret,
 ul.carddeck>li>i.caret,
-ul.school>li>i.caret {
+ul.school>li>i.caret,
+ul.alchemycat>li>i.caret {
 	height: 30px;
 	width: var(--caret-width);
 	cursor: pointer;
@@ -643,7 +684,9 @@ ul.quest>li>i.checkbox-frozen,
 ul.card>li>i.skip-checkbox,
 ul.card>li>i.checkbox-frozen,
 ul.gear>li>i.skip-checkbox,
-ul.gear>li>i.checkbox-frozen {
+ul.gear>li>i.checkbox-frozen,
+ul.alchemy>li>i.skip-checkbox,
+ul.alchemy>li>i.checkbox-frozen {
 	cursor: default;
 }
 
@@ -683,6 +726,11 @@ ul.gear>li>i.gear-icon {
 	margin-right: var(--gear-margin);
 }
 
+ul.alchemy>li>i.alchemy-icon {
+	width: var(--alchemy-width);
+	margin-right: var(--alchemy-margin);
+}
+
 ul.quest>li>div,
 ul.questcat>li>div,
 ul#quest-expand>li>div,
@@ -697,7 +745,12 @@ ul.gear>li>div,
 ul.school>li>div,
 ul#gear-expand>li>div,
 ul#gear-expand>li>a,
-ul#gear-expand>li>a>div {
+ul#gear-expand>li>a>div,
+ul.alchemy>li>div,
+ul.alchemycat>li>div,
+ul#alchemy-expand>li>div,
+ul#alchemy-expand>li>a,
+ul#alchemy-expand>li>a>div {
 	line-height: 21px;
 	white-space: nowrap;
 	overflow: hidden;
@@ -715,7 +768,11 @@ ul#card-expand>li>a,
 ul.gear>li>div,
 ul.school>li>div,
 ul#gear-expand>li>div,
-ul#gear-expand>li>a {
+ul#gear-expand>li>a,
+ul.alchemy>li>div,
+ul.alchemycat>li>div,
+ul#alchemy-expand>li>div,
+ul#alchemy-expand>li>a {
 	float: left;
 }
 
@@ -730,7 +787,11 @@ ul#card-expand>li>a>div,
 ul.gear>li>div,
 ul#gear-expand>li>div,
 ul#gear-expand>li>a,
-ul#gear-expand>li>a>div {
+ul#gear-expand>li>a>div,
+ul.alchemy>li>div,
+ul#alchemy-expand>li>div,
+ul#alchemy-expand>li>a,
+ul#alchemy-expand>li>a>div {
 	width: var(--label-width);
 }
 
@@ -742,13 +803,17 @@ ul#card-expand>li>div:not(.noclick),
 ul#card-expand>li>a>div:not(.noclick),
 ul.gear>li>div,
 ul#gear-expand>li>div:not(.noclick),
-ul#gear-expand>li>a>div:not(.noclick) {
+ul#gear-expand>li>a>div:not(.noclick),
+ul.alchemy>li>div,
+ul#alchemy-expand>li>div:not(.noclick),
+ul#alchemy-expand>li>a>div:not(.noclick) {
 	cursor: pointer;
 }
 
 ul.questcat>li>div,
 ul.carddeck>li>div,
-ul.school>li>div {
+ul.school>li>div,
+ul.alchemycat>li>div {
 	text-transform: uppercase;
 	width: var(--label-width);
 	cursor: pointer;
@@ -762,7 +827,10 @@ ul.carddeck>li:after,
 ul#card-expand>li:after,
 ul.gear>li:after,
 ul.school>li:after,
-ul#gear-expand>li:after {
+ul#gear-expand>li:after,
+ul.alchemy>li:after,
+ul.alchemycat>li:after,
+ul#alchemy-expand>li:after {
 	clear: both;
 }
 
@@ -774,7 +842,10 @@ ul.carddeck>li,
 ul#card-expand>li,
 ul.gear>li,
 ul.school>li,
-ul#gear-expand>li {
+ul#gear-expand>li,
+ul.alchemy>li,
+ul.alchemycat>li,
+ul#alchemy-expand>li {
 	color: var(--color);
 	text-decoration: none;
 }
@@ -787,13 +858,17 @@ ul.carddeck>li:hover,
 ul#card-expand>li:hover,
 ul.gear>li:hover,
 ul.school>li:hover,
-ul#gear-expand>li:hover {
+ul#gear-expand>li:hover,
+ul.alchemy>li:hover,
+ul.alchemycat>li:hover,
+ul#alchemy-expand>li:hover {
 	color: var(--hvcolor);
 }
 
 ul#quest-expand>li:hover>div.noclick,
 ul#card-expand>li:hover>div.noclick,
-ul#gear-expand>li:hover>div.noclick {
+ul#gear-expand>li:hover>div.noclick,
+ul#alchemy-expand>li:hover>div.noclick {
 	color: var(--color);
 }
 
@@ -801,7 +876,8 @@ ul.quest>li>div.hos,
 ul.card>li>div.hos,
 ul#card-expand>li div.hos,
 ul.gear>li>div.hos,
-ul#gear-expand>li div.hos {
+ul#gear-expand>li div.hos,
+ul.alchemy>li>div.hos {
 	color: var(--hos-color);
 }
 
@@ -809,7 +885,8 @@ ul.quest>li:hover>div.hos,
 ul.card>li:hover>div.hos,
 ul#card-expand>li:hover div.hos,
 ul.gear>li:hover>div.hos,
-ul#gear-expand>li:hover div.hos {
+ul#gear-expand>li:hover div.hos,
+ul.alchemy>li:hover>div.hos {
 	color: var(--hos-hvcolor);
 }
 
@@ -817,7 +894,8 @@ ul.quest>li>div.baw,
 ul.card>li>div.baw,
 ul#card-expand>li div.baw,
 ul.gear>li>div.baw,
-ul#gear-expand>li div.baw {
+ul#gear-expand>li div.baw,
+ul.alchemy>li>div.baw {
 	color: var(--baw-color);
 }
 
@@ -825,7 +903,8 @@ ul.quest>li:hover>div.baw,
 ul.card>li:hover>div.baw,
 ul#card-expand>li:hover div.baw,
 ul.gear>li:hover>div.baw,
-ul#gear-expand>li:hover div.baw {
+ul#gear-expand>li:hover div.baw,
+ul.alchemy>li:hover>div.baw {
 	color: var(--baw-hvcolor);
 }
 
