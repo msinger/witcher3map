@@ -1081,7 +1081,8 @@ window.i18nData.en.general = {
 		randomPlayer:   "Random reward from Gwent players",
 		acquireInQuest: "Acquirable during '__quest__'",
 		wonFrom:        "Won from __person__",
-		purchasedFrom:  "Purchased from __person__"
+		purchasedFrom:  "Purchased from __person__",
+		minPlayerLevel: "Only available if player level is equal to or higher than __this.minPLevel__."
 	},
 	monster: {
 		label: "__this.name@monster____?this.level: (Level _\\_this.level_\\_)__",

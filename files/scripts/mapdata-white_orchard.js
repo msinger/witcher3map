@@ -50,6 +50,7 @@
 	entrance: [{
 		coords:      [[30.376,68.125],
 		             [36.563,74.250]],
+		notInGame:   true,
 		groupId:     "well"
 	}, {
 		coords:      [102.563,60.782],
@@ -327,7 +328,9 @@
 		}]
 	}, {
 		coords:      [119.656,36.125],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_008 area)
-		name:        "drowner", // only if player has crossbow
+		extraDesc:   "w:monster.needCrossbow",
+		special:     true,
+		name:        "drowner",
 		level:       "#10",
 		underwater:  true,
 		areas: [{
@@ -337,7 +340,9 @@
 		}]
 	}, {
 		coords:      [38.750,125.750],  // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_018 area)
-		name:        "drowner", // only if player has crossbow
+		extraDesc:   "w:monster.needCrossbow",
+		special:     true,
+		name:        "drowner",
 		level:       "#10",
 		underwater:  true,
 		areas: [{
@@ -347,7 +352,9 @@
 		}]
 	}, {
 		coords:      [96.875,49.750],   // {4h-21h: 3x, 21h-4h: 4x} Drowner (L10) (in pr_poe_023 area)
-		name:        "drowner", // only if player has crossbow
+		extraDesc:   "w:monster.needCrossbow",
+		special:     true,
+		name:        "drowner",
 		level:       "#10",
 		underwater:  true,
 		areas: [{
@@ -358,6 +365,9 @@
 		}]
 	}, {
 		coords:      [37.125,59.250],   // 1x Bear (L6) (in pr_poe_monsters area)
+		extraDesc:   "misc.minPlayerLevel",
+		minPLevel:   "#4",
+		special:     true,
 		name:        "bear",
 		level:       "#6",
 		areas: [{
@@ -482,6 +492,9 @@
 		coords:      [32.408,69.906],
 		label:       "w:poi.diary.label",
 		extraDesc:   "w:poi.diary.desc"
+	}, {
+		coords:      [89.203,132.234],
+		label:       "w:poi.deadSoldiersLetter.label",
 	}],
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
@@ -529,7 +542,23 @@
 		name:        "death"
 	}, {
 		coords:      [89.813,26.126],
-		name:        "precious"
+		name:        "precious",
+		routes: [{
+			name: "w:sidequest.precious.escapeRoute",
+			coords: [[87.609,25.172], [84.828,24.375], [83.563,24.563], [82.391,25.078], [81.453,26.156],
+			        [80.594,28.031], [79.984,28.906], [79.578,30.000], [78.750,30.703], [75.969,30.875],
+			        [73.781,31.188], [71.469,30.813], [69.063,29.219], [65.531,27.563], [63.031,26.656],
+			        [60.250,26.875], [58.906,27.750], [57.031,28.500], [55.375,29.594], [54.375,30.750],
+			        [53.250,32.625], [51.875,35.313], [51.250,37.219], [51.781,39.094], [53.094,42.250],
+			        [54.156,44.750], [54.313,46.063], [55.531,49.125], [56.625,50.563], [57.250,56.125],
+			        [58.125,58.313], [58.656,61.063], [59.344,62.969], [60.250,63.750], [60.750,64.719],
+			        [62.063,65.063], [62.375,65.531], [62.531,67.344], [62.219,69.594], [62.563,71.625],
+			        [63.375,72.875], [63.906,73.656], [63.969,74.969], [63.500,76.375], [63.000,78.375],
+			        [62.781,80.188], [62.813,82.656], [63.000,84.156], [62.719,86.344], [62.875,88.625],
+			        [63.313,90.906], [64.125,93.031], [65.000,93.906], [65.625,94.406], [65.844,95.688],
+			        [65.563,96.938], [64.563,98.625], [62.406,101.563], [62.219,102.188], [63.000,103.500],
+			        [65.188,104.938], [66.813,106.313], [68.563,107.969], [70.281,110.063], [72.219,112.969]]
+		}]
 	}],
 	// ----------------- Sign Posts ---------------------
 	signpost: [{

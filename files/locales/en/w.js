@@ -20,6 +20,9 @@ window.i18nData.en.w = {
 		elsa:            { label: "Elsa" },
 		whiteOrchardInn: { label: "White Orchard Inn" }
 	},
+	monster: {
+		needCrossbow: "Only available if player inventory contains a crossbow."
+	},
 	poi: {
 		boss: {
 			label: "Secret Boss (Chort)",
@@ -30,6 +33,7 @@ window.i18nData.en.w = {
 			label: "Crystal Skull",
 			desc:  "Unlocks a dialog with Yennifer during the '__sidequest.last__' mission."
 		},
+		deadSoldiersLetter: { label: "Dead soldier's letter" },
 		diary: {
 			label: "Yellowed Diary",
 			desc:  "If received during the '__contract.devil__' quest, additional earnings can be obtained by " +
@@ -39,6 +43,11 @@ window.i18nData.en.w = {
 	shopkeeper: {
 		bram:        { label: "Bram" },
 		temerianSet: { label: "'Temerian: blinders, saddle, saddlebags, armor'" }
+	},
+	sidequest: {
+		precious: {
+			escapeRoute: "Merchant's escape route"
+		}
 	},
 	signpost: {
 		abandonedVillage: {
