@@ -2,6 +2,7 @@ var mapInfos = [];
 var enable_hos = true;
 var enable_baw = true;
 var enable_mod = false;
+var enable_remastered = true;
 
 var questGroupNames = [
 	"contract",

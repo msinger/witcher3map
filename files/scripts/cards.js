@@ -1146,8 +1146,7 @@ var cards = {
 		random:  true
 	}, {
 		name:    "roach",
-		icon:    "melee",
-		initial: true
+		icon:    "melee"
 	}, {
 		id:      "card.neutral.scorch1",
 		name:    "scorch",

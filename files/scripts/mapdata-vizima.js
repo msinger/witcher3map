@@ -15,6 +15,13 @@
 		label:       "z:poi.towel.label",
 		desc:        "z:poi.towel.desc",
 		during:      "mainquest.imperial"
+	}, {
+		disabled:    !enable_remastered,
+		coords:      [131.875,95.906],
+		id:          "card.neutral.roach",
+		global:      true,
+		label:       "card.label",
+		extraLabel:  "card.neutral.roach.label"
 	}],
 	// ----------------- Sign Posts ---------------------
 	signpost: [{

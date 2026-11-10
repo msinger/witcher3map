@@ -491,6 +491,7 @@ window.i18nData.en.general = {
 		enableBaW:            "Enable Blood and Wine",
 		enableHoS:            "Enable Hearts of Stone",
 		enableMod:            "Enable content added by mods (like restored cut content)",
+		enableRemastered:     "Enable Remastered",
 		exitFullscreenButton: "Exit Fullscreen",
 		helpFeatures:         "Features & Help",
 		hide:                 "Hide All",

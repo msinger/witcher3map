@@ -85,6 +85,9 @@ function runHome() {
 	if (localStorage.enableMod === "true")
 		enable_mod = true;
 
+	if (localStorage.enableRemastered === "false")
+		enable_remastered = false;
+
 	if (!enable_hos) {
 		$("li.not-hos").removeClass("hidden");
 		$("li.hos").addClass("hidden");

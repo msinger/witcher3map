@@ -1503,6 +1503,7 @@ function createSidebar() {
 				'</div>' +
 				'<div id="body-settings" hidden>' +
 					'<ul class="setting">' +
+						'<li id="enable-remastered" tabindex="0"><i class="fa ' + (enable_remastered ? 'fa-check-square-o' : 'fa-square-o') + '"></i><div class="ellip-tooltip">' + esc($.t("controls.enableRemastered")) + '</div></li>' +
 						'<li id="enable-hos" tabindex="0"><i class="fa ' + (enable_hos ? 'fa-check-square-o' : 'fa-square-o') + '"></i><div class="ellip-tooltip">' + esc($.t("controls.enableHoS")) + '</div></li>' +
 						'<li id="enable-baw" tabindex="0"><i class="fa ' + (enable_baw ? 'fa-check-square-o' : 'fa-square-o') + '"></i><div class="ellip-tooltip">' + esc($.t("controls.enableBaW")) + '</div></li>' +
 						'<li id="enable-mod" tabindex="0"><i class="fa ' + (enable_mod ? 'fa-check-square-o' : 'fa-square-o') + '"></i><div class="ellip-tooltip">' + esc($.t("controls.enableMod")) + '</div></li>' +
@@ -1555,6 +1556,9 @@ function runMap() {
 		enable_baw = false;
 	if (localStorage.enableMod === "true")
 		enable_mod = true;
+
+	if (localStorage.enableRemastered === "false")
+		enable_remastered = false;
 
 	let disabledKey = "markers-" + mapInfo.name + "-disabled";
 	if (localStorage[disabledKey])
@@ -1979,6 +1983,14 @@ function runMap() {
 	$("#reset-tracking").on("click enter", function(e) {
 		if (confirm($.t("controls.resetConfirm")))
 			resetProgress();
+	});
+
+	$("#enable-remastered").on("click enter spacebar", function(e) {
+		if (enable_remastered)
+			localStorage.enableRemastered = "false";
+		else
+			localStorage.removeItem("enableRemastered");
+		location.reload();
 	});
 
 	$("#enable-hos").on("click enter spacebar", function(e) {
