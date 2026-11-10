@@ -241,7 +241,7 @@ function createMarkerObj(coordId, item, checked) {
 	return [obj, id, checked];
 }
 
-function createExternalObj(map, coord, dataKey, item) {
+function createExternalObj(map, coord, dataKey, item, checked) {
 	let id = item.id;
 	let global = item.global;
 	let coordId = toCoordId(coord);
@@ -253,6 +253,7 @@ function createExternalObj(map, coord, dataKey, item) {
 		markers:   [],
 		layers:    [],
 		externals: [],
+		checked:   checked,
 		global:    global
 	};
 
@@ -773,7 +774,7 @@ function processData(checkedMarkersLd, checkedGlobalsLd) {
 				if (!fitDlc(item))
 					return;
 
-				createExternalObj(mapInfos[i], coord, dataKey, item);
+				createExternalObj(mapInfos[i], coord, dataKey, item, item.global && checkedGlobalsLd.indexOf(item.id) >= 0);
 			}, undefined, undefined, undefined, !doLocals);
 		}
 	}
