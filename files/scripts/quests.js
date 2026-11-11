@@ -1142,7 +1142,8 @@ var quests = {
 	}, {
 		name:       "ff_velen",
 		level:      11,
-		region:     "velen"
+		region:     "velen",
+		after:      "mainquest.baron"
 	}, {
 		name:       "flesh",
 		level:      12,
