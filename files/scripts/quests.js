@@ -186,7 +186,7 @@ var quests = {
 	}, {
 		name:       "crow",
 		region:     "velen",
-		notBefore:  "mainquest.nilfgaardian"
+		after:      "mainquest.nilfgaardian"
 	}, {
 		name:       "dare1",
 		region:     "velen"

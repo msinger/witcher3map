@@ -555,7 +555,11 @@ window.i18nData.en.general = {
 		crossing1:    { desc: "", label: "Deadly Crossing I", link: "https://witcher.fandom.com/wiki/Deadly_Crossing" },
 		crossing2:    { desc: "", label: "Deadly Crossing II - Mulbrydale", link: "https://witcher.fandom.com/wiki/Deadly_Crossing" },
 		crossing3:    { desc: "", label: "Deadly Crossing III - Crookback Bog", link: "https://witcher.fandom.com/wiki/Deadly_Crossing" },
-		crow:         { desc: "", label: "Crow's Perch Fight" },
+		crow: {
+			label: "Crow's Perch Fight",
+			desc:  "Only happens if you fought Baron's henchmen at the 'Inn at the Crossroads' earlier during " +
+			       "'__mainquest.nilfgaardian__'."
+		},
 		dare1:        { desc: "", label: "Face Me if You Dare! I", link: "https://witcher.fandom.com/wiki/Face_Me_if_You_Dare!" },
 		dare2:        { desc: "", label: "Face Me if You Dare! II", link: "https://witcher.fandom.com/wiki/Face_Me_if_You_Dare!" },
 		dare3:        { desc: "", label: "Face Me if You Dare! III", link: "https://witcher.fandom.com/wiki/Face_Me_if_You_Dare!" },

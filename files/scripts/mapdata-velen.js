@@ -800,8 +800,6 @@
 	}, {
 		coords:      [101.343,80.187],
 		name:        "crow"
-		// TODO: I think this fight only happens if you fuck up Baron's men at the Crossroads Inn. But I think it actually
-		//       happens at the other gate further up?
 	}, {
 		coords:      [89.859,62.218],
 		name:        "crossing1"
