@@ -6033,10 +6033,14 @@
 		liberate:    true,
 		hos:         true
 	}, {
-		coords:      [[100.578,130.578],
-		             [129.578,125.719]],
+		coords:      [100.578,130.578],
 		sells:       ["alchemy", "food"],
 		liberate:    true
+	}, {
+		coords:      [129.578,125.719],
+		sells:       ["alchemy", "food"],
+		fromTime:    "#9",
+		toTime:      "#17"
 	}, {
 		coords:      [99.844,110.594],
 		id:          "lindenvaleMerchant",
@@ -7062,7 +7066,6 @@
 		             [160.063,128.266],
 		             [159.922,127.516],
 		             [156.438,122.766],
-		             [129.375,125.984],
 		             [108.750,108.813],
 		             [77.281,126.906],
 		             [111.328,156.891],
@@ -7380,6 +7383,10 @@
 		underwater:  true,
 		notBefore:   "mainquest.evil",
 		hos:         true
+	}, {
+		coords:      [129.375,125.984],
+		fromTime:    "#9",
+		toTime:      "#17"
 	}],
 	// ----------------- Treasure Hunts -----------------
 	treasurehunt: [{
