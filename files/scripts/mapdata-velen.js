@@ -3576,6 +3576,7 @@
 		coords:      [123.313,109.875], // 2x Warg (L8), 12x Wolf (L5) (in _greyrocks/gr_poe_01)
 		name:        "wolf",
 		level:       "#5 & 8",
+		after:       "sidequest.funeral",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[128.313,111.781], [124.953,115.578], [118.031,109.188], [121.875,105.016]]
@@ -3584,6 +3585,7 @@
 		coords:      [117.625,117.281], // 2x Warg (L8), 12x Wolf (L5) (in _greyrocks/gr_poe_01)
 		name:        "wolf",
 		level:       "#5 & 8",
+		after:       "sidequest.funeral",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[118.281,113.750], [120.594,115.938], [121.719,119.313], [118.344,122.063],
@@ -3593,6 +3595,7 @@
 		coords:      [119.578,124.422], // 4x-6x Ghoul (L2) (in _greyrocks/gr_poe_01)
 		name:        "ghoul",
 		level:       "#2",
+		after:       "sidequest.funeral",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[123.531,123.656], [123.531,125.313], [115.656,125.313], [115.656,123.656]]
@@ -3601,6 +3604,7 @@
 		coords:      [117.406,129.141], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_01)
 		name:        "wilddog",
 		level:       "#1",
+		after:       "sidequest.funeral",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[118.688,127.875], [118.688,130.375], [116.109,130.375], [116.109,127.875]]
