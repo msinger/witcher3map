@@ -3405,6 +3405,7 @@
 		coords:      [100.438,165.797], // 1x-2x Alghoul (L14) (in _descent/de_poe_03)
 		name:        "alghoul",
 		level:       "#14",
+		after:       "event.looters3",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[102.359,163.109], [102.359,169.078], [98.359,169.078], [98.359,163.109]]
@@ -3413,6 +3414,7 @@
 		coords:      [99.609,167.328],  // 4x-6x Devourer (L13) (in _descent/de_poe_03)
 		name:        "devourer",
 		level:       "#13",
+		after:       "event.looters3",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[102.359,163.109], [102.359,169.078], [98.359,169.078], [98.359,163.109]]
