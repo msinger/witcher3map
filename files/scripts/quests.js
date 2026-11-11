@@ -179,7 +179,8 @@ var quests = {
 		region:     "velen"
 	}, {
 		name:       "crossing2",
-		region:     "velen"
+		region:     "velen",
+		special:    true
 	}, {
 		name:       "crossing3",
 		region:     "velen"

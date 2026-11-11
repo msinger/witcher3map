@@ -805,8 +805,7 @@
 		name:        "crossing1"
 	}, {
 		coords:      [111.562,110.968],
-		name:        "crossing2",
-		liberate:    true
+		name:        "crossing2"
 	}, {
 		coords:      [78.531,128.468],
 		name:        "crossing3"
@@ -2324,6 +2323,7 @@
 		coords:      [80.406,125.063],  // 1x-2x Nekker Warrior (L12), 3x-4x Nekker Level 8 (in _crookback_bog/cb_poe_01/nekkers_group1)
 		name:        "nekker",
 		level:       "#8 & 12",
+		after:       "event.crossing3",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[75.500,123.938], [80.219,118.388], [82.844,119.625], [84.531,124.344], [82.469,129.938],
@@ -2669,6 +2669,7 @@
 		coords:      [89.219,66.969],   // 4x-6x Drowner (L9) (in _crow_perch/cp_poe_east/drowner_group4)
 		name:        "drowner",
 		level:       "#9",
+		after:       "event.crossing1",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[86.469,62.219], [92.469,62.219], [92.469,68.219], [86.469,68.219]]

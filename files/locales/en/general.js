@@ -553,7 +553,11 @@ window.i18nData.en.general = {
 		children2:    { desc: "", label: "Never Trust Children II - Skellige", link: "https://witcher.fandom.com/wiki/Never_Trust_Children" },
 		contract:     { desc: "", label: "Contract on a Witcher" },
 		crossing1:    { desc: "", label: "Deadly Crossing I", link: "https://witcher.fandom.com/wiki/Deadly_Crossing" },
-		crossing2:    { desc: "", label: "Deadly Crossing II - Mulbrydale", link: "https://witcher.fandom.com/wiki/Deadly_Crossing" },
+		crossing2: {
+			label: "Deadly Crossing II - Mulbrydale",
+			desc:  "Accessible two days after you have visited the bridge for the first time.",
+			link:  "https://witcher.fandom.com/wiki/Deadly_Crossing"
+		},
 		crossing3:    { desc: "", label: "Deadly Crossing III - Crookback Bog", link: "https://witcher.fandom.com/wiki/Deadly_Crossing" },
 		crow: {
 			label: "Crow's Perch Fight",
