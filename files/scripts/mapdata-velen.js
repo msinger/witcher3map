@@ -147,7 +147,6 @@
 		             [129.453,188.953],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [161.031,96.531],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [151.172,68.781],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [136.625,89.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7) // TODO: Check if this is on in-game map.
 		             [72.250,54.875],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [64.563,90.172],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [28.844,101.078]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
@@ -195,7 +194,8 @@
 	}, {
 		coords:      [[110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
 		             [209.156,162.734],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [96.938,31.047]],   // 1x Axe (L7), 2x Sword (L7), 1x Bow (L7)
+		             [96.938,31.047],    // 1x Axe (L7), 2x Sword (L7), 1x Bow (L7)
+		             [136.625,89.219]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7"
 	}, {
 		coords:      [77.656,17.750],    // 1x Leader-Sword (L7), 2x Axe (L7), 4x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
