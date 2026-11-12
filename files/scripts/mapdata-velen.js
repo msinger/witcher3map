@@ -132,7 +132,6 @@
 		             [57.250,216.813],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.156,203.656],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [55.250,182.750],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
-		             [133.156,61.844],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [122.938,63.125],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [141.781,119.922],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [194.781,177.625],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
@@ -156,6 +155,11 @@
 		             [28.844,101.078]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
+	}, {
+		coords:      [133.156,61.844],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		notInGame:   true,
+		notDuring:   "mainquest.family"
 	}, {
 		coords:      [243.156,149.406],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
@@ -181,6 +185,7 @@
 		mounted:     true,
 		notInGame:   true,
 		after:       "contract.shrieker",
+		notDuring:   ["mainquest.family", "mainquest.hunting", "sidequest.favor"],
 		routes: [{
 			name: "banditcamp.mounted.route",
 			coords: [[104.219,64.688], [104.969,64.219], [105.875,62.406], [106.531,62.219], [107.469,62.000],
@@ -948,8 +953,12 @@
 	}],
 	// ----------------- Guarded Treasure ---------------
 	guarded: [{
-		coords:      [[107.281,42.953], // 7x Drowner (L4) (in crow_perch/cp14_hangmans_avenue)
-		             [91.563,19.516]],  // 4x Drowner (L4)
+		coords:      [107.281,42.953],  // 7x Drowner (L4) (in crow_perch/cp14_hangmans_avenue)
+		name:        "drowner",
+		level:       "#4",
+		notDuring:   ["mainquest.hunting", "sidequest.favor"]
+	}, {
+		coords:      [91.563,19.516],   // 4x Drowner (L4)
 		name:        "drowner",
 		level:       "#4"
 	}, {
@@ -3049,6 +3058,7 @@
 		coords:      [133.594,50.781],  // 2x Warg (L5), 12x Wolf (L5) (in _crow_perch/cp_poe_north/wolves_group1)
 		name:        "wolf",
 		level:       "#5",
+		notDuring:   "sidequest.heart",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[136.063,54.719], [130.363,53.906], [130.213,49.406], [131.594,45.547], [133.594,45.891],
@@ -3058,6 +3068,7 @@
 		coords:      [122.188,43.750],  // 2x Warg (L5), 12x Wolf (L5) (in _crow_perch/cp_poe_north/wolves_group2)
 		name:        "wolf",
 		level:       "#5",
+		notDuring:   "sidequest.heart",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[126.297,39.516], [127.281,50.672], [118.219,50.484], [117.438,36.406]]
@@ -3067,23 +3078,26 @@
 		name:        "wolf",
 		level:       "#5",
 		cleared:     "guardedSheep",
+		notDuring:   "sidequest.heart",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[140.469,66.969], [134.594,74.125], [131.219,65.750], [131.219,63.844], [135.563,62.391]]
 		}]
 	}, {
 		coords:      [114.125,43.719],  // 12x-16x Nekker (L6) (in _crow_perch/cp_poe_north/nekkers_group1)
-		name:        "nekker", // TODO: Are those Nekkers disabled while we search for Princess?
+		name:        "nekker",
 		level:       "#6",
+		notDuring:   "mainquest.family",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[116.781,47.609], [111.531,47.875], [110.672,41.031], [116.641,39.344]]
 		}]
 	}, {
 		coords:      [116.344,70.688],  // 12x-16x Nekker (L6) (in _crow_perch/cp_poe_north/nekkers_group2)
-		name:        "nekker", // TODO: Are those Nekkers disabled while doing ritual?
+		name:        "nekker",
 		level:       "#6",
 		after:       "contract.shrieker",
+		notDuring:   "mainquest.family",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[121.594,65.406], [121.969,73.813], [116.281,73.906], [113.031,73.188], [113.125,70.031],
@@ -4578,6 +4592,7 @@
 		coords:      [85.531,50.438],   // 4x-6x Drowner (L4) (in _spitfire_bluff/encounters)
 		name:        "drowner",
 		level:       "#4",
+		notDuring:   ["mainquest.hunting", "sidequest.favor"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[85.922,48.813], [89.203,50.563], [90.078,51.813], [89.406,53.422], [83.484,52.063],
@@ -4595,6 +4610,7 @@
 		coords:      [69.688,19.516],   // 4x-6x Drowner (L4) (in _spitfire_bluff/encounters)
 		name:        "drowner",
 		level:       "#4",
+		notDuring:   ["mainquest.hunting", "sidequest.favor"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[74.563,20.531], [73.688,22.531], [67.406,19.094], [68.359,17.281]]
@@ -4603,7 +4619,7 @@
 		coords:      [95.438,50.563],   // 2x Warg (L8), 12x Wolf (L5) (in _spitfire_bluff/encounters)
 		name:        "wolf",
 		level:       "#5 & 8",
-		notDuring:   "sidequest.takewant",
+		notDuring:   ["mainquest.hunting", "sidequest.favor", "sidequest.takewant"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[94.750,43.688], [99.563,53.281], [94.094,55.438], [91.938,46.125]]
@@ -4612,6 +4628,7 @@
 		coords:      [81.969,34.031],   // 1x Warg (L8), 6x Wolf (L5) (in _spitfire_bluff/encounters)
 		name:        "wolf",
 		level:       "#5 & 8",
+		notDuring:   ["mainquest.hunting", "sidequest.favor"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[79.406,33.594], [83.359,32.313], [83.906,35.219], [80.188,35.109]]
