@@ -2936,6 +2936,7 @@
 		coords:      [89.203,87.031],   // 2x Warg (L8), 12x Wolf (L5) (in _crow_perch/cp_poe_east/wolf_group2)
 		name:        "wolf",
 		level:       "#5 & 8",
+		after:       "event.robbery",
 		notDuring:   "sidequest.cat",
 		areas: [{
 			name: "monster.spawn",
@@ -2945,6 +2946,7 @@
 		coords:      [88.188,78.313],   // 1x Warg (L8), 6x Wolf (L5) (in _crow_perch/cp_poe_east/wolf_group3)
 		name:        "wolf",
 		level:       "#5 & 8",
+		after:       "event.robbery",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[90.906,76.156], [90.906,81.250], [85.375,81.250], [85.375,76.156]]
