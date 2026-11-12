@@ -515,6 +515,13 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks, skipLoca
 	}
 
 	function genLabel(item, dataKey, subKey, noLinks) {
+		if (item.processed) {
+			console.error("Called genLabel for already processed item.", item);
+			if (noLinks)
+				return item.labelText;
+			return item.label;
+		}
+
 		let label = item.label || "";
 
 		if (typeof label != "string" || !label) {
@@ -568,8 +575,13 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks, skipLoca
 			}
 			let ltext = text;
 			if (ltext === null) {
-				let subKey = genSubKey(items[i].item, items[i].item.dataKey);
-				ltext = genLabel(items[i].item, items[i].item.dataKey, subKey, true);
+				let item = items[i].item;
+				if (item.processed) {
+					ltext = item.labelText;
+				} else {
+					let subKey = genSubKey(item, item.dataKey);
+					ltext = genLabel(item, item.dataKey, subKey, true);
+				}
 			}
 			if (noLinks)
 				links += ltext;
@@ -1050,6 +1062,7 @@ function substMapData(mapInfo, data, dataKey, quests, f, r, a, noLinks, skipLoca
 		item.icon        = icon;
 		item.label       = label;
 		item.labelText   = labelText;
+		item.processed   = true;
 		item.desc        = desc;
 		item.notInGame   = notInGame;
 		item.portal      = portal;
