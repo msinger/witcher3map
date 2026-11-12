@@ -1,8 +1,12 @@
 { let getMapData = function(i) { return {
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
-		coords:      [[82.797,87.984],
-		             [99.938,130.172]]
+		coords:      [99.938,130.172]
+	}, {
+		coords:      [82.797,87.984],   // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker) (from the nest)
+		id:          "abandonedBoatmakerHutNest", // This is combined with a monster nest.
+		name:        "ghoul",
+		level:       "#9"
 	}, {
 		coords:      [238.156,201.687],
 		hos:         true
@@ -5325,8 +5329,12 @@
 		name:        "ghoul",
 		level:       "#9"
 	}, {
-		coords:      [[82.969,86.828],   // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker)
-		             [133.422,162.531],  // --\__ together: 8x Ghoul (L9) (in greyrocks/gr18_trebuchet_factory)
+		coords:      [82.969,86.828],    // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker)
+		id:          "abandonedBoatmakerHutNest", // This is combined with an abandoned site.
+		name:        "ghoul",
+		level:       "#9"
+	}, {
+		coords:      [[133.422,162.531], // --\__ together: 8x Ghoul (L9) (in greyrocks/gr18_trebuchet_factory)
 		             [133.750,161.688],  // --/
 		             [125.938,147.391]], // 4x Ghoul (L9) (in greyrocks/gr35_ghouls_nest)
 		name:        "ghoul",
@@ -5951,11 +5959,14 @@
 		sells:       ["runestones", "alchemy"],
 		notBefore:   "sidequest.stuff"
 	}, {
-		coords:      [[239.766,70.563],
-		             [83.531,87.641]],
+		coords:      [239.766,70.563],
 		sells:       ["runestones", "alchemy"],
 		liberate:    true,
 		hos:         true
+	}, {
+		coords:      [83.531,87.641],
+		sells:       ["alchemy", "food"],
+		liberate:    "abandonedBoatmakerHutNest"
 	}, {
 		coords:      [210.578,113.344],
 		desc:        "v:shopkeeper.uselessMerchant.desc"
