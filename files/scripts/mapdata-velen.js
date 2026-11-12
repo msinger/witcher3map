@@ -1571,7 +1571,7 @@
 		coords:      [128.141,95.516],
 		id:          "crossroadsInnkeep",
 		extraLabel:  "v:innkeep.innAtTheCrossroads.label",
-		sells:       ["gwent", "drinks"]
+		sells:       ["gwent", "food", "drinks"]
 	}],
 	// ----------------- Interiors ----------------------
 	interior: [{
@@ -6054,9 +6054,9 @@
 	}, {
 		coords:      [99.000,109.281],
 		id:          "lindenvaleInnkeep",
-		label:       "innkeep.label", // TODO: Check if he has the correct icon now ingame.
+		label:       "innkeep.label",
 		desc:        "innkeep.desc",
-		sells:       ["runestones", "alchemy", "food"] // TODO: According to the wiki, inventory should be linked with Crossroads Inn.
+		sells:       ["gwent", "food", "drinks"]
 	}, {
 		coords:      [33.453,204.859],
 		extraLabel:  "v:shopkeeper.quartermaster.label",
