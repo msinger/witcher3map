@@ -176,6 +176,7 @@
 		level:       "#7",
 		mounted:     true,
 		notInGame:   true,
+		after:       "contract.shrieker",
 		routes: [{
 			name: "banditcamp.mounted.route",
 			coords: [[104.219,64.688], [104.969,64.219], [105.875,62.406], [106.531,62.219], [107.469,62.000],
@@ -2917,6 +2918,8 @@
 		name:        "wilddog",
 		level:       "#1",
 		cleared:     "perchEastGhoulNestNorth",
+		// The Shrieker quest also tries to disable this, but they reference the wrong encounter (cp_poe_north vs.
+		// cp_poe_east), so it doesn't work.
 		areas: [{
 			name: "monster.spawn",
 			coords: [[113.219,88.047], [108.406,96.109], [103.094,88.125], [110.344,83.563]]
@@ -3031,6 +3034,7 @@
 		coords:      [118.281,77.656],  // 5x-7x Wild Dog (L1) (in _crow_perch/cp_poe_north/wild_dogs3)
 		name:        "wilddog",
 		level:       "#1",
+		after:       "contract.shrieker",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[124.625,78.656], [115.813,83.531], [111.813,74.813], [122.438,74.650]]
@@ -3073,6 +3077,7 @@
 		coords:      [116.344,70.688],  // 12x-16x Nekker (L6) (in _crow_perch/cp_poe_north/nekkers_group2)
 		name:        "nekker", // TODO: Are those Nekkers disabled while doing ritual?
 		level:       "#6",
+		after:       "contract.shrieker",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[121.594,65.406], [121.969,73.813], [116.281,73.906], [113.031,73.188], [113.125,70.031],
