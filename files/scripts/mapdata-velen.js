@@ -1,8 +1,6 @@
 { let getMapData = function(i) { return {
 	// ----------------- Abandoned Sites ----------------
 	abandoned: [{
-		coords:      [99.938,130.172]
-	}, {
 		coords:      [82.797,87.984],   // 4x Ghoul (L9) (in crow_perch/cp5_boatmaker) (from the nest)
 		id:          "abandonedBoatmakerHutNest", // This is combined with a monster nest.
 		name:        "ghoul",
@@ -26,6 +24,10 @@
 	}, {
 		coords:      [86.703,27.938],   // 1x Leader-Sword (L6), 2x Sword (L5), 2x Axe (L5), 2x Mace (L5), 5x Crossbow (L5)
 		level:       "#5 & 6"
+	}, {
+		coords:      [99.938,130.172],  // 1x Leader-Sword (L6), 3x Sword (L5), 1x Crossbow (L5)
+		level:       "#5 & 6",
+		before:      "sidequest.ghosts"
 	}, {
 		coords:      [106.219,31.016],  // 1x Axe (L7), 1x Sword (L7), 1x Club (L7), 1x Bow (L7)
 		level:       "#7"
@@ -213,6 +215,7 @@
 		level:       "#7"
 	}, {
 		coords:      [108.234,145.344], // 1x Axe-Shield (L9), 1x Club-Shield (L9), 1x Axe (L9), 1x Mace (L9), 1x Club (L9), 2x Bow (L7)
+		notDuring:   "sidequest.ghosts",
 		level:       "#7 & 9"
 	}, {
 		coords:      [[106.188,115.703], // 1x Leader-Axe2H (L9), 1x Sword (L9), 1x Ranged (L9)
@@ -1338,9 +1341,12 @@
 		coords:      [[86.609,29.156],
 		             [107.125,31.641],
 		             [34.578,98.656],
-		             [99.828,129.547],
 		             [68.109,23.281]],
 		liberate:    true
+	}, {
+		coords:      [99.828,129.547],
+		liberate:    true,
+		before:      "sidequest.ghosts"
 	}, {
 		coords:      [[251.016,141.938],
 		             [178.593,216.218]],
@@ -3457,7 +3463,7 @@
 		coords:      [106.156,149.297], // 4x-6x Ghoul (L9) (in _descent/de_poe_04)
 		name:        "ghoul",
 		level:       "#9",
-		//after:       "treasurehunt.fire", // This quest also spawns 4x Ghoul (L9) here, so for the player it makes no difference.
+		//after:       "treasurehunt.fire", // This quest also spawns 4x Ghoul (L9) here, so for the player it makes no difference. However, the Ghouls of this quest are disabled during Letho's quest.
 		areas: [{
 			name: "monster.spawn",
 			coords: [[107.203,146.750], [107.203,151.047], [105.219,150.672], [104.359,148.594], [105.094,146.750]]
@@ -3509,21 +3515,27 @@
 			coords: [[103.344,124.359], [99.922,125.938], [97.453,119.922], [101.453,118.578]]
 		}]
 	}, {
-		disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
+		//disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
+		// TODO: Check if Letho's quest is able to enable this encounter. If yes, finishing Hazardous after Letho will
+		//       disable it again.
 		coords:      [105.875,119.078], // 1x Bear (L6) (in _descent/de_poe_04)
 		name:        "bear",
 		level:       "#6",
-		after:       "sidequest.hazardous",
+		//after:       "sidequest.hazardous",
+		after:       "sidequest.ghosts",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[107.453,117.031], [107.453,122.250], [104.469,122.250], [104.469,117.031]]
 		}]
 	}, {
-		disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
+		//disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
+		// TODO: Check if Letho's quest is able to enable this encounter. If yes, finishing Hazardous after Letho will
+		//       disable it again.
 		coords:      [107.797,129.875], // 5x-7x Wild Dog (L1) (in _descent/de_poe_04)
 		name:        "wilddog",
 		level:       "#1",
-		after:       "sidequest.hazardous",
+		//after:       "sidequest.hazardous",
+		after:       "sidequest.ghosts",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[109.359,123.813], [110.938,131.688], [110.438,132.344], [110.297,135.297],
@@ -3591,6 +3603,7 @@
 		coords:      [101.141,116.656], // 2x-3x Wraith (L7) (in _descent/de_poe_04)
 		name:        "wraith",
 		level:       "#7",
+		notDuring:   "sidequest.ghosts",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[102.156,116.219], [102.156,117.984], [99.563,117.984], [99.563,116.219]]
@@ -6026,12 +6039,21 @@
 		sells:       ["alchemy", "food"],
 		rescueFrom:  "border_shopkeeper_pid"
 	}, {
-		coords:      [[123.156,179.266],
-		             [99.984,130.453],
-		             [185.500,206.969]],
+		coords:      [123.156,179.266],
+		sells:       ["weapons", "crafting"],
+		liberate:    true
+	}, {
+		coords:      [185.500,206.969],
 		sells:       ["weapons", "crafting"],
 		liberate:    true,
 		hos:         true
+	}, {
+		coords:      [99.984,130.453],
+		sells:       ["weapons", "crafting"],
+		liberate:    true,
+		fromTime:    "#21",
+		toTime:      "#5",
+		before:      "sidequest.ghosts"
 	}, {
 		coords:      [[137.406,160.781],
 		             [30.359,46.734]],
@@ -6082,7 +6104,8 @@
 	}, {
 		coords:      [100.578,130.578],
 		sells:       ["alchemy", "food"],
-		liberate:    true
+		liberate:    true,
+		before:      "sidequest.ghosts"
 	}, {
 		coords:      [129.578,125.719],
 		sells:       ["alchemy", "food"],
