@@ -2,7 +2,7 @@ window.i18nData = window.i18nData || {};
 window.i18nData.ru = window.i18nData.ru || {};
 window.i18nData.ru.general = {
 	abandoned: {
-		label: "Опустевшее поселение",
+		label: "Опустевшее поселение__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Жители оставили это поселение, спасаясь от чудовищ или бандитов, но они еще вернутся, когда " +
 		       "опасность пройдет."
 	},
@@ -19,7 +19,7 @@ window.i18nData.ru.general = {
 		desc:  "На верстаке бронника вы можете усилить свой доспех на ограниченное время."
 	},
 	banditcamp: {
-		label: "Лагерь бандитов",
+		label: "Лагерь бандитов__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Здесь встала лагерем шайка опасных разбойников."
 	},
 	barber: {
@@ -228,7 +228,7 @@ window.i18nData.ru.general = {
 		desc:  "Заточенный здесь клинок будет наносить больший урон."
 	},
 	guarded: {
-		label: "Сокровища под охраной",
+		label: "Сокровища под охраной__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Здесь исключительно опасное чудовище охраняет тайник, полный ценностей."
 	},
 	gwent: {
@@ -282,7 +282,7 @@ window.i18nData.ru.general = {
 		label: "Спрятанное сокровище",
 		desc:  "Тайник с ценными вещами.",
 		guarded: {
-			label: "Спрятанное сокровище",
+			label: "Спрятанное сокровище__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 			desc:  "Тайник с ценными вещами (Охраняется: чудовищем)."
 		}
 	},
@@ -437,11 +437,15 @@ window.i18nData.ru.general = {
 		logo_min:     "files/images/logo/logo_ru_min.png"
 	},
 	monsterden: {
-		label: "Рассадник чудовищ",
+		label: "__?!this.name:Рассадник чудовищ__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Den__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Здесь водятся чудовища, которые беспрестанно терзают всю округу."
 	},
 	monsternest: {
-		label: "Гнездо чудовищ",
+		label: "__?!this.name:Гнездо чудовищ__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Уничтожь гнездо чудовищ с помощью бомб Картечь или Танцующая звезда."
 	},
 	notes: {
@@ -459,7 +463,7 @@ window.i18nData.ru.general = {
 		desc:  "На этой доске можно найти заказы на работу и объявления из жизни местной общины."
 	},
 	pid: {
-		label:       "Человек в беде",
+		label:       "Человек в беде__?this.level: (Level _\\_this.level_\\_)__",
 		desc:        "Здесь есть человек или группа людей, которым нужна помощь.",
 		afterrescue: "После спасения человек идет __сюда__.",
 		rescue:      "Нужно спасти __отсюда__."
@@ -796,7 +800,7 @@ window.i18nData.ru.general = {
 		desc:  "Здесь прятали товар контрабандисты."
 	},
 	spoils: {
-		label: "Военные трофеи",
+		label: "Военные трофеи__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Здесь вы можете найти ценности, оставшиеся после битвы или морского сражения."
 	},
 	treasure: {

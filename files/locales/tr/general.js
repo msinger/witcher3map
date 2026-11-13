@@ -2,7 +2,7 @@ window.i18nData = window.i18nData || {};
 window.i18nData.tr = window.i18nData.tr || {};
 window.i18nData.tr.general = {
 	abandoned: {
-		label: "Terk Edilmiş Alan",
+		label: "Terk Edilmiş Alan__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Canavar ya da haydut saldırıları nedeniyle terk edilmiş bir yer. Tehlike ortadan kaldırıldıktan " +
 		       "sonra bir kez daha hayat ile dolacaktır."
 	},
@@ -20,7 +20,7 @@ window.i18nData.tr.general = {
 		desc:  "Zırhı masaları sınırlı bir süre için ekstra zırh koruması sağlar."
 	},
 	banditcamp: {
-		label: "Haydut Kampı",
+		label: "Haydut Kampı__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Tehlikeli haydutlardan oluşan bir grup burada kamp yapmış."
 	},
 	barber: {
@@ -224,7 +224,7 @@ window.i18nData.tr.general = {
 		desc:  "Burada bilenmiş bir kılıç daha fazla hasar verir."
 	},
 	guarded: {
-		label: "Korunan Hazine",
+		label: "Korunan Hazine__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Bilhassa güçlü bir canavar burada kıymetli bir zulayı koruyor."
 	},
 	gwent: {
@@ -279,7 +279,7 @@ window.i18nData.tr.general = {
 		label: "Gizli Hazine",
 		desc:  "Değerli malların bir zulası.",
 		guarded: {
-			label: "Gizli Hazine",
+			label: "Gizli Hazine__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 			desc:  "Değerli malların bir zulası."
 		}
 	},
@@ -434,11 +434,15 @@ window.i18nData.tr.general = {
 		logo_min:     "files/images/logo/logo_tr_min.png"
 	},
 	monsterden: {
-		label: "Canavar İni",
+		label: "__?!this.name:Canavar İni__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Den__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Canavarlar tarafından işgal edilmiş bir yer. Yakınında yaşayanlar için büyük bir sorun."
 	},
 	monsternest: {
-		label: "Canavar Yuvası",
+		label: "__?!this.name:Canavar Yuvası__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Canavar yuvasını misket yada patlayan yıldız bombaları ile yok et."
 	},
 	notes: {
@@ -456,7 +460,7 @@ window.i18nData.tr.general = {
 		desc:  "Burada canavar kontratlarını ve bölgeyle ilgili duyuruları bulabilirsin."
 	},
 	pid: {
-		label:       "Zor Durumdaki Kişi",
+		label:       "Zor Durumdaki Kişi__?this.level: (Level _\\_this.level_\\_)__",
 		desc:        "Burada bir kişi ya da bir grubun yardıma ihtiyacı var.",
 		afterrescue: "Kurtulduktan sonra kişi __bu__ konuma gider.",
 		rescue:      "__Buradan__ kurtarılması gerekiyor."
@@ -793,7 +797,7 @@ window.i18nData.tr.general = {
 		desc:  "Kaçak mallar burada gizli."
 	},
 	spoils: {
-		label: "Savaş Ganimetleri",
+		label: "Savaş Ganimetleri__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Bir savaştan veya çarpışmadan sonra geride kalan ganimetler için burada arama yapın."
 	},
 	treasure: {

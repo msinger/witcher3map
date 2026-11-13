@@ -2,7 +2,7 @@ window.i18nData = window.i18nData || {};
 window.i18nData.zh = window.i18nData.zh || {};
 window.i18nData.zh.general = {
 	abandoned: {
-		label: "廢棄地點",
+		label: "廢棄地點__?this.name:－_\\_this.name@monster_\\_ ____?this.level:（Level _\\_this.level_\\_）__",
 		desc:  "由於怪物或強盜攻擊被拋棄的地方。一旦危險消除，它將再次充滿生機。"
 	},
 	alchemy: {
@@ -18,7 +18,7 @@ window.i18nData.zh.general = {
 		desc:  "護甲加工桌可以在有限的時間內增加你裝備的護甲值。"
 	},
 	banditcamp: {
-		label: "強盜營地",
+		label: "強盜營地__?this.level:（Level _\\_this.level_\\_）__",
 		desc:  "一群危險的強盜在這裡扎營。"
 	},
 	barber: {
@@ -224,7 +224,7 @@ window.i18nData.zh.general = {
 		desc:  "在這裡研磨過的劍會造成更多傷害。"
 	},
 	guarded: {
-		label: "怪物看守的寶藏",
+		label: "怪物看守的寶藏__?this.name:－_\\_this.name@monster_\\_ ____?this.level:（Level _\\_this.level_\\_）__",
 		desc:  "一個特別強大的怪物在這裡守衛著寶貴的寶藏。"
 	},
 	gwent: {
@@ -277,7 +277,7 @@ window.i18nData.zh.general = {
 		label: "隱藏的寶藏",
 		desc:  "被藏起來的寶藏。",
 		guarded: {
-			label: "隱藏的寶藏",
+			label: "隱藏的寶藏__?this.name:－_\\_this.name@monster_\\_ ____?this.level:（Level _\\_this.level_\\_）__",
 			desc:  "被藏起來的寶藏。"
 		}
 	},
@@ -432,11 +432,15 @@ window.i18nData.zh.general = {
 		logo_min:     "files/images/logo/logo_zh_min.png"
 	},
 	monsterden: {
-		label: "怪物窩",
+		label: "__?!this.name:怪物窩__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Den__" +
+		       "__?this.level:（Level _\\_this.level_\\_）__",
 		desc:  "怪物出沒的地點。附近人家的心頭大患。"
 	},
 	monsternest: {
-		label: "怪物巢穴",
+		label: "__?!this.name:怪物巢穴__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
+		       "__?this.level:（Level _\\_this.level_\\_）__",
 		desc:  "可以用蜂窩或舞動之心摧毀怪物巢穴。"
 	},
 	notes: {
@@ -454,7 +458,7 @@ window.i18nData.zh.general = {
 		desc:  "這裡張貼了怪物委託和與當地居民相關的公告。"
 	},
 	pid: {
-		label:       "有困擾的人",
+		label:       "有困擾的人__?this.level:（Level _\\_this.level_\\_）__",
 		desc:        "這有一位或者一群人需要協助。",
 		afterrescue: "得救後，人去__這裡__。",
 		rescue:      "需要從__這裡__保存。"
@@ -790,7 +794,7 @@ window.i18nData.zh.general = {
 		desc:  "走私品藏在這裡。"
 	},
 	spoils: {
-		label: "戰利品",
+		label: "戰利品__?this.name:－_\\_this.name@monster_\\_ ____?this.level:（Level _\\_this.level_\\_）__",
 		desc:  "在這裡搜索戰鬥或衝突後留下的戰利品。"
 	},
 	treasure: {

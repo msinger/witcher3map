@@ -2,7 +2,7 @@ window.i18nData = window.i18nData || {};
 window.i18nData.pl = window.i18nData.pl || {};
 window.i18nData.pl.general = {
 	abandoned: {
-		label: "Opuszczone miejsce",
+		label: "Opuszczone miejsce__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Miejsce porzucone z powodu ataków potworów lub bandytów. Po wyeliminowaniu niebezpieczeństwa znów " +
 		       "zapełni się życiem."
 	},
@@ -19,7 +19,7 @@ window.i18nData.pl.general = {
 		desc:  "Stół płatnerski zapewni ci przez określony czas zwiększony pancerz."
 	},
 	banditcamp: {
-		label: "Obóz bandytów",
+		label: "Obóz bandytów__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Grupa niebezpiecznych bandytów, stworzyła tutaj swój obóz."
 	},
 	barber: {
@@ -233,7 +233,7 @@ window.i18nData.pl.general = {
 		desc:  "Miecz naostrzony tutaj, zadaje więcej obrażeń."
 	},
 	guarded: {
-		label: "Strzeżony skarb",
+		label: "Strzeżony skarb__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Tutaj potężny potwór chroni skrzyni z cennym skarbem."
 	},
 	gwent: {
@@ -286,7 +286,7 @@ window.i18nData.pl.general = {
 		label: "Ukryty skarb",
 		desc:  "Ukryty skarb z wartościowymi przedmiotami.",
 		guarded: {
-			label: "Ukryty skarb",
+			label: "Ukryty skarb__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 			desc:  "Ukryty skarb z wartościowymi przedmiotami."
 		}
 	},
@@ -441,11 +441,15 @@ window.i18nData.pl.general = {
 		logo_min:     "files/images/logo/logo_pl_min.png"
 	},
 	monsterden: {
-		label: "Gniazdo potworów",
+		label: "__?!this.name:Gniazdo potworów__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Den__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Miejsce, w którym zalęgły się potwory. Okoliczni mieszkańcy omijają je z daleka."
 	},
 	monsternest: {
-		label: "Gniazdo potworów",
+		label: "__?!this.name:Gniazdo potworów__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Zniszcz gniazda potworów za pomocą Kartacza lub Gwiazdy Tańczącej."
 	},
 	notes: {
@@ -463,7 +467,7 @@ window.i18nData.pl.general = {
 		desc:  "Tutaj możesz znaleźć zlecenia na potwory, oraz ogłoszenia na temat aktualnych problemów mieszkańców."
 	},
 	pid: {
-		label:       "Osoba w potrzebie",
+		label:       "Osoba w potrzebie__?this.level: (Level _\\_this.level_\\_)__",
 		desc:        "Znajduje się tu osoba lub grupa osób które potrzebują pomocy.",
 		afterrescue: "Po zapisaniu, osoba udaje się __tutaj__.",
 		rescue:      "Musi być zapisany z __tutaj__."
@@ -801,7 +805,7 @@ window.i18nData.pl.general = {
 		desc:  "Miejsce ukrycia ładunku kontrabandy."
 	},
 	spoils: {
-		label: "Łupy Wojenne",
+		label: "Łupy Wojenne__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Przeszukaj to miejsce w poszukiwaniu łupu po bitwie lub pokonaniu potworów."
 	},
 	treasure: {

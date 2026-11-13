@@ -2,7 +2,7 @@ window.i18nData = window.i18nData || {};
 window.i18nData.cz = window.i18nData.cz || {};
 window.i18nData.cz.general = {
 	abandoned: {
-		label: "Opuštěná osada",
+		label: "Opuštěná osada__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Obyvatele této osady vyhnali zbojníci či příšery, ale jakmile nebezpečí pomine, opět se sem vrátí."
 	},
 	alchemy: {
@@ -19,7 +19,7 @@ window.i18nData.cz.general = {
 		desc:  "Zbrojířské stoly tvému vybavení na omezený čas poskytnou zvýšenou hodnotu zbroje."
 	},
 	banditcamp: {
-		label: "Tábor zbojníků",
+		label: "Tábor zbojníků__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Zde se utábořila skupina nebezpečných zbojníků."
 	},
 	barber: {
@@ -229,7 +229,7 @@ window.i18nData.cz.general = {
 		desc:  "Zde naostřená čepel bude působit větší poškození."
 	},
 	guarded: {
-		label: "Hlídaný poklad",
+		label: "Hlídaný poklad__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Obzvláště mocné monstrum zde střeží cennou skrýš."
 	},
 	gwent: {
@@ -283,7 +283,7 @@ window.i18nData.cz.general = {
 		label: "Ukrytý poklad",
 		desc:  "Tajná skrýš plná cenného zboží.",
 		guarded: {
-			label: "Ukrytý poklad",
+			label: "Ukrytý poklad__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 			desc:  "Tajná skrýš plná cenného zboží."
 		}
 	},
@@ -438,11 +438,15 @@ window.i18nData.cz.general = {
 		logo_min:     "files/images/logo/logo_cz_min.png"
 	},
 	monsterden: {
-		label: "Doupě příšer",
+		label: "__?!this.name:Doupě příšer__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Den__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Místo zamořené příšerami. Neustálá starost pro ty, kteří žijí poblíž."
 	},
 	monsternest: {
-		label: "Hnízdo příšer",
+		label: "__?!this.name:Hnízdo příšer__" +
+		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
+		       "__?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Zničte hnízda monster pomocí bomb Úl nebo Tančící hvězda."
 	},
 	notes: {
@@ -460,7 +464,7 @@ window.i18nData.cz.general = {
 		desc:  "Zde můžeš najít zakázky na příšery a oznámení týkající se místních záležitostí."
 	},
 	pid: {
-		label:       "Člověk v nesnázích",
+		label:       "Člověk v nesnázích__?this.level: (Level _\\_this.level_\\_)__",
 		desc:        "Je tu člověk nebo skupina lidí, kteří potřebují pomoc.",
 		afterrescue: "Poté, co je člověk zachráněn, jde __sem__.",
 		rescue:      "__Odsud__ je třeba zachránit."
@@ -797,7 +801,7 @@ window.i18nData.cz.general = {
 		desc:  "Zde je ukryté pašované zboží."
 	},
 	spoils: {
-		label: "Válečná kořist",
+		label: "Válečná kořist__?this.name: - _\\_this.name@monster_\\_ ____?this.level: (Level _\\_this.level_\\_)__",
 		desc:  "Zde hledejte kořist po bitvě nebo potyčce."
 	},
 	treasure: {
