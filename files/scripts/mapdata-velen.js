@@ -132,7 +132,7 @@
 		             [57.250,216.813],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.156,203.656],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [55.250,182.750],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
-		             [122.938,63.125],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
+		             [124.766,63.453],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [141.781,119.922],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [194.781,177.625],  // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [92.125,55.750],    // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
