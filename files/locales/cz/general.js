@@ -270,8 +270,10 @@ window.i18nData.cz.general = {
 		desc:  "Zde je třeba očekávat střety se zbojníky, kteří jsou ozbrojení až po zuby."
 	},
 	harbor: {
-		label: "Přístav",
-		desc:  "Místo, kde můžeš najít loď a lodě se zde objevují."
+		label: "__?this.name:_\\_this.name_\\_ __" +
+		       "__?!this.name:Přístav__",
+		desc:  "__?this.name:_\\_this.name/desc_\\_ __" +
+		       "__?!this.name:Místo, kde můžeš najít loď a lodě se zde objevují.__"
 	},
 	herbalist: {
 		label: "Bylinkář",

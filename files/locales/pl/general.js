@@ -273,8 +273,10 @@ window.i18nData.pl.general = {
 		desc:  "Spodziewaj się tutaj uzbrojonych po zęby bandytów."
 	},
 	harbor: {
-		label: "Port",
-		desc:  "Miejsce gdzie można znaleźć łódź, łodzie będą się tu pojawiać."
+		label: "__?this.name:_\\_this.name_\\_ __" +
+		       "__?!this.name:Port__",
+		desc:  "__?this.name:_\\_this.name/desc_\\_ __" +
+		       "__?!this.name:Miejsce gdzie można znaleźć łódź, łodzie będą się tu pojawiać.__"
 	},
 	herbalist: {
 		label: "Zielarz",

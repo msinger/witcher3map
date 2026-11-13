@@ -266,8 +266,10 @@ window.i18nData.tr.general = {
 		desc:  "Burada baştan-aşağı-silahlı haydutlarla karşılaşmayı um."
 	},
 	harbor: {
-		label: "Liman",
-		desc:  "Bot bulabileceğiniz yer, botlar burada oluşur."
+		label: "__?this.name:_\\_this.name_\\_ __" +
+		       "__?!this.name:Liman__",
+		desc:  "__?this.name:_\\_this.name/desc_\\_ __" +
+		       "__?!this.name:Bot bulabileceğiniz yer, botlar burada oluşur.__"
 	},
 	herbalist: {
 		label: "Otacı",

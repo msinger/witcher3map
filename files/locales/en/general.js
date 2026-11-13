@@ -872,8 +872,10 @@ window.i18nData.en.general = {
 		desc:  "Expect to run into armed-to-the-teeth bandits here."
 	},
 	harbor: {
-		label: "Harbor",
-		desc:  "A place where you can find a boat, boats will respawn here."
+		label: "__?this.name:_\\_this.name_\\_ __" +
+		       "__?!this.name:Harbor__",
+		desc:  "__?this.name:_\\_this.name/desc_\\_ __" +
+		       "__?!this.name:A place where you can find a boat, boats will respawn here.__"
 	},
 	herbalist: {
 		label: "Herbalist",

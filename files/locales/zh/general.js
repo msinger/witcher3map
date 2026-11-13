@@ -264,8 +264,10 @@ window.i18nData.zh.general = {
 		desc:  "預計在這裡會遇到武裝到牙齒的土匪。"
 	},
 	harbor: {
-		label: "港口",
-		desc:  "一個可以找到船的地方，船會在這裡重生。"
+		label: "__?this.name:_\\_this.name_\\_ __" +
+		       "__?!this.name:港口__",
+		desc:  "__?this.name:_\\_this.name/desc_\\_ __" +
+		       "__?!this.name:一個可以找到船的地方，船會在這裡重生。__"
 	},
 	herbalist: {
 		label: "草藥師",
