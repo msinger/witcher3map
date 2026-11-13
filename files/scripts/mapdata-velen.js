@@ -3497,9 +3497,11 @@
 			coords: [[114.719,148.484], [114.719,155.750], [111.344,155.750], [111.344,148.484]]
 		}]
 	}, {
+		disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
 		coords:      [100.609,122.078], // {21h-5h: 2x-3x Wraith (L7)} (in _descent/de_poe_04)
 		name:        "wraith",
 		level:       "#7",
+		after:       "sidequest.hazardous",
 		fromTime:    "#21",
 		toTime:      "#5",
 		areas: [{
@@ -3507,17 +3509,21 @@
 			coords: [[103.344,124.359], [99.922,125.938], [97.453,119.922], [101.453,118.578]]
 		}]
 	}, {
+		disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
 		coords:      [105.875,119.078], // 1x Bear (L6) (in _descent/de_poe_04)
 		name:        "bear",
 		level:       "#6",
+		after:       "sidequest.hazardous",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[107.453,117.031], [107.453,122.250], [104.469,122.250], [104.469,117.031]]
 		}]
 	}, {
+		disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
 		coords:      [107.797,129.875], // 5x-7x Wild Dog (L1) (in _descent/de_poe_04)
 		name:        "wilddog",
 		level:       "#1",
+		after:       "sidequest.hazardous",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[109.359,123.813], [110.938,131.688], [110.438,132.344], [110.297,135.297],
