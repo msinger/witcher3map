@@ -649,8 +649,11 @@
 		coords:      [226.875,151.562],
 		notBefore:   "contract.doors"
 	}, {
-		coords:      [[99.750,120.625],
-		             [96.438,119.781]],
+		coords:      [99.750,120.625],
+		groupId:     "wolfking_cave"
+	}, {
+		coords:      [96.438,119.781],
+		notInGame:   true,
 		groupId:     "wolfking_cave"
 	}, {
 		coords:      [77.875,140.250],
