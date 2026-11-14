@@ -6072,7 +6072,7 @@
 	}, {
 		coords:      [101.547,76.094],
 		id:          "perchMerchant",
-		sells:       ["gwent", "drinks"]
+		sells:       ["gwent", "crafting", "food", "drinks"]
 	}, {
 		coords:      [81.797,41.406],
 		id:          "midcopseMerchant",
@@ -6087,7 +6087,7 @@
 		coords:      [104.031,76.875],
 		id:          "perchQuartermaster",
 		extraLabel:  "v:shopkeeper.quartermaster.label",
-		sells:       ["gwent", "food", "drinks"]
+		sells:       ["gwent", "alchemy", "runestones", "food", "drinks"]
 	}, {
 		coords:      [100.531,76.344],
 		extraLabel:  "v:shopkeeper.anselm.label",
