@@ -53,6 +53,12 @@ window.i18nData.en.v = {
 		olgierd: { label: "Olgierd von Everec" },
 		shani:   { label: "Shani" }
 	},
+	harbor: {
+		loversLanding: {
+			label: "Lovers' Landing",
+			desc:  "Once a favourite midnight haunt for young lovers, this site changed when drowners infested the area. Now the amorous must couple about stables and barns, while only the name of this station remains to remind them of those happy times when they did so beneath an open sky."
+		}
+	},
 	innkeep: {
 		cunnyOfTheGoose:    { label: "Cunny of the Goose" },
 		innAtTheCrossroads: { label: "Inn at the Crossroads" },
