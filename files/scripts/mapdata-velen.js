@@ -3679,6 +3679,7 @@
 		coords:      [122.422,140.391], // 3x-4x Nekker (L8), 6x-8x Nekker (L6) (in _greyrocks/gr_poe_01)
 		name:        "nekker",
 		level:       "#6 & 8",
+		after:       "event.caravan",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[124.391,138.594], [124.391,142.297], [120.734,142.297], [120.734,138.594]]
@@ -3687,6 +3688,7 @@
 		coords:      [121.016,145.859], // 6x-8x Nekker (L6) (in _greyrocks/gr_poe_01)
 		name:        "nekker",
 		level:       "#6",
+		after:       "event.caravan",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[123.219,143.594], [123.219,148.469], [118.719,148.469], [118.719,143.594]]
