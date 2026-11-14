@@ -1,0 +1,66 @@
+{
+    "gwent": {
+        "popup": {
+            "girl": "Little Flint Girl - Gwent Player"
+        }
+    },
+    "poi": {
+        "desc": {
+            "balbina": " ",
+            "blaviken": " ",
+            "camp": " ",
+            "den": " ",
+            "dragon": " ",
+            "emperor": " ",
+            "grigg": " ",
+            "hood": " ",
+            "joss": " ",
+			"pepper": " ",
+            "pigs": " ",
+			"slippers": " ",
+            "start": " ",
+            "thumb": " ",
+            "tower": " ",
+            "wisp": " ",
+            "witch": " "
+        },
+        "label": {
+            "balbina": "Balbina's Hut",
+            "blaviken": "The Musicians of Blaviken",
+            "camp": "Redbeard's Camp",
+            "den": "Three Bears' Den",
+            "dragon": "Dead Vizima Dragon",
+            "emperor": "The Emperor Of Nilfgaard",
+            "grigg": "Grigg Village",
+            "hood": "Little Red Riding Hood Grandma's House",
+            "joss": "Joss",
+			"pepper": "Red Hot Chilli Peppers - Under the Bridge",
+            "pigs": "Three Little Pigs' Home",
+			"slippers": "Ruby Red Slippers",
+            "start": "Start Point",
+            "thumb": "Thumbelina's Town",
+            "tower": "Longlocks' Tower",
+            "wisp": "Will o' the Wisp",
+            "witch": "Wicked Witch's Hut"
+        }
+    },
+    "shopkeeper": {
+        "desc": {
+            "girl": "Most of these junk items only exist in the Land of a Thousand Fables, and therefore disappear when Geralt leaves the illusion, so it is best to sell them to the Little Flint Girl before leaving the area. Also you can take ribbon which is important for main quest. "
+        },
+        "popup": {
+            "girl": "Little Flint Girl"
+        }
+    },
+    "sidequests": {
+        "desc": {
+            "duck": " "
+        }
+    },
+    "treasure": {
+        "popup": {
+            "knight": "Dead Knight",
+            "pot": "Pot of Gold"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "poi": {
+        "desc": {
+            "answer": "Správná odpověď na hádanku. ",
+            "shani": "Falešný Shani tě volá, aby tě rozptýlil. ",
+            "start": "Vstupní bod na mapě. ",
+            "swing": "Jedna ze špatných odpovědí na hádanku. ",
+            "tomb": "Jedna ze špatných odpovědí na hádanku. ",
+            "well": "Jedna ze špatných odpovědí na hádanku. "
+        },
+        "label": {
+            "answer": "Koncový bod",
+            "shani": "Falešná Shani",
+            "start": "Výchozí bod",
+            "swing": "Houpačka",
+            "tomb": "Hrobka",
+            "well": "Studna"
+        }
+    },
+    "treasure": {
+        "popup": {
+            "cave": "Jeskyně plná pokladů",
+            "viper": "Otrávený stříbrný meč Hadí školy"
+        }
+    }
+}

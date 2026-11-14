@@ -1,0 +1,66 @@
+{
+    "gwent": {
+        "popup": {
+            "girl": "Děvčátko s křesadly - hrající gwint"
+        }
+    },
+    "poi": {
+        "desc": {
+            "balbina": " ",
+            "blaviken": " ",
+            "camp": " ",
+            "den": " ",
+            "dragon": " ",
+            "emperor": " ",
+            "grigg": " ",
+            "hood": " ",
+            "joss": " ",
+			"pepper": " ",
+            "pigs": " ",
+			"slippers": " ",
+            "start": " ",
+            "thumb": " ",
+            "tower": " ",
+            "wisp": " ",
+            "witch": " "
+        },
+        "label": {
+            "balbina": "Balbínin dům",
+            "blaviken": "Hudebníci z Blavikenu",
+            "camp": "Rudovousův tábor",
+            "den": "Doupě tří medvědů",
+            "dragon": "Mrtvý wyzimský drak",
+            "emperor": "Nilfgaardský císař",
+            "grigg": "Vesnice frfníků",
+            "hood": "Dům babičky Červené Karkulky",
+            "joss": "Jožka",
+			"pepper": "Red Hot Chilli Peppers - Pod Mostem",
+            "pigs": "Domeček tří malých prasátek",
+			"slippers": "Rubínově červené pantofle",
+            "start": "Počáteční bod",
+            "thumb": "Malenčino městečko",
+            "tower": "Dlouhovlásčina věž",
+            "wisp": "Bludička",
+            "witch": "Chatrč Zlé čarodějnice"
+        }
+    },
+    "shopkeeper": {
+        "desc": {
+            "girl": "Většina této veteše existuje pouze v Kraji tisíce bájí, a proto zmizí, když Geralt iluzi opustí, takže je nejlepší je před odchodem z oblasti prodat děvčátku s křesadly. Také si můžeš vzít stuhu, která je důležitá pro hlavní úkol. "
+        },
+        "popup": {
+            "girl": "Děvčátko s křesadly"
+        }
+    },
+    "sidequests": {
+        "desc": {
+            "duck": " "
+        }
+    },
+    "treasure": {
+        "popup": {
+            "knight": "Mrtvý rytíř",
+            "pot": "Hrnec zlata"
+        }
+    }
+}
