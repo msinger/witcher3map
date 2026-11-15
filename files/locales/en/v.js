@@ -164,9 +164,9 @@ window.i18nData.en.v = {
 		zerrikanianSaddlebags: { label: "'Zerrikanian Saddlebags' (+100)" },
 		paintMerchant:   { desc: "Sells quest item ('__sidequest.volunteer__'), hides, and __shopkeeper.drinks__." },
 		uselessMerchant: { desc: "Sells nothing noteworthy." },
-		travellingMerchant: {
-			label: "Travelling Merchant",
-			desc:  "Not always here. He travells between three spots: Blackbough, Carsten and north of Cunny of the " +
+		travelingMerchant: {
+			label: "Traveling Merchant",
+			desc:  "Not always here. He travels between three spots: Blackbough, Carsten and north of Cunny of the " +
 			       "Goose inn."
 		}
 	},

@@ -6057,7 +6057,7 @@
 		desc:        "v:shopkeeper.paintMerchant.desc"
 	}, {
 		coords:      [151.781,115.188],
-		sells:       ["alchemy", "food"],
+		sells:       ["crafting", "alchemy", "food"],
 		rescueFrom:  "border_shopkeeper_pid"
 	}, {
 		coords:      [123.156,179.266],
@@ -6079,7 +6079,7 @@
 	}, {
 		coords:      [[137.406,160.781],
 		             [30.359,46.734]],
-		sells:       ["runestones", "alchemy", "food"],
+		sells:       ["alchemy", "food"],
 		liberate:    true
 	}, {
 		coords:      [107.469,54.906],
@@ -6179,11 +6179,10 @@
 		coords:      [[107.250,52.844],
 		             [185.516,155.875],
 		             [190.883,112.688]],
-		id:          "shopkeeper.travellingMerchant",
-		label:       "v:shopkeeper.travellingMerchant.label",
-		sells:       "food",
-		extraDesc:   ["v:shopkeeper.travellingMerchant.desc",
-		              "#TODO: Check what he is actually selling."]
+		id:          "shopkeeper.travelingMerchant",
+		label:       "v:shopkeeper.travelingMerchant.label",
+		sells:       "crafting",
+		extraDesc:   "v:shopkeeper.travelingMerchant.desc"
 	}, {
 		coords:      [78.125,68.922],
 		sells:       "food",
@@ -6198,8 +6197,7 @@
 		}]
 	}, {
 		coords:      [147.828,148.922],
-		sells:       "food",
-		extraDesc:   "#TODO: Check what he is actually selling, I just added him for the route.",
+		sells:       ["alchemy", "crafting", "food"],
 		routes: [{
 			name:    "shopkeeper.label",
 			coords:  [[149.125,148.828], [148.781,149.031], [148.188,148.953], [147.547,148.953], [147.172,149.063],
@@ -6257,8 +6255,7 @@
 		}]
 	}, {
 		coords:      [180.570,119.359],
-		sells:       "food",
-		extraDesc:   "#TODO: Check what he is actually selling, I just added him for the route.",
+		sells:       ["alchemy", "crafting", "food"],
 		routes: [{
 			name:    "shopkeeper.label",
 			coords:  [[181.531,120.375], [180.656,120.000], [180.594,119.641], [180.500,119.172], [180.344,119.016],
@@ -6270,8 +6267,7 @@
 		}]
 	}, {
 		coords:      [180.703,88.094],
-		sells:       "food",
-		extraDesc:   "#TODO: Check what he is actually selling, I just added him for the route.",
+		sells:       ["alchemy", "crafting"],
 		routes: [{
 			name:    "shopkeeper.label",
 			coords:  [[180.703,88.094], [181.094,87.625], [181.453,87.609], [181.969,87.703], [182.406,87.938],
