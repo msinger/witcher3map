@@ -133,7 +133,9 @@ window.i18nData.en.v = {
 		spirits: {
 			label: "Spirits",
 			desc:  "Spirits from the '__sidequest.towerful__' quest."
-		}
+		},
+		pirateLeaderLetter: { label: "Letter from a pirate leader" },
+		letter:             { label: "Letter" }
 	},
 	race: {
 		perch:  { label: "Crow's Perch Course" },

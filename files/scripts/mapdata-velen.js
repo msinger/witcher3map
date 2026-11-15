@@ -30,6 +30,7 @@
 		before:      "sidequest.ghosts"
 	}, {
 		coords:      [106.219,31.016],  // 1x Axe (L7), 1x Sword (L7), 1x Club (L7), 1x Bow (L7)
+		id:          "abandonedHangman",
 		level:       "#7"
 	}, {
 		coords:      [75.875,26.844],   // 1x Axe (L7), 3x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
@@ -5720,6 +5721,14 @@
 		global:      true,
 		label:       "card.label",
 		extraLabel:  "card.neutral.zoltan.label"
+	}, {
+		coords:      [106.063,30.742],
+		label:       "v:poi.pirateLeaderLetter.label",
+		uncleared:   "abandonedHangman"
+	}, {
+		coords:      [106.008,30.875],
+		label:       "v:poi.letter.label",
+		cleared:     "abandonedHangman"
 	}],
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
