@@ -2311,6 +2311,7 @@
 		coords:      [88.313,112.750],  // 1x Arachas (L11) (in _crookback_bog/cb_poe_01/arachas_group1)
 		name:        "arachas",
 		level:       "#11",
+		after:       "contract.tracks",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[93.906,113.156], [91.051,118.581], [82.925,113.525], [85.500,108.000]]
