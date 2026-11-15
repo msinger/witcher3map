@@ -2941,6 +2941,7 @@
 			coords: [[102.125,93.500], [99.656,100.969], [93.250,98.281], [95.844,91.000]]
 		}]
 	}, {
+		// TODO: I haven't seen them in a while. Check again later if they respawn.
 		coords:      [108.500,88.844],  // 5x-7x Wild Dog (L1) (in _crow_perch/cp_poe_east/wild_dogs_group1)
 		name:        "wilddog",
 		level:       "#1",
@@ -6058,6 +6059,7 @@
 		liberate:    true,
 		hos:         true
 	}, {
+		disabled:    true, // Don't know what's wrong with him. I can't get him to spawn.
 		coords:      [99.984,130.453],
 		sells:       ["weapons", "crafting"],
 		liberate:    true,
