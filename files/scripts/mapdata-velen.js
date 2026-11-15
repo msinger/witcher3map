@@ -3815,6 +3815,7 @@
 			coords: [[136.938,164.063], [135.094,170.453], [132.609,169.594], [134.578,163.094]]
 		}]
 	}, {
+		disabled:    true, // Broken, because spawn points have wrong tag.
 		coords:      [137.359,154.484], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_02)
 		name:        "wilddog",
 		level:       "#1",
@@ -3868,6 +3869,7 @@
 		coords:      [155.484,127.766], // 4x-6x Foglet (L4) (in _greyrocks/gr_poe_03)
 		name:        "foglet",
 		level:       "#4",
+		after:       "sidequest.deathfire",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[157.188,123.641], [157.188,132.578], [153.609,132.578], [153.609,124.047]]
@@ -3916,6 +3918,7 @@
 		coords:      [142.922,108.250], // 5x-7x Wild Dog (L1) (in _greyrocks/gr_poe_04)
 		name:        "wilddog",
 		level:       "#1",
+		after:       "sidequest.bitter",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[147.491,104.344], [146.719,113.250], [138.859,114.219], [138.859,104.344]]
