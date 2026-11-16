@@ -2,6 +2,7 @@ window.i18nData = window.i18nData || {};
 window.i18nData.en = window.i18nData.en || {};
 window.i18nData.en.v = {
 	alchemy: {
+		keira:  { label: "Keira Metz" },
 		pellar: { label: "Pellar" }
 	},
 	armorer: {
@@ -153,7 +154,6 @@ window.i18nData.en.v = {
 			desc:  "Sells __shopkeeper.alchemy__, quest items ('__sidequest.darkness__', '__sidequest.nobleman__' " +
 			       "and '__sidequest.tango__'), and __v:shopkeeper.clearancePotion__."
 		},
-		keira:         { label: "Keira Metz" },
 		loanShark:     { label: "Loan Shark" },
 		quartermaster: { label: "Quartermaster" },
 		vivaldi:       { label: "Vimme Vivaldi" },

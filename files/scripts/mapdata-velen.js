@@ -74,7 +74,14 @@
 		             [226.328,92.500]]
 	}, {
 		coords:      [114.813,49.547],
-		extraLabel:  "v:alchemy.pellar.label"
+		extraLabel:  "v:alchemy.pellar.label",
+		sells:       ["alchemy", "recipes", "runestones"]
+	}, {
+		coords:      [90.109,47.906],
+		id:          "keira",
+		extraLabel:  "v:alchemy.keira.label",
+		sells:       ["alchemy", "recipes", "runestones", "v:clearancePotion"],
+		before:      "sidequest.favor"
 	}],
 	// ----------------- Armorers -----------------------
 	armorer: [{
@@ -6111,12 +6118,6 @@
 		coords:      [81.797,41.406],
 		id:          "midcopseMerchant",
 		sells:       ["gwent", "jewellery"]
-	}, {
-		coords:      [90.109,47.906],
-		id:          "keira",
-		extraLabel:  "v:shopkeeper.keira.label",
-		sells:       ["alchemy", "recipes", "v:clearancePotion"],
-		before:      "sidequest.favor"
 	}, {
 		coords:      [104.031,76.875],
 		id:          "perchQuartermaster",
