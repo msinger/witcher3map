@@ -8,7 +8,8 @@ window.i18nData.ru.general = {
 	},
 	alchemy: {
 		label: "Ингридиенты",
-		desc:  "Здесь вы можете купить ингредиенты для алхимии."
+		desc:  "__?this.sells:Продает _\\_this.sells[, ]@shopkeeper_\\_.__" +
+		       "__?!this.sells:Здесь вы можете купить ингредиенты для алхимии.__"
 	},
 	armorer: {
 		label: "Бронник",

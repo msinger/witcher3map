@@ -8,7 +8,8 @@ window.i18nData.pl.general = {
 	},
 	alchemy: {
 		label: "Składniki alchemiczne",
-		desc:  "Tu możesz kupić składniki alchemiczne."
+		desc:  "__?this.sells:Sprzedaje _\\_this.sells[, ]@shopkeeper_\\_.__" +
+		       "__?!this.sells:Tu możesz kupić składniki alchemiczne.__"
 	},
 	armorer: {
 		label: "Płatnerz",

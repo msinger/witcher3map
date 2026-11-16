@@ -8,7 +8,8 @@ window.i18nData.en.general = {
 	},
 	alchemy: {
 		label: "Alchemy Supplies",
-		desc:  "Here you can buy alchemy ingredients."
+		desc:  "__?this.sells:Sells _\\_this.sells[, ]@shopkeeper_\\_.__" +
+		       "__?!this.sells:Here you can buy alchemy ingredients.__"
 	},
 	alchemylist: {
 		alcohol: {

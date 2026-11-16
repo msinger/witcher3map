@@ -7,7 +7,8 @@ window.i18nData.zh.general = {
 	},
 	alchemy: {
 		label: "煉金術士",
-		desc:  "這裡你可買到煉金配方。"
+		desc:  "__?this.sells:販賣_\\_this.sells[、]@shopkeeper_\\_。__" +
+		       "__?!this.sells:這裡你可買到煉金配方。__"
 	},
 	armorer: {
 		label: "鑄甲師",

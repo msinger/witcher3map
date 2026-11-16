@@ -8,7 +8,8 @@ window.i18nData.tr.general = {
 	},
 	alchemy: {
 		label: "Simya Erzakları",
-		desc:  "Burada simya malzemeleri satın alabilirsiniz."
+		desc:  "__?this.sells:Satış: _\\_this.sells[, ]@shopkeeper_\\_.__" +
+		       "__?!this.sells:Burada simya malzemeleri satın alabilirsiniz.__"
 	},
 	armorer: {
 		label: "Zırhçı",

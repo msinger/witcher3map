@@ -7,7 +7,8 @@ window.i18nData.cz.general = {
 	},
 	alchemy: {
 		label: "Alchymistické zásoby",
-		desc:  "Zde si můžeš koupit alchymistické přísady."
+		desc:  "__?this.sells:Prodává _\\_this.sells[, ]@shopkeeper_\\_.__" +
+		       "__?!this.sells:Zde si můžeš koupit alchymistické přísady.__"
 	},
 	armorer: {
 		label: "Zbrojíř",
