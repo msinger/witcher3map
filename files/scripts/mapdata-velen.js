@@ -804,6 +804,41 @@
 		notInGame:   true,
 		notBefore:   "mainquest.junior",
 		groupId:     "whoreson_arena"
+	}, {
+		coords:      [49.211,41.641],
+		during:      "mainquest.wandering",
+		portal:      true,
+		underground: true,
+		entrances:   "wandering_cave_entry",
+		notInGame:   true,
+		routes: [{
+			name: "entrance.portal.dest.label",
+			coords: [[49.211,41.641], [57.492,41.078]]
+		}]
+	}, {
+		coords:      [[47.297,36.734], [42.773,44.641]],
+		id:          "kelpiePortal",
+		during:      "mainquest.wandering",
+		portal:      true,
+		underground: true,
+		entrances:   "wandering_cave_entry",
+		notInGame:   true,
+		routes: [{
+			name: "entrance.portal.dest.label",
+			coords: [[47.297,36.734], [42.773,44.641]]
+		}]
+	}, {
+		coords:      [[41.758,43.367], [51.789,42.852]],
+		id:          "followHuntPortal",
+		during:      "mainquest.wandering",
+		portal:      true,
+		underground: true,
+		entrances:   "wandering_cave_entry",
+		notInGame:   true,
+		routes: [{
+			name: "entrance.portal.dest.label",
+			coords: [[41.758,43.367], [51.789,42.852]]
+		}]
 	}],
 	// ----------------- Events -------------------------
 	event: [{
@@ -5387,7 +5422,7 @@
 		             [45.266,41.125]],
 		underground: true,
 		notBefore:   "mainquest.wandering",
-		entrances:   ["wandering_cave_entry", "wandering_cave_exit"]
+		entrances:   "wandering_cave_entry"
 	}, {
 		coords:      [60.047,126.375],  // 1x Drowned Dead (L9), {6h-21h: 4x, 21h-6h: 7x} Drowner (L9) (in crookback_nog/cb21_swampnests)
 		name:        "drowner",
@@ -7228,21 +7263,8 @@
 		             [34.531,129.891]],
 		notBefore:   "mainquest.bald"
 	}, {
-		coords:      [[52.617,50.609],
-		             [37.828,40.742],
+		coords:      [[37.828,40.742],
 		             [41.234,45.984],
-		             [48.391,47.484],
-		             [42.813,42.664],
-		             [43.984,43.297],
-		             [43.672,41.797],
-		             [39.641,43.594],
-		             [52.508,42.633],
-		             [39.766,42.656],
-		             [52.195,46.797],
-		             [52.438,47.750],
-		             [51.359,49.531],
-		             [52.438,51.258],
-		             [53.539,54.297],
 		             [46.867,45.219],
 		             [47.375,40.852],
 		             [46.367,40.648],
@@ -7253,17 +7275,39 @@
 		             [48.141,44.297],
 		             [41.047,39.578],
 		             [43.406,39.680],
-		             [38.922,39.703],
 		             [57.516,40.891],
 		             [51.727,39.453]],
+		underground: true,
+		entrances:   "wandering_cave_entry",
+		notBefore:   "mainquest.wandering"
+	}, {
+		coords:      [[52.617,50.609],
+		             [48.391,47.484],
+		             [52.508,42.633],
+		             [52.195,46.797],
+		             [52.438,47.750],
+		             [51.359,49.531],
+		             [52.438,51.258],
+		             [53.539,54.297],
+		             [54.992,50.602]],
 		underground: true,
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
 		notBefore:   "mainquest.wandering"
 	}, {
+		coords:      [[42.813,42.664],
+		             [43.984,43.297],
+		             [43.672,41.797],
+		             [39.641,43.594],
+		             [39.766,42.656],
+		             [41.727,42.266]],
+		underground: true,
+		entrances:   "wandering_cave_entry",
+		during:      "mainquest.wandering"
+	}, {
 		coords:      [51.227,43.102],
 		unreachable: true,
 		underground: true,
-		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
+		entrances:   "wandering_cave_entry",
 		notBefore:   "mainquest.wandering"
 	}, {
 		coords:      [[214.531,193.344],
@@ -7472,10 +7516,17 @@
 		underground: true,
 		entrances:   "hillock_lair"
 	}, {
-		coords:      [[50.531,46.539],
-		             [40.211,42.695],
+		coords:      [[40.211,42.695],
 		             [45.820,38.750],
-		             [54.891,40.984]],
+		             [54.891,40.984],
+		             [39.461,43.016]],
+		underwater:  true,
+		underground: true,
+		entrances:   "wandering_cave_entry",
+		notBefore:   "mainquest.wandering"
+	}, {
+		coords:      [[50.531,46.539],
+		             [50.828,47.273]],
 		underwater:  true,
 		underground: true,
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
