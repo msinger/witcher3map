@@ -5755,6 +5755,10 @@
 		coords:      [106.008,30.875],
 		label:       "v:poi.letter.label",
 		cleared:     "abandonedHangman"
+	}, {
+		coords:      [121.313,179.813],
+		label:       "v:poi.bloodCoveredLetter.label",
+		uncleared:   "abandonedFerryStation"
 	}],
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{
