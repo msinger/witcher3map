@@ -1367,7 +1367,6 @@
 	harbor: [{
 		coords:      [[199.828,86.109],
 		             [157.563,161.406],
-		             [123.422,172.734],
 		             [114.813,104.563],
 		             [95.344,26.344],
 		             [53.266,75.359],
@@ -1379,6 +1378,9 @@
 	}, {
 		coords:      [107.375,41.438],
 		name:        "v:signpost.hangmansAlley"
+	}, {
+		coords:      [123.422,172.734],
+		name:        "v:signpost.ferryStation"
 	}, {
 		coords:      [114.156,134.563],
 		name:        "v:harbor.loversLanding"
