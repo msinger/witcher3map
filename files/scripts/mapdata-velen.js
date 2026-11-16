@@ -6128,7 +6128,7 @@
 		rescueFrom:  "border_shopkeeper_pid"
 	}, {
 		coords:      [123.156,179.266],
-		sells:       ["weapons", "crafting"],
+		sells:       ["weapons", "runestones", "crafting"],
 		liberate:    true
 	}, {
 		coords:      [185.500,206.969],
@@ -6171,7 +6171,7 @@
 		rescueFrom:  "event.caravan"
 	}, {
 		coords:      [70.563,73.188],
-		sells:       ["drinks", "v:ruggedSaddlebags"]
+		sells:       ["food", "drinks", "v:ruggedSaddlebags"]
 	}, {
 		coords:      [83.766,69.922],
 		id:          "claywichMerchant",
@@ -6246,8 +6246,7 @@
 		extraDesc:   "v:shopkeeper.travelingMerchant.desc"
 	}, {
 		coords:      [78.125,68.922],
-		sells:       "food",
-		extraDesc:   "#TODO: Check what he is actually selling, I just added him for the route.",
+		sells:       ["alchemy", "crafting", "food"],
 		routes: [{
 			name:    "shopkeeper.label",
 			coords:  [[[81.281,69.078], [80.500,68.781], [78.336,68.977], [76.320,68.664], [75.125,68.766],
