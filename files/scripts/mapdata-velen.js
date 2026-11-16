@@ -423,7 +423,7 @@
 		hos:         true
 	}, {
 		coords:      [83.171,49.453],
-		notBefore:   "mainquest.wandering"
+		after:       "mainquest.wandering"
 	}],
 	// ----------------- Brothels -----------------------
 	brothel: [{
@@ -6331,13 +6331,13 @@
 		underground: true,
 		entrances:   "wandering_cave_entry"
 	}, {
-		coords:      [89.843,48.809],
+		coords:      [48.875,53.211],
 		name:        "invitation"
 	}, {
-		coords:      [89.843,49.009],
+		coords:      [90.094,48.109],
 		name:        "towerful"
 	}, {
-		coords:      [89.843,49.209],
+		coords:      [90.094,48.273],
 		name:        "favor"
 	}, {
 		coords:      [198.063,82.391],
