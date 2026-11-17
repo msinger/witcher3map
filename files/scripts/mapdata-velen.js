@@ -423,7 +423,11 @@
 		hos:         true
 	}, {
 		coords:      [83.171,49.453],
-		after:       "mainquest.wandering"
+		after:       "mainquest.wandering",
+		notAfter:    "sidequest.towerful"
+	}, {
+		coords:      [53.641,74.766],
+		notBefore:   "sidequest.towerful"
 	}],
 	// ----------------- Brothels -----------------------
 	brothel: [{
