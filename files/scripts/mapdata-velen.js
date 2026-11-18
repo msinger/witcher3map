@@ -161,10 +161,14 @@
 		             [161.031,96.531],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [151.172,68.781],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [72.250,54.875],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [64.563,90.172],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [28.844,101.078]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
+	}, {
+		coords:      [64.563,90.172],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		notInGame:   true,
+		after:       "sidequest.dog"
 	}, {
 		coords:      [133.156,61.844],   // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
@@ -4738,6 +4742,7 @@
 		coords:      [73.156,33.156],   // 4x-5x Endrega Worker (L9) (in _spitfire_bluff/encounters)
 		name:        "endrega",
 		level:       "#9",
+		notDuring:   "sidequest.snares", // Gets disabled as soon as Snares gets available.
 		areas: [{
 			name: "monster.spawn",
 			coords: [[69.531,30.875], [74.188,29.250], [76.563,35.781], [71.875,37.625]]
@@ -4776,6 +4781,7 @@
 		coords:      [62.734,33.141],   // 8x-12x Mucknixer (L15) (in _the_mire/the_mire_01)
 		name:        "mucknixer",
 		level:       "#15",
+		after:       "sidequest.defender",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[66.219,30.172], [66.219,36.672], [59.438,36.672], [59.438,30.172]]
@@ -4914,6 +4920,7 @@
 		coords:      [69.219,89.750],   // 2x-3x Foglet (L10) (in _the_mire/the_mire_02)
 		name:        "foglet",
 		level:       "#10",
+		after:       "sidequest.dog",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[71.203,88.281], [71.203,91.797], [67.391,91.797], [67.391,88.281]]
@@ -4948,6 +4955,7 @@
 		coords:      [30.031,56.844],   // 2x Bear (L6) (in _the_mire/the_mire_03)
 		name:        "bear",
 		level:       "#6",
+		after:       "sidequest.defender",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[32.188,52.188], [34.906,59.063], [27.625,61.656], [24.656,54.563]]
