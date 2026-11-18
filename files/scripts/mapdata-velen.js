@@ -6203,15 +6203,18 @@
 	}, {
 		coords:      [83.766,69.922],
 		id:          "claywichMerchant",
-		sells:       ["gwent", "drinks"],
+		sells:       ["gwent", "food", "drinks", "v:ruggedSaddlebags"],
 		rescueFrom:  "claywich_shopkeeper_pid"
 	}, {
-		coords:      [[92.156,29.109],
-		             [76.797,26.313],
-		             [239.063,156.281]],
+		coords:      [239.063,156.281],
 		sells:       ["armor", "crafting"],
 		liberate:    true,
 		hos:         true
+	}, {
+		coords:      [[92.156,29.109],
+		             [76.586,26.602]],
+		sells:       ["armor", "crafting"],
+		liberate:    true,
 	}, {
 		coords:      [100.578,130.578],
 		sells:       ["alchemy", "food"],
