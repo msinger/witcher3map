@@ -1439,7 +1439,7 @@
 		entrances:   ["wandering_cave_entry", "wandering_cave_exit"],
 		notBefore:   "mainquest.wandering"
 	}, {
-		coords:      [86.016,17.078],   // 2x-3x Drowner (L4) (in nml_w_013)
+		coords:      [86.891,15.906],  // 2x-3x Drowner (L4) (in nml_w_013)
 		guarded:     true,
 		name:        "drowner",
 		level:       "#4",
