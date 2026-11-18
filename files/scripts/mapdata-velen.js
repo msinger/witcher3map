@@ -5802,6 +5802,14 @@
 		coords:      [121.313,179.813],
 		label:       "v:poi.bloodCoveredLetter.label",
 		uncleared:   "abandonedFerryStation"
+	}, {
+		coords:      [76.789,26.188],
+		label:       "v:poi.piratesNotes.label",
+		uncleared:   "abandonedBoatyard"
+	}, {
+		coords:      [76.711,26.383],
+		label:       "v:poi.unsentLetter.label",
+		cleared:     "abandonedBoatyard"
 	}],
 	// ----------------- Scavenger Hunts ----------------
 	scavengerhunt: [{

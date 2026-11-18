@@ -135,9 +135,11 @@ window.i18nData.en.v = {
 			label: "Spirits",
 			desc:  "Spirits from the '__sidequest.towerful__' quest."
 		},
+		bloodCoveredLetter: { label: "Blood-covered letter" },
 		pirateLeaderLetter: { label: "Letter from a pirate leader" },
+		piratesNotes:       { label: "Pirate's notes" },
 		letter:             { label: "Letter" },
-		bloodCoveredLetter: { label: "Blood-covered letter" }
+		unsentLetter:       { label: "Unsent letter" }
 	},
 	race: {
 		perch:  { label: "Crow's Perch Course" },
