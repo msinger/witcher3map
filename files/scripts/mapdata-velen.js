@@ -1374,7 +1374,6 @@
 	// ----------------- Harbors ------------------------
 	harbor: [{
 		coords:      [[199.828,86.109],
-		             [157.563,161.406],
 		             [114.813,104.563],
 		             [28.094,46.609],
 		             [33.641,119.953]]
@@ -1393,6 +1392,9 @@
 	}, {
 		coords:      [95.344,26.344],
 		name:        "v:signpost.coastOfWrecks"
+	}, {
+		coords:      [157.563,161.406],
+		name:        "v:signpost.oxenfurtHarbor"
 	}, {
 		coords:      [114.156,134.563],
 		name:        "v:harbor.loversLanding"
