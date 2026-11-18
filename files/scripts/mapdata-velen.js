@@ -5695,15 +5695,14 @@
 		label:       "v:poi.diary.label",
 		extraDesc:   "v:poi.questitem",
 		quest:       "sidequest.reardon",
-		during:      "sidequest.reardon"
+		notAfter:    "sidequest.reardon"
 	}, {
 		coords:      [84.453,150.578],
 		label:       "v:poi.paper.label",
 		extraDesc:   "v:poi.questitem",
 		underground: true,
 		entrances:   "reardon_cellar",
-		quest:       "sidequest.reardon",
-		during:      "sidequest.reardon"
+		quest:       "sidequest.reardon"
 	}, {
 		coords:      [220.344,194.625],
 		label:       "v:poi.portrait.label",
