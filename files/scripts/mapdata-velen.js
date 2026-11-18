@@ -1210,7 +1210,7 @@
 		rescueFrom:  "claywich_shopkeeper_pid"
 	}, {
 		coords:      [78.219,147.219],
-		before:      "mainquest.family",
+		notAfter:    "mainquest.family",
 		weakBefore:  "mainquest.hillock"
 	}, {
 		coords:      [134.016,131.469],
@@ -6241,8 +6241,8 @@
 		desc:        "v:shopkeeper.uselessMerchant.desc"
 	}, {
 		coords:      [78.078,147.141],
-		sells:       "drinks",
-		before:      "mainquest.family",
+		sells:       ["food", "drinks"],
+		notAfter:    "mainquest.family",
 		weakBefore:  "mainquest.hillock"
 	}, {
 		coords:      [42.156,204.500],
