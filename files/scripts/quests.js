@@ -613,8 +613,7 @@ var quests = {
 	}, {
 		name:       "hillock",
 		level:      5,
-		region:     "velen",
-		notBefore:  "mainquest.ladies" // TODO: Figure out when the earliest point is to get it as a secondary quest.
+		region:     "velen"
 	}, {
 		name:       "humble",
 		level:      49,
