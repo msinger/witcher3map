@@ -6594,7 +6594,7 @@
 		             [155.937,153.281]],
 		name:        "volunteer"
 	}, {
-		coords:      [76.687,148.281],
+		coords:      [56.938,157.031],
 		id:          "mainquest.hillock",
 		name:        "hillock"
 	}, {
