@@ -1211,7 +1211,7 @@
 	}, {
 		coords:      [78.219,147.219],
 		notAfter:    "mainquest.family",
-		weakBefore:  "mainquest.hillock"
+		weakBefore:  "sidequest.hillock"
 	}, {
 		coords:      [134.016,131.469],
 		notBefore:   "sidequest.eternal"
@@ -6247,7 +6247,7 @@
 		coords:      [78.078,147.141],
 		sells:       ["food", "drinks"],
 		notAfter:    "mainquest.family",
-		weakBefore:  "mainquest.hillock"
+		weakBefore:  "sidequest.hillock"
 	}, {
 		coords:      [42.156,204.500],
 		sells:       ["runestones", "alchemy"]
@@ -6595,7 +6595,6 @@
 		name:        "volunteer"
 	}, {
 		coords:      [56.938,157.031],
-		id:          "mainquest.hillock",
 		name:        "hillock"
 	}, {
 		coords:      [[154.968,110.718],

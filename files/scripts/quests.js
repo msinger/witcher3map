@@ -611,10 +611,6 @@ var quests = {
 		region:     "velen",
 		after:      "mainquest.bald"
 	}, {
-		name:       "hillock",
-		level:      5,
-		region:     "velen"
-	}, {
 		name:       "humble",
 		level:      49,
 		region:     "toussaint",
@@ -1264,6 +1260,10 @@ var quests = {
 	}, {
 		name:       "heart",
 		level:      7,
+		region:     "velen"
+	}, {
+		name:       "hillock",
+		level:      5,
 		region:     "velen"
 	}, {
 		name:       "honor",

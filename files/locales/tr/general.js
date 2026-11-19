@@ -356,7 +356,6 @@ window.i18nData.tr.general = {
 		flowers:           { label: "Kırık Çiçekler" },
 		forktail:          { label: "Bir Çatalkuyruğu Yemlemek..." },
 		fpreparations:     { label: "Son Hazırlıklar" },
-		hillock:           { label: "Fısıldayan Tepecik" },
 		humble:            { label: "Alçakgönüllü Ol" },
 		hunting:           { label: "Cadının Peşinde" },
 		ice:               { label: "İnce Buz Üzerinde" },

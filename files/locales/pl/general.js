@@ -363,7 +363,6 @@ window.i18nData.pl.general = {
 		flowers:           { label: "Spis cudzołożnic" },
 		forktail:          { label: "Ażeby widłogona zwabić..." },
 		fpreparations:     { label: "Ostatnie przygotowania" },
-		hillock:           { label: "Szepczące Wzgórze" },
 		humble:            { label: "Wszędzie dobrze" },
 		hunting:           { label: "Polowanie na czarownicę" },
 		ice:               { label: "Na cienkim lodzie" },

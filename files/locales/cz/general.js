@@ -360,7 +360,6 @@ window.i18nData.cz.general = {
 		flowers:           { label: "Zlomené květiny" },
 		forktail:          { label: "Navnadit vidličníka..." },
 		fpreparations:     { label: "Závěrečné přípravy" },
-		hillock:           { label: "Šeptající pahorek" },
 		humble:            { label: "Budiž to někdy tak pokorné" },
 		hunting:           { label: "Lov čarodějnice" },
 		ice:               { label: "Na tenkém ledě" },

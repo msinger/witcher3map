@@ -987,7 +987,6 @@ window.i18nData.en.general = {
 		flowers:           { label: "Broken Flowers", link: "https://witcher.fandom.com/wiki/Broken_Flowers" },
 		forktail:          { label: "To Bait a Forktail...", link: "https://witcher.fandom.com/wiki/To_Bait_a_Forktail..." },
 		fpreparations:     { label: "Final Preparations", link: "https://witcher.fandom.com/wiki/Final_Preparations" },
-		hillock:           { label: "The Whispering Hillock", link: "https://witcher.fandom.com/wiki/The_Whispering_Hillock" },
 		humble:            { label: "Be It Ever So Humble", link: "https://witcher.fandom.com/wiki/Be_It_Ever_So_Humble..." },
 		hunting:           { label: "Hunting a Witch", link: "https://witcher.fandom.com/wiki/Hunting_a_Witch" },
 		ice:               { label: "On Thin Ice", link: "https://witcher.fandom.com/wiki/On_Thin_Ice" },

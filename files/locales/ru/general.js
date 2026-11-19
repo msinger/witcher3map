@@ -359,7 +359,6 @@ window.i18nData.ru.general = {
 		flowers:           { label: "Список блудниц" },
 		forktail:          { label: "Дабы вилохвоста приманить..." },
 		fpreparations:     { label: "Последние приготовления" },
-		hillock:           { label: "Шепчущий холм" },
 		humble:            { label: "Будь это когда-либо таким скромным" },
 		hunting:           { label: "Охота на ведьму" },
 		ice:               { label: "По тонкому льду" },

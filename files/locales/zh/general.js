@@ -354,7 +354,6 @@ window.i18nData.zh.general = {
 		flowers:           { label: "破碎之花" },
 		forktail:          { label: "引誘叉尾龍…" },
 		fpreparations:     { label: "最後的準備" },
-		hillock:           { label: "呢喃山丘" },
 		humble:            { label: "金窩銀窩，還是不如…" },
 		hunting:           { label: "獵捕女巫" },
 		ice:               { label: "如履薄冰" },
