@@ -149,7 +149,6 @@
 		             [51.938,19.578],    // 1x Axe (L7), 1x Mace (L7), 1x Club (L7)
 		             [61.953,184.094],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [85.156,186.453],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [70.500,141.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [160.281,153.641],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [222.156,121.625],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [167.406,182.281],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
@@ -174,6 +173,10 @@
 		level:       "#7",
 		notInGame:   true,
 		notDuring:   "mainquest.family"
+	}, {
+		coords:      [70.500,141.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		notInGame:   true,
+		notDuring:   ["mainquest.baron", "mainquest.family"]
 	}, {
 		coords:      [243.156,149.406],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
@@ -611,8 +614,8 @@
 		coords:      [41.688,46.266],
 		notBefore:   "contract.mystery"
 	}, {
-		coords:      [53.891,126.719]
-		// TODO: Does this cave connect to swamp_cave below?
+		coords:      [53.891,126.719],
+		groupId:     "swamp_cave"
 	}, {
 		coords:      [56.984,155.984],
 		groupId:     "hillock_lair"
@@ -679,6 +682,7 @@
 	}, {
 		coords:      [[53.156,131.560],
 		             [53.875,129.030]],
+		notInGame:   true,
 		groupId:     "swamp_cave"
 	}, {
 		coords:      [72.859,59.297],
@@ -2109,6 +2113,7 @@
 		coords:      [58.344,154.375],  // 3x-4x Endrega Warrior (L11), 8x-10x Endrega Worker (L9) (in _bald_mountain/bm_poe_02/endriagas_group4,5,6)
 		name:        "endrega",
 		level:       "#9 & 11",
+		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[61.719,153.406], [61.719,159.563], [53.156,159.563], [53.156,153.406]]
@@ -2167,6 +2172,7 @@
 		coords:      [58.219,149.844],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_02/foglings_group1)
 		name:        "foglet",
 		level:       "#10",
+		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[60.438,147.906], [60.438,152.438], [56.031,152.438], [56.031,147.906]]
@@ -2218,6 +2224,7 @@
 			coords: [[33.219,137.031], [33.219,142.375], [28.813,142.375], [28.813,137.031]]
 		}]
 	}, {
+		disabled:    true, // Broken, because Swamp Thing fails to enable it.
 		coords:      [52.000,127.906],  // 8x-12x Ghoul (L9) (in _bald_mountain/bm_poe_02/ghouls_group_1_n_2)
 		name:        "ghoul",
 		level:       "#9",
@@ -2244,9 +2251,11 @@
 			coords: [[45.438,138.531], [45.438,145.438], [41.688,145.438], [41.688,138.531]]
 		}]
 	}, {
+		disabled:    true, // Broken, because Swamp Thing fails to enable it.
 		coords:      [56.563,136.969],  // 3x-4x Nekker (L8) (in _bald_mountain/bm_poe_02/nekkers_group1)
 		name:        "nekker",
 		level:       "#8",
+		after:       "contract.swamp",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[58.422,135.625], [58.422,138.500], [54.688,138.500], [54.688,135.625]]
@@ -2300,6 +2309,8 @@
 			coords: [[40.656,152.875], [40.656,155.406], [37.281,155.406], [37.281,152.875]]
 		}]
 	}, {
+		disabled:    true, // Broken, because Swamp Thing fails to enable it. It actually gets enabled after
+		                   // the "Ciri dead epilog", but nobody in their right mind does this anyway.
 		coords:      [57.313,133.313],  // 1x Water Hag (L8) (in _bald_mountain/bm_poe_02/waterhag_group1)
 		name:        "waterhag",
 		level:       "#8",
@@ -2309,9 +2320,11 @@
 			coords: [[58.438,131.313], [58.438,134.375], [54.563,134.375], [54.563,131.313]]
 		}]
 	}, {
+		disabled:    true, // Broken, because Swamp Thing fails to enable it.
 		coords:      [49.500,135.906],  // 1x Wyvern (L9) (in _bald_mountain/bm_poe_02/wyvern_group1)
 		name:        "wyvern",
 		level:       "#9",
+		after:       "contract.swamp",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[51.563,134.688], [51.563,137.500], [47.531,137.500], [47.531,134.688]]
@@ -2328,6 +2341,7 @@
 		coords:      [42.563,157.750],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group1)
 		name:        "wolf",
 		level:       "#5 & 8",
+		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[43.750,154.781], [45.375,158.609], [41.269,160.841], [39.422,157.344]]
@@ -2336,6 +2350,7 @@
 		coords:      [50.375,158.344],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group2)
 		name:        "wolf",
 		level:       "#5 & 8",
+		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[52.813,156.969], [52.813,160.563], [47.969,160.563], [47.969,156.969]]
@@ -2431,6 +2446,7 @@
 			coords: [[71.656,122.625], [72.188,131.563], [65.844,131.719], [66.000,122.938]]
 		}]
 	}, {
+		disabled:    true, // Seems to be broken. Maybe because Deadly Crossing III uses no sourceName property for enable/disable?
 		coords:      [80.406,125.063],  // 1x-2x Nekker Warrior (L12), 3x-4x Nekker Level 8 (in _crookback_bog/cb_poe_01/nekkers_group1)
 		name:        "nekker",
 		level:       "#8 & 12",
@@ -3191,11 +3207,13 @@
 			coords: [[116.781,47.609], [111.531,47.875], [110.672,41.031], [116.641,39.344]]
 		}]
 	}, {
+		// TODO: Check if this spawn works. You need to finish the Shrieker mission before the Baron sends you
+		//       to the Pellar.
 		coords:      [116.344,70.688],  // 12x-16x Nekker (L6) (in _crow_perch/cp_poe_north/nekkers_group2)
 		name:        "nekker",
 		level:       "#6",
 		after:       "contract.shrieker",
-		notDuring:   "mainquest.family",
+		before:      "mainquest.family",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[121.594,65.406], [121.969,73.813], [116.281,73.906], [113.031,73.188], [113.125,70.031],
@@ -3307,6 +3325,7 @@
 		name:        "fiend",
 		level:       "#16",
 		cleared:     "guardedFossilHag",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[73.922,160.203], [73.922,168.969], [65.281,168.969], [65.281,160.203]]
@@ -3315,6 +3334,7 @@
 		coords:      [67.344,144.313],  // 2x-3x Foglet (L4) (in _descent/de_poe_02)
 		name:        "foglet",
 		level:       "#4",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[69.031,142.531], [69.031,146.734], [65.813,146.734], [65.813,142.531]]
@@ -3323,6 +3343,7 @@
 		coords:      [67.375,154.844],  // 1x Earth Elemental (L25) (in _descent/de_poe_02)
 		name:        "earthelemental",
 		level:       "#25",
+		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[68.734,154.906], [67.250,155.906], [66.328,154.781], [67.672,153.266]]
@@ -3340,6 +3361,7 @@
 		coords:      [69.000,150.938],  // 2x-3x Foglel (L4) (in _descent/de_poe_02)
 		name:        "foglet",
 		level:       "#4",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[66.938,148.125], [72.547,151.547], [71.188,153.781], [65.500,150.453]]
@@ -3386,9 +3408,12 @@
 			coords: [[90.688,138.688], [87.969,147.094], [82.188,145.531], [84.469,137.156]]
 		}]
 	}, {
+		disabled:    true, // Broken, because Swamp Thing fails to enable it.
 		coords:      [64.109,137.656],  // 1x Water Hag (L8) (in _descent/de_poe_02)
 		name:        "waterhag",
 		level:       "#8",
+		after:       "contract.swamp",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[66.609,136.719], [66.609,139.219], [61.469,139.219], [61.469,136.719]]
@@ -3402,10 +3427,12 @@
 			coords: [[76.750,135.109], [74.609,141.766], [69.578,139.891], [71.750,133.625]]
 		}]
 	}, {
+		disabled:    true, // Broken, because Forefather's Eve and Swamp Thing fail to enable them.
 		coords:      [62.828,133.219],  // 2x-3x Foglet (L4) (in _descent/de_poe_02)
 		name:        "foglet",
 		level:       "#4",
-		notDuring:   "sidequest.forefathers",
+		after:       "contract.swamp",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback", "sidequest.forefathers"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[64.281,128.422], [64.281,136.234], [61.391,136.234], [61.391,128.422]]
@@ -3416,6 +3443,7 @@
 		level:       "#7",
 		fromTime:    "#21",
 		toTime:      "#5",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[71.688,146.703], [71.977,149.734], [68.969,149.992], [68.602,146.945]]
@@ -3448,6 +3476,7 @@
 		coords:      [86.063,131.531],  // 3x-4x Endrega Warrior (L12), 4x-5x Endrega Worker (L9) (in _descent/de_poe_02)
 		name:        "endrega",
 		level:       "#9 & 12",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[89.219,129.563], [89.219,136.438], [80.125,136.438], [80.125,129.563]]
@@ -3472,6 +3501,7 @@
 		coords:      [62.891,152.672],  // 4x-5x Endrega Worker (L9) (in _descent/de_poe_02)
 		name:        "endrega",
 		level:       "#9",
+		notDuring:   ["mainquest.baron", "mainquest.family", "sidequest.crookback"],
 		areas: [{
 			name: "monster.spawn",
 			coords: [[64.656,150.625], [64.656,155.328], [61.203,155.328], [61.203,150.625]]
@@ -3599,7 +3629,7 @@
 		coords:      [100.609,122.078], // {21h-5h: 2x-3x Wraith (L7)} (in _descent/de_poe_04)
 		name:        "wraith",
 		level:       "#7",
-		after:       "sidequest.hazardous",
+		after:       ["mainquest.ciriwolves", "sidequest.hazardous"],
 		fromTime:    "#21",
 		toTime:      "#5",
 		areas: [{
@@ -3607,27 +3637,23 @@
 			coords: [[103.344,124.359], [99.922,125.938], [97.453,119.922], [101.453,118.578]]
 		}]
 	}, {
-		//disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
-		// TODO: Check if Letho's quest is able to enable this encounter. If yes, finishing Hazardous after Letho will
-		//       disable it again.
+		disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
 		coords:      [105.875,119.078], // 1x Bear (L6) (in _descent/de_poe_04)
 		name:        "bear",
 		level:       "#6",
-		//after:       "sidequest.hazardous",
-		after:       "sidequest.ghosts",
+		after:       "sidequest.hazardous",
+		notDuring:   "sidequest.ghosts",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[107.453,117.031], [107.453,122.250], [104.469,122.250], [104.469,117.031]]
 		}]
 	}, {
-		//disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
-		// TODO: Check if Letho's quest is able to enable this encounter. If yes, finishing Hazardous after Letho will
-		//       disable it again.
+		disabled:    true, // Seems to be broken, because Hazardous Goods fails to reenable it.
 		coords:      [107.797,129.875], // 5x-7x Wild Dog (L1) (in _descent/de_poe_04)
 		name:        "wilddog",
 		level:       "#1",
-		//after:       "sidequest.hazardous",
-		after:       "sidequest.ghosts",
+		after:       "sidequest.hazardous",
+		notDuring:   "sidequest.ghosts",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[109.359,123.813], [110.938,131.688], [110.438,132.344], [110.297,135.297],
