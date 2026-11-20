@@ -5924,7 +5924,7 @@
 		school:      "feline",
 		items:       "steelSword"
 	}, {
-		coords:      [92.859,155.953],
+		coords:      [91.344,154.250],
 		id:          "enhancedFelineSteelSwordDiag",
 		upgrade:     "enhanced",
 		school:      "feline",
