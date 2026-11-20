@@ -6207,9 +6207,12 @@
 		toTime:      "#5",
 		notDuring:   "sidequest.ghosts"
 	}, {
-		coords:      [[137.406,160.781],
-		             [30.359,46.734]],
+		coords:      [137.406,160.781],
 		sells:       ["alchemy", "food"],
+		liberate:    true
+	}, {
+		coords:      [30.359,46.734],
+		sells:       ["runestones", "alchemy"],
 		liberate:    true
 	}, {
 		coords:      [107.469,54.906],
