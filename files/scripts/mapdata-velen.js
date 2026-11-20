@@ -2605,6 +2605,7 @@
 			        [53.055,17.695], [53.055,16.406], [55.211,15.914], [57.789,16.867]]
 		}]
 	}, {
+		disabled:    true, // Broken, because creature definition is set to None.
 		coords:      [46.512,30.496],  // 3x Drowner (L10) (in lw_nml_w_017)
 		name:        "drowner",
 		level:       "#10",
@@ -2762,6 +2763,7 @@
 			coords: [[33.328,28.516], [34.766,25.453], [37.703,27.031], [36.609,29.766]]
 		}]
 	}, {
+		disabled:    true, // Broken, because of wrong guard area
 		coords:      [30.500,24.891],   // 2x Drowner (L10) (in nml_w_018)
 		name:        "drowner",
 		level:       "#10",
