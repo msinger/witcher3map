@@ -27,7 +27,7 @@
 	}, {
 		coords:      [99.938,130.172],  // 1x Leader-Sword (L6), 3x Sword (L5), 1x Crossbow (L5)
 		level:       "#5 & 6",
-		before:      "sidequest.ghosts"
+		notDuring:   "sidequest.ghosts"
 	}, {
 		coords:      [106.219,31.016],  // 1x Axe (L7), 1x Sword (L7), 1x Club (L7), 1x Bow (L7)
 		id:          "abandonedHangman",
@@ -1418,7 +1418,7 @@
 	}, {
 		coords:      [99.828,129.547],
 		liberate:    true,
-		before:      "sidequest.ghosts"
+		notDuring:   "sidequest.ghosts"
 	}, {
 		coords:      [[251.016,141.938],
 		             [178.593,216.218]],
@@ -6202,7 +6202,7 @@
 		liberate:    true,
 		fromTime:    "#21",
 		toTime:      "#5",
-		before:      "sidequest.ghosts"
+		notDuring:   "sidequest.ghosts"
 	}, {
 		coords:      [[137.406,160.781],
 		             [30.359,46.734]],
@@ -6251,7 +6251,7 @@
 		coords:      [100.578,130.578],
 		sells:       ["alchemy", "food"],
 		liberate:    true,
-		before:      "sidequest.ghosts"
+		notDuring:   "sidequest.ghosts"
 	}, {
 		coords:      [129.578,125.719],
 		sells:       ["alchemy", "food"],
