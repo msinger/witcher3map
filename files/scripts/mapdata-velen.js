@@ -158,11 +158,15 @@
 		             [126.844,191.203],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [129.453,188.953],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [161.031,96.531],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [151.172,68.781],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [72.250,54.875],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		             [28.844,101.078]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
 		notInGame:   true
+	}, {
+		coords:      [151.172,68.781],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		notInGame:   true,
+		notDuring:   "contract.wood"
 	}, {
 		coords:      [64.563,90.172],    // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
 		level:       "#7",
@@ -221,9 +225,12 @@
 	}, {
 		coords:      [[110.625,60.016],  // 3x Axe (L7), 1x Sword (L7), 1x Bow (L7) (in crow_perch/cp37_campfire)
 		             [209.156,162.734],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
-		             [96.938,31.047],    // 1x Axe (L7), 2x Sword (L7), 1x Bow (L7)
-		             [136.625,89.219]],  // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		             [96.938,31.047]],   // 1x Axe (L7), 2x Sword (L7), 1x Bow (L7)
 		level:       "#7"
+	}, {
+		coords:      [136.625,89.219],   // 1x Axe-2H (L7), 1x Mace (L7), 1x Club (L7)
+		level:       "#7",
+		notDuring:   "contract.wood"
 	}, {
 		coords:      [77.656,17.750],    // 1x Leader-Sword (L7), 2x Axe (L7), 4x Sword (L7), 1x Club (L7), 1x Bow (L7), 1x Crossbow (L7)
 		id:          "peninsulaPirateCamp",
@@ -4026,6 +4033,7 @@
 		coords:      [135.594,104.313], // 2x X (L6) (in _greyrocks/gr_poe_04)
 		name:        "bear",
 		level:       "#6",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[138.594,98.969], [141.563,103.750], [132.375,110.250], [129.188,105.438]]
@@ -4641,6 +4649,7 @@
 		coords:      [125.969,104.906], // 5x-7x Wild Dog (L1) (in _mudplough/encounters)
 		name:        "wilddog",
 		level:       "#1",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[127.906,102.031], [126.906,108.219], [125.063,107.656], [124.156,102.781]]
@@ -4649,6 +4658,7 @@
 		coords:      [133.094,87.500],  // 5x-7x Wild Dog (L1) (in _mudplough/encounters)
 		name:        "wilddog",
 		level:       "#1",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[134.500,85.000], [135.406,87.344], [133.625,89.938], [130.313,90.750], [129.500,88.125]]
@@ -4657,6 +4667,7 @@
 		coords:      [134.047,101.797], // 5x-7x Wild Dog (L1) (in _mudplough/encounters)
 		name:        "wilddog",
 		level:       "#1",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[136.469,100.266], [138.281,101.922], [130.844,104.047], [130.953,101.422], [133.797,100.188]]
@@ -4665,6 +4676,7 @@
 		coords:      [141.688,96.953],  // 6x-8x Nekker (L6) (in _mudplough/encounters)
 		name:        "nekker",
 		level:       "#6",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[143.281,95.063], [145.906,96.453], [140.922,99.188], [137.453,96.625]]
@@ -4673,6 +4685,7 @@
 		coords:      [142.219,81.594],  // 12x-16x Nekker (L6) (in _mudplough/encounters)
 		name:        "nekker",
 		level:       "#6",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[138.813,78.563], [142.250,75.938], [144.063,79.281], [144.531,82.969], [144.344,86.031],
@@ -4682,6 +4695,7 @@
 		coords:      [132.828,98.266],  // 4x-6x Drowner (L4) (in _mudplough/encounters)
 		name:        "drowner",
 		level:       "#4",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[133.047,96.766], [134.172,97.891], [133.234,99.297], [132.188,99.375], [130.703,97.266]]
@@ -4690,6 +4704,7 @@
 		coords:      [140.391,89.297],  // 4x-6x Drowner (L4) (in _mudplough/encounters)
 		name:        "drowner",
 		level:       "#4",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[143.813,89.688], [138.297,91.609], [137.688,89.703], [140.344,87.922], [142.922,88.406]]
@@ -4698,6 +4713,7 @@
 		coords:      [150.609,73.391],  // 1x Forktail (L18) (in _mudplough/encounters)
 		name:        "forktail",
 		level:       "#18",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[152.313,71.781], [152.313,74.734], [150.906,75.422], [148.938,74.453], [148.938,71.781]]
@@ -4707,6 +4723,7 @@
 		name:        "foglet",
 		level:       "#4",
 		after:       "event.troll",
+		notDuring:   "contract.wood",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[146.063,68.984], [147.625,72.469], [144.391,74.109], [142.516,70.906]]
