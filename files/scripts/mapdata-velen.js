@@ -5049,7 +5049,7 @@
 	}, {
 		coords:      [21.375,76.750],   // 2x-3x Wraith (L7) (in _the_mire/the_mire_03)
 		name:        "wraith",
-		level:       "#7",
+		level:       "#16",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[27.000,74.125], [27.000,81.156], [17.500,81.156], [17.500,74.125]]
