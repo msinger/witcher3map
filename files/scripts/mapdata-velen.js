@@ -5501,8 +5501,7 @@
 	}],
 	// ----------------- Monster Nests ------------------
 	monsternest: [{
-		coords:      [[43.578,108.563],
-		             [96.875,185.094],
+		coords:      [[96.875,185.094],
 		             [95.656,185.125]]
 	}, {
 		coords:      [[45.766,41.367],
@@ -5510,6 +5509,10 @@
 		underground: true,
 		notBefore:   "mainquest.wandering",
 		entrances:   "wandering_cave_entry"
+	}, {
+		coords:      [43.578,108.563],  // 4x Drowner (L4)
+		name:        "drowner",
+		level:       "#4"
 	}, {
 		coords:      [60.047,126.375],  // 1x Drowned Dead (L9), {6h-21h: 4x, 21h-6h: 7x} Drowner (L9) (in crookback_nog/cb21_swampnests)
 		name:        "drowner",
