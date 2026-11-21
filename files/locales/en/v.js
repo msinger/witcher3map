@@ -58,6 +58,14 @@ window.i18nData.en.v = {
 		loversLanding: {
 			label: "Lovers' Landing",
 			desc:  "Once a favourite midnight haunt for young lovers, this site changed when drowners infested the area. Now the amorous must couple about stables and barns, while only the name of this station remains to remind them of those happy times when they did so beneath an open sky."
+		},
+		mireLanding: {
+			label: "Mire Landing",
+			desc:  "Not long ago, during the reign of King Medell, Foltest's father, folk from far and wide would gather here to fish in the crystal-clear waters, which were exceedingly rich in crayfish. The region's most beloved dish was a creamy crayfish bisque spiked with a heartly helping of dill. Alas, no more..."
+		},
+		peetsLanding: {
+			label: "Peet's Landing",
+			desc:  "Named after Swanky Peet, the owner of a nearby distillery noted for his generosity and his long, fabulously groomed beard. It is said Peet would sometimes knock a barrel or two of spirit off his wagon near this landing, kicking off impromtu festivals as the locals gathered around to drink the surprise bounty and listen to Peet belt out full-throated shanties late into the night."
 		}
 	},
 	innkeep: {
