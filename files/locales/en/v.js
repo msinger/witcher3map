@@ -631,5 +631,10 @@ window.i18nData.en.v = {
 			label: "Zuetzer Castle",
 			desc:  "It is hard to say anything about Zuetzer Castle without mentioning the tragic death of Anastasia von Bourmann. Once one of the most powerful magnates in Redania, Count von Bourmann retreated from public life after the loss of his only child and never left his family manor to the very end of his days. Currently Zuetzer Castle is but a decaying ruin haunted by a sad past."
 		}
+	},
+	treasure: {
+		worthlessPita: {
+			desc: "This chest is hard to get to and very worthless."
+		}
 	}
 };
