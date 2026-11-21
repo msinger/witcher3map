@@ -2462,6 +2462,7 @@
 			        [80.313,132.188], [78.313,132.188], [75.875,130.844], [75.500,128.000]]
 		}]
 	}, {
+		disabled:    true, // Broken, because spawn point is in other guard area
 		coords:      [150.063,42.672],  // 3x Drowner (L10) (in lw_nml_w_001)
 		name:        "drowner",
 		level:       "#10",
