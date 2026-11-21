@@ -3266,6 +3266,7 @@
 		}]
 	}, {
 		coords:      [168.430,79.742],  // 4x-6x Mucknixer (L15) (in crow_perch/cp34_shipwreck_island)
+		                                // TODO: Check if it gets the spawns from the broken 169.195,77.789 also.
 		name:        "mucknixer",
 		level:       "#15",
 		once:        true,
@@ -3274,6 +3275,7 @@
 			coords: [[168.664,78.781], [169.367,80.508], [168.469,80.883], [167.836,79.820], [167.797,78.891]]
 		}]
 	}, {
+		disabled:    true, // Broken, because overrideDeepInitializers property is false.
 		coords:      [169.195,77.789],  // 4x-6x Drowner (L10) (in crow_perch/cp34_shipwreck_island)
 		name:        "drowner",
 		level:       "#10",
