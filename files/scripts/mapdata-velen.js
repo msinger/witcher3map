@@ -1386,8 +1386,7 @@
 	}],
 	// ----------------- Harbors ------------------------
 	harbor: [{
-		coords:      [[199.828,86.109],
-		             [33.641,119.953]]
+		coords:      [199.828,86.109]
 	}, {
 		coords:      [82.125,89.125],
 		name:        "v:signpost.boatmakersHut"
@@ -1406,6 +1405,9 @@
 	}, {
 		coords:      [157.563,161.406],
 		name:        "v:signpost.oxenfurtHarbor"
+	}, {
+		coords:      [33.641,119.953],
+		name:        "v:signpost.roadToBaldMountain"
 	}, {
 		coords:      [114.156,134.563],
 		name:        "v:harbor.loversLanding"
