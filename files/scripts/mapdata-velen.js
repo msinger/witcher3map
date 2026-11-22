@@ -4264,6 +4264,8 @@
 		coords:      [189.156,149.922], // 4x-6x Drowner (L9) (in _gustfields/gf_poe_04)
 		name:        "drowner",
 		level:       "#9",
+		after:       "event.welcome",
+		notHos:      true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[190.828,146.859], [190.828,151.141], [185.703,151.141], [185.703,146.859]]
