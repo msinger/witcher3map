@@ -6138,7 +6138,7 @@
 	}, {
 		coords:      [[167.844,90.969],
 		             [42.844,206.344]],
-		sells:       ["armor", "crafting"]
+		sells:       ["armor", "runestones", "crafting"]
 	}, {
 		coords:      [159.141,164.516],
 		desc:        "v:shopkeeper.paintMerchant.desc"
@@ -6241,10 +6241,10 @@
 		weakBefore:  "sidequest.hillock"
 	}, {
 		coords:      [42.156,204.500],
-		sells:       ["runestones", "alchemy"]
+		sells:       ["runestones", "alchemy", "food"]
 	}, {
 		coords:      [44.063,206.734],
-		sells:       ["weapons", "crafting"]
+		sells:       ["weapons", "runestones", "crafting"]
 	}, {
 		coords:      [35.406,124.250],
 		sells:       ["runestones", "alchemy"],
