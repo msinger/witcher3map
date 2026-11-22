@@ -599,7 +599,7 @@ var cards = {
 		id:      "card.scoiatael.defender1",
 		name:    "defender",
 		icon:    "melee",
-		sources: "v:kingfisherInnkeep"
+		sources: ["v:kingfisherInnkeep", "v:circusMerchant"]
 	}, {
 		id:      "card.scoiatael.defender2",
 		name:    "defender",
@@ -609,7 +609,7 @@ var cards = {
 		id:      "card.scoiatael.defender3",
 		name:    "defender",
 		icon:    "melee",
-		sources: "v:sturgeonInnkeep"
+		sources: ["v:sturgeonInnkeep", "v:circusMerchant"]
 	}, {
 		id:      "card.scoiatael.defender4",
 		name:    "defender",
