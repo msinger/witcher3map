@@ -109,8 +109,7 @@ var quests = {
 	}, {
 		name:       "patrol",
 		level:      7,
-		region:     "velen",
-		after:      "sidequest.blood" // TODO: Is this true?
+		region:     "velen"
 	}, {
 		name:       "phantom",
 		level:      23,
