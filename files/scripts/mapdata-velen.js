@@ -2044,6 +2044,7 @@
 		coords:      [55.875,197.250],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_01/drowners_group_01)
 		name:        "drowner",
 		level:       "#9",
+		once:        true,
 		cleared:     "guardedMeetingPoint",
 		areas: [{
 			name: "monster.spawn",
@@ -2053,6 +2054,7 @@
 		coords:      [53.813,189.938],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_01/drowners_group_02)
 		name:        "drowner",
 		level:       "#9",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[55.813,188.781], [55.813,191.469], [51.813,191.469], [51.813,188.781]]
@@ -2061,6 +2063,7 @@
 		coords:      [55.813,175.938],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_01/drowners_group_03)
 		name:        "drowner",
 		level:       "#9",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[58.500,173.844], [58.500,179.125], [53.219,179.125], [53.219,173.844]]
@@ -2069,6 +2072,7 @@
 		coords:      [57.188,210.313],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_01/foglings_group_01)
 		name:        "foglet",
 		level:       "#10",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[59.625,208.156], [59.625,212.688], [54.844,212.688], [54.844,208.156]]
@@ -2077,6 +2081,7 @@
 		coords:      [54.844,204.063],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_01/foglings_group_02)
 		name:        "foglet",
 		level:       "#10",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[57.531,202.313], [57.531,206.438], [52.125,206.438], [52.125,202.313]]
@@ -2085,6 +2090,7 @@
 		coords:      [34.375,190.406],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_01/foglings_group_03)
 		name:        "foglet",
 		level:       "#10",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[37.563,189.219], [37.563,192.500], [31.344,192.500], [31.344,189.219]]
@@ -2093,6 +2099,7 @@
 		coords:      [45.156,183.563],  // 3x-4x Nekker (L8) (in _bald_mountain/bm_poe_01/nekker_group_01)
 		name:        "nekker",
 		level:       "#8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[47.031,181.594], [47.031,185.531], [43.438,185.531], [43.438,181.594]]
@@ -2101,6 +2108,7 @@
 		coords:      [49.313,212.000],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_01/wolf_group_01)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[51.750,207.375], [51.750,217.188], [46.750,217.188], [46.750,207.375]]
@@ -2109,6 +2117,7 @@
 		coords:      [37.000,177.875],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_01/wolf_group_02)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[40.813,175.188], [40.813,180.625], [33.188,180.625], [33.188,175.188]]
@@ -2117,6 +2126,7 @@
 		coords:      [53.156,143.219],  // 1x Arachas (L11) (in _bald_mountain/bm_poe_02/arachas_group1)
 		name:        "arachas",
 		level:       "#11",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[56.688,138.781], [56.688,147.406], [49.813,147.406], [49.813,138.781]]
@@ -2125,6 +2135,7 @@
 		coords:      [52.031,144.531],  // 3x-4x Endrega Warrior (L11), 8x-10x Endrega Worker (L9) (in _bald_mountain/bm_poe_02/endriagas_group1,2,3)
 		name:        "endrega",
 		level:       "#9 & 11",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[56.688,138.781], [56.688,147.406], [49.813,147.406], [49.813,138.781]]
@@ -2133,6 +2144,7 @@
 		coords:      [58.344,154.375],  // 3x-4x Endrega Warrior (L11), 8x-10x Endrega Worker (L9) (in _bald_mountain/bm_poe_02/endriagas_group4,5,6)
 		name:        "endrega",
 		level:       "#9 & 11",
+		once:        true,
 		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
@@ -2142,6 +2154,7 @@
 		coords:      [36.781,138.531],  // 1x Basilisk (L32) (in _bald_mountain/bm_poe_02/basilisk_group1)
 		name:        "basilisk",
 		level:       "#32",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[38.969,136.313], [38.969,141.188], [34.594,141.188], [34.594,136.313]]
@@ -2150,6 +2163,8 @@
 		coords:      [43.984,166.547],  // 1x Bear (L18) (in _bald_mountain/bm_poe_02/bear_group1)
 		name:        "bear",
 		level:       "#18",
+		once:        true,
+		after:       "contract.patrol",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[46.250,163.188], [46.250,170.500], [41.563,170.500], [41.563,163.188]]
@@ -2159,6 +2174,7 @@
 		coords:      [47.688,121.438],  // 1x Fiend (L16) (in _bald_mountain/bm_poe_02/bies_group1)
 		name:        "fiend",
 		level:       "#16",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[50.000,120.688], [50.000,124.125], [44.938,124.125], [44.938,120.688]]
@@ -2167,6 +2183,7 @@
 		coords:      [47.875,142.719],  // 1x Fiend (L16) (in _bald_mountain/bm_poe_02/bies_group2)
 		name:        "fiend",
 		level:       "#16",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[49.313,139.906], [49.313,146.188], [46.438,146.188], [46.438,139.906]]
@@ -2176,6 +2193,7 @@
 		coords:      [59.594,128.531],  // 4x-6x Drowner (L9) (in _bald_mountain/bm_poe_02/drowners_group1)
 		name:        "drowner",
 		level:       "#9",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[62.875,125.656], [63.406,130.844], [56.563,129.563], [57.188,126.156]]
@@ -2184,6 +2202,7 @@
 		coords:      [55.625,122.406],  // 4x-6x Mucknixer (L15) (in _bald_mountain/bm_poe_02/drowners_group2)
 		name:        "mucknixer",
 		level:       "#15",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[55.813,124.813], [50.938,123.656], [53.656,118.625], [62.344,123.344]]
@@ -2192,6 +2211,7 @@
 		coords:      [58.219,149.844],  // 2x-3x Foglet (L10) (in _bald_mountain/bm_poe_02/foglings_group1)
 		name:        "foglet",
 		level:       "#10",
+		once:        true,
 		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
@@ -2201,6 +2221,7 @@
 		coords:      [29.609,123.703],  // 2x Foglet (L26) (in _bald_mountain/bm_poe_02/foglings_village)
 		name:        "foglet",
 		level:       "#26",
+		once:        true,
 		notDuring:   "mainquest.bald",
 		areas: [{
 			name: "monster.spawn",
@@ -2210,6 +2231,7 @@
 		coords:      [32.375,124.969],  // 2x Foglet (L26) (in _bald_mountain/bm_poe_02/foglings_village2)
 		name:        "foglet",
 		level:       "#26",
+		once:        true,
 		notDuring:   "mainquest.bald",
 		areas: [{
 			name: "monster.spawn",
@@ -2219,6 +2241,7 @@
 		coords:      [36.750,125.578],  // 2x Foglet (L26) (in _bald_mountain/bm_poe_02/foglings_village3)
 		name:        "foglet",
 		level:       "#26",
+		once:        true,
 		notDuring:   "mainquest.bald",
 		areas: [{
 			name: "monster.spawn",
@@ -2230,6 +2253,7 @@
 		level:       "#20",
 		notDuring:   "mainquest.bald",
 		once:        true,
+		unreachable: true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[21.234,128.641], [21.828,130.500], [21.406,131.875], [19.891,132.234], [18.703,131.594],
@@ -2239,6 +2263,7 @@
 		coords:      [30.969,139.313],  // 1x Forktail (L18) (in _bald_mountain/bm_poe_02/forktail_group1)
 		name:        "forktail",
 		level:       "#18",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[33.219,137.031], [33.219,142.375], [28.813,142.375], [28.813,137.031]]
@@ -2248,6 +2273,7 @@
 		coords:      [52.000,127.906],  // 8x-12x Ghoul (L9) (in _bald_mountain/bm_poe_02/ghouls_group_1_n_2)
 		name:        "ghoul",
 		level:       "#9",
+		once:        true,
 		after:       "contract.swamp",
 		areas: [{
 			name: "monster.spawn",
@@ -2257,6 +2283,7 @@
 		coords:      [46.813,128.469],  // 10x-14x Harpy (L13) (in _bald_mountain/bm_poe_02/harpies_group_1_plus_2)
 		name:        "harpy",
 		level:       "#13",
+		once:        true,
 		cleared:     "paintingCamp",
 		areas: [{
 			name: "monster.spawn",
@@ -2266,6 +2293,7 @@
 		coords:      [43.500,141.875],  // 5x-7x Harpy (L13) (in _bald_mountain/bm_poe_02/harpies_group_3)
 		name:        "harpy",
 		level:       "#13",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[45.438,138.531], [45.438,145.438], [41.688,145.438], [41.688,138.531]]
@@ -2275,6 +2303,7 @@
 		coords:      [56.563,136.969],  // 3x-4x Nekker (L8) (in _bald_mountain/bm_poe_02/nekkers_group1)
 		name:        "nekker",
 		level:       "#8",
+		once:        true,
 		after:       "contract.swamp",
 		areas: [{
 			name: "monster.spawn",
@@ -2284,6 +2313,7 @@
 		coords:      [36.500,168.125],  // 1x-2x Nekker Warrior (L12), 3x-4x Nekker (L8) (in _bald_mountain/bm_poe_02/nekkers_group2_n_3)
 		name:        "nekker",
 		level:       "#8 & 12",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[38.750,166.563], [38.750,170.000], [34.563,170.000], [34.563,166.563]]
@@ -2292,6 +2322,7 @@
 		coords:      [50.094,149.750],  // 2x-3x Wraith (L7) (in _bald_mountain/bm_poe_02/wraiths_group1)
 		name:        "wraith",
 		level:       "#7",
+		once:        true,
 		fromTime:    "#21",
 		toTime:      "#5",
 		cleared:     "guardedAncientStoneCircle",
@@ -2303,6 +2334,7 @@
 		coords:      [33.219,147.719],  // 2x-3x Wraith (L7) (in _bald_mountain/bm_poe_02/wraiths_group2)
 		name:        "wraith",
 		level:       "#7",
+		once:        true,
 		fromTime:    "#21",
 		toTime:      "#5",
 		areas: [{
@@ -2313,6 +2345,7 @@
 		coords:      [46.422,133.313],  // 2x-3x Wraith (L7) (in _bald_mountain/bm_poe_02/wraiths_group3)
 		name:        "wraith",
 		level:       "#7",
+		once:        true,
 		fromTime:    "#21",
 		toTime:      "#5",
 		areas: [{
@@ -2323,6 +2356,7 @@
 		coords:      [39.719,153.406],  // 1x Rabid rock troll (L10) (in _bald_mountain/bm_poe_02/troll_group1)
 		name:        "rabidrocktroll",
 		level:       "#10",
+		once:        true,
 		cleared:     "oldBridgeCamp",
 		areas: [{
 			name: "monster.spawn",
@@ -2334,6 +2368,7 @@
 		coords:      [57.313,133.313],  // 1x Water Hag (L8) (in _bald_mountain/bm_poe_02/waterhag_group1)
 		name:        "waterhag",
 		level:       "#8",
+		once:        true,
 		after:       "contract.swamp",
 		areas: [{
 			name: "monster.spawn",
@@ -2344,6 +2379,7 @@
 		coords:      [49.500,135.906],  // 1x Wyvern (L9) (in _bald_mountain/bm_poe_02/wyvern_group1)
 		name:        "wyvern",
 		level:       "#9",
+		once:        true,
 		after:       "contract.swamp",
 		areas: [{
 			name: "monster.spawn",
@@ -2353,6 +2389,7 @@
 		coords:      [27.781,155.453],  // 1x Wyvern (L14) (in _bald_mountain/bm_poe_02/wyvern_group3)
 		name:        "wyvern",
 		level:       "#14",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[29.500,153.188], [30.188,157.734], [26.000,158.031], [25.547,153.469]]
@@ -2361,6 +2398,7 @@
 		coords:      [42.563,157.750],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group1)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
@@ -2370,6 +2408,7 @@
 		coords:      [50.375,158.344],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group2)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		after:       "mainquest.ladies",
 		areas: [{
 			name: "monster.spawn",
@@ -2379,6 +2418,7 @@
 		coords:      [59.063,168.563],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group3)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[61.594,167.000], [61.594,170.406], [56.625,170.406], [56.625,167.000]]
@@ -2387,6 +2427,7 @@
 		coords:      [50.156,168.625],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group4)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[52.656,167.031], [52.656,170.469], [47.844,170.469], [47.844,167.031]]
@@ -2395,6 +2436,7 @@
 		coords:      [37.750,143.250],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group5)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[39.594,141.875], [39.594,145.063], [35.844,145.063], [35.844,141.875]]
@@ -2403,6 +2445,7 @@
 		coords:      [42.094,150.672],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group6)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		cleared:     "guardedPoisonPond",
 		areas: [{
 			name: "monster.spawn",
@@ -2412,6 +2455,7 @@
 		coords:      [33.375,154.781],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group7)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[33.750,152.375], [36.344,155.219], [33.594,157.688], [30.875,154.281]]
@@ -2420,6 +2464,7 @@
 		coords:      [34.063,161.984],  // 1x Warg (L8), 6x Wolf (L5) (in _bald_mountain/bm_poe_02/wolfs_group8)
 		name:        "wolf",
 		level:       "#5 & 8",
+		once:        true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[36.391,162.453], [34.453,165.047], [31.203,161.953], [33.750,159.000]]
@@ -5002,6 +5047,7 @@
 		coords:      [20.156,122.313], // 1x Warg (L8), 6x Wolf (L5) (in _the_mire/the_mire_04)
 		name:        "wolf",
 		level:       "#5 & 8",
+		unreachable: true,
 		areas: [{
 			name: "monster.spawn",
 			coords: [[21.969,120.188], [21.969,124.750], [19.000,125.281], [17.688,119.781], [19.906,119.438]]
