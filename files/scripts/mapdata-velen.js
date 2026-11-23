@@ -6617,7 +6617,7 @@
 		coords:      [149.281,183.343],
 		name:        "spooked"
 	}, {
-		coords:      [95.156,47.718],
+		coords:      [88.063,86.719],
 		name:        "takewant"
 	}, {
 		coords:      [202.250,118.687],
