@@ -630,9 +630,12 @@
 		coords:      [56.984,155.984],
 		groupId:     "hillock_lair"
 	}, {
-		coords:      [[88.688,107.078],
-		             [86.094,107.875]],
+		coords:      [88.688,107.078],
 		groupId:     "chort_shit_cave"
+	}, {
+		coords:       [86.094,107.875],
+		groupId:     "chort_shit_cave",
+		notInGame:   true
 	}, {
 		coords:      [111.266,179.234],
 		groupId:     "grotto"

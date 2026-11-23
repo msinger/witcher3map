@@ -159,7 +159,7 @@ window.i18nData.en.general = {
 			superiorWhiteRaffardsDecoction: { label: "Superior White Raffard's Decoction", link: "https://witcher.fandom.com/wiki/Superior_White_Raffard%27s_Decoction" }
 		},
 		quest: {
-			label: "Quest Items",
+			label: "Quests",
 			chortLure:        { label: "Chort lure", link: "https://witcher.fandom.com/wiki/Chort_lure" },
 			cleansingMixture: { label: "Cleansing mixture", link: "https://witcher.fandom.com/wiki/Cleansing_mixture" },
 			shaelmaarBait:    { label: "Shaelmaar bait", link: "https://witcher.fandom.com/wiki/Shaelmaar_bait" }
