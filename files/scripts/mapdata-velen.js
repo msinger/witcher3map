@@ -6092,7 +6092,7 @@
 		school:      "feline",
 		items:       ["armor", "boots", "gauntlets", "trousers"]
 	}, {
-		coords:      [79.531,137.203],
+		coords:      [80.688,140.375],
 		id:          "griffinArmorDiags",
 		upgrade:     "basic",
 		school:      "griffin",
