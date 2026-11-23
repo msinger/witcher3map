@@ -7519,10 +7519,10 @@
 		underground: true,
 		entrances:   "fools_cave"
 	}, {
-		coords:      [[142.953,107.594], // TODO: Can't see these four chests in REDkit. They may only show up during the quest. Check exact location.
-		             [142.188,109.547],
-		             [141.313,106.375],
-		             [139.703,107.656]],
+		coords:      [[142.617,107.086],
+		             [141.867,109.508],
+		             [141.008,105.852],
+		             [139.734,107.273]],
 		underground: true,
 		entrances:   "mikel_cave"
 	}, {
