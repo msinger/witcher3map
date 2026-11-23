@@ -3537,10 +3537,10 @@
 			coords: [[107.984,171.328], [107.984,176.156], [102.906,176.156], [102.906,171.328]]
 		}]
 	}, {
+		disabled:    true, // Seems to be broken, but I don't know why.
 		coords:      [95.250,165.031],  // 1x-2x Nekker Warrior (L12) (in _descent/de_poe_03)
 		name:        "nekkerwarrior",
 		level:       "#12",
-		uncleared:   "decentNekkerNestNorth",
 		areas: [{
 			name: "monster.spawn",
 			coords: [[96.859,163.359], [96.859,167.297], [93.766,167.297], [93.766,163.359]]
@@ -5520,13 +5520,13 @@
 		name:        "nekker",
 		level:       "#6 & 8"
 	}, {
-		coords:      [91.297,165.547],  // 1x Nekker Warrior (L9), 5x Nekker (L8)
-		id:          "decentNekkerNestNorth",
+		coords:      [[91.297,165.547], // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		             [88.094,161.422]], // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		extraDesc:   "monsternest.rebuilt.desc",
 		name:        "nekker",
 		level:       "#8 & 9"
 	}, {
-		coords:      [[88.094,161.422], // 1x Nekker Warrior (L9), 5x Nekker (L8)
-		             [87.891,158.172]], // 1x Nekker Warrior (L9), 5x Nekker (L8)
+		coords:      [87.891,158.172],  // 1x Nekker Warrior (L9), 5x Nekker (L8)
 		name:        "nekker",
 		level:       "#8 & 9"
 	}, {

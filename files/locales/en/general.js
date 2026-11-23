@@ -1178,7 +1178,8 @@ window.i18nData.en.general = {
 		label: "__?!this.name:Monster Nest__" +
 		       "__?this.name:_\\_this.name@monster_\\_ Nest__" +
 		       "__?this.level: (Level _\\_this.level_\\_)__",
-		desc:  "Destroy monster nests with Grapeshot, Dancing Star or Samum bombs."
+		desc:  "Destroy monster nests with Grapeshot, Dancing Star or Samum bombs.",
+		rebuilt: { desc: "This nest gets rebuilt over time." }
 	},
 	notes: {
 		delete:     "Delete Note",
