@@ -6187,7 +6187,7 @@
 		rescueFrom:  "crossroads_shopkeeper_pid"
 	}, {
 		coords:      [186.656,82.938],
-		sells:       ["crafting", "food", "weapons"]
+		sells:       ["crafting", "food", "weapons", "runestones"]
 	}, {
 		coords:      [[167.844,90.969],
 		             [42.844,206.344]],
