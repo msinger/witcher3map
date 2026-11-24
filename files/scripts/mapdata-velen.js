@@ -7674,6 +7674,9 @@
 	}, {
 		coords:      [159.828,97.797],
 		extraDesc:   "v:treasure.worthlessPita.desc"
+	}, {
+		coords:      [194.422,100.266],
+		images:      ["v/parkourChest1", "v/parkourChest2"]
 	}],
 	// ----------------- Treasure Hunts -----------------
 	treasurehunt: [{
