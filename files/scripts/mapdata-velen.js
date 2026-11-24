@@ -1391,7 +1391,8 @@
 	}],
 	// ----------------- Harbors ------------------------
 	harbor: [{
-		coords:      [199.828,86.109]
+		coords:      [199.828,86.109],
+		name:        "v:signpost.novigradDocks"
 	}, {
 		coords:      [82.125,89.125],
 		name:        "v:signpost.boatmakersHut"
