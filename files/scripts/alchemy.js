@@ -74,7 +74,6 @@ var alchemy = {
 		"mariborForest",          ["enhancedMariborForest", "mariborForest"],                   ["superiorMariborForest", "mariborForest"],
 		"petrisPhilter",          ["enhancedPetrisPhilter", "petrisPhilter"],                   ["superiorPetrisPhilter", "petrisPhilter"],
 		"popsMoldAntidote",
-		["reinaldsPhilter", "popsMoldAntidote"],
 		{ name: "swallow", initial: true },
 		                          ["enhancedSwallow", "swallow"],                               ["superiorSwallow", "swallow"],
 		{ name: "tawnyOwl", initialCrafted: true },
@@ -87,6 +86,7 @@ var alchemy = {
 	quest: [
 		"chortLure",
 		{ name: "cleansingMixture",                    hos: true },
+		["reinaldsPhilter", "popsMoldAntidote"],
 		{ name: "shaelmaarBait",    icon: "chortLure", baw: true }
 	],
 	substance: [

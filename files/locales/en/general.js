@@ -141,7 +141,6 @@ window.i18nData.en.general = {
 			enhancedPetrisPhilter:          { label: "Enhanced Petri's Philter", link: "https://witcher.fandom.com/wiki/Enhanced_Petri%27s_Philter" },
 			superiorPetrisPhilter:          { label: "Superior Petri's Philter", link: "https://witcher.fandom.com/wiki/Superior_Petri%27s_Philter" },
 			popsMoldAntidote:               { label: "Pops' mold antidote", link: "https://witcher.fandom.com/wiki/Pops%27_mold_antidote" },
-			reinaldsPhilter:                { label: "Reinald's Philter", link: "https://witcher.fandom.com/wiki/Reinald%27s_Philter" },
 			swallow:                        { label: "Swallow", link: "https://witcher.fandom.com/wiki/Swallow" },
 			enhancedSwallow:                { label: "Enhanced Swallow", link: "https://witcher.fandom.com/wiki/Enhanced_Swallow" },
 			superiorSwallow:                { label: "Superior Swallow", link: "https://witcher.fandom.com/wiki/Superior_Swallow" },
@@ -162,6 +161,7 @@ window.i18nData.en.general = {
 			label: "Quests",
 			chortLure:        { label: "Chort lure", link: "https://witcher.fandom.com/wiki/Chort_lure" },
 			cleansingMixture: { label: "Cleansing mixture", link: "https://witcher.fandom.com/wiki/Cleansing_mixture" },
+			reinaldsPhilter:  { label: "Reinald's Philter", link: "https://witcher.fandom.com/wiki/Reinald%27s_Philter" },
 			shaelmaarBait:    { label: "Shaelmaar bait", link: "https://witcher.fandom.com/wiki/Shaelmaar_bait" }
 		},
 		substance: {

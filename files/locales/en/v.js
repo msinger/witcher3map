@@ -124,7 +124,7 @@ window.i18nData.en.v = {
 		},
 		nilfgaardian: { label: "Nilfgaardian Helmet and Armor Set" },
 		paper:        { label: "Loose Scraps of Paper" },
-		priest:       { label: "Oath of the Forgotten Priest" },
+		priest:       { label: "Forgotten priest's testament" },
 		portal: {
 			label: "Portal",
 			desc:  "After passing through the portal, illusions that cannot be killed will be encountered. " +
@@ -132,12 +132,12 @@ window.i18nData.en.v = {
 			       "by loading energy with aard."
 		},
 		portrait:     { label: "Portrait of Iris and Olgierd" },
-		reinald0:     { label: "Reinald's Note" },
-		reinald1:     { label: "Reinald's 1st Letter" },
-		reinald2:     { label: "Reinald's 2nd Letter" },
-		reinald3:     { label: "Reinald's 3rd Letter" },
-		reinald4:     { label: "Reinald's 4th Letter" },
-		reinald5:     { label: "Reinald's 5th Letter" },
+		reinald0:     { label: "Reinald's note" },
+		reinald1:     { label: "First letter from Reinald" },
+		reinald2:     { label: "Second letter from Reinald" },
+		reinald3:     { label: "Third letter from Reinald" },
+		reinald4:     { label: "Fourth letter from Reinald" },
+		reinald5:     { label: "Fifth letter from Reinald" },
 		sketchbook:   { label: "Iris' Sketchbook" },
 		spirits: {
 			label: "Spirits",

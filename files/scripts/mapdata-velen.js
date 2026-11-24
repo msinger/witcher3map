@@ -5779,7 +5779,7 @@
 		quest:       "mainquest.bald",
 		notBefore:   "mainquest.bald"
 	}, {
-		coords:      [138.219,127.313],
+		coords:      [138.016,127.633],
 		label:       "v:poi.reinald0.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -5795,7 +5795,7 @@
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [140.281,131.203],
+		coords:      [139.938,130.883],
 		label:       "v:poi.reinald2.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -5803,7 +5803,7 @@
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [144.750,128.922],
+		coords:      [144.805,128.422],
 		label:       "v:poi.reinald3.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -5811,7 +5811,7 @@
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [140.813,132.234],
+		coords:      [140.523,132.516],
 		label:       "v:poi.reinald4.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -5819,7 +5819,7 @@
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [136.703,134.344],
+		coords:      [136.430,134.328],
 		label:       "v:poi.reinald5.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -5827,7 +5827,7 @@
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [141.672,130.703],
+		coords:      [141.766,130.398],
 		label:       "v:poi.edgar.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -5835,7 +5835,7 @@
 		quest:       "sidequest.eternal",
 		during:      "sidequest.eternal"
 	}, {
-		coords:      [144.828,131.828],
+		coords:      [144.641,131.609],
 		label:       "v:poi.priest.label",
 		extraDesc:   ["v:poi.questitem", "v:poi.eternal"],
 		underground: true,
@@ -5898,7 +5898,7 @@
 		school:      "feline",
 		items:       "crossbow"
 	}, {
-		coords:      [137.531,136.906],
+		coords:      [137.148,136.367],
 		id:          "forgottenDiags",
 		upgrade:     "basic",
 		school:      "forgotten",
@@ -7511,8 +7511,8 @@
 		underground: true,
 		entrances:   "shoe_trolls_cave"
 	}, {
-		coords:      [[145.000,128.219],
-		             [141.156,128.406]],
+		coords:      [[144.453,128.219],
+		             [140.563,128.195]],
 		underground: true,
 		entrances:   "devils_pit",
 		during:      "sidequest.eternal"
