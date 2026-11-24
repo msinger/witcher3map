@@ -5479,6 +5479,7 @@
 		level:       "#19"
 	}, {
 		coords:      [165.891,99.375],  // 14x Nekker (L18), 1x Rabid rock troll (L16)
+		groupId:     "eggforestNekkerDen",
 		name:        "nekker",
 		level:       "#16 & 18"
 	}],
@@ -5926,11 +5927,13 @@
 		school:      "feline",
 		items:       "silverSword"
 	}, {
-		coords:      [166.359,99.516],
+		coords:      [167.930,100.438],
 		id:          "superiorFelineSilverSwordDiag",
 		upgrade:     "superior",
 		school:      "feline",
-		items:       "silverSword"
+		items:       "silverSword",
+		underground: true,
+		entrances:   "eggforestNekkerDen"
 	}, {
 		coords:      [178.547,106.328],
 		id:          "felineSteelSwordDiag",
