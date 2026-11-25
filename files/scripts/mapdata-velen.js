@@ -4152,6 +4152,16 @@
 			coords: [[246.438,80.594], [244.125,90.969], [238.375,90.000], [240.531,80.656]]
 		}]
 	}, {
+		coords:      [240.781,91.969], // 5x Drowned Dead (L34) (ep1/living_world/poi/ep1_poi_05)
+		name:        "drowneddead",
+		level:       "#34",
+		once:        true,
+		hos:         true,
+		areas: [{
+			name: "monster.spawn",
+			coords: [[243.250,90.438], [243.563,94.844], [239.375,95.000], [239.094,90.688]]
+		}]
+	}, {
 		coords:      [238.125,109.578], // 3x-4x Endrage Warrior (L11), 4x-5x Endrega Worker (L9) (in _gustfields/gf_poe_01)
 		name:        "endrega",
 		level:       "#9 & 11",
