@@ -531,6 +531,7 @@
 		notInGame:   true
 	}, {
 		coords:      [229.984,88.844],
+		notInGame:   true,
 		groupId:     "temple_isle_cave"
 	}, {
 		coords:      [217.875,159.609],
@@ -774,17 +775,25 @@
 		notBefore:   "sidequest.rose",
 		hos:         true
 	}, {
-		coords:      [[211.656,110.422],
-		             [205.117,112.461]],
+		coords:      [211.656,110.422],
 		label:       "v:entrance.bits_sewers.label",
 		desc:        "v:entrance.bits_sewers.desc",
+		notInGame:   true,
+		groupId:     "bits_sewers"
+	}, {
+		coords:      [205.117,112.461],
+		label:       "v:entrance.bits_sewers.label",
+		desc:        "v:entrance.bits_sewers.desc",
+		notInGame:   true,
+		underground: true,
 		groupId:     "bits_sewers"
 	}, {
 		coords:      [[214.398,108.336],
 		             [217.188,106.000],
-		             [219.719,108.742]], // TODO: Is this on the in-game map?
+		             [219.719,108.742]],
 		label:       "v:entrance.gildorf_sewers.label",
 		desc:        "v:entrance.gildorf_sewers.desc",
+		notInGame:   true,
 		groupId:     "gildorf_sewers"
 	}, {
 		coords:      [207.086,93.391],
