@@ -451,8 +451,7 @@
 	// ----------------- Brothels -----------------------
 	brothel: [{
 		coords:      [201.547,98.188],
-		name:        "v:crippledKate",
-		notBefore:   "sidequest.arse"
+		name:        "v:crippledKate"
 	}, {
 		coords:      [221.109,104.109],
 		name:        "v:passiflora"
@@ -465,7 +464,8 @@
 		coords:      [205.625,97.281],
 		name:        "deadly"
 	}, {
-		coords:      [208.828,103.593],
+		coords:      [[208.828,103.593],
+		             [215.836,105.211]],
 		name:        "doors"
 	}, {
 		coords:      [82.062,42.531],
@@ -6602,7 +6602,8 @@
 		coords:      [221.812,98.968],
 		name:        "city"
 	}, {
-		coords:      [155.093,208.531],
+		coords:      [[155.093,208.531],
+		             [216.289,104.750]],
 		name:        "darkness"
 	}, {
 		coords:      [[197.062,99.031],
