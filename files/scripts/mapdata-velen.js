@@ -5972,7 +5972,7 @@
 		underground: true,
 		entrances:   "fools_cave"
 	}, {
-		coords:      [237.984,105.422],
+		coords:      [240.313,102.719],
 		id:          "superiorFelineSteelSwordDiag",
 		upgrade:     "superior",
 		school:      "feline",
@@ -7519,7 +7519,8 @@
 		underground: true,
 		entrances:   "chort_shit_cave"
 	}, {
-		coords:      [238.078,105.938],
+		coords:      [[242.719,105.656],
+		             [243.313,104.719]],
 		underground: true,
 		entrances:   "cavern"
 	}, {
