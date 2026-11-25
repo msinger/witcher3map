@@ -787,13 +787,15 @@
 		coords:      [207.086,93.391],
 		label:       "v:entrance.kingfisher_sewers.label",
 		desc:        "v:entrance.kingfisher_sewers.desc",
+		notInGame:   true,
 		groupId:     "kingfisher_sewers"
 	}, {
 		coords:      [[195.094,103.867],
 		             [199.109,103.289]],
 		label:       "v:entrance.pass.label",
 		desc:        "v:entrance.pass.desc",
-		groupId:     "glory_sewers"
+		groupId:     "glory_sewers",
+		notInGame:   true
 	}, {
 		coords:      [209.849,104.909],
 		label:       "v:entrance.kingfisher_sewers.label",
@@ -808,12 +810,9 @@
 		notBefore:   "sidequest.sins",
 		groupId:     "lower_morgue_sewers"
 	}, {
-		coords:      [201.328,103.164],
+		coords:      [[201.328,103.164],
+		             [202.391,102.781]],
 		notInGame:   true,
-		notBefore:   "mainquest.pyres",
-		groupId:     "kluhg_hatch"
-	}, {
-		coords:      [202.391,102.781], // TODO: Can you enter this from the canal before the quest?
 		notBefore:   "mainquest.pyres",
 		groupId:     "kluhg_hatch"
 	}, {
