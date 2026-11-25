@@ -1231,7 +1231,7 @@
 		weakBefore:  "sidequest.hillock"
 	}, {
 		coords:      [134.016,131.469],
-		notBefore:   "sidequest.eternal"
+		after:       "sidequest.eternal"
 	}, {
 		coords:      [153.563,163.469],
 		id:          "shaniGwent",
@@ -6131,9 +6131,11 @@
 		desc:        "shopkeeper.bookMerchant.desc"
 	}, {
 		coords:      [[205.109,99.563],
-		             [188.281,101.453],
-		             [211.797,96.109]],
-		sells:       ["alchemy", "food", "drinks"]
+		             [188.281,101.453]],
+		sells:       ["alchemy", "food"]
+	}, {
+		coords:      [211.797,96.109],
+		sells:       ["crafting", "alchemy", "food", "drinks"]
 	}, {
 		coords:      [207.375,100.969],
 		extraLabel:  ["shopkeeper.banker.label", "v:shopkeeper.vivaldi.label"],
@@ -6161,7 +6163,7 @@
 		sells:       "v:emptyBottles"
 	}, {
 		coords:      [213.813,93.063],
-		sells:       ["runestones", "alchemy"],
+		sells:       ["runestones", "crafting", "alchemy"],
 		notBefore:   "sidequest.stuff"
 	}, {
 		coords:      [239.766,70.563],
@@ -6317,8 +6319,8 @@
 	}, {
 		coords:      [133.906,131.266],
 		id:          "pitMerchant",
-		sells:       ["alchemy", "food"],
-		notBefore:   "sidequest.eternal"
+		sells:       ["crafting", "food", "drinks"],
+		after:       "sidequest.eternal"
 	}, {
 		coords:      [187.797,152.172],
 		id:          "circusMerchant",
