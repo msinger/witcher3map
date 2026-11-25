@@ -106,8 +106,8 @@ window.i18nData.cz.v = {
 		fishmonger:    { label: "Obchodník s rybami" },
 		gildorf: {
 			label: "Gildorf",
-			desc:  "Prodává __shopkeeper.alchemy__, úkolové předměty („__sidequest.darkness__“, „__sidequest.nobleman__“ " +
-			       "a „__sidequest.tango__“) a __v:shopkeeper.clearancePotion__. "
+			desc:  "Prodává __shopkeeper.alchemy__, __shopkeeper.gemDust__, úkolové předměty („__sidequest.darkness__“, " +
+			       "„__sidequest.nobleman__“ a „__mainquest.tango__“) a __v:shopkeeper.clearancePotion__."
 		},
 		keira:         { label: "Keira Metz" },
 		loanShark:     { label: "Lichvář" },

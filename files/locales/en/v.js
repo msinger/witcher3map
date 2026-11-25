@@ -163,8 +163,8 @@ window.i18nData.en.v = {
 		fishmonger:    { label: "Fishmonger" },
 		gildorf: {
 			label: "Gildorf",
-			desc:  "Sells __shopkeeper.alchemy__, quest items ('__sidequest.darkness__', '__sidequest.nobleman__' " +
-			       "and '__sidequest.tango__'), and __v:shopkeeper.clearancePotion__."
+			desc:  "Sells __shopkeeper.alchemy__, __shopkeeper.gemDust__, quest items ('__sidequest.darkness__', " +
+			       "'__sidequest.nobleman__' and '__mainquest.tango__'), and __v:shopkeeper.clearancePotion__."
 		},
 		loanShark:     { label: "Loan Shark" },
 		quartermaster: { label: "Quartermaster" },

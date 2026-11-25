@@ -104,8 +104,8 @@ window.i18nData.pl.v = {
 		fishmonger:    { label: "Sprzedawca ryb" },
 		gildorf: {
 			label: "Gildorf",
-			desc:  "Sprzedaje __shopkeeper.alchemy__, przedmioty zadania („__sidequest.darkness__”, " +
-			       "„__sidequest.nobleman__” i „__sidequest.tango__”) oraz __v:shopkeeper.clearancePotion__."
+			desc:  "Sprzedaje __shopkeeper.alchemy__, __shopkeeper.gemDust__, przedmioty zadania („__sidequest.darkness__”, " +
+			       "„__sidequest.nobleman__” i „__mainquest.tango__”) oraz __v:shopkeeper.clearancePotion__."
 		},
 		keira:         { label: "Keira Metz" },
 		loanShark:     { label: "Lichwiarz" },

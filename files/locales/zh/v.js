@@ -102,8 +102,8 @@ window.i18nData.zh.v = {
 		fishmonger:    { label: "魚販" },
 		gildorf: {
 			label: "吉爾多夫",
-			desc:  "販賣__shopkeeper.alchemy__、任務物品（「__sidequest.darkness__」、「__sidequest.nobleman__」和" +
-			       "「__sidequest.tango__」），以及__v:shopkeeper.clearancePotion__。"
+			desc:  "販賣__shopkeeper.alchemy__、__shopkeeper.gemDust__、任務物品（「__sidequest.darkness__」、" +
+			       "「__sidequest.nobleman__」和「__mainquest.tango__」），以及__v:shopkeeper.clearancePotion__。"
 		},
 		keira:         { label: "凱拉・梅茲" },
 		loanShark:     { label: "高利貸商人" },

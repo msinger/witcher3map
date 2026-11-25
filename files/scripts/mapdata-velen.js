@@ -70,8 +70,11 @@
 	}],
 	// ----------------- Alchemy Supplies ---------------
 	alchemy: [{
-		coords:      [[218.984,116.516],
-		             [226.328,92.500]]
+		coords:      [218.984,116.516],
+		sells:       ["alchemy", "runestones", "gemDust"]
+	}, {
+		coords:      [226.328,92.500],
+		sells:       ["alchemy", "runestones"]
 	}, {
 		coords:      [114.813,49.547],
 		extraLabel:  "v:alchemy.pellar.label",
@@ -1669,7 +1672,7 @@
 		coords:      [220.609,104.172],
 		id:          "serenity",
 		extraLabel:  ["v:innkeep.passiflora.label", "gwentquest.serenity.label"],
-		sells:       ["gwent", "food", "drinks"]
+		sells:       ["gwent", "food"]
 	}, {
 		coords:      [214.000,110.672],
 		extraLabel:  "v:innkeep.theNowhere.label",
@@ -6179,18 +6182,18 @@
 		desc:        "v:shopkeeper.uselessMerchant.desc"
 	}, {
 		coords:      [204.500,109.047],
-		sells:       ["gemDust", "weapons", "food", "drinks"]
+		sells:       ["gemDust", "food", "drinks"]
 	}, {
 		coords:      [211.516,114.313],
 		extraLabel:  "v:shopkeeper.loanShark.label",
 		desc:        "v:shopkeeper.uselessMerchant.desc"
 	}, {
 		coords:      [212.547,110.969],
-		sells:       "crafting"
+		sells:       ["crafting", "alchemy"]
 	}, {
 		coords:      [[200.828,98.297],
 		             [207.484,102.297]],
-		sells:       ["food", "drinks"]
+		sells:       ["food"]
 	}, {
 		coords:      [130.578,196.953],
 		sells:       ["weapons", "crafting"],

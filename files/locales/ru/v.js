@@ -105,8 +105,8 @@ window.i18nData.ru.v = {
 		fishmonger:    { label: "Продавец рыбы" },
 		gildorf: {
 			label: "Gildorf",
-			desc:  "Продаёт __shopkeeper.alchemy__, предметы для квеста («__sidequest.darkness__», " +
-			       "«__sidequest.nobleman__» и «__sidequest.tango__») и __v:shopkeeper.clearancePotion__."
+			desc:  "Продаёт __shopkeeper.alchemy__, __shopkeeper.gemDust__, предметы для квеста («__sidequest.darkness__», " +
+			       "«__sidequest.nobleman__» и «__mainquest.tango__») и __v:shopkeeper.clearancePotion__."
 		},
 		keira:         { label: "Кейра Мец" },
 		loanShark:     { label: "Ростовщик" },

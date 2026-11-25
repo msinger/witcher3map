@@ -107,8 +107,8 @@ window.i18nData.tr.v = {
 		fishmonger:    { label: "Balıkçı" },
 		gildorf: {
 			label: "Gildorf",
-			desc:  "Simya malzemeleri, görev öğeleri ('__sidequest.darkness__', '__sidequest.nobleman__' ve " +
-			       "'__sidequest.tango__') ve __v:shopkeeper.clearancePotion__ satar."
+			desc:  "Simya malzemeleri, __shopkeeper.gemDust__, görev öğeleri ('__sidequest.darkness__', " +
+			       "'__sidequest.nobleman__' ve '__mainquest.tango__') ve __v:shopkeeper.clearancePotion__ satar."
 		},
 		keira:         { label: "Keira Metz" },
 		loanShark:     { label: "Tefeci" },
