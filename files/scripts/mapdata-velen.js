@@ -6154,14 +6154,12 @@
 	}],
 	// ----------------- Shopkeepers --------------------
 	shopkeeper: [{
-		coords:      [[208.734,102.859],
-		             [209.594,102.828],
+		coords:      [[209.594,102.828],
 		             [208.609,101.938]],
 		extraLabel:  "shopkeeper.bookMerchant.label",
 		desc:        "shopkeeper.bookMerchant.desc"
 	}, {
-		coords:      [[205.109,99.563],
-		             [188.281,101.453]],
+		coords:      [205.109,99.563],
 		sells:       ["alchemy", "food"]
 	}, {
 		coords:      [211.797,96.109],
@@ -6206,7 +6204,8 @@
 		sells:       ["alchemy", "food"],
 		liberate:    "abandonedBoatmakerHutNest"
 	}, {
-		coords:      [210.578,113.344],
+		coords:      [[210.578,113.344],
+		             [208.734,102.859]],
 		desc:        "v:shopkeeper.uselessMerchant.desc"
 	}, {
 		coords:      [204.500,109.047],
@@ -6219,9 +6218,11 @@
 		coords:      [212.547,110.969],
 		sells:       ["crafting", "alchemy"]
 	}, {
-		coords:      [[200.828,98.297],
-		             [207.484,102.297]],
+		coords:      [200.828,98.297],
 		sells:       ["food"]
+	}, {
+		coords:      [207.484,102.297],
+		sells:       ["crafting", "food", "drinks"]
 	}, {
 		coords:      [130.578,196.953],
 		sells:       ["weapons", "crafting"],
