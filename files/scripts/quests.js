@@ -334,7 +334,7 @@ var quests = {
 	}, {
 		name:       "raids2",
 		region:     "novigrad",
-		after:      "mainquest.pyres",
+		after:      "sidequest.matter",
 		before:     "sidequest.never"
 	}, {
 		name:       "ring",
