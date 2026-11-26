@@ -648,6 +648,10 @@ window.i18nData.en.general = {
 		welcome:      { desc: "", label: "A Warm Welcome", link: "https://witcher.fandom.com/wiki/A_Warm_Welcome" },
 		wild:         { desc: "", label: "Call of the Wild", link: "https://witcher.fandom.com/wiki/Call_of_the_Wild" },
 		woe:          { desc: "", label: "Woe is Me", link: "https://witcher.fandom.com/wiki/Woe_is_Me" },
+		wood2:        {
+			label: "Vernossiel",
+			desc:  "Vernossiel seeks revenge if you ratted them out to the guardpost captain during __contract.wood__."
+		},
 		yustianna:    { desc: "", label: "Yustianna Disturbed", link: "https://witcher.fandom.com/wiki/Yustianna_Disturbed" }
 	},
 	gear: {

@@ -391,6 +391,10 @@ var quests = {
 		name:       "woe",
 		region:     "skellige"
 	}, {
+		name:       "wood2",
+		region:     "velen",
+		after:      "contract.wood"
+	}, {
 		name:       "yustianna",
 		region:     "skellige"
 	}],
