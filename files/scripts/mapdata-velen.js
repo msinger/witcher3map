@@ -1187,7 +1187,6 @@
 		coords:      [[205.438,99.578],
 		             [209.703,102.953],
 		             [204.547,109.125],
-		             [199.141,101.578],
 		             [209.453,94.750],
 		             [212.156,96.172],
 		             [216.281,104.438],
@@ -1301,6 +1300,10 @@
 		coords:      [198.813,113.438],
 		id:          "elihalGwent",
 		extraLabel:  "v:shopkeeper.elihal.label"
+	}, {
+		coords:      [199.141,101.578],
+		extraLabel:  "shopkeeper.label",
+		notBefore:   "mainquest.pyres"
 	}],
 	// ----------------- Gwent Quests -------------------
 	gwentquest: [{
@@ -6176,7 +6179,8 @@
 		before:      "sidequest.matter"
 	}, {
 		coords:      [198.891,101.484],
-		sells:       ["crafting", "weapons", "v:zerrikanianSaddlebags"]
+		sells:       ["crafting", "alchemy", "v:zerrikanianSaddlebags"],
+		notBefore:   "mainquest.pyres"
 	}, {
 		coords:      [216.016,104.219],
 		extraLabel:  "v:shopkeeper.gildorf.label",
